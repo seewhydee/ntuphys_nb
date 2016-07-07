@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 plt.rcParams['savefig.dpi'] = 75
 plt.rcParams['figure.autolayout'] = False
-plt.rcParams['figure.figsize'] = 8, 4
+plt.rcParams['figure.figsize'] = 10, 5
 plt.rcParams['axes.labelsize'] = 20
 plt.rcParams['axes.titlesize'] = 20
 plt.rcParams['axes.linewidth'] = 2.0
@@ -25,26 +25,3 @@ plt.rcParams['text.latex.preamble'] = "\\usepackage{subdepth}, \\usepackage{type
 
 from IPython.display import set_matplotlib_formats
 set_matplotlib_formats('pdf', 'png')
-
-# from IPython.display import HTML
-# HTML('''<style>
-# .output_png {
-#     display: table-cell;
-#     text-align: center;
-#     vertical-align: middle;
-# }
-# </style>
-# <script>
-# code_show=true; 
-# function code_toggle() {
-#  if (code_show){
-#  $('div.input').hide();
-#  } else {
-#  $('div.input').show();
-#  }
-#  code_show = !code_show
-# } 
-# $( document ).ready(code_toggle);
-# </script>
-# Python source code for figures is hidden by default.
-# To toggle code display on/off, click <a href="javascript:code_toggle()">here</a>.''')
