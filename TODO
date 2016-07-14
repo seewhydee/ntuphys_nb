@@ -4,26 +4,3 @@
 gamma_function.ipynb
 
 dimensional analysis (link to it in derivatives.ipynb)
-
-
-import nbsettings
-from IPython.display import HTML
-HTML('''<style>
-.output_png {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-}
-</style>
-<script>
-code_show=true; 
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-} 
-$( document ).ready(code_toggle);
-</script>Source code for figures hidden by default; to toggle code display, click <a href="javascript:code_toggle()">here</a>.''')
