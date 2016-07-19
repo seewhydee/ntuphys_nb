@@ -1,152 +1,31 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[margin=3.5cm]{geometry}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
 
-% Default to the notebook output style
+\definecolor{linkcol}{rgb}{0.0, 0.0, 0.5}
+\usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-    
+\renewcommand\thesection{4.\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
+\fancyhf{}
+\lhead{\tiny Y.~D.~Chong (2016)}
+\rhead{\scriptsize MH2801: Complex Methods for the Sciences}
+\lfoot{}
+\rfoot{\thepage}
+\pagestyle{fancy}
 
-% Inherit from the specified cell style.
-
-
-
-
-    
-\documentclass[11pt]{article}
-
-    
-    
-    \usepackage[T1]{fontenc}
-    % Nicer default font than Computer Modern for most use cases
-    \usepackage{palatino}
-
-    % Basic figure setup, for now with no caption control since it's done
-    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
-    \usepackage{graphicx}
-    % We will generate all images so they have a width \maxwidth. This means
-    % that they will get their normal width if they fit onto the page, but
-    % are scaled down if they would overflow the margins.
-    \makeatletter
-    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
-    \else\Gin@nat@width\fi}
-    \makeatother
-    \let\Oldincludegraphics\includegraphics
-    % Set max figure width to be 80% of text width, for now hardcoded.
-    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
-    % Ensure that by default, figures have no caption (until we provide a
-    % proper Figure object with a Caption API and a way to capture that
-    % in the conversion process - todo).
-    \usepackage{caption}
-    \DeclareCaptionLabelFormat{nolabel}{}
-    \captionsetup{labelformat=nolabel}
-
-    \usepackage{adjustbox} % Used to constrain images to a maximum size 
-    \usepackage{xcolor} % Allow colors to be defined
-    \usepackage{enumerate} % Needed for markdown enumerations to work
-    \usepackage{geometry} % Used to adjust the document margins
-    \usepackage{amsmath} % Equations
-    \usepackage{amssymb} % Equations
-    \usepackage{textcomp} % defines textquotesingle
-    % Hack from http://tex.stackexchange.com/a/47451/13684:
-    \AtBeginDocument{%
-        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
-    }
-    \usepackage{upquote} % Upright quotes for verbatim code
-    \usepackage{eurosym} % defines \euro
-    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
-    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
-    \usepackage{fancyvrb} % verbatim replacement that allows latex
-    \usepackage{grffile} % extends the file name processing of package graphics 
-                         % to support a larger range 
-    % The hyperref package gives us a pdf with properly built
-    % internal navigation ('pdf bookmarks' for the table of contents,
-    % internal cross-reference links, web links for URLs, etc.)
-    \usepackage{hyperref}
-    \usepackage{longtable} % longtable support required by pandoc >1.10
-    \usepackage{booktabs}  % table support for pandoc > 1.12.2
-    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
-                                % normalem makes italics be italics, not underlines
-    
-
-    
-    
-    % Colors for the hyperref package
-    \definecolor{urlcolor}{rgb}{0,.145,.698}
-    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
-    \definecolor{citecolor}{rgb}{.12,.54,.11}
-
-    % ANSI colors
-    \definecolor{ansi-black}{HTML}{3E424D}
-    \definecolor{ansi-black-intense}{HTML}{282C36}
-    \definecolor{ansi-red}{HTML}{E75C58}
-    \definecolor{ansi-red-intense}{HTML}{B22B31}
-    \definecolor{ansi-green}{HTML}{00A250}
-    \definecolor{ansi-green-intense}{HTML}{007427}
-    \definecolor{ansi-yellow}{HTML}{DDB62B}
-    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
-    \definecolor{ansi-blue}{HTML}{208FFB}
-    \definecolor{ansi-blue-intense}{HTML}{0065CA}
-    \definecolor{ansi-magenta}{HTML}{D160C4}
-    \definecolor{ansi-magenta-intense}{HTML}{A03196}
-    \definecolor{ansi-cyan}{HTML}{60C6C8}
-    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
-    \definecolor{ansi-white}{HTML}{C5C1B4}
-    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
-
-    % commands and environments needed by pandoc snippets
-    % extracted from the output of `pandoc -s`
-    \providecommand{\tightlist}{%
-      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-    % Add ',fontsize=\small' for more characters per line
-    \newenvironment{Shaded}{}{}
-    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
-    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
-    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
-    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
-    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
-    \newcommand{\RegionMarkerTok}[1]{{#1}}
-    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
-    \newcommand{\NormalTok}[1]{{#1}}
-    
-    % Additional commands for more recent versions of Pandoc
-    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
-    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
-    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
-    \newcommand{\ImportTok}[1]{{#1}}
-    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
-    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
-    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
-    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
-    \newcommand{\BuiltInTok}[1]{{#1}}
-    \newcommand{\ExtensionTok}[1]{{#1}}
-    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
-    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
-    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
-    
-    
-    % Define a nice break command that doesn't care if a line doesn't already
-    % exist.
-    \def\br{\hspace*{\fill} \\* }
-    % Math Jax compatability definitions
-    \def\gt{>}
-    \def\lt{<}
-    % Document parameters
-    \title{04\_complex\_oscillations}
-    
-    
-    
-
-    % Pygments definitions
-    
 \makeatletter
 \def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
     \let\PY@ul=\relax \let\PY@tc=\relax%
@@ -157,71 +36,6 @@
 \def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
     \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
 \def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
-
-\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
-\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
-\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
-\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
-\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
-\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
-\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
-\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
-\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
-\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
-\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
-\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
-\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
-\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
-\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
-\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
-\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
-\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
-\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
-\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
-\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
-\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
-\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
-\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
-\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
-
 \def\PYZbs{\char`\\}
 \def\PYZus{\char`\_}
 \def\PYZob{\char`\{}
@@ -237,724 +51,539 @@
 \def\PYZsq{\char`\'}
 \def\PYZdq{\char`\"}
 \def\PYZti{\char`\~}
-% for compatibility with earlier versions
-\def\PYZat{@}
-\def\PYZlb{[}
-\def\PYZrb{]}
-\makeatother
 
-
-    % Exact colors from NB
-    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
-    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
-
-
-
-    
-    % Prevent overflowing lines due to hard-to-break entities
-    \sloppy 
-    % Setup hyperref package
-    \hypersetup{
-      breaklinks=true,  % so long urls are correctly broken across lines
-      colorlinks=true,
-      urlcolor=urlcolor,
-      linkcolor=linkcolor,
-      citecolor=citecolor,
-      }
-    % Slightly bigger margins than the latex defaults
-    
-    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
-    
-    
-
-    \begin{document}
-    
-    
-    \maketitle
-    
-    
-
-    
-    \section{4. Complex oscillations}\label{complex-oscillations}
+\begin{document}
+\setcounter{page}{28}
+\noindent
+\underline{\textbf{\LARGE 4. Complex Oscillations}}
+\vskip 0.1in
 
 The most common use of complex numbers in physics is for analyzing
 oscillations and waves. We will illustrate this with a simple but
 crucially important model, the \textbf{damped harmonic oscillator}.
 
-\subsection{The harmonic oscillator
-equation}\label{the-harmonic-oscillator-equation}
+\section{The harmonic oscillator equation}
+\label{the-harmonic-oscillator-equation}
 
 The damped harmonic oscillator describes a mechanical system consisting
-of a particle of mass \(m\), subject to a spring force and a damping
-force. The particle can move along one dimension, and we let \(x(t)\)
-denote its displacement from the origin. The damping coefficient is
-\(2m \gamma\), and the spring constant is \(k = m\omega_0^2\). The
-parameters \(m\), \(\gamma\), and \(\omega_0\) are all positive real
-numbers. (The quantity \(\omega_0\) is called the ``natural frequency of
+of a particle of mass $m$, subject to a spring force and a damping
+force:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.45\textwidth]{oscillator}
+\end{figure}
+\noindent
+The particle can move along one dimension, and we let $x(t)$ denote
+its displacement from the origin. The damping coefficient is $2m
+\gamma$, and the spring constant is $k = m\omega_0^2$. The parameters
+$m$, $\gamma$, and $\omega_0$ are all positive real numbers. (The
+quantity $\omega_0$ is called the ``natural frequency of
 oscillation'', because in the absence of the damping force this system
-would act as a simple harmonic oscillator with frequency \(\omega_0\).)
+would act as a simple harmonic oscillator with frequency $\omega_0$.)
 
 The motion of the particle is described by Newton's second law:
-
-\[m \frac{d^2 x}{dt^2} = F(x,t) = - 2m\gamma \frac{dx}{dt} - m\omega_0^2 x(t).\]
-
-Dividing by the common factor of \(m\), and bringing everything to one
+\begin{equation}
+  m \frac{d^2 x}{dt^2} = F(x,t) = - 2m\gamma \frac{dx}{dt} - m\omega_0^2 x(t).
+\end{equation}
+Dividing by the common factor of $m$, and bringing everything to one
 side, gives
+\begin{equation}
+  \frac{d^2 x}{dt^2} + 2\gamma \frac{dx}{dt} + \omega_0^2 x(t) = 0.
+\end{equation}
+We call this ordinary differential equation the \textbf{damped
+  harmonic oscillator equation}. Since it's a second-order ordinary
+differential equation (ODE), the general solution must contain two
+independent parameters. If we state the initial displacement and
+velocity, $x(0)$ and $\dot{x}(0)$, there is a unique specific
+solution.
 
-\[\frac{d^2 x}{dt^2} + 2\gamma \frac{dx}{dt} + \omega_0^2 x(t) = 0.\]
-
-We call this ordinary differential equation the ``damped harmonic
-oscillator equation''. Since it's a second-order
-\href{01_derivatives.ipynb\#ODE}{ordinary differential equation} (ODE),
-the general solution must contain two independent parameters. If we
-state the initial displacement and velocity, \(x(0)\) and
-\(\dot{x}(0)\), there is a unique specific solution.
-
-Note
-
+\begin{framed}
+\noindent
+\underline{\textbf{Note}}
+\vskip 0.1in \noindent
 Sometimes, we write the damped harmonic oscillator equation a bit
-differently:\[\left[\frac{d^2}{dt^2} + 2\gamma \frac{d}{dt} + \omega_0^2 \right]\, x(t) = 0.\]The
+differently:
+\begin{equation}
+\left[\frac{d^2}{dt^2} + 2\gamma \frac{d}{dt} + \omega_0^2 \right]\, x(t) = 0.
+\end{equation}The
 quantity in the square brackets is regarded as an operator acting on
-\(x(t)\). This operator consists of the sum of three terms: a
+$x(t)$. This operator consists of the sum of three terms: a
 second-derivative operator, a constant times a first derivative, and
 multiplication by a constant.
+\end{framed}
 
-We are interested in solving for \(x(t)\). Because of the damping force,
-the oscillator loses energy as it moves, and for
-\(t \rightarrow \infty\) it approaches the equilibrium state \(x = 0\).
-A typical solution is shown below:
+We are interested in solving for $x(t)$.  For the simple (undamped)
+harmonic oscillator, which is the case where $\gamma = 0$, we know
+what the general solution looks like:
+\begin{equation}
+  x(t) = x_0 \cos(\omega_0 t + \phi).
+\end{equation}
+The particle oscillates around the equilibrium position, $x = 0$,
+because the spring force keeps pushing it towards the origin and its
+momentum causes it to ``overshoot''.  For the damped harmonic
+oscillator ($\gamma > 0$), however, the damping force causes the
+particle to lose energy during its motion, so that as $t \rightarrow
+\infty$, both $x$ and $\dot{x}$ go to zero.  A typical solution is
+shown in the following figure:
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}1}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-        \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k}{import} \PY{n}{linspace}\PY{p}{,} \PY{n}{exp}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{sqrt}
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        \PY{k+kn}{from} \PY{n+nn}{matplotlib} \PY{k}{import} \PY{n}{animation}\PY{p}{,} \PY{n}{rc}
-        \PY{k+kn}{from} \PY{n+nn}{IPython}\PY{n+nn}{.}\PY{n+nn}{display} \PY{k}{import} \PY{n}{HTML}
-        
-        \PY{n}{rc}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{animation}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{html}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{html5}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{k}{def} \PY{n+nf}{oscillation\PYZus{}animation}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-            \PY{n}{amplitude}\PY{p}{,} \PY{n}{gamma}\PY{p}{,} \PY{n}{omega0} \PY{o}{=} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{l+m+mf}{0.1}\PY{p}{,} \PY{l+m+mf}{1.0}
-            \PY{n}{tmin}\PY{p}{,} \PY{n}{tmax}\PY{p}{,} \PY{n}{nt} \PY{o}{=} \PY{l+m+mf}{0.}\PY{p}{,} \PY{l+m+mf}{50.}\PY{p}{,} \PY{l+m+mi}{200}
-            \PY{n}{nframes}\PY{p}{,} \PY{n}{frame\PYZus{}dt} \PY{o}{=} \PY{l+m+mi}{100}\PY{p}{,} \PY{l+m+mi}{50}
-            \PY{n}{tmin\PYZus{}plt}\PY{p}{,} \PY{n}{xlim} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{5}\PY{p}{,} \PY{l+m+mf}{1.2} \PY{c+c1}{\PYZsh{} Axis limits}
-            \PY{n}{circ\PYZus{}pos} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{2}
-        
-            \PY{n}{fig} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-            \PY{n}{ax}  \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}xlim}\PY{p}{(}\PY{n}{tmin\PYZus{}plt}\PY{p}{,} \PY{n}{tmax}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{set\PYZus{}ylim}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{xlim}\PY{p}{,} \PY{n}{xlim}\PY{p}{)}
-        
-            \PY{n}{t} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{n}{tmin}\PY{p}{,} \PY{n}{tmax}\PY{p}{,} \PY{n}{nt}\PY{p}{)}
-            \PY{n}{x} \PY{o}{=} \PY{n}{amplitude} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{gamma}\PY{o}{*}\PY{n}{t}\PY{p}{)} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Motion of a damped harmonic oscillator.}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{blue}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
-            \PY{n}{line}\PY{p}{,} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{grey}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{2}\PY{p}{)}
-            \PY{n}{circ}\PY{p}{,} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{red}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
-            \PY{n}{dash}\PY{p}{,} \PY{o}{=} \PY{n}{ax}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{grey}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{markersize}\PY{o}{=}\PY{l+m+mi}{15}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{close}\PY{p}{(}\PY{p}{)}\PY{p}{;}
-        
-            \PY{c+c1}{\PYZsh{} initialization function: plot the background of each frame}
-            \PY{k}{def} \PY{n+nf}{init}\PY{p}{(}\PY{p}{)}\PY{p}{:}
-                \PY{n}{line}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{)}
-                \PY{n}{circ}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{)}
-                \PY{n}{dash}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{p}{]}\PY{p}{)}
-                \PY{k}{return} \PY{n}{line}\PY{p}{,} \PY{n}{circ}\PY{p}{,} \PY{n}{dash}
-        
-            \PY{c+c1}{\PYZsh{} animation function. This is called sequentially}
-            \PY{k}{def} \PY{n+nf}{animate}\PY{p}{(}\PY{n}{n}\PY{p}{)}\PY{p}{:}
-                \PY{n}{t} \PY{o}{=} \PY{n}{tmin} \PY{o}{+} \PY{p}{(}\PY{n}{tmax}\PY{o}{\PYZhy{}}\PY{n}{tmin}\PY{p}{)}\PY{o}{*}\PY{n}{n}\PY{o}{/}\PY{n}{nframes}
-                \PY{n}{line}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{n}{t}\PY{p}{,} \PY{n}{t}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{o}{\PYZhy{}}\PY{n}{xlim}\PY{p}{,} \PY{n}{xlim}\PY{p}{]}\PY{p}{)}        
-                \PY{n}{xc} \PY{o}{=} \PY{n}{amplitude} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{gamma}\PY{o}{*}\PY{n}{t}\PY{p}{)} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-                \PY{n}{circ}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{n}{circ\PYZus{}pos}\PY{p}{,} \PY{n}{xc}\PY{p}{)}
-                \PY{n}{dash}\PY{o}{.}\PY{n}{set\PYZus{}data}\PY{p}{(}\PY{p}{[}\PY{n}{circ\PYZus{}pos}\PY{p}{,} \PY{n}{t}\PY{p}{]}\PY{p}{,} \PY{p}{[}\PY{n}{xc}\PY{p}{,} \PY{n}{xc}\PY{p}{]}\PY{p}{)}
-                \PY{k}{return} \PY{n}{line}\PY{p}{,} \PY{n}{circ}\PY{p}{,} \PY{n}{dash}
-        
-            \PY{c+c1}{\PYZsh{} call the animator. blit=True means only re\PYZhy{}draw the parts that have changed.}
-            \PY{n}{animator} \PY{o}{=} \PY{n}{animation}\PY{o}{.}\PY{n}{FuncAnimation}\PY{p}{(}\PY{n}{fig}\PY{p}{,} \PY{n}{animate}\PY{p}{,} \PY{n}{init\PYZus{}func}\PY{o}{=}\PY{n}{init}\PY{p}{,}
-                                               \PY{n}{frames}\PY{o}{=}\PY{n}{nframes}\PY{p}{,} \PY{n}{interval}\PY{o}{=}\PY{n}{frame\PYZus{}dt}\PY{p}{,} \PY{n}{blit}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
-            \PY{k}{return} \PY{n}{animator}
-        
-        \PY{n}{oscillation\PYZus{}animation}\PY{p}{(}\PY{p}{)}
-\end{Verbatim}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{damped_oscillator_motion}
+\end{figure}
 
-            \begin{Verbatim}[commandchars=\\\{\}]
-{\color{outcolor}Out[{\color{outcolor}1}]:} <matplotlib.animation.FuncAnimation at 0x7fa74a490c88>
-\end{Verbatim}
-        
-    \subsection{Complex solution}\label{complex-solution}
+\section{Complex solution}
+\label{complex-solution}
 
-The variable \(x(t)\) stands for the displacement of a particle, which
-is a real quantity. But in order to solve the damped harmonic oscillator
-equation, it's useful if we generalize \(x(t)\) to complex values. In
-other words, let's treat the harmonic oscillator equation as a
-`'complex'' ODE:
-
-\[\frac{d^2 z}{dt^2} + 2\gamma \frac{dz}{dt} + \omega_0^2 z(t) = 0, \quad z(t) \in \mathbb{C}.\]
-
-The same parameter-counting rule applies to complex ODEs just the same
-as real ODEs, except that we use complex parameters in place of real
-parameters. Since the complex damped harmonic oscillator equation is
-second-order, its general solution should contain two independent
-`'complex'' parameters---which is equivalent to four real parameters.
+The variable $x(t)$ stands for the displacement of a particle, which
+is a real quantity. But in order to solve the damped harmonic
+oscillator equation, it's useful if we generalize $x(t)$ to complex
+values. In other words, let's treat the harmonic oscillator equation
+as a \emph{complex} ODE:
+\begin{equation}
+\frac{d^2 z}{dt^2} + 2\gamma \frac{dz}{dt} + \omega_0^2 z(t) = 0, \quad z(t) \in \mathbb{C}.
+\label{zode}
+\end{equation}
+The parameter-counting rule that we discussed for real ODEs can also
+be applied to complex ODEs, except that we use complex parameters in
+place of real parameters. In this case, the complex damped harmonic
+oscillator equation is a second-order ODE, so its general solution
+should contain two independent \emph{complex} parameters.
 
 Once we have that general solution, we can do one of two things: (i)
-plug in a complete set of (real) boundary conditions, which will give a
-`'real'`specific solution, or (ii) take the real part of the complex
-general solution, which will give the general solution to the'`real''
+plug in a complete set of (real) boundary conditions, which will give
+a real specific solution, or (ii) take the real part of the complex
+general solution, which will give the general solution to the real
 differential equation. We will discuss these two approaches later; for
 the moment, let's focus on finding the solution to the complex ODE.
 
-To find the complex solution, first note that the equation is
-`'linear''. If we have two solutions \(z_1(t)\) and \(z_2(t)\), then any
-combination
-
-\[\alpha \, z_1(t) + \beta \,z_2(t),\quad \mathrm{where}\;\; \alpha, \beta \in \mathbb{C}\]
-
+To find the complex solution, first note that the equation is linear.
+This means that if we have two solutions $z_1(t)$ and $z_2(t)$, then
+any combination
+\begin{equation}
+  \alpha \, z_1(t) + \beta \,z_2(t),\quad \mathrm{where}\;\; \alpha, \beta \in \mathbb{C}
+\end{equation}
 is also a solution. Therefore, a good strategy is to find several
 specific solutions, and then combine them linearly to form a more
 general solution. We simply make a guess (or an \textbf{ansatz}) for a
 specific solution:
-
-\[z(t) = e^{-i\omega t},\]
-
-where \(\omega\) is a constant to be determined (which could be
-complex). The first and second derivatives are:
-
-\[\begin{align}\frac{dz}{dt} &= -i\omega\, e^{-i\omega t} \\ \frac{d^2z}{dt^2} &= -\omega^2\, e^{-i\omega t}\end{align}\]
-
-Substituting these into the differential equation gives:
-
-\[\left[-\omega^2 - 2i\gamma \omega + \omega_0^2 \right] e^{-i\omega t} = 0.\]
-
-This equation can be satisfied for all \(t\) if the complex second-order
-polynomial on the left-hand side is zero:
-
-\[-\omega^2 - 2i\gamma \omega + \omega_0^2 = 0.\]
-
-In other words, we need values of \(\omega\) which solve this quadratic
+\begin{equation}
+  z(t) = e^{-i\omega t}, \label{zansatz}
+\end{equation}
+where $\omega$ is a constant to be determined (it could be
+complex). The first and second derivatives of Eq.~(\ref{zansatz}) are:
+\begin{align}
+  \frac{dz}{dt} &= -i\omega\, e^{-i\omega t} \\
+  \frac{d^2z}{dt^2} &= -\omega^2\, e^{-i\omega t}
+\end{align}
+Substituting these into the differential equation (\ref{zode}) gives:
+\begin{equation}
+  \left[-\omega^2 - 2i\gamma \omega + \omega_0^2 \right] e^{-i\omega t} = 0.
+\end{equation}
+This equation can be satisfied for all $t$ if the complex quadratic on
+the left side is zero:
+\begin{equation}
+  -\omega^2 - 2i\gamma \omega + \omega_0^2 = 0.
+\end{equation}
+In other words, we need values of $\omega$ which solve this quadratic
 equation. The solutions can be obtained from the quadratic formula:
-
-\[\omega = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.\]
-
-Hence, we arrive at solutions which are oscillations with `'complex''
-frequencies:
-
-\[z(t) = \exp\left(-i\omega_\pm t\right), \;\;\mathrm{where}\;\; \omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.\]
-
-For each value of \(\gamma\) and \(\omega_0\), there are two possible
-frequencies, \(\omega_+\) and \(\omega_-\). For either choice of complex
-frequency, the above expression for \(x(t)\) gives a valid specific
+\begin{equation}
+  \omega = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
+Hence, we arrive at solutions which are oscillations with
+\emph{complex} frequencies:
+\begin{equation}
+z(t) = \exp\left(-i\omega_\pm t\right), \;\;\mathrm{where}\;\; \omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
+For each value of $\gamma$ and $\omega_0$, there are two possible
+frequencies, $\omega_+$ and $\omega_-$. For either choice of complex
+frequency, the above expression for $z(t)$ gives a valid specific
 solution for the complex damped harmonic oscillator equation.
 
-    \subsection{Complex frequencies}\label{complex-frequencies}
+\subsection{Complex frequencies}
+\label{complex-frequencies}
 
-What does it mean to have an oscillation with a complex frequency? If we
-write the real and imaginary parts of the frequency as
-\(\omega = \omega_R + i \omega_I\), then
-
-\[z(t) = e^{-i\omega t} = e^{\omega_I t} \; e^{-i\omega_R t}.\]
-
-If both \(\omega_R\) and \(\omega_I\) are non-zero, this describes
-\href{03_complex_numbers.ipynb\#complex_spiral}{a spiral trajectory in
-the complex plane}, whose magnitude is either increasing or decreasing
-with time, depending on the sign of \(\omega_O\). This is because we can
-write
-
-\[z(t) = e^{\omega_I t} \; e^{-i\omega_R t} = R(t)\, e^{i\theta(t)}, \;\;\mathrm{where}\;\;R(t) = e^{\omega_I t}, \; \theta(t) = -\omega_R t.\]
-
-We therefore conclude that the real part of \(\omega\) determines the
+What does it mean to have an oscillation with a complex frequency? If
+we write the real and imaginary parts of the frequency as $\omega =
+\omega_R + i \omega_I$, then
+\begin{equation}
+  z(t) = e^{-i\omega t} = e^{\omega_I t} \; e^{-i\omega_R t}.
+\end{equation}
+If both $\omega_R$ and $\omega_I$ are non-zero, this describes a
+spiral trajectory in the complex plane, whose magnitude is either
+increasing or decreasing with time, depending on the sign of
+$\omega_O$. This is because we can write
+\begin{equation}
+  z(t) = e^{\omega_I t} \; e^{-i\omega_R t} = R(t)\, e^{i\theta(t)}, \;\;\mathrm{where}\;\;R(t) = e^{\omega_I t}, \; \theta(t) = -\omega_R t.
+\end{equation}
+We therefore conclude that the real part of $\omega$ determines the
 (angular) frequency of oscillation, whereas the imaginary part
-determines whether the oscillation amplitude is either growing with time
-(amplification) or shrinking with time (damping). A positive imaginary
-part implies amplification, and a negative imaginary part implies
-damping, while zero imaginary part (i.e., a real frequency) implies
-constant-amplitude oscillation.
+determines whether the oscillation amplitude is either growing with
+time (amplification) or shrinking with time (damping). A positive
+imaginary part implies amplification, and a negative imaginary part
+implies damping, while zero imaginary part (i.e., a real frequency)
+implies constant-amplitude oscillation.
 
-Now let's look at the damped harmonic oscillator's complex frequencies,
-\(\omega_\pm\), which we derived in the
-\protect\hyperlink{ansatz}{previous section}:
-
-\[\omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.\]
-
-These depend on two real parameters: \(\gamma\) and \(\omega_0\). In the
-plot below, you can see how the position of \(\omega_\pm\) in the
+Now let's look at the damped harmonic oscillator's complex
+frequencies:
+\begin{equation}
+  \omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
+These depend on two real parameters: $\gamma$ and $\omega_0$. In the
+plot below, you can see how the position of $\omega_\pm$ in the
 complex plane depends on the values of these parameters.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}2}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-        \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{interact}\PY{p}{,} \PY{n}{FloatSlider}
-        \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k}{import} \PY{n}{linspace}\PY{p}{,} \PY{n}{sin}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{pi}\PY{p}{,} \PY{n}{sqrt}
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        
-        \PY{k}{def} \PY{n+nf}{plot\PYZus{}frequencies}\PY{p}{(}\PY{n}{omega0}\PY{p}{,} \PY{n}{gamma}\PY{p}{)}\PY{p}{:}
-            \PY{c+c1}{\PYZsh{}\PYZsh{} (Plot the circular arc that the points lie on.)}
-            \PY{n}{phi} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{pi}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{50}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{omega0}\PY{o}{*}\PY{n}{cos}\PY{p}{(}\PY{n}{phi}\PY{p}{)}\PY{p}{,} \PY{n}{omega0}\PY{o}{*}\PY{n}{sin}\PY{p}{(}\PY{n}{phi}\PY{p}{)}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{grey}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-            \PY{n}{rmax} \PY{o}{=} \PY{l+m+mf}{1.7}
-        
-            \PY{c+c1}{\PYZsh{}\PYZsh{} Compute omega\PYZus{}+ and omega\PYZus{}\PYZhy{} and plot in the complex plane.}
-            \PY{n}{u} \PY{o}{=} \PY{n}{sqrt}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{p}{)}
-            \PY{k}{if} \PY{n}{omega0} \PY{o}{\PYZgt{}}\PY{o}{=} \PY{n}{gamma}\PY{p}{:}
-                \PY{n}{w1}\PY{p}{,} \PY{n}{w2} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{n}{j} \PY{o}{*} \PY{n}{gamma} \PY{o}{+} \PY{n}{u}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{n}{j} \PY{o}{*} \PY{n}{gamma} \PY{o}{\PYZhy{}} \PY{n}{u}
-            \PY{k}{else}\PY{p}{:}
-                \PY{n}{w1}\PY{p}{,} \PY{n}{w2} \PY{o}{=} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{n}{j} \PY{o}{*} \PY{p}{(}\PY{n}{gamma} \PY{o}{\PYZhy{}} \PY{n}{u}\PY{p}{)}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{n}{j} \PY{o}{*} \PY{p}{(}\PY{n}{gamma} \PY{o}{+} \PY{n}{u}\PY{p}{)}
-            
-            \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{w1}\PY{o}{.}\PY{n}{real}\PY{p}{,} \PY{n}{w1}\PY{o}{.}\PY{n}{imag}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{red}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{omega\PYZus{}+}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{w2}\PY{o}{.}\PY{n}{real}\PY{p}{,} \PY{n}{w2}\PY{o}{.}\PY{n}{imag}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{o}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{color}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{blue}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{linewidth}\PY{o}{=}\PY{l+m+mi}{4}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{omega\PYZus{}\PYZhy{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Complex plane positions of omega\PYZus{}+ and omega\PYZus{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Re(omega)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Im(omega)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{rmax}\PY{p}{,} \PY{n}{rmax}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{n+nb}{min}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{rmax}\PY{p}{,} \PY{l+m+mf}{1.1}\PY{o}{*}\PY{n}{w2}\PY{o}{.}\PY{n}{imag}\PY{p}{)}\PY{p}{,} \PY{l+m+mi}{0}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{axes}\PY{p}{(}\PY{p}{)}\PY{o}{.}\PY{n}{set\PYZus{}aspect}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{equal}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{numpoints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{lower right}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}frequencies}\PY{p}{,}
-                 \PY{n}{omega0} \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{gamma}  \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{2.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{)}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.75\textwidth]{oscillator_frequencies}
+\end{figure}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{04_complex_oscillations_files/04_complex_oscillations_4_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    In particular, note the following features:
-
+\pagebreak
+\noindent
+In particular, note the following features:
 \begin{itemize}
-\tightlist
 \item
-  For \(\gamma = 0\) (zero damping), the two frequencies are both real,
-  and take the values \(\pm \omega_0\). This corresponds to undamped (or
+  For $\gamma = 0$ (zero damping), the two frequencies are both real,
+  and take the values $\pm \omega_0$. This corresponds to undamped (or
   ``simple'') harmonic oscillation at the oscillator's natural
   frequency.
 \item
-  If we increase \(\gamma\) from zero with \(\omega_0\) fixed, both
-  \(\omega_+\) and \(\omega_-\) move downwards in the complex plane,
+  If we increase $\gamma$ from zero with $\omega_0$ fixed, both
+  $\omega_+$ and $\omega_-$ move downwards in the complex plane,
   along a circular arc. Because the imaginary part of the frequencies
   are negative, this implies damped oscillation.
+
 \item
-  At \(\gamma = \omega_0\), the frequencies meet along the imaginary
-  axis. We will have more to say about this case
-  \protect\hyperlink{critical_damping}{later}.
+  At $\gamma = \omega_0$, the frequencies meet along the imaginary
+  axis.
+
 \item
-  For \(\gamma > \omega_0\), the two frequencies move apart along the
+  For $\gamma > \omega_0$, the two frequencies move apart along the
   imaginary axis. Purely imaginary frequencies correspond to a
-  trajectory that simply decays without oscillating. We'll say more
-  about this kind of motion \protect\hyperlink{overdamped}{later}.
+  trajectory that simply decays without oscillating.
 \end{itemize}
 
-    \subsection{General solution for the damped harmonic
-oscillator}\label{general-solution-for-the-damped-harmonic-oscillator}
+\section{General solution for the damped harmonic oscillator}
+\label{general-solution}
 
-First, suppose \(\omega_0 \ne \gamma\). In the previous section, we
+For now, suppose $\omega_0 \ne \gamma$. In the previous section, we
 found two classes of specific solutions, with complex frequencies
-\(\omega_+\) and \(\omega_-\):
-
-\[z_+(t) = e^{-i\omega_+ t} \;\;\mathrm{and}\;\; z_-(t) = e^{-i\omega_- t}, \;\;\mathrm{where}\;\;\; \omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.\]
-
+$\omega_+$ and $\omega_-$:
+\begin{equation}
+  z_+(t) = e^{-i\omega_+ t} \;\;\mathrm{and}\;\;
+  z_-(t) = e^{-i\omega_- t}, \;\;\mathrm{where}\;\;\;
+  \omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
 We can write down a more general solution consisting of a linear
 superposition of these specific solutions:
-
-\[\begin{aligned}z(t) &= \psi_+ e^{-i\omega_+ t} + \psi_- e^{-i\omega_- t} \\ &= \psi_+ \, \exp\left[\left(-\gamma  - i \sqrt{\omega_0^2 - \gamma^2}\right)t\right] \; +\; \psi_- \, \exp\left[\left(-\gamma +i\sqrt{\omega_0^2 - \gamma^2}\right)t\right].\end{aligned}\]
-
-This contains two undetermined complex parameters, \(\psi_+\) and
-\(\psi_-\). These are \emph{independent} parameters since they are the
+\begin{align}
+  z(t) &= \psi_+ e^{-i\omega_+ t} + \psi_- e^{-i\omega_- t} \\
+  &= \psi_+ \, \exp\left[\left(-\gamma  - i \sqrt{\omega_0^2 - \gamma^2}\right)t\right] \; +\; \psi_- \, \exp\left[\left(-\gamma +i\sqrt{\omega_0^2 - \gamma^2}\right)t\right].
+\end{align}
+This contains two undetermined complex parameters, $\psi_+$ and
+$\psi_-$. These are \emph{independent} parameters since they are the
 coefficients that multiply different functions (the functions are
-different because \(\omega_0 \ne \gamma\) implies that
-\(\omega_+ \ne \omega_-\)). Hence, the above equation for \(z(t)\) is a
-general solution for the complex damped harmonic oscillator equation.
+different because $\omega_0 \ne \gamma$ implies that $\omega_+ \ne
+\omega_-$). Hence, the above equation for $z(t)$ is a general solution
+for the complex damped harmonic oscillator equation.
 
-To obtain the general solution to the `'real'' damped harmonic
+To obtain the general solution to the \emph{real} damped harmonic
 oscillator equation, we have to take the real part of the complex
-solution. The result can be further simplified depending on whether the
-term \(\omega_0^2 - \gamma^2\) in the formula is positive or negative.
-This leads to what are called \textbf{under-damped solutions} and
-\textbf{over-damped solutions}, to be discussed in the following
-subsections.
+solution. The result can be further simplified depending on whether
+$\omega_0^2 - \gamma^2$ is positive or negative.  This leads to what
+are called \textbf{under-damped solutions} and \textbf{over-damped
+  solutions}, to be discussed in the following subsections.
 
-What about if \(\omega_0 = \gamma\)? In this instance,
-\(\omega_+ = \omega_-\), which means that \(\psi_+\) and \(\psi_-\)
-aren't independent parameters. Therefore, the above equation for
-\(z(t)\) isn't a valid general solution in this particular case!
-Instead, the general solution is something called a
-\textbf{critically-damped solution}, which we will
-\protect\hyperlink{critical_damping}{discuss later}.
+What about if $\omega_0 = \gamma$? In this instance, $\omega_+ =
+\omega_-$, which means that $\psi_+$ and $\psi_-$ aren't independent
+parameters. Therefore, the above equation for $z(t)$ isn't a valid
+general solution in this particular case!  Instead, the general
+solution is something called a \textbf{critically-damped solution},
+which we will \hyperref[critical-damping]{discuss in Section
+  \ref{critical-damping}}.
 
-    \subsubsection{Under-damped motion}\label{under-damped-motion}
+\subsection{Under-damped motion}
+\label{under-damped-motion}
 
-For \(\omega_0 > \gamma\), let us define, for convenience,
-
-\[\Omega = \sqrt{\omega_0^2 - \gamma^2}.\]
-
+For $\omega_0 > \gamma$, let us define, for convenience,
+\begin{equation}
+  \Omega = \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
 Then we can simplify the real solution as follows:
 
-\[\begin{align}x(t) &= \mathrm{Re}\left[z(t)\right] \\ &= e^{-\gamma t} \; \mathrm{Re}\left[\psi_+ \, e^{-i \Omega t} \,+\, \psi_- \, e^{i\Omega t}\right] \\ &= e^{-\gamma t} \left[ A\cos\left(\Omega t\right) + B \sin\left(\Omega t\right)\right], \;\;\mathrm{where}\;\; A, B \in \mathbb{R}\end{align}\]
-
+\begin{align}
+  x(t) &= \mathrm{Re}\left[z(t)\right] \\
+  &= e^{-\gamma t} \; \mathrm{Re}\left[\psi_+ \, e^{-i \Omega t} \,+\, \psi_- \, e^{i\Omega t}\right] \\
+  &= e^{-\gamma t} \left[ A\cos\left(\Omega t\right) + B \sin\left(\Omega t\right)\right], \;\;\mathrm{where}\;\; A, B \in \mathbb{R}
+\end{align}
 With a bit of algebra, we can show that
-
-\[A = \mathrm{Re}\left[\psi_+ + \psi_-\right], \quad B = \mathrm{Im}\left[\psi_+ - \psi_-\right].\]
-
-The coefficients \(A\) and \(B\) act as two independent `'real''
+\begin{equation}
+  A = \mathrm{Re}\left[\psi_+ + \psi_-\right],
+  \quad B = \mathrm{Im}\left[\psi_+ - \psi_-\right].
+\end{equation}
+The coefficients $A$ and $B$ act as two independent \emph{real}
 parameters, so this is a valid general solution for the real damped
 harmonic oscillator equation. Using the trigonometric formulas, the
 solution can be equivalently written as
+\begin{equation}
+x(t) = C e^{-\gamma t} \cos\left[\Omega t + \Phi\right],
+\end{equation}
+with the parameters $C = \sqrt{A^2 + B^2}$ and $\Phi = -
+\tan^{-1}\left[B/A\right]$.
 
-\[x(t) = C e^{-\gamma t} \cos\left[\Omega t + \Phi\right],\]
+Either way, this is called an \textbf{under-damped solution}. A
+typical graph is shown below:
 
-with the parameters \(C = \sqrt{A^2 + B^2}\) and
-\(\Phi = - \tan^{-1}\left[B/A\right]\).
+\begin{figure}[h]
+  \centering\includegraphics[width=0.5\textwidth]{underdamped}
+\end{figure}
 
-Either way, this is called an \textbf{under-damped solution}. As shown
-below, the trajectory is an oscillation whose amplitude decreases with
-time. The decrease in the amplitude can be visualized using a smooth
-``envelope'' given by \(\pm C e^{-\gamma t}\), which is drawn with
-dashes in the figure. Inside this envelope, the trajectory oscillates
-with frequency \(\Omega = \sqrt{\omega_0^2 - \gamma^2}\), which is
-slightly less than the natural frequency of oscillation \(\omega_0\).
+\noindent
+The particle undergoes oscillation, but the amplitude of oscillation
+decreases with time. The decrease in the amplitude can be visualized
+using a smooth ``envelope'' given by $\pm C e^{-\gamma t}$, which is
+drawn with dashes in the figure. Inside this envelope, the trajectory
+oscillates with frequency $\Omega = \sqrt{\omega_0^2 - \gamma^2}$,
+which is slightly less than the natural frequency of oscillation
+$\omega_0$.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}3}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-        \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{interact}\PY{p}{,} \PY{n}{FloatSlider}
-        \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k}{import} \PY{n}{linspace}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{sqrt}\PY{p}{,} \PY{n}{exp}
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        
-        \PY{k}{def} \PY{n+nf}{plot\PYZus{}underdamped}\PY{p}{(}\PY{n}{omega0}\PY{p}{,} \PY{n}{gamma}\PY{p}{,} \PY{n}{C}\PY{p}{,} \PY{n}{phi}\PY{p}{)}\PY{p}{:}
-            \PY{n}{x0}\PY{p}{,} \PY{n}{t} \PY{o}{=} \PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{)}
-            \PY{n}{xe} \PY{o}{=} \PY{n}{C} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{gamma}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-            \PY{n}{x}  \PY{o}{=} \PY{n}{xe} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{n}{sqrt}\PY{p}{(}\PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{o}{+}\PY{n}{phi}\PY{p}{)}
-            
-            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Motion of an underdamped oscillator}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x(t)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{c+c1}{\PYZsh{}\PYZsh{} Plot envelope}
-            \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{xe}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Envelope}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{o}{\PYZhy{}}\PY{n}{xe}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{x0}\PY{p}{,} \PY{n}{x0}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{numpoints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper right}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
-        
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}underdamped}\PY{p}{,}
-                 \PY{n}{omega0} \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.5}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.02}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{gamma}  \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{0.5}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.02}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{C}      \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{phi}    \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{3.14}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{3.14}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.002}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{)}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
+\subsection{Over-damped motion}\label{over-damped-motion}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{04_complex_oscillations_files/04_complex_oscillations_8_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \subsubsection{Over-damped motion}\label{over-damped-motion}
-
-For \(\omega_0 < \gamma\), the square root term becomes imaginary. It is
+For $\omega_0 < \gamma$, the square root term becomes imaginary. It is
 convenient to define
-
-\[\Gamma = \sqrt{\gamma^2 - \omega_0^2} \quad \Rightarrow \quad \sqrt{\omega_0^2 - \gamma^2} = i \Gamma.\]
-
+\begin{equation}
+  \Gamma = \sqrt{\gamma^2 - \omega_0^2} \quad \Rightarrow \quad \sqrt{\omega_0^2 - \gamma^2} = i \Gamma.
+\end{equation}
 Then the real solution simplifies in a different way:
-
-\[\begin{align} x(t) &= \mathrm{Re}\left[z(t)\right] \\&= \mathrm{Re}\left[\psi_+ e^{\left(-\gamma  + \Gamma\right)t} + \psi_- e^{\left(-\gamma - \Gamma\right)t} \right] \\ &= C_+ e^{-(\gamma - \Gamma) t} + C_- e^{-(\gamma + \Gamma) t},\end{align}\]
-
+\begin{align}
+  x(t) &= \mathrm{Re}\left[z(t)\right] \\
+  &= \mathrm{Re}\left[\psi_+ e^{\left(-\gamma  + \Gamma\right)t} + \psi_- e^{\left(-\gamma - \Gamma\right)t} \right] \\
+  &= C_+ e^{-(\gamma - \Gamma) t} + C_- e^{-(\gamma + \Gamma) t},
+\end{align}
 where
-
-\[C_\pm = \mathrm{Re}[\psi_\pm].\]
-
+\begin{equation}
+  C_\pm = \mathrm{Re}[\psi_\pm].
+\end{equation}
 This is called an \textbf{over-damped} solution. The solution consists
 of two terms, both exponentially decaying in time, with
-\((\gamma-\Gamma)\) and \((\gamma + \Gamma)\) serving as the decay
+$(\gamma-\Gamma)$ and $(\gamma + \Gamma)$ serving as the decay
 rates. Note that both decay rates are positive real numbers, because
-\(\Gamma < \gamma\) from the definition of \(\Gamma\). Also, note that
-the first decay rate \((\gamma - \Gamma)\) is a \emph{decreasing}
-function of \(\gamma\), whereas the second decay rate
-\((\gamma + \Gamma)\) is an \emph{increasing} function of \(\gamma\).
-
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}4}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-        \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{interact}\PY{p}{,} \PY{n}{FloatSlider}
-        \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k}{import} \PY{n}{linspace}\PY{p}{,} \PY{n}{sqrt}\PY{p}{,} \PY{n}{exp}
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        
-        \PY{k}{def} \PY{n+nf}{plot\PYZus{}overdamped}\PY{p}{(}\PY{n}{omega0}\PY{p}{,} \PY{n}{gamma}\PY{p}{,} \PY{n}{C1}\PY{p}{,} \PY{n}{C2}\PY{p}{)}\PY{p}{:}
-            \PY{n}{x0}\PY{p}{,} \PY{n}{t} \PY{o}{=} \PY{l+m+mf}{2.0}\PY{p}{,} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{10}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{)}
-        
-            \PY{n}{G} \PY{o}{=} \PY{n}{sqrt}\PY{p}{(}\PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
-            \PY{n}{xe} \PY{o}{=} \PY{n}{C1} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{gamma}\PY{o}{\PYZhy{}}\PY{n}{G}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-            \PY{n}{x}  \PY{o}{=} \PY{n}{xe} \PY{o}{+} \PY{n}{C2} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{gamma}\PY{o}{+}\PY{n}{G}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-            
-            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Motion of an overdamped oscillator}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x(t)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{xe}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{r\PYZhy{}\PYZhy{}}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Limit}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlim}\PY{p}{(}\PY{n}{t}\PY{p}{[}\PY{l+m+mi}{0}\PY{p}{]}\PY{p}{,} \PY{n}{t}\PY{p}{[}\PY{o}{\PYZhy{}}\PY{l+m+mi}{1}\PY{p}{]}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{l+m+mf}{0.1}\PY{o}{*}\PY{n}{x0}\PY{p}{,} \PY{n}{x0}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{numpoints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper right}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}overdamped}\PY{p}{,}
-                 \PY{n}{omega0}\PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{gamma} \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{5.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{C1}    \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{C2}    \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
-
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{04_complex_oscillations_files/04_complex_oscillations_10_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
+$\Gamma < \gamma$ from the definition of $\Gamma$. Also, note that the
+first decay rate $(\gamma - \Gamma)$ is a \emph{decreasing} function
+of $\gamma$, whereas the second decay rate $(\gamma + \Gamma)$ is an
+\emph{increasing} function of $\gamma$.
     
-    The larger decay rate, \((\gamma + \Gamma)\), is associated with a
+The larger decay rate, $(\gamma + \Gamma)$, is associated with a
 faster-decaying exponential. Therefore, at long times the second term
 becomes negligible compared to the first term. Then the solution
 approaches the limit
+\begin{equation}
+  x(t) \approx C_+ e^{-(\gamma - \Gamma) t} \qquad (\mathrm{large}\;\;t).
+\end{equation}
+This limiting curve is shown as a red dash in the figure below.
 
-\[x(t) \approx C_+ e^{-(\gamma - \Gamma) t} \qquad (\mathrm{large}\;\;t).\]
+\begin{figure}[h]
+  \centering\includegraphics[width=0.5\textwidth]{overdamped}
+\end{figure}
 
-This limiting curve is shown as a red dash in the above figure.
+\noindent
+This has an interesting implication: \emph{the stronger the damping,
+  the slower the effective decay rate at long times}. Why does this
+happen? In the over-damped regime, the motion of the oscillator is
+dominated by the damping force rather than the spring force; as the
+oscillator tries to return to its equilibrium position $x = 0$, the
+damping acts against this motion. Hence, the stronger the damping, the
+slower the decay to equilibrium.
 
-This has an interesting implication: \emph{the stronger the damping, the
-slower the effective decay rate at long times}. Why does this happen? In
-the over-damped regime, the motion of the oscillator is dominated by the
-damping force rather than the spring force; as the oscillator tries to
-return to its equilibrium position \(x = 0\), the damping acts against
-this motion. Hence, the stronger the damping, the slower the decay to
-equilibrium.
+This contrasts sharply with the
+\hyperref[under-damped-motion]{previously-discussed under-damped
+  regime}, where the spring force dominates the damping force.  There,
+stronger damping speeds up the decay to equilibrium, by causing the
+kinetic energy of the oscillation to be dissipated more rapidly.
 
-This contrasts sharply with the ``under-damped'' regime discussed
-\protect\hyperlink{underdamped}{above}, in which the spring force
-dominates the damping force. In that case, stronger damping speeds up
-the decay to equilibrium, by causing the kinetic energy of the
-oscillation to be dissipated more rapidly.
+\subsection{Critical damping}
+\label{critical-damping}
 
-    \subsubsection{Critical damping}\label{critical-damping}
-
-\textbf{Critical damping} occurs when \(\omega_0 = \gamma\). Under this
-special condition, \protect\hyperlink{ansatz}{the solution that we
-previously derived} reduces to
-
-\[z(t) = \left(\psi_+ + \psi_-\right) e^{-\gamma t}.\]
-
+\textbf{Critical damping} occurs when $\omega_0 = \gamma$. Under this
+special condition, \hyperref[general-solution]{the solution we
+  previously derived} reduces to
+\begin{equation}
+  z(t) = \left(\psi_+ + \psi_-\right) e^{-\gamma t}.
+\end{equation}
 This has only \emph{one} independent complex parameter, i.e.~the
-parameter \((\psi_+ + \psi_-)\). Therefore, it cannot be a general
+parameter $(\psi_+ + \psi_-)$. Therefore, it cannot be a general
 solution for the complex damped harmonic oscillator equation, which is
 still a second-order ODE.
 
-We will not go into detail here regarding the procedure for finding the
-general solution for the critically-damped oscillator, leaving it as an
-\protect\hyperlink{exercises}{exercise} for the interested reader.
-Basically, we can Taylor expand the solution on either side of the
-critical point, and then show that there is a solution of the form
-
-\[z(t) = \left(A + B t\right)\, e^{-\gamma t},\]
-
+We will not go into detail here regarding the procedure for finding
+the general solution for the critically-damped oscillator, leaving it
+as an exercise for the interested reader.  Basically, we can Taylor
+expand the solution on either side of the critical point, and then
+show that there is a solution of the form
+\begin{equation}
+  z(t) = \left(A + B t\right)\, e^{-\gamma t},
+\end{equation}
 which contains the desired two independent parameters.
 
-The critically-damped solution contains an exponential decay constant of
-\(\gamma\), which is the same as the decay constant for the
-\protect\hyperlink{underdamped}{envelope function in the under-damped
-regime}, and \emph{smaller} than the (long-time) decay constants in the
-\protect\hyperlink{overdamped}{over-damped regime}. Hence, we can regard
-the critically-damped solution as the \emph{fastest-decaying
-non-oscillatory solution}.
+The critically-damped solution contains an exponential decay constant
+of $\gamma$, which is the same as the decay constant for the
+\hyperref[under-damped-motion]{envelope function in the under-damped
+  regime}, and smaller than the (long-time) decay constants in the
+\hyperref[over-damped-motion]{over-damped regime}. Hence, we can
+regard the critically-damped solution as the \emph{fastest-decaying
+  non-oscillatory solution}.
 
 This feature of critical damping is employed in many engineering
-contexts, the most familiar being automatic door closers. If the damping
-is too weak or the spring force is too strong (under-damped), the door
-will tend to slam shut, whereas if the damping is too strong or the
-spring force is too weak (under-damping), the door will take
+contexts, the most familiar being automatic door closers. If the
+damping is too weak or the spring force is too strong (under-damped),
+the door will tend to slam shut, whereas if the damping is too strong
+or the spring force is too weak (under-damping), the door will take
 unnecessarily long to close. Hence, door closers need to be tuned to a
 ``sweet spot'' that corresponds to the critical damping point.
 
-    \subsection{Stating the solution in terms of initial
-conditions}\label{stating-the-solution-in-terms-of-initial-conditions}
+\section{Stating the solution in terms of initial conditions}
+\label{initial-conditions}
 
-The general solution for the complex damped harmonic oscillator
-equation, which we \protect\hyperlink{ansatz}{obtained above}, contains
-two undetermined parameters which are the complex amplitudes of the
-``clockwise'' and ``counterclockwise'' complex oscillations:
-
-\[z(t) = \psi_+ e^{-i\omega_+ t} + \psi_- e^{-i\omega_- t}, \quad\mathrm{where} \;\; \omega_\pm =  -i\gamma  \pm \sqrt{\omega_0^2 - \gamma^2}.\]
-
+The \hyperref[general-solution]{general solution for the complex
+  damped harmonic oscillator equation} contains two undetermined
+parameters which are the complex amplitudes of the ``clockwise'' and
+``counterclockwise'' complex oscillations:
+\begin{equation}
+z(t) = \psi_+ e^{-i\omega_+ t} + \psi_- e^{-i\omega_- t}, \quad\mathrm{where} \;\; \omega_\pm =  -i\gamma  \pm \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
 However, mechanics problems are often expressed in terms of an
-\textbf{initial-value problem}, which expresses the state of the system
-at some initial time \(t = 0\). Suppose we are given \(z(0) \equiv x_0\)
-and \(\dot{z}(0) \equiv v_0\); then what is \(z(t)\) in terms of \(x_0\)
-and \(v_0\)?
+\textbf{initial-value problem}, which expresses the state of the
+system at some initial time $t = 0$. Suppose we are given $z(0) \equiv
+x_0$ and $\dot{z}(0) \equiv v_0$; then what is $z(t)$ in terms of
+$x_0$ and $v_0$?
 
-We can solve the initial-value problem by finding \(z(0)\) and
-\(\dot{z}(0)\) in terms of the above general solution for \(z(t)\). The
+We can solve the initial-value problem by finding $z(0)$ and
+$\dot{z}(0)$ in terms of the above general solution for $z(t)$. The
 results are
-
-\[\begin{aligned} z(0) &= \quad \psi_+ + \psi_- &= x_0& \\ \dot{z}(0) &= -i\omega_+ \psi_+ - i \omega_- \psi_- &= v_0&.\end{aligned}\]
-
-These two equations can be combined into a 2x2 matrix equation:
-
-\[\begin{bmatrix}1 & 1 \\ -i\omega_+ & -i\omega_-\end{bmatrix} \begin{bmatrix}\psi_+ \\ \psi_-\end{bmatrix} = \begin{bmatrix}x_0 \\ v_0\end{bmatrix}.\]
-
-So long as the system is not at the critical point (i.e.,
-\(\omega_+ \ne \omega_-\)), the matrix is non-singular, and we can
-invert it to obtain \(\psi_\pm\):
-
-\[\begin{bmatrix}\psi_+ \\ \psi_-\end{bmatrix} = \frac{1}{i(\omega_+-\omega_-)}\begin{bmatrix}-i\omega_-x_0 - v_0 \\ i\omega_+x_0 + v_0 \end{bmatrix}.\]
-
+\begin{align}
+  z(0) &= \quad \psi_+ + \psi_- \qquad\quad = x_0& \\
+  \dot{z}(0) &= -i\omega_+ \psi_+ - i \omega_- \psi_- = v_0.&
+\end{align}
+These two equations can be combined into a $2\times2$ matrix equation:
+\begin{equation}
+  \begin{bmatrix}1 & 1 \\ -i\omega_+ & -i\omega_-\end{bmatrix} \begin{bmatrix}\psi_+ \\ \psi_-\end{bmatrix} = \begin{bmatrix}x_0 \\ v_0\end{bmatrix}.
+\end{equation}
+So long as the system is not at the critical point (i.e., $\omega_+
+\ne \omega_-$), the matrix is non-singular, and we can invert it to
+obtain $\psi_\pm$:
+\begin{equation}
+  \begin{bmatrix}\psi_+ \\ \psi_-\end{bmatrix} = \frac{1}{i(\omega_+-\omega_-)}\begin{bmatrix}-i\omega_-x_0 - v_0 \\ i\omega_+x_0 + v_0 \end{bmatrix}.
+\end{equation}
 We can plug these coefficients back into the general solution. After
 some algebra, the result simplifies to
-
-\[z(t) = e^{-\gamma t} \left[x_0 \cos(\Omega t) + \frac{\gamma x_0 + v_0}{\Omega} \, \sin(\Omega t)\right], \;\; \mathrm{where}\;\; \Omega \equiv \sqrt{\omega_0^2 - \gamma^2}.\]
-
-For the under-damped case, \(\Omega\) is real, and this solution is
-consistent with the one \protect\hyperlink{underdamped}{we previously
-derived}, except that it is now explicitly expressed in terms our
-initial conditions \(x_0\) and \(v_0\). As for the
-\protect\hyperlink{overdamped}{over-damped case}, we can perform the
+\begin{equation}
+  z(t) = e^{-\gamma t} \left[x_0 \cos(\Omega t) + \frac{\gamma x_0 + v_0}{\Omega} \, \sin(\Omega t)\right], \;\; \mathrm{where}\;\; \Omega \equiv \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}
+For the under-damped case, $\Omega$ is real, and this solution is
+consistent with the one \hyperref[under-damped-motion]{we previously
+  derived}, except that it is now explicitly expressed in terms our
+initial conditions $x_0$ and $v_0$. As for the
+\hyperref[over-damped-motion]{over-damped case}, we can perform the
 replacement
-
-\[\Omega \rightarrow i \Gamma = i \sqrt{\gamma^2 - \omega_0^2}.\]
-
-Then, using the \href{00_mathfunctions.ipynb\#hyperbolic}{relationships
-between trigonometric and hyperbolic functions}, the solution can be
-re-written as
-
-\[\begin{aligned}z(t) &= e^{-\gamma t} \left[x_0 \cosh(\Gamma t) + \frac{\gamma x_0 + v_0}{i\Gamma} \, i \sinh(\Gamma t)\right] \\ &= \left(\frac{x_0}{2} + \frac{\gamma x_0 + v_0}{2\Gamma}\right) e^{-(\gamma - \Gamma) t} + \left(\frac{x_0}{2} - \frac{\gamma x_0 + v_0}{2\Gamma}\right) e^{-(\gamma+\Gamma)t},\end{aligned}\]
-
+\begin{equation}
+  \Omega \rightarrow i \Gamma = i \sqrt{\gamma^2 - \omega_0^2}.
+\end{equation}
+Then, using the relationships between trigonometric and hyperbolic
+functions, the solution can be re-written as
+\begin{align}
+  z(t) &= e^{-\gamma t} \left[x_0 \cosh(\Gamma t) + \frac{\gamma x_0 + v_0}{i\Gamma} \, i \sinh(\Gamma t)\right] \\
+  &= \left(\frac{x_0}{2} + \frac{\gamma x_0 + v_0}{2\Gamma}\right) e^{-(\gamma - \Gamma) t} + \left(\frac{x_0}{2} - \frac{\gamma x_0 + v_0}{2\Gamma}\right) e^{-(\gamma+\Gamma)t},
+\end{align}
 which is again consistent with our
-\protect\hyperlink{overdamped}{previous result}.
+\hyperref[over-damped-motion]{previous result}.
 
-In either case, so long as we plug in real values for \(x_0\) and
-\(v_0\), the solution is guaranteed to be real for all \(t\). That's to
-be expected, since the real solution is also one of the specific
-solutions for the complex harmonic oscillator equation. The resulting
-solution is plotted below.
+In either case, so long as we plug in real values for $x_0$ and $v_0$,
+the solution is guaranteed to be real for all $t$. That's to be
+expected, since the real solution is also one of the specific
+solutions for the complex harmonic oscillator equation.
 
-    \begin{Verbatim}[commandchars=\\\{\}]
-{\color{incolor}In [{\color{incolor}5}]:} \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
-        \PY{k+kn}{from} \PY{n+nn}{ipywidgets} \PY{k}{import} \PY{n}{interact}\PY{p}{,} \PY{n}{FloatSlider}
-        \PY{k+kn}{from} \PY{n+nn}{numpy} \PY{k}{import} \PY{n}{linspace}\PY{p}{,} \PY{n}{sin}\PY{p}{,} \PY{n}{cos}\PY{p}{,} \PY{n}{sqrt}\PY{p}{,} \PY{n}{exp}
-        \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
-        \PY{k+kn}{from} \PY{n+nn}{math} \PY{k}{import} \PY{n}{ceil}
-        
-        \PY{k}{def} \PY{n+nf}{plot\PYZus{}oscillator}\PY{p}{(}\PY{n}{omega0}\PY{p}{,} \PY{n}{gamma}\PY{p}{,} \PY{n}{x0}\PY{p}{,} \PY{n}{v0}\PY{p}{)}\PY{p}{:}
-            \PY{n}{t} \PY{o}{=} \PY{n}{linspace}\PY{p}{(}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{20}\PY{p}{,} \PY{l+m+mi}{200}\PY{p}{)}
-        
-            \PY{k}{if} \PY{n}{omega0} \PY{o}{\PYZgt{}} \PY{n}{gamma}\PY{p}{:}
-                \PY{n}{W} \PY{o}{=} \PY{n}{sqrt}\PY{p}{(}\PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
-                \PY{n}{A}\PY{p}{,} \PY{n}{B} \PY{o}{=} \PY{n}{x0}\PY{p}{,} \PY{p}{(}\PY{n}{gamma}\PY{o}{*}\PY{n}{x0}\PY{o}{+}\PY{n}{v0}\PY{p}{)}\PY{o}{/}\PY{n}{W}
-                \PY{n}{x} \PY{o}{=} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{gamma}\PY{o}{*}\PY{n}{t}\PY{p}{)} \PY{o}{*} \PY{p}{(}\PY{n}{A} \PY{o}{*} \PY{n}{cos}\PY{p}{(}\PY{n}{W}\PY{o}{*}\PY{n}{t}\PY{p}{)} \PY{o}{+} \PY{n}{B} \PY{o}{*} \PY{n}{sin}\PY{p}{(}\PY{n}{W}\PY{o}{*}\PY{n}{t}\PY{p}{)}\PY{p}{)}
-            \PY{k}{elif} \PY{n}{omega0} \PY{o}{\PYZlt{}} \PY{n}{gamma}\PY{p}{:}
-                \PY{n}{G} \PY{o}{=} \PY{n}{sqrt}\PY{p}{(}\PY{n}{gamma}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2} \PY{o}{\PYZhy{}} \PY{n}{omega0}\PY{o}{*}\PY{o}{*}\PY{l+m+mi}{2}\PY{p}{)}
-                \PY{n}{A} \PY{o}{=} \PY{l+m+mf}{0.5}\PY{o}{*}\PY{p}{(}\PY{n}{x0} \PY{o}{+} \PY{p}{(}\PY{n}{gamma}\PY{o}{*}\PY{n}{x0} \PY{o}{+} \PY{n}{v0}\PY{p}{)}\PY{o}{/}\PY{n}{G}\PY{p}{)}
-                \PY{n}{B} \PY{o}{=} \PY{l+m+mf}{0.5}\PY{o}{*}\PY{p}{(}\PY{n}{x0} \PY{o}{\PYZhy{}} \PY{p}{(}\PY{n}{gamma}\PY{o}{*}\PY{n}{x0} \PY{o}{+} \PY{n}{v0}\PY{p}{)}\PY{o}{/}\PY{n}{G}\PY{p}{)}
-                \PY{n}{x} \PY{o}{=} \PY{n}{A}\PY{o}{*}\PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{gamma}\PY{o}{\PYZhy{}}\PY{n}{G}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)} \PY{o}{+} \PY{n}{B} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{p}{(}\PY{n}{gamma}\PY{o}{+}\PY{n}{G}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-            \PY{k}{else}\PY{p}{:}
-                \PY{n}{x} \PY{o}{=} \PY{p}{(}\PY{n}{x0} \PY{o}{+} \PY{p}{(}\PY{n}{v0}\PY{o}{+}\PY{n}{gamma}\PY{o}{*}\PY{n}{x0}\PY{p}{)}\PY{o}{*}\PY{n}{t}\PY{p}{)} \PY{o}{*} \PY{n}{exp}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{gamma}\PY{o}{*}\PY{n}{t}\PY{p}{)}
-        
-            \PY{n}{plt}\PY{o}{.}\PY{n}{figure}\PY{p}{(}\PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{10}\PY{p}{,}\PY{l+m+mi}{5}\PY{p}{)}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{title}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Motion of a damped harmonic oscillator}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{t}\PY{p}{,} \PY{n}{x}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{b}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{label}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x(t)}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{ax} \PY{o}{=} \PY{n}{plt}\PY{o}{.}\PY{n}{subplot}\PY{p}{(}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{,}\PY{l+m+mi}{1}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{xlabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylabel}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{x}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-            \PY{n}{lim} \PY{o}{=} \PY{n+nb}{max}\PY{p}{(}\PY{n}{ceil}\PY{p}{(}\PY{l+m+mf}{1.1}\PY{o}{*}\PY{n+nb}{max}\PY{p}{(}\PY{n+nb}{abs}\PY{p}{(}\PY{n}{x}\PY{p}{)}\PY{p}{)}\PY{p}{)}\PY{p}{,} \PY{l+m+mf}{1.0}\PY{p}{)}
-            \PY{n}{plt}\PY{o}{.}\PY{n}{ylim}\PY{p}{(}\PY{o}{\PYZhy{}}\PY{n}{lim}\PY{p}{,} \PY{n}{lim}\PY{p}{)}
-            \PY{n}{ax}\PY{o}{.}\PY{n}{legend}\PY{p}{(}\PY{n}{numpoints}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{loc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{upper right}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
-        
-        \PY{n}{interact}\PY{p}{(}\PY{n}{plot\PYZus{}oscillator}\PY{p}{,}
-                 \PY{n}{omega0} \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.1}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{1.9}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{gamma}  \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{l+m+mf}{0.0}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{2.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{x0}     \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{2.}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{2.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{1.0}\PY{p}{)}\PY{p}{,}
-                 \PY{n}{v0}     \PY{o}{=} \PY{n}{FloatSlider}\PY{p}{(}\PY{n+nb}{min}\PY{o}{=}\PY{o}{\PYZhy{}}\PY{l+m+mf}{5.}\PY{p}{,} \PY{n+nb}{max}\PY{o}{=}\PY{l+m+mf}{5.0}\PY{p}{,} \PY{n}{step}\PY{o}{=}\PY{l+m+mf}{0.05}\PY{p}{,} \PY{n}{value}\PY{o}{=}\PY{l+m+mf}{5.0}\PY{p}{)}\PY{p}{)}\PY{p}{;}
-\end{Verbatim}
+\section{Exercises}\label{exercises}
 
-    \begin{center}
-    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{04_complex_oscillations_files/04_complex_oscillations_14_0.png}
-    \end{center}
-    { \hspace*{\fill} \\}
-    
-    \subsection{Exercises}\label{exercises}
+\begin{enumerate}
+\item
+In the \hyperref[general-solution]{general solution for the complex
+  damped harmonic oscillator equation}, we encountered the complex
+frequencies
+\begin{equation}
+\omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.
+\end{equation}For
+fixed $\omega_0$ and $\omega_0 > \gamma$ (under-damping), prove that
+$\omega_\pm$ lie along a circular arc in the complex plane.
 
-In the \protect\hyperlink{ansatz}{general solution for the complex
-damped harmonic oscillator equation}, we encountered the complex
-frequencies\[\omega_\pm = -i\gamma \pm \sqrt{\omega_0^2 - \gamma^2}.\]For
-fixed \(\omega_0\) and \(\omega_0 > \gamma\) (under-damping), prove that
-\(\omega_\pm\) lie along a circular arc in the complex plane.
+\item
+Derive the \hyperref[critical-damping]{general solution for the
+  critically-damped oscillator}, as follows:
 
-Derive the \protect\hyperlink{critical_damping}{general solution for the
-critically-damped oscillator}, by following these steps:
+\begin{itemize}
+\item Consider the complex ODE, in the under-damped regime $\omega_0 >
+  \gamma$. We \hyperref[general-solution]{previously showed} that the
+  general solution has the form
+\begin{equation}
+z(t) = \psi_+ \, \exp\left[\left(-\gamma  - i \sqrt{\omega_0^2 - \gamma^2}\right)t\right] \; +\; \psi_- \, \exp\left[\left(-\gamma +i\sqrt{\omega_0^2 - \gamma^2}\right)t\right]
+\end{equation}
+for some complex parameters $\psi_+$ and $\psi_-$. Let us define the
+positive parameter $\varepsilon = \sqrt{\omega_0^2 - \gamma^2}$.
+Re-write $z(t)$ in terms of $\gamma$ and $\varepsilon$ (i.e.,
+eliminating $\omega_0$).
 
-Consider the complex ODE, in the under-damped regime
-\(\omega_0 > \gamma\). We \protect\hyperlink{ansatz}{have shown} that
-the general solution has the
-form\[z(t) = \psi_+ \, \exp\left[\left(-\gamma  - i \sqrt{\omega_0^2 - \gamma^2}\right)t\right] \; +\; \psi_- \, \exp\left[\left(-\gamma +i\sqrt{\omega_0^2 - \gamma^2}\right)t\right]\]for
-some complex parameters \(\psi_+\) and \(\psi_-\). Let us define the
-positive parameter \(\varepsilon = \sqrt{\omega_0^2 - \gamma^2}\).
-Re-write \(z(t)\) in terms of \(\gamma\) and \(\varepsilon\) (i.e.,
-eliminating \(\omega_0\)).
+\item
+Taylor expand $z(t)$ in the parameter $\varepsilon$.
 
-Taylor expand \(z(t)\) in the parameter \(\varepsilon\).
+\item
+The expression for $z(t)$ is presently parameterized by $\psi_+$,
+$\psi_-$, $\varepsilon$, and $\gamma$. We are free to re-define the
+parameters, e.g.~by taking
+\begin{align}
+  \alpha &= \psi_+ + \psi_- \\ \beta &= -i\varepsilon(\psi_+ - \psi_-).
+\end{align}
+Show that
+\begin{equation}
+z(t) = e^{-\gamma t}\left[\alpha + \beta t + \cdots\right],
+\end{equation}
+where the omitted terms are of order $\varepsilon^2$ and higher.
 
-The expression for \(z(t)\) is presently parameterized by \(\psi_+\),
-\(\psi_-\), \(\varepsilon\), and \(\gamma\). We are free to re-define
-the parameters, e.g.~by
-taking\[\begin{aligned}\alpha &= \psi_+ + \psi_- \\ \beta &= -i\varepsilon(\psi_+ - \psi_-).\end{aligned}\]Show
-that\[z(t) = e^{-\gamma t}\left[\alpha + \beta t + \cdots\right],\]where
-the omitted terms are of order \(\varepsilon^2\) and higher.
+\item
+Show that in the limit $\varepsilon \rightarrow 0$, the
+re-parameterized form for $z(t)$ reduces to the critically-coupled
+general solution.
 
-Show that in the limit \(\varepsilon \rightarrow 0\), the
-re-parameterized form for \(z(t)\) reduces to the
-\protect\hyperlink{critical_damping}{critically-coupled general
-solution}.
-
+\item
 Repeat the above derivation for the critically-damped solution, but
-starting from the over-damped regime \(\gamma > \omega_0\).
+starting from the over-damped regime $\gamma > \omega_0$.
+\end{itemize}
 
+\item
 A \textbf{parametric oscillator} is an oscillator whose spring
-``constant'' varies with time, as described by the ordinary differential
-equation
-
-\[\left[\frac{d^2}{dt^2} + 2\gamma\frac{d}{dt} + \Omega(t)^2\right]x(t) = 0, \quad\mathrm{where}\;\;\Omega(t) = \omega_0\left[1 + \alpha \cos(2\omega_1 t)\right].\]
-
+``constant'' varies with time, as described by the ordinary
+differential equation
+\begin{equation}
+  \left[\frac{d^2}{dt^2} + 2\gamma\frac{d}{dt} + \Omega(t)^2\right]x(t) = 0, \quad\mathrm{where}\;\;\Omega(t) = \omega_0\left[1 + \alpha \cos(2\omega_1 t)\right].
+\end{equation}
 The term ``parametric'' refers to the fact that the parameter
-\(\Omega\), which is normally a constant, has been turned into a
-time-dependent quantity.
-
-Suppose the ``modulation frequency'', \(\omega_1\), is much smaller than
-the natural frequency \(\omega_0\). Let's make \(x(t)\) complex, and
-look for a solution of the form
-
-\[x(t) = \psi(t) \, e^{-i\omega_0 t},\]
-
-where \(\psi(t)\) is a complex ``envelope function'' which varies much
-more slowly than the \(e^{-i\omega_0 t}\) factor. Mathematically, the
-slowness of the variation is represented by the condition
-
-\[\left|\frac{d^2\psi}{dt^2}\right| \ll \omega_0 \left|\frac{d\psi}{dt}\right|.\]
-
+$\Omega$, which is normally a constant, has been turned into a
+time-dependent quantity.  Suppose that $\omega_1 \ll \omega_0$. Let
+$x(t)$ be complex, and look for a solution of the form
+\begin{equation}
+x(t) = \psi(t) \, e^{-i\omega_0 t},
+\end{equation}
+where $\psi(t)$ is a complex ``envelope function'' which varies much
+more slowly than the $e^{-i\omega_0 t}$ factor. Mathematically, the
+slowness of the variation is described by
+\begin{equation}
+\left|\frac{d^2\psi}{dt^2}\right| \ll \omega_0 \left|\frac{d\psi}{dt}\right|.
+\end{equation}
 In such a situation, the second time derivative can be neglected; this
-is called the ``slowly-varying envelope approximation''. By making this
-approximation, show that the parametric oscillator equation reduces to
-the form
-
-\[\frac{d\left[\ln(\psi)\right]}{dt} = f(t),\]
-
-and find \(f(t)\). Hence, solve for \(\psi(t)\) and show that the
-oscillation ampitude \(|\psi(t)|\) consists of an exponential decay
+is called the ``slowly-varying envelope approximation''. By making
+this approximation, show that the parametric oscillator equation
+reduces to the form
+\begin{equation}
+\frac{d\left[\ln(\psi)\right]}{dt} = f(t),
+\end{equation}
+and find $f(t)$. Hence, solve for $\psi(t)$ and show that the
+oscillation ampitude $|\psi(t)|$ consists of an exponential decay
 overlaid on a sinusoidal modulation.
+\end{enumerate}
 
-
-    % Add a bibliography block to the postdoc
-    
-    
-    
-    \end{document}
+\end{document}
