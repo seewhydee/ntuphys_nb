@@ -1,0 +1,545 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{fancyvrb}
+\usepackage[margin=3.5cm]{geometry}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\definecolor{linkcol}{rgb}{0.0, 0.0, 0.5}
+\usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
+
+\renewcommand\thesection{6.\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+
+\fancyhf{}
+\lhead{\tiny Y.~D.~Chong (2016)}
+\rhead{\scriptsize MH2801: Complex Methods for the Sciences}
+\lfoot{}
+\rfoot{\thepage}
+\pagestyle{fancy}
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+
+\begin{document}
+\setcounter{page}{40}
+\noindent
+\underline{\textbf{\LARGE 6. Complex derivatives}}
+\vskip 0.1in
+
+We have studied functions that take real inputs, and give complex
+outputs (e.g., complex solutions to the damped harmonic oscillator,
+which are complex functions of $t \in \mathbb{R}$). For such
+functions, the derivative with respect to its real input is much like
+the derivative of a real function of real inputs.  It is equivalent to
+taking the derivative of the real and imaginary parts, separately:
+\begin{equation}
+  \frac{d\psi}{dx}
+  = \frac{d\mathrm{Re}(\psi)}{dx} + i \frac{d\mathrm{Im}(\psi)}{dx}.
+\end{equation}
+
+Now consider the more complicated case of a function of a
+\emph{complex} variable:
+\begin{equation}
+  f(z) \in \mathbb{C}, \;\;\mathrm{where}\;\; z \in \mathbb{C}.
+\end{equation}
+At one level, we could just treat this as a function of two
+independent real inputs: $f(x,y)$, where $z = x + i y$. However, in
+doing so we would be disregarding the mathematical structure of the
+complex input---the fact that $z$ is not just a mere collection of two
+real numbers, but a complex \emph{number} that can be subjected to
+algebraic operations. This structure has far-reaching consequences for
+the differential calculus of complex functions.
+
+\section{Complex continuity and differentiability}
+\label{complex-continuity-and-differentiability}
+
+The concept of a \textbf{continuous complex function} makes use of an
+``epsilon-delta definition'', similar to the definition of continuity
+for functions of real variables. A complex function $f(z)$ is
+continuous at $z_0 \in \mathbb{C}$ if, for any $\epsilon > 0$, we can
+find a $\delta > 0$ such that
+\begin{equation}
+  \big|\, z - z_0 \,\big| < \delta \;\;\; \Rightarrow
+  \;\;\; \big|\, f(z) - f(z_0) \,\big| < \epsilon.
+\end{equation}
+In this definition, $\big|\cdots\big|$ indicates the magnitude of a
+complex number.  What this definition basically means is that as we
+vary $z$ smoothly, there should be no abrupt jumps in the value of
+$f(z)$.
+
+If a function is continuous at a point $z$, we then can define its
+\textbf{complex derivative} as
+\begin{equation}
+  f'(z) = \lim_{\delta z\rightarrow 0} \frac{f(z+\delta z) - f(z)}{\delta z}.
+\end{equation}
+This is very similar to the definition of the derivative for a
+function of a real variable. However, there's a complication which
+doesn't appear in the real case: the infinitesimal $\delta z$ is a
+complex number, not just a real number. The above definition does not
+specify the argument of the complex number.  The choice of different
+arguments of $\delta z$ is equivalent to the direction in the complex
+plane in which $\delta z$ points, as shown in the following figure:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{complex_derivative}
+\end{figure}
+
+\noindent
+In principle, we might get different results from the above formula
+when we plug in different infinitesimals $\delta z$, even in the limit
+where $\delta z \rightarrow 0$ and even though $f(z)$ is continuous.
+
+\begin{framed}
+\noindent
+\underline{\textbf{Example}}
+\vskip 0.1in \noindent
+Consider the function $f(z) = z^*$. According to the formula for the
+complex derivative,
+\begin{equation}
+\lim_{\delta z \rightarrow0} \frac{f(z+\delta z) - f(z)}{\delta z} = \lim_{\delta z \rightarrow0} \frac{z^*+\delta z^* - z^*}{\delta z} = \lim_{\delta z \rightarrow0} \frac{\delta z^*}{\delta z}.
+\end{equation}But
+if we plug in a real $\delta z$, we get a different result than if we
+plug in an imaginary
+$\delta z$:
+\begin{align}
+  \delta z \in \mathbb{R} \;\; &\Rightarrow \frac{\delta z^*}{\delta z} = 1.\\
+  \delta z \in i \cdot \mathbb{R} &\Rightarrow \frac{\delta z^*}{\delta z} = -1.
+\end{align}
+\end{framed}
+
+To cope with this complication, we regard the complex derivative as
+well-defined \emph{only if} the above definition gives the same answer
+regardless of the argument of $\delta z$. If a function $f(z)$
+satisfies this property at a point $z$, then we say that the function
+is \textbf{complex-differentiable} at $z$. In other words, a
+complex-differentiable function is one possessing an unambiguous
+complex derivative.
+
+As we have seen in the preceding example, $f(z) = z^*$ is not
+complex-differentiable for any $z \in \mathbb{C}$. On the other hand,
+the following example shows that the function $f(z) = z$ is
+complex-differentiable for all $z \in \mathbb{C}$:
+
+\begin{framed}
+\noindent
+\underline{\textbf{Example}}
+\vskip 0.1in \noindent
+The function $f(z) = z$ is complex differentiable for any
+$z \in \mathbb{C}$. To prove
+this:
+\begin{equation}
+\lim_{\delta z \rightarrow0} \frac{f(z+\delta z) - f(z)}{\delta z} = \lim_{\delta z \rightarrow0} \frac{z+\delta z - z}{\delta z} = \lim_{\delta z \rightarrow0} \frac{\delta z}{\delta z} = 1.
+\end{equation}Notice
+why this result doesn't depend on the argument of the complex
+infinitesimal $\delta z$: when the function is plugged into the
+derivative formula and then simplified, it ends up as the fraction
+$\delta z / \delta z$, which is always equal to 1 as we take the limit
+$\delta z \rightarrow 0$ along any direction.
+\end{framed}
+
+\section{Analytic functions}\label{analytic-functions}
+
+If a function $f(z)$ is complex-differentiable for all points $z$ in
+some domain $D\subset \mathbb{C}$, then $f(z)$ is said to be
+\textbf{analytic} in $D$ . The concepts of analyticity and
+complex-differentiability are closely-related. It's mainly a matter of
+terminology: we speak of a function being complex-differentiable
+\emph{at a given point}, whereas we speak of a function being analytic
+\emph{in a given domain}.
+
+\begin{framed}
+\noindent
+\underline{\textbf{Example}}
+\vskip 0.1in \noindent
+As shown in the preceding section, $f(z) = z$ is complex-differentiable
+for any point $z \in \mathbb{C}$. Thence, $f(z) = z$ is analytic in
+$\mathbb{C}$.
+\end{framed}
+
+A function's domain of analyticity is usually described spatially, in
+terms of parts of the complex plane. For example, a function might be
+analytic ``everywhere in the complex plane'', which means the entire
+domain $\mathbb{C}$. Or a function might be analytic ``in the upper
+half of the complex plane'', meaning for all $z$ such that
+$\mathrm{Im}(z) > 0$. Or a function might be analytic ``everywhere
+except at the point $z = 0$''. And so forth.
+
+\subsection{Common analytic functions}
+\label{common-analytic-functions}
+
+Analyticity can be a pretty restrictive condition; for example, we
+have been that $f(z) = z^*$ is not analytic anywhere in $\mathbb{C}$.
+However, there is a class of functions which are analytic over the
+entire complex plane, except possibly for a discrete set of points.
+These are functions generated from formulas which involve $z$ in some
+``simple'' combination of algebra operations (addition,
+multiplication, and integer powers), and which do not involve $z^*$.
+
+For example, we have seen that the function $f(z) = z$ is analytic in
+$\mathbb{C}$. Likewise, $f(z) = \alpha z + \beta$, where $\alpha,
+\beta$ are complex constants, is analytic everywhere in
+$\mathbb{C}$. This can be proven in a similar fashion:
+\begin{align}
+  f'(z) &= \lim_{\delta z\rightarrow 0}
+  \frac{[\alpha\,(z+\delta z) + \beta] - [\alpha z + \beta]}{\delta z} \\
+  &= \lim_{\delta z\rightarrow 0} \frac{\alpha \delta z}{\delta z} \\
+  &= \alpha.
+\end{align}
+We can also show that $f(z) = z^n$, with $n \in \mathbb{N}$, is
+analytic everywhere in $\mathbb{C}$:
+\begin{align}
+  f'(z) &= \lim_{\delta z\rightarrow 0} \frac{(z+\delta z)^n - z^n}{\delta z} \\
+  &= \lim_{\delta z\rightarrow 0}
+  \frac{(z^n + n z^{n-1} \delta z + \cdots) - z^n}{\delta z} \\
+  &= n z^{n-1}.
+\end{align}
+Note that these derivatives have exactly the same algebraic formulas as
+the corresponding real derivatives. This is no coincidence: to derive
+the complex derivatives, we take the same series of algebra steps used
+for deriving the real derivatives.
+
+From the discussion so far, it is evident that complex polynomials are
+analytic everywhere in $\mathbb{C}$. Functions that are defined in
+terms of power series, including the complex exponential function and
+complex sine and cosine functions, are likewise analytic everywhere in
+$\mathbb{C}$.
+
+Functions involving reciprocals (negative integer powers), such as
+$f(z) = z^{-1}$ or $f(z) = z^{-2}$, are analytic everywhere
+\emph{except} at points where $f(z)$ becomes singular (i.e., the
+denominator goes to zero). (We will prove this later, using the
+Cauchy-Riemann equations, which will be described in
+\hyperref[cauchy-riemann-equations]{Section
+  \ref{cauchy-riemann-equations}}.) More generally, whenever a
+function involves $z$ in some combination of integer polynomials,
+reciprocals, or functions with power series expansions---and does not
+involve $z^*$ in some irreducible way---then the function is analytic
+everywhere except at the singular points.  Moreover, the formula for
+the complex derivative is the same as the corresponding formula for
+real derivatives.
+
+\begin{framed}
+\noindent
+\underline{\textbf{Example}}
+\vskip 0.1in \noindent
+The function
+\begin{equation}
+  f(z) = \frac{1}{\cos(z)}
+\end{equation}
+is analytic everywhere in $\mathbb{C}$, except for values of $z$ such
+that $\cos(z) = 0$.  With a bit of work (try it!), one can show that
+these $z$ occur at isolated points along the real line, at $z =
+(m+1/2)\pi$ where $m \in \mathbb{Z}$, and nowhere else in the complex
+plane. The complex derivative is
+\begin{equation}
+f'(z) = \frac{\sin(z)}{[\cos(z)]^2}.
+\end{equation}
+The easiest way to prove these statements is to use the Cauchy-Riemann
+equations, which are described in
+\hyperref[cauchy-riemann-equations]{Section \ref{cauchy-riemann-equations}}.
+\end{framed}
+
+Two provisos should be kept in mind:
+\begin{itemize}
+\item
+  For non-integer powers, $z^a$ where $a\notin \mathbb{Z}$, the
+  situation is more complicated because the operation is multi-valued.
+  We'll postpone the discussion of these special operations until the
+  discussion on branch points and branch cuts.
+\item
+  Even though simple algebraic combinations of $z$ are analytic, the
+  reverse is not necessarily true: i.e., not all analytic functions
+  are given by simple algebraic expressions within their domain. One
+  counter-example is the gamma function.
+\end{itemize}
+
+\section{Cauchy-Riemann equations}
+\label{cauchy-riemann-equations}
+
+The \textbf{Cauchy-Riemann equations} are a pair of real partial
+differential equations that provide an alternative way to define the
+concept of a complex derivative. Let $f(z)$ be a complex function. We
+can write $f$ as the sum of real and imaginary parts,
+\begin{equation}
+  f(x + iy) = u(x,y) + i v(x,y),
+\end{equation}
+where $u(x,y)$ and $v(x,y)$ are real functions of two real inputs.
+The Cauchy-Riemann equations are:
+\begin{equation}
+  \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\;\;
+  \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+  \label{cauchyriemann}
+\end{equation}
+
+These equations are important for the following reason:
+
+\begin{framed}
+\noindent
+A function is complex-differentiable at a point $z = x + i y$ if and
+only if the Cauchy-Riemann equations are well-defined and satisfied at
+$(x,y)$.
+\end{framed}
+
+\noindent
+Here, ``well-defined'' means that the functions $u(x,y)$ and $v(x,y)$
+are real-differentiable, in both $x$ and $y$ directions, at the given
+point, so that their partial derivatives are well-defined.
+
+\subsection{A partial proof}\label{proof}
+
+We will now prove the first part of the preceding ``if and only if''
+statement, which states that if a function is complex-differentiable,
+then the Cauchy-Riemann equations are well-defined and satisfied. The
+proof of the converse is left as an exercise.
+
+Suppose the function $f$ is complex-differentiable at some point
+$z$. Following from the definition of complex differentiability, if we
+make an infinitesimal displacement away from $z$ by an amount $\delta
+z$, the value of the function changes by
+\begin{align}
+  \delta f &= f(z + \delta z) - f(z) \\
+  &= f'(z)\, \delta z + O(\delta z^2). \label{fprev}
+\end{align}
+Here, $O(\delta z^2)$ denotes a term that is quadratic or high-order
+in $\delta z$, and becomes negligible compared to the first term, as
+$\delta z \rightarrow 0$. As part of the definition of complex
+differentiability, $f'(z)$ is independent of the argument (or
+``direction'') of $\delta z$.
+
+Let us study the effects of displacing along two different directions:
+specifically, the real and imaginary directions. First, we displace
+along the real direction by taking $\delta z = \delta x \in
+\mathbb{R}$. Let us denote the resulting change in the value of the
+function by $(\delta f)_1$. Based on Eq.~(\ref{fprev}),
+\begin{equation}
+(\delta f)_1 = f'(z) \, \delta x + O(\delta x^2).
+\end{equation}
+On the other hand, $\delta f$ can also be written in terms of the
+change in the real and imaginary component functions $u(x,y)$ and
+$v(x,y)$. According to the usual definition of partial derivatives,
+the change resulting from a displacement in $x$ is
+\begin{align}
+  (\delta f)_1 &= (\delta u)_1 + i (\delta v)_1 \\
+  &= \left[\frac{\partial u}{\partial x}\; \delta x + O(\delta x^2)\right]
+  + i \left[\frac{\partial v}{\partial x} \;\delta x+ O(\delta x^2)\right] \\
+  &= \left[\frac{\partial u}{\partial x} + i \frac{\partial v}{\partial x}\right]
+  \,\delta x\, +\, O(\delta x^2).
+\end{align}
+Comparing this with the preceding equation gives
+\begin{equation}
+  \mathrm{Re}\left[f'(z)\right] = \frac{\partial u}{\partial x},\;\;\;
+  \mathrm{Im}\left[f'(z)\right] = \frac{\partial v}{\partial x}.
+  \label{cauchyproof1}
+\end{equation}
+Secondly, let us displace along the imaginary direction by taking
+$\delta z = i \delta y$, where $\delta y \in \mathbb{R}$. In this
+case, the resulting change in the value of the function is $(\delta
+f)_2$, given by
+\begin{equation}
+  (\delta f)_2 = f'(z) \;i\, \delta y.
+\end{equation}
+In terms of the component functions,
+\begin{align}
+  (\delta f)_2 &= (\delta u)_2 + i (\delta v)_2 \\
+  &= \left[\frac{\partial u}{\partial y}\; \delta y + O(\delta y^2)\right]
+  + i \left[\frac{\partial v}{\partial y} \;\delta y+ O(\delta y^2)\right] \\
+  &= \left[\frac{\partial u}{\partial y} + i \frac{\partial v}{\partial y}\right]
+  \,\delta y\, +\, O(\delta y^2).
+\end{align}
+Hence,
+\begin{equation}
+  \mathrm{Re}\left[f'(z)\right] = \frac{\partial v}{\partial y},\;\;\;
+  \mathrm{Im}\left[f'(z)\right] = -\frac{\partial u}{\partial y}.
+  \label{cauchyproof2}
+\end{equation}
+
+Combining the two sets of results, Eq.~(\ref{cauchyproof1}) and
+Eq.~(\ref{cauchyproof2}), we arrive at the Cauchy-Riemann equations
+(\ref{cauchyriemann}).  As a corollary, this gives us a set of
+convenient expressions for the complex derivative of $f(z)$:
+\begin{align}
+  \mathrm{Re}\left[f'(z)\right] &= \frac{\partial u}{\partial x}
+  = \frac{\partial v}{\partial y} \\
+  \mathrm{Im}\left[f'(z)\right] &= \frac{\partial v}{\partial x}
+  = -\frac{\partial u}{\partial y}.
+\end{align}
+
+\subsection{Interpretation of the Cauchy-Riemann equations}
+\label{interpretation-of-the-cauchy-riemann-equations}
+
+The central message of the Cauchy-Riemann equations is that when
+dealing with analytic functions, the real and imaginary parts of
+complex numbers cannot be regarded as independent quantities, but are
+closely intertwined. There are two complementary ways to think about
+this:
+
+\begin{itemize}
+\item
+  For an analytic function $f(z)$, the real and imaginary parts of the
+  input $z$ do not independently affect the output value. If I tell
+  you how the function varies in the $x$ direction, by giving you
+  $\partial u/\partial x$ and $\partial v/\partial x$, then you can
+  work out how the function varies in the $y$ direction, by using the
+  Cauchy-Riemann equations to find $\partial u/\partial y$ and
+  $\partial v/\partial y$.
+\item
+  Similarly, for the complex outputs of $f(z)$, the real and imaginary
+  parts cannot be regarded as independent. If I tell you how the real
+  part of the output varies, by giving you $\partial u/\partial x$ and
+  $\partial u/\partial y$, then you can work out how the imaginary
+  part of the output varies, by using the Cauchy-Riemann equations to
+  find $\partial v/\partial x$ and $\partial v/\partial y$.
+\end{itemize}
+
+\noindent
+These constraints have profound implications for the mathematical
+discipline of complex analysis, one of the most important being
+Cauchy's integral theorem, which we will encounter when studying
+contour integration.
+
+\subsection{Consequences of the Cauchy-Riemann equations}
+\label{consequences-of-the-cauchy-riemann-equations}
+
+The Cauchy-Riemann equations are a useful tool for showing that a
+function is analytic in a given domain. They are often more convenient
+to use than the first-principles definition of complex
+differentiability, because it lets you avoid dealing with limiting
+expressions.
+
+\begin{framed}
+\noindent
+\underline{\textbf{Example}}
+\vskip 0.1in \noindent
+We can use the Cauchy-Riemann equations to prove that the function
+\begin{equation}
+  f(z)=1/z
+\end{equation}
+is analytic everywhere, except at $z = 0$. Let us write the function
+as
+\begin{align}
+  f(x+iy) &= \frac{1}{x+iy} \\ &= \frac{x-iy}{x^2+y^2}.
+\end{align}
+Hence the real and imaginary component functions are
+\begin{align}
+  u(x,y) &= \frac{x}{x^2+y^2}, \\
+  v(x,y) &= - \frac{y}{x^2+y^2}.
+\end{align}
+Except at the point $x = y = 0$, these functions are differentiable,
+and their partial derivatives satisfy:
+\begin{align}
+  \frac{\partial u}{\partial x} &= \frac{-x^2+y^2}{(x^2+y^2)^2}
+  \,= \;\;\;\frac{\partial v}{\partial y}
+  \\ \frac{\partial v}{\partial x} &= \; \frac{2xy}{x^2+y^2}
+  \quad\,= -\frac{\partial u}{\partial y}.
+\end{align}
+\end{framed}
+
+More generally, we can use the Cauchy-Riemann equations to prove the
+following facts about analytic functions:
+\begin{itemize}
+\item
+  \emph{Compositions of analytic functions are analytic.} \\If $f(z)$ is
+  analytic in $D \subset \mathbb{C}$ and $g(z)$ is analytic in the
+  range of $f$, then $g(f(z))$ is analytic in $D$.
+\item
+  \emph{Reciprocals of analytic functions are analytic, except at
+    singularities.} \\ If $f(z)$ is analytic in $D \subset \mathbb{C}$,
+  then $1/f(z)$ is analytic everywhere in $D$ except where $f(z) = 0$.
+\end{itemize}
+\noindent
+The proofs for these statements can be obtained by direct substitution
+into the Cauchy-Riemann equations, and are left as exercises.
+
+\section{Exercises}
+
+\begin{enumerate}
+\item 
+For each of the following functions $f(z)$, find the real and
+imaginary component functions $u(x,y)$ and $v(x,y)$, and hence verify
+whether they satisfy the Cauchy-Riemann equations.
+\begin{itemize}
+\item $f(z) = z$
+\item $f(z) = z^2$
+\item $f(z) = |z|$
+\item $f(z) = |z|^2$
+\item $f(z) = \exp(z)$
+\item $f(z) = \cos(z)$
+\item $f(z) = 1/z$
+\end{itemize}
+
+\item
+Suppose a function $f(z)$ is well-defined and obeys the Cauchy-Riemann
+equations at a point $z$, and the partial derivatives in the
+Cauchy-Riemann equations are continuous at that point. Show that the
+function is complex differentiable at that point. Hint: consider an
+arbitary displacement $\Delta z = \Delta x + i \Delta y$.
+
+\item
+Prove that products of analytic functions are analytic: if $f(z)$ and
+$g(z)$ are analytic in $D \subset \mathbb{C}$, then $f(z) g(z)$ is
+analytic in $D$.
+
+\item
+Prove that compositions of analytic functions are analytic: if $f(z)$
+is analytic in $D \subset \mathbb{C}$ and $g(z)$ is analytic in the
+range of $f$, then $g(f(z))$ is analytic in $D$.
+
+\item
+Prove that reciprocals of analytic functions are analytic away from
+poles: if $f(z)$ is analytic in $D \subset \mathbb{C}$, then
+$1/f(z)$ is analytic everywhere in $D$ except where $f(z) = 0$.
+
+\item
+Show that if $f(z = x + iy) = u(x,y) + i v(x,y)$ satisfies the
+Cauchy-Riemann equations, then the real functions $u$ and $v$ each
+obey Laplace's equation:
+\begin{equation}
+  \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2u}{\partial x^2}
+  = \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial x^2} = 0.
+\end{equation}
+(Such functions are called ``harmonic functions''.)
+
+\item
+We can write the real and imaginary parts of a function in terms of
+polar coordinates: $f(z) = u(r,\theta) + i v(r,\theta)$, where $z =
+re^{i\theta}$. Using the standard formula for how partial derivatives
+transform under a change of variables, show that the Cauchy-Riemann
+equations can be re-written in polar form as
+\begin{equation}
+\frac{\partial u}{\partial r} =  \frac{1}{r} \frac{\partial v}{\partial \theta}, \quad \frac{\partial v}{\partial r} =  - \frac{1}{r}\,  \frac{\partial u}{\partial \theta}.
+\end{equation}
+\end{enumerate}
+    
+\end{document}
