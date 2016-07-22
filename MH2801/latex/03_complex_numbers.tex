@@ -148,31 +148,15 @@ infinitesimal quantity $\delta t$ is real; otherwise, this wouldn't
 work.
 \end{framed}
 
-\section{Magnitudes and conjugates}\label{magnitudes-and-conjugates}
+\section{Conjugates and Magnitudes}\label{magnitudes-and-conjugates}
 
-For a complex number $z = x + i y$, the \textbf{magnitude} of the
-complex number is
-\begin{equation}
-  |z| = \sqrt{x^2 + y^2}.
-\end{equation}
-This is a non-negative real number. We can show that complex
-magnitudes have the property
-\begin{equation}
-  |z_1 z_2| = |z_1| \, |z_2|.
-\end{equation}
-This property is similar to the ``absolute value'' operation for real
-numbers, hence the similar notation.  As a corollary, we can show that
-taking a power of a complex number raises its magnitude by the same
-power:
-\begin{equation}
-  |z^n| = |z|^n \;\;\;\textrm{for}\;\;n \in \mathbb{Z}.
-\end{equation}
 For each complex number $z = x + iy$, we define its \textbf{complex
   conjugate} as a complex number whose imaginary part has its sign
-flipped: $z^* = x - i y$. A complex number and its conjugate have the
-same magnitude: $|z| = |z^*|$.
-
-We can show that conjugation obeys the properties
+flipped:
+\begin{equation}
+  z^* = x - i y.
+\end{equation}
+We can show that conjugation obeys two important properties:
 \begin{align}
   (z_1 + z_2)^* &= z_1^* + z_2^* \\
   (z_1 z_2)^* &= z_1^* z_2^*.
@@ -193,6 +177,25 @@ Then,
   &= z_1^* z_2^*.
 \end{align*}
 \end{framed}
+
+For a complex number $z = x + i y$, we define the \textbf{magnitude}
+of $z$ as
+\begin{equation}
+  |z| = \sqrt{x^2 + y^2}.
+\end{equation}
+This is a non-negative real number.  A complex number and its
+conjugate have the same magnitude: $|z| = |z^*|$.  Also, we can show
+that magnitudes have the property
+\begin{equation}
+  |z_1 z_2| = |z_1| \, |z_2|.
+\end{equation}
+This property is similar to the ``absolute value'' operation for real
+numbers, hence the similar notation.  As a corollary, we can show that
+taking a power of a complex number raises its magnitude by the same
+power:
+\begin{equation}
+  |z^n| = |z|^n \;\;\;\textrm{for}\;\;n \in \mathbb{Z}.
+\end{equation}
 
 \section{Euler's formula}\label{eulers-formula}
 
@@ -250,15 +253,15 @@ constants when solving the Gaussian integral.)
 A convenient device for conceptualizing complex numbers is to think of
 a complex number as a point on a two-dimensional plane, as shown
 below.  This is called the \textbf{complex plane}.
-\pagebreak
+
 \begin{figure}[h]
   \centering\includegraphics[width=0.32\textwidth]{complex_plane}
 \end{figure}
 
 \noindent
-The real and imaginary parts are the horizontal and vertical Cartesian
-coordinates in the plane. The horizontal and vertical coordinate axes
-are called the ``real axis'' and the ``imaginary axis'', respectively.
+The real and imaginary parts are represented by horizontal and
+vertical Cartesian coordinates.  The coordinate axes are called the
+``real axis'' and the ``imaginary axis'', respectively.
 
 \subsection{Polar representation}\label{polar-representation}
 
@@ -274,9 +277,9 @@ Conversely,
 \begin{equation}
   x = r\cos\theta, \;\;\; y = r\sin\theta.
 \end{equation}
-These are the usual formulas for the change of coordinate between
-two-dimensional Cartesian coordinates and polar coordinates.  The
-graphical meaning of these coordinates is shown below:
+These are the usual formulas for performing a change of coordinate
+between two-dimensional Cartesian coordinates and polar coordinates.
+Their graphical meaning is shown below:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.32\textwidth]{complex_plane2}
@@ -296,10 +299,9 @@ Using \hyperref[eulers-formula]{Euler's formula}, we can write
   &= r \left[\cos(\theta) + i \sin(\theta)\right] \\
   &= r \, e^{i\theta}.
 \end{align}
-This tells us that whenever we can manipulate a complex number into a
-form $A e^{iB}$, where $A$ and $B$ are real numbers, then $A$ is
-the magnitude and $B$ is the argument. This is used in the following
-example:
+Thus, whenever we can manipulate a complex number into a form $A
+e^{iB}$, where $A$ and $B$ are real, then $A$ is the magnitude and $B$
+is the argument. This is used in the following example:
 
 \begin{framed}
 \noindent
@@ -322,8 +324,8 @@ argument is $y$.
 \subsection{Geometrical interpretation of complex operations}
 \label{geometrical-interpretation-of-complex-operations}
 
-Using the complex plane, we can give useful geometric interpretations to
-the basic operations on complex numbers:
+The complex plane provides useful geometric interpretations for
+complex algebra operations:
 
 \begin{itemize}
 \item
@@ -344,11 +346,11 @@ the basic operations on complex numbers:
   Complex multiplication can be interpreted as a scaling together with
   a rotation. If $z_1 = r_1e^{i\theta_1}$ and $z_2 =
   r_2e^{i\theta_2}$, then $z_1 z_2 = \left(r_1 r_2\right)
-  \,\exp[i(\theta_1 + \theta_2)]$.  Hence, the point corresponding to
-  $z_1 \, z_2$ is obtained by scaling the $z_1$ coordinate vector by a
-  factor of $|z_2|$, and rotating it by an angle of $\theta_2$ around
-  the origin. In particular, multiplication by $e^{i\theta}$ is
-  equivalent to a pure rotation of angle $\theta$.
+  \,\exp[i(\theta_1 + \theta_2)]$.  The point corresponding to $z_1 \,
+  z_2$ is obtained by scaling the $z_1$ coordinate vector by a factor
+  of $|z_2|$, and rotating it by an angle of $\theta_2$ around the
+  origin. In particular, multiplication by $e^{i\theta}$ is equivalent
+  to a pure rotation of angle $\theta$.
 
 \item
   \hyperref[magnitudes-and-conjugates]{Complex conjugation} is
@@ -360,11 +362,11 @@ the basic operations on complex numbers:
 \section{Complex functions}\label{complex-functions}
 
 When deriving \protect\hyperlink{euler_formula}{Euler's formula}, we
-introduced \textbf{complex functions} that were defined by taking
-\href{00_mathfunctions.ipynb}{real mathematical functions}, such as the
-\href{00_mathfunctions.ipynb\#exponential}{exponential function}, and
-making them accept complex number inputs. Let us take a closer look at
-how these complex functions behave.
+introduced \textbf{complex functions} defined by taking
+\href{00_mathfunctions.ipynb}{real mathematical functions}, such as
+the \href{00_mathfunctions.ipynb\#exponential}{exponential function},
+and making them accept complex number inputs. Let us take a closer
+look at how these complex functions behave.
 
 \subsection{Complex trigonometric functions}
 \label{complex-trigonometric-functions}
@@ -383,11 +385,11 @@ the inputs $z$ are allowed to be complex numbers:
   \cos(z) &= 1 - \frac{z^2}{2!} + \frac{z^4}{4!} - \frac{z^6}{6!} + \cdots, 
   \quad\quad z\in \mathbb{C}
 \end{align}
-It is important to note that the outputs of the complex trigonometric
-functions are complex numbers too. Therefore, some of the familiar
-properties of the real trigonometric functions don't apply. For
-instance, $|\sin(z)|$ and $|\cos(z)|$ are \emph{not} bounded by 1 when $z$
-is not real. For example,
+Note that the outputs of the complex trigonometric functions are
+complex numbers too. Thus, some of the familiar properties of the real
+trigonometric functions don't apply. For instance, $|\sin(z)|$ and
+$|\cos(z)|$ are \emph{not} bounded by 1 when $z$ is not real. For
+example,
 \begin{equation}
 \Big|\sin(i)\Big| \;=\; 1.1752\dots \; >\; 1.
 \end{equation}
@@ -423,11 +425,11 @@ functions. Consider the addition formulas
   \sin(z_1 + z_2) &= \sin(z_1) \cos(z_2) + \cos(z_1)\sin(z_2) \\
   \cos(z_1 + z_2) &= \cos(z_1) \cos(z_2) - \sin(z_1)\sin(z_2).
 \end{align}
-As discussed previously, the standard proofs for these formulas are
-geometric: you have to figure out the figure to draw, and solve a
-bunch of relations between the angles and sides of the various
-triangles, making use of the Pythagorean formula. But using the Euler
-formula, we can prove these algebraically.  For example,
+The standard proofs for these formulas are geometric: you draw a
+figure, and solve a bunch of relations between the angles and sides of
+the various triangles, making use of the Pythagorean formula. But
+using the Euler formula, we can prove these algebraically.  For
+example,
 \begin{align}
   \cos(z_1)\cos(z_2) &= \frac{1}{4}\left(e^{iz_1} + e^{-iz_1}\right) \left(e^{iz_2} + e^{-iz_1}\right)\\
   &= \frac{1}{4}\left[e^{i(z_1+z_2)} + e^{i(-z_1 + z_2)} + e^{i(z_1 -z_2)} + e^{-i(z_1+z_2)}\right] \\
@@ -475,11 +477,11 @@ functions, e.g.
 \section{Trajectories in the complex plane}
 \label{trajectories-in-the-complex-plane}
 
-If we have a function $z(t)$ which takes a real input $t$ and outputs
-a complex number $z$, it is often useful to plot a curve in the
-complex plane called the ``parametric trajectory'' of $z$. Each point
-on this curve indicates the value of $z$ for a particular value of
-$t$. We will give a few examples below.
+If we have a function $z(t)$ that takes a real input $t$ and gives a
+complex output $z$, it is often useful to plot a curve in the complex
+plane, called the ``parametric trajectory'' of $z$. Each point on the
+curve gives the value of $z$ at some $t$. We will give a few examples
+below.
 
 First, consider
 \begin{equation}
@@ -493,26 +495,25 @@ origin and with radius 1:
 \end{figure}
 
 \noindent
-If you can't immediately see why this is the case, observe that the
-function has the form $z(t) = r(t)\,e^{i\theta(t)}$, where the
-magnitude (i.e., the distance from the origin) $r(t) = 1$ is a
-constant, and the argument $\theta(t) = \omega t$ varies
-proportionally with $t$. If $\omega$ is positive, the argument
-increases with $t$, so the trajectory is counter-clockwise, as shown
-in the above figure. If $\omega$ is negative, the trajectory is
-clockwise.
+To see why, observe that the function has the form $z(t) =
+r(t)\,e^{i\theta(t)}$, where the magnitude (i.e., the distance from
+the origin) $r(t) = 1$ is a constant, and the argument $\theta(t) =
+\omega t$ varies proportionally with $t$. If $\omega$ is positive, the
+argument increases with $t$, so the trajectory is counter-clockwise,
+as shown in the above figure. If $\omega$ is negative, the trajectory
+is clockwise.
 
 Next, consider
 \begin{equation}
-  z(t) = e^{(\gamma + i \omega) t},
+  z(t) = e^{(\gamma + i \omega) t}, \;\;\;\mathrm{where}\;\;
+  \gamma,\omega \in \mathbb{R}.
 \end{equation}
-where $\gamma,\omega \in \mathbb{R}.$ For $\gamma = 0$, this reduces
-to the previous example. For $\gamma \ne 0$, the trajectory is a
-spiral:
+For $\gamma = 0$, this reduces to the previous example. For $\gamma
+\ne 0$, the trajectory is a spiral:
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.37\textwidth]{complex_trajectory_2}
-\end{figure}
+{\centering
+\includegraphics[width=0.37\textwidth]{complex_trajectory_2}\par
+}
 
 \noindent
 To see why, observe that this function can be written in the form
@@ -541,8 +542,7 @@ below:
 \end{figure}
 
 \noindent
-Showing this requires a bit of ingenuity, and is left as an
-exercise. This is an example of something called a
+The proof is left as an exercise. This is something called a
 \href{http://en.wikipedia.org/wiki/M\%C3\%B6bius_transformation}{M\"obius
   transformation}.
 
@@ -554,20 +554,17 @@ of ``complex numbers''. You may also wonder whether complex numbers
 are the only generalization of real numbers; could the concept be
 usefully extended to even more complicated number systems?
 
-To answer these questions, let's return to our earlier observation that
-complex numbers can be manipulated using the same rules of algebra as
-real numbers. We can add, subtract, multiply, and divide (apart from
-division by zero) complex numbers, without running into any
-inconsistencies.
+To answer these questions, we observe that complex numbers can be
+manipulated using the same rules of algebra as real numbers. We can
+add, subtract, multiply, and divide (apart from division by zero)
+complex numbers, without running into any inconsistencies.
 
-The set of complex numbers $\mathbb{C}$ turns out to have a special
-property: it is \emph{algebraically closed}, meaning that every
-complex polynomial equation has solution(s) in $\mathbb{C}$. The set
-of real numbers, $\mathbb{R}$, lacks this property, since equations
-like $x^2 + 1 = 0$ have no solution in $\mathbb{R}$ (this was the
-motivation for introducing the imaginary unit in the first place). The
-``closure'' property of $\mathbb{C}$ is so important that it's called
-the
+The set of complex numbers $\mathbb{C}$ has a special property: it is
+\emph{algebraically closed}, meaning that every complex polynomial
+equation has solution(s) in $\mathbb{C}$. The set of real numbers,
+$\mathbb{R}$, lacks this property, since equations like $x^2 + 1 = 0$
+have no solution in $\mathbb{R}$. The ``closure'' property of
+$\mathbb{C}$ is so important that it's called the
 \href{https://en.wikipedia.org/wiki/Fundamental_theorem_of_algebra}{Fundamental
   Theorem of Algebra}. The Fundamental Theorem implies that
 $\mathbb{C}$ can't be ``algebraically extended'' into a more
