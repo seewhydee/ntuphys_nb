@@ -79,14 +79,18 @@ position and time.
 
 The time-independent wave equation is:
 \begin{equation}
-  \frac{\partial^2 f}{\partial x^2} = \frac{1}{c^2} \frac{\partial^2 f}{\partial t^2}.
+  \frac{\partial^2 f}{\partial x^2}
+  = \frac{1}{v^2} \frac{\partial^2 f}{\partial t^2}, \;\;\; v \in\mathbb{R}^+.
   \label{wavepde}
 \end{equation}
-The constant $c$ is called the \textbf{wave speed}, for a reason that
-will shortly become clear.  For neatness, we sometimes write the wave
+The parameter $v$, which we currently assume to be a positive real
+constant, is called the \textbf{wave speed}.  The reason for this will
+shortly become clear.
+
+For neatness, we sometimes write the wave
 equation by putting everything on one side:
 \begin{equation}
-  \left(\frac{\partial^2}{\partial x^2} - \frac{1}{c^2} \frac{\partial^2}{\partial t^2}\right) \; f(x,t) = 0.
+  \left(\frac{\partial^2}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2}{\partial t^2}\right) \; f(x,t) = 0.
 \end{equation}
 
 \subsection{Real solutions to the wave equation}
@@ -96,7 +100,7 @@ We first consider real solutions to the wave equation. There exists a
 family of solutions known as \textbf{travelling waves}, which have the
 form
 \begin{equation}
-  f(x,t) = f_0 \, \cos\big(kx - \omega t + \phi\big)\;\;\mathrm{where}\;\; \left|\frac{\omega}{k}\right| = c.
+  f(x,t) = f_0 \, \cos\big(kx - \omega t + \phi\big)\;\;\mathrm{where}\;\; \left|\frac{\omega}{k}\right| = v.
   \label{travelsol}
 \end{equation}
 By direct substitution, you can verify that this satisfies
@@ -111,25 +115,41 @@ inversely related to the \textbf{period} $T = 2\pi/\omega$ and the
 \textbf{wavelength} $\lambda = 2\pi/|k|$.
 
 Eq.~(\ref{travelsol}) describes a sinusoidal wave that is moving to
-the right (for positive $k$) or to the left (for negative $k$) with
-constant speed $c$. To see why, observe that if time advances by
-$\delta t$, the cosine is left unchanged if we change $x$ by $\delta x
-= \omega \delta t / k$. Thus, during the time interval $\delta t$, the
-wave shifts by $\delta x$, so
+the right (for positive $k$) or to the left (for negative $k$).
+Here's why: consider a small change in time, $\delta t$. If, together
+with this time shift, we change $x$ by $\delta x = \omega \delta t /
+k$, then the change in the $kx$ term and the change in the $\omega t$
+term in Eq.~(\ref{travelsol}) would cancel each other, leaving the
+value of the cosine unchanged.  This means that the wave shifts by
+$\delta x$ during the time interval $\delta t$.  The wave velocity is
 \begin{equation}
-  \mathrm{speed} \; = \frac{|\delta x|}{\delta t} = \frac{\omega}{|k|} = c.
+  \textrm{velocity} \; = \, \frac{\delta x}{\delta t}
+  = \frac{\omega \delta t / k}{\delta t} = \frac{\omega}{k}.
+  \label{velocity}
 \end{equation}
-This is why we refer to $c$ as the wave speed.
+Note that we have adopted the convention that $\omega > 0$.  According
+to Eq.~(\ref{velocity}), the sign of the wave-number determines the
+propagation direction: positive $k$ means positive wave velocity (a
+right-moving wave), and negative $k$ means negative wave velocity (a
+left-moving wave). We can also compute the wave speed by taking the
+absolute value of the velocity:
+\begin{equation}
+  \textrm{speed}\; = \, \left|\frac{\delta x}{\delta t}\right|
+  = \left|\frac{\omega}{k}\right| = v.
+\end{equation}
 
-The travelling wave solution is valid for \emph{any} $\omega > 0$. For
-sound waves, these different frequencies correspond to the human
-sensation of pitch. For light waves, the different frequencies
-correspond to color. Since $|k| = \omega/c$, higher frequencies
-correspond to larger wavenumbers, i.e.~shorter wavelengths.
+The travelling wave solution (\ref{travelsol}) is valid for \emph{any}
+$\omega > 0$. For sound waves, these different frequencies correspond
+to the human sensation of pitch. For light waves, the different
+frequencies correspond to color. Since $|k| = \omega/c$, higher
+frequencies correspond to larger wavenumbers, i.e.~shorter
+wavelengths.
 
-Since the wave equation is linear, any linear superposition of
-traveling waves is also a solution. For example, suppose we have two
-waves of equal amplitude and frequency, moving in opposite directions:
+The wave equation is a \textbf{linear} PDE, meaning that any linear
+superposition of solutions is also a solution; you can prove directly
+from Eq.~(\ref{wavepde}).  For instance, suppose we have two
+travelling wave solutions, with equal amplitude and frequency, moving
+in opposite directions:
 \begin{equation}
   f(x,t) = f_0 \, \cos(kx - \omega t + \phi_1) + A \cos(-kx - \omega t + \phi_2),
 \end{equation}
@@ -147,20 +167,27 @@ applications of the trignometric addition formulas.
 
 It is much easier to deal with the wave equation if we look at
 \emph{complex} solutions, by allowing the wavefunction $f(x,t)$ to
-take on complex values. (Note: only the value of the wavefunction is
+take on complex values.  (Note: only the value of the wavefunction is
 complex; we continue to assume that $x$ and $t$ are real.) Since the
 wave equation is a linear PDE, the real part of any complex solution
-is a valid real solution.
-
-The wave equation has complex solutions that are \textbf{complex
-  travelling waves}, which take the form
+is a valid real solution:
 \begin{equation}
-  f(x,t) = A \, e^{i(kx - \omega t)} \quad\mathrm{where}\;\; \left|\frac{\omega}{k}\right| = c.
+  \left(\frac{\partial^2}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2}{\partial t^2}\right) f(x,t) = 0
+  \;\;\;\Rightarrow \;\;\;
+  \left(\frac{\partial^2}{\partial x^2} - \frac{1}{v^2} \frac{\partial^2}{\partial t^2}\right) \mathrm{Re}\left[f(x,t)\right] = 0.
 \end{equation}
-Again, you can verify by direct substitution that this satisfies the
-PDE. The complex constant $A$ is called the \textbf{complex amplitude}
-of the wave. Now, consider what happens if we take the real part of
-the complex travelling wave solution:
+There is a very nice set of complex solutions to the wave equation,
+known as \textbf{complex travelling waves}, which take the form
+\begin{equation}
+  f(x,t) = A \, e^{i(kx - \omega t)} \quad\mathrm{where}\;\; \left|\frac{\omega}{k}\right| = v.
+  \label{complex_travel}
+\end{equation}
+Again, you can verify by direct substitution that this satisfies
+Eq.~(\ref{wavepde}). The complex constant $A$ is called the
+\textbf{complex amplitude} of the wave.
+
+Now, consider what happens if we take the real part of
+Eq.~(\ref{complex_travel}):
 \begin{align}
   \mathrm{Re}\Big\{A \, e^{i(kx - \omega t)}\Big\}
   &= \mathrm{Re}\Big\{ \left(\big|A\big|\, e^{i\mathrm{arg}[A]}\right) \; e^{i(kx - \omega t)}\Big\} \\
@@ -175,8 +202,10 @@ mathematically succinct: a single complex parameter $A$ combines the
 roles of two separate parameters in the real solution.
 
 The complex representation makes wave superpositions much easier to
-handle. For example, consider again the superposition of
-equal-amplitude wave of frequency $\omega$, with arbitrary phases:
+handle. For example, consider again the superposition of two
+counter-propagating waves of equal amplitude and frequency, with
+arbitrary phases.  Using complex travelling waves, we can calculate
+the superposition using a few lines of complex algebra:
 \begin{align}
   f(x,t) &= \big|A\big| \, e^{i(kx - \omega t + \phi_1)}
   + \big|A\big| \, e^{i(-kx - \omega t + \phi_2)} \\
@@ -194,14 +223,14 @@ obtained using trigonometric formulas.
 \label{waves-in-3d-space}
 
 The wave equation can be easily generalized to three spatial
-dimensions.  Instead of $f(x,t)$, we have a wavefunction that depends
-on three spatial coordinates, $f(x,y,z,t)$. The second-order
-derivative in $x$ is replaced by second-order derivatives in each
-spatial direction.  The generalized PDE is:
+dimensions.  We replace $f(x,t)$ with a wavefunction that depends on
+three spatial coordinates, $f(x,y,z,t)$. The second-order derivative
+in $x$ is replaced by second-order derivatives in each spatial
+direction.  The generalized PDE is:
 \begin{equation}
-  \left[\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
+  \left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
     + \frac{\partial^2}{\partial z^2}
-    - \frac{1}{c^2} \frac{\partial^2}{\partial t^2}\right] \; f(x,y,z,t) = 0.
+    - \frac{1}{v^2} \frac{\partial^2}{\partial t^2}\right) \; f(x,y,z,t) = 0.
   \label{3dwave}
 \end{equation}
 This PDE supports complex travelling wave solutions of the form
@@ -217,8 +246,8 @@ where
 Again, you can verify that this is a solution by direct
 substitution. We call $\vec{k}$ the \textbf{wave-vector}, which
 generalizes the wave-number parameter in the solution for 1D
-space. The direction of the wave-vector the spatial direction in which
-the wave travels.
+space. The direction of the wave-vector specifies the spatial
+direction in which the wave travels.
 
 \section{Harmonic waves}
 \label{harmonic-waves}
@@ -244,39 +273,89 @@ $\psi(x)$ satisfies the differential equation
 \begin{equation}
   \left[\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2}
     + \frac{\partial^2}{\partial z^2}
-    + \left(\frac{\omega}{c}\right)^2\right] \, \psi(x) = 0.
+    + \left(\frac{\omega}{v}\right)^2\right] \, \psi(x,y,z) = 0.
 \end{equation}
 This is related to the original time-dependent wave equation by the
 replacement of each $\partial/\partial t$ with $-i\omega$. Thus, it
 contains $\omega$ as a numerical parameter.
 
-We will postpone further discussion of the solution of this PDE till
-later.
+\subsection{Waves in complex media}
+
+So far, our discussion has been limited to waves propagating in a
+uniform, energy-conserving medium that has a fixed wave speed
+$v$. There are two important generalizations of this scenario: (i)
+non-uniform media, in which the wave speed varies with position, and
+(ii) energy non-conserving media, in which the waves lose or gain
+energy as they propagate.  To capture these phenomena, we replace the
+constant $v$ by
+\begin{equation}
+  v = \frac{c}{n},
+\end{equation}
+where $n$ is called the \textbf{refractive index}, and the constant
+$c$ is the wave speed in the limit $n = 1$.  In the case of
+electromagnetic waves, $c$ is called the "speed of light in a vacuum".
+
+If the refractive index is now allowed to vary with position, the wave
+equation becomes
+\begin{equation}
+  \left[\frac{\partial^2}{\partial x^2}
+    + \frac{\partial^2}{\partial y^2}
+    + \frac{\partial^2}{\partial z^2}
+    + n^2(x,y,z)\, \left(\frac{\omega}{c}\right)^2\right]
+  \, \psi(x,y,z) = 0.
+\end{equation}
+This PDE describes harmonic waves of fixed frequency $\omega$
+propagating within the medium described by $n(x,y,z)$.  Furthermore,
+if $n$ is allowed to be \emph{complex}, the wave equation can describe
+the interesting phenomenon of wave amplification (gain) or attenuation
+(loss).
+
+\subsection{Wave amplification and attenuation}
+\label{gainloss}
+
+If the refractive index $n$ is allowed to be complex, the wave
+equation can describe \textbf{wave amplification} (gain) and
+\textbf{wave attenuation} (loss).  In physics, amplified waves are the
+underlying basis for
+\href{https://en.wikipedia.org/wiki/Laser}{lasers}, while attenuated
+waves describe the absorption of light into ``black'' objects, or the
+dissipation of sound into ambient heat. To study these phenomena, let
+us go back to one-dimensional space and assume that the refractive
+index is position-independent:
+\begin{equation}
+  \left[\frac{d^2}{d x^2} + n^2\, \left(\frac{\omega}{c}\right)^2\right]
+  \, \psi(x) = 0, \quad n \in \mathbb{C}.
+\end{equation}
+This has complex travelling wave solutions of the form
+\begin{equation}
+  \psi(x) = A e^{\pm ikx},\;\;\;\mathrm{where}\;\;
+  A \in \mathbb{C}, \;k = \frac{n\omega}{c}.
+  \label{complex_gainloss_wave}
+\end{equation}
+As before, we let $\omega, c \in \mathbb{R}^+$.  If $n$ is a complex
+number with a non-zero imaginary part, then $k$ is likewise complex.
+Specifically, if we write
+\begin{equation}
+  n = n' + i n'',
+\end{equation}
+where $n'$ and $n''$ are the real and imaginary parts of the
+refractive index, then
+\begin{equation}
+  \psi(x) = A e^{\pm in'(\omega/c)x}\, e^{\mp n''(\omega/c)x}.
+  \label{psix}
+\end{equation}
+The first exponential factor describes the oscillation of the
+wavefunction, with the $\pm$ sign determining whether the harmonic
+wave is moving to the right (positive wave-number) or to the left
+(negative wave-number). The second exponential describes the
+amplification or attenuation of the wave.  If $n'' \ne 0$, the
+amplitude varies exponentially with $x$.  An increase in the direction
+of propagation describes an amplified wave; a decrease in the
+direction of propagation describes an attenuated wave.
 
 \section{Exercises}
 
 \begin{enumerate}
-\item
-The complex representation for waves provides a convenient way to
-describe damping and amplification. Consider again the complex wave
-equation
-\begin{equation}
-  \frac{\partial^2 f}{\partial x^2}
-  = \left(\frac{n}{c}\right)^2 \, \frac{\partial^2 f}{\partial t^2},
-\end{equation}
-where $n$ is called the \textbf{refractive index}, which can take
-complex values.
-
-\begin{itemize}
-\item
-Show that the propagating-wave solutions are either damped or amplified.
-What determines whether they are damped or amplified? In your answer,
-consider both left- and right-moving waves.
-
-\item
-Try finding a real differential equation which has the same
-damped/amplified wave solutions.
-
 \item
 Consider the 1D wave equation in a enclosed box of length $L$ and
 uniform refractive index $n\in\mathbb{R}$. Let the walls of the box be
@@ -285,7 +364,19 @@ these points: $\psi(\pm L/2) = 0$. For this boundary conditions, show
 that $\psi(x) = 0$ for all $x$, \emph{except} for certain discrete
 values of $\omega$. Find these frequencies, and the corresponding
 non-zero solutions $\psi(x)$.
-\end{itemize}
+
+\item
+What determines whether a travelling-wave solution of the form
+(\ref{complex_gainloss_wave}) is amplified, rather than attenuated?
+Can a wave equation with given complex refractive index $n$ possess
+both amplified wave solutions and attenuated wave solutions?
+
+\item
+When the refractive index is complex, can the real part of the complex
+wavefunction be regarded as the solution to the same wave equation?
+If not, derive a real differential equation whose solution is the real
+part of the travelling wave (\ref{complex_gainloss_wave}).
+
 \end{enumerate}
 
 \end{document}
