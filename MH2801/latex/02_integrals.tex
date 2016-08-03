@@ -62,7 +62,7 @@
 If we have a function $f(x)$ which is well-defined for some $a \le x
 \le b$, its integral over those two values is defined as
 \begin{equation}
-  \int_a^b dx\; f(x) \;=\; \lim_{N \rightarrow 0} \, \Delta x_N\, \sum_{n=0}^{N} f(a + n\Delta x_N), \quad\mathrm{where}\;\; \Delta x_N \equiv \left(\frac{b-a}{N}\right).
+\int_a^b dx\, f(x) \;=\; \lim_{N \rightarrow 0} \, \sum_{n=0}^{N} \Delta x\; f(x_n) \;\;\;\mathrm{where}\;\; x_n = a + n\Delta x, \;\; \Delta x \equiv \left(\frac{b-a}{N}\right).
 \end{equation}
 This is called a \textbf{definite integral}, and it represents the area
 under the graph of $f(x)$ in the region between $x=a$ and $x=b$,
