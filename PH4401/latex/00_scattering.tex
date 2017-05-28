@@ -272,7 +272,7 @@ easily scattered than low-energy particles.  For a given $E$, the
 scattering increases with $|\gamma|$, approaching the limit $|f|^2
 \rightarrow 1$ as $|\gamma|\rightarrow \infty$.  Note that an
 attractive potential ($\gamma < 0$) and a repulsive potential ($\gamma
-> 0$) are equally effective at causing scattering.
+> 0$) are equally effective at scattering the particle.
 
 \subsection{Scattering in 2D and 3D}
 
@@ -360,29 +360,55 @@ where $\Psi_i \in \mathbb{C}$ is the \textbf{incident wave amplitude},
 and $\mathbf{k}_i$ is the incident momentum, which is tied to the
 particle energy $E = \hbar^2|\mathbf{k}_i|^2/2m$.  We adopt
 coordinates $(r,\Omega)$, where $r$ is the distance from the origin.
-For 1D, $\Omega \in \pm$ is the choice of ``forward'' or ``backward''
-from the scatterer; for 2D polar coordinates, $\Omega = \phi$; and for
-3D spherical coordinates, $\Omega = (\theta,\phi)$.  Far from the
-origin, the scattered wavefunction has the form
+For 1D, $\Omega \in \pm$, specifying the choice of ``forward'' or
+``backward'' scattering; for 2D polar coordinates, $\Omega = \phi$;
+and for 3D spherical coordinates, $\Omega = (\theta,\phi)$.  Far from
+the origin, the scattered wavefunction has the form
 $$\psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{i|\mathbf{k}_i|r} \, f(\Omega).$$
 The complex function $f(\Omega)$, called the \textbf{scattering
-  amplitude}, is the principal object of interest in scattering
+  amplitude}, is the fundamental object of interest in scattering
 experiments.  It describes how the particle gets scattered in various
 directions.  It is dependent on the inputs to the scattering problem,
-including $\mathbf{k}_i$ and the scattering potential.
-
-From the scattering amplitude, we can define two other quantities of
-key interest.  The \textbf{differential scattering cross section} is
-defined as
-$$\frac{d\sigma}{d\Omega} = \big|f(\Omega)\big|^2.$$
-The \textbf{total scattering cross section} is defined as
-$$\sigma = \int d\Omega\; \big|f(\Omega)\big|^2,$$
-where $\int d\Omega$ denotes the integral(s) over all the angle
-coordinates (or, in 1D, a sum over the two directions $\Omega \in
-\pm$).
+including $\mathbf{k}_i$ and the scattering potential.  From it, we
+can also define two other important quantities of interest:
+$$\boxed{\begin{aligned}\frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\quad \text{(the \textbf{differential scattering cross section})} \\ \sigma &= \int d\Omega\; \big|f(\Omega)\big|^2 \quad\; \text{(the \textbf{total scattering cross section}).}
+  \end{aligned}}$$
+In the second equation, $\int d\Omega$ denotes the integral(s) over
+all the angle coordinates (or, in 1D, a sum over the two directions
+$\Omega \in \pm$).
 
 The term ``cross section'' comes from an analogy with the scattering
-of classical particles.
+of classical particles.  To understand this, consider the probablity
+current density associated with the scattered wavefunction:
+$$\mathbf{J}_s = \frac{\hbar}{m} \mathrm{Im}\big[\psi_s^*\nabla\psi_s\big].$$
+Let us focus only on the $r$-component of the current density, in the
+$r\rightarrow\infty$ limit:
+$$\begin{aligned}J_{s,r}\; &\;\;=\;\;\;\, \frac{\hbar}{m}\, \mathrm{Im}\left[\psi_s^* \frac{\partial}{\partial r}\psi_s\right] \\ &\overset{r\rightarrow\infty}{\longrightarrow}\;\, \frac{\hbar}{m}\; |\Psi_i|^2 \; |f(\Omega)|^2 \mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{i|\mathbf{k}_i|r}\right)^* \frac{\partial}{\partial r} \left(r^{\frac{1-d}{2}} \, e^{i|\mathbf{k}_i|r}\right)\right] \\ & \;\;=\;\;\;\, \frac{\hbar \,|\mathbf{k}_i|}{m}\; |\Psi_i|^2 \; |f(\Omega)|^2 \,r^{1-d}.\end{aligned}$$
+The total flux of outgoing probability is obtained by integrating
+$J_{s,r}$ over a constant-$r$ surface:
+$$I_s \;=\; \int d\Omega\; r^{d-1} \, J_{s,r} \;=\; \frac{\hbar|\mathbf{k}_i|}{m} \;|\Psi_i|^2 \; \int d\Omega\; \big|f(\Omega)\big|^2.$$
+We can assign a neat physical interpretation to each term in this
+result.  The first factor, $\hbar|\mathbf{k}_i|/m$, is the
+particle's speed (i.e., the group velocity of the de Broglie wave).
+The second factor, $|\Psi_i|^2$, is the probability density of the incident
+wave, which has units of $[x^{-d}]$ (i.e., inverse $d$-dimensional
+``volume'').  The product of these two factors represents the
+\textbf{incident flux},
+$$J_{i} = \frac{\hbar|\mathbf{k}_i|}{m} \;|\Psi_i|^2.$$
+This has units of $[x^{1-d}t^{-1}]$ (i.e., rate per unit ``area'').
+Now, imagine a stream of classical particles with incident flux $J_i$,
+and a ``hard-body'' scatterer that only interacts with those particles
+striking it directly.  The scattering rate will be $J_{i}$ times the
+cross-sectional area of the scatterer exposed to the particle stream.
+If we denote this area by $\sigma$, the scattering rate will be
+$$I_s = J_i \, \sigma.$$
+Comparing the quantum scattering expression to this, we identify $\int
+d\Omega\;|f|^2$ as playing a role analogous to the hard-body's
+cross-sectional area.  We hence call this the ``total scattering cross
+section''.  Moreover, this quantity is expressed as an integral over
+angles; the integrand $|f|^2$ is called the ``differential scattering
+cross section'', and it represents the rate, per unit of solid
+angle, at which particles are scattered in a given direction.
 
 
 \end{document}
