@@ -1,0 +1,402 @@
+\documentclass[pra,11pt]{revtex4}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0.07in}
+
+\begin{document}
+
+\section{Scattering Processes in Quantum Mechanics}
+
+\subsection{Scattering experiments on quantum particles}
+
+Quantum particles exhibit \textbf{wave-particle duality}, which is a
+fundamental phenomenon that can be summarized using a thought
+experiment called the quantum double-slit experiment.  As shown in the
+figure, a source emits electrons with energy $E$, which move towards a
+screen with a pair of slits.  A detector is positioned on the other
+side of the screen.  By moving the detector around, we can measure the
+rate at which electrons are detected at different positions.
+
+[Fig.]
+
+According to quantum theory, the findings of the experiment are as
+follows: (i) the detector shows electrons arriving in discrete
+units---one at a time, like classical particles; (ii) when the
+detector is moved around to measure the \textit{statistical}
+distribution of the detection events, the result is an interference
+pattern that looks like a classical wave diffracted by the slits.  The
+wavelength $\lambda$ is related to the electron energy $E$ by
+$$\lambda = \frac{2\pi}{k}, \;\;\; E = \frac{\hbar^2k^2}{2m},$$
+where $\hbar = h/2\pi$ is Dirac's constant, and $m$ is the electron
+mass.
+
+Wave-particle duality arises from quantum theory's distinction between
+a particle's state and the outcome of a measurement on it.  The state
+is described by a wavefunction, $\psi(\mathbf{r})$, which can undergo
+diffraction like a classical wave.  Measurement outcomes, however,
+depend \textit{probabilistically} on the wavefunction (e.g., the
+probability of locating a particle in a volume $dV$ around
+$\mathbf{r}$ is $|\psi(\mathbf{r})|^2 \,dV$).
+
+We will study a generalization of the quantum double-slit experiment,
+called a \textbf{scattering experiment}.  The idea is to take an
+object called a \textbf{scatterer}, shoot quantum particles at it, and
+measure the resulting particle distribution.  Just as we can use the
+double-slit interference pattern to deduce the spacing between the
+slits, a scattering experiment can likewise be used to deduce various
+facts about the scatterer.  Scattering experiments, as a class,
+constitute a large proportion of the methods used to probe the quantum
+world---ranging from electron- and photon-based laboratory experiments
+for measuring the properties of materials, to huge accelerator
+experiments for probing high-energy phenomena like the Higgs boson.
+
+We will focus on a relatively simple scenario, consisting of a single
+non-relativistic quantum particle and a classical scatterer.  Consider
+a continuous and unbounded $d$-dimensional space, describable by
+coordinates $\mathbf{r}$.  Somewhere around the origin, $\mathbf{r} =
+0$, is a finite-sized scatterer.  An incoming quantum particle, with
+energy $E$, interacts with the scatterer through the Hamiltonian
+$$\hat{H} = \hat{H}_0 + V(\hat{\mathbf{r}}), \;\;\; \hat{H}_0 = \frac{\hat{\mathbf{p}}^2}{2m}.$$
+Here, $\hat{H}_0$ is the kinetic part of the Hamiltonian, $m$ is the
+particle mass, $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the
+position and momentum operators, and $V$ is a \textbf{scattering
+  potential} describing how the scatterer affects the quantum
+particle.  We assume that the scatterer is finite, so that
+$V(\mathbf{r}) \rightarrow 0$ as $|\mathbf{r}| \rightarrow \infty$.
+
+[Fig.]
+
+We want to prepare an incoming particle state with energy $E$, and see
+how the particle is scattered by the potential.  However, converting
+these words into a well-formulated mathematical problem is a bit
+tricky!  We will give the formulation first, before discussing its
+interpretation:
+\begin{enumerate}
+\item 
+The particle is described by a state $|\psi\rangle$ satisfying
+the time-independent Schr\"odinger equation:
+$$\hat{H} |\psi\rangle = E |\psi\rangle,$$
+where $E$ is the same as the incoming particle energy.  
+
+\item
+This state can be decomposed into two terms,
+$$|\psi\rangle \,=\, |\psi_i\rangle \,+\, |\psi_s\rangle,$$
+where $|\psi_i\rangle$ is called the \textbf{incident state} and
+$|\psi_s\rangle$ is called the \textbf{scattered state}.  
+
+\item
+The incident state is an eigenstate of $\hat{H}_0$ with energy $E$:
+$$\hat{H}_0 |\psi_i\rangle = E |\psi_i\rangle.$$
+
+\item
+Lastly, we require the scattered state to be an ``outgoing'' state.
+This is the trickiest part, and we will describe how to deal with this
+requirement later.
+\end{enumerate}
+These conditions describe a particle undergoing an elastic collision.
+The first condition says that the scattering process is elastic; since
+the scatterer takes the form of a potential $V(\mathbf{r})$, its
+interaction with the particle is conservative (i.e., the total energy
+$E$ is fixed).  The second condition, when viewed in the position
+basis, says that the particle's wavefunction $\psi(\mathbf{r}) =
+\langle \mathbf{r} |\psi\rangle$ is a superposition of an incoming
+wavefunction $\psi_i(\mathbf{r}) = \langle \mathbf{r} |\psi_i\rangle$
+and a scattered wavefunction $\psi_s(\mathbf{r}) = \langle \mathbf{r}
+|\psi_s\rangle$.  The third condition tells us that far away from the
+scatterer ($|\mathbf{r}|\rightarrow \infty$), the incident
+wavefunction $\psi_i(\mathbf{r})$ has a wavelength consistent with the
+specified energy $E$.  Finally, $\psi_s(\mathbf{r})$ must describe
+a wave that is moving outwards from the scatterer, not inwards.
+
+Given $|\psi_i\rangle$ (and hence $E$) along with $V(\mathbf{r})$, we
+are to solve for $|\psi_s\rangle$.  Note that \textit{this is not an
+  eigenproblem}!  Usually, when dealing with the time-independent
+Schr\"odinger equation, we solve for the energy eigenvalues and
+eigenstates.  But here, $E$ is not an output of the calculation, but
+part of the input---it describes the energy of the incoming particles
+in the experiment.
+
+\subsection{Recap: position and momentum states}
+
+Before proceeding, let us review the definitions of position and
+momentum states.
+
+In a $d$-dimensional space, a coordinate vector $\mathbf{r}$ is a real
+vector of $d$ components.  A quantum particle can be described by the
+position basis---a set of quantum states $\{|\mathbf{r}\rangle\}$, one
+for each possible $\mathbf{r}$.  (The $\mathbf{r}$'s form a continuum,
+and so, like the real numbers, this set of states is uncountably
+infinite.)  For a particle trapped in a finite region (e.g., a
+particle in a box), we only consider $\mathbf{r}$ in that region;
+otherwise, $\mathbf{r}$ can be anywhere in the space.  In either case,
+we assume that $\{|\mathbf{r}\rangle\}$ spans the particle's state
+space, so the identity operator can be resolved as
+$$\hat{I} = \int d^dr \, |\mathbf{r}\rangle \,\langle\mathbf{r}|,$$
+where the integral is taken over the allowed $\mathbf{r}$'s (i.e., a
+finite region for a trapped particle, or infinite space otherwise).
+It follows that the position eigenstates are delta-function
+normalized:
+$$\langle \mathbf{r} | \mathbf{r}' \rangle = \delta^d(\mathbf{r}-\mathbf{r}').$$
+Note that $\delta^d(\cdots)$ denotes the $d$-dimensional delta
+function.  For example, in 2D,
+$$\langle x,y \,|\, x',y' \rangle = \delta(x-x') \, \delta(y-y').$$
+The position operator $\hat{\mathbf{r}}$ is the operator that has
+$\{|\mathbf{r}\rangle\}$ as its eigenstates:
+$$\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\, |\mathbf{r}\rangle.$$
+
+We now move on to momentum eigenstates, which are related to position
+eigenstates by Fourier transforms.  First, let the allowed region of
+space be a box of finite length $L$ on each side, and periodic boundary
+conditions in every direction.  Define the set of wave-vectors
+$\mathbf{k}$ corresponding to plane waves that satisfy the periodic
+boundary conditions at the boundaries of the box:
+$$\Big\{\mathbf{k}  \; \Big| \; k_j = 2\pi m/L, \,m\in\mathbb{Z}, \;\text{for each} \; j = 1, \dots,d\, \Big\}.$$
+Note that the $\mathbf{k}$'s form a discrete set, not a continuum;
+this is because $L$ is finite.  Next, we define
+$$|\mathbf{k}\rangle = \frac{1}{L^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle,$$
+where the integral is taken over the box.  These states
+can be shown to have the following properties:
+$$\langle\mathbf{k}|\mathbf{k}'\rangle = \delta_{\mathbf{k},\mathbf{k}'}, \quad \langle\mathbf{r}|\mathbf{k}'\rangle = \frac{1}{L^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \sum_{\mathbf{k}} |\mathbf{k}\rangle\,\langle\mathbf{k}|.$$
+
+We now take the limit of an infinite box.  With increasing $L$, the
+set of $\mathbf{k}$'s gets denser and denser, and in the $L
+\rightarrow \infty$ limit they merge to form a continuum, like the
+$\mathbf{r}$'s.  We keep the above definition for
+$|\mathbf{k}\rangle$, except that we change the normalization as
+follows:
+$$|\mathbf{k}\rangle \rightarrow \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle.$$
+Then, in the $L\rightarrow\infty$ limit, we get
+$$\boxed{\begin{aligned} |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \\ |\mathbf{r}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{-i\mathbf{k}\cdot\mathbf{r}} |\mathbf{k}\rangle, \\\langle\mathbf{k}|\mathbf{k}'\rangle = \delta^d(\mathbf{k}-\mathbf{k}'),& \quad \langle\mathbf{r}|\mathbf{k}\rangle = \frac{1}{(2\pi)^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \int d^dk \;|\mathbf{k}\rangle\,\langle\mathbf{k}|,\end{aligned}}$$
+where the integrals are now taken over infinite space.  The
+derivations for the above equations make frequent use of the formula
+$$\int_{-\infty}^\infty dx\; \exp(ikx) \;=\; 2\pi\delta(k).$$
+Finally, the momentum operator is defined as an operator that has
+$\{|\mathbf{k}\rangle\}$ as its eigenstates:
+$$\hat{\mathbf{p}} |\mathbf{k}\rangle \,=\, \hbar \mathbf{k}\, |\mathbf{k}\rangle.$$
+
+Given an arbitrary quantum state $|\psi\rangle$, a wavefunction is
+defined as the projection onto the position basis: $\psi(\mathbf{r}) =
+\langle \mathbf{r}|\psi\rangle$.  Using the above equations, we can
+show that
+$$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle &=  \int d^dk \; \langle\mathbf{r}|\mathbf{k}\rangle \; \hbar\mathbf{k} \; \langle\mathbf{k}|\psi\rangle \\ &=  \int \frac{d^dk}{(2\pi)^{d/2}}\; \hbar\mathbf{k} \;e^{i\mathbf{k}\cdot\mathbf{r}} \langle\mathbf{k}|\psi\rangle \\ &=  -i\hbar\nabla \int \frac{d^dk}{(2\pi)^{d/2}}\; \;e^{i\mathbf{k}\cdot\mathbf{r}} \langle\mathbf{k}|\psi\rangle \\ &= -i\hbar \nabla\psi(\mathbf{r}).\end{aligned}$$
+This result can also be used to prove Heisenberg's commutation relation
+$[\hat{r}_i, \hat{p}_j] = i\hbar\delta_{ij}$.
+
+[Discuss normalization]
+
+\subsection{Scattering from a 1D delta-function potential}
+
+We are now ready to solve our first scattering problem.  Consider a
+one-dimensional space with spatial coordinate denoted by $x$, and a
+scattering potential that consists of a ``spike'' at $x = 0$:
+$$V(x) = \frac{\hbar^2\gamma}{2m} \,\delta(x).$$
+The form of the prefactor $\hbar^2\gamma/2m$ is chosen for later
+convenience; the parameter $\gamma$, which has units of $[1/x]$,
+controls the strength of the scattering potential.
+
+You might be disturbed by the idea of a delta function potential, as
+it is singular.  But the delta function can be regarded as a limiting
+case of a family of non-singular functions (e.g., increasingly tall
+and narrow gaussians).  For the Schr\"odinger wave equation with a
+non-singular potential, a solution $\psi(x)$ must be continuous, with
+well-defined first and second derivatives.  In the delta function
+limit, $\psi(x)$ remains continuous, but at $x = 0$ its first
+derivative becomes discontinuous and the second derivative becomes
+singular.  To verify this, integrate the Schr\"odinger wave equation
+over an infinitesimal range around $x = 0$:
+$$\begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0\\ \Rightarrow \;\; \lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right\}  &=  \gamma \,\psi(0).\end{aligned}$$
+
+To proceed, we consider a particle incident from the left, with
+energy $E$.  This can be described by an incident state proportional
+to a momentum eigenstate $|k_i\rangle$, where $k_i > 0$ and $E =
+\hbar^2k_i^2/2m$.  We said ``proportional'', not ``equal'', as it
+is conventional to normalize the incident state as follows:
+$$|\psi_i\rangle = \sqrt{2\pi}\Psi_i |k_i\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik_i x}.$$
+The constant $\Psi_i$ is called the ``incident amplitude''; its
+physical meaning will be discussed later.  Plug this into the
+Schr\"odinger wave equation:
+$$\left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \left(\Psi_i \, e^{ikx} + \psi_s(x) \right) = E \left(\Psi_i \, e^{ikx} + \psi_s(x) \right)$$
+Taking $E = \hbar^2k_i^2/2m$, and doing a bit of algebra, simplifies this to
+$$\left[ \frac{d^2}{dx^2} + k_i^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).$$
+This has the form of an inhomogenous ordinary differential equation (ODE)
+for $\psi_s(x)$, with the potential term on the right acting
+as a ``driving term''.  To find the solution, consider the two regions $x <
+0$ and $x > 0$.  Since $\delta(x) \rightarrow 0$ for $x \ne 0$, the
+equation in each half-space reduces to
+$$\left[\frac{d^2}{dx^2} + k_i^2\right] \psi_s(x) = 0.$$
+This second-order ODE is called the Helmholtz equation.  Its general
+solution can be written as
+$$\psi_s(x) = \Psi_i \left(f_1 e^{ik_i x} + f_2 e^{-ik_i x}\right),$$
+where $f_1$ and $f_2$ are arbitrary complex constants.  These
+constants can have different values in the two regions $x < 0$ and $x
+> 0$.
+
+We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, moving away
+from the scatterer towards infinity.  So, it should be purely
+left-moving for $x < 0$, and purely right-moving for $x > 0$.  To
+achieve this, we let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for $x > 0$,
+so that $\psi_s(x)$ has the form
+$$\psi_s(x) = \Psi_i \times \begin{cases}f_L \,e^{-ik_ix}, & x < 0 \\ f_R \,e^{ik_ix}, & x > 0.\end{cases}$$
+Moreover, we argued earlier that the total wavefunction $\psi(x)$ must
+be continuous everywhere, including at $x = 0$.  Since $\psi_i(x)$ is
+continuous, $\psi_s(x)$ must be as well, which means we must take $f_L
+= f_R = f$.  The scattered wavefunction thus simplifies even more:
+$$\psi_s(x) = \Psi_i f \,e^{ik_i|x|} \;\;\; \Rightarrow \;\;\; \psi(x) = \Psi_i \left(e^{ik_i x} + f \,e^{ik_i|x|}\right).$$
+From this, we see that the variable $f$ describes the magnitude and
+phase of the scattered wavefunction, relative to the incident
+wavefunction.  We call $f$ the \textbf{scattering amplitude}.
+
+To calculate $f$, we use the equation
+$$\lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right\}  =  \gamma\, \psi(0),$$
+which was derived at the top of this section by integrating the
+Schr\"odinger wave equation across an infinitesimal range around $x =
+0$.  Plugging in our expression for $\psi(x)$ gives
+$$\begin{aligned}\Psi_i\left[ik_i(1+f) - ik_i(1-f)\right]  &=  \Psi_i(1+f) \gamma \\ \Rightarrow \;\;\; f = -\frac{\gamma}{\gamma - 2ik_i}.\end{aligned}$$
+
+As we shall see, both the magnitude and phase of the scattering
+amplitude contain important information.  For now, we focus on the
+former.  The quantity $|f|^2$ describes how strongly the potential
+scatters the particle:
+$$|f|^2 = \frac{1}{1 + \left(\frac{2k_i}{\gamma}\right)^2}.$$
+From this, we can see that for a fixed value of $k_i$ (and thus fixed
+$E$), the scattering becomes stronger with the magnitude of the delta
+function potential: $|f|^2$ increases with $|\gamma|$, approaching the
+limit $|f|^2 \rightarrow 1$ as $|\gamma|\rightarrow \infty$.  Note
+that an attractive potential ($\gamma < 0$) and a repulsive potential
+($\gamma > 0$) are equally effective at scattering the particle.  For
+a fixed potential strength $\gamma$, the scattering strength decreases
+with $k_i$, showing that high-energy particles are less easily
+scattered than low-energy particles.
+
+\subsection{Scattering in 2D and 3D}
+
+We are now ready to describe scattering experiments in spatial
+dimension $d \ge 2$.  Compared to the 1D example from the previous
+section, the $d \ge 2$ cases have similarities as well as important
+differences.  The key difference is that for $d = 1$, the quantum
+particle is restricted to scattering forward or backward, whereas for
+$d \ge 2$, it can scatter sideways.  Thus, the concept of an
+``outgoing'' wavefunction $\psi_s(\mathbf{r})$ must be formulated with
+care.
+
+Far away from the scatterer, where $V(\mathbf{r})\rightarrow 0$, the
+scattered wavefunction satisfies the free-space Schr\"odinger wave
+equation (as does the incident wavefunction):
+$$-\frac{\hbar^2}{2m} \nabla^2 \psi_s(\mathbf{r}) = E \psi_s(\mathbf{r}).$$
+Here, $\nabla^2$ denotes the $d$-dimensional Laplacian.  Let $E =
+\hbar^2 K^2 / 2m$, where $K \in \mathbf{R}^+$ is the wavenumber in
+free space.  Then the above equation can be written as
+$$\left[\nabla^2 + K^2\right] \psi_s(\mathbf{r}) = 0,$$
+which is the Helmholtz equation in $d$-dimensional space.
+
+One set of elementary solutions to the Helmholtz equation are the
+plane waves, $\exp(i\mathbf{k}\cdot\mathbf{r})$, where $|\mathbf{k}| =
+K$.  But plane waves don't capture the concept of an ``outgoing'' wave
+that we need.  So, instead, we use a set of solutions expressed using
+curvilinear coordinates.
+
+In 2D, we can use polar coordinates $(r,\phi)$; then the $r$
+coordinate provides a clear meaning for ``outgoing'' (increasing $r$).
+We look for solutions to the Helmholtz equation that are
+superpositions of separable solutions of the form $A(r)B(\phi)$.
+We'll skip the math details; the result is
+$$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,H_m^\pm(Kr)\,e^{im\phi}.$$
+Each $c_m^\pm$ is a complex coefficient, and $H_m^\pm$ is a special
+function called a Hankel function of the first kind ($+$) or second
+kind ($-$).  Each term in the sum describes a wave component that has a
+definite angular momentum, and is moving either toward or away from the
+origin.  The integer index $m$ specifies the angular momentum, while
+$\pm$ denotes whether it is outgoing ($+$) or incoming ($-$); this is
+because, far from the origin, the Hankel functions reduce to
+$$H_m^\pm(Kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi Kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{ikr}.$$
+
+In 3D, we use spherical coordinates $(r,\theta,\phi)$.  Again skipping
+the math details, the general solution to the Helmholtz equation can
+be written as
+$$\psi(\mathbf{r})=\sum_{\pm}\sum_{l=0}^\infty\sum_{m=-l}^lc_{lm}^\pm\,h_l^\pm(Kr)\,Y_{lm}(\theta,\phi).$$
+The $c$'s are again complex coefficients, each $h_l^\pm$ is a
+spherical Hankel functions, and each $Y_{lm}$ is a spherical harmonic.
+The $l$ and $m$ indices specify the angular momentum of each wave
+component, while $\pm$ denotes if it is outgoing ($+$) or incoming
+($-$); far from the origin,
+$$h_l^\pm(Kr) \overset{r\rightarrow\infty}{\longrightarrow} \frac{1}{Kr}\,\exp\left[\pm i\left(kr-\frac{(l+1)\pi}{2}\right)\right] \;\sim\; r^{-1} e^{ikr}.$$
+
+From this discussion, it is evident that a straightforward way to make
+$\psi_s(\mathbf{r})$ a purely ``outgoing'' wave is to discard the
+incoming ($-$) wave components, keeping only the $+$ terms:
+$$\psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(Kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{lm} c_{lm}^+\,h_l^+(Kr)\,Y_{lm}(\theta,\phi),&d=3.\end{cases}$$
+For large $r$, the outgoing wavefunction's $r$-dependence can be
+written as follows, for general $d$:
+$$\psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} e^{ikr}.$$
+
+For $d > 1$, the magnitude of the wavefunction decreases with distance
+from the origin.  This is to be expected, because with increasing $r$
+an outgoing wave spreads out over a wider area.  To verify this
+intuition, consider the probability current density
+$\mathbf{J} = (\hbar/m) \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right]$;
+its $r$-component is
+$$\begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; kr^{1-d}.\end{aligned}$$
+In $d$ dimensions, the ``area'' of a ``spherical'' wave-front scales
+as $r^{d-1}$, so the probability flux goes as $J_r \,r^{d-1} \sim k$,
+independent of $r$.  Thus, the outgoing solution describes a constant
+probability flux, directed outward from the origin.  Note as well that
+the results for $d=1$ are consistent with our findings from the
+previous section: in 1D, waves do not spread out with distance since
+there is no transverse dimension, and accordingly both $\psi_s$ and
+$J_r$ are independent of the distance traveled.
+
+\subsection{The scattering amplitude and scattering cross section}
+
+Using the results of the previous section, we can systematically
+characterize scattering processes in $d$-dimensional space in the
+following way.  Let the incident wavefunction be a plane wave
+$$\psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}},$$
+where $\Psi_i \in \mathbb{C}$ is the \textbf{incident wave amplitude},
+and $\mathbf{k}_i$ is the incident momentum, which is tied to the
+particle energy $E = \hbar^2|\mathbf{k}_i|^2/2m$.  We adopt
+coordinates $(r,\Omega)$, where $r$ is the distance from the origin.
+For 1D, $\Omega \in \pm$ is the choice of ``forward'' or ``backward''
+from the scatterer; for 2D polar coordinates, $\Omega = \phi$; and for
+3D spherical coordinates, $\Omega = (\theta,\phi)$.  Far from the
+origin, the scattered wavefunction has the form
+$$\psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{i|\mathbf{k}_i|r} \, f(\Omega).$$
+The complex function $f(\Omega)$, called the \textbf{scattering
+  amplitude}, is the principal object of interest in scattering
+experiments.  It describes how the particle gets scattered in various
+directions.  It is dependent on the inputs to the scattering problem,
+including $\mathbf{k}_i$ and the scattering potential.
+
+From the scattering amplitude, we can define two other quantities of
+key interest.  The \textbf{differential scattering cross section} is
+defined as
+$$\frac{d\sigma}{d\Omega} = \big|f(\Omega)\big|^2.$$
+The \textbf{total scattering cross section} is defined as
+$$\sigma = \int d\Omega\; \big|f(\Omega)\big|^2,$$
+where $\int d\Omega$ denotes the integral(s) over all the angle
+coordinates (or, in 1D, a sum over the two directions $\Omega \in
+\pm$).
+
+The term ``cross section'' comes from an analogy with the scattering
+of classical particles.
+
+
+\end{document}
+
+
+%% For decades after the discovery of quantum mechanics, the quantum
+%% double-slit experiment was just a ``thought experiment'', meant to
+%% illustrate the features of quantum mechanics that had been uncovered
+%% by other, more complicated experiments.  Nowadays, the most convenient
+%% way to do the experiment is with light, using single-photon sources
+%% and single-photon detectors.  Quantum interference has also been
+%% demonstrated experimentally using electrons, neutrons, and even
+%% large-scale particles such as buckyballs.
