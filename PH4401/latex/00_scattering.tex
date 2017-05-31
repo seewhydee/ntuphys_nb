@@ -602,16 +602,19 @@ corresponding to the wave-vector $\mathbf{k} = k_i\mathbf{e}_r$.
 Comparing this to the above definition of the scattering amplitude, we
 obtain
 $$f(\mathbf{k}_i\rightarrow k_i\mathbf{e}_r )\; \Psi_i = - \frac{2m}{\hbar^2} \,\sqrt{\frac{\pi}{2}} \; \big\langle k_i \mathbf{e}_r \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle,$$
-where $f(\mathbf{k}\rightarrow \mathbf{k}')$ is used to denote the
-scattering amplitude to scatter from $\mathbf{k}$ to $\mathbf{k}'$.
-We can now plug in the Born series,
-$$\begin{aligned}|\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle, \\
-\end{aligned}$$
+where $f(\mathbf{k}\rightarrow \mathbf{k}')$ denotes the scattering
+amplitude to scatter from $\mathbf{k}$ to $\mathbf{k}'$.  We can now
+plug in
+$$|\psi\rangle = \left(\hat{I} + \hat{G}\hat{V}\right)|\psi_i\rangle,$$
 together with our definition of the incident wavefunction.  The result
 is
-$$\boxed{\;\;\;f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}\big\rangle.\;\;\;}$$
+$$f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}\big\rangle.$$
 
-The above equation is the culmination of the numerous definitions and
+We can also expand $|\psi\rangle$ in terms of the Born series
+$$|\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle,$$
+thus obtaining
+$$\boxed{\;\;\;f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}\big\rangle.\;\;\;}$$
+This equation is the culmination of the numerous definitions and
 sub-derivations of the preceding sections.  On the left side is the
 scattering amplitude, which is the fundamental quantity of interest in
 scattering experiments.  On the right side is an expression involving
@@ -619,13 +622,13 @@ things that are given to us, or that we know how to calculate: the
 initial and final momentum eigenstates, the scattering potential, and
 the free-particle Green's function.
 
-In many cases, it is sufficient to retain just the first term in the
-Born series:
-$$f(\mathbf{k}\rightarrow \mathbf{k}') \approx - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} \big|\mathbf{k}\big\rangle.$$
-This is called the \textbf{first Born approximation} for the
-scattering amplitude.  Physically, this approximation involves keeping
-only the effects of a single scattering event, and discarding multiple
-scattering.
+%% In many cases, it is sufficient to retain just the first term in the
+%% Born series:
+%% $$f(\mathbf{k}\rightarrow \mathbf{k}') \approx - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} \big|\mathbf{k}\big\rangle.$$
+%% This is called the \textbf{first Born approximation} for the
+%% scattering amplitude.  Physically, this approximation involves keeping
+%% only the effects of a single scattering event, and discarding multiple
+%% scattering.
 
 
 
