@@ -26,7 +26,7 @@ screen with a pair of slits.  A detector is positioned on the other
 side of the screen.  By moving the detector around, we can measure the
 rate at which electrons are detected at different positions.
 
-[Fig.]
+\textcolor{red}{[Fig.]}
 
 According to quantum theory, the findings of the experiment are as
 follows: (i) the detector shows electrons arriving in discrete
@@ -73,7 +73,7 @@ position and momentum operators, and $V$ is a \textbf{scattering
 particle.  We assume that the scatterer is finite, so that
 $V(\mathbf{r}) \rightarrow 0$ as $|\mathbf{r}| \rightarrow \infty$.
 
-[Fig.]
+\textcolor{red}{[Fig.]}
 
 We want to prepare an incoming particle state with energy $E$, and see
 how the particle is scattered by the potential.  However, converting
@@ -203,6 +203,8 @@ The form of the prefactor $\hbar^2\gamma/2m$ is chosen for later
 convenience; the parameter $\gamma$, which has units of $[1/x]$,
 controls the strength of the scattering potential.
 
+\textcolor{red}{[Fig.]}
+
 You might be disturbed by the idea of a delta function potential, as
 it is singular.  It helps to think of the delta function as a limiting
 case of a family of non-singular functions (e.g., increasingly tall
@@ -263,6 +265,8 @@ $$\lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x =
 Plugging in our expression for $\psi(x)$ gives
 $$\begin{aligned}\Psi_i\left[ik_i(1+f_\pm) - ik_i(1-f_\pm)\right]  &=  \Psi_i(1+f_\pm) \gamma \\ \Rightarrow \;\;\; f_+ = f_- = -\frac{\gamma}{\gamma - 2ik_i}.\end{aligned}$$
 
+\textcolor{red}{[Fig.]}
+
 As we shall see, both the magnitude and phase of the scattering
 amplitude contain important information.  For now, we focus on the
 former.  The quantity $|f_\pm|^2$ describes the overall strength of
@@ -315,6 +319,8 @@ origin.  The integer index $m$ specifies the angular momentum, while
 $\pm$ denotes whether it is outgoing ($+$) or incoming ($-$); this is
 because, far from the origin, the Hankel functions reduce to
 $$H_m^\pm(Kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi Kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{ikr}.$$
+
+\textcolor{red}{[Fig.]}
 
 In 3D, we use spherical coordinates $(r,\theta,\phi)$.  Again skipping
 the math details, the general solution to the Helmholtz equation can
@@ -401,6 +407,8 @@ wave, which has units of $[x^{-d}]$ (i.e., inverse $d$-dimensional
 $$J_{i} = \frac{\hbar k_i}{m} \;|\Psi_i|^2.$$
 This has units of $[x^{1-d}t^{-1}]$ (i.e., rate per unit ``area'').
 
+\textcolor{red}{[Fig.]}
+
 Now, let us re-imagine this incident flux $J_i$ as a stream of
 classical particles, and the scatterer as a ``hard-body'' scatterer
 that only interacts with those particles striking it directly.  The
@@ -486,6 +494,8 @@ contributing to the result; since the integrals are weighted by $V$,
 those positions where the scattering potential are strongest will
 contribute the most.
 
+\textcolor{red}{[Fig.]}
+
 Each successive term in the Born series involves more scattering
 events, i.e.~more multiples of the scattering potential $\hat{V}$.
 Hence, for a sufficiently weak scatterer it should be a good
@@ -538,7 +548,7 @@ behave in some other way) at infinity.  For us, it turns out that the
 right choice is to move the pole at $-k_i$ infinitesimally downwards,
 and move the pole at $+k_i$ infinitesimally upwards:
 
-[Fig]
+\textcolor{red}{[Fig.]}
 
 This means replacing the denominator of the integrand as
 follows:
@@ -608,12 +618,12 @@ plug in
 $$|\psi\rangle = \left(\hat{I} + \hat{G}\hat{V}\right)|\psi_i\rangle,$$
 together with our definition of the incident wavefunction.  The result
 is
-$$f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}\big\rangle.$$
+$$f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}\big\rangle, \;\;\;\mathrm{where} \;\; |\mathbf{k}| = |\mathbf{k}'|.$$
 
 We can also expand $|\psi\rangle$ in terms of the Born series
 $$|\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle,$$
 thus obtaining
-$$\boxed{\;\;\;f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}\big\rangle.\;\;\;}$$
+$$\boxed{\;\;\;f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}\big\rangle, \;\;\; \;\; |\mathbf{k}| = |\mathbf{k}'|.\;\;\;}$$
 This equation is the culmination of the numerous definitions and
 sub-derivations of the preceding sections.  On the left side is the
 scattering amplitude, which is the fundamental quantity of interest in
@@ -621,6 +631,10 @@ scattering experiments.  On the right side is an expression involving
 things that are given to us, or that we know how to calculate: the
 initial and final momentum eigenstates, the scattering potential, and
 the free-particle Green's function.
+
+\section{First Born approximation for a uniform spherical scatterer}
+
+\textcolor{red}{TBD}
 
 %% In many cases, it is sufficient to retain just the first term in the
 %% Born series:
@@ -630,6 +644,13 @@ the free-particle Green's function.
 %% only the effects of a single scattering event, and discarding multiple
 %% scattering.
 
+\section{Further Reading}
+
+\begin{itemize}
+\item Bransden \& Joachain, \S13.1---13.3 and \S13.5---13.6.
+\item Sakurai, \S7.1--7.3, 7.5--7.6
+
+\end{itemize}
 
 
 \end{document}
