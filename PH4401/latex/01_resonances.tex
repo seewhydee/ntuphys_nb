@@ -14,7 +14,135 @@
 
 \begin{document}
 
-\section{Tunneling}
+\section{Bound states and extended states}
+
+The quantum states of particles in infinite space come in two distinct
+types: \textbf{extended states} (which, as the name suggests, extend
+over the entire space) and \textbf{bound states} (which are localized
+to a particular region of space).  Both types can co-exist in a single
+system.
+
+A simple model containing bound and extended states is the
+\textbf{1D finite potential well}.  Consider the Hamiltonian
+$$\hat{H} = \frac{\hat{p}^2}{2m} - V_0 \,\Theta(a -|\hat{x}|),$$
+where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
+operators, $m$ is the particle mass, $V_0$ and $a$ are positive real
+parameters, and $\Theta$ denotes the Heaviside step function (which
+gives 1 if the input is positive, and 0 otherwise).  The potential
+function describes a square well of depth $V_0$ and width $2a$, whose
+value is $-V_0$ for $|x| < a$ and $0$ for $|x|>a$.
+
+\textcolor{red}{[Fig.]}
+
+We are interested in solutions to the time-independent Schr\"odinger
+equation for this Hamiltonian.  But we will not discuss the solution
+procedure in detail here (if interested, refer to Appendix A).
+Instead, we'll zoom in on certain key features.
+
+When solving the Schr\"odinger equation, we must choose boundary
+conditions at infinity.  The choice depends on whether we're looking
+for a bound or extended state.  A bound state's wavefunction
+diminishes exponentially as $x \rightarrow \pm\infty$: in either
+external region (i.e., $x < -a$ or $x > a$), it satisfies
+$$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),$$
+subject to the boundary conditions
+$$\psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.$$
+Therefore, the solutions in the external regions take the form
+$$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E.$$
+Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
+0$.  Furthermore, the variational principle implies that $E \ge -V_0$,
+so we conclude that bound state energies are restricted to the range
+$-V_0 \le E < 0$.  Moreover, it can be shown that the bound state
+energies form a \textit{discrete} set within this range; the energy
+spacing decreases with increasing $a$, but is larger than zero so long
+as $a$ is finite (similar to the particle-in-a-box problem).  Thus,
+the total number of bound states is finite.
+
+Each bound state wavefunction takes the form
+$$\psi(x) = \begin{cases} c_-\, e^{\kappa x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ c_+\, e^{-\kappa x} , & \;\;\,x > a.\end{cases}$$
+Since $|\psi(x)|^2$ vanishes exponentially as $x \rightarrow \pm
+\infty$, such a wavefunction can always be normalized:
+$$\int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.$$
+
+An extended state, by contrast, does not vanish exponentially at
+infinity; it takes the form
+$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
+Within each external region, $\psi(x)$ consists of a superposition of
+left-moving and right-moving plane waves of wavenumber $k \in
+\mathbb{R}$.  In order to satisfy Schr\"odinger's equation, $k$
+satisfies
+$$\frac{\hbar^2k^2}{2m} = E,$$
+which means that extended states occur only for energies $E \ge 0$.
+In fact, the solutions form a continuum, meaning that there are
+extended states for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$
+does not diminish exponentially at infinity, $\int_{-\infty}^\infty
+|\psi(x)|^2\, dx$ cannot converge to a finite value, except in the
+trivial case where the integrand scales to zero.  Hence, the
+wavefunction of an extended state has no finite normalization.  (Note:
+we formally exclude the case of wavefunctions that blow up at
+infinity, rather than going to a constant magnitude.  To understand
+why, and for a more rigorous discussion of how extended states are
+normalized, see Appendix B.)
+
+The above results are summarized in the following figure:
+
+\textcolor{red}{[Fig.]}
+
+For the energy range ``inside'' the potential well, $-V_0 < E < 0$,
+there is a discrete and finite set of bound states, whose
+wavefunctions vanish exponentially outside the well and are
+normalizable.  For $E \ge 0$, there is a continuum of extended states,
+which have wavefunctions that are spread out over the entire space and
+do not have any finite normalization.
+
+\section{Quasi-bound states}
+
+For the finite potential well studied in the previous section, the
+bound states and extended states are extremely different from each
+other.  But under certain circumstances, an extended state can take on
+characteristics that make it very similar to a bound state.  Such
+states are called \textbf{quasi-bound states}, and as we shall see,
+they play an incredibly important role in various types of scattering
+experiments.
+
+An example of a potential that supports quasi-bound states is shown
+below.  It consists of a ``wall'' of potential $V_1$, in which we
+embed a shallow well of potential $V_0$.  In the external region, the
+potential goes to zero.  Since $V_0, V_1 > 0$, there do not exist any
+bound states.
+
+\textcolor{red}{[Fig.]}
+
+Although there are no bound states, the situation in the energy range
+$V_0 < E < V_1$ seems peculiar.
+
+
+
+
+
+
+\appendix
+\section{Transfer matrix method for solving the Schr\"odinger equation}
+
+
+\section{Normalization of bound states and extended states}
+
+In this Appendix, we take a closer look at where bound and extended
+states come from, and how they are normalized.  Imagine that instead
+of taking $x \in (-\infty,\infty)$, we enclose the system in a very
+large but finite box, so that $x \in [-L,L]$ where $L \gg a$.  We
+impose periodic boundary conditions on the box walls, $\psi(-L) \equiv
+\psi(L)$, and solve the Schr\"odinger equation for wavefunctions
+normalizable within the box, such that $\int_{-L}^{L} |\psi(x)|^2 dx =
+1$.  For any finite $L$, there is an infinite but discrete set of
+solutions, with energies in the range $-V_0 <E < \infty$.
+
+We now examine how the solutions vary upon increasing $L$.
+
+\textcolor{red}{[Fig.]}
+
+
+
 
 
 \section{Further Reading}
