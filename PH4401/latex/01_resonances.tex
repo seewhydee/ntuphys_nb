@@ -16,13 +16,13 @@
 
 \section{Bound states and extended states}
 
-The quantum states of particles in infinite space come in two distinct
-types: \textbf{extended states} (which, as the name suggests, extend
-over the entire space) and \textbf{bound states} (which are localized
-to a particular region of space).  Both types can co-exist in a single
-system.
+One of the most interesting features of wavefunctions in infinite
+space is that they come in two distinct types: (i) \textbf{extended
+  states}, which are spread out over the entire space, and (ii)
+\textbf{bound states}, which are localized to a particular region.
+Both types can co-exist in a single system.
 
-A simple model containing bound and extended states is the
+A simple model which contains both bound and extended states is the
 \textbf{1D finite potential well}.  Consider the Hamiltonian
 $$\hat{H} = \frac{\hat{p}^2}{2m} - V_0 \,\Theta(a -|\hat{x}|),$$
 where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
@@ -35,37 +35,40 @@ value is $-V_0$ for $|x| < a$ and $0$ for $|x|>a$.
 \textcolor{red}{[Fig.]}
 
 We are interested in solutions to the time-independent Schr\"odinger
-equation for this Hamiltonian.  But we will not discuss the solution
-procedure in detail here (if interested, refer to Appendix A).
-Instead, we'll zoom in on certain key features.
+equation for this Hamiltonian.  The solution procedure will not be
+discussed in detail here; if interested, refer to Appendix A.
+Instead, let's zoom in on certain key facts.
 
-When solving the Schr\"odinger equation, we must choose boundary
-conditions at infinity.  The choice depends on whether we're looking
-for a bound or extended state.  A bound state's wavefunction
-diminishes exponentially as $x \rightarrow \pm\infty$: in either
-external region (i.e., $x < -a$ or $x > a$), it satisfies
+First of all, note that when solving the Schr\"odinger wave equation,
+it's necessary for us to specify the boundary conditions at infinity.
+What choice we make affects whether we get a bound state or extended
+state.  A bound state has a wavefunction that diminishes exponentially
+as $x \rightarrow \pm\infty$: in either external region (i.e., $x <
+-a$ or $x > a$), it satisfies
 $$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),$$
 subject to the boundary conditions
 $$\psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.$$
 Therefore, the solutions in the external regions take the form
-$$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E.$$
+$$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.$$
 Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
-0$.  Furthermore, the variational principle implies that $E \ge -V_0$,
-so we conclude that bound state energies are restricted to the range
-$-V_0 \le E < 0$.  Moreover, it can be shown that the bound state
-energies form a \textit{discrete} set within this range; the energy
-spacing decreases with increasing $a$, but is larger than zero so long
-as $a$ is finite (similar to the particle-in-a-box problem).  Thus,
-the total number of bound states is finite.
+0$.  Also, the variational principle implies that $E \ge -V_0$, so we
+conclude that bound state energies are restricted to the range $-V_0
+\le E < 0$.  It can furthermore be shown that the bound state energies
+are \textit{discrete}; similar to a particle-in-a-box problem, the
+energy spacing decreases with increasing $a$, but so long as $a$ is
+finite the spacing is larger than zero.
 
-Each bound state wavefunction takes the form
+A bound state wavefunction takes the form
 $$\psi(x) = \begin{cases} c_-\, e^{\kappa x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ c_+\, e^{-\kappa x} , & \;\;\,x > a.\end{cases}$$
-Since $|\psi(x)|^2$ vanishes exponentially as $x \rightarrow \pm
-\infty$, such a wavefunction can always be normalized:
+The formula for $\psi(x)$ inside the well don't concern us right now.
+The main point is that since $|\psi(x)|^2$ vanishes exponentially as
+$x \rightarrow \pm \infty$, the wavefunction can always be
+normalized:
 $$\int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.$$
 
-An extended state, by contrast, does not vanish exponentially at
-infinity; it takes the form
+The situation is quite different for an extended state.  Its
+wavefunction does not vanish exponentially at infinity, but instead
+takes the form
 $$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
 Within each external region, $\psi(x)$ consists of a superposition of
 left-moving and right-moving plane waves of wavenumber $k \in
@@ -73,7 +76,7 @@ left-moving and right-moving plane waves of wavenumber $k \in
 satisfies
 $$\frac{\hbar^2k^2}{2m} = E,$$
 which means that extended states occur only for energies $E \ge 0$.
-In fact, the solutions form a continuum, meaning that there are
+In fact, the solutions form a continuum, meaning that we can find
 extended states for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$
 does not diminish exponentially at infinity, $\int_{-\infty}^\infty
 |\psi(x)|^2\, dx$ cannot converge to a finite value, except in the
@@ -88,9 +91,9 @@ The above results are summarized in the following figure:
 
 \textcolor{red}{[Fig.]}
 
-For the energy range ``inside'' the potential well, $-V_0 < E < 0$,
-there is a discrete and finite set of bound states, whose
-wavefunctions vanish exponentially outside the well and are
+For $-V_0 < E < 0$, which is the energy range ``inside'' the potential
+well, there exists a discrete and finite set of bound states, whose
+wavefunctions vanish exponentially outside the well and are therefore
 normalizable.  For $E \ge 0$, there is a continuum of extended states,
 which have wavefunctions that are spread out over the entire space and
 do not have any finite normalization.
