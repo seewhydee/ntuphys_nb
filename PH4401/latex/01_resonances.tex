@@ -29,8 +29,9 @@ where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
 operators, $m$ is the particle mass, $V_0$ and $a$ are positive real
 parameters, and $\Theta$ denotes the Heaviside step function (which
 gives 1 if the input is positive, and 0 otherwise).  The potential
-function describes a square well of depth $V_0$ and width $2a$, whose
-value is $-V_0$ for $|x| < a$ and $0$ for $|x|>a$.
+function describes a square well of depth $V_0$ and width $2a$.
+Inside the well region ($|x| < a$), the potential is $-V_0$; outside,
+it is zero.
 
 \textcolor{red}{[Fig.]}
 
@@ -71,9 +72,10 @@ wavefunction does not vanish exponentially at infinity, but instead
 takes the form
 $$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
 Within each external region, $\psi(x)$ consists of a superposition of
-left-moving and right-moving plane waves of wavenumber $k \in
-\mathbb{R}$.  In order to satisfy Schr\"odinger's equation, $k$
-satisfies
+left-moving and right-moving plane waves.  The coefficients
+$\alpha_\pm$ and $\beta_\pm$ are related by a scattering matrix, as we
+saw in the previous chapter.  In order to satisfy Schr\"odinger's
+equation, the wavenumber $k$ must satisfy
 $$\frac{\hbar^2k^2}{2m} = E,$$
 which means that extended states occur only for energies $E \ge 0$.
 In fact, the solutions form a continuum, meaning that we can find
@@ -99,28 +101,29 @@ The above results are summarized in the following figure:
 
 Many of the lessons drawn from this square well model can be
 generalized to more complicated potential wells, so long as (i) the
-potential at infinity is some finite value $V_\infty$ and (ii) the
-potential describes a ``well'' (i.e., it has some minimum value
-$V_{\mathrm{min}} < V_\infty$).  For energies $E \ge V_\infty$, there
-will exist a continuum of extended (non-normalizable) states.  And for
-$V_{\mathrm{min}} < E < V_\infty$, there can exist a discrete set of
-bound (normalizable) states.
+potential at infinity is some finite value $V_{\textrm{ext}}$ and (ii)
+the potential describes a ``well'' (i.e., it has some minimum value
+$V_{\mathrm{min}} < V_{\textrm{ext}}$).  For energies $E \ge
+V_{\textrm{ext}}$, there will exist a continuum of extended
+(non-normalizable) states.  And for $V_{\mathrm{min}} < E <
+V_{\textrm{ext}}$, there can exist a discrete set of bound
+(normalizable) states.
 
-There are, however, two important provisos.  Firstly, the set of bound
-states might be empty: it is possible for a potential well to be ``too
-shallow'' to support a bound state.  This is observable in the simple
-square well model, which turns out to have no bound state if
-\textcolor{red}{[???]} (see Appendix A).  An intuitive explanation is
-that all quantum wavefunctions possess some ``zero-point'' energy, and
-if this exceeds the well depth then no bound state can form.
-Secondly, it is in fact possible for bound states to occur for
-energies $E \ge V_\infty$.  These special solutions are called ``bound
-states in the continuum'', since they lie in the same energy range as
-the continuum of extended states.  Such a phenomenon happens only
-under special circumstances, and lies outside the scope of the present
-discussion.
+There are, however, two important provisos.  The first is that the set
+of bound states might be empty: it is possible for a potential well to
+be ``too shallow'' to support a bound state.  This is observable in
+the simple square well model, which turns out to have no bound state
+if \textcolor{red}{[???]} (see Appendix A).  An intuitive explanation
+is that all quantum wavefunctions possess some ``zero-point'' energy,
+and if this exceeds the well depth then no bound state can form.  The
+second proviso is that in certain cases, it turns out to be possible
+to have bound states with energy $E \ge V_{\textrm{ext}}$.  These are
+called ``bound states in the continuum'', since they lie in the same
+energy range as the continuum of extended states.  We will ignore this
+phenomenon, since it happens only under special circumstances that lie
+outside the scope of the present discussion.
 
-\section{Quasi-bound states}
+\section{Quasi-bound states and scattering resonances}
 
 The bound states and extended states of the finite square well are
 extremely different from each other.  But under certain circumstances,
@@ -129,21 +132,42 @@ similar to bound states.  These are called \textbf{quasi-bound
   states}, and as we shall see, they play an especially important role
 in scattering experiments.
 
-An example of a potential that supports quasi-bound states is shown
-below.  It consists of a ``wall'' of potential $V_1$, in which we
-embed a shallow well of potential $V_0$.  We'll assume that the
-potential goes to zero in the external region.
+An example of a potential function that supports quasi-bound states is
+shown below.  The potential in the external regions is
+$V_{\textrm{ext}} = 0$.  There is a ``wall'' of potential $V_1$, in
+which we embed a central well of potential $V_0$.
 
 \textcolor{red}{[Fig.]}
 
-Since the potential is everywhere positive ($V_0, V_1 > 0$), this
-system does not support any bound states---all energy eigenstates are
-extended.  However, there's something peculiar about the energy range
-$V_0 < E < V_1$.
+Since $V_0, V_1 > V_{\mathrm{ext}}$, we know from the preceding
+discussion that the system does not support any bound states, only
+extended states.
+
+However, there's something intriguing about the energy range $V_0 < E
+< V_1$, corresponding to the central well.  Suppose that we set the
+external potential as $V_{\mathrm{ext}} = V_1$ rather than
+$V_{\mathrm{ext}} = 0$.  Then the central well could support bound
+states, with wavefunctions that are exponentially localized to the
+central well region.  Since this scenario differs from the actual
+scenario only in the value of $V_{\mathrm{ext}}$, and the bound state
+wavefunctions are exponentially suppressed in the external region
+anyway, it follows that the bound states in the $V_{\mathrm{ext}} =
+V_1$ system are \textit{approximately} energy eigenstates of the
+$V_{\mathrm{ext}} = 0$ system.
+
+Turning this argument around, we expect there to exist certain
+extended states in the $V_{\mathrm{ext}} = 0$ system whose
+wavefunctions look a lot like bound states.  To see if this is true,
+we calculate the scattering amplitudes $f_\pm$ (defined in the
+previous chapter).  The results are shown below:
 
 
 
+Green's function analysis
 
+\section{Decay rate of a quasi-bound state: Fermi's Golden Rule}
+
+\section{The decay spectrum of beta particles}
 
 
 \appendix
