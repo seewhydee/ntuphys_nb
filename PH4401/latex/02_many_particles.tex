@@ -1,0 +1,134 @@
+\documentclass[pra,11pt]{revtex4}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{mathrsfs}
+
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0.07in}
+
+\begin{document}
+
+\section{Entangled quantum states}
+
+So far, we have studied quantum mechanical systems consisting of
+single particles.  The next important step is to look at systems
+containing more than one particle.  As we shall see, the postulates of
+quantum mechanics have interesting implications which only show up in
+multi-particle systems, such as the phenomenon of quantum
+entanglement.
+
+In the following discussion, you may assume that we are dealing with
+systems of ``distinguishable'' particles.  A simple example of such a
+system is a two-particle system containing different types of
+particles, like a proton and a neutron.  There is a separate set of
+considerations to take into account whenever we're dealing with
+systems of ``identical'' particles, such as a system composed of two
+electrons, where the electrons cannot be distinguished from each other
+even in principle.  We will spend the next chapter dealing with those
+special complications.  If you're not sure what this paragraph is
+talking about, don't worry; just read on.
+
+We begin by considering a system of two particles, labeled $A$ and
+$B$.  If each individual particle is treated as a quantum system, then
+according to the usual postulates of quantum mechanics, its state is
+described by a vector in some complex Hilbert space.  Let
+$\mathscr{H}_A$ and $\mathscr{H}_B$ denote the respective Hilbert
+spaces for these two particles.  When the two particles are considered
+as a single quantum system, that system has its own Hilbert space,
+denoted by
+$$\mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.$$
+The symbol $\otimes$ refers to a mathematical operation known as the
+\textbf{tensor product}, which is a way of combining two Hilbert
+spaces to form a larger Hilbert space.
+
+The mathematical meaning of the tensor product is as follows.  Suppose
+$\mathscr{H}_A$ can be spanned by an orthonormal basis
+$\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle, \dots\}$, and
+$\mathscr{H}_B$ can be spanned by $\{|\nu_1\rangle, |\nu_2\rangle,
+|\nu_3\rangle, \dots\}$.  Then the tensor product space $\mathscr{H}_A
+\otimes \mathscr{H}_B$ can be defined in terms of the basis set
+$$\Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \Big| \;\; \textrm{all}\;|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.$$
+Intuitively, this means that if you know particle $A$ is in state
+$|\mu_i\rangle$, and particle $B$ is in state $|\nu_j\rangle$, that
+specifies a state of the combined system.  A complete basis set for
+the combined system can be constructed in this way.  Note that if
+$\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has dimension
+$d_B$, then $\mathscr{H}_A \otimes \mathscr{H}_B$ has dimension $d_A
+d_B$.
+
+Any two-particle state can then be written as
+$$|\psi\rangle = \sum_{i} \sum_{j} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.$$
+The inner product for tensor product basis states is defined in terms
+of the inner product of the individual spaces:
+$$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \big(\langle\mu_i| \otimes \langle\nu_j| \big) \big(|\mu_p\rangle \otimes |\nu_q\rangle\big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle.$$
+In other words, if you need to multiply a tensor product bra with a
+tensor product ket, the procedure is to (i) do the bra-ket product for
+the first slot, (ii) do the bra-ket product for the second slot, and
+(iii) multiply the results together.
+
+As an example, suppose that both $\mathscr{H}_A$ and $\mathscr{H}_B$
+are two-dimensional Hilbert spaces describing spin-$\frac{1}{2}$
+degrees of freedom, such that each can be spanned by an orthonormal basis
+$\{\,|\!\uparrow\rangle, \,|\downarrow\rangle \, \}$.  Then the tensor
+product space $\mathscr{H}$ is spanned by
+$$\Big\{\;|\uparrow\rangle\otimes|\uparrow\rangle\,,\; |\uparrow\rangle\otimes|\downarrow\rangle\,,\; |\downarrow\rangle\otimes|\uparrow\rangle\,,\; |\downarrow\rangle\otimes|\downarrow\rangle \;\Big\}.$$
+The dimension of $\mathscr{H}$ is $2 \times 2 = 4$.  
+
+At this point, we must make an extremely crucial observation.  As
+mentioned, if we specify that particle $A$ is in state $|\mu_i\rangle$
+and particle $B$ is in state $|\nu_j\rangle$, that specifies a state
+of the combined system.  But the reverse is not true!  \textit{Some
+  states of the combined system cannot be expressed by simply stating
+  the individual particle states.}  For example, take the previous
+example of two spaces describing spin-$\frac{1}{2}$ degrees of
+freedom, and consider the two-particle state
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\uparrow\rangle\otimes|\downarrow\rangle \,-\, |\downarrow\rangle\otimes|\uparrow\rangle\Big).$$
+
+\section{The Einstein-Podolsky-Rosen ``paradox''}
+
+
+\section{Bell's inequalities}
+
+\section{Entanglement as a resource: quantum cryptography}
+
+\section{The Many-Worlds Interpretation}
+
+\section{Exercises}
+
+%% \begin{enumerate}
+%% \item Phase shift under scattering resonance
+
+%% \item Classical driven oscillator analogy  
+%% \end{enumerate}
+
+
+
+
+\section{Further Reading}
+
+%% \begin{itemize}
+%% \item Bransden \& Joachain, \S4.4, 9.2--9.3, 13.4
+%% \item Sakurai, \S5.6, 7.7--7.8
+
+%% \end{itemize}
+
+
+\end{document}
+
+
+%% For decades after the discovery of quantum mechanics, the quantum
+%% double-slit experiment was just a ``thought experiment'', meant to
+%% illustrate the features of quantum mechanics that had been uncovered
+%% by other, more complicated experiments.  Nowadays, the most convenient
+%% way to do the experiment is with light, using single-photon sources
+%% and single-photon detectors.  Quantum interference has also been
+%% demonstrated experimentally using electrons, neutrons, and even
+%% large-scale particles such as buckyballs.
