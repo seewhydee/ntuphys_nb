@@ -72,32 +72,57 @@ $$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\ran
 In other words, if you need to multiply a tensor product bra with a
 tensor product ket, the procedure is to (i) do the bra-ket product for
 the first slot, (ii) do the bra-ket product for the second slot, and
-(iii) multiply the results together.
+(iii) multiply the results together.  It is straightforward to check
+that this satisfies the usual requirements for an inner product in
+linear algebra (assuming that the inner products for the
+single-particle states are already well-defined).
 
 As an example, suppose that both $\mathscr{H}_A$ and $\mathscr{H}_B$
 are two-dimensional Hilbert spaces describing spin-$\frac{1}{2}$
 degrees of freedom, such that each can be spanned by an orthonormal basis
-$\{\,|\!\uparrow\rangle, \,|\downarrow\rangle \, \}$.  Then the tensor
+$\{\,|\!\uparrow\rangle, \,|\!\downarrow\rangle \, \}$.  Then the tensor
 product space $\mathscr{H}$ is spanned by
-$$\Big\{\;|\uparrow\rangle\otimes|\uparrow\rangle\,,\; |\uparrow\rangle\otimes|\downarrow\rangle\,,\; |\downarrow\rangle\otimes|\uparrow\rangle\,,\; |\downarrow\rangle\otimes|\downarrow\rangle \;\Big\}.$$
+$$\Big\{\;|\!\uparrow\rangle\otimes|\!\uparrow\rangle\,,\; |\!\uparrow\rangle\otimes|\!\downarrow\rangle\,,\; |\!\downarrow\rangle\otimes|\!\uparrow\rangle\,,\; |\!\downarrow\rangle\otimes|\!\downarrow\rangle \;\Big\}.$$
 The dimension of $\mathscr{H}$ is $2 \times 2 = 4$.  
 
 At this point, we must make an extremely crucial observation.  As
 mentioned, if we specify that particle $A$ is in state $|\mu_i\rangle$
 and particle $B$ is in state $|\nu_j\rangle$, that specifies a state
 of the combined system.  But the reverse is not true!  \textit{Some
-  states of the combined system cannot be expressed by simply stating
-  the individual particle states.}  For example, take the previous
-example of two spaces describing spin-$\frac{1}{2}$ degrees of
-freedom, and consider the two-particle state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\uparrow\rangle\otimes|\downarrow\rangle \,-\, |\downarrow\rangle\otimes|\uparrow\rangle\Big).$$
+  states of the combined system cannot be expressed in terms of
+  definite states of the individual particles.}  For example, take the
+previous example of two spaces describing spin-$\frac{1}{2}$ degrees
+of freedom, and consider
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle\otimes|\!\downarrow\rangle \,-\, |\!\downarrow\rangle\otimes|\!\uparrow\rangle\Big).$$
+
+This two-particle state is constructed from two of the basis states of
+the tensor product space,
+$|\!\uparrow\rangle\otimes|\!\downarrow\rangle$ and
+$|\!\downarrow\rangle\otimes|\!\uparrow\rangle$; you can check that
+the factor of $1/\sqrt{2}$ correctly normalizes the state so that
+$\langle\psi|\psi\rangle = 1$.  Evidently, neither particle A nor
+particle B has a definite $|\!\uparrow\rangle$ or
+$|\!\downarrow\rangle$ state.  Furthermore, we shall show rigorously,
+in a later section, that there's \textit{no} choice of basis in which this
+particular quantum state $|\psi\rangle$ can be expressed with
+definite quantum states for each particle.  In other words,
+$$|\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle, \;|\psi_B\rangle.$$
+In such a situation, the two particles are said to be
+\textbf{entangled}.  This means that they cannot individually be
+described by single-particle quantum states; their quantum
+mechanical descriptions are intrinsically ``mixed up'' with one another.
+
+
+\section{Partial measurements}
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
 
 \section{Bell's inequalities}
 
-\section{Entanglement as a resource: quantum cryptography}
+\section{Entanglement entropy}
+
+\section{Quantum cryptography}
 
 \section{The Many-Worlds Interpretation}
 
