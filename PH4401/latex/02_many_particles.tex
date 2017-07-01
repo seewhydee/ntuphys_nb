@@ -112,13 +112,189 @@ In such a situation, the two particles are said to be
 described by single-particle quantum states; their quantum
 mechanical descriptions are intrinsically ``mixed up'' with one another.
 
+For systems of more than two particles, the multi-particle quantum
+states are defined using multiple tensor products.  Suppose we have
+$N$ particles, with single-particle Hilbert spaces $\mathscr{H}_1,
+\mathscr{H}_2, \dots, \mathscr{H}_N$, of dimensionality $d_1, \dots,
+d_N$.  Then the multi-particle Hilbert space is $\mathscr{H} =
+\mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots \otimes
+\mathscr{H}_N$, which has dimensionality $d = d_1 d_2\cdots d_N$.  It
+is interesting to note that the dimensionality of the multi-particle
+Hilbert space scales \textit{exponentially} with the number of
+particles.  For instance, if each single-particle Hilbert space is
+two-dimensional, a $20$-particle system will have a Hilbert space of
+dimensionality $2^{20} =1\,048\,576$.  This means that multi-particle
+quantum systems are able to ``carry'' huge amounts of information,
+compared to classical systems.  That is one of the reasons people are
+excited by the prospect of quantum computing.
 
 \section{Partial measurements}
 
+Let us recall how measurements work in single-particle quantum
+theory.  Suppose a particle is in a quantum state $|\psi\rangle$
+and we perform some measurement $\hat{Q}$.  To figure out the
+measurement outcome probabilities, we first write $|\psi\rangle$ in
+the eigenstate basis of $\hat{Q}$:
+$$|\psi\rangle = \sum_n |n\rangle\,\psi_n, \;\;\mathrm{where}\;\;\hat{Q}|n\rangle = q_n |n\rangle \;\,\textrm{and}\;\, \psi_n = \langle n|\psi\rangle.$$
+For simplicity, let's suppose the eigenvalues are all non-degenerate.
+Then the probability of obtaining the measurement outcome $q_n$ is
+$|\psi_n|^2$, the absolute square of the coefficient of
+$|n\rangle$ in the above formula.  After the measurement, the system
+``collapses'' into state $|n\rangle$, which can be regarded as the
+projection operation
+$$|\psi\rangle \rightarrow \frac{1}{\sqrt{\mathcal{N}}}\; |n\rangle\langle n|\psi\rangle.$$
+The prefactor $\mathcal{N} = |\psi_n|^2$ simply ensures that the new
+state remains normalized; the overall phase has no physical
+significance.
+
+For multi-particle systems, the measurement postulates of quantum
+theory are faced with a new complication: how do we describe a
+measurement that is performed on just one particle?
+
+The generalization turns out to be not so difficult.  Let's again
+consider a system of two particles, with Hilbert spaces
+$\mathscr{H}_A$ and $\mathscr{H}_B$; the two-particle Hilbert space is
+$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  Suppose we
+perform a measurement on particle $A$, described by the operator
+$\hat{Q}$ which acts upon $\mathscr{H}_A$.  We can write any two-particle
+state $|\psi\rangle$ using the eigenvectors of $\hat{Q}$ as a basis
+set for $\mathscr{H}_A$, and an arbitrary basis set for
+$\mathscr{H}_B$:
+$$\begin{aligned}|\psi\rangle &= \sum_{n}\sum_{\mu} |n\rangle\otimes |\mu\rangle \;\psi_{n\mu} \\&= \sum_n |n\rangle\otimes |n'\rangle, \;\;\mathrm{where}\;\,|n'\rangle\equiv \sum_\mu |\mu\rangle \;\psi_{n\mu} \in \mathscr{H}_B.\end{aligned}$$
+Note that unlike the single-particle case, the ``coefficient'' of
+$|n\rangle$ in the basis expansion is not merely a complex number, but
+a vector in the space $\mathscr{H}_B$.  We can proceed by
+analogy.  The probability of obtaining the measurement outcome $q_n$
+should be the ``absolute square'' of this:
+$$\langle n'|n'\rangle = \sum_\mu |\psi_{n\mu}|^2.$$
+After the measurement, the ``collapse'' of the state is described by
+the projection operation
+$$|\psi\rangle \rightarrow \frac{1}{\sqrt{\mathcal{N}}}\; \Big(|n\rangle\langle n|\Big) |\psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\; |n\rangle\otimes |n'\rangle.$$
+Note that the projection operator $|n\rangle\langle n|$ only acts on
+the $\mathscr{H}_A$ part of the two-particle space.  The factor
+$\mathcal{N}$ is again defined so that the resulting state is
+normalized to unity.
+
+Let's work through an explicit example, involving the
+previously-discussed system of two spin-$\frac{1}{2}$ particles, and
+the two-particle entangled state
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle\otimes|\!\downarrow\rangle \,-\, |\!\downarrow\rangle\otimes|\!\uparrow\rangle\Big).$$
+Here, $|\!\uparrow\,\rangle$ and $|\!\downarrow\,\rangle$ denote eigenstates
+of the operator $\hat{S}_z$, with the eigenvalues $+\hbar/2$ and $-\hbar/2$
+respectively.  Let us perform an $S_z$ measurement on particle A.  The
+results are as follows:
+\begin{itemize}
+\item A measurement outcome of $+\hbar/2$ has probability $P_+ = \langle
+  n'|n'\rangle$, where $|n'\rangle =
+  (1/\sqrt{2})\,|\!\downarrow\rangle$.  Hence, $P_+ = 1/2$.  After the
+  measurement, the state collapses to $|\!\uparrow\rangle
+  \otimes|\!\downarrow\rangle$.
+
+\item A measurement outcome of $-\hbar/2$ has probability $P_- = \langle
+  n'|n'\rangle$, where $|n'\rangle =
+  (1/\sqrt{2})\,|\!\uparrow\rangle$.  Hence, $P_- = 1/2$.  After the
+  measurement, the state collapses to $|\!\downarrow\rangle
+  \otimes|\!\uparrow\rangle$.
+\end{itemize}
+In other words, we obtain the two possible results $\pm \hbar/2$ with
+equal probability; in either case, the two-particle state collapses so
+that particle $A$ is in the spin eigenstate corresponding to our
+measurement result, while particle $B$ has the opposite spin.  After
+collapse, the two-particle state is no longer entangled.
+
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
+In 1935, several years after the formulation of quantum mechanics,
+Einstein, Podolsky, and Rosen (EPR) formulated a thought experiment
+known as the \textbf{EPR paradox}, which highlighted the exceptionally
+counter-intuitive features possessed by entangled quantum states.  The
+three authors believed these features meant that quantum theory had to
+be incomplete.  Nowadays, it has been shown that the EPR paradox is
+not actually a paradox; real systems \textit{really do} exhibit the
+strange behaviors described in the thought experiment.
 
-\section{Bell's inequalities}
+The EPR paradox begins with an entangled state, such as the entangled
+spin-$1/2$ systems described in the previous section:
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle\otimes|\!\downarrow\rangle \,-\, |\!\downarrow\rangle\otimes|\!\uparrow\rangle\Big).$$
+As previously discussed, we can measure $\hat{S}_z$ on particle $A$.
+The system collapses into a two-particle state with definite spins: if
+we measured $+\hbar/2$, the collapsed state is $|\!\uparrow\rangle
+\otimes|\!\downarrow\rangle$, and if we measured $-\hbar/2$, the collapsed
+state is $|\!\downarrow\rangle\otimes|\!\uparrow\rangle$.
+
+According to quantum theory, the state collapse happens
+instantaneously, regardless of the distance between the particles.  We
+could prepare the two-particle state in a laboratory and hang on to
+particle $A$, while sending particle $B$ to the Betelgeuse star
+system, 642 light years away.  In principle, this can be done
+carefully to avoid disturbing the two-particle quantum state.  Once
+ready, we can measure $\hat{S}_z$ on particle $A$.  Then the
+two-particle state \textit{instantaneously} collapses.  Right after
+our Earth measurement, if our alien colleague at Betelgeuse measures
+$\hat{S}_z$ on particle $B$, xhe will obtain (with 100\% certainty)
+the opposite of our measurement result.  Yet between the Earth and
+Betelgeuse measurements, there has been no time for any signal to
+travel between the particles, not even at the speed of light.
+
+There are three noteworthy aspects of this state-collapse phenomenon.
+
+First, it dispels popular intuitive ``explanations'' of quantum state
+collapse that involve experimental probes physically disturbing the
+system being measured.  For instance, one story that's sometimes told
+is that measuring a particle's position requires shining a light beam
+on it, or disturbing it in some way; because of this disturbance, the
+particle's momentum becomes uncertain.  The EPR paradox shows that
+such stories don't capture the full weirdness of quantum state
+collapse.  We can collapse a state at Betelgeuse by doing a
+measurement hundreds of light years away!
+
+Second, the experimentalist has control over what kind of measurement
+to perform.  So far, we have considered $\hat{S}_z$ measurements
+performed on particle $A$.  But the Earth experimentalist can choose
+to measure the spin of $A$ along any axis, and this choice affects the
+post-measurement particle states.  For instance, the experimentalist
+might choose to measure $\hat{S}_x$.  In the basis of spin-up and
+spin-down states, this has the matrix representation
+$$\hat{S}_x = \frac{\hbar}{2}\, \begin{pmatrix}0&1\\1&0\end{pmatrix}.$$
+The eigenvalues and eigenvectors are
+$$\begin{aligned}s_x = \;\;\frac{\hbar}{2},\; &\;\;\; |\!\rightarrow\rangle = \frac{1}{\sqrt{2}}\Big(|\!\uparrow\rangle + |\!\downarrow\rangle\Big) \\ s_x = -\frac{\hbar}{2}, &\;\;\; |\!\leftarrow\rangle = \frac{1}{\sqrt{2}}\Big(|\!\uparrow\rangle - |\!\downarrow\rangle\Big).\end{aligned}$$
+Conversely, we can write the $\hat{S}_z$ eigenstates in the $\{|\!\rightarrow\rangle,|\!\leftarrow\rangle\}$ basis:
+$$\begin{aligned}|\!\uparrow\rangle &= \frac{1}{\sqrt{2}}\Big(|\!\rightarrow\rangle + |\!\leftarrow\rangle\Big) \\ |\!\downarrow\rangle &= \frac{1}{\sqrt{2}}\Big(|\!\rightarrow\rangle - |\!\leftarrow\rangle\Big).\end{aligned}$$
+This allows us to write the two-particle entangled state in the
+$\hat{S}_x$ basis:
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\leftarrow\rangle\otimes|\!\rightarrow\rangle \,-\, |\!\rightarrow\rangle\otimes|\!\leftarrow\rangle\Big).$$
+After the Earth measurement, the two particles collapse into definite
+spin states with opposite spins.  However, these are spin states of
+definite $\hat{S}_x$, rather than definite $\hat{S}_z$.
+
+Third, it is important to note that the choice of measurement cannot
+be used to send superluminal signals.  The experimentalist on Earth
+can choose whether to (i) measure $\hat{S}_z$ or (ii) measure
+$\hat{S}_x$, and this choice affects which states particle $B$, at
+Betelgeuse, can collapse into.  If there is a way for the
+experimentalist at Betelgeuse to distinguish between case (i) and case
+(ii), even statistically, this could serve as a method of
+instantaneous communication.
+
+Yet it turns out that the experimentalist at Betelgeuse
+\textit{cannot} distinguish between the two cases.  This is because
+quantum states cannot be observed directly, but only via measurements.
+Suppose the Earth measurement is $\hat{S}_z$, which collapses $B$ to
+either $|\!\uparrow\rangle$ or $|\!\downarrow\rangle$ (each with
+probability 0.5).  If the Betelgeuse experimentalist likewise measures
+$\hat{S}_z$, the outcome will be $+\hbar/2$ or $-\hbar/2$ with equal
+probabilities.  Whereas if the Betelgeuse experimentalist measures
+$\hat{S}_x$, the probabilities are:
+$$\begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!\rightarrow|\!\uparrow\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!\rightarrow|\!\downarrow\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!\leftarrow|\!\uparrow\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!\leftarrow|\!\downarrow\rangle\Big|^2 = \frac{1}{2}.\end{aligned}$$
+This analysis can be repeated for the case where the Earth measurement
+is $\hat{S}_x$.  No matter what, we find that the outcomes of either
+measurement at Betelgeuse always have 50/50 probability.  Thus, even
+though the choice of Earth measurement instantaneously affects the
+\textit{quantum state} at Betelgeuse, there's no \textit{measurement}
+that can be done at Betelgeuse to deduce that choice.  Hence, there is
+no usable communication signal.
+
+\section{Bell's theorem}
 
 \section{Entanglement entropy}
 
