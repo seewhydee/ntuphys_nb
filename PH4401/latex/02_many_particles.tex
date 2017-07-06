@@ -22,8 +22,8 @@ So far, we have studied quantum mechanical systems consisting of
 single particles.  The next important step is to look at systems
 containing more than one particle.  As we shall see, the postulates of
 quantum mechanics have interesting implications which only show up in
-multi-particle systems, such as the phenomenon of quantum
-entanglement.
+multi-particle systems, such as the phenomenon of \textbf{quantum
+  entanglement}.
 
 In the following discussion, you may assume that we are dealing with
 systems of ``distinguishable'' particles.  A simple example of such a
@@ -471,6 +471,43 @@ variables!  For a review of the experimental evidence, see Aspect
 \section{Quantum cryptography}
 
 \section{The Many-Worlds Interpretation}
+
+To conclude this chapter, we discuss a logical but controversial set
+of implications that arise from the phenomenon of quantum
+entanglement.  This is the \textbf{many-worlds interpretation}, a set
+of ideas that cut to the heart of our understanding of quantum theory.
+
+One of the postulates of quantum mechanics, which we have relied on so
+far, is the \textbf{measurement postulate}, which states the
+following: ``If we measure an observable $\hat{A}$, which has
+eigenstate $|a\rangle$ and eigenvalue $a$, and the state prior to
+measurement is $|\psi\rangle$, the probability of obtaining the
+measurement result $a$ is $|\langle a | \psi\rangle|^2$.  If this is
+the result, the quantum state collapses to $|a\rangle$.''
+
+The measurement postulate has two rather strange features.  First, it
+is the only place where randomness, or ``indeterminism'', creeps into
+quantum theory.  The other postulates do not refer to probabilities.
+In particular, the time-dependent Schr\"odinger equation
+$$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle$$
+is completely deterministic: if I tell you the state vector at a
+certain time, $|\psi(t_0)\rangle$, along with the Hamiltonian
+$\hat{H}(t)$, then you can in principle find $|\psi(t)\rangle$ for all
+$t$ by solving the Schr\"odinger equation.  There is no randomness
+involved in doing that calculation.  Another way of saying this is
+that the time evolution operator $U(t,t_0)$, defined by
+$$U(t,t_0)\,|\psi(t_0)\rangle = |\psi(t)\rangle,$$
+always satisfies the unitary property $U^{-1} = U^\dagger$.  By
+contrast, state collapse is \textit{not} a unitary process.
+\textcolor{red}{[How to show?]}  It seems strange that quantum theory
+describes two ways for a quantum state to change, time evolution and
+measurement, which appear be completely distinct.
+
+The second noteworthy feature of the measurement postulate is that it
+is completely silent on the issue of what constitutes a
+``measurement''.
+
+
 
 \section{Exercises}
 
