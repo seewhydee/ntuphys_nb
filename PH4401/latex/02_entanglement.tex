@@ -472,40 +472,78 @@ variables!  For a review of the experimental evidence, see Aspect
 
 \section{The Many-Worlds Interpretation}
 
-To conclude this chapter, we discuss a logical but controversial set
+We conclude this chapter by discussing a logical but controversial set
 of implications that arise from the phenomenon of quantum
-entanglement.  This is the \textbf{many-worlds interpretation}, a set
-of ideas that cut to the heart of our understanding of quantum theory.
+entanglement: the \textbf{many-worlds interpretation} of quantum
+theory.
 
-One of the postulates of quantum mechanics, which we have relied on so
-far, is the \textbf{measurement postulate}, which states the
+One of the postulates of quantum mechanics, which we have heavily
+relied on, is the \textbf{measurement postulate}, which states the
 following: ``If we measure an observable $\hat{A}$, which has
 eigenstate $|a\rangle$ and eigenvalue $a$, and the state prior to
 measurement is $|\psi\rangle$, the probability of obtaining the
 measurement result $a$ is $|\langle a | \psi\rangle|^2$.  If this is
 the result, the quantum state collapses to $|a\rangle$.''
 
-The measurement postulate has two rather strange features.  First, it
-is the only place where randomness, or ``indeterminism'', creeps into
-quantum theory.  The other postulates do not refer to probabilities.
-In particular, the time-dependent Schr\"odinger equation
+The measurement postulate is part of the \textbf{Copenhagen
+  interpretation} of quantum mechanics.  This is how quantum mechanics
+is typically taught, and how physicists think about the theory when
+doing practical, everyday calculations.
+
+However, the measurement postulate has two rather unsatisfactory
+features.  First, it is the only place where randomness, or
+``indeterminism'', creeps into quantum theory.  The other postulates
+do not refer to probabilities.  In particular, the time-dependent
+Schr\"odinger equation
 $$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle$$
 is completely deterministic: if I tell you the state vector at a
 certain time, $|\psi(t_0)\rangle$, along with the Hamiltonian
 $\hat{H}(t)$, then you can in principle find $|\psi(t)\rangle$ for all
-$t$ by solving the Schr\"odinger equation.  There is no randomness
-involved in doing that calculation.  Another way of saying this is
-that the time evolution operator $U(t,t_0)$, defined by
-$$U(t,t_0)\,|\psi(t_0)\rangle = |\psi(t)\rangle,$$
-always satisfies the unitary property $U^{-1} = U^\dagger$.  By
-contrast, state collapse is \textit{not} a unitary process.
-\textcolor{red}{[How to show?]}  It seems strange that quantum theory
-describes two ways for a quantum state to change, time evolution and
-measurement, which appear be completely distinct.
+$t$ by solving the Schr\"odinger equation.  The state evolution
+consists of a smooth, non-random rotation within the Hilbert space.
+By contrast, a measurement causes the state vector to instantaneously
+jump to a randomly-selected value.  It seems strange that quantum
+theory contains two completely different ways for a quantum state to
+change.
 
 The second noteworthy feature of the measurement postulate is that it
-is completely silent on the issue of what constitutes a
-``measurement''.
+doesn't tell us what constitutes a ``measurement''.  Does a
+measurement require a conscious observer?  Surely not: in the words of
+Einstein, could we really believe that the Moon exists only when we
+look at it?  But then what distinguishes a measuring apparatus from an
+apparatus that ``merely'' affects a particle via Schr\"odinger's
+equation?
+
+The many worlds interpretation seeks to resolve these issues by
+positing that \textit{the measurement postulate is \underline{not} a
+  fundamental postulate of quantum mechanics}.  Rather, what we call
+``measurement'' (including state collapse and the seeming randomness
+of measurement results) is an emergent phenomenon that can be
+\textit{derived} by applying the other postulates of quantum
+mechanics---which are entirely deterministic---to complex
+many-particle quantum systems.
+
+The key idea is to use the Schr\"odinger equation to model a
+measurement process, by applying it to a multi-particle quantum system
+containing \textit{both} the particle being measured \textit{and} the
+measurement apparatus itself.  Suppose we have a spin-$1/2$ particle,
+and an apparatus designed to measure $S_z$ (such as a Stern-Gerlach
+apparatus).  The particle's Hilbert space, $\mathscr{H}_p$, is the
+usual 2D complex vector space for a spin-$1/2$ particle.  The Hilbert
+space of the apparatus, $\mathscr{H}_A$, is almost unimaginably
+larger, because it describes the $10^{23}$ or more atoms that make up
+the device.  Nonetheless, we can write the Hilbert space of the
+combined system in the usual way as
+$$\mathscr{H} = \mathscr{H}_p \otimes \mathscr{H}_A.$$
+
+
+Let
+$|\psi_p\rangle$ denote the initial state of the particle, a vector in
+a 2D complex Hilbert space $\mathscr{H}_p$.  As for the apparatus, let
+$|\psi_a\rangle$ denote its initial state, which is a vector in a
+Hilbert space $\mathscr{H}_a$.
+
+
 
 
 
