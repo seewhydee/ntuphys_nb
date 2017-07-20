@@ -506,11 +506,11 @@ $\hat{\rho}(\psi)$, we can define a \textbf{``reduced'' density
   matrix} for subsystem A:
 $$\hat{\rho}_A(\psi) = \mathrm{Tr}_B \,\big[\,\hat{\rho}(\psi)\,\big].$$
 Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace},
-which traces over the Hilbert space of subsystem B.  What's left after
+tracing over the Hilbert space of subsystem B.  What's left after
 this partial trace is an operator acting solely on the Hilbert space
 $\mathscr{H}_A$.
 
-To understand the significance of $\hat{\rho}_A(\psi)$, let us work in
+To understand the meaning of $\hat{\rho}_A(\psi)$, let us work in
 an explicit basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a
 basis for $\mathscr{H}_A$, and $\{|\nu_1\rangle,
 |\nu_2\rangle,\cdots\}$ a basis for $\mathscr{H}_B$.  A given state of
@@ -521,7 +521,7 @@ $$\hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rang
 The density matrix for subsystem A is then obtained by tracing over
 the states of subsystem B:
 $$\begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}$$
-Note that this is evidently Hermitian.
+Note that $\hat{\rho}_A(\psi)$ is clearly Hermitian.
 
 The density matrix for subsystem A contains information about the
 outcome probabilities for \textit{partial} measurements performed on
@@ -576,8 +576,8 @@ complete uncertainty where all microstates are equally probable ($p_i
 = 1/W$ for all $i$), the formula gives $S_{\mathrm{classical}} = k_B
 \ln(W)$, which is the entropy of a microcanonical ensemble in
 statistical mechanics.  For any other distribution of probabilities,
-it can be shown that $S_{\mathrm{classical}}$ lies between these two
-extremes.
+it can be shown that the entropy lies between these two extremes: $0
+\le S_{\mathrm{classical}} \le k_B\ln(W)$.
 
 Entanglement entropy quantifies the uncertainty arising from an
 entangled system's lack of a definite quantum state.  But we need to
@@ -604,17 +604,18 @@ For an unentangled system, we can write $\hat{\rho} =
 $|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$ with eigenvalue
 1; hence, $S = 0$.  Conversely, if we find that a system has $S \ne
 0$, that implies that it is entangled, and lacks a definite quantum
-state.  A state is \textbf{maximally entangled} if the eigenvalues
-(measurement probabilities) are all equal, $p_i' = 1/d$, where $d$ is
-the dimension of the Hilbert space, so that $S = k_B \ln(d)$.  In
-general, the entanglement entropy satisfies $0 \le S \le k_B\ln(d)$.
+state.  A system is \textbf{maximally entangled} if the density matrix
+eigenvalues (measurement probabilities) are all equal, $p_i' = 1/d$,
+where $d$ is the dimension of the Hilbert space, so that $S = k_B
+\ln(d)$.  In general, the entanglement entropy satisfies $0 \le S \le
+k_B\ln(d)$.
 
 Let us apply the entanglement entropy formula to the system of two
 spin-$1/2$ systems and the state
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
 The density matrix for the two-particle system is
 $$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \Big(\langle+z|\otimes\langle-z| \,-\, \langle-z|\otimes\langle+z|\Big).$$
-Tracing over the B subsystem gives the reduced density matrix
+Tracing over the B subsystem gives the reduced density matrix:
 $$\hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).$$
 This can be expressed as a matrix in the
 $\{|\!+z\rangle,|\!-z\rangle\}$ basis:
