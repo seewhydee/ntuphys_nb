@@ -464,45 +464,45 @@ variables!  For a review of the experimental evidence, see Aspect
 \section{Entanglement entropy}
 
 In previous sections, we said that a multi-particle system is
-``entangled'' if it cannot be expressed as definite states of the
-individual particles.  It would be nice to make this statement more
-precise, by formulating an expression for the ``level of
-entanglement'' in any given system.  In fact, physicists have come up
-with several ways to do this; in this section, we will describe the
-most commonly-used one, called \textbf{entanglement entropy}, which is
-closely related to the concept of entropy in statistical mechanics and
-information theory.
+``entangled'' if the individual particles do not have definite quantum
+states.  It would be nice to make this statement more precise, by
+formulating an expression for the level of entanglement in any given
+system.  In fact, physicists have come up with several ways of
+quantifying entanglement; in this section, we will describe the most
+commonly-used one, called \textbf{entanglement entropy}, which is
+closely related to the concept of entropy in thermodynamics,
+statistical mechanics, and information theory.
 
 Consider a quantum system with a $d$-dimensional Hilbert space
 $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
 \mathscr{H}$, we can define an operator
 $$\hat{\rho}(\psi) = |\psi\rangle\, \langle\psi|.$$
-This is nothing but the projection operator (matrix) associated with
-$|\psi\rangle$, but in this context we call it a \textbf{density
-  matrix}.  We use the notation $\hat{\rho}(\psi)$ to emphasize that
-the density matrix is dependent on the chosen state $|\psi\rangle$.
-Evidently, it is a Hermitian operator; one eigenvalue is 1 (with
-eigenvector $|\psi\rangle$), and the other $d-1$ eigenvalues are all
-$0$ (with eigenvectors given by $d-1$ vectors spanning the subspace
-orthogonal to $|\psi\rangle$).
+This is simply the projection operator associated with $|\psi\rangle$,
+but in this context we call it a \textbf{density matrix}.  (In the
+language of linear algebra, $\hat{\rho}(\psi)$ is formed by taking the
+``matrix outer product'' of the vector $|\psi\rangle$ with its
+Hermitian conjugate.)  We use the notation $\hat{\rho}(\psi)$ to
+emphasize that the density matrix is dependent on the chosen state
+$|\psi\rangle$.  Evidently, it is a Hermitian operator; one eigenvalue
+is 1 (with eigenvector $|\psi\rangle$), and the other $d-1$
+eigenvalues are all $0$ (with eigenvectors given by $d-1$ vectors
+spanning the subspace orthogonal to $|\psi\rangle$).
 
-The density matrix can be used to calculate the probabilities of
-various measurement outcomes.  Suppose the system is in state
-$|\psi\rangle$, and we perform a measurement corresponding to a
-Hermitian operator $\hat{Q}$, which has eigenvalues
-$\{q_1,q_2,\dots\}$ and eigenvectors
+The expectation values of the density matrix have a special meaning.
+Suppose the system is in state $|\psi\rangle$, and we perform a
+measurement corresponding to a Hermitian operator $\hat{Q}$, which has
+eigenvalues $\{q_1,q_2,\dots\}$ and eigenvectors
 $\{|q_1\rangle,|q_2\rangle,\dots\}$.  Then the probability of
 measuring $q_j$ is
 $$P_j \;=\; |\langle q_j| \psi\rangle|^2 \;=\; \langle q_j |\psi\rangle \langle \psi|q_j\rangle \;=\; \langle q_j |\, \hat{\rho}(\psi)\, |q_j \rangle.$$
-Hence, expectation values of $\hat{\rho}$ specify how much of the
-state $|\psi\rangle$ lies along any given direction $|q_j\rangle$ in
-the Hilbert space.
+In other words, the expectation values of $\hat{\rho}(\psi)$
+correspond to the probabilities for various outcomes of measurements
+performed on the state $|\psi\rangle$.
 
-Next, suppose the system that we are considering consists of two
-subsystems, whose respective Hilbert spaces are $\mathscr{H}_A$ and
-$\mathscr{H}_B$, where $\mathscr{H} = \mathscr{H}_A \otimes
-\mathscr{H}_B$.  Starting from a density matrix of the combined
-system, $\hat{\rho}(\psi)$, we can define a \textbf{reduced density
+Now suppose $\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$, where
+$\mathscr{H}_A$ and $\mathscr{H}_B$ are the Hilbert spaces of two
+subsystems.  Starting from a density matrix of the combined system,
+$\hat{\rho}(\psi)$, we can define a \textbf{``reduced'' density
   matrix} for subsystem A:
 $$\hat{\rho}_A(\psi) = \mathrm{Tr}_B \,\big[\,\hat{\rho}(\psi)\,\big].$$
 Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace},
@@ -510,26 +510,24 @@ which traces over the Hilbert space of subsystem B.  What's left after
 this partial trace is an operator acting solely on the Hilbert space
 $\mathscr{H}_A$.
 
-To understand the meaning of the partial trace and the reduced density
-matrix, let us work in an explicit basis.  Let $\{|\mu_1\rangle,
-|\mu_2\rangle,\cdots\}$ be a basis for $\mathscr{H}_A$, and
-$\{|\nu_1\rangle, |\nu_2\rangle,\cdots\}$ a basis for $\mathscr{H}_B$.
-A given state of the combined system can be written in the tensor
-product basis:
+To understand the significance of $\hat{\rho}_A(\psi)$, let us work in
+an explicit basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a
+basis for $\mathscr{H}_A$, and $\{|\nu_1\rangle,
+|\nu_2\rangle,\cdots\}$ a basis for $\mathscr{H}_B$.  A given state of
+the combined system can be written in the tensor product basis:
 $$|\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle \otimes |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.$$
-The density matrix is
+The density matrix of the combined system is
 $$\hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle \otimes |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}| \otimes \langle \nu_{j'}|\Big).$$
-The reduced density matrix, obtained by tracing over the states of
-subsystem B, is
+The density matrix for subsystem A is then obtained by tracing over
+the states of subsystem B:
 $$\begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}$$
-It is easily verified that $\hat{\rho}_A(\psi)$ is a Hermitian
-operator.
+Note that this is evidently Hermitian.
 
-The reduced density matrix can be used to calculate the outcome
-probabilities for \textit{partial} measurements performed on subsystem
-A.  Suppose the overall system is in state $|\psi\rangle$, and we
-perform a measurement on subsystem A corresponding to a Hermitian
-operator $\hat{\mu}$, which has eigenvectors
+The density matrix for subsystem A contains information about the
+outcome probabilities for \textit{partial} measurements performed on
+subsystem A.  Suppose the overall system is in state $|\psi\rangle$,
+and we perform a measurement on subsystem A corresponding to a
+Hermitian operator $\hat{\mu}$, which has eigenvectors
 $\{|\mu_1\rangle,|\mu_2\rangle,\dots\}$.  Then the probability of
 measuring $\mu_i$ is
 $$\langle \mu_i | \hat{\rho}_A |\mu_i \rangle \,=\, \rho_{ii}^A \,=\, \sum_{j} |\psi_{ij}|^2.$$
@@ -537,14 +535,95 @@ $$\langle \mu_i | \hat{\rho}_A |\mu_i \rangle \,=\, \rho_{ii}^A \,=\, \sum_{j} |
 measurements in Section~\ref{sec:partialmeasurements}.)  In other
 words, the diagonal matrix elements of $\hat{\rho}_A$, in any basis,
 specify the outcome probabilities for measurements corresponding to
-that basis.
+that basis.  Conservation of probability implies that $\sum_i
+\rho^A_{ii} = 1$, and hence that
+$$\mathrm{Tr}\big[\rho_A\big] = 1.$$
 
+In entangled systems, the density matrix essentially takes over the
+theoretical role of the quantum state.  In a single-particle or
+unentangled system, we can define the quantum state and use it to
+calculate the probabilities of various measurement outcomes.  However,
+in a system that is entangled with other subsystems of a larger
+system, there is no definite quantum state.  Instead, probabilities
+are calculated from the density matrix.
 
-Entropy.
+Given a density matrix, we can define a quantity called the
+\textbf{entanglement entropy}:
+$$S = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big] \Big\}.$$
+Here, $S$ refers to the entropy of the system or subsystem described
+by the density matrix $\hat{\rho}$; for instance, if we use the
+density matrix $\hat{\rho}_A$ in the above formula, then the formula
+gives the entropy of subsystem A.  We use $\ln[\cdots]$ to denote the
+logarithm of an operator, which is basically the inverse of the
+exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
+\hat{A}$.  The prefactor $k_B$ is Boltzmann's constant, and is present
+to ensure that $S$ has the same units as thermodynamic entropy.
 
-Entropy in information theory and stat mech.
+The definition of the entanglement entropy is based on an analogy with
+the entropy concept from thermodynamics, statistical mechanics and
+information theory.  In those classical contexts, entropy is a
+quantitative measure of uncertainty (i.e, lack of information)
+about a system's underlying microscopic state, or ``microstate''.
+Suppose a system has $W$ possible microstates that occur with
+probabilities $\{p_1, p_2, \dots, p_W\}$, satisfying $\sum_i p_i = 1$.
+Then we define the classical entropy as
+$$S_{\mathrm{classical}} = - k_B \sum_{i=1}^W p_i \ln(p_i).$$
+If the system is definitely in one microstate $k$ (i.e., $p_i =
+\delta_{ik}$), a situation of complete certainty, the above formula
+gives $S_{\mathrm{classical}} = 0$.  (Note that $x \ln(x)\rightarrow
+0$ as $x\rightarrow 0$).  On the other hand, in a situation of
+complete uncertainty where all microstates are equally probable ($p_i
+= 1/W$ for all $i$), the formula gives $S_{\mathrm{classical}} = k_B
+\ln(W)$, which is the entropy of a microcanonical ensemble in
+statistical mechanics.  For any other distribution of probabilities,
+it can be shown that $S_{\mathrm{classical}}$ lies between these two
+extremes.
 
-Spin-$1/2$ system and maximum entropy states.
+Entanglement entropy quantifies the uncertainty arising from an
+entangled system's lack of a definite quantum state.  But we need to
+be careful when extending classical notions of probability to quantum
+systems.  As described above, when performing a measurement whose
+possible outcomes are $\{\mu_1, \mu_2, \dots\}$, the probability of
+getting $\mu_i$ is $p_i = \langle \mu_i | \hat{\rho}|\mu_i\rangle$.
+However, it is problematic to directly substitute these probabilities
+$\{p_i\}$ into the classical entropy formula, since they are
+basis-dependent (i.e., the set of probabilities is dependent on the
+choice of measurement).  The above definition for the entanglement
+entropy, $S = - k_B \mathrm{Tr} \big\{ \hat{\rho}\, \ln[\hat{\rho}]
+\big\}$, bypasses this problem by using the trace, which is
+basis-independent.  This also means that if we look specifically at
+the eigenbasis for $\hat{\rho}$, denoted by $\{|\mu'_i\rangle\}$, then
+$$\begin{aligned}S &= -k_B \sum_i \langle \mu'_i | \hat{\rho}\ln(\hat{\rho}) | \mu'_i\rangle  \\ &= - k_B \sum_i p_i' \ln(p_i') \;\;\;\mathrm{where}\;\;\hat{\rho}\,|\mu'_i\rangle = p_i' |\mu'_i\rangle\end{aligned}$$
+In this specific basis, where the eigenvalues $p_i =
+\langle\mu'_i|\hat{\rho}|\mu'_i\rangle$ are also the measurement
+probabilities, the definition of the entanglement entropy is
+consistent with the definition of the classical entropy.
+
+For an unentangled system, we can write $\hat{\rho} =
+|\psi\rangle\langle\psi|$ for some state $|\psi\rangle$, so
+$|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$ with eigenvalue
+1; hence, $S = 0$.  Conversely, if we find that a system has $S \ne
+0$, that implies that it is entangled, and lacks a definite quantum
+state.  A state is \textbf{maximally entangled} if the eigenvalues
+(measurement probabilities) are all equal, $p_i' = 1/d$, where $d$ is
+the dimension of the Hilbert space, so that $S = k_B \ln(d)$.  In
+general, the entanglement entropy satisfies $0 \le S \le k_B\ln(d)$.
+
+Let us apply the entanglement entropy formula to the system of two
+spin-$1/2$ systems and the state
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
+The density matrix for the two-particle system is
+$$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \Big(\langle+z|\otimes\langle-z| \,-\, \langle-z|\otimes\langle+z|\Big).$$
+Tracing over the B subsystem gives the reduced density matrix
+$$\hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).$$
+This can be expressed as a matrix in the
+$\{|\!+z\rangle,|\!-z\rangle\}$ basis:
+$$\hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.$$
+Note that this satisfies $\mathrm{Tr}(\hat\rho_A) = 1$, as expected.
+Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem A:
+$$S_A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_B\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_B\ln(2).$$
+This is the maximum possible entanglement entropy for a system with a
+2D Hilbert space.  Hence, subsystems A and B are maximally entangled.
 
 \section{The Many-Worlds Interpretation}
 
@@ -688,9 +767,6 @@ quantum mechanics, rather than different theories).
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
   Nature (News and Views) \textbf{398}, 189 (1999).
 \end{itemize}
-
-\appendix
-\section{Entropy}
 
 \end{document}
 
