@@ -97,119 +97,121 @@ In such a situation, the two particles are said to be
 individual single-particle quantum states, but are intrinsically
 ``mixed together''.
 
-For systems of more than two particles, the multi-particle quantum
-states are defined using multiple tensor products.  Suppose we have
-$N$ particles, with single-particle Hilbert spaces $\mathscr{H}_1,
-\mathscr{H}_2, \dots, \mathscr{H}_N$, of dimensionality $d_1, \dots,
-d_N$.  Then the multi-particle Hilbert space is
+For systems of more than two particles, quantum states can be defined
+using multiple tensor products.  In general, suppose a quantum system
+contains $N$ subsystems described by the individual Hilbert spaces
+$\{\mathscr{H}_1, \mathscr{H}_2, \dots, \mathscr{H}_N\}$, which have
+dimensionality $\{d_1, \dots, d_N\}$.  Then the overall system is
+described by the Hilbert space
 $$\mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
-\otimes \mathscr{H}_N,$$
-which has dimensionality $d = d_1 d_2\cdots d_N$.  It is interesting
-to note that the dimensionality of the multi-particle Hilbert space
-scales \textit{exponentially} with the number of particles.  For
-instance, if each single-particle Hilbert space is 2D, a
-$20$-particle system will have a Hilbert space of dimensionality
-$2^{20} =1\,048\,576$.  This means that multi-particle quantum systems
-are able to carry huge amounts of information, compared to
-classical systems.  That is one of the reasons people are excited by
-the prospect of quantum computers.
+\otimes \mathscr{H}_N.$$
+This combined Hilbert space has dimensionality $d = d_1 d_2\cdots
+d_N$.  It is interesting to note that the dimensionality scales
+\textit{exponentially} with the number of subsystems.  For instance,
+if a single particle has a 2D Hilbert space, a $20$-particle system
+has a Hilbert space of dimensionality $2^{20} =1\,048\,576$.
+Evidently, even for quantum systems containing a modest number of
+particles, the quantum state carries huge amounts of information.
+This is one of the motivations behind the active research field of
+quantum computing.
 
 \section{Partial measurements}
 \label{sec:partialmeasurements}
 
 Let us recall how measurements work in single-particle quantum theory.
-Suppose a particle is in a quantum state $|\psi\rangle$ and we perform
-some measurement $\hat{Q}$.  To figure out the measurement outcome, we
-first write $|\psi\rangle$ in the eigenstate basis of $\hat{Q}$:
-$$|\psi\rangle = \sum_n \psi_n\, |q_n\rangle, \;\;\mathrm{where}\;\;\hat{Q}|q_n\rangle = q_n |q_n\rangle \;\,\textrm{and}\;\, \psi_n = \langle q_n|\psi\rangle.$$
-For simplicity, suppose the eigenvalues $\{q_n\}$ are all
-non-degenerate.  Then the probability of obtaining the measurement
-outcome $q_n$ is $|\psi_n|^2$, the absolute square of the coefficient
-of $|q_n\rangle$ in the above formula.  After the measurement, the
-system ``collapses'' into state $|q_n\rangle$, which can be regarded as
-the projection operation
-$$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; |q_n\rangle\langle q_n|\psi\rangle.$$
-(The prefactor $\mathcal{N} = |\psi_n|^2$ simply ensures that the new
-state remains normalized.)
+Each observable quantity $Q$ is described by some Hermitian operator
+$\hat{Q}$, which has an eigenbasis $\{|q_i\rangle\}$ such that
+$$\hat{Q}|q_i\rangle = q_i |q_i\rangle.$$
+For simplicity, let the eigenvalues $\{q_i\}$ be non-degenerate.
+Suppose a particle initially has quantum state $|\psi\rangle$; this
+can always be expanded in terms of the eigenbasis of $\hat{Q}$:
+$$|\psi\rangle = \sum_i \psi_i\, |q_i\rangle, \;\;\mathrm{where}\;\;\,\textrm{and}\;\, \psi_i = \langle q_i|\psi\rangle.$$
+The \textbf{measurement postulate of quantum mechanics} states that if
+we measure $Q$, then (i) the probability of obtaining the measurement
+outcome $q_i$ is $P_i = |\psi_i|^2$, the absolute square of the
+coefficient of $|q_i\rangle$ in the basis expansion; and (ii) upon
+obtaining this outcome, the system instantly ``collapses'' into state
+$|q_i\rangle$.  Mathematically, the state collapse can be described
+using the projection operation
+$$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; |q_i\rangle\langle q_i|\psi\rangle,$$
+where the prefactor $\mathcal{N} = |\psi_i|^2$ ensures that the new
+state remains normalized.
 
-For multi-particle systems, we are faced with a new complication when
-applying the measurement postulate: what if a measurement is performed
-on just one particle?
+For multi-particle systems, there is a new complication: what if a
+measurement is performed on just one particle?
 
-Consider again a system of two particles, with Hilbert spaces
-$\mathscr{H}_A$ and $\mathscr{H}_B$, and the two-particle Hilbert
-space $\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  Suppose we
-perform a measurement on particle $A$, corresponding to a Hermitian
-operator $\hat{\mu}$ that acts upon $\mathscr{H}_A$ and has
-eigenvectors $\{|\mu_1\rangle, |\mu_2\rangle,\dots\}$.  We can write
-any two-particle state $|\psi\rangle$ using the eigenvectors of
-$\hat{Q}$ as a basis set for $\mathscr{H}_A$, and an arbitrary basis
-set $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for $\mathscr{H}_B$:
-$$\begin{aligned}|\psi\rangle &= \sum_{i}\sum_{j} \psi_{ij}\, |\mu_i\rangle\otimes |\nu_j\rangle \\&= \sum_i |\mu_i\rangle\otimes |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle \;\in\; \mathscr{H}_B.\end{aligned}$$
-Note that unlike the single-particle case, the ``coefficient'' of
-$|n\rangle$ in the basis expansion is not merely a complex number, but
-a vector in the space $\mathscr{H}_B$.  Proceeding by analogy, we can
-postulate that the probability of obtaining the measurement outcome
-$\mu_i$ should be the ``absolute square'' of this ``coefficient'':
-$$\langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
-After we obtain the measurement result $\mu_i$, the state should collapse
-via the projection
+Consider once again a system of two particles A and B, with
+two-particle Hilbert space $\mathscr{H}_A \otimes \mathscr{H}_B$.
+Suppose we perform a measurement on particle $A$; the measurement
+corresponds to a Hermitian operator $\hat{\mu}$ that acts upon
+$\mathscr{H}_A$, and has eigenvectors $\{|\mu_1\rangle,
+|\mu_2\rangle,\dots\}$.  We can write any state $|\psi\rangle$ using
+the eigenbasis of $\hat{\mu}$ for the $\mathscr{H}_A$ part, and an
+arbitrary basis $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for the
+$\mathscr{H}_B$ part:
+$$\begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle\otimes |\nu_j\rangle \\&= \sum_i |\mu_i\rangle\otimes |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle.\end{aligned}$$
+Unlike the single-particle case, the ``coefficient'' of
+$|\mu_i\rangle$ in this basis expansion is not a complex number, but a
+vector $|\varphi_i\rangle \in \mathscr{H}_B$.  Proceeding by analogy,
+we postulate that the probability of obtaining the outcome $\mu_i$ is
+the ``absolute square'' of this ``coefficient'':
+$$P_i = \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
+After we obtain the measurement result $\mu_i$, the state should
+collapse.  This can be described by the projection operation
 $$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; \Big(|\mu_i\rangle\langle \mu_i| \otimes \hat{I}\Big) |\psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\; |\mu_i\rangle\otimes |\varphi_i\rangle.$$
 Note that the projection operator $|\mu_i\rangle\langle \mu_i|$ acts
-only upon the $\mathscr{H}_A$ part of the two-particle space.  Similar
-to the single-particle case, the factor $\mathcal{N}$ is defined so
-that the collapsed state is normalized.
+only upon the $\mathscr{H}_A$ part of the two-particle space.  The
+prefactor $\mathcal{N}$ is, once again, defined so that the new state
+is normalized.
 
-Let's work through an explicit example, involving the
-previously-discussed system of two spin-$1/2$ particles, and the
-two-particle entangled state
+Let's work through an explicit example.  Consider a system composed of
+two spin-$1/2$ particles, with the two-particle state
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
-Here, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote eigenstates
-of the operator $\hat{S}_z$, with the eigenvalues $+\hbar/2$ and $-\hbar/2$
-respectively.  Let us perform an $S_z$ measurement on particle A.  The
-results are as follows:
+For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
+eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
+and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
+Then:
 \begin{itemize}
-\item A measurement outcome of $+\hbar/2$ has probability $P_+ = \langle
-  n'|n'\rangle$, where $|n'\rangle =
-  (1/\sqrt{2})\,|\!-\!z\rangle$.  Hence, $P_+ = 1/2$.  After the
-  measurement, the state collapses to $|\!+\!z\rangle
-  \otimes|\!-\!z\rangle$.
+\item The outcome $+\hbar/2$ occurs with probability $P_+ = \langle
+  n'|n'\rangle = 1/2$, where $|n'\rangle =
+  (1/\sqrt{2})\,|\!-\!z\rangle$.  After the measurement, the state
+  collapses to $|\!+\!z\rangle \otimes|\!-\!z\rangle$.
 
-\item A measurement outcome of $-\hbar/2$ has probability $P_- = \langle
-  n'|n'\rangle$, where $|n'\rangle =
-  (1/\sqrt{2})\,|\!+\!z\rangle$.  Hence, $P_- = 1/2$.  After the
-  measurement, the state collapses to $|\!-\!z\rangle
-  \otimes|\!+\!z\rangle$.
+\item The outcome $-\hbar/2$ occurs with probability $P_- = \langle
+  n'|n'\rangle = 1/2$, where $|n'\rangle =
+  (1/\sqrt{2})\,|\!+\!z\rangle$.  After the measurement, the state
+  collapses to $|\!-\!z\rangle \otimes|\!+\!z\rangle$.
 \end{itemize}
-In other words, we obtain the two possible results $\pm \hbar/2$ with
-equal probability; in either case, the two-particle state collapses so
-that particle $A$ is in the spin eigenstate corresponding to our
-measurement result, while particle $B$ has the opposite spin.  After
-collapse, the two-particle state is no longer entangled.
+In other words, the two possible results $\pm \hbar/2$ occur with
+equal probability.  In either case, the two-particle state collapses
+so that particle $A$ is in the observed spin eigenstate, while
+particle $B$ has the opposite spin.  After the collapse, the
+two-particle state is no longer entangled.
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
-In 1935, \hyperref[cite:epr]{Einstein, Podolsky, and Rosen (EPR)}
-formulated a thought experiment known as the \textbf{EPR paradox},
-which highlighted the exceptionally counter-intuitive features of
-entangled quantum states.  They argued that because of these features,
-quantum theory had to be an incomplete theory of reality.
-Subsequently, however, it was shown that the EPR paradox is not an
-actual paradox; physical systems \textit{really do} behave in the
-counter-intuitive way predicted by quantum mechanics.
+In 1935, \hyperref[cite:epr]{Einstein, Podolsky, and Rosen (EPR)} used
+the counter-intuitive features of quantum entanglement to formulate a
+thought experiment known as the \textbf{EPR paradox}.  They tried to
+use this thought experiment to argue that quantum theory cannot
+ultimately be a correct description of reality.  Subsequently,
+however, it was shown that the EPR paradox is not an actual paradox;
+physical systems \textit{really do} behave in the strange way
+described in this thought experiment.
 
-The EPR thought experiment begins with an entangled state, such as the
-entangled spin-$1/2$ two-particle state described in the previous section:
+The EPR paradox begins with a two-particle entangled state, such as
+the following state of two spin-$1/2$ particles:
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
-As previously discussed, we can measure $\hat{S}_z$ on particle $A$.
-The system then collapses into a two-particle state with definite
-spins: if we measured $+\hbar/2$, the collapsed state is
-$|\!+\!z\rangle \otimes|\!-\!z\rangle$, and if we measured $-\hbar/2$,
-the collapsed state is $|\!-\!z\rangle\otimes|\!+\!z\rangle$.
+As discussed in the previous section, measuring $S_z$ on particle $A$
+causes the system to collapse into a two-particle state with definite
+spins.  If the measurement outcome is $+\hbar/2$, the collapsed state
+is $|\!+\!z\rangle \otimes|\!-\!z\rangle$, whereas if we measure
+$-\hbar/2$, the collapsed state is
+$|\!-\!z\rangle\otimes|\!+\!z\rangle$.
 
 According to quantum theory, the state collapse happens
-instantaneously, regardless of the distance between the particles.  We
-could prepare the two-particle state in a laboratory and hang on to
+instantaneously, regardless of the distance separating the particles.
+We could prepare the two-particle state in a laboratory and hang on to
 particle $A$, while sending particle $B$ to the Betelgeuse star
 system, 642 light years away.  In principle, this can be done
 carefully enough to avoid disturbing the two-particle quantum state.
@@ -225,22 +227,22 @@ not even at the speed of light.
 
 There are three noteworthy aspects of this phenomenon.
 
-First, it dispels popular intuitive ``explanations'' of quantum state
-collapse that involve experimental probes physically disturbing the
-system being measured.  For instance, one story that's sometimes told
-is that measuring a particle's position requires shining a light beam
-on it, or disturbing it in some way; because of this disturbance, the
-particle's momentum becomes uncertain.  The EPR paradox shows that
-such stories don't capture the full weirdness of quantum state
-collapse.  We can collapse the state of a particle at Betelgeuse by
-doing a measurement on another particle, hundreds of light years away!
+First, it dispels certain intuitive but ultimately mistaken
+``explanations'' of quantum state collapse.  For instance, it is
+sometimes explained that if we want to measure a particle's position,
+we need to shine a light beam on it, or disturb it in some way; due to
+this disturbance, the particle's momentum becomes uncertain after the
+measurement.  The EPR paradox shows that such stories don't capture
+the full weirdness of quantum state collapse, since we can collapse
+the state of a particle by doing a measurement on \textit{another}
+particle, hundreds of light years away!
 
-Second, the experimentalist has control over what kind of measurement
-to perform.  So far, we have considered $\hat{S}_z$ measurements
-performed on particle $A$.  But the Earth experimentalist can choose
-to measure the spin of $A$ along any axis, say $\hat{S}_x$.  In the
-basis of spin-up and spin-down states, the $\hat{S}_x$ operator has
-the matrix representation
+Second, the experimentalist can have a certain amount of control over
+the state collapse, by choosing what measurement to perform.  So far,
+we have considered $S_z$ measurements performed on particle $A$.  But
+the Earth experimentalist can choose to measure the spin of $A$ along
+another axis, say $S_x$.  In the basis of spin-up and spin-down states,
+the operator $\hat{S}_x$ has matrix representation
 $$\hat{S}_x = \frac{\hbar}{2}\, \begin{pmatrix}0&1\\1&0\end{pmatrix}.$$
 The eigenvalues and eigenvectors are
 $$\begin{aligned}s_x = \;\;\frac{\hbar}{2},\; &\;\;\; |\!+\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle + |\!-\!z\rangle\Big) \\ s_x = -\frac{\hbar}{2}, &\;\;\; |\!-\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle - |\!-\!z\rangle\Big).\end{aligned}$$
@@ -249,49 +251,47 @@ $$\begin{aligned}|\!+\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle + |\!-\
 This allows us to write the two-particle entangled state in the
 $\hat{S}_x$ basis:
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle\otimes|\!+\!x\rangle \,-\, |\!+\!x\rangle\otimes|\!-\!x\rangle\Big).$$
-The Earth measurement causes the particles to collapse into definite
-spin states with opposite spins---but these are now spin states of
-definite ${S}_x$, rather than definite ${S}_z$.
+The Earth measurement still collapses the particles into definite spin
+states with opposite spins---but now spin states of ${S}_x$ rather
+than ${S}_z$.
 
 Third, the choice of measurement cannot be used for superluminal
 communication.  The Earth experimentalist can choose whether to (i)
-measure $\hat{S}_z$ or (ii) measure $\hat{S}_x$, and this choice has
-an instantaneous effect on the quantum state of particle $B$.  If the
-Betelgeuse experimentalist can find a way to distinguish between case
-(i) and case (ii), even statistically, this could serve as a method of
+measure $S_z$ or (ii) measure $S_x$, and this choice has an
+instantaneous effect on the state of particle $B$.  If the Betelgeuse
+experimentalist can find a way to distinguish between case (i) and
+case (ii), even statistically, this could serve as a method of
 instantaneous communication.  Yet this turns out to be impossible!
 This is because quantum states themselves cannot be measured; only
 observables can be measured.  Suppose the Earth measurement is
 $\hat{S}_z$, which collapses $B$ to either $|\!+\!z\rangle$ or
 $|\!-\!z\rangle$ (each with probability 0.5).  The Betelgeuse
-experimentalist now has a choice of which measurement to perform.  If
-xhe measures $\hat{S}_z$, the outcome is $+\hbar/2$ or $-\hbar/2$ with
-equal probabilities.  Whereas for an $\hat{S}_x$ measurement, the
-probabilities are:
+experimentalist can now choose which measurement to perform.  If $S_z$
+is measured, the outcome is $+\hbar/2$ or $-\hbar/2$ with equal
+probabilities.  If $S_x$ is measured, the probabilities are:
 $$\begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2}.\end{aligned}$$
-This analysis can be repeated for the case where the Earth measurement
-is $\hat{S}_x$.  No matter what, we find that the outcomes of any spin
-measurement at Betelgeuse always have 50/50 probability.  Thus, even
-though the choice of Earth measurement instantaneously affects the
-quantum state at Betelgeuse, no measurement at Betelgeuse can provide
-any information about that choice.
+This analysis can be repeated for any other choices of measurement
+axis.  No matter what, we find that the outcomes of any spin
+measurement at Betelgeuse always have 50/50 probability!  Therefore,
+the Betelgeuse measurement does not yield any information about the
+choice of measurement axis made on Earth.
 
 Since quantum state collapse does not allow for superluminal
-communication, it is consistent, \textit{in practice}, with the theory
-of relativity.  However, state collapse is still
-``\textbf{nonlocal}'', in the sense that certain ingredients of the
-theory (quantum states) change faster than light can travel between
-two points.  For this reason, EPR argued that quantum theory is
-\textit{philosophically inconsistent} with relativity.  They
-suggested, as an alternative, that quantum mechanics is an
-approximation of some deeper theory, whose details are currently not
-known to us, but which is both deterministic and local.
+communication, it is consistent \textit{in practice} with the theory
+of relativity.  However, state collapse is still \textbf{nonlocal}, in
+the sense that certain unobservable ingredients of the theory (quantum
+states) change faster than light can travel between two points.  For
+this reason, EPR argued that quantum theory is
+\textit{philosophically} inconsistent with relativity.
 
-Such a ``\textbf{hidden variables theory}'' might give rise to the
-appearance of quantum state collapse in the following way.  Suppose
-each particle has a definite but ``hidden'' value of $S_z$, either
-$S_z = +\hbar/2$ or $S_z = -\hbar/2$; for conciseness, we denote these
-as $+$ or $-$.  We then hypothesize that the two-particle quantum state
+They then suggested an alternative: maybe quantum mechanics is an
+approximation of some deeper theory, whose details are currently not
+known, but which is both deterministic and local.  Such a
+``\textbf{hidden variables theory}'' can give rise to the appearance
+of quantum state collapse in the following way.  Suppose each particle
+has a definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$
+or $S_z = -\hbar/2$; for conciseness, we denote these as $[+]$ or
+$[-]$.  We then hypothesize that the two-particle quantum state
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big)$$
 is not an actual description of reality.  Instead, it corresponds to a
 \textit{statistical} distribution of ``hidden variable'' states, which
@@ -301,48 +301,43 @@ When the Earth experimentalist measures $S_z$, we uncover the value of
 the hidden variables: a $+z$ result implies $[+;-]$, and a $-z$ result
 implies $[-;+]$.  When the Betelgeuse experimentalist subsequently
 measures $S_z$, the result obtained is the opposite of the Earth
-result---simply because those were the values of the hidden variables
-all along.  No physical influence actually travels from Earth to
-Betelguese between the two experiments.
+result.  But this happens simply because those were the values of the
+hidden variables all along---there is no physical influence traveling
+instantly from Earth to Betelguese.
 
 Of course, there is a huge amount of detail missing about the actual
 contents of the ``hidden variables'' theory.  In particular, such a
-theory would have to be consistent, in all other respects, with the
-many successful predictions of quantum mechanics.  This seems
-difficult, but one could imagine that with enough hard work, it might
-be possible to fill in the missing details.
+theory would have to be consistent, with all the many successful
+predictions of quantum mechanics.  This seems difficult, but with
+enough hard work, one might imagine that the missing details can be
+filled in.
 
 \section{Bell's theorem}
 
-In 1964, John S.~Bell published a \hyperref[cite:bell]{bombshell
-  paper} showing that the predictions of quantum theory are
-\textit{inherently inconsistent} with hidden variable theories.  The
-amazing thing about this result, which is known as \textbf{Bell's
-  theorem}, is that it requires no knowledge about the details of the
-hidden variable theory, except that it is deterministic and local.  In
-this section, we study a simplified version of Bell's theorem due to
+In 1964, however, John S.~Bell published a
+\hyperref[cite:bell]{bombshell paper} showing that the predictions of
+quantum theory are \textit{inherently inconsistent} with hidden
+variable theories.  The amazing thing about this result, which is
+known as \textbf{Bell's theorem}, is that it requires no knowledge
+about the details of the hidden variable theory, except that it is
+deterministic and local.  In this section, we study a simplified
+version of Bell's theorem, based on the presentation of
 \hyperref[cite:mermin]{Mermin (1981)}.
 
 We again consider spin-1/2 particle pairs, with particle $A$ on Earth
-and particle $B$ in the Betelgeuse star system.  The experimentalists
-at the two locations can measure the spin along three distinct choices
-of spin axis, whose spin observables are denoted by $S_1$, $S_2$,
-$S_3$.  We will not specify the actual directions of these spin axes
-until later in the proof.  (Note, however, that they need not
-correspond to orthogonal spatial directions.)
+and particle $B$ in the Betelgeuse star system.  At each location, the
+experimentalist can measure the local particle spin along three
+distinct choices of spin axis.  These spin observables are denoted by
+$S_1$, $S_2$, and $S_3$.  We will not specify the actual directions of
+these spin axes until later in the proof.  (Note, however, that they
+need not correspond to orthogonal spatial directions.)
 
-In a hidden variables theory, each particle must have a definite value
-of each spin observable.  For example, particle $A$ might have spin
-values $S_1 = +\hbar/2, \, S_2 = +\hbar/2, \, S_3 = -\hbar/2$.  For
-conciseness, we denote this by $[++-]$.
-
-We now imagine repeatedly preparing two-particle systems, sending the
-particles to Earth and Betelgeuse, and letting the two
-experimentalists measure the spin of each particle.  Within the
-framework of quantum mechanics, the system is prepared each time in
-the two-particle state
+We now imagine repeatedly preparing two-particle systems, and sending
+the particles to the appropriate laboratories on Earth and Betelgeuse.
+Each time, the prepared two-particle state is
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
-Moreover, in each instance of the experiment, each experimentalist
+We then let the experimentalists perform measurements on their
+particle.  In each instance of the experiment, each experimentalist
 independently and randomly chooses one of the three possible axes for
 measuring spin.  (It doesn't matter which experimentalist performs the
 measurement first.)  The procedure is repeated many times, and both
@@ -351,24 +346,26 @@ measurement results.
 
 \textcolor{red}{[Fig.]}
 
-At the end of the run of experiments, the records are examined.  The
-results are found to be consistent with the predictions of quantum
-theory.  In particular, whenever the experimentalists happen to
-choose the same spin axis (e.g., both measuring $S_1$), they always
-find opposite spins.
+At the end of the run of experiments, the records are examined.  We
+assume that the results are consistent with the predictions of quantum
+theory.  Among other things, this means that whenever the
+experimentalists happen to choose the same measurement axis (e.g.,
+both measuring $S_1$), they always find opposite spins.
 
-We are interested in the hypothesis that quantum theory is a
-statistical description of an underlying hidden variables theory.  To
-be consistent with the predictions of quantum theory, the hidden spin
-states of the two particles must have opposite values along each
-direction.  This means that there are $8$ distinct possibilities,
-which we can denote as
+Can a hidden variables theory reproduce the results predicted by
+quantum theory?  In a hidden variables theory, each particle must have
+a definite value for each spin observable.  For example, particle $A$
+might have $S_1 = +\hbar/2, \, S_2 = +\hbar/2, \, S_3 = -\hbar/2$.
+For conciseness, we denote this by $[++-]$.  To be consistent with the
+predictions of quantum theory, the hidden spin variables for the two
+particles must have opposite values along each direction.  This means
+that there are $8$ distinct possibilities, which we can denote as
 $$\begin{aligned}{[}{+++};{---}], \;\;\; [{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}], \;\;\; [{---};{+++}].\end{aligned}$$
 For instance, $[{++-};{--+}]$ indicates that for particle $A$, $S_1 =
 S_2 = +\hbar/2$ and $S_3 = -\hbar/2$, while particle $B$ has the
 opposite spin values, $S_1 = S_2 = -\hbar/2$ and $S_3 = +\hbar/2$.
-However, we don't know anything about the relative probabilities of
-these 8 cases.
+So far, however, we don't know anything about the relative
+probabilities of these 8 cases.
 
 Let's now focus on the subset of experiments in which the two
 experimentalists happened to choose \textit{different} spin axes
@@ -384,16 +381,16 @@ and amongst the experiments where they picked different axes, there
 are only two ways for the measurement results to have opposite signs:
 $(S_1,S_2)$ or $(S_2,S_1)$.  There are four ways to get the same sign:
 $(S_1,S_3)$, $(S_2,S_3)$, $(S_3,S_1)$ and $(S_3, S_2)$.  Thus,
-\textit{for this particular set of spin values}, the probability for
+for this particular set of hidden variables, the probability for
 measurement results with opposite signs is 1/3.  If we go through all
 6 of the cases listed above, we find the same conclusion: the
 probability for opposite signs is 1/3.
 
 Now look at the remaining 2 cases:
-$${[}{+++};{---}], \;\;\; [{---};{+++}].$$
-For these, the experimentalists will find results that have opposite
-signs with probability 1.  Putting these results together, we arrive
-at the following statement:
+$${[}{+++};{---}], \;\;\; [{---};{+++}].$$ For these, the
+experimentalists will find results that have opposite signs with
+probability 1.  Combining this with the findings from the previous
+paragraph, we obtain the following statement:
 
 \textit{Given that the two experimentalists choose different spin
   axes, the probability that their results have opposite signs is $P
@@ -402,21 +399,21 @@ at the following statement:
 This is called \textbf{Bell's inequality}.  If there is ever a
 situation where quantum theory predicts a probability $P < 1/3$ (i.e.,
 a violation of Bell's inequality), we will be forced to conclude that
-quantum theory is inherently inconsistent with local deterministic
-hidden variables.  Note that we don't need to know anything about the
-``inner workings'' of the hidden variables theory; in the above
-derivation of Bell's inequality, we did not assume anything about the
-relative probabilities for the various spin values.
+quantum theory is inconsistent with local deterministic hidden
+variables.  This conclusion holds regardless of the ``inner workings''
+of the hidden variables theory, because the above derivation made no
+assumptions about any such details (e.g., the probabilities of the
+hidden variable states).
 
 To complete the proof, we need to find a set of $S_1$, $S_2$, and
 $S_3$ such that the predictions of quantum mechanics violate Bell's
-inequality.  One simple choice is to align $S_1$ with the $\hat{z}$
-axis, and align $S_2$ and $S_3$ along the $\hat{x}$-$\hat{z}$ plane at
-$120^\circ$ ($2\pi/3$ radians) from $S_1$, as shown in the figure:
+inequality.  One simple choice is to align $S_1$ with the $z$ axis,
+and align $S_2$ and $S_3$ along the $x$-$z$ plane at $120^\circ$
+($2\pi/3$ radians) from $S_1$, as shown in the figure:
 
 \textcolor{red}{[Fig.]}
 
-Thus, the spin operators can be written in the $\hat{S}_z$ eigenbasis as
+Thus, the spin operators can be written in the eigenbasis of $\hat{S}_z$:
 $$\begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \sigma_3 \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 + \sin(2\pi/3)\sigma_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 - \sin(2\pi/3)\sigma_1\right].\end{aligned}$$
 
 Suppose the Earth experimentalist (measuring $A$) chooses $S_1$, and
@@ -429,26 +426,26 @@ $$\begin{aligned}\langle\, - z \, | \, S_2 \,|-\!z\,\rangle &= \frac{\hbar}{2} \
 If $P_+$ and $P_-$ respectively denote the probability of measuring
 $+\hbar/2$ and $-\hbar/2$ in this measurement, the above equation
 implies that $P_+ - P_- = + 1/2$.  Moreover, $P_+ + P_- = 1$ by
-probability conservation.  It then follows that the probability of
+probability conservation.  It follows that the probability of
 obtaining a negative value (the opposite sign from the Earth
 measurement) is $P_- = 1/4$.  All the other possible scenarios are
 worked out in a similar way.  The overall conclusion is that if the
 two experimentalists choose different measurement axis, they obtain
-results of opposite signs with probability $1/4$.  This is smaller
-than $1/3$, and hence violates Bell's inequality.
+results of opposite signs with probability $1/4$, violating Bell's
+inequality.
 
-Finally, we must consult Nature by performing an experimental test.
-Is it possible to observe, in an actual experiment, probabilities that
-violate Bell's inequality?  In the decades following Bell's 1964
-paper, many experiments were performed to answer this question.  These
-experiments are all substantially more complicated than the simple
-two-particle spin-$1/2$ model that we've studied, and they are subject
-to various uncertainties and ``loopholes'' that are beyond the scope
-of our discussion.  Overall, the experimental consensus is a clear
-\textit{yes}: Nature really does behave as quantum mechanics predict,
-in a manner that cannot be replicated using deterministic local hidden
-variables!  For a review of the experimental evidence, see
-\hyperref[cite:aspect]{Aspect (1999)}.
+Last of all, we must consult Nature itself.  Is it possible to
+observe, in an actual experiment, probabilities that violate Bell's
+inequality?  In the decades following Bell's 1964 paper, many
+experiments were performed to answer this question.  These experiments
+are all substantially more complicated than the simple two-particle
+spin-$1/2$ model that we've studied, and they are subject to various
+uncertainties and ``loopholes'' that are beyond the scope of our
+discussion.  But in the end, the experimental consensus appears to be
+a clear \textit{yes}: Nature really does behave according to quantum
+mechanics, and in a manner that cannot be replicated by deterministic
+local hidden variables!  For a review of the experimental evidence,
+see \hyperref[cite:aspect]{Aspect (1999)}.
 
 \section{Entanglement entropy}
 \label{sec:entropy}
@@ -482,12 +479,12 @@ The expectation values of the density matrix have a special meaning.
 Suppose the system is in state $|\psi\rangle$, and we perform a
 measurement corresponding to a Hermitian operator $\hat{Q}$, which has
 eigenvalues $\{q_1,q_2,\dots\}$ and eigenvectors
-$\{|q_1\rangle,|q_2\rangle,\dots\}$.  Then the probability of
-measuring $q_j$ is
-$$P_j \;=\; |\langle q_j| \psi\rangle|^2 \;=\; \langle q_j |\psi\rangle \langle \psi|q_j\rangle \;=\; \langle q_j |\, \hat{\rho}(\psi)\, |q_j \rangle.$$
+$\{|q_1\rangle,|q_2\rangle,\dots\}$.  The probability of
+measuring $q_i$ is
+$$P_i \;=\; |\langle q_i| \psi\rangle|^2 \;=\; \langle q_i |\psi\rangle \langle \psi|q_i\rangle \;=\; \langle q_i |\, \hat{\rho}(\psi)\, |q_i \rangle.$$
 In other words, the expectation values of $\hat{\rho}(\psi)$
-correspond to the probabilities for various outcomes of measurements
-performed on the state $|\psi\rangle$.
+correspond to the probabilities for the outcomes of measurements
+performed on $|\psi\rangle$.
 
 Now suppose $\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$, where
 $\mathscr{H}_A$ and $\mathscr{H}_B$ are the Hilbert spaces of two
@@ -533,31 +530,31 @@ In entangled systems, the density matrix essentially takes over the
 theoretical role of the quantum state.  In a single-particle or
 unentangled system, we can define the quantum state and use it to
 calculate the probabilities of various measurement outcomes.  However,
-in a system that is entangled with other subsystems of a larger
-system, there is no definite quantum state.  Instead, probabilities
-are calculated from the density matrix.
+a system has no definite quantum state if it is entangled with other
+systems.  Probabilities are instead calculated from the density
+matrix.
 
 Given a density matrix, we can define a quantity called the
 \textbf{entanglement entropy}:
 $$S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big]\Big\}.$$
 Here, $S_{\mathrm{ent.}}$ refers to the entropy of the system or
-subsystem described by the density matrix $\hat{\rho}$; for instance,
-if we use the density matrix $\hat{\rho}_A$ in the above formula, then
-the formula gives the entropy of subsystem A.  We use $\ln[\cdots]$ to
-denote the logarithm of an operator, which is basically the inverse of
+subsystem described by the density matrix $\hat{\rho}$.  For instance,
+if we use the density matrix $\hat{\rho}_A$ in the above formula, we
+get the entropy of subsystem A.  In this formula, $\ln[\cdots]$
+denotes the logarithm of an operator, which is the inverse of
 the exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
 \hat{A}$.  The prefactor $k_B$ is Boltzmann's constant, and is present
 to ensure that $S_{\mathrm{ent.}}$ has the same units as thermodynamic
 entropy.
 
 The definition of the entanglement entropy is based on an analogy with
-the entropy concept from thermodynamics, statistical mechanics and
-information theory.  In those classical contexts, entropy is a
-quantitative measure of uncertainty (i.e, lack of information) about a
-system's underlying microscopic state, or ``microstate''.  Suppose a
-system has $W$ possible microstates that occur with probabilities
-$\{p_1, p_2, \dots, p_W\}$, satisfying $\sum_i p_i = 1$.  Then we
-define the classical entropy
+the entropy concept from classical thermodynamics, statistical
+mechanics and information theory.  In those classical contexts,
+entropy is a quantitative measure of uncertainty (i.e, lack of
+information) about a system's underlying microscopic state, or
+``microstate''.  Suppose a system has $W$ possible microstates that
+occur with probabilities $\{p_1, p_2, \dots, p_W\}$, satisfying
+$\sum_i p_i = 1$.  Then we define the classical entropy
 $$S_{\mathrm{cl.}} = - k_B \sum_{i=1}^W p_i \ln(p_i).$$
 In a situation of complete certainty where the system is known to be
 in a specific microstate $k$ ($p_i = \delta_{ik}$), the formula gives
@@ -622,56 +619,51 @@ This is the maximum possible entanglement entropy for a system with a
 
 \section{The Many-Worlds Interpretation}
 
-We conclude this chapter by discussing a logical but controversial set
-of implications that arise from the phenomenon of quantum
+We conclude this chapter by discussing a set of compelling but
+controversial ideas arising from the phenomenon of quantum
 entanglement: the \textbf{Many-Worlds Interpretation} of quantum
 theory.
 
-In describing the phenomenon of state collapse, we have relied heavily
-on the \textbf{measurement postulate} of quantum mechanics, which
-states: ``If a system has state $|\psi\rangle$, and we perform a
-measurement $\hat{Q}$, the probability of a result $q$ (which is an
-eigenvalue of $\hat{Q}$ with eigenvector $|q\rangle$) is $P_q =
-|\langle q | \psi\rangle|^2$.  After obtaining this measurement
-result, the quantum state collapses to $|q\rangle$.''
+So far, when describing the phenomenon of state collapse, we have
+relied on the measurement postulate (see
+Section~\ref{sec:partialmeasurements}), which is part of the
+\textbf{Copenhagen Interpretation} of quantum mechanics.  This is how
+quantum mechanics is typically taught, and how physicists think about
+the theory when doing practical, everyday calculations.
 
-The measurement postulate is part of the \textbf{Copenhagen
-  Interpretation} of quantum mechanics.  This is how quantum mechanics
-is typically taught, and how physicists think about the theory when
-doing practical, everyday calculations.  However, it has two
-unsatisfactory features.
+However, the measurement postulate has two bad features:
 
-First, the measurement postulate seems to somehow stand apart from the
-other postulates of quantum mechanics.  It is the only place where
-randomness, or ``indeterminism'', creeps into quantum theory.  The
-other postulates do not refer to probabilities; the Schr\"odinger
-equation
+First, it seems to stand apart from the other postulates of quantum
+mechanics, in being the only place where randomness (or
+``indeterminism'') creeps into quantum theory.  The other postulates
+do not refer to probabilities.  In particular, the Schr\"odinger equation
 $$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle$$
-is completely deterministic, in the sense that if I tell you that the
-state vector at time $t_0$ is $|\psi(t_0)\rangle$, then knowing the
-Hamiltonian $\hat{H}(t)$ you can find $|\psi(t)\rangle$ for all $t$ by
-solving the Schr\"odinger equation.  This time-evolution consists of a
-smooth, non-random rotation of the state vector within its Hilbert
-space.  A measurement, however, has a completely different effect: it
-causes the state vector to instantaneously jump to a randomly-selected
-value.  It is strange for a theory to contain two fundamentally
-different ways for a state to change.
+is completely deterministic, in the sense that if you are told the
+Hamiltonian $\hat{H}(t)$ and the state vector $|\psi(t_0)\rangle$ at a
+certain time $t_0$, then you can (in principle) solve the
+Schr\"odinger equation to determine $|\psi(t)\rangle$ for all $t$.
+This time-evolution consists of a smooth, non-random rotation of the
+state vector within its Hilbert space.  A measurement process, on the
+other hand, has a completely different effect: it causes the state
+vector to instantaneously jump to a randomly-selected value.  It is
+strange that the theory contains two fundamentally different ways for a
+state to change.
 
 The second noteworthy feature of the measurement postulate is that it
-is silent on what exactly constitutes a ``measurement''.  Does a
+is silent on what exactly constitutes a measurement.  Does a
 measurement require a conscious observer?  Surely not: in the words of
 Einstein, could we really believe that the Moon exists only when we
-look at it?  Given a device that interacts with a particle, how do we
-figure out whether the interaction amounts to a measurement, or
-whether it affects the particle via the Schr\"odinger equation?
+look at it?  But then if a given device interacts with a particle, how
+do we figure out whether the interaction amounts to a measurement, or
+whether it affects the particle ``merely'' via the Schr\"odinger equation?
 
 The Many-Worlds Interpretation seeks to resolve these problems by
 positing that \textit{the measurement postulate is \underline{not} a
   fundamental postulate of quantum mechanics}.  Rather, what we call
 ``measurement'' (including state collapse and the apparent randomness
-of measurement results) is an emergent phenomenon, which can be
-derived from the behavior of complex many-particle quantum systems
-obeying the Schr\"odinger equation.
+of measurement results) is an emergent phenomenon that can be derived
+from the behavior of complex many-particle quantum systems obeying the
+Schr\"odinger equation.
 
 The key idea is to model a measurement process by applying the
 Schr\"odinger equation to a multi-particle quantum system, one that
@@ -679,17 +671,17 @@ contains both the particle being measured \textit{and} the measurement
 apparatus itself.  Suppose, for example, that we have a spin-$1/2$
 particle, and an apparatus designed to measure $S_z$.  Let
 $\mathscr{H}_p$ denote the 2D Hilbert space for the particle's
-spin-$1/2$ degree of freedom.  Let $\mathscr{H}_A$ denote the Hilbert
+spin-$1/2$ degree of freedom.  Let $\mathscr{H}_a$ denote the Hilbert
 space of the apparatus, which is \textit{much} larger and more
 complicated than $\mathscr{H}_p$ (since it has to describe the
 $10^{23}$ or more atoms in the apparatus).  The Hilbert space of the
 combined system can be written as
-$$\mathscr{H} = \mathscr{H}_p \otimes \mathscr{H}_A.$$
+$$\mathscr{H} = \mathscr{H}_p \otimes \mathscr{H}_a.$$
 The system is prepared in an initial state of the form
 $$|\psi(0)\rangle = |\!+x\rangle \otimes |\textbf{START}\rangle,$$
 where $|\!+x\rangle \in \mathscr{H}_p$ is an initial state of the
 particle that does not have a definite value of $S_z$, while
-$|\textbf{START}\rangle \in \mathscr{H}_A$ denotes the initial state
+$|\textbf{START}\rangle \in \mathscr{H}_a$ denotes the initial state
 of the apparatus.
 
 The combined system then undergoes time evolution via the
@@ -698,7 +690,7 @@ describes how the apparatus acts upon the particle to perform an $S_z$
 measurement.  After some time $T$ has passed, the state evolves to
 $$|\psi(T)\rangle \;=\; |\!+z \rangle \otimes |\textbf{RESULT}\uparrow\rangle \;+\; |\!-z\rangle\otimes |\textbf{RESULT}\downarrow\rangle, $$
 where $|\textbf{RESULT}\uparrow\rangle, \,
-|\textbf{RESULT}\downarrow\rangle \in \mathscr{H}_A$ are complicated
+|\textbf{RESULT}\downarrow\rangle \in \mathscr{H}_a$ are complicated
 multi-particle state vectors of the apparatus.  For example, the
 apparatus might have a centimeter-size pointer (of $\sim 10^{23}$
 atoms) that indicates the measurement result;
@@ -715,24 +707,24 @@ particle has ``collapsed'' to $|\!+z\rangle$.  In the other world, the
 pointer indicates a $-z$ result, and the particle state has
 ``collapsed'' to $|\!-z\rangle$.  Moreover, with a bit more thought we
 can work out that the relative weights of the two terms correspond to
-the probabilities of obtaining each measurement result.  In other
-words, the effects of the measurement postulate (i.e., random
-measurement results and the phenomenon of state collapse) arise from
-restricting our attentions to a single world.
+the probabilities of obtaining each measurement result.  Thus, the
+effects of the measurement postulate (i.e., random measurement results
+and the phenomenon of state collapse) arise from restricting our
+attentions to a single world.
 
 This description can be generalized to the universe as a whole.  In
 the viewpoint of the Many-Worlds Interpretation, the entire universe
 can be described by a mind-bogglingly complicated quantum state,
 evolving deterministically according to the Schr\"odinger equation.
 This evolution involves repeated ``branchings'' of the universal
-quantum state, each producing more and more worlds.  The classical
-world that we appear to inhabit is just one amongst an
-incomprehensibly vast multitude of worlds.  It is up to you to decide
-whether this conception of reality makes sense.  It is essentially a
-matter of preference, because the Copenhangen Interpretation and the
-Many-Worlds Interpretation have identical physical consequences (which
-is why they are referred to as different ``interpretations'' of
-quantum mechanics, rather than different theories).
+quantum state, which continuously produces more and more worlds.  The
+classical world that we appear to inhabit is just one amidst a vast
+multitude of worlds.  It is up to you to decide whether this
+conception of reality seems reasonable.  It is essentially a matter of
+preference, because the Copenhangen Interpretation and the Many-Worlds
+Interpretation have identical physical consequences (which is why they
+are referred to as different ``interpretations'' of quantum mechanics,
+rather than different theories).
 
 \section*{Appendix A: Entropy in classical physics}
 \label{appendixa}
@@ -743,16 +735,17 @@ about a complex system.  In information theory, \textbf{information
 before receiving it.  In thermodynamics and statistical mechanics,
 \textbf{thermodynamic entropy} describes our uncertainty about the
 microscopic details (``microstate'') of a complex many-body system.
-These two formulations are in fact consistent and intimately related,
-as described e.g.~by Feynman \textcolor{red}{(???)}.  Here, we will
-use the statistical mechanics formulation.
+In fact, these two formulations are consistent with each other; for a
+description of how they are related, see Feynman
+\textcolor{red}{(???)}.  Here, we will use the statistical mechanics
+formulation.
 
-Suppose system has discrete microstates labeled by integers
+Suppose a system has discrete microstates labeled by integers
 $\{1,2,3,\dots\}$ , which have probabilities $\{p_1, p_2, p_3,
 \dots\}$.  Then the entropy of the system is defined as
 $$S_{\mathrm{cl.}} = - k_B \sum_{i} p_i \ln(p_i).$$
 The probabilities $p_i$ are to be understood as \textit{conditional}
-probabilities, conditional on the known facts about the macroscopic
+probabilities, conditioned on the known facts about the macroscopic
 features of the system (e.g., we might know the total energy $E$).
 
 If we know exactly which microstate the system is in (i.e., $p_k = 1$
@@ -778,7 +771,7 @@ uncertainty, yields an entropy $S_{\mathrm{cl.}}$ lying between $0$
 and $k_B \ln W$.  To see that zero is the lower bound, first note that
 for $0 \le p_i \le 1$, each term in the entropy formula satisfies
 $-k_B\, p_i\ln(p_i) \ge 0$, and the equality holds if and only if $p_i
-= 0$ or $p_i = 1$ (see the figure).  This implies that
+= 0$ or $p_i = 1$ (see the figure below).  This implies that
 $S_{\mathrm{cl.}}\ge 0$, and moreover that $S_{\mathrm{cl.}} = 0$ if
 and only if $p_i = \delta_{ik}$ for some $k$ (i.e., there is no
 uncertainty).  \textcolor{red}{The proof that $k_B \ln W$ is the upper
@@ -805,16 +798,15 @@ where $S_{\mathrm{cl.}}^A$ and $S_{\mathrm{cl.}}^B$ are the individual
 entropies of the A and B subsystems.
 
 This has important consequences for the behavior of $W(E)$, the number
-of microstates of energy $E$.  Suppose we extend a system by adding
-micro-canonical subsystems (which do not exchange energy with each
-other).  During this process, both $E$ and $S_{\mathrm{cl.}}$ increase
-proportionally.  Since $S_{\mathrm{cl.}} \propto \ln[W(E)]$, it
-follows that
+of microstates at each energy $E$.  Suppose we extend a system by
+adding micro-canonical subsystems (which are insulated from each
+other).  In the process, both $E$ and $S_{\mathrm{cl.}}$ increase
+proportionally.  Since $S_{\mathrm{cl.}} \propto \ln[W(E)]$,
 $$E \propto \ln W \;\;\;\Rightarrow \;\;\;W(E) \propto e^{\beta_0 E} \;\;\; \mathrm{for\;some}\; \beta_0 > 0.$$
 If we relax the restriction that the additional subsystems are
 micro-canonical, the number of microstates grows even faster with $E$,
 as energy can now be distributed in different ways between the
-subsystems.  It is reasonable to assume that scaling is a
+subsystems.  It is reasonable to assume that the scaling is a
 faster-growing exponential,
 $$W(E) \propto e^{\beta E} \;\;\; \mathrm{for\;some}\; \beta \ge \beta_0.$$
 This implies that the constant of proportionality relating
@@ -832,25 +824,26 @@ aforementioned exponential scaling of $W$ with $E$, one can show that
 the probability for subsystem A to have energy $E_A$ is
 $$p_A(E_A) \propto W_A(E_A) \, e^{-\beta E_A},$$
 where $W_A(E_A)$ is the number of microstates of energy $E_A$ for
-subsystem A , and $\beta$ is the inverse temperature of the heat bath.
+subsystem A, and $\beta$ is the inverse temperature of the heat bath.
 This is the celebrated \textbf{Boltzmann law} for the distribution of
 microstates at fixed temperature.  It implies that each microstate
 $i$, of energy $E_i$, has probability
 $$p_i = \frac{\exp(-\beta E_i)}{Z}, \;\;\;\mathrm{where}\;\;Z \equiv \sum_j \exp(-\beta E_j).$$
 Here, $Z(\beta,E_1, E_2,\dots)$ is the \textbf{partition function}.
-Note that probability conservation, $\sum_i p_i = 1$, is satisfied,
+Note that $p_i$ satisfies probability conservation, $\sum_i p_i = 1$,
 and that the sum involves all microstates of all possible energies.
 
 The probability distribution for a canonical ensemble represents a
-situation of partial uncertainty (since lower-energy microstates are
-more probable than higher-energy microstates).  Plugging the above
+partial-uncertainty situation, since lower-energy microstates are
+more probable than higher-energy microstates.  Plugging the above
 expression for $p_i$ into the entropy formula gives:
 $$S_{\mathrm{cl.}} = \frac{1}{T} \frac{\sum_i E_i e^{-\beta E_i}}{\sum_i e^{-\beta E_i}} + k_B \ln Z \;=\; \frac{\langle E\rangle}{T} + k_B \ln Z,$$
 where $\langle E\rangle = \sum_i E_i p_i$ denotes the average energy.
-We can then identify
-$$F \,\equiv\, - k_B T \ln Z \,=\, \langle E \rangle - TS_{\mathrm{cl.}}$$
-as the thermodynamic \textbf{free energy}, which satisfies the
-relation $\partial F/\partial T = - S_{\mathrm{cl.}}$.
+We can then define
+$$F \,\equiv\, - k_B T \ln Z \,=\, \langle E \rangle - TS_{\mathrm{cl.}},$$
+and show that this satisfies $\partial F/\partial T = -
+S_{\mathrm{cl.}}$.  This quantity can thus be identified as the
+thermodynamic \textbf{free energy}.
 
 
 
