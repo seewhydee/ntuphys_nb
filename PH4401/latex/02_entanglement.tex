@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{mathrsfs}
+\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
 \def\bra#1{\left\langle#1\right|}
@@ -201,14 +202,14 @@ collapse, the two-particle state is no longer entangled.
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
-In 1935, Einstein, Podolsky, and Rosen (EPR) formulated a thought
-experiment known as the \textbf{EPR paradox}, which highlighted the
-exceptionally counter-intuitive features of entangled quantum states.
-They argued that because of these features, quantum theory had to be
-an incomplete theory of reality.  Subsequently, however, it was shown
-that the EPR paradox is not an actual paradox; physical systems
-\textit{really do} behave in the counter-intuitive way predicted by
-quantum mechanics.
+In 1935, \hyperref[cite:epr]{Einstein, Podolsky, and Rosen (EPR)}
+formulated a thought experiment known as the \textbf{EPR paradox},
+which highlighted the exceptionally counter-intuitive features of
+entangled quantum states.  They argued that because of these features,
+quantum theory had to be an incomplete theory of reality.
+Subsequently, however, it was shown that the EPR paradox is not an
+actual paradox; physical systems \textit{really do} behave in the
+counter-intuitive way predicted by quantum mechanics.
 
 The EPR thought experiment begins with an entangled state, such as the
 entangled spin-$1/2$ two-particle state described in the previous section:
@@ -326,13 +327,14 @@ be possible to fill in the missing details.
 
 \section{Bell's theorem}
 
-In 1964, John S.~Bell published a bombshell paper showing that the
-predictions of quantum theory are \textit{inherently inconsistent}
-with hidden variable theories.  The amazing thing about this result,
-which is known as \textbf{Bell's theorem}, is that it requires no
-knowledge about the details of the hidden variable theory, except that
-it is deterministic and local.  In this section, we study a simplified
-version of Bell's theorem due to D.~Mermin (Mermin 1981).
+In 1964, John S.~Bell published a \hyperref[cite:bell]{bombshell
+  paper} showing that the predictions of quantum theory are
+\textit{inherently inconsistent} with hidden variable theories.  The
+amazing thing about this result, which is known as \textbf{Bell's
+  theorem}, is that it requires no knowledge about the details of the
+hidden variable theory, except that it is deterministic and local.  In
+this section, we study a simplified version of Bell's theorem due to
+\hyperref[cite:mermin]{Mermin (1981)}.
 
 We again consider spin-1/2 particle pairs, with particle $A$ on Earth
 and particle $B$ in the Betelgeuse star system.  The experimentalists
@@ -458,8 +460,8 @@ to various uncertainties and ``loopholes'' that are beyond the scope
 of our discussion.  Overall, the experimental consensus is a clear
 \textit{yes}: Nature really does behave as quantum mechanics predict,
 in a manner that cannot be replicated using deterministic local hidden
-variables!  For a review of the experimental evidence, see Aspect
-(1999).
+variables!  For a review of the experimental evidence, see
+\hyperref[cite:aspect]{Aspect (1999)}.
 
 \section{Entanglement entropy}
 
@@ -549,35 +551,36 @@ are calculated from the density matrix.
 
 Given a density matrix, we can define a quantity called the
 \textbf{entanglement entropy}:
-$$S = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big] \Big\}.$$
-Here, $S$ refers to the entropy of the system or subsystem described
-by the density matrix $\hat{\rho}$; for instance, if we use the
-density matrix $\hat{\rho}_A$ in the above formula, then the formula
-gives the entropy of subsystem A.  We use $\ln[\cdots]$ to denote the
-logarithm of an operator, which is basically the inverse of the
-exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
+$$S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big]\Big\}.$$
+Here, $S_{\mathrm{ent.}}$ refers to the entropy of the system or
+subsystem described by the density matrix $\hat{\rho}$; for instance,
+if we use the density matrix $\hat{\rho}_A$ in the above formula, then
+the formula gives the entropy of subsystem A.  We use $\ln[\cdots]$ to
+denote the logarithm of an operator, which is basically the inverse of
+the exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
 \hat{A}$.  The prefactor $k_B$ is Boltzmann's constant, and is present
-to ensure that $S$ has the same units as thermodynamic entropy.
+to ensure that $S_{\mathrm{ent.}}$ has the same units as thermodynamic
+entropy.
 
 The definition of the entanglement entropy is based on an analogy with
 the entropy concept from thermodynamics, statistical mechanics and
 information theory.  In those classical contexts, entropy is a
-quantitative measure of uncertainty (i.e, lack of information)
-about a system's underlying microscopic state, or ``microstate''.
-Suppose a system has $W$ possible microstates that occur with
-probabilities $\{p_1, p_2, \dots, p_W\}$, satisfying $\sum_i p_i = 1$.
-Then we define the classical entropy as
-$$S_{\mathrm{classical}} = - k_B \sum_{i=1}^W p_i \ln(p_i).$$
-If the system is definitely in one microstate $k$ (i.e., $p_i =
-\delta_{ik}$), a situation of complete certainty, the above formula
-gives $S_{\mathrm{classical}} = 0$.  (Note that $x \ln(x)\rightarrow
-0$ as $x\rightarrow 0$).  On the other hand, in a situation of
-complete uncertainty where all microstates are equally probable ($p_i
-= 1/W$ for all $i$), the formula gives $S_{\mathrm{classical}} = k_B
-\ln(W)$, which is the entropy of a microcanonical ensemble in
-statistical mechanics.  For any other distribution of probabilities,
-it can be shown that the entropy lies between these two extremes: $0
-\le S_{\mathrm{classical}} \le k_B\ln(W)$.
+quantitative measure of uncertainty (i.e, lack of information) about a
+system's underlying microscopic state, or ``microstate''.  Suppose a
+system has $W$ possible microstates that occur with probabilities
+$\{p_1, p_2, \dots, p_W\}$, satisfying $\sum_i p_i = 1$.  Then we
+define the classical entropy
+$$S_{\mathrm{cl.}} = - k_B \sum_{i=1}^W p_i \ln(p_i).$$
+In a situation of complete certainty where the system is known to be
+in a specific microstate $k$ ($p_i = \delta_{ik}$), the formula gives
+$S_{\mathrm{cl.}} = 0$.  (Note that $x \ln(x)\rightarrow 0$ as
+$x\rightarrow 0$).  In a situation of complete uncertainty where all
+microstates are equally probable ($p_i = 1/W$), we get
+$S_{\mathrm{cl.}} = k_B \ln W$, the entropy of a microcanonical
+ensemble in statistical mechanics.  For any other distribution of
+probabilities, it can be shown that the entropy lies between these two
+extremes: $0 \le S_{\mathrm{cl.}}  \le k_B\ln W$.  For a review of the
+properties of entropy, see \hyperref[appendixa]{Appendix A}.
 
 Entanglement entropy quantifies the uncertainty arising from an
 entangled system's lack of a definite quantum state.  But we need to
@@ -589,11 +592,11 @@ However, it is problematic to directly substitute these probabilities
 $\{p_i\}$ into the classical entropy formula, since they are
 basis-dependent (i.e., the set of probabilities is dependent on the
 choice of measurement).  The above definition for the entanglement
-entropy, $S = - k_B \mathrm{Tr} \big\{ \hat{\rho}\, \ln[\hat{\rho}]
+entropy, $S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \big\{ \hat{\rho}\, \ln[\hat{\rho}]
 \big\}$, bypasses this problem by using the trace, which is
 basis-independent.  This also means that if we look specifically at
 the eigenbasis for $\hat{\rho}$, denoted by $\{|\mu'_i\rangle\}$, then
-$$\begin{aligned}S &= -k_B \sum_i \langle \mu'_i | \hat{\rho}\ln(\hat{\rho}) | \mu'_i\rangle  \\ &= - k_B \sum_i p_i' \ln(p_i') \;\;\;\mathrm{where}\;\;\hat{\rho}\,|\mu'_i\rangle = p_i' |\mu'_i\rangle\end{aligned}$$
+$$\begin{aligned}S_{\mathrm{ent.}} &= -k_B \sum_i \langle \mu'_i | \hat{\rho}\ln(\hat{\rho}) | \mu'_i\rangle  \\ &= - k_B \sum_i p_i' \ln(p_i') \;\;\;\mathrm{where}\;\;\hat{\rho}\,|\mu'_i\rangle = p_i' |\mu'_i\rangle\end{aligned}$$
 In this specific basis, where the eigenvalues $p_i =
 \langle\mu'_i|\hat{\rho}|\mu'_i\rangle$ are also the measurement
 probabilities, the definition of the entanglement entropy is
@@ -602,16 +605,19 @@ consistent with the definition of the classical entropy.
 For an unentangled system, we can write $\hat{\rho} =
 |\psi\rangle\langle\psi|$ for some state $|\psi\rangle$, so
 $|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$ with eigenvalue
-1; hence, $S = 0$.  Conversely, if we find that a system has $S \ne
-0$, that implies that it is entangled, and lacks a definite quantum
-state.  A system is \textbf{maximally entangled} if the density matrix
-eigenvalues (measurement probabilities) are all equal, $p_i' = 1/d$,
-where $d$ is the dimension of the Hilbert space, so that $S = k_B
-\ln(d)$.  In general, the entanglement entropy satisfies $0 \le S \le
-k_B\ln(d)$.
+1; hence, $S_{\mathrm{ent.}} = 0$.  Conversely, if we find that a
+system has $S_{\mathrm{ent.}} \ne 0$, that implies that it is
+entangled, and lacks a definite quantum state.
 
-Let us apply the entanglement entropy formula to the system of two
-spin-$1/2$ systems and the state
+A system is \textbf{maximally entangled} if the density matrix
+eigenvalues (measurement probabilities) are all equal: i.e., $p_i' =
+1/d$, where $d$ is the dimension of the Hilbert space.  In that case,
+the entropy is $S_{\mathrm{ent.}} = k_B \ln(d)$.  In general, the
+entanglement entropy lies between these two extremes, $0 \le
+S_{\mathrm{ent.}} \le k_B\ln(d)$.
+
+As a concrete example, let us apply the entanglement entropy formula
+to the system of two spin-$1/2$ systems and the state
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
 The density matrix for the two-particle system is
 $$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \Big(\langle+z|\otimes\langle-z| \,-\, \langle-z|\otimes\langle+z|\Big).$$
@@ -622,7 +628,7 @@ $\{|\!+z\rangle,|\!-z\rangle\}$ basis:
 $$\hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.$$
 Note that this satisfies $\mathrm{Tr}(\hat\rho_A) = 1$, as expected.
 Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem A:
-$$S_A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_B\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_B\ln(2).$$
+$$S_{\mathrm{ent.}}^A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_B\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_B\ln(2).$$
 This is the maximum possible entanglement entropy for a system with a
 2D Hilbert space.  Hence, subsystems A and B are maximally entangled.
 
@@ -740,33 +746,153 @@ Many-Worlds Interpretation have identical physical consequences (which
 is why they are referred to as different ``interpretations'' of
 quantum mechanics, rather than different theories).
 
+\section*{Appendix A: Entropy in classical physics}
+\label{appendixa}
+
+In classical physics, ``entropy'' quantifies our lack of knowledge
+about a complex system.  In information theory, \textbf{information
+  entropy} describes our uncertainty about the contents of a message
+before receiving it.  In thermodynamics and statistical mechanics,
+\textbf{thermodynamic entropy} describes our uncertainty about the
+microscopic details (``microstate'') of a complex many-body system.
+These two formulations are in fact consistent and intimately related,
+as described e.g.~by Feynman \textcolor{red}{(???)}.  Here, we will
+use the statistical mechanics formulation.
+
+Suppose system has discrete microstates labeled by integers
+$\{1,2,3,\dots\}$ , which have probabilities $\{p_1, p_2, p_3,
+\dots\}$.  Then the entropy of the system is defined as
+$$S_{\mathrm{cl.}} = - k_B \sum_{i} p_i \ln(p_i).$$
+The probabilities $p_i$ are to be understood as \textit{conditional}
+probabilities, conditional on the known facts about the macroscopic
+features of the system (e.g., we might know the total energy $E$).
+
+If we know exactly which microstate the system is in (i.e., $p_k = 1$
+for some state $k$), the entropy formula gives $S _{\mathrm{cl.}} =
+0$.  The opposite situation, of ``complete uncertainty'', is provided
+by a \textbf{micro-canonical ensemble}: a system that is at
+equilibrium, has a fixed total energy $E$, and does not interact with
+the rest of the universe.  In this case, the \textbf{ergodicity
+  postulate} of statistical mechanics states that all possible
+microstates with energy $E$ are equally probable.  If there are $W$
+possible microstates, the probabilities are
+$$p_i = \frac{1}{W} \;\;\forall i \in \{1,2,\dots,W\}.$$
+Therefore, the entropy formula gives
+$$S_{\mathrm{cl.}} \,=\, -k_B W \frac{1}{W} \ln(1/W) \;=\; k_B \ln W,$$
+the famous result carved into the gravestone of Ludwig Boltzmann
+(\textcolor{red}{???}).  Note that this expression contains an
+implicit energy dependence; changing $E$ also varies $W$, and hence
+$S_{\mathrm{cl.}}$.
+
+The entropy formula is designed so that any other probability
+distribution, which describes a situation of \textit{partial}
+uncertainty, yields an entropy $S_{\mathrm{cl.}}$ lying between $0$
+and $k_B \ln W$.  To see that zero is the lower bound, first note that
+for $0 \le p_i \le 1$, each term in the entropy formula satisfies
+$-k_B\, p_i\ln(p_i) \ge 0$, and the equality holds if and only if $p_i
+= 0$ or $p_i = 1$ (see the figure).  This implies that
+$S_{\mathrm{cl.}}\ge 0$, and moreover that $S_{\mathrm{cl.}} = 0$ if
+and only if $p_i = \delta_{ik}$ for some $k$ (i.e., there is no
+uncertainty).  \textcolor{red}{The proof that $k_B \ln W$ is the upper
+  bound (which implies the second law of thermodynamics) is more
+  complicated, and we refer the interested reader to [????].}
+
+\textcolor{red}{[Fig.]}
+
+Another important feature of the entropy formula is that
+$S_{\mathrm{cl.}}$ is \textbf{extensive}, meaning that it scales
+(``extends'') proportionally with system size.  To see this, consider
+two independent systems A and B, which have microstate probabilities
+$\{p_i^A\}$ and $\{p_j^B\}$.  If we regard the combination of A and B
+as a single system, each microstate of the combined system is
+specified by the microstate of A and the microstate of B, and is thus
+indexed by integers $(i,j)$, with probability $p_{ij} = p^A_ip^B_j$.
+The entropy of the combined system is therefore
+$$\begin{aligned}S_{\mathrm{cl.}} &= - k_B \sum_{ij} p_i^Ap^B_j \ln\left(p^A_ip^B_j\right) \\
+  &= - k_B \Big(\sum_{i} p^A_i \ln p^A_i\Big)\Big(\sum_j p^B_j\Big)
+  - k_B \Big(\sum_{i} p^A_i \Big) \Big(\sum_j p^B_j \ln p^B_j\Big) \\
+  &= S_{\mathrm{cl.}}^A + S_{\mathrm{cl.}}^B,
+\end{aligned}$$
+where $S_{\mathrm{cl.}}^A$ and $S_{\mathrm{cl.}}^B$ are the individual
+entropies of the A and B subsystems.
+
+This has important consequences for the behavior of $W(E)$, the number
+of microstates of energy $E$.  Suppose we extend a system by adding
+micro-canonical subsystems (which do not exchange energy with each
+other).  During this process, both $E$ and $S_{\mathrm{cl.}}$ increase
+proportionally.  Since $S_{\mathrm{cl.}} \propto \ln[W(E)]$, it
+follows that
+$$E \propto \ln W \;\;\;\Rightarrow \;\;\;W(E) \propto e^{\beta_0 E} \;\;\; \mathrm{for\;some}\; \beta_0 > 0.$$
+If we relax the restriction that the additional subsystems are
+micro-canonical, the number of microstates grows even faster with $E$,
+as energy can now be distributed in different ways between the
+subsystems.  It is reasonable to assume that scaling is a
+faster-growing exponential,
+$$W(E) \propto e^{\beta E} \;\;\; \mathrm{for\;some}\; \beta \ge \beta_0.$$
+This implies that the constant of proportionality relating
+$S_{\mathrm{cl.}}$ and $E$ is
+$$\frac{\partial E}{\partial S_{\mathrm{cl.}}} = \frac{1}{k_B \beta} = T,$$
+where $\beta \equiv (k_BT)^{-1}$ \textit{defines} the temperature $T$.
+This is the first law of thermodynamics.
+
+A \textbf{canonical ensemble} is a system held in equilibrium with a
+larger system, called a ``heat bath''.  We can model this with a
+micro-canonical ensemble of energy $E$, divided two subsystems, A (the
+canonical ensemble) and B (the heat bath), which are not insulated
+from each other.  Using the ergodicity postulate, and the
+aforementioned exponential scaling of $W$ with $E$, one can show that
+the probability for subsystem A to have energy $E_A$ is
+$$p_A(E_A) \propto W_A(E_A) \, e^{-\beta E_A},$$
+where $W_A(E_A)$ is the number of microstates of energy $E_A$ for
+subsystem A , and $\beta$ is the inverse temperature of the heat bath.
+This is the celebrated \textbf{Boltzmann law} for the distribution of
+microstates at fixed temperature.  It implies that each microstate
+$i$, of energy $E_i$, has probability
+$$p_i = \frac{\exp(-\beta E_i)}{Z}, \;\;\;\mathrm{where}\;\;Z \equiv \sum_j \exp(-\beta E_j).$$
+Here, $Z(\beta,E_1, E_2,\dots)$ is the \textbf{partition function}.
+Note that probability conservation, $\sum_i p_i = 1$, is satisfied,
+and that the sum involves all microstates of all possible energies.
+
+The probability distribution for a canonical ensemble represents a
+situation of partial uncertainty (since lower-energy microstates are
+more probable than higher-energy microstates).  Plugging the above
+expression for $p_i$ into the entropy formula gives:
+$$S_{\mathrm{cl.}} = \frac{1}{T} \frac{\sum_i E_i e^{-\beta E_i}}{\sum_i e^{-\beta E_i}} + k_B \ln Z \;=\; \frac{\langle E\rangle}{T} + k_B \ln Z,$$
+where $\langle E\rangle = \sum_i E_i p_i$ denotes the average energy.
+We can then identify
+$$F \,\equiv\, - k_B T \ln Z \,=\, \langle E \rangle - TS_{\mathrm{cl.}}$$
+as the thermodynamic \textbf{free energy}, which satisfies the
+relation $\partial F/\partial T = - S_{\mathrm{cl.}}$.
 
 
 
-\section{Exercises}
+\section*{Exercises}
 
 \begin{enumerate}
 \item \textcolor{red}{Calculate entropy for Bell states.}
 \item \textcolor{red}{Explicit model for MWI state collapse.}
 \end{enumerate}
 
-
-\section{Further Reading}
+\section*{Further Reading}
 
 \begin{itemize}
 \item A.~Einstein, B.~Podolsky, and N.~Rosen,
   \textit{Can Quantum-Mechanical Description of Physical Reality Be
     Considered Complete?}, Physical Review \textbf{47}, 777 (1935).
+  \label{cite:epr}
 
 \item J.~S.~Bell, \textit{On the Einstein-Podolsky-Rosen paradox},
-  Physics \textbf{1}, 195 (1964).
+  Physics \textbf{1}, 195 (1964). \label{cite:bell}
   
 \item N.~D.~Mermin, \textit{Bringing home the atomic world: Quantum
   mysteries for anybody}, American Journal of Physics \textbf{49}, 940
-  (1981).
+  (1981). \label{cite:mermin}
 
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
-  Nature (News and Views) \textbf{398}, 189 (1999).
+  Nature (News and Views) \textbf{398}, 189 (1999). \label{cite:aspect}
+
+\item \textcolor{red}{Feynman lectures on computation}
+  \label{cite:feynman}
 \end{itemize}
 
 \end{document}
