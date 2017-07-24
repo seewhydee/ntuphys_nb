@@ -19,89 +19,78 @@
 
 \section{Quantum mechanics of multi-particle systems}
 
-So far, we have studied quantum mechanical systems that consist of
+So far, we have studied quantum mechanical systems consisting of
 single particles.  The next important step is to look at systems of
 more than one particle.  As we shall see, the postulates of quantum
-mechanics have interesting implications which only show up in
-multi-particle systems, such as the phenomenon of \textbf{quantum
+mechanics have interesting implications that only show up in
+multi-particle systems, particularly the phenomenon of \textbf{quantum
   entanglement}.
 
-In the following discussion, you may assume that we are dealing with
-systems of ``distinguishable'' particles, such as a two-particle
-system of an electron and a proton.  (There is a separate set of
-complications whenever we deal with ``identical'' or
-``indistinguishable'' particles, such as a system of two electrons.
-We will spend the next chapter dealing with those issues.  If you're
-not sure what this means, don't worry; just read on.)
+In the following discussion, you may assume we are dealing with
+systems of ``distinguishable'' particles.  There is another set of
+complications if the particles are ``identical'' or
+``indistinguishable'', which we'll deal with in the next chapter.  (If
+you're unsure what this means, just read on.)
 
-Suppose we have two distinguishable particles, labeled $A$ and $B$.
+Suppose we have a pair of distinguishable particles, labeled A and B.
 If each individual particle is treated as a quantum system, then
-according to the usual postulates of quantum mechanics, its state is
-described by a vector in some complex Hilbert space.  Let
-$\mathscr{H}_A$ and $\mathscr{H}_B$ denote the respective
-single-particle Hilbert spaces.  When the two particles are considered
-as a single system, the combined Hilbert space is denoted by
+according to the postulates of quantum mechanics, its state is
+described by a vector in a complex Hilbert space.  Let $\mathscr{H}_A$
+and $\mathscr{H}_B$ denote the respective single-particle Hilbert
+spaces.
+
+When the two particles are considered as a single system, the combined
+Hilbert space is denoted
 $$\mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.$$
 The symbol $\otimes$ refers to a mathematical operation known as the
 \textbf{tensor product}, which is a way of combining two Hilbert
-spaces to form a larger Hilbert space.
-
-The mathematical meaning of the tensor product is as follows.  Suppose
-$\mathscr{H}_A$ can be spanned by an orthonormal basis
+spaces to form a larger Hilbert space.  Its meaning is as follows:
+suppose $\mathscr{H}_A$ is spanned by an orthonormal basis
 $\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle, \dots\}$, and
-$\mathscr{H}_B$ can be spanned by $\{|\nu_1\rangle, |\nu_2\rangle,
+$\mathscr{H}_B$ spanned by $\{|\nu_1\rangle, |\nu_2\rangle,
 |\nu_3\rangle, \dots\}$.  Then the tensor product space $\mathscr{H}_A
-\otimes \mathscr{H}_B$ can be defined in terms of the basis set
+\otimes \mathscr{H}_B$ is a space spanned by the basis vectors
 $$\Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \Big| \;\; \textrm{all}\;|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.$$
-Intuitively, this means that if you know particle $A$ is in state
-$|\mu_i\rangle$, and particle $B$ is in state $|\nu_j\rangle$, that
-specifies a state of the combined system.  A complete basis set for
-the combined system can be constructed in this way.  Note that if
+This reflects the intuitive notion that if particle A has some state
+$|\mu_i\rangle$ and particle B has state $|\nu_j\rangle$, then the
+state of the combined system is fully specified.  Note that if
 $\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has dimension
-$d_B$, then $\mathscr{H}_A \otimes \mathscr{H}_B$ has dimension $d_A
-d_B$.
-
-Any two-particle state can then be written as
+$d_B$, then the combined Hilbert space $\mathscr{H}$ has dimension
+$d_A d_B$.  Using such a basis, any two-particle state can be written as
 $$|\psi\rangle = \sum_{i} \sum_{j} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.$$
-The inner product for tensor product basis states is defined in terms
-of the inner product of the individual spaces:
-$$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \big(\langle\mu_i| \otimes \langle\nu_j| \big) \big(|\mu_p\rangle \otimes |\nu_q\rangle\big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle.$$
-In other words, to multiply a tensor product bra with a tensor product
-ket, (i) do the bra-ket product for the first slot, (ii) do the
-bra-ket product for the second slot, and (iii) multiply the results
-together.  You may check that this satisfies the requirements for an
-inner product in linear algebra (assuming that the inner products for
-the single-particle states are well-defined).
 
-As an example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both
-two-dimensional Hilbert spaces describing spin-$1/2$ degrees
-of freedom, such that each can be spanned by an orthonormal basis
-$\{\,|\!+\!z\rangle, \,|\!-\!z\rangle \, \}$, representing ``spin-up''
-and ``spin-down'' states.  Then the tensor product space $\mathscr{H}$
-is spanned by
+Inner products between the tensor product basis states is defined as follows:
+$$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.$$
+In other words, we (i) calculate the inner product for space A, (ii)
+calculate the inner product for space B, and (iii) multiply the two
+resulting numbers together.  You can check that this satisfies the
+formal requirements for an inner product in linear algebra.
+
+As an example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both 2D
+Hilbert spaces describing spin-$1/2$ degrees of freedom.  Each space
+can be spanned by an orthonormal basis $\{\,|\!+\!z\rangle,
+\,|\!-\!z\rangle \, \}$, representing ``spin-up'' and ``spin-down''.
+Then the tensor product space $\mathscr{H}$ is a 4D space spanned by
 $$\Big\{\;|\!+\!z\rangle\otimes|\!+\!z\rangle\,,\; |\!+\!z\rangle\otimes|\!-\!z\rangle\,,\; |\!-z\!\rangle\otimes|\!+\!z\rangle\,,\; |\!-\!z\rangle\otimes|\!-\!z\rangle \;\Big\}.$$
-The dimension of $\mathscr{H}$ is $2 \times 2 = 4$.  
 
-At this point, we make an important observation.  If we specify that
+We now make an important observation.  As previously noted, if
 particle $A$ is in state $|\mu_i\rangle$ and particle $B$ is in state
-$|\nu_j\rangle$, that specifies a state of the combined system; but
-the reverse is not true!  \textit{Some states of the combined system
-  cannot be expressed in terms of definite states of the individual
-  particles.}  For example, take the previous example of two spaces
-describing spin-$1/2$ degrees of freedom, and consider
+$|\nu_j\rangle$, that specifies the state of the combined system.  But
+the reverse is not generally true!  There are states of the combined
+system that \textit{cannot} be expressed in terms of definite states
+of the individual particles.  For example, take the previous example
+of two spaces describing spin-$1/2$ degrees of freedom, and consider
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-z\!\rangle\otimes|\!+\!z\rangle\Big).$$
 
 This two-particle state is constructed from two of the basis states of
-the tensor product space,
-$|\!+\!z\rangle\otimes|\!-\!z\rangle$ and
-$|\!-\!z\rangle\otimes|\!+\!z\rangle$; you can check that
-the factor of $1/\sqrt{2}$ correctly normalizes the state so that
+the tensor product space, $|\!+\!z\rangle\otimes|\!-\!z\rangle$ and
+$|\!-\!z\rangle\otimes|\!+\!z\rangle$; you can check that the factor
+of $1/\sqrt{2}$ correctly normalizes the state so that
 $\langle\psi|\psi\rangle = 1$.  Evidently, neither particle A nor
-particle B has a definite $|\!+\!z\rangle$ or
-$|\!-\!z\rangle$ state.  Furthermore, we shall show rigorously,
-in a later section, that there's \textit{no} choice of basis in which this
-particular quantum state $|\psi\rangle$ can be expressed with
-definite quantum states for each particle.  In other words,
+particle B has a definite $|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.
+Moreover, we shall show (in Section~\ref{sec:entropy}) that there's
+\textit{no} choice of basis that allows the individual particles to be
+expressed with definite quantum states.  In other words,
 $$|\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.$$
 In such a situation, the two particles are said to be
 \textbf{entangled}.  This means that they cannot be described by
@@ -118,12 +107,12 @@ $$\mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
 which has dimensionality $d = d_1 d_2\cdots d_N$.  It is interesting
 to note that the dimensionality of the multi-particle Hilbert space
 scales \textit{exponentially} with the number of particles.  For
-instance, if each single-particle Hilbert space is two-dimensional, a
+instance, if each single-particle Hilbert space is 2D, a
 $20$-particle system will have a Hilbert space of dimensionality
 $2^{20} =1\,048\,576$.  This means that multi-particle quantum systems
-are able to ``carry'' huge amounts of information, compared to
+are able to carry huge amounts of information, compared to
 classical systems.  That is one of the reasons people are excited by
-the prospect of quantum computing.
+the prospect of quantum computers.
 
 \section{Partial measurements}
 \label{sec:partialmeasurements}
@@ -133,45 +122,43 @@ Suppose a particle is in a quantum state $|\psi\rangle$ and we perform
 some measurement $\hat{Q}$.  To figure out the measurement outcome, we
 first write $|\psi\rangle$ in the eigenstate basis of $\hat{Q}$:
 $$|\psi\rangle = \sum_n \psi_n\, |q_n\rangle, \;\;\mathrm{where}\;\;\hat{Q}|q_n\rangle = q_n |q_n\rangle \;\,\textrm{and}\;\, \psi_n = \langle q_n|\psi\rangle.$$
-For simplicity, let's suppose the eigenvalues $\{q_n\}$ are all
+For simplicity, suppose the eigenvalues $\{q_n\}$ are all
 non-degenerate.  Then the probability of obtaining the measurement
 outcome $q_n$ is $|\psi_n|^2$, the absolute square of the coefficient
 of $|q_n\rangle$ in the above formula.  After the measurement, the
 system ``collapses'' into state $|q_n\rangle$, which can be regarded as
 the projection operation
 $$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; |q_n\rangle\langle q_n|\psi\rangle.$$
-The prefactor $\mathcal{N} = |\psi_n|^2$ simply ensures that the new
-state remains normalized; the overall phase has no physical
-significance.
+(The prefactor $\mathcal{N} = |\psi_n|^2$ simply ensures that the new
+state remains normalized.)
 
-For multi-particle systems, the measurement postulates of quantum
-theory are faced with a new complication: how do we describe a
-measurement performed on just one particle?
+For multi-particle systems, we are faced with a new complication when
+applying the measurement postulate: what if a measurement is performed
+on just one particle?
 
-To figure it out, let's again consider a system of two particles, with
-Hilbert spaces $\mathscr{H}_A$ and $\mathscr{H}_B$, and the
-two-particle Hilbert space $\mathscr{H} = \mathscr{H}_A \otimes
-\mathscr{H}_B$.  Suppose we perform a measurement on particle $A$,
-corresponding to a Hermitian operator $\hat{\mu}$ that acts upon
-$\mathscr{H}_A$ and has eigenvectors $\{|\mu_1\rangle,
-|\mu_2\rangle,\dots\}$.  We can write any two-particle state
-$|\psi\rangle$ using the eigenvectors of $\hat{Q}$ as a basis set for
-$\mathscr{H}_A$, and an arbitrary basis set $\{|\nu_1\rangle,
-|\nu_2\rangle,\dots\}$ for $\mathscr{H}_B$:
+Consider again a system of two particles, with Hilbert spaces
+$\mathscr{H}_A$ and $\mathscr{H}_B$, and the two-particle Hilbert
+space $\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  Suppose we
+perform a measurement on particle $A$, corresponding to a Hermitian
+operator $\hat{\mu}$ that acts upon $\mathscr{H}_A$ and has
+eigenvectors $\{|\mu_1\rangle, |\mu_2\rangle,\dots\}$.  We can write
+any two-particle state $|\psi\rangle$ using the eigenvectors of
+$\hat{Q}$ as a basis set for $\mathscr{H}_A$, and an arbitrary basis
+set $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for $\mathscr{H}_B$:
 $$\begin{aligned}|\psi\rangle &= \sum_{i}\sum_{j} \psi_{ij}\, |\mu_i\rangle\otimes |\nu_j\rangle \\&= \sum_i |\mu_i\rangle\otimes |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle \;\in\; \mathscr{H}_B.\end{aligned}$$
 Note that unlike the single-particle case, the ``coefficient'' of
 $|n\rangle$ in the basis expansion is not merely a complex number, but
-a vector in the space $\mathscr{H}_B$.  We can proceed by
-analogy.  The probability of obtaining the measurement outcome $\mu_i$
-should be the ``absolute square'' of this ``coefficient'':
+a vector in the space $\mathscr{H}_B$.  Proceeding by analogy, we can
+postulate that the probability of obtaining the measurement outcome
+$\mu_i$ should be the ``absolute square'' of this ``coefficient'':
 $$\langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
-After we obtain the measurement result $\mu_i$, the state collapses
-via to the projection
+After we obtain the measurement result $\mu_i$, the state should collapse
+via the projection
 $$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; \Big(|\mu_i\rangle\langle \mu_i| \otimes \hat{I}\Big) |\psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\; |\mu_i\rangle\otimes |\varphi_i\rangle.$$
 Note that the projection operator $|\mu_i\rangle\langle \mu_i|$ acts
-only upon the $\mathscr{H}_A$ part of the two-particle space.  The
-factor $\mathcal{N}$ is defined so that the resulting state is
-normalized to unity.
+only upon the $\mathscr{H}_A$ part of the two-particle space.  Similar
+to the single-particle case, the factor $\mathcal{N}$ is defined so
+that the collapsed state is normalized.
 
 Let's work through an explicit example, involving the
 previously-discussed system of two spin-$1/2$ particles, and the
@@ -464,6 +451,7 @@ variables!  For a review of the experimental evidence, see
 \hyperref[cite:aspect]{Aspect (1999)}.
 
 \section{Entanglement entropy}
+\label{sec:entropy}
 
 In previous sections, we said that a multi-particle system is
 ``entangled'' if the individual particles do not have definite quantum
@@ -869,6 +857,7 @@ relation $\partial F/\partial T = - S_{\mathrm{cl.}}$.
 \section*{Exercises}
 
 \begin{enumerate}
+\item \textcolor{red}{Prove that the inner product for tensor product basis states satisfies inner product axiom.}
 \item \textcolor{red}{Calculate entropy for Bell states.}
 \item \textcolor{red}{Explicit model for MWI state collapse.}
 \end{enumerate}
