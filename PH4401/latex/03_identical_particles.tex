@@ -20,25 +20,26 @@
 \section{Particle indistinguishability and exchange symmetry}
 
 We saw, in the previous chapter, how the principles of quantum
-mechanics are applied to systems of multiple particles.  However, that
-discussion omitted an important feature of multi-particle systems,
-namely the fact that particles of the same type are fundamentally
-indistinguishable from each other.  It turns out that this
-indistinguishability imposes strong constraints on the form of the
-multi-particle quantum states, the study of which will lead us to a
-fundamental re-interpretation of what ``particles'' are.
+mechanics apply to systems of multiple particles.  That discussion
+omitted an important feature of multi-particle systems, namely the
+fact that particles of the same type are fundamentally
+indistinguishable from each other.  As it turns out,
+indistinguishability is a strong constraint on the form of the
+multi-particle quantum states.  Looking into this will ultimately lead
+us toward a fundamental re-interpretation of what ``particles'' are.
 
 Suppose we have two particles of the same type, such as two electrons.
 It is a fact of Nature that all electrons have identical physical
-properties (the same mass, charge, spin, etc.).  The single-particle
-Hilbert spaces of the two electrons must therefore be mathematically
-identical.  Let us denote this space by $\mathscr{H}^{(1)}$.  The
-Hilbert space for a two-electron system is a tensor product of two
-single-electron Hilbert spaces, denoted by
+properties: same mass, same charge, same total spin, etc.  One
+consequence of this is that the single-particle Hilbert spaces of the
+two electrons must be mathematically identical.  Let us denote this
+space by $\mathscr{H}^{(1)}$.  For the combined two-electron system,
+the Hilbert space is a tensor product of two single-electron Hilbert
+spaces, denoted by
 $$\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.$$
-Because the electrons have identical physical properties, any
-Hamiltonian for the two-electron system must act on the electrons in a
-symmetrical way.  An example of such a Hamiltonian is
+Since the electrons have identical properties, any Hamiltonian for the
+two-electron system must act on the electrons in a symmetrical way.
+An example of such a Hamiltonian is
 $$\hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|},$$
 which contains non-relativistic kinetic energies for the two
 electrons, as well as the potential energy for the Coulomb interaction
@@ -46,66 +47,68 @@ between the electrons.  The operators $\hat{\mathbf{p}}_1$ and
 $\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
 $\hat{\mathbf{r}}_2$ act on electron 2.
 
-It can be seen that this two-electron Hamiltonian is invariant under
-an interchange of the operators acting on the two electrons (i.e.,
+This kind of two-electron Hamiltonian is evidently invariant under an
+interchange of the operators acting on the two electrons (i.e.,
 $\hat{\mathbf{p}}_1 \leftrightarrow \hat{\mathbf{p}}_2$ and
 $\hat{\mathbf{r}}_1 \leftrightarrow \hat{\mathbf{r}}_2$).  This can be
 regarded as a symmetry of the system, known as \textbf{exchange
   symmetry}.  In other contexts, we have seen how symmetries of
 quantum systems can be represented by unitary (i.e., norm-conserving)
 operators that commute with the Hamiltonian.  Exchange symmetry can
-likewise be represented by an operator $\hat{P}$, defined as follows:
-let $\{|\mu_i\rangle\}$ be a basis set for the single-electron Hilbert
+also be represented by an operator $\hat{P}$, defined as follows: let
+$\{|\mu_i\rangle\}$ be a basis set for the single-electron Hilbert
 space $\mathscr{H}^{(1)}$; then
-$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle\otimes|\mu_j\rangle \Big)
-\;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle\otimes|\mu_i\rangle = \sum_{ij} \psi_{ji} |\mu_i\rangle\otimes|\mu_j\rangle.$$
-Since two consecutive exchanges obviously leave the system unchanged,
-the $\hat{P}$ operator satisfies
+$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
+\;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle = \sum_{ij} \psi_{ji} |\mu_i\rangle|\mu_j\rangle.$$
+Since two consecutive exchanges clearly leave the state unchanged,
 $$\hat{P}^2 = \hat{I},$$
-where $\hat{I}$ is the identity operator.  It can be proven that
-$\hat{P}$ is linear, unitary (as required for a symmetry operator), and
-Hermitian; and moreover that the exchange operation performed by
-$\hat{P}$ does not depend on the choice of basis (see
-\hyperref[ex:1]{Exercise 1}).
+where $\hat{I}$ is the identity operator.  It can be shown that:
+\begin{enumerate}
+\item $\hat{P}$ is linear, unitary (as required for a symmetry
+  operator), and Hermitian; see \hyperref[ex:1]{Exercise 1}.
+  
+\item The effect of $\hat{P}$ does not depend on the specific choice
+  of basis; see \hyperref[ex:1]{Exercise 1}.
 
-It can also be shown that $\hat{P}$ commutes with the above
-Hamiltonian $\hat{H}$, or indeed any Hamiltonian where the
-single-particle operators appear in a symmetrical manner (see
-\hyperref[ex:2]{Exercise 2}).
+\item $\hat{P}$ commutes with the above Hamiltonian $\hat{H}$, or
+  indeed any Hamiltonian where the single-particle operators appear in
+  a symmetrical manner; see \hyperref[ex:2]{Exercise 2}.
+\end{enumerate}
 
 According to Noether's theorem, any symmetry implies a conservation
 law.  In the case of exchange symmetry, since $\hat{P}$ is itself
 Hermitian, we can take the conserved quantity to be its eigenvalue.
-Given that $\hat{P}^2 = \hat{I}$, there are only two possibilities:
-$$\hat{P} |\psi\rangle = p|\psi\rangle \;\;\;\Rightarrow\;\;\; p = \begin{cases}+1 & \textrm{(``symmetric\;state'')} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}$$
-We call the eigenvalue $p$ the \textbf{exchange parity}.  If the
-system is initially in either eigenstate of $\hat{P}$, then under time
-evolution via Schr\"odinger's equation, it remains an eigenstate for
-all other times.  (This follows from the fact that $\hat{P}$ commutes
-with $\hat{H}$.)
+We call this eigenvalue, $p$, the \textbf{exchange parity}.  Given
+that $\hat{P}^2 = \hat{I}$, there are just two possibilities:
+$$\hat{P} |\psi\rangle = p|\psi\rangle \;\;\;\Rightarrow\;\;\; p = \begin{cases}+1 & \textrm{(``symmetric\;state'')}, \;\;\textrm{or} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}$$
+Since $\hat{P}$ commutes with $\hat{H}$, if the system starts out in
+one eigenstate of $\hat{P}$ with parity $p$, then it always retains
+the same definite parity $p$ under time evolution via Schr\"odinger's
+equation.
 
 The concept of exchange parity generalizes to systems of more than two
-particles.  In a system of $N$ identical particles, we can define a
-set of exchange operators $\hat{P}_{ij}$, where
-$i,j\in\{1,2,\dots,N\}$ and $i\ne j$; this operator exchanges particle
-$i$ and particle $j$.  The Hamiltonian must commute with \textit{all}
-the exchange operators---in other words, their eigenvalues ($\pm 1$)
-are all separately conserved.
+particles.  In a system of $N$ particles, we can define a set of
+exchange operators $\hat{P}_{ij}$, where $i,j\in\{1,2,\dots,N\}$ and
+$i\ne j$, such that $\hat{P}_{ij}$ exchanges particle $i$ and particle
+$j$.  If the particles are identical, the Hamiltonian must commute
+with \textit{all} the exchange operators---i.e., the parities ($\pm
+1$) are all separately conserved.
 
-We now come across the following important and profound facts:
+We now invoke the following postulates:
 \begin{enumerate}
-\item A multi-particle state consisting of identical particles must be
-  an eigenstate of every exchange operator $\hat{P}_{ij}$.
+\item A multi-particle state of identical particles is an eigenstate
+  of every exchange operator $\hat{P}_{ij}$.
 
-\item For every $\hat{P}_{ij}$, the eigenvalue (exchange parity)
-  $p_{ij}$ has the same value (i.e., all $+1$ or all $-1$).
+\item For each $\hat{P}_{ij}$, the exchange parity $p_{ij}$ has the
+  same value: i.e., all $+1$ or all $-1$.
 
 \item The exchange parity depends \textit{uniquely} on the type of
   particle.
 \end{enumerate}
 These facts are \textit{not} a logical result of our discussion thus
 far!  Instead, they are to be regarded as empirical facts of Nature.
-But later, in Section~\ref{sec:qft}, we will discuss why it may be
+Let us assume that they are true, and explore the consequences.
+Later, in Section~\ref{sec:qft}, we will discuss why it may be
 ``natural'' for these facts to hold.
 
 Particles that have symmetric states ($p_{ij} = +1$) are called
@@ -128,20 +131,151 @@ composed of three quarks.  Certain other composite particles, such as
 helium-3 nuclei, are also fermions.
 
 We will discuss later, in Section~\ref{sec:spinstats}, what determines
-if a certain particle is a fermion or a boson.  But first, let us
-undertake an examination of the peculiar features possessed by
-symmetric (``bosonic'') multi-particle states, and antisymmetric
-(``fermionic'') multi-particle states.
+if a given particle type is a fermion or a boson.  Before that, let us
+undertake an examination of the special features possessed by
+symmetric (``bosonic'') and antisymmetric (``fermionic'')
+multi-particle states.
 
-\section{Boson states}
+\section{Bosons}
 
-Consider system of $N$ bosons.  As described in the previous section,
-any state of this system must be symmetric under every possible
-exchange of two bosons:
-$$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i\;\textrm{and}\;j,\;\; i\ne j.$$
+A state of $N$ bosons must be symmetric under every possible exchange
+operator:
+$$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i, j \in\{1,\dots,N\},\;\; i\ne j.$$
+
+There is a standard way to construct multi-particle states obeying
+this symmetry condition, based on the ``occupancy'' of the
+single-particle states.  To illustrate the procedure, consider a
+two-boson system ($N = 2$).  Suppose both bosons occupy the same
+single-particle state, $|\phi_a\rangle \in \mathscr{H}^{(1)}$; then
+the two-boson state is simply
+$$|\phi_a,\phi_a\rangle = |\phi_a\rangle  |\phi_a\rangle.$$
+It is apparent that this satisfies $\hat{P}_{12}
+|\phi_a,\phi_a\rangle = |\phi_a,\phi_a\rangle$, as required.
+
+Now suppose the two bosons occupy \textit{different} single-particle
+states, $|\phi_a\rangle$ and $|\phi_b\rangle$.  It would be wrong to
+write the two-boson state as $|\phi_a\rangle |\phi_b\rangle$, because
+the particles would not be symmetric under exchange.  Instead, we
+construct the multi-particle state
+$$|\phi_a,\phi_b\rangle = \frac{1}{\sqrt{2}} \Big( |\phi_a\rangle  |\phi_b\rangle + |\phi_b\rangle  |\phi_a\rangle\Big).$$
+This has the appropriate exchange symmetry:
+$$\begin{aligned}\hat{P}_{12}|\phi_a,\phi_b\rangle &= \frac{1}{\sqrt{2}} \Big( |\phi_b\rangle  |\phi_a\rangle + |\phi_a\rangle  |\phi_b\rangle\Big) \\ &= |\phi_a,\phi_b\rangle.\end{aligned}$$
+
+This construction is generalizable to arbitrary $N$.  Denote the $N$
+occupied single-particle states by
+$$|\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.$$
+Here, we label the single-particle states using numerical subscripts,
+but the states may in actuality not be unique; for example, it might
+be that $|\phi_1\rangle = |\phi_2\rangle = |\phi_a\rangle$, meaning
+there is a single-particle state $|\phi_a\rangle$ occupied by two
+particles.  In any case, the $N$-boson state can be written as
+$$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).$$
+Here, the prefactor $\mathcal{N}$ is a normalization constant that
+we'll discuss later.  The sum is taken over each of the $N!$ distinct
+permutations acting on the sequence $\{1,2,\dots,N\}$.  For each
+permutation $p$, we let $p(j)$ denote the integer that $j$ is permuted
+into.
+
+To see that this $N$-particle state has the exchange symmetry we are
+looking for, apply an arbitrary exchange operator $\hat{P}_{ij}$ to it:
+$$\begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}$$
+In each term of the sum, the states $i$ and $j$ are interchanged.  But
+since the sum runs through all distinct permutations of the states, it
+is evident that the result is the same with or without the exchange,
+sowe end up with $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  The
+mutli-particle state is therefore symmetric under every exchange
+operation.
+
+As another example, consider a three-boson system with two particles
+in state $|\phi_a\rangle$, and one particle in state $|\phi_b\rangle$.
+To express the three-particle state, define $\{|\phi_1\rangle,
+|\phi_2\rangle, |\phi_3\rangle\}$ such that $|\phi_1\rangle =
+|\phi_2\rangle = |\phi_a\rangle$ and $|\phi_3\rangle =
+|\phi_b\rangle$.  Then
+$$\begin{aligned}|\phi_1,\phi_2,\phi_3\rangle &= \mathcal{N} \Big( \;\;
+|\phi_1\rangle|\phi_2\rangle|\phi_3\rangle +
+|\phi_2\rangle|\phi_3\rangle|\phi_1\rangle +
+|\phi_3\rangle|\phi_1\rangle|\phi_2\rangle \\ &\qquad\;\, +
+|\phi_1\rangle|\phi_3\rangle|\phi_2\rangle +
+|\phi_3\rangle|\phi_2\rangle|\phi_1\rangle +
+|\phi_2\rangle|\phi_1\rangle|\phi_3\rangle\Big) \\
+&= 2\mathcal{N} \Big(
+|\phi_a\rangle|\phi_a\rangle|\phi_b\rangle +
+|\phi_a\rangle|\phi_b\rangle|\phi_a\rangle +
+|\phi_b\rangle|\phi_a\rangle|\phi_a\rangle\Big).
+\end{aligned}$$
+
+\textcolor{red}{[Discuss normalization]}
+
+\section{Fermions}
+
+A state of $N$ fermions must be antisymmetric under every possible
+exchange operator:
+$$\hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle \;\;\; \forall\, i,j\in\{1,\dots,N\}, \; i\ne j.$$
+Similar to the boson case, we can explicitly construct multi-fermion
+states based on the occupancy of single-particle states.  Let us again
+consider the $N=2$ case first.  If the fermions occupy states
+$|\phi_a\rangle$ and $|\phi_b\rangle$, the appropriate two-particle
+state is
+$$|\phi_a,\phi_b\rangle = \frac{1}{\sqrt{2}} \Big(|\phi_a\rangle|\phi_b\rangle - |\phi_b\rangle|\phi_a\rangle\Big).$$
+We can easily check that
+$$\hat{P}_{12} |\phi_a,\phi_b\rangle = \frac{1}{\sqrt{2}} \Big(|\phi_b\rangle|\phi_a\rangle - |\phi_a\rangle|\phi_b\rangle\Big) = - |\phi_a,\phi_b\rangle.$$
+This construction breaks down if we try letting $|\phi_a\rangle$ and
+$|\phi_b\rangle$ be the same state: in that case, the two terms would
+cancel each other out to give the zero vector, which is not a valid
+quantum state (as states must be described by vectors of unit norm).
+This leads to \textbf{Pauli's exclusion principle}, which states that
+fermions cannot occupy the same quantum state.  Another way of stating
+Pauli's principle is that any single-particle state is either
+unoccupied, or occupied by exactly one fermion.
+
+For general $N$, let the occupied single-particle states be
+$\{|\phi_1\rangle, |\phi_2\rangle,\dots,|\phi_N\rangle\}$.  Then the
+appropriate $N$-fermion state is
+$$|\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.$$
+The $1/\sqrt{N!}$ prefactor is a normalization constant (which you can
+verify for yourself).  Similar to the boson case, the expression
+involves a sum over every permutation $p$ of the sequence
+$\{1,2,\dots,N\}$.  However, each term in the sum now has a
+coefficient $s(p)$, denoting the \textbf{parity} of permutation $p$.
+The permutation's parity is defined as $+1$ if $p$ involves an even
+number of exchanges starting from the sequence $\{1,2,\dots,N\}$, and
+$-1$ if $p$ involves an odd number of exchanges.
+
+A couple of examples will make these definitions clearer.  For $N=2$,
+the sequence $\{1,2\}$ has $2! = 2$ permutations:
+$$\begin{aligned}p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}$$
+For $N=3$, the sequence $\{1,2,3\}$ has $3!=6$ permutations:
+$$\begin{aligned}
+  p_1 : \{1,2,3\} &\rightarrow \{1,2,3\}, \;\;\;s(p_1) = +1 \\
+  p_2 : \{1,2,3\} &\rightarrow \{2,1,3\}, \;\;\;s(p_2) = -1 \\
+  p_3 : \{1,2,3\} &\rightarrow \{2,3,1\}, \;\;\;s(p_3) = +1 \\
+  p_4 : \{1,2,3\} &\rightarrow \{3,2,1\}, \;\;\;s(p_4) = -1 \\
+  p_5 : \{1,2,3\} &\rightarrow \{3,1,2\}, \;\;\;s(p_5) = +1 \\
+  p_6 : \{1,2,3\} &\rightarrow \{1,3,2\}, \;\;\;s(p_6) = -1.\end{aligned}$$
+The permutations can be generated by exchanging pairs of sequence
+elements; each time we perform such an exchange, the sign of $s(p)$
+is reversed.
+
+We can now see why the above $N$-particle state describes fermions.
+Let us apply $\hat{P}_{ij}$ to it:
+$$\begin{aligned}\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij} \big[\cdots |\phi_{p(i)}\rangle \cdots |\phi_{p(j)}\rangle \cdots\big] \\&= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\phi_{p(j)}\rangle \cdots |\phi_{p(i)}\rangle \cdots\big].\end{aligned}$$
+In each term of the sum, the single-particle state for $p(i)$ and
+$p(j)$ have exchanged places.  The resulting term must be an exact
+match for one of the terms in the original sum in
+$|\phi_1,\dots,\phi_N\rangle$ (since that sum runs over all possible
+permutations), \textit{except} for one thing: the coefficient $s(p)$
+must have an \textit{opposite} sign (since the two permutations are
+related by a single exchange).  It then follows that
+$\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle = -
+|\phi_1,\dots,\phi_N\rangle$, as desired for fermions.
+
+You can also check that if the occupied single-particle states are
+non-unique, this construction breaks down since the terms in the sum
+over $p$ cancel out pairwise.  This is the Pauli exclusion principle
+for $N$-fermion systems.
 
 
-\section{Fermion states}
 
 \section{Second quantization}
 
@@ -160,14 +294,14 @@ $$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i\;\textrm{and}\;j
   single-particle Hilbert space $\mathscr{H}^{(1)}$ is spanned by a
   basis $\{|\mu_i\}$.  The exchange operator is defined on
   $\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}$ by
-$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle\otimes|\mu_j\rangle \Big)
-  \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle\otimes|\mu_i\rangle.$$
+$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
+  \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle.$$
   Prove that $\hat{P}$ is linear, unitary, and Hermitian.  Moreover,
   prove that the operation is basis-independent: i.e., given any other
   basis $\{\nu_j\}$ that spans $\mathscr{H}^{(1)}$, it is likewise
   true that
-$$P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle\otimes|\nu_j\rangle \Big)
-  \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle\otimes|\nu_i\rangle.$$
+$$P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle|\nu_j\rangle \Big)
+  \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle|\nu_i\rangle.$$
   \label{ex:1}
 
 \item

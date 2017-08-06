@@ -80,7 +80,7 @@ the reverse is not generally true!  There are states of the combined
 system that \textit{cannot} be expressed in terms of definite states
 of the individual particles.  For example, take the previous example
 of two spaces describing spin-$1/2$ degrees of freedom, and consider
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-z\!\rangle\otimes|\!+\!z\rangle\Big).$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
 
 This two-particle state is constructed from two of the basis states of
 the tensor product space, $|\!+\!z\rangle\otimes|\!-\!z\rangle$ and
@@ -114,6 +114,12 @@ Evidently, even for quantum systems containing a modest number of
 particles, the quantum state carries huge amounts of information.
 This is one of the motivations behind the active research field of
 quantum computing.
+
+It is sometimes cumbersome to write the $\otimes$ symbol in tensor
+product states, so we will often omit whenever it is obvious a tensor
+product is taking place.  For instance,
+$$\frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \;\;\equiv \;\; \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+
 
 \section{Partial measurements}
 \label{sec:partialmeasurements}
@@ -149,7 +155,7 @@ $\mathscr{H}_A$, and has eigenvectors $\{|\mu_1\rangle,
 the eigenbasis of $\hat{\mu}$ for the $\mathscr{H}_A$ part, and an
 arbitrary basis $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for the
 $\mathscr{H}_B$ part:
-$$\begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle\otimes |\nu_j\rangle \\&= \sum_i |\mu_i\rangle\otimes |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle.\end{aligned}$$
+$$\begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle |\nu_j\rangle \\&= \sum_i |\mu_i\rangle |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle.\end{aligned}$$
 Unlike the single-particle case, the ``coefficient'' of
 $|\mu_i\rangle$ in this basis expansion is not a complex number, but a
 vector $|\varphi_i\rangle \in \mathscr{H}_B$.  Proceeding by analogy,
@@ -158,7 +164,7 @@ the ``absolute square'' of this ``coefficient'':
 $$P_i = \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
 After we obtain the measurement result $\mu_i$, the state should
 collapse.  This can be described by the projection operation
-$$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; \Big(|\mu_i\rangle\langle \mu_i| \otimes \hat{I}\Big) |\psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\; |\mu_i\rangle\otimes |\varphi_i\rangle.$$
+$$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; \Big(|\mu_i\rangle\langle \mu_i|  \hat{I}\Big) |\psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\; |\mu_i\rangle |\varphi_i\rangle.$$
 Note that the projection operator $|\mu_i\rangle\langle \mu_i|$ acts
 only upon the $\mathscr{H}_A$ part of the two-particle space.  The
 prefactor $\mathcal{N}$ is, once again, defined so that the new state
@@ -166,7 +172,7 @@ is normalized.
 
 Let's work through an explicit example.  Consider a system composed of
 two spin-$1/2$ particles, with the two-particle state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
 eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
 and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
@@ -175,12 +181,12 @@ Then:
 \item The outcome $+\hbar/2$ occurs with probability $P_+ = \langle
   n'|n'\rangle = 1/2$, where $|n'\rangle =
   (1/\sqrt{2})\,|\!-\!z\rangle$.  After the measurement, the state
-  collapses to $|\!+\!z\rangle \otimes|\!-\!z\rangle$.
+  collapses to $|\!+\!z\rangle |\!-\!z\rangle$.
 
 \item The outcome $-\hbar/2$ occurs with probability $P_- = \langle
   n'|n'\rangle = 1/2$, where $|n'\rangle =
   (1/\sqrt{2})\,|\!+\!z\rangle$.  After the measurement, the state
-  collapses to $|\!-\!z\rangle \otimes|\!+\!z\rangle$.
+  collapses to $|\!-\!z\rangle |\!+\!z\rangle$.
 \end{itemize}
 In other words, the two possible results $\pm \hbar/2$ occur with
 equal probability.  In either case, the two-particle state collapses
@@ -201,13 +207,13 @@ described in this thought experiment.
 
 The EPR paradox begins with a two-particle entangled state, such as
 the following state of two spin-$1/2$ particles:
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 As discussed in the previous section, measuring $S_z$ on particle $A$
 causes the system to collapse into a two-particle state with definite
 spins.  If the measurement outcome is $+\hbar/2$, the collapsed state
-is $|\!+\!z\rangle \otimes|\!-\!z\rangle$, whereas if we measure
+is $|\!+\!z\rangle |\!-\!z\rangle$, whereas if we measure
 $-\hbar/2$, the collapsed state is
-$|\!-\!z\rangle\otimes|\!+\!z\rangle$.
+$|\!-\!z\rangle|\!+\!z\rangle$.
 
 According to quantum theory, the state collapse happens
 instantaneously, regardless of the distance separating the particles.
@@ -250,7 +256,7 @@ Conversely, we can write the $\hat{S}_z$ eigenstates in the $\{|\!+\!x\rangle,|\
 $$\begin{aligned}|\!+\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle + |\!-\!x\rangle\Big) \\ |\!-\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle - |\!-\!x\rangle\Big).\end{aligned}$$
 This allows us to write the two-particle entangled state in the
 $\hat{S}_x$ basis:
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle\otimes|\!+\!x\rangle \,-\, |\!+\!x\rangle\otimes|\!-\!x\rangle\Big).$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle|\!+\!x\rangle \,-\, |\!+\!x\rangle|\!-\!x\rangle\Big).$$
 The Earth measurement still collapses the particles into definite spin
 states with opposite spins---but now spin states of ${S}_x$ rather
 than ${S}_z$.
@@ -292,7 +298,7 @@ of quantum state collapse in the following way.  Suppose each particle
 has a definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$
 or $S_z = -\hbar/2$; for conciseness, we denote these as $[+]$ or
 $[-]$.  We then hypothesize that the two-particle quantum state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big)$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big)$$
 is not an actual description of reality.  Instead, it corresponds to a
 \textit{statistical} distribution of ``hidden variable'' states, which
 we denote by $[+;-]$ (i.e., $S_z = +\hbar/2$ for particle $A$ and $S_z
@@ -335,7 +341,7 @@ need not correspond to orthogonal spatial directions.)
 We now imagine repeatedly preparing two-particle systems, and sending
 the particles to the appropriate laboratories on Earth and Betelgeuse.
 Each time, the prepared two-particle state is
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 We then let the experimentalists perform measurements on their
 particle.  In each instance of the experiment, each experimentalist
 independently and randomly chooses one of the three possible axes for
@@ -502,9 +508,9 @@ an explicit basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a
 basis for $\mathscr{H}_A$, and $\{|\nu_1\rangle,
 |\nu_2\rangle,\cdots\}$ a basis for $\mathscr{H}_B$.  A given state of
 the combined system can be written in the tensor product basis:
-$$|\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle \otimes |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.$$
+$$|\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.$$
 The density matrix of the combined system is
-$$\hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle \otimes |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}| \otimes \langle \nu_{j'}|\Big).$$
+$$\hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).$$
 The density matrix for subsystem A is then obtained by tracing over
 the states of subsystem B:
 $$\begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}$$
@@ -603,9 +609,9 @@ S_{\mathrm{ent.}} \le k_B\ln(d)$.
 
 As a concrete example, let us apply the entanglement entropy formula
 to the system of two spin-$1/2$ systems and the state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 The density matrix for the two-particle system is
-$$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \Big(\langle+z|\otimes\langle-z| \,-\, \langle-z|\otimes\langle+z|\Big).$$
+$$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).$$
 Tracing over the B subsystem gives the reduced density matrix:
 $$\hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).$$
 This can be expressed as a matrix in the
