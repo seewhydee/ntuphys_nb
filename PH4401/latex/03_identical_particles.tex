@@ -1,0 +1,195 @@
+\documentclass[pra,11pt]{revtex4}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{mathrsfs}
+\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue]{hyperref}
+
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0.07in}
+
+\begin{document}
+
+\section{Particle indistinguishability and exchange symmetry}
+
+We saw, in the previous chapter, how the principles of quantum
+mechanics are applied to systems of multiple particles.  However, that
+discussion omitted an important feature of multi-particle systems,
+namely the fact that particles of the same type are fundamentally
+indistinguishable from each other.  It turns out that this
+indistinguishability imposes strong constraints on the form of the
+multi-particle quantum states, the study of which will lead us to a
+fundamental re-interpretation of what ``particles'' are.
+
+Suppose we have two particles of the same type, such as two electrons.
+It is a fact of Nature that all electrons have identical physical
+properties (the same mass, charge, spin, etc.).  The single-particle
+Hilbert spaces of the two electrons must therefore be mathematically
+identical.  Let us denote this space by $\mathscr{H}^{(1)}$.  The
+Hilbert space for a two-electron system is a tensor product of two
+single-electron Hilbert spaces, denoted by
+$$\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.$$
+Because the electrons have identical physical properties, any
+Hamiltonian for the two-electron system must act on the electrons in a
+symmetrical way.  An example of such a Hamiltonian is
+$$\hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|},$$
+which contains non-relativistic kinetic energies for the two
+electrons, as well as the potential energy for the Coulomb interaction
+between the electrons.  The operators $\hat{\mathbf{p}}_1$ and
+$\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
+$\hat{\mathbf{r}}_2$ act on electron 2.
+
+It can be seen that this two-electron Hamiltonian is invariant under
+an interchange of the operators acting on the two electrons (i.e.,
+$\hat{\mathbf{p}}_1 \leftrightarrow \hat{\mathbf{p}}_2$ and
+$\hat{\mathbf{r}}_1 \leftrightarrow \hat{\mathbf{r}}_2$).  This can be
+regarded as a symmetry of the system, known as \textbf{exchange
+  symmetry}.  In other contexts, we have seen how symmetries of
+quantum systems can be represented by unitary (i.e., norm-conserving)
+operators that commute with the Hamiltonian.  Exchange symmetry can
+likewise be represented by an operator $\hat{P}$, defined as follows:
+let $\{|\mu_i\rangle\}$ be a basis set for the single-electron Hilbert
+space $\mathscr{H}^{(1)}$; then
+$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle\otimes|\mu_j\rangle \Big)
+\;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle\otimes|\mu_i\rangle = \sum_{ij} \psi_{ji} |\mu_i\rangle\otimes|\mu_j\rangle.$$
+Since two consecutive exchanges obviously leave the system unchanged,
+the $\hat{P}$ operator satisfies
+$$\hat{P}^2 = \hat{I},$$
+where $\hat{I}$ is the identity operator.  It can be proven that
+$\hat{P}$ is linear, unitary (as required for a symmetry operator), and
+Hermitian; and moreover that the exchange operation performed by
+$\hat{P}$ does not depend on the choice of basis (see
+\hyperref[ex:1]{Exercise 1}).
+
+It can also be shown that $\hat{P}$ commutes with the above
+Hamiltonian $\hat{H}$, or indeed any Hamiltonian where the
+single-particle operators appear in a symmetrical manner (see
+\hyperref[ex:2]{Exercise 2}).
+
+According to Noether's theorem, any symmetry implies a conservation
+law.  In the case of exchange symmetry, since $\hat{P}$ is itself
+Hermitian, we can take the conserved quantity to be its eigenvalue.
+Given that $\hat{P}^2 = \hat{I}$, there are only two possibilities:
+$$\hat{P} |\psi\rangle = p|\psi\rangle \;\;\;\Rightarrow\;\;\; p = \begin{cases}+1 & \textrm{(``symmetric\;state'')} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}$$
+We call the eigenvalue $p$ the \textbf{exchange parity}.  If the
+system is initially in either eigenstate of $\hat{P}$, then under time
+evolution via Schr\"odinger's equation, it remains an eigenstate for
+all other times.  (This follows from the fact that $\hat{P}$ commutes
+with $\hat{H}$.)
+
+The concept of exchange parity generalizes to systems of more than two
+particles.  In a system of $N$ identical particles, we can define a
+set of exchange operators $\hat{P}_{ij}$, where
+$i,j\in\{1,2,\dots,N\}$ and $i\ne j$; this operator exchanges particle
+$i$ and particle $j$.  The Hamiltonian must commute with \textit{all}
+the exchange operators---in other words, their eigenvalues ($\pm 1$)
+are all separately conserved.
+
+We now come across the following important and profound facts:
+\begin{enumerate}
+\item A multi-particle state consisting of identical particles must be
+  an eigenstate of every exchange operator $\hat{P}_{ij}$.
+
+\item For every $\hat{P}_{ij}$, the eigenvalue (exchange parity)
+  $p_{ij}$ has the same value (i.e., all $+1$ or all $-1$).
+
+\item The exchange parity depends \textit{uniquely} on the type of
+  particle.
+\end{enumerate}
+These facts are \textit{not} a logical result of our discussion thus
+far!  Instead, they are to be regarded as empirical facts of Nature.
+But later, in Section~\ref{sec:qft}, we will discuss why it may be
+``natural'' for these facts to hold.
+
+Particles that have symmetric states ($p_{ij} = +1$) are called
+\textbf{bosons}.  The elementary particles that ``carry'' the
+fundamental forces are all bosons: these are photons (the elementary
+particles of light, which ``carry'' the electromagnetic force), gluons
+(which carry the ``strong nuclear force'' that holds protons and
+neutrons together), and $W$ and $Z$ bosons (which carry the ``weak
+nuclear force'' that is responsible for beta decay).  Certain
+composite particles, such as helium-4 nuclei (alpha particles), are
+also bosons.
+
+Particles that have antisymmetric states ($p_{ij} = -1$) are called
+\textbf{fermions}.  The elementary particles of ``matter'' are all
+fermions: these are electrons, muons, tauons, the various types of
+quarks, and the various types of neutrinos, along with their
+anti-particles (positrons, etc.).  Protons and neutrons are also
+fermions, although these are not elementary particles, being each
+composed of three quarks.  Certain other composite particles, such as
+helium-3 nuclei, are also fermions.
+
+We will discuss later, in Section~\ref{sec:spinstats}, what determines
+if a certain particle is a fermion or a boson.  But first, let us
+undertake an examination of the peculiar features possessed by
+symmetric (``bosonic'') multi-particle states, and antisymmetric
+(``fermionic'') multi-particle states.
+
+\section{Boson states}
+
+Consider system of $N$ bosons.  As described in the previous section,
+any state of this system must be symmetric under every possible
+exchange of two bosons:
+$$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i\;\textrm{and}\;j,\;\; i\ne j.$$
+
+
+\section{Fermion states}
+
+\section{Second quantization}
+
+\section{Measurements and state collapse}
+
+\section{Quantum field theory}
+\label{sec:qft}
+
+\section{The spin-statistics connection}
+\label{sec:spinstats}
+
+\section*{Exercises}
+
+\begin{enumerate}
+\item Consider a system of two identical particles.  Each
+  single-particle Hilbert space $\mathscr{H}^{(1)}$ is spanned by a
+  basis $\{|\mu_i\}$.  The exchange operator is defined on
+  $\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}$ by
+$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle\otimes|\mu_j\rangle \Big)
+  \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle\otimes|\mu_i\rangle.$$
+  Prove that $\hat{P}$ is linear, unitary, and Hermitian.  Moreover,
+  prove that the operation is basis-independent: i.e., given any other
+  basis $\{\nu_j\}$ that spans $\mathscr{H}^{(1)}$, it is likewise
+  true that
+$$P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle\otimes|\nu_j\rangle \Big)
+  \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle\otimes|\nu_i\rangle.$$
+  \label{ex:1}
+
+\item
+  Prove that the exchange operator commutes with the Hamiltonian
+$$\hat{H} = - \frac{\hbar^2}{2m_e} \Big(\nabla_1^2 + \nabla^2_2\Big) + \frac{e^2}{4\pi\varepsilon_0|\mathbf{r}_1 - \mathbf{r}_2|}.$$ \label{ex:2}
+  
+\end{enumerate}
+
+\section*{Further Reading}
+
+%% \begin{itemize}
+%% \item
+%% \end{itemize}
+
+\end{document}
+
+
+%% For decades after the discovery of quantum mechanics, the quantum
+%% double-slit experiment was just a ``thought experiment'', meant to
+%% illustrate the features of quantum mechanics that had been uncovered
+%% by other, more complicated experiments.  Nowadays, the most convenient
+%% way to do the experiment is with light, using single-photon sources
+%% and single-photon detectors.  Quantum interference has also been
+%% demonstrated experimentally using electrons, neutrons, and even
+%% large-scale particles such as buckyballs.
