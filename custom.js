@@ -1,4 +1,4 @@
-code_show=false;
+code_show=true;
 function code_toggle() {
     if (code_show) {
 	$('div.input').hide();
