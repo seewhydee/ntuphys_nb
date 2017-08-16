@@ -1,4 +1,4 @@
-code_show=false;
+code_show=true;
 function code_toggle() {
     if (code_show) {
 	$('div.input').hide();
@@ -13,6 +13,6 @@ $([IPython.events]).on('notebook_loaded.Notebook', function() {
     $('div#ipython_notebook').hide()
     $('span#save_widget').hide()
     $('span#kernel_logo_widget').hide()
-    $('div.input').hide()
+    // $('div.input').hide()
     // $('#notebook_panel').append(copyright)
 });
