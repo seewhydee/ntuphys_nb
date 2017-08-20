@@ -64,15 +64,15 @@ Since two consecutive exchanges clearly leave the state unchanged,
 $$\hat{P}^2 = \hat{I},$$
 where $\hat{I}$ is the identity operator.  It can be shown that:
 \begin{enumerate}
-\item $\hat{P}$ is linear, unitary (as required for a symmetry
-  operator), and Hermitian; see \hyperref[ex:1]{Exercise 1}.
+\item $\hat{P}$ is linear, unitary, and Hermitian (see
+  \hyperref[ex:1]{Exercise 1}).
   
 \item The effect of $\hat{P}$ does not depend on the specific choice
-  of basis; see \hyperref[ex:1]{Exercise 1}.
+  of basis (see \hyperref[ex:1]{Exercise 1}).
 
 \item $\hat{P}$ commutes with the above Hamiltonian $\hat{H}$, or
   indeed any Hamiltonian where the single-particle operators appear in
-  a symmetrical manner; see \hyperref[ex:2]{Exercise 2}.
+  a symmetrical manner (see \hyperref[ex:2]{Exercise 2}).
 \end{enumerate}
 
 According to Noether's theorem, any symmetry implies a conservation
@@ -97,19 +97,18 @@ with \textit{all} the exchange operators---i.e., the parities ($\pm
 We now invoke the following postulates:
 \begin{enumerate}
 \item A multi-particle state of identical particles is an eigenstate
-  of every exchange operator $\hat{P}_{ij}$.
+  of every $\hat{P}_{ij}$.
 
 \item For each $\hat{P}_{ij}$, the exchange parity $p_{ij}$ has the
   same value: i.e., all $+1$ or all $-1$.
 
-\item The exchange parity depends \textit{uniquely} on the type of
-  particle.
+\item The exchange parity $p_{ij}$ depends \textit{uniquely} on the
+  type of particle involved.
 \end{enumerate}
-These facts are \textit{not} a logical result of our discussion thus
-far!  Instead, they are to be regarded as empirical facts of Nature.
-Let us assume that they are true, and explore the consequences.
-Later, in Section~\ref{sec:qft}, we will discuss why it may be
-``natural'' for these facts to hold.
+The above statements are \textit{not} logical results of our
+discussion thus far!  Rather, they are empirical facts of Nature.  Let
+us assume that they are true, and explore the consequences.  We will
+try to justify them later, in Section~\ref{sec:qft}.
 
 Particles that have symmetric states ($p_{ij} = +1$) are called
 \textbf{bosons}.  The elementary particles that ``carry'' the
@@ -171,20 +170,18 @@ there is a single-particle state $|\phi_a\rangle$ occupied by two
 particles.  In any case, the $N$-boson state can be written as
 $$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).$$
 Here, the prefactor $\mathcal{N}$ is a normalization constant that
-we'll discuss later.  The sum is taken over each of the $N!$ distinct
-permutations acting on the sequence $\{1,2,\dots,N\}$.  For each
-permutation $p$, we let $p(j)$ denote the integer that $j$ is permuted
-into.
+we'll discuss later.  The sum is taken over each of the $N!$
+permutations acting on $\{1,2,\dots,N\}$.  For each permutation $p$,
+we let $p(j)$ denote the integer that $j$ is permuted into.
 
 To see that this $N$-particle state has the exchange symmetry we are
 looking for, apply an arbitrary exchange operator $\hat{P}_{ij}$ to it:
 $$\begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}$$
 In each term of the sum, the states $i$ and $j$ are interchanged.  But
-since the sum runs through all distinct permutations of the states, it
-is evident that the result is the same with or without the exchange,
-sowe end up with $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  The
-mutli-particle state is therefore symmetric under every exchange
-operation.
+since the sum runs through all distinct permutations of the states,
+the result is the same with or without the exchange, so we end up with
+$|\phi_1,\phi_2,\dots,\phi_N\rangle$.  The mutli-particle state is
+therefore symmetric under every exchange operation.
 
 As another example, consider a three-boson system with two particles
 in state $|\phi_a\rangle$, and one particle in state $|\phi_b\rangle$.
@@ -276,9 +273,12 @@ over $p$ cancel out pairwise.  This is the manifestation of the Pauli
 exclusion principle for $N$ fermions: no two fermions are allowed to
 occupy the same single-particle quantum state.
 
-
-
 \section{Second quantization}
+
+The usual tensor product notation, which we have been using so far, is
+rather cumbersome for dealing with symmetric and antisymmetric states.
+To resolve this problem, we can introduce a new notation,
+
 
 \section{Measurements and state collapse}
 
