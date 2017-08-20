@@ -1,4 +1,4 @@
-\documentclass[pra,11pt]{revtex4}
+\documentclass[pra,12pt]{revtex4}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -450,8 +450,8 @@ uncertainties and ``loopholes'' that are beyond the scope of our
 discussion.  But in the end, the experimental consensus appears to be
 a clear \textit{yes}: Nature really does behave according to quantum
 mechanics, and in a manner that cannot be replicated by deterministic
-local hidden variables!  For a review of the experimental evidence,
-see \hyperref[cite:aspect]{Aspect (1999)}.
+local hidden variables!  A summary of the experimental evidence can be
+found in \hyperref[cite:aspect]{Aspect (1999)}.
 
 \section{Entanglement entropy}
 \label{sec:entropy}
@@ -742,9 +742,9 @@ before receiving it.  In thermodynamics and statistical mechanics,
 \textbf{thermodynamic entropy} describes our uncertainty about the
 microscopic details (``microstate'') of a complex many-body system.
 In fact, these two formulations are consistent with each other; for a
-description of how they are related, see Feynman
-\textcolor{red}{(???)}.  Here, we will use the statistical mechanics
-formulation.
+description of how they are related, see
+\hyperref[cite:feynman]{Feynman (2000)}.  Here, we will use the
+statistical mechanics formulation.
 
 Suppose a system has discrete microstates labeled by integers
 $\{1,2,3,\dots\}$ , which have probabilities $\{p_1, p_2, p_3,
@@ -767,9 +767,8 @@ $$p_i = \frac{1}{W} \;\;\forall i \in \{1,2,\dots,W\}.$$
 Therefore, the entropy formula gives
 $$S_{\mathrm{cl.}} \,=\, -k_B W \frac{1}{W} \ln(1/W) \;=\; k_B \ln W,$$
 the famous result carved into the gravestone of Ludwig Boltzmann
-(\textcolor{red}{???}).  Note that this expression contains an
-implicit energy dependence; changing $E$ also varies $W$, and hence
-$S_{\mathrm{cl.}}$.
+(1844--1906).  Note that this expression has an implicit energy
+dependence: changing $E$ varies $W$ and hence $S_{\mathrm{cl.}}$.
 
 The entropy formula is designed so that any other probability
 distribution, which describes a situation of \textit{partial}
@@ -780,9 +779,11 @@ $-k_B\, p_i\ln(p_i) \ge 0$, and the equality holds if and only if $p_i
 = 0$ or $p_i = 1$ (see the figure below).  This implies that
 $S_{\mathrm{cl.}}\ge 0$, and moreover that $S_{\mathrm{cl.}} = 0$ if
 and only if $p_i = \delta_{ik}$ for some $k$ (i.e., there is no
-uncertainty).  \textcolor{red}{The proof that $k_B \ln W$ is the upper
-  bound (which implies the second law of thermodynamics) is more
-  complicated, and we refer the interested reader to [????].}
+uncertainty).  We will skip the proof that $k_B \ln W$ is the upper
+bound (which implies the second law of thermodynamics), but it follows
+directly from a mathematical relation known as
+\href{https://en.wikipedia.org/wiki/Gibbs\%27_inequality}{Gibbs'
+  inequality}.
 
 \textcolor{red}{[Fig.]}
 
@@ -879,8 +880,9 @@ thermodynamic \textbf{free energy}.
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
   Nature (News and Views) \textbf{398}, 189 (1999). \label{cite:aspect}
 
-\item \textcolor{red}{Feynman lectures on computation}
-  \label{cite:feynman}
+\item R.~P.~Feynman, \textit{Feynman Lectures on Computation} (Revised
+  Ed.), Westview Press (2000)
+\label{cite:feynman}
 \end{itemize}
 
 \end{document}
