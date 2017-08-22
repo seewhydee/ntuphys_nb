@@ -3,6 +3,8 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue]{hyperref}
+
 \def\ket#1{\left|#1\right\rangle}
 \def\bra#1{\left\langle#1\right|}
 \def\braket#1{\left\langle#1\right\rangle}
@@ -18,81 +20,83 @@
 
 One of the most interesting features of wavefunctions in infinite
 space is that they come in two distinct types: (i) \textbf{extended
-  states}, which are spread out over the entire space, and (ii)
-\textbf{bound states}, which are localized to a particular region.
-Both types can co-exist in a single system.
+  states}, which spread out over the entire space, and (ii)
+\textbf{bound states}, which are localized in one region.  Both types
+can co-exist in a single system.
 
-A simple model which contains both bound and extended states is the
-\textbf{1D finite square well}.  Consider the Hamiltonian
-$$\hat{H} = \frac{\hat{p}^2}{2m} - V_0 \,\Theta(a -|\hat{x}|),$$
-where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
-operators, $m$ is the particle mass, $V_0$ and $a$ are positive real
-parameters, and $\Theta$ denotes the Heaviside step function (which
-gives 1 if the input is positive, and 0 otherwise).  The potential
-function describes a square well of depth $V_0$ and width $2a$.
-Inside the well region ($|x| < a$), the potential is $-V_0$; outside,
-it is zero.
+The \textbf{1D finite square well} is a simple model which exhibits
+both bound and extended states.  Consider the Hamiltonian
+$$\hat{H} = \frac{\hat{p}^2}{2m} - V_0 \,\Theta(a -|\hat{x}|),$$ where
+$\hat{x}$ and $\hat{p}$ are the 1D position and momentum operators,
+$m$ is the particle mass, $V_0$ and $a$ are positive real parameters,
+and $\Theta(\cdots)$ denotes the Heaviside step function (which is 1
+if the input is positive, and 0 otherwise).  The potential describes a
+square well of depth $V_0$ and width $2a$.  Inside the well region
+($|x| < a$), the potential is $-V_0$; outside, it is zero.
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.7\textwidth]{squarewell}
+\end{figure}
 
-We are interested in solutions to the time-independent Schr\"odinger
-equation for this Hamiltonian.  The solution procedure will not be
-discussed in detail here; if interested, refer to Appendix A.
-Instead, let's zoom in on certain key facts.
+We wish to solve the time-independent Schr\"odinger equation for this
+Hamiltonian.  In \hyperref[sec:appendix]{Appendix A}, we describe a
+common numerical method, known as the \textbf{transfer matrix method},
+which can be used to generate solutions for the square well and other
+similar 1D potentials.  In this section, we not deal with the
+calculation details, but instead zoom in on certain key facts.
 
-First of all, note that when solving the Schr\"odinger wave equation,
-it's necessary for us to specify the boundary conditions at infinity.
-What choice we make affects whether we get a bound state or extended
-state.  A bound state has a wavefunction that diminishes exponentially
-as $x \rightarrow \pm\infty$: in either external region (i.e., $x <
--a$ or $x > a$), it satisfies
+The first thing to note is that when solving the Schr\"odinger wave
+equation, it's necessary to specify the boundary conditions at
+infinity.  This choice affects whether we get a bound state or
+extended state.  The wavefunction of a bound state diminishes
+exponentially as $x \rightarrow \pm\infty$; thus, in either external
+region (i.e., $x < -a$ or $x > a$), it satisfies
 $$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),$$
 subject to the boundary conditions
 $$\psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.$$
-Therefore, the solutions in the external regions take the form
+The bound state solutions in the external regions therefore take the
+form
 $$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.$$
 Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
-0$.  Also, the variational principle implies that $E \ge -V_0$, so we
-conclude that bound state energies are restricted to the range $-V_0
-\le E < 0$.  It can furthermore be shown that the bound state energies
-are \textit{discrete}; similar to a particle-in-a-box problem, the
-energy spacing decreases with increasing $a$, but so long as $a$ is
-finite the spacing is larger than zero.
-
-A bound state wavefunction takes the form
-$$\psi(x) = \begin{cases} c_-\, e^{\kappa x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ c_+\, e^{-\kappa x} , & \;\;\,x > a.\end{cases}$$
-The formula for $\psi(x)$ inside the well don't concern us right now.
-The main point is that since $|\psi(x)|^2$ vanishes exponentially as
-$x \rightarrow \pm \infty$, the wavefunction can always be
+0$.  Moreover, the variational principle implies that $E \ge -V_0$.
+Hence, bound state energies are restricted to the range $-V_0 \le E <
+0$.  We can also show that the bound state energies are
+\textit{discrete}: the energy spacing decreases with $a$, but so long
+as $a$ is finite, the spacing is non-vanishing.  Another related
+fact is that the wavefunction for a bound state can always be
 normalized:
 $$\int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.$$
+The normalization integral will not diverge, as $|\psi(x)|^2$ vanishes
+exponentially as $x \rightarrow \pm \infty$.
 
-The situation is quite different for an extended state.  Its
-wavefunction does not vanish exponentially at infinity, but instead
-takes the form
+For an extended state, the situation is quite different.  In this
+case, the wavefunction does not vanish exponentially at infinity, but
+instead takes the form
 $$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
 Within each external region, $\psi(x)$ consists of a superposition of
-left-moving and right-moving plane waves.  The coefficients
-$\alpha_\pm$ and $\beta_\pm$ are not independent quantities, but are
-linked by a transfer matrix relation (for details, see Appendix A).
-In order to satisfy Schr\"odinger's equation, the wavenumber $k$ must
-satisfy
+left-moving and right-moving plane waves, with wavenumber $k$.  The
+coefficients $\alpha_\pm$ and $\beta_\pm$ are not independent
+quantities, but are linked by a linear relation (see
+\hyperref[sec:appendix]{Appendix A}).  In order to satisfy
+Schr\"odinger's equation, $k$ must satisfy
 $$\frac{\hbar^2k^2}{2m} = E,$$
 which means that extended states occur only for energies $E \ge 0$.
-In fact, the solutions form a continuum, meaning that we can find
-extended states for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$
-does not diminish exponentially at infinity, $\int_{-\infty}^\infty
-|\psi(x)|^2\, dx$ cannot converge to a finite value, except in the
-trivial case where the integrand scales to zero.  Hence, the
-wavefunction of an extended state has no finite normalization.  (Note:
-we formally exclude the case of wavefunctions that blow up at
-infinity, rather than going to a constant magnitude.  To understand
-why, and for a more rigorous discussion of how extended states are
-normalized, see Appendix B.)
+In fact, the solutions form a continuum, meaning we can find extended
+states for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$ does not
+diminish exponentially at infinity, $\int_{-\infty}^\infty
+|\psi(x)|^2\, dx$ is necessarily a divergent integral (except in the
+trivial case where the integrand is zero).  Hence, the wavefunction
+has no finite normalization.  (Note: we formally exclude the case of
+wavefunctions that blow up at infinity, rather than going to a
+constant magnitude.  To understand why, and for a more rigorous
+discussion of how extended states are normalized, see
+\hyperref[sec:normalization]{Appendix B}.)
 
-The above results are summarized in the following figure:
+The results for the square well are summarized in the following figure:
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{boundvsextended}
+\end{figure}
 
 %% For $E \ge 0$, there is a continuum of extended states, which do not
 %% have any finite normalization.  For $-V_0 < E < 0$, which is the
@@ -111,16 +115,16 @@ V_{\textrm{ext}}$, there can exist a discrete set of bound
 (normalizable) states.
 
 There are, however, two important provisos.  The first is that the set
-of bound states might be empty: it is possible for a potential well to
-be ``too shallow'' to support a bound state.  This is observable in
-the simple square well model, which turns out to have no bound state
-if \textcolor{red}{[???]} (see Appendix A).  An intuitive explanation
-is that all quantum wavefunctions possess some ``zero-point'' energy,
-and if this exceeds the well depth then no bound state can form.  The
-second proviso is that in certain cases, it turns out to be possible
-to have bound states with energy $E \ge V_{\textrm{ext}}$.  These are
-called ``bound states in the continuum'', since they lie in the same
-energy range as the continuum of extended states.  We will ignore this
+of bound states might be empty: i.e., a potential well can be ``too
+shallow'' to support a bound state.  This is observable in the
+numerical results for the square well model (see
+\hyperref[sec:appendix]{Appendix A}).  An intuitive explanation is
+that all quantum wavefunctions possess some ``zero-point'' energy, and
+if this exceeds the well depth, bound states cannot form.  The second
+proviso is that in certain cases, it turns out to be possible to have
+bound states with energy $E \ge V_{\textrm{ext}}$.  These are called
+``bound states in the continuum'', since they lie in the same energy
+range as the continuum of extended states.  We will ignore this
 phenomenon, since it happens only under special circumstances that lie
 outside the scope of the present discussion.
 
@@ -244,9 +248,11 @@ provides a convenient and general way to study them.
 
 \appendix
 \section{The transfer matrix method}
+\label{sec:appendix}
 
 
 \section{Normalization of bound states and extended states}
+\label{sec:normalization}
 
 In this Appendix, we take a closer look at where bound and extended
 states come from, and how they are normalized.  Imagine that instead
