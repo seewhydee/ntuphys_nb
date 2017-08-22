@@ -329,14 +329,22 @@ general solution to the 2D Helmholtz equation can be written as
 $$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,H_m^\pm(kr)\,e^{im\phi}.$$
 Each $c_m^\pm$ is a complex coefficient, and $H_m^\pm$ is a special
 function called a \textbf{Hankel function} of the first kind ($+$) or second
-kind ($-$).  Each term in the sum describes a wave component that has a
-definite angular momentum, and is moving either toward or away from the
-origin.  The integer index $m$ specifies the angular momentum, while
-$\pm$ denotes whether it is outgoing ($+$) or incoming ($-$); this is
-because, far from the origin, the Hankel functions reduce to
-$$H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{ikr}.$$
+kind ($-$).
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h!]
+  \centering\includegraphics[width=0.68\textwidth]{besselh}
+\end{figure}
+
+The $H^+_m$ functions are plotted in the figure above; the $H^-_m$
+functions are their complex conjugates.  Each term in the series
+expression for $\psi(\mathbf{r})$ describes a wave component that has
+a definite angular momentum (indexed by the integer $m$, the angular
+momentum quantum number), and that is moving either toward or away
+from the origin (indexed by the $\pm$ sign).  The reason we can
+identify the $\pm$ sign as the outgoing ($+$) versus incoming ($-$)
+index is due to the behavior of the Hankel functions at $r\rightarrow
+\infty$:
+$$H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{ikr}.$$
 
 In 3D, we use spherical coordinates $(r,\theta,\phi)$.  Again skipping
 the math details, the general solution to the Helmholtz equation can
@@ -500,10 +508,9 @@ This is called the \textbf{Born series}.  To understand its meaning,
 let us go to the position basis:
 $$\begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}$$
 The Born series describes the phenomenon of \textbf{multiple
-  scattering}.  As a result of the presence of the scatterer, the
-particle wavefunction consists of a quantum superposition of
-wavefunctions with zero, one, two, or more scattering events.  For
-example, the second-order term is
+  scattering}.  Due to the presence of the scatterer, the particle
+wavefunction is a quantum superposition of terms describing zero, one,
+two, or more scattering events.  For example, the second-order term is
 $$\int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'')$$
 which describes the particle undergoing the following process: (i)
 scattering of the incident particle at point $\mathbf{r}''$, (ii)
@@ -515,17 +522,21 @@ contributing to the result; since the integrals are weighted by $V$,
 those positions where the scattering potential are strongest will
 contribute the most.
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h!]
+  \centering\includegraphics[width=0.98\textwidth]{bornseries}
+\end{figure}
 
-Each successive term in the Born series involves more scattering
-events, i.e.~more multiples of the scattering potential $\hat{V}$.
-Hence, for a sufficiently weak scatterer it should be a good
-approximation to retain just the first few terms.  For the rest of
+The situation is illustrated in the above figure.  Each successive
+term in the Born series involves more scattering events, i.e., higher
+multiples of $\hat{V}$.
+
+For a sufficiently weak scatterer, it can be a good approximation to
+retain just the first few terms in the Born series.  For the rest of
 this discussion, let us assume that such an approximation is valid.
-(The question of what it means for $\hat{V}$ to be
-``sufficiently weak''---i.e., the exact requirements for the Born
-series to converge---is a complex topic that is beyond the scope of
-our present discussion.)
+(The question of what it means for $\hat{V}$ to be ``sufficiently
+weak''---i.e., the exact requirements for the Born series to
+converge---is a complex and interesting topic, but one that is beyond
+the scope of our present discussion.)
 
 \section{The Green's function for a free particle}
   
@@ -569,7 +580,9 @@ behave in some other way) at infinity.  For us, it turns out that the
 right choice is to move the pole at $-k_i$ infinitesimally downwards,
 and move the pole at $+k_i$ infinitesimally upwards:
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h!]
+  \centering\includegraphics[width=0.35\textwidth]{greencontour}
+\end{figure}
 
 This means replacing the denominator of the integrand as
 follows:
@@ -633,7 +646,7 @@ Comparing this to the above definition of the scattering amplitude, we
 obtain
 $$f(\mathbf{k}_i\rightarrow k_i\mathbf{e}_r )\; \Psi_i = - \frac{2m}{\hbar^2} \,\sqrt{\frac{\pi}{2}} \; \big\langle k_i \mathbf{e}_r \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle,$$
 where $f(\mathbf{k}\rightarrow \mathbf{k}')$ denotes the scattering
-amplitude to scatter from $\mathbf{k}$ to $\mathbf{k}'$.  We can now
+amplitude to scatter from $\mathbf{k}$ to $\mathbf{k}'$.  We now
 plug in
 $$|\psi\rangle = \left(\hat{I} + \hat{G}\hat{V}\right)|\psi_i\rangle,$$
 together with our definition of the incident wavefunction.  The result
