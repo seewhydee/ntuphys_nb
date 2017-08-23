@@ -83,19 +83,23 @@ $$\frac{\hbar^2k^2}{2m} = E,$$
 which means that extended states occur only for energies $E \ge 0$.
 In fact, the solutions form a continuum, meaning we can find extended
 states for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$ does not
-diminish exponentially at infinity, $\int_{-\infty}^\infty
-|\psi(x)|^2\, dx$ is necessarily a divergent integral (except in the
-trivial case where the integrand is zero).  Hence, the wavefunction
+diminish exponentially at infinity, the integral $\int_{-\infty}^\infty
+|\psi(x)|^2\, dx$ necessarily diverges.  Hence, the wavefunction
 has no finite normalization.  (Note: we formally exclude the case of
 wavefunctions that blow up at infinity, rather than going to a
 constant magnitude.  To understand why, and for a more rigorous
 discussion of how extended states are normalized, see
 \hyperref[sec:normalization]{Appendix B}.)
 
-The results for the square well are summarized in the following figure:
+The following figure shows numerically-obtained results for a square
+well with $V_0 = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
+energy spectrum is shown on the left side.  There exist five bound
+states; their plots of $|\psi|^2$ versus $x$ are shown on the right
+side.  These results were computed using the transfer matrix code
+described in \hyperref[sec:appendix]{Appendix A}.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.4\textwidth]{boundvsextended}
+  \centering\includegraphics[width=0.81\textwidth]{boundvsextended}
 \end{figure}
 
 %% For $E \ge 0$, there is a continuum of extended states, which do not
@@ -105,44 +109,63 @@ The results for the square well are summarized in the following figure:
 %% exponentially outside the well and are therefore normalizable.
 
 Many of the lessons drawn from this square well model can be
-generalized to more complicated potential wells, so long as (i) the
-potential at infinity is some finite value $V_{\textrm{ext}}$ and (ii)
-the potential describes a ``well'' (i.e., it has some minimum value
-$V_{\mathrm{min}} < V_{\textrm{ext}}$).  For energies $E \ge
-V_{\textrm{ext}}$, there will exist a continuum of extended
-(non-normalizable) states.  And for $V_{\mathrm{min}} < E <
-V_{\textrm{ext}}$, there can exist a discrete set of bound
-(normalizable) states.
+generalized to more complicated potential wells.  (Also, in cases
+where the potential at infinity is $V_{\textrm{ext}}$ rather than
+zero, extended states occur for $E \ge V_{\textrm{ext}}$ and bound
+states occur for $\textrm{min}(V) < E < V_{\textrm{ext}}$.)
 
-There are, however, two important provisos.  The first is that the set
-of bound states might be empty: i.e., a potential well can be ``too
-shallow'' to support a bound state.  This is observable in the
-numerical results for the square well model (see
-\hyperref[sec:appendix]{Appendix A}).  An intuitive explanation is
-that all quantum wavefunctions possess some ``zero-point'' energy, and
-if this exceeds the well depth, bound states cannot form.  The second
-proviso is that in certain cases, it turns out to be possible to have
-bound states with energy $E \ge V_{\textrm{ext}}$.  These are called
-``bound states in the continuum'', since they lie in the same energy
-range as the continuum of extended states.  We will ignore this
-phenomenon, since it happens only under special circumstances that lie
-outside the scope of the present discussion.
+There are, however, two important provisos to bear in mind.  The first
+is that if we vary the potential, the number of bound states can
+change: i.e., bound state solutions can either appear or disappear.  A
+numerical example is given below, showing the bound state energies for
+the square well model with fixed $a = 1$ and varying well depth $V_0$:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.65\textwidth]{boundstate1d}
+\end{figure}
+
+For $V_0 = 30$, there are five bound states, but these disappear one
+by one as we make the potential well shallower.  Note, however, that
+one bound state survives in the limit $V_0 \rightarrow 0$.  There is a
+theorem which states that any 1D attractive potential, no matter how
+weak, always supports at least one bound state.  For details, see
+\hyperref[ex:boundstate]{Exercise 1}.
+
+In 3D, however, it is possible for an attractive potential to be ``too
+weak'' to support a bound state.  Intuitively, this happens if the
+zero-point energy of any prospective ground state exceeds the well
+depth.  A numerical example is given below, for a uniform
+spherically-symmetric well in 3D (the $l$'s label the angular momentum
+quantum numbers).  For details, see
+\hyperref[ex:boundstate3d]{Exercise 2}.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.65\textwidth]{boundstate3d}
+\end{figure}
+
+Another proviso to keep in mind is that in certain cases, it is
+actually possible to have bound states with energy $E \ge 0$.  These
+are called ``bound states in the continuum'', since they lie in the
+same energy range as the continuum of extended states.  We will ignore
+this phenomenon, since it happens only under special circumstances
+that lie outside the scope of the present discussion.  The interested
+reader may refer to the review by \hyperref[cite:hsu]{Hsu \textit{et
+    al.}~(2016)}.
 
 \section{Quasi-bound states and resonances}
 
-The bound states and extended states of the finite square well are
-extremely different from each other.  But under certain circumstances,
-extended states can take on characteristics that make them very
-similar to bound states.  These are called \textbf{quasi-bound
-  states}, and as we shall see, they play an especially important role
-in scattering experiments.
+For the 1D finite square well, bound states and extended states behave
+very differently from each other.  In certain other models, however,
+extended states can take on characteristics similar to bound states.
+These are called \textbf{quasi-bound states}, and they play an
+especially important role in scattering experiments.
 
 An example of a potential function $V(x)$ that supports quasi-bound
 states is shown below.  In the external regions, $|x| > b$, the
-potential is $V(x) = V_{\textrm{ext}} = 0$.  Between $x = -b$ and $x =
-b$, there is a ``wall'' of positive potential $V_1$.  Embedded in the
-middle of this wall, in the region $|x| < a$, is a central well of
-potential $V_0$ such that $0 < V_0 < V_1$.
+potential is zero.  Between $x = -b$ and $x = b$, there is a ``wall''
+of positive potential $V_1$.  Embedded in the middle of this wall, in
+the region $|x| < a$, is a central well of potential $V_0$ such that
+$0 < V_0 < V_1$.
 
 \textcolor{red}{[Fig.]}
 
@@ -275,6 +298,58 @@ We now examine how the solutions vary upon increasing $L$.
 \section*{Exercises}
 
 \begin{enumerate}
+\item Existence of bound states in 1D
+\label{ex:boundstate}
+
+\item In this problem, you will investigate the existence of bound
+  states in a 3D potential well that is finite, uniform, and
+  spherically-symmetric.  The potential function is
+$$V(r,\theta,\phi) = -V_0\Theta(a-r),$$
+  where $a$ is the radius of the spherical well, $V_0$ is the depth,
+  and $(r,\theta,\phi)$ are spherical coordinates defined in the usual
+  way.  For $E < 0$, the Schr\"odinger equation reduces to
+$$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+V_0)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}$$
+  For the first equation (called the Helmholtz equation), we seek
+  solutions of the form
+  $$\psi(r,\theta,\phi) = f(r) \, Y_{lm}(\theta,\phi),$$
+  where $Y_{lm}(\theta,\phi)$ are
+  \href{https://en.wikipedia.org/wiki/Spherical_harmonics}{spherical
+    harmonics}; the integers $l$ and $m$ are angular momentum
+  quantum numbers satisfying $l \ge 0$ and $-l \le m \le l$.
+  Substituting this into the Helmholtz equation gives
+  $$r^2\frac{d^2f}{dr^2} + 2r \frac{df}{dr}+\left[q^2r^2-l(l+1)\right] f(r) = 0,$$
+  which is the \textbf{spherical Bessel equation}.  The set of
+  solutions that are non-divergent at $r = 0$ are $f(r) = j_l(qr)$,
+  where $j_l$ is called a \textbf{spherical Bessel function of the
+    first kind}.  Most numerical packages provide functions to
+  calculate these (e.g.,
+  \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{\texttt{scipy.special.spherical\_jn}}
+  in Scientific Python).
+
+  Similarly, solutions for the second equation can be written as
+  $\psi(r,\theta,\phi) = g(r) \, Y_{lm}(\theta,\phi),$ yielding an
+  equation for $g(r)$ called the \textbf{modified spherical Bessel
+    equation}.  The solutions which do not diverge as $r\rightarrow
+  \infty$ are $g(r) = k_l(\gamma r)$, where $k_l$ is called a
+  \textbf{modified spherical Bessel function of the second kind}.
+  Again, this can be computed numerically (e.g., using
+  \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_kn.html#scipy.special.spherical_kn}{\texttt{scipy.special.spherical\_kn}}
+  in Scientific Python).
+
+  Using the above facts, show that the condition for a bound state to
+  exist is
+  $$\frac{qj_l'(qa)}{j_l(qa)} = \frac{\gamma k_l'(\gamma a)}{k_l(\gamma a)},$$
+  where $j_l'$ and $k_l'$ denote the derivatives of the relevant
+  special functions, and $q$ and $\gamma$ depend on $E$ and $V_0$ as
+  described above.  Write a program to search for the bound state
+  energies at any given $a$ and $V_0$, and hence determine the
+  conditions under which the potential does not support bound
+  states.
+
+
+
+\label{ex:boundstate3d}
+
 \item Phase shift under scattering resonance
 
 \item Classical driven oscillator analogy  
@@ -291,6 +366,15 @@ We now examine how the solutions vary upon increasing $L$.
 
 \end{itemize}
 
+\section*{Further Reading}
+
+\begin{itemize}
+\item 
+  C.~W.~Hsu, B.~Zhen, A.~D.~Stone, J.~D.~Joannopoulos, and
+  M.~Solja\u{c}i\'{c}, \textit{Bound states in the continuum},
+  Nature Reviews Materials \textbf{1}, 16048 (2016).
+  \label{cite:hsu}
+\end{itemize}
 
 \end{document}
 
