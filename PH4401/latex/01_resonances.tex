@@ -162,98 +162,97 @@ especially important role in scattering experiments.
 
 An example of a potential function $V(x)$ that supports quasi-bound
 states is shown below.  In the external regions, $|x| > b$, the
-potential is zero.  Between $x = -b$ and $x = b$, there is a ``wall''
-of positive potential $V_1$.  Embedded in the middle of this wall, in
-the region $|x| < a$, is a central well of potential $V_0$ such that
-$0 < V_0 < V_1$.
+potential is zero.  Between $x = -b$ and $x = b$, sits a ``barrier''
+of positive potential $V_1$.  Embedded in the middle of this barrier,
+in the region $|x| < a$, is a central well of potential $V_0$ such
+that $0 < V_0 < V_1$.
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.7\textwidth]{resonancewell}
+\end{figure}
 
-Since $V_0, V_1 > V_{\mathrm{ext}}$, we know from the discussion in
-the previous section that the system does not support any bound
-states, only extended states.
+This potential is purely repulsive, so the discussion in the previous
+section tells us there are no bound states, only extended states.
 
-However, there's something intriguing about the energy range $V_0 < E
-< V_1$, which are the energies of the central well.  Suppose that we
-set the external potential as $V_{\mathrm{ext}} = V_1$ rather than
-$V_{\mathrm{ext}} = 0$.  In that case, the central well would be able
-to support bound states, which would be exponentially localized to the
-vicinity of the well.  Since this scenario differs from the actual
-scenario only in the value of $V_{\mathrm{ext}}$, and the bound state
-wavefunctions are exponentially suppressed in the external region, it
-follows that the bound states that exist for $V_{\mathrm{ext}} = V_1$
-are \textit{approximate} energy eigenstates of the $V_{\mathrm{ext}} =
-0$ system.
+However, there's something intriguing about the energy range
+corresponding to the central well, $V_0 < E < V_1$.  Consider a
+slightly different situation, where the potential in the exterior
+region is $V_1$ rather than $0$; i.e., the potential function is a
+finite square well:
+$$V_{\mathrm{alt}}(x) = \begin{cases}V_0, & |x| < a, \\ V_1, & \mathrm{otherwise}.\end{cases}$$
+In this case, there will be bound states somewhere in the energy range
+$V_0 < E < V_1$.  These bound states' wavefunctions diminish
+exponentially away from the square well, and are thus close to zero
+for $|x| > b$.  But since $V(x)$ and $V_{\mathrm{alt}}(x)$ differ from
+each other only in the region $|x| > b$, these wavefunctions ought to
+act as \textit{approximate} solutions to the Schr\"odinger wave
+equation for the original potential function $V(x)$---which does not
+support bound states!
 
-Turning this argument around, we expect our actual system (which has
-$V_{\mathrm{ext}} = 0$) to possess certain extended states whose
-wavefunctions look highly similar to bound states, but aren't actually
-bound.
+Turning this argument around, we expect the potential function $V(x)$
+to support certain extended states whose wavefunctions look very
+similar to bound states, but aren't bound.
 
-To look for evidence of this, we analyze the system using the
-framework of a \textbf{scattering experiment}, of the sort described
-in the previous chapter.  Let a particle be incident from the left,
-with energy $E > 0$, described by the incident wavefunction
+To find evidence of this phenomenon, let us analyze the system using
+the framework of a \textbf{scattering experiment}, of the sort
+described in the previous chapter.  Let a particle be incident from
+the left, with energy $E > 0$, described by the incident wavefunction
 $$\psi_i(x) = \Psi_i \, e^{ik_i x}.$$
 This gives rise to a scattered wavefunction $\psi_s(x)$, such that the
 total wavefunction $\psi_i(x) + \psi_s(x)$ satisfies the Schr\"odinger
 wave equation with energy $E$.  The scattered wavefunction must be
 outgoing (see the previous chapter), so in the external region it
 takes the form
-$$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x < -b \\ f_+ \,e^{ik_ix}, & x > b.\end{cases}$$
-The scattering amplitudes $f_+$ and $f_-$ can be computed by solving
-the Schr\"odinger wave equation.  Details about the solution method
-are, once again, deferred to Appendix A.  The results are shown in the
-figure below (using a typical choice of model parameters:
-\textcolor{red}{[???]}).
+$$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}$$
+The scattering amplitudes $f_+$ and $f_-$ can be found by solving the
+Schr\"odinger wave equation, using the transfer matrix method
+described in \hyperref[sec:appendix]{Appendix A}.  The figure below
+shows numerical results obtained for $V_0 = 10,\,V_1 = 30,\,a=1$, and
+$b = 1.2$ or $b = 1.4$, with $\hbar = m = 1$.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.65\textwidth]{resonances}
+\end{figure}
+
+The vertical axis shows $|f_+|^2$, which is called the
+``transmittance'' and measures the probability for the incident
+particle to pass through the potential.  The horizontal axis is the
+particle energy $E$.  For $E < V_0$, the transmittance approaches
+zero, and for $E \gtrsim V_1$, the transmittance approaches unity, as
+expected.  Within the energy range $V_0 < E \lesssim V_1$, the
+transmittance forms a series of narrow peaks, which get sharper for
+larger $b$ (i.e., when the central well is more isolated from the
+exterior space).  At the top of the figure, we have also plotted the
+bound state energies for the square well potential $V'(x)$, which
+closely matches the energies of the transmittance peaks (at least, the
+first four peaks).
+
+Upon examining the total wavefunction $\psi(x)$ at these special
+energies, we see something very interesting.  The figure below plots
+$|\psi(x)|^2$ versus $x$ at the energies corresponding to the first
+three transmittance peaks, along with the bound state wavefunctions
+for the corresponding square well model.  We find that $|\psi(x)|^2$
+is much larger within the potential region than the exterior region.
+Moreover, its profile is very similar to the corresponding bound
+state.
 
 \textcolor{red}{[Fig.]}
 
-The vertical axis in this figure is the ``scattering intensity''
-$|f_+|^2 + |f_-|^2$, which is a measure of how strongly the incident
-wave is scattered.  (Here, it so happens that $|f_+| = |f_-|$, due to
-our potential's mirror symmetry.)  The horizontal axis is the incident
-energy $E$.  Underneath the $E$ axis, we have plotted arrows
-indicating the quasi-bound state energies, as obtained from a separate
-calculation---these are the energies of the bound states that would
-exist if $V_{\mathrm{ext}} = V_1$.
+The enhancement of $|\psi(x)|^2$ is explained by the similarity of the
+quasi-bound state to bound state that is exponentially localized to
+the well region.  It is also closely related to the phenomenon of
+\textbf{resonances} from classical mechanics.  If we take a mechanical
+system with a natural oscillation frequency, such as a damped harmonic
+oscillator, and drive it at a fixed frequency, the oscillation
+amplitude becomes extremely large when the driving frequency matches
+the natural oscillation frequency.
 
-As seen in this figure, quasi-bound states coincide with strong peaks
-in the scattering intensity.  This peaks are called \textbf{scattering
-  resonances}.  If we examine the total wavefunction at these special
-energies, we see something else that is very interesting: the
-probability density $|\psi(x)|^2$ is hugely enhanced within the well
-region.  An example is shown in the figure below (using $E =
-\textcolor{red}{???}$, which corresponds to the lowest-energy
-scattering resonance in our example system):
-
-\textcolor{red}{[Fig.]}
-
-The enhancement of $|\psi(x)|^2$ is explained by the aforementioned
-similarity of the quasi-bound state to a bound state (which is
-exponentially localized to the well region).  It is also closely
-related to the phenomenon of \textbf{resonance} from classical
-mechanics: if we take a mechanical system with a natural oscillation
-frequency (such as a damped harmonic oscillator) and drive it at a
-fixed frequency, the oscillation amplitude becomes extremely large
-when the driving frequency matches the natural oscillation frequency.
-Here, the quasi-bound state energy plays the role of the natural
-oscillation frequency, and the incident energy $E$ plays the role of
-the driving frequency.
-
-It is hard to overstate the importance of scattering resonances for
-experimental physics.  Experiments are often conducted for the express
-purpose of locating and characterizing scattering resonances.  The
-location of the peak tells us that the system being probed has a
-quasi-bound state at that energy, while the width and shape of the
-peak can be used to deduce other properties of the quasi-bound state.
-
-%% The figure below, for instance, shows ...
-
-\textcolor{red}{[Fig.]}
-
-%% The above figure show two experimental plots, from completely
-%% different experiments, in which resonances were
+Resonances play an extremely critical role throughout experimental
+physics.  Experiments are often conducted for the express purpose of
+locating and characterizing resonances.  The location of a resonant
+peak tells us that a system has a quasi-bound state at that energy,
+while the width and shape of the peak can be used to deduce other
+properties of the quasi-bound state.
 
 \section{General analysis of scattering resonances}
 

@@ -4,14 +4,17 @@ from scipy.optimize import newton
 from scipy.integrate import trapz
 
 ## Calculate transfer matrix across a 1D piecewise-uniform potential.
-## L is an array of segment lengths, and k is an array of the
-## corresponding wavenumbers (positive or positive-imaginary), both
-## denoted from left to right.  kl and kr are the wavenumbers in the
-## left and right spaces.
-def transfer(L, k, kl, kr):
-    assert len(L) == len(k)
-    k = append(k, [kr])
-    p = kl/k[0]
+## L is an array of segment lengths, and V is an array of the
+## corresponding potentials, both denoted from left to right; Vout is
+## the external potential (assumed to be the same on both sides); and
+## E is the energy.
+def transfer(L, V, Vout, E):
+    assert len(L) == len(V)
+    ## Wavenumbers (positive or positive-imaginary)
+    kext = sqrt(2*(E-Vout))
+    k = append(sqrt(2*(E-V)), [kext])
+
+    p = kext/k[0]
     M = 0.5*array([[1.+p,1.-p], [1.-p,1.+p]])
     for j in range(len(L)):
         ikL, p = 1j*k[j]*L[j], k[j]/k[j+1]
@@ -28,8 +31,7 @@ def bound_state_energies(L, V):
     Evec = linspace(0.99999*minV, 0.00001*minV, 1000)
 
     def M11r(E): # Subroutine: return Re[M[1,1]]
-        kout, k = sqrt(2*E), sqrt(2*(E-V))
-        M = transfer(L, k, kout, kout)
+        M = transfer(L, V, 0.0, E)
         return real(M[1,1])
     ## Generate guesses for the bound state energies
     M11vec = empty(len(Evec))
@@ -91,7 +93,7 @@ def wavefunction(L, V, E, components_l, Nx=80):
 
 ## Plot square well bound state wavefunctions
 def square_well_demo_1():
-    V0, a = 30.0, 1.0 # Square well parameters
+    V0, a = 20.0, 1.0 # Square well parameters
     L, V = array([2*a]), array([-V0])
     Ebound = bound_state_energies(L, V)
     print(Ebound)
@@ -131,5 +133,4 @@ def square_well_demo_2():
     plt.ylim(-30, 0)
     plt.show()
 
-
-square_well_demo_2()
+square_well_demo_1()
