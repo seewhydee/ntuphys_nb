@@ -142,7 +142,7 @@ operator:
 $$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i, j \in\{1,\dots,N\},\;\; i\ne j.$$
 
 There is a standard way to construct multi-particle states obeying
-this symmetry condition, based on the ``occupancy'' of the
+this symmetry condition, which is based on the ``occupancy'' of the
 single-particle states.  To illustrate the procedure, consider a
 two-boson system ($N = 2$).  Suppose both bosons occupy the same
 single-particle state, $|\phi_a\rangle \in \mathscr{H}^{(1)}$; then
@@ -221,10 +221,10 @@ This construction breaks down if we try letting $|\phi_a\rangle$ and
 $|\phi_b\rangle$ be the same state: in that case, the two terms would
 cancel each other out to give the zero vector, which is not a valid
 quantum state (as states must be described by vectors of unit norm).
-This leads to \textbf{Pauli's exclusion principle}, which states that
-fermions cannot occupy the same quantum state.  Another way of stating
-Pauli's principle is that any single-particle state is either
-unoccupied, or occupied by exactly one fermion.
+This leads to \textbf{Pauli's exclusion principle}, which says that
+fermions cannot occupy the same state.  Another way of stating Pauli's
+principle is that any single-particle state is either unoccupied, or
+occupied by exactly one fermion.
 
 For general $N$, let the occupied single-particle states be
 $\{|\phi_1\rangle, |\phi_2\rangle,\dots,|\phi_N\rangle\}$.  Then the
@@ -257,27 +257,27 @@ is reversed.
 We can now see why the above $N$-particle state describes fermions.
 Let us apply $\hat{P}_{ij}$ to it:
 $$\begin{aligned}\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij} \big[\cdots |\phi_{p(i)}\rangle \cdots |\phi_{p(j)}\rangle \cdots\big] \\&= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\phi_{p(j)}\rangle \cdots |\phi_{p(i)}\rangle \cdots\big].\end{aligned}$$
-In each term of the sum, the single-particle state for $p(i)$ and
-$p(j)$ have exchanged places.  The resulting term must be an exact
-match for one of the terms in the original sum in
-$|\phi_1,\dots,\phi_N\rangle$ (since that sum runs over all possible
-permutations), \textit{except} for one thing: the coefficient $s(p)$
-must have an \textit{opposite} sign (since the two permutations are
-related by a single exchange).  It then follows that
+Consider each term in the above sum.  Here, the single-particle state
+for $p(i)$ and $p(j)$ have exchanged places.  The resulting term must
+be a match for another one of the terms in
+$|\phi_1,\dots,\phi_N\rangle$, because the sum runs over all possible
+permutations---\textit{except} for one thing: the coefficient $s(p)$
+must have an \textit{opposite} sign, since the two permutations are
+related by an exchange.  It follows that
 $\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle = -
 |\phi_1,\dots,\phi_N\rangle$, as desired for fermions.
 
-You can also check that if the occupied single-particle states are
-non-unique, this construction breaks down since the terms in the sum
-over $p$ cancel out pairwise.  This is the manifestation of the Pauli
-exclusion principle for $N$ fermions: no two fermions are allowed to
-occupy the same single-particle quantum state.
+If the occupied single-particle states are non-unique, this
+construction breaks down, since the terms in the sum over $p$ cancel
+out pairwise.  This is the manifestation of the Pauli exclusion
+principle for $N$ fermions.
 
 \section{Second quantization}
 
-The usual tensor product notation, which we have been using so far, is
-rather cumbersome for dealing with symmetric and antisymmetric states.
-To resolve this problem, we can introduce a new notation,
+Tensor product notation is quite cumbersome for handling symmetric and
+antisymmetric states.  It is much more convenient to use another
+formalism, called ``\textbf{second quantization}'' (a bad name, but
+one that has stuck around for historical reasons, as explained below.)
 
 
 \section{Measurements and state collapse}

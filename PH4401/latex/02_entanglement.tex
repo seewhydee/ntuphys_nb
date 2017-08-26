@@ -37,19 +37,17 @@ If each individual particle is treated as a quantum system, then
 according to the postulates of quantum mechanics, its state is
 described by a vector in a complex Hilbert space.  Let $\mathscr{H}_A$
 and $\mathscr{H}_B$ denote the respective single-particle Hilbert
-spaces.
-
-When the two particles are considered as a single system, the combined
-Hilbert space is denoted
+spaces.  When the two particles are considered as a single system, the
+combined Hilbert space is denoted
 $$\mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.$$
-The symbol $\otimes$ refers to a mathematical operation known as the
-\textbf{tensor product}, which is a way of combining two Hilbert
-spaces to form a larger Hilbert space.  Its meaning is as follows:
-suppose $\mathscr{H}_A$ is spanned by an orthonormal basis
-$\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle, \dots\}$, and
-$\mathscr{H}_B$ spanned by $\{|\nu_1\rangle, |\nu_2\rangle,
-|\nu_3\rangle, \dots\}$.  Then the tensor product space $\mathscr{H}_A
-\otimes \mathscr{H}_B$ is a space spanned by the basis vectors
+The symbol $\otimes$ refers to a \textbf{tensor product}, which is a
+mathematical operation that combines two Hilbert spaces to form
+another Hilbert space.  Its meaning is as follows: let $\mathscr{H}_A$
+be spanned by an orthonormal basis $\{|\mu_1\rangle, |\mu_2\rangle,
+|\mu_3\rangle, \dots\}$, and $\mathscr{H}_B$ spanned by
+$\{|\nu_1\rangle, |\nu_2\rangle, |\nu_3\rangle, \dots\}$.  Then
+$\mathscr{H}_A \otimes \mathscr{H}_B$ is a space spanned by the basis
+vectors
 $$\Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \Big| \;\; \textrm{all}\;|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.$$
 This reflects the intuitive notion that if particle A has some state
 $|\mu_i\rangle$ and particle B has state $|\nu_j\rangle$, then the
@@ -59,7 +57,8 @@ $d_B$, then the combined Hilbert space $\mathscr{H}$ has dimension
 $d_A d_B$.  Using such a basis, any two-particle state can be written as
 $$|\psi\rangle = \sum_{i} \sum_{j} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.$$
 
-Inner products between the tensor product basis states is defined as follows:
+The inner product between the tensor product basis states is defined
+as follows:
 $$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.$$
 In other words, we (i) calculate the inner product for space A, (ii)
 calculate the inner product for space B, and (iii) multiply the two
@@ -85,17 +84,17 @@ $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-
 This two-particle state is constructed from two of the basis states of
 the tensor product space, $|\!+\!z\rangle\otimes|\!-\!z\rangle$ and
 $|\!-\!z\rangle\otimes|\!+\!z\rangle$; you can check that the factor
-of $1/\sqrt{2}$ correctly normalizes the state so that
-$\langle\psi|\psi\rangle = 1$.  Evidently, neither particle A nor
-particle B has a definite $|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.
-Moreover, we shall show (in Section~\ref{sec:entropy}) that there's
-\textit{no} choice of basis that allows the individual particles to be
-expressed with definite quantum states.  In other words,
+of $1/\sqrt{2}$ normalizes the state so that $\langle\psi|\psi\rangle
+= 1$.  Evidently, neither particle A nor particle B has a definite
+$|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.  Moreover, we shall show
+(in Section~\ref{sec:entropy}) that there's \textit{no} choice of
+basis that allows the individual particles to be expressed with
+definite quantum states; i.e.,
 $$|\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.$$
 In such a situation, the two particles are said to be
-\textbf{entangled}.  This means that they cannot be described by
-individual single-particle quantum states, but are intrinsically
-``mixed together''.
+\textbf{entangled}.  They cannot be described by individual
+single-particle quantum states, but are intrinsically ``mixed
+together''.
 
 For systems of more than two particles, quantum states can be defined
 using multiple tensor products.  In general, suppose a quantum system
@@ -125,8 +124,8 @@ $$\frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rang
 \label{sec:partialmeasurements}
 
 Let us recall how measurements work in single-particle quantum theory.
-Each observable quantity $Q$ is described by some Hermitian operator
-$\hat{Q}$, which has an eigenbasis $\{|q_i\rangle\}$ such that
+Each observable $Q$ is described by some Hermitian operator $\hat{Q}$,
+which has an eigenbasis $\{|q_i\rangle\}$ such that
 $$\hat{Q}|q_i\rangle = q_i |q_i\rangle.$$
 For simplicity, let the eigenvalues $\{q_i\}$ be non-degenerate.
 Suppose a particle initially has quantum state $|\psi\rangle$; this
@@ -146,11 +145,10 @@ state remains normalized.
 For multi-particle systems, there is a new complication: what if a
 measurement is performed on just one particle?
 
-Consider once again a system of two particles A and B, with
-two-particle Hilbert space $\mathscr{H}_A \otimes \mathscr{H}_B$.
-Suppose we perform a measurement on particle $A$; the measurement
-corresponds to a Hermitian operator $\hat{\mu}$ that acts upon
-$\mathscr{H}_A$, and has eigenvectors $\{|\mu_1\rangle,
+Consider a system of two particles A and B, with two-particle Hilbert
+space $\mathscr{H}_A \otimes \mathscr{H}_B$.  We perform a measurement
+on particle $A$, corresponding to a Hermitian operator $\hat{\mu}$
+that acts upon $\mathscr{H}_A$ and has eigenvectors $\{|\mu_1\rangle,
 |\mu_2\rangle,\dots\}$.  We can write any state $|\psi\rangle$ using
 the eigenbasis of $\hat{\mu}$ for the $\mathscr{H}_A$ part, and an
 arbitrary basis $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for the
@@ -170,8 +168,8 @@ only upon the $\mathscr{H}_A$ part of the two-particle space.  The
 prefactor $\mathcal{N}$ is, once again, defined so that the new state
 is normalized.
 
-Let's work through an explicit example.  Consider a system composed of
-two spin-$1/2$ particles, with the two-particle state
+Let's work through an example.  Consider a system of two spin-$1/2$
+particles, with state
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
 eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
@@ -179,20 +177,20 @@ and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
 Then:
 \begin{itemize}
 \item The outcome $+\hbar/2$ occurs with probability $P_+ = \langle
-  n'|n'\rangle = 1/2$, where $|n'\rangle =
+  \varphi|\varphi\rangle = \frac{1}{2}$, where $|\varphi\rangle =
   (1/\sqrt{2})\,|\!-\!z\rangle$.  After the measurement, the state
   collapses to $|\!+\!z\rangle |\!-\!z\rangle$.
 
 \item The outcome $-\hbar/2$ occurs with probability $P_- = \langle
-  n'|n'\rangle = 1/2$, where $|n'\rangle =
+  \varphi|\varphi\rangle = \frac{1}{2}$, where $|\varphi\rangle =
   (1/\sqrt{2})\,|\!+\!z\rangle$.  After the measurement, the state
   collapses to $|\!-\!z\rangle |\!+\!z\rangle$.
 \end{itemize}
-In other words, the two possible results $\pm \hbar/2$ occur with
-equal probability.  In either case, the two-particle state collapses
-so that particle $A$ is in the observed spin eigenstate, while
-particle $B$ has the opposite spin.  After the collapse, the
-two-particle state is no longer entangled.
+The two possible results, $+\hbar/2$ and $-\hbar/2$, occur with equal
+probability.  In either case, the two-particle state collapses so that
+particle $A$ is in the observed spin eigenstate, and particle $B$
+gets the opposite spin.  After the collapse, the two-particle state is
+no longer entangled.
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
@@ -205,50 +203,55 @@ however, it was shown that the EPR paradox is not an actual paradox;
 physical systems \textit{really do} behave in the strange way
 described in this thought experiment.
 
-The EPR paradox begins with a two-particle entangled state, such as
-the following state of two spin-$1/2$ particles:
+The EPR paradox begins with an entangled state, such as
+this state of two spin-$1/2$ particles:
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 As discussed in the previous section, measuring $S_z$ on particle $A$
-causes the system to collapse into a two-particle state with definite
-spins.  If the measurement outcome is $+\hbar/2$, the collapsed state
-is $|\!+\!z\rangle |\!-\!z\rangle$, whereas if we measure
-$-\hbar/2$, the collapsed state is
+collapses the system into a two-particle state that is unentangled
+(where each particle has a definite spin).  If the measurement outcome
+is $+\hbar/2$, the new state is $|\!+\!z\rangle |\!-\!z\rangle$,
+whereas if the outcome is $-\hbar/2$, the new state is
 $|\!-\!z\rangle|\!+\!z\rangle$.
 
 According to quantum theory, the state collapse happens
 instantaneously, regardless of the distance separating the particles.
-We could prepare the two-particle state in a laboratory and hang on to
-particle $A$, while sending particle $B$ to the Betelgeuse star
-system, 642 light years away.  In principle, this can be done
-carefully enough to avoid disturbing the two-particle quantum state.
-Once ready, we measure $\hat{S}_z$ on particle $A$, which induces an
-instantaneous collapse of the two-particle state.  Immediately
-afterwards, if our alien colleague at Betelgeuse measures $\hat{S}_z$
-on particle $B$, xhe will obtain (with 100\% certainty) the opposite
-of our Earth result.  Yet in the time between these two measurements,
-no classical signal could have traveled between Earth and Betelgeuse,
-not even at the speed of light.
+We can prepare the two-particle state in a laboratory, then transport
+particle $A$ to the Alpha Centauri star system, and transport particle
+$B$ to the Betelgeuse system, separated by $\sim 640$ light years.  In
+principle, this can be done carefully enough to avoid disturbing the
+two-particle quantum state.
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.75\textwidth]{epr}
+\end{figure}
+
+Once ready, an experimentalist at Alpha Centauri measures $\hat{S}_z$
+on particle $A$, which induces an instantaneous collapse of the
+two-particle state.  Immediately afterwards, another experimentalist
+at Betelgeuse measures $\hat{S}_z$ on particle $B$, and obtains (with
+100\% certainty) the opposite spin.  Yet in the time between these two
+measurements, no classical signal could have traveled between the two
+star systems, not even at the speed of light.
 
 There are three noteworthy aspects of this phenomenon.
 
-First, it dispels certain intuitive but ultimately mistaken
-``explanations'' of quantum state collapse.  For instance, it is
-sometimes explained that if we want to measure a particle's position,
-we need to shine a light beam on it, or disturb it in some way; due to
-this disturbance, the particle's momentum becomes uncertain after the
-measurement.  The EPR paradox shows that such stories don't capture
-the full weirdness of quantum state collapse, since we can collapse
-the state of a particle by doing a measurement on \textit{another}
-particle, hundreds of light years away!
+First, it dispels some intuitive-seeming but mistaken ``explanations''
+of quantum state collapse.  For instance, it is sometimes explained
+that if we want to measure a particle's position, we need to shine a
+light beam on it, or disturb it in some way; due to this disturbance,
+the particle's momentum becomes uncertain after the measurement.  The
+EPR paradox shows that such stories don't capture the full weirdness
+of quantum state collapse, since we can collapse the state of a
+particle by doing a measurement on \textit{another} particle, hundreds
+of light years away!
 
-Second, the experimentalist can have a certain amount of control over
-the state collapse, by choosing what measurement to perform.  So far,
-we have considered $S_z$ measurements performed on particle $A$.  But
-the Earth experimentalist can choose to measure the spin of $A$ along
-another axis, say $S_x$.  In the basis of spin-up and spin-down states,
-the operator $\hat{S}_x$ has matrix representation
+Second, the experimentalist has a certain amount of control over the
+state collapse, due to the choice of what measurement to perform.  So
+far, we have considered $S_z$ measurements performed on particle $A$.
+But the experimentalist at Alpha Centauri can choose to measure the
+spin of $A$ along another axis, say $S_x$.  In the basis of spin-up
+and spin-down states, the operator $\hat{S}_x$ has matrix
+representation
 $$\hat{S}_x = \frac{\hbar}{2}\, \begin{pmatrix}0&1\\1&0\end{pmatrix}.$$
 The eigenvalues and eigenvectors are
 $$\begin{aligned}s_x = \;\;\frac{\hbar}{2},\; &\;\;\; |\!+\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle + |\!-\!z\rangle\Big) \\ s_x = -\frac{\hbar}{2}, &\;\;\; |\!-\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle - |\!-\!z\rangle\Big).\end{aligned}$$
@@ -257,20 +260,20 @@ $$\begin{aligned}|\!+\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle + |\!-\
 This allows us to write the two-particle entangled state in the
 $\hat{S}_x$ basis:
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle|\!+\!x\rangle \,-\, |\!+\!x\rangle|\!-\!x\rangle\Big).$$
-The Earth measurement still collapses the particles into definite spin
-states with opposite spins---but now spin states of ${S}_x$ rather
-than ${S}_z$.
+The Alpha Centauri measurement still collapses the particles into
+definite spin states with opposite spins---but now spin states of
+${S}_x$ rather than ${S}_z$.
 
 Third, the choice of measurement cannot be used for superluminal
-communication.  The Earth experimentalist can choose whether to (i)
-measure $S_z$ or (ii) measure $S_x$, and this choice has an
-instantaneous effect on the state of particle $B$.  If the Betelgeuse
-experimentalist can find a way to distinguish between case (i) and
-case (ii), even statistically, this could serve as a method of
-instantaneous communication.  Yet this turns out to be impossible!
+communication.  The experimentalist at Alpha Centauri can choose
+whether to (i) measure $S_z$ or (ii) measure $S_x$, and this choice
+has an instantaneous effect on the state of particle $B$.  If the
+Betelgeuse experimentalist can find a way to distinguish between the
+cases (i) and (ii), even statistically, this could serve as a method
+of instantaneous communication.  Yet this turns out to be impossible!
 This is because quantum states themselves cannot be measured; only
-observables can be measured.  Suppose the Earth measurement is
-$\hat{S}_z$, which collapses $B$ to either $|\!+\!z\rangle$ or
+observables can be measured.  Suppose the Alpha Centauri measurement
+is $\hat{S}_z$, which collapses $B$ to either $|\!+\!z\rangle$ or
 $|\!-\!z\rangle$ (each with probability 0.5).  The Betelgeuse
 experimentalist can now choose which measurement to perform.  If $S_z$
 is measured, the outcome is $+\hbar/2$ or $-\hbar/2$ with equal
@@ -280,7 +283,7 @@ This analysis can be repeated for any other choices of measurement
 axis.  No matter what, we find that the outcomes of any spin
 measurement at Betelgeuse always have 50/50 probability!  Therefore,
 the Betelgeuse measurement does not yield any information about the
-choice of measurement axis made on Earth.
+choice of measurement axis made at Alpha Centauri.
 
 Since quantum state collapse does not allow for superluminal
 communication, it is consistent \textit{in practice} with the theory
@@ -290,48 +293,50 @@ states) change faster than light can travel between two points.  For
 this reason, EPR argued that quantum theory is
 \textit{philosophically} inconsistent with relativity.
 
-They then suggested an alternative: maybe quantum mechanics is an
-approximation of some deeper theory, whose details are currently not
-known, but which is both deterministic and local.  Such a
+EPR suggested an alternative: maybe quantum mechanics is an
+approximation of some deeper theory, whose details are currently
+unknown, but which is deterministic and local.  Such a
 ``\textbf{hidden variables theory}'' can give rise to the appearance
 of quantum state collapse in the following way.  Suppose each particle
 has a definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$
-or $S_z = -\hbar/2$; for conciseness, we denote these as $[+]$ or
-$[-]$.  We then hypothesize that the two-particle quantum state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big)$$
-is not an actual description of reality.  Instead, it corresponds to a
-\textit{statistical} distribution of ``hidden variable'' states, which
-we denote by $[+;-]$ (i.e., $S_z = +\hbar/2$ for particle $A$ and $S_z
-= -\hbar/2$ for particle $B$), and $[-;+]$ (the other way around).
-When the Earth experimentalist measures $S_z$, we uncover the value of
-the hidden variables: a $+z$ result implies $[+;-]$, and a $-z$ result
-implies $[-;+]$.  When the Betelgeuse experimentalist subsequently
-measures $S_z$, the result obtained is the opposite of the Earth
-result.  But this happens simply because those were the values of the
-hidden variables all along---there is no physical influence traveling
-instantly from Earth to Betelguese.
+or $S_z = -\hbar/2$; let us denote these as $[+]$ or $[-]$.  We can
+hypothesize that the two-particle quantum state $|\psi\rangle$ is not
+an actual description of reality; rather, it corresponds to a
+\textit{statistical} distribution of ``hidden variable'' states,
+denoted by $[+;-]$ (i.e., $S_z = +\hbar/2$ for particle $A$ and $S_z =
+-\hbar/2$ for particle $B$), and $[-;+]$ (the other way around).
 
-Of course, there is a huge amount of detail missing about the actual
-contents of the ``hidden variables'' theory.  In particular, such a
-theory would have to be consistent, with all the many successful
-predictions of quantum mechanics.  This seems difficult, but with
-enough hard work, one might imagine that the missing details can be
-filled in.
+\begin{figure}[h]
+  \centering\includegraphics[width=0.75\textwidth]{hiddenvariables}
+\end{figure}
+
+When the Alpha Centauri experimentalist measures $S_z$, the value of
+the hidden variable is revealed.  A result of $+z$ implies $[+;-]$,
+whereas $-z$ implies $[-;+]$.  When the Betelgeuse experimentalist
+subsequently measures $S_z$, the result obtained is the opposite of
+the Alpha Centauri result.  This is simply because those were the
+values all along---there is no instantaneous physical influence
+traveling from Alpha Centauri to Betelguese.
+
+Clearly, there are many missing details in this hidden variables
+description.  In particular, such a theory would have to be consistent
+with all the many successful predictions of quantum mechanics.  Trying
+to come up with a suitable theory seems difficult, but with enough
+hard work, one might imagine that it can be done.
 
 \section{Bell's theorem}
 
 In 1964, however, John S.~Bell published a
 \hyperref[cite:bell]{bombshell paper} showing that the predictions of
 quantum theory are \textit{inherently inconsistent} with hidden
-variable theories.  The amazing thing about this result, which is
-known as \textbf{Bell's theorem}, is that it requires no knowledge
-about the details of the hidden variable theory, except that it is
-deterministic and local.  In this section, we study a simplified
-version of Bell's theorem, based on the presentation of
-\hyperref[cite:mermin]{Mermin (1981)}.
+variable theories.  The amazing thing about this result, known as
+\textbf{Bell's theorem}, is that it requires no knowledge about the
+details of the hidden variable theory, just that it is deterministic
+and local.  Here, we present a simplified version of Bell's theorem,
+based on \hyperref[cite:mermin]{Mermin (1981)}.
 
-We again consider spin-1/2 particle pairs, with particle $A$ on Earth
-and particle $B$ in the Betelgeuse star system.  At each location, the
+We again consider spin-1/2 particle pairs, with particle $A$ at Alpha
+Centauri and particle $B$ at Betelgeuse.  At each location, an
 experimentalist can measure the local particle spin along three
 distinct choices of spin axis.  These spin observables are denoted by
 $S_1$, $S_2$, and $S_3$.  We will not specify the actual directions of
@@ -339,8 +344,8 @@ these spin axes until later in the proof.  (Note, however, that they
 need not correspond to orthogonal spatial directions.)
 
 We now imagine repeatedly preparing two-particle systems, and sending
-the particles to the appropriate laboratories on Earth and Betelgeuse.
-Each time, the prepared two-particle state is
+the particles to the appropriate laboratories on Alpha Centauri and
+Betelgeuse.  Each time, the prepared two-particle state is
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 We then let the experimentalists perform measurements on their
 particle.  In each instance of the experiment, each experimentalist
@@ -375,8 +380,8 @@ probabilities of these 8 cases.
 
 Let's now focus on the subset of experiments in which the two
 experimentalists happened to choose \textit{different} spin axes
-(e.g., Earth chose $S_1$ and Betelgeuse chose $S_2$).  Within this
-subset, what is the probability \textit{for the two measurement
+(e.g., Alpha Centauri chose $S_1$ and Betelgeuse chose $S_2$).  Within
+this subset, what is the probability \textit{for the two measurement
   results to have opposite signs} (i.e., one $+$ and one $-$)?  To
 answer this question, we first look at the following 6 cases:
 $$\begin{aligned}{[}{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}].\end{aligned}$$
@@ -411,34 +416,35 @@ of the hidden variables theory, because the above derivation made no
 assumptions about any such details (e.g., the probabilities of the
 hidden variable states).
 
-To complete the proof, we need to find a set of $S_1$, $S_2$, and
-$S_3$ such that the predictions of quantum mechanics violate Bell's
-inequality.  One simple choice is to align $S_1$ with the $z$ axis,
-and align $S_2$ and $S_3$ along the $x$-$z$ plane at $120^\circ$
-($2\pi/3$ radians) from $S_1$, as shown in the figure:
+To complete the proof, we must find a set $\{S_1, S_2, S_3\}$ such
+that the predictions of quantum mechanics violate Bell's inequality.
+One simple choice is to align $S_1$ with the $z$ axis, and align $S_2$
+and $S_3$ along the $x$-$z$ plane at $120^\circ$ ($2\pi/3$ radians)
+from $S_1$, as shown below:
 
-\textcolor{red}{[Fig.]}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.35\textwidth]{bellaxes}
+\end{figure}
 
 Thus, the spin operators can be written in the eigenbasis of $\hat{S}_z$:
 $$\begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \sigma_3 \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 + \sin(2\pi/3)\sigma_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 - \sin(2\pi/3)\sigma_1\right].\end{aligned}$$
 
-Suppose the Earth experimentalist (measuring $A$) chooses $S_1$, and
-obtains $+\hbar/2$.  The state of particle $A$ collapses to
-$|\!+\!z\rangle$, and the state of particle $B$ collapses to
-$|\!-\!z\rangle$.  The Betelgeuse experimentalist is assumed to
-choose a different spin axis.  If the choice is $S_2$, the expectation
-value of the measurement is
+Suppose the Alpha Centauri experimentalist chooses $S_1$, and obtains
+$+\hbar/2$.  Particle $A$ collapses to state $|\!+\!z\rangle$, and
+particle $B$ collapses to state $|\!-\!z\rangle$.  The Betelgeuse
+experimentalist is assumed to choose a different spin axis.  If the
+choice is $S_2$, the expectation value of the measurement is
 $$\begin{aligned}\langle\, - z \, | \, S_2 \,|-\!z\,\rangle &= \frac{\hbar}{2} \Big[\cos(2\pi/3) \langle\,- z\,|\sigma_3| - \!z\,\rangle + \sin(2\pi/3)\langle\,- z\,|\sigma_1|-\!z\,\rangle\Big]\\ &= \frac{\hbar}{2} \cdot \frac{1}{2} \end{aligned}$$
 If $P_+$ and $P_-$ respectively denote the probability of measuring
 $+\hbar/2$ and $-\hbar/2$ in this measurement, the above equation
 implies that $P_+ - P_- = + 1/2$.  Moreover, $P_+ + P_- = 1$ by
 probability conservation.  It follows that the probability of
-obtaining a negative value (the opposite sign from the Earth
+obtaining a negative value (the opposite sign from the Alpha Centauri
 measurement) is $P_- = 1/4$.  All the other possible scenarios are
-worked out in a similar way.  The overall conclusion is that if the
-two experimentalists choose different measurement axis, they obtain
-results of opposite signs with probability $1/4$, violating Bell's
-inequality.
+worked out in a similar way.  We end up with the conclusion that if
+the two experimentalists choose different measurement axis, they
+obtain results of opposite signs with probability $1/4$, violating
+Bell's inequality.
 
 Last of all, we must consult Nature itself.  Is it possible to
 observe, in an actual experiment, probabilities that violate Bell's
@@ -511,7 +517,7 @@ the combined system can be written in the tensor product basis:
 $$|\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.$$
 The density matrix of the combined system is
 $$\hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).$$
-The density matrix for subsystem A is then obtained by tracing over
+The density matrix for subsystem A is obtained by tracing over
 the states of subsystem B:
 $$\begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}$$
 Note that $\hat{\rho}_A(\psi)$ is clearly Hermitian.
@@ -547,11 +553,10 @@ Here, $S_{\mathrm{ent.}}$ refers to the entropy of the system or
 subsystem described by the density matrix $\hat{\rho}$.  For instance,
 if we use the density matrix $\hat{\rho}_A$ in the above formula, we
 get the entropy of subsystem A.  In this formula, $\ln[\cdots]$
-denotes the logarithm of an operator, which is the inverse of
-the exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
-\hat{A}$.  The prefactor $k_B$ is Boltzmann's constant, and is present
-to ensure that $S_{\mathrm{ent.}}$ has the same units as thermodynamic
-entropy.
+denotes the logarithm of an operator, which is the inverse of the
+exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
+\hat{A}$.  The prefactor $k_B$ is Boltzmann's constant; it ensures
+that $S_{\mathrm{ent.}}$ has the same units as thermodynamic entropy.
 
 The definition of the entanglement entropy is based on an analogy with
 the entropy concept from classical thermodynamics, statistical
