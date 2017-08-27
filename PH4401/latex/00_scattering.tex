@@ -205,6 +205,7 @@ This result can also be used to prove Heisenberg's commutation relation
 $[\hat{r}_i, \hat{p}_j] = i\hbar\delta_{ij}$.
 
 \section{Scattering from a 1D delta-function potential}
+\label{sec:1dscatter}
 
 We are now ready to solve our first scattering problem.  Consider a 1D
 space with spatial coordinate denoted by $x$, and a scattering
@@ -539,7 +540,8 @@ converge---is a complex and interesting topic, but one that is beyond
 the scope of our present discussion.)
 
 \section{The Green's function for a free particle}
-  
+\label{sec:freegreen}
+
 We have defined the free-particle Green's function as the operator
 $$\hat{G}_0=\big(E-\hat{H}_0\big)^{-1}.$$
 Its matrix element in the position basis,
@@ -622,6 +624,7 @@ to an \textbf{incoming Green's function}.  In the scattering problem,
 we will always deal with the outgoing/causal Green's function.
 
 \section{Scattering amplitudes in 3D}
+\label{sec:3damp}
 
 The outgoing propagator can now be plugged into the scattering problem
 $$\begin{aligned} \psi_i(\mathbf{r}) &= \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}}, \\ \psi_s(\mathbf{r}) &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \;\; \overset{r\rightarrow\infty}{\longrightarrow}\;\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ik_ir} \, f(\Omega).
@@ -680,11 +683,21 @@ the free-particle Green's function.
 \section*{Exercises}
 
 \begin{enumerate}
-\item Calculate total current in 1D delta function scattering model
+\item Using the results for the 1D delta-function scattering problem
+  described in Section~\ref{sec:1dscatter}, calculate the probability
+  current
+  $$J(x) = \frac{\hbar}{2mi}\left(\psi^*\frac{d\psi}{dx} - \psi\frac{d\psi^*}{dx}\right),$$
+  where $\psi(x)$ is the \textit{total} (incident + scattered)
+  wavefunction.  Explain the relationship between the values of $J$ on
+  the left and right side of the scatterer.
 
-\item Define S-matrix and prove unitarity.
+\item Derive the Green's function for a free particle in 1D space:
+  $$\langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik_i} \exp\left(ik_i|x-x'|\right).$$
 
-\item Repeat Born series calculation for the scattering amplitude in 1D, 2D.
+\item In Section~\ref{sec:3damp}, the scattering amplitude
+  $f(\mathrm{k}\rightarrow\mathrm{k}')$ for the 3D scattering problem
+  was derived using the Born series.  Derive the corresponding
+  expressions for 1D and 2D.
 \end{enumerate}
 
 
