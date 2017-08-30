@@ -271,15 +271,15 @@ whether to (i) measure $S_z$ or (ii) measure $S_x$, and this choice
 instantaneously affects the state of particle $B$.  If the Betelgeuse
 experimentalist can find a way to distinguish between the cases (i)
 and (ii), even statistically, this would serve as a method of
-instantaneous communication, violating the theory of relativity.  Yet
-this turns out to be impossible!  This is because quantum states
-themselves cannot be measured; only observables can be measured.
-Suppose the Alpha Centauri measurement is $\hat{S}_z$, which collapses
-$B$ to either $|\!+\!z\rangle$ or $|\!-\!z\rangle$ (each with
-probability 0.5).  The Betelgeuse experimentalist must now choose
-which measurement to perform.  If $S_z$ is measured, the outcome is
-$+\hbar/2$ or $-\hbar/2$ with equal probabilities.  If $S_x$ is
-measured, the probabilities are:
+instantaneous communication, violating the theory of relativity!  Yet
+this turns out to be impossible.  The key problem is that quantum
+states themselves cannot be measured; only observables can be
+measured.  Suppose the Alpha Centauri measurement is $\hat{S}_z$,
+which collapses $B$ to either $|\!+\!z\rangle$ or $|\!-\!z\rangle$
+(each with probability 0.5).  The Betelgeuse experimentalist must now
+choose which measurement to perform.  If $S_z$ is measured, the
+outcome is $+\hbar/2$ or $-\hbar/2$ with equal probabilities.  If
+$S_x$ is measured, the probabilities are:
 $$\begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2},\end{aligned}$$
 which has exactly the same distribution!  The analysis can be repeated
 for any other choice of spin axis; we always find that the outcomes
@@ -361,7 +361,7 @@ experimentalists' choices of spin axis are recorded, along with their
 measurement results.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.75\textwidth]{bell}
+  \centering\includegraphics[width=0.67\textwidth]{bell}
 \end{figure}
 
 At the end, the experimental records are brought together and
@@ -624,8 +624,7 @@ the entropy is $S_{\mathrm{ent.}} = k_B \ln(d)$.  In general, the
 entanglement entropy lies between these two extremes, $0 \le
 S_{\mathrm{ent.}} \le k_B\ln(d)$.
 
-As a concrete example, let us apply the entanglement entropy formula
-to the system of two spin-$1/2$ systems and the state
+As an example, consider the following state of two spin-$1/2$ particles:
 $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 The density operator for the two-particle system is
 $$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).$$
@@ -640,11 +639,11 @@ $$S_{\mathrm{ent.}}^A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = 
 This is the maximum possible entanglement entropy for a system with a
 2D Hilbert space.  Hence, subsystems A and B are maximally entangled.
 
-\section{The Many-Worlds Interpretation}
+\section{The Many Worlds Interpretation}
 
 We conclude this chapter by discussing a set of compelling but
 controversial ideas arising from the phenomenon of quantum
-entanglement: the \textbf{Many-Worlds Interpretation} of quantum
+entanglement: the \textbf{Many Worlds Interpretation} of quantum
 theory.
 
 So far, when describing the phenomenon of state collapse, we have
@@ -661,90 +660,139 @@ mechanics, in being the only place where randomness (or
 ``indeterminism'') creeps into quantum theory.  The other postulates
 do not refer to probabilities.  In particular, the Schr\"odinger equation
 $$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle$$
-is completely deterministic, in the sense that if you are told the
+is completely deterministic, in the sense that if you know the
 Hamiltonian $\hat{H}(t)$ and the state vector $|\psi(t_0)\rangle$ at a
-certain time $t_0$, then you can (in principle) solve the
-Schr\"odinger equation to determine $|\psi(t)\rangle$ for all $t$.
-This time-evolution consists of a smooth, non-random rotation of the
-state vector within its Hilbert space.  A measurement process, on the
-other hand, has a completely different effect: it causes the state
-vector to instantaneously jump to a randomly-selected value.  It is
-strange that the theory contains two fundamentally different ways for a
-state to change.
+certain time $t_0$, you can (in principle) solve the Schr\"odinger
+equation to determine $|\psi(t)\rangle$ for all $t$.  This
+time-evolution consists of a smooth, non-random rotation of the state
+vector within its Hilbert space.  A measurement process, however, has
+a completely different character: it causes the state vector to jump
+discontinuously to a randomly-selected value.  It is strange that the
+theory contains two such different descriptions of state change.
 
-The second noteworthy feature of the measurement postulate is that it
-is silent on what exactly constitutes a measurement.  Does a
-measurement require a conscious observer?  Surely not: in the words of
-Einstein, could we really believe that the Moon exists only when we
-look at it?  But then if a given device interacts with a particle, how
-do we figure out whether the interaction amounts to a measurement, or
-whether it affects the particle ``merely'' via the Schr\"odinger equation?
+Second, the measurement postulate is silent on what constitutes a
+measurement.  Does measurement require a conscious observer?  Surely
+not: as Einstein once exasperatedly asked, are we really expected to
+believe that the Moon exists only when we look at it?  But then if a
+given device interacts with a particle, what determines whether it
+acts via the Schr\"odinger equation, or performs a measurement?
 
-The Many-Worlds Interpretation seeks to resolve these problems by
+The Many Worlds Interpretation seeks to resolve these problems by
 positing that \textit{the measurement postulate is \underline{not} a
   fundamental postulate of quantum mechanics}.  Rather, what we call
-``measurement'' (including state collapse and the apparent randomness
-of measurement results) is an emergent phenomenon that can be derived
+``measurement'', including state collapse and the apparent randomness
+of measurement results, is an emergent phenomenon that can be derived
 from the behavior of complex many-particle quantum systems obeying the
-Schr\"odinger equation.
+Schr\"odinger equation.  The key idea is that a measurement process
+can be described by applying the Schr\"odinger equation to a quantum
+system containing both the thing being measured \textit{and} the
+measurement apparatus itself.
 
-The key idea is to model a measurement process by applying the
-Schr\"odinger equation to a multi-particle quantum system, one that
-contains both the particle being measured \textit{and} the measurement
-apparatus itself.  Suppose, for example, that we have a spin-$1/2$
+We can study this using a toy model formulated by
+\hyperref[cite:albrecht]{Albrecht (1993)}.  Consider a spin-$1/2$
 particle, and an apparatus designed to measure $S_z$.  Let
-$\mathscr{H}_p$ denote the 2D Hilbert space for the particle's
-spin-$1/2$ degree of freedom.  Let $\mathscr{H}_a$ denote the Hilbert
-space of the apparatus, which is \textit{much} larger and more
-complicated than $\mathscr{H}_p$ (since it has to describe the
-$10^{23}$ or more atoms in the apparatus).  The Hilbert space of the
-combined system can be written as
-$$\mathscr{H} = \mathscr{H}_p \otimes \mathscr{H}_a.$$
-The system is prepared in an initial state of the form
-$$|\psi(0)\rangle = |\!+x\rangle \otimes |\textbf{START}\rangle,$$
-where $|\!+x\rangle \in \mathscr{H}_p$ is an initial state of the
-particle that does not have a definite value of $S_z$, while
-$|\textbf{START}\rangle \in \mathscr{H}_a$ denotes the initial state
-of the apparatus.
+$\mathscr{H}_S$ be the spin-$1/2$ Hilbert space (which is 2D), and
+$\mathscr{H}_A$ be the Hilbert space of the apparatus (which has
+dimension $d$).  We will assume that $d$ is very large, as actual
+experimental apparatuses are macroscopic objects containing $10^{23}$
+or more atoms!  The Hilbert space of the combined system is
+$$\mathscr{H} = \mathscr{H}_S \otimes \mathscr{H}_A,$$
+and is $2d$-dimensional.  Let us suppose the system is prepared in an initial
+state
+$$|\psi(0)\rangle = \Big(a_+ |\!+z\rangle + a_- |\!-z\rangle\Big) \otimes |\Psi\rangle,$$
+where $a_\pm\in\mathbb{C}$ are the quantum amplitudes for the particle
+to be initially spin-up or spin-down, and $|\Psi\rangle \in
+\mathscr{H}_A$ an the initial state of the apparatus.
 
-The combined system then undergoes time evolution via the
-Schr\"odinger equation, with an extremely complicated Hamiltonian that
-describes how the apparatus acts upon the particle to perform an $S_z$
-measurement.  After some time $T$ has passed, the state evolves to
-$$|\psi(T)\rangle \;=\; |\!+z \rangle \otimes |\textbf{RESULT}\uparrow\rangle \;+\; |\!-z\rangle\otimes |\textbf{RESULT}\downarrow\rangle, $$
-where $|\textbf{RESULT}\uparrow\rangle, \,
-|\textbf{RESULT}\downarrow\rangle \in \mathscr{H}_a$ are complicated
-multi-particle state vectors of the apparatus.  For example, the
-apparatus might have a centimeter-size pointer (of $\sim 10^{23}$
-atoms) that indicates the measurement result;
-$|\textbf{RESULT}\uparrow\rangle$ describes the apparatus with the
-pointer pointing up (indicating a $+z$ result), while
-$|\textbf{RESULT}\downarrow\rangle$ describes the apparatus with the
-pointer pointing down (indicating a $-z$ result).
+The combined system now undergoes time evolution via the Schr\"odinger
+equation, according to some Hamiltonian $\hat{H}$.  We aim to show
+that if the Hamiltonian has the form
+$$\hat{H} = \hat{S}_z \otimes \hat{V},$$
+where $\hat{S}_z$ is the operator corresponding to the observable
+$S_z$, then time evolution has an effect equivalent to the measurement
+of $S_z$.  To show this, it turns out that we do not need to make any
+special choices for $\hat{V}$ or the initial apparatus state
+$|\Psi\rangle$.  We only need $d \gg 2$, and for $|\Psi\rangle$ and
+$\hat{V}$ to be both ``sufficiently complicated''.
 
-In the above expression for $|\psi(T)\rangle$, the two terms can be
-interpreted as two ``alternative histories'' of the system, or two
-different ``worlds''.  In one world, the pointer on the apparatus
-indicates a $+z$ measurement result, and the quantum state of the
-particle has ``collapsed'' to $|\!+z\rangle$.  In the other world, the
-pointer indicates a $-z$ result, and the particle state has
-``collapsed'' to $|\!-z\rangle$.  Moreover, with a bit more thought we
-can work out that the relative weights of the two terms correspond to
-the probabilities of obtaining each measurement result.  Thus, the
-effects of the measurement postulate (i.e., random measurement results
-and the phenomenon of state collapse) arise from restricting our
-attentions to a single world.
+In fact, we can choose $|\Psi\rangle$ to be a random state vector, and
+choose random matrix components for the operator $\hat{V}$.  The
+precise generation procedures will be elaborated on later.  Once we
+decide on $|\Psi\rangle$ and $\hat{V}$, we can evolve the system by
+solving the Sch\"odinger equation
+$$|\psi(t)\rangle = U(t)|\psi(0)\rangle, \;\;\;\mathrm{where}\;\; \hat{U}(t) = \exp\left[-\frac{i}{\hbar}\hat{H}t\right].$$
+Because the part of $\hat{H}$ acting on the $\mathscr{H}_S$ subspace
+is $\hat{S}_z$, the result necessarily has the following form:
+$$\begin{aligned}|\psi(t)\rangle &= \hat{U}(t)\Big(a_+ |\!+\!z\rangle + a_- |\!-\!z\rangle\Big) \otimes |\Psi\rangle \\ &= a_+ |\!+\!z\rangle \otimes |\Psi_+(t)\rangle \;+\; a_- |\!-\!z\rangle \otimes |\Psi_-(t)\rangle. \end{aligned}$$
+Here, $|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are apparatus states
+that are ``paired up'' with the $|\!+\!z\rangle$ and $|\!-\!z\rangle$
+states of the spin-$1/2$ subsystem.  At $t=0$, both
+$|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are equal to
+$|\Psi\rangle$; for $t > 0$, they rotate into different parts of the
+state space $\mathscr{H}_A$.  If the dimensionality of $\mathscr{H}_A$
+is sufficiently large, and both $\hat{V}$ and $|\Psi\rangle$ are
+sufficiently complicated, we can guess (and we will verify numerically) that
+the two state vectors rotate into completely different parts of
+the state space, so that
+$$\langle\Psi_+(t) | \Psi_-(t)\rangle \approx 0 \;\;\;\textrm{for sufficiently large}\;\; t.$$
+Once this is the case, the two terms in the above expression for
+$|\psi(t)\rangle$ can be interpreted as two decoupled ``worlds''.  In
+one world, the spin has a definite value $+\hbar/2$, and the apparatus
+is in a state $|\Psi_+\rangle$ (which might describe, for instance, a
+macroscopically-sized physical pointer that is pointing to a ``$S_z =
++\hbar/2$'' reading).  In the other world, the spin has a definite
+value $-\hbar/2$, and the apparatus has a different state
+$|\Psi_+\rangle$ (which might describe a physical pointer pointing to
+a ``$S_z = -\hbar/2$'' reading).  Importantly, the $|\Psi_+\rangle$
+and $|\Psi_-\rangle$ states are orthogonal, so they can be rigorously
+distinguished from each other.  The two worlds are
+``weighted'' by $|a_+|^2$ and $|a_-|^2$, which correspond to the
+probabilities of the two possible measurement results.
 
-This description can be generalized to the universe as a whole.  In
-the viewpoint of the Many-Worlds Interpretation, the entire universe
-can be described by a mind-bogglingly complicated quantum state,
-evolving deterministically according to the Schr\"odinger equation.
-This evolution involves repeated ``branchings'' of the universal
-quantum state, which continuously produces more and more worlds.  The
+The above description can be tested numerically.  Let us use an
+arbitrary basis for the apparatus space $\mathscr{H}_A$; in that
+basis, let the $d$ components of the initial apparatus state vector
+$|\Psi\rangle$ be random complex numbers:
+\begin{equation}
+  |\Psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\, \begin{pmatrix}\Psi_0 \\ \Psi_1 \\ \vdots \\ \Psi_{d-1}
+  \end{pmatrix}, \;\; \mathrm{where} \;\; \mathrm{Re}(\Psi_j), \mathrm{Im}(\Psi_j) \sim N(0,1).
+\end{equation}
+In other words, the real and imaginary parts of each complex number
+$\Psi_j$ are independently drawn from the the standard normal
+(Gaussian) distribution, denoted by $N(0,1)$.  The normalization
+constant $\mathcal{N}$ is defined so that $\langle\Psi|\Psi\rangle =
+1$.
+
+Likewise, we generate the matrix elements of $\hat{V}$ according to
+the following random scheme:
+$$\begin{aligned}A_{ij} &\sim u_{ij} + i v_{ij}, \;\;\;\mathrm{where}\;\;u_{ij},v_{ij}\sim N(0,1)\\ \hat{V} &= \frac{1}{2\sqrt{d}} \left(\hat{A} + \hat{A}^\dagger\right).\end{aligned}$$
+This scheme produces a $d\times d$ matrix with random components,
+subject to the requirement that the overall matrix be Hermitian.  The
+normalization factor $1/2\sqrt{d}$ is relatively unimportant; it
+ensures that the eigenvalues of $\hat{V}$ lie in a fixed range,
+$[-2,2]$, instead of scaling with $d$.  If you are interested in
+learning more about the properties of such ``random matrices'', see
+\hyperref[cite:edelman]{Edelman and Rao (2005)}.
+
+With these, the Schr\"odinger equation can be solved using standard
+numerical linear algebra techniques.  The results are shown in the
+figure below.
+
+\textcolor{red}{Fig.}
+
+
+
+The ``many worlds'' concept can be generalized from the above toy
+model to the universe as a whole.  In the viewpoint of the Many Worlds
+Interpretation of quantum mechanics, the entire universe can be
+described by a mind-bogglingly complicated quantum state, evolving
+deterministically according to the Schr\"odinger equation.  This
+evolution involves repeated ``branchings'' of the universal quantum
+state, which continuously produces more and more worlds.  The
 classical world that we appear to inhabit is just one amidst a vast
 multitude of worlds.  It is up to you to decide whether this
 conception of reality seems reasonable.  It is essentially a matter of
-preference, because the Copenhangen Interpretation and the Many-Worlds
+preference, because the Copenhangen Interpretation and the Many Worlds
 Interpretation have identical physical consequences (which is why they
 are referred to as different ``interpretations'' of quantum mechanics,
 rather than different theories).
@@ -781,6 +829,14 @@ rather than different theories).
 \item R.~P.~Feynman, \textit{Feynman Lectures on Computation} (Revised
   Ed.), Westview Press (2000)
 \label{cite:feynman}
+
+\item A.~Albrecht, \textit{Following a "collapsing" wave function},
+  Physical Review D \textrm{48}, 3768 (1993).
+\label{cite:albrecht}
+
+\item A.~Edelman and N.~R.~Rao, \textit{Random matrix theory}, Acta
+  Numerica \textbf{14}, 233 (2005).
+\label{cite:edelman}
 \end{itemize}
 
 \end{document}

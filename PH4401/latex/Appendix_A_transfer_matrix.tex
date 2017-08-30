@@ -18,5 +18,208 @@
 
 \section*{Appendix A: The Transfer Matrix Method}
 
+The \textbf{transfer matrix method} is a method for solving the
+Schr\"odinger equation, and other similar equations, in 1D space.  In
+this method, the wavefunction is decomposed at each point of space
+into complex left-moving and right-moving wave components.  The wave
+components at any two points are related to each other by a complex
+$2\times2$ matrix, called the \textbf{transfer matrix}, which can be
+derived from the potential function.
+
+For a 1D space with spatial coordinates $x$, the Schr\"odinger wave
+equation has the form
+$$-\frac{\hbar^2}{2m}\frac{d^2\psi}{dx^2} + V(x) \psi(x) = E\psi(x),$$
+where $m$ is the particle mass, $\psi(x)$ is the (complex-valued)
+wavefunction, $V(x)$ is the potential function, and $E$ is the energy.
+We treat this as a scattering problem, so $E$ is considered to be an
+adjustable parameter, determined by the energy of the incident
+particle; it is not necessarily restricted to specific discrete
+values.
+
+The Schr\"odinger wave equation can be manipulated into the form
+$$\left[\frac{d^2}{dx^2} + K^2(x)\right] \psi(x) = 0, \;\;\; \mathrm{where}\;\;K(x) = \sqrt{\frac{2m[E-V(x)]}{\hbar^2}}.$$
+In the case where $V(x)$ is a constant and $E > V$, this reduces to an
+elementary differential equation called the \textbf{wave equation},
+which has simple wave solutions $\psi(x)\propto \exp(\pm iKx)$.  For
+now, let us consider only situations where $E > V$, so that the
+quantity inside the square root is positive, and the wave-number $K$
+can be taken to be real and positive (we will discuss how to handle
+the $E < V$ situation shortly).
+
+
+\end{document}
+
+Within any region of space where <math>n(x)</math> takes on a constant value, the general solution to the 1D wave equation is
+
+: <math>\psi(x) = A e^{in\omega x} + B e^{-in\omega x},</math>
+
+where <math>A</math> and <math>B</math> are undetermined complex parameters.  The two terms on the right-hand side of this equation correspond to right-moving and left-moving waves, respectively.  We can re-write the above equation as
+
+: <math>\psi(x) = \psi_+(x) + \psi_-(x),</math>
+
+where <math>\psi_\pm(x)</math> are called the right-moving and left-moving ''wave components'' at position <math>x</math>. 
+
+The problem statement for the transfer matrix method is as follows.  Suppose we have a refractive index function <math>n(x)</math> that is piecewise-constant, as shown in Fig. 1.  Given the wave components at some position <math>x_a</math>, we wish to find the wave components at another position <math>x_b</math>.  Once we know what these wave components are, we can obtain <math>\psi(x_b)</math> by simply adding <math>\psi_+(x_b)</math> and <math>\psi_-(x_b)</math> together.
+
+[[File:Transfermatrix nsteps.svg|frame|center|upright|Fig. 1: Schematic of a stepwise refractive index function.  Given the wave components at point <math>x_a</math>, we can use the transfer matrix method to find the wave components at point <math>x_b</math>.]]
+
+== Constructing the transfer matrix ==
+
+=== Transfer matrix across a uniform interval ===
+
+In the simplest case, suppose the refractive index is constant everywhere between two positions <math>x_a</math> and <math>x_b</math>, with <math>x_b > x_a</math>.  We wish to know the wave components at position <math>x_b</math>, in terms of the wave components at position <math>x_a</math>.  As discussed in the previous section, the solution to the wave equation over the interval <math>x_a \le x \le x_b</math> is
+
+: <math>\psi(x) = A e^{in\omega x} + B e^{-in\omega x},\quad\mathrm{for}\;\mathrm{some}\;\; A, B \in \mathbb{C}.</math>
+
+Thus, the wave components at the two relevant positions are
+
+: <math>\psi_+(x_a) = A e^{in\omega x_a}, \;\;\psi_-(x_a) = B e^{-in\omega x_a}</math>
+: <math>\psi_+(x_b) = A e^{in\omega x_b}, \,\;\;\psi_-(x_b) = B e^{-in\omega x_b}.</math>
+
+Using these equations, we can relate the wave components as follows:
+
+: <math>\psi_+(x_b) = \,\;e^{in\omega (x_b - x_a)} \; \psi_+(x_a),</math>
+: <math>\psi_-(x_b) = e^{-in\omega (x_b - x_a)} \, \psi_-(x_a).</math>
+
+These two equations can be combined into a single matrix equation,
+
+: <math>\begin{bmatrix}\psi_+(x_b) \\ \psi_-(x_b)\end{bmatrix} = \mathbf{P}(n, x_b-x_a) \begin{bmatrix}\psi_+(x_a) \\ \psi_-(x_a)\end{bmatrix}\quad\mathrm{where}\;\; \mathbf{P}(n,L) \equiv \begin{bmatrix}e^{in\omega \, L} & 0 \\ 0 & e^{-in\omega\,L}\end{bmatrix}.</math>
+
+The 2&times;2 matrix <math>\mathbf{P}(n,L)</math> is called a ''transfer matrix''.  It depends on the uniform refractive index <math>n</math> between the two points <math>x_a</math> and <math>x_b</math>, and on the distance <math>L</math> between the two points (but does not depend directly on the individual values of  <math>x_a</math> and <math>x_b</math>).  It also depends implicitly on the frequency <math>\omega</math>, but we have omitted this from the notation for simplicity.
+
+=== Transfer matrix across a step ===
+
+[[File:Transfer step.svg|frame|right|upright|Fig. 2: Wave components at a refractive index step.]]
+
+Next, consider a potential step occurring at some position <math>x_0</math>, as shown in Fig. 2.  To the left of <math>x_0</math>, the refractive index is <math>n_-</math>, and to the right of <math>x_0</math>, the refractive index is <math>n_+</math>.  We can state this mathematrically by defining two points which lie infinitesimally close to <math>x_0</math>, to the left and right respectively:
+
+: <math>x_\pm = \lim_{\epsilon \rightarrow 0^+} (x_0 \pm \epsilon).</math>
+
+Then,
+
+: <math>n(x_-) = n_-\quad\mathrm{and}\;\;\; n(x_+) = n_+.</math>
+
+To the left of <math>x_0</math>, the right- and left-moving wave components are <math>\psi_\pm(x_-)</math>.  To the right of <math>x_0</math>, the wave components are <math>\psi_\pm(x_+)</math>.  We wish to relate these two sets of wave components.  This can be done by referring back to the wave equation, as follows:
+
+Firstly, the wavefunction should be continuous (single-valued) at <math>x_0</math>.  Since the wavefunction is just the sum of the wave components, this implies that
+
+: <math>\psi_+(x_-) + \psi_-(x_-) = \psi_+(x_+) + \psi_-(x_+).</math>
+
+Secondly, the derivative of the wavefunction should be continuous at the interface.  This can be shown by integrating the wave equation across an infinitesimal interval around <math>x_0</math>:
+
+: <math>\int_{x_-}^{x_+} dx\; \left\{\frac{d^2\psi}{dx^2} + \left[n(x) \omega\right]^2 \psi(x)\right\} = \frac{d\psi}{dx}(x_+) - \frac{d\psi}{dx}(x_-) = 0</math>
+
+Note that the second term in the integrand integrates to zero because the length of the integration range is infinitesimal, whereas the term in the integrand is finite.  From this result, and the definition of the wave components, we find that
+
+: <math>in_-\, \omega\, \left[\psi_+(x_-) - \psi_-(x_-)\right] = in_+\,\omega \left[\psi_+(x_+) - \psi_-(x_+)\right].</math>
+
+We have thus found two independent equations relating the wave components on each side of the refractive index step.  These two equations can be combined into a single matrix equation:
+
+: <math>\begin{bmatrix}1 & 1 \\ n_- & - n_-\end{bmatrix}\begin{bmatrix}\psi_+(x_-) \\ \psi_-(x_-) \end{bmatrix} = \begin{bmatrix}1 & 1 \\ n_+ & - n_+\end{bmatrix} \begin{bmatrix}\psi_+(x_+) \\ \psi_-(x_+) \end{bmatrix}.</math>
+
+After doing a matrix inversion, this becomes
+
+: <math>\begin{bmatrix}\psi_+(x_+) \\ \psi_-(x_+) \end{bmatrix} = \mathbf{Q}(n_+,n_-) \, \begin{bmatrix}\psi_+(x_-) \\ \psi_-(x_-) \end{bmatrix}, \quad\mathrm{where}\;\; \mathbf{Q}(n',n) = \frac{1}{2} \begin{bmatrix}1+\frac{n}{n'} & 1-\frac{n}{n'} \\ 1-\frac{n}{n'} & 1+\frac{n}{n'}\end{bmatrix}.</math>
+
+The 2&times;2 matrix <math>\mathbf{Q}(n',n)</math> is the transfer matrix for going across a refractive index step from <math>n</math> (on the left) to <math>n'</math> (on the right).  Note that it does not depend on the position of the interace, <math>x_0</math>.  When <math>n_b = n_a</math>, this transfer matrix reduces to the identity matrix, which is of course the expected transfer matrix for an infinitesimal displacement within a uniform-index medium.
+
+=== Transfer matrix across a piecewise-constant system ===
+
+Using the results of the previous two sections, we can find the transfer matrix for any piecewise-constant refractive index function.  Suppose we have a refractive index function which is divided into segments of length <math>L_1, L_2, \dots L_N</math>, with uniform refractive index <math>n_1, n_2, \dots, n_N</math> within each segment, as shown in Fig. 3:
+
+[[File:Transfermatrix nsteps2.svg|frame|center|upright|Fig. 3: Schematic of a stepwise refractive index function.  Given the wave components at point <math>x_a</math>, we can use the transfer matrix method to find the wave components at point <math>x_b</math>.]]
+
+The two ends of the specified interval are <math>x_a</math> and <math>x_b</math>, where <math>x_b > x_a</math>.  The wave components at these two points are related by a transfer matrix, which we denote by <math>\mathbf{M}(x_b,x_a)</math>.  In the previous two sections, we have derived the transfer matrix <math>\mathbf{P}(n,L)</math> for going across a uniform interval, and the transfer matrix <math>\mathbf{Q}(n',n)</math> for going across a refractive index step.  The total transfer matrix can be obtained by multiplying together a sequence of these simpler matrices:
+
+: <math>\mathbf{M}(x_b, x_a) = \mathbf{P}(n_N,L_N) \; \mathbf{Q}(n_N, n_{N-1}) \cdots \mathbf{Q}(n_3, n_2) \; \mathbf{P}(n_2,L_2) \; \mathbf{Q}(n_2, n_1) \; \mathbf{P}(n_1,L_1),</math>
+
+where
+
+: <math>\mathbf{P}(n,L) \equiv \begin{bmatrix}e^{in\omega \, L} & 0 \\ 0 & e^{-in\omega\,L}\end{bmatrix},\quad \mathbf{Q}(n',n) = \frac{1}{2} \begin{bmatrix}1+\frac{n}{n'} & 1-\frac{n}{n'} \\ 1-\frac{n}{n'} & 1+\frac{n}{n'}\end{bmatrix}.</math>
+
+The expression for <math>\mathbf{M}(x_b,x_a)</math> can be understood as follows.  To go from <math>x_a</math> to <math>x_b</math>, we need to first go across segment 1, then cross from segment 1 to segment 2, then go across segment 2, and so forth.  As we go rightwards across the structure, each successive step requires us to '''multiply on the left''' by the appropriate transfer matrix.  It's important to remember to left-multiply rather than right-multiply (which is a common mistake when people write transfer matrix code)!
+
+Typically, the transfer matrix is computed numerically, which is straightforward to do.  Except in a handful of very special circumstances, calculating it by hand is not a useful thing to do.
+
+== Wave scattering in 1D ==
+
+The transfer matrix method is typically used to study how a structure, such as a block of dense material, scatters an incident wave (be it an electromagnetic wave, a sound wave, or any other kind of wave describable by the 1D wave equation).  Let us consider a finite structure suspended in empty space.  For positions <math>x</math> lying in some finite region, the refractive index function <math>n(x)</math> varies in a particular way, but the rest of space is empty, so
+
+: <math>n(x) = 1 \quad \mathrm{for}\;\mathrm{large}\;\, |x|.</math>
+
+We are interested in what happens when a wave is incident on the structure from the empty-space region.  For the moment, let's suppose the incident wave is coming from the left.  The wave will be scattered as it meets the structure, and in 1D (but not in higher dimensions), the scattering consists of two distinct processes: part of the wave will be ''reflected'' back to the left, while another part will be ''transmitted'' across the structure and into the empty-space region on the right.
+
+This can be described in terms of wave components.  If we pick an arbitrary point <math>x_a</math> in the empty-space region on the left, the right-moving wave component <math>\psi_+(x_a)</math> corresponds to the incident wave, and the left-moving wave component <math>\psi_-(x_a)</math> corresponds to reflected wave.  Picking an arbitrary point <math>x_b</math> in the empty-space region on the right, the right-moving wave component <math>\psi_+(x_b)</math> corresponds to the transmitted wave, and ''the left-moving wave component is zero'' since there is (by assumption) no wave incident from the right.
+
+==== Reflection and transmission coefficients ====
+
+We define the "reflection coefficient" <math>r</math> as the ratio of the reflected to incident wave components, and the "transmission coefficient" <math>t</math>  as the ratio of the transmitted to incident wave components:
+
+: <math>r = \frac{\psi_-(x_a)}{\psi_+(x_a)},\quad t = \frac{\psi_+(x_b)}{\psi_+(x_a)}.</math>
+
+Note that both <math>r</math> and <math>t</math> are complex numbers.  Now, using the fact that the wave components are related by the transfer matrix equation
+
+:<math>\mathbf{M}(x_b,x_a) \begin{bmatrix}\psi_+(x_a) \\ \psi_-(x_a)\end{bmatrix} = \begin{bmatrix}\psi_+(x_b) \\ 0\end{bmatrix},</math>
+
+one can easily show that
+
+: <math>r = \frac{M_{21}}{M_{22}}, \quad t = \frac{M_{11} M_{22} - M_{12}M_{21}}{M_{22}}.</math>
+
+Here, <math>M_{ij}</math> denotes the <math>i,j</math> matrix element of <math>\mathbf{M}(x_b,x_a)</math>.  The reflection and transmission coefficients depend on the transfer matrix (and hence on the refractive index function and the frequency).  They do ''not'' depend on the magnitude of the incident wave.  This is to be expected, because of the linearity of the wave equation: if we change the amplitude of the incident wave, the reflected and transmitted waves change by a proportionate factor, which leaves <math>r</math> and <math>t</math> unaffected due to their definition as ratios.
+
+==== Reflectance and transmittance ====
+
+The squared magnitude of the reflection coefficient, <math>R \equiv |r|^2</math>, is called the "reflectance".  The squared magnitude of the transmission coefficient, <math>T \equiv |t|^2</math>, is called the "transmittance".  When <math>n(x)</math> is everywhere real, the reflectance and transmittance obey the equation
+
+: <math>R + T = 1.</math>
+
+The squared amplitude of a traveling wave can be interpreted as its "intensity": a quantity that describes the rate at which energy is transported along by the wave.  Thus, <math>R</math> and <math>T</math> correspond to the intensities of the reflected and transmitted waves, normalized to the intensity of the incident wave.  The fact that they sum up to one is thus a statement of the conservation of energy.
+
+The conservation equation can be derived from the wave equation.  [[Energy conservation in 1D wave equation|See this page for the proof.]]
+
+==== Example: scattering from a uniform block ====
+
+As a simple but instructive example of wave scattering, consider a uniform block of refractive index <math>n_1</math> and length <math>L</math>.  The refractive index function is
+
+: <math>n(x) = \left\{\begin{array}{ll}n_1, & 0 \le x \le L,\\ 1 & \mathrm{otherwise}. \end{array}\right.</math>
+
+In the context of wave scattering, this kind of uniform block structure is called an "etalon", a French word meaning "standard” (because it is the simplest example of a non-trivial scatterer).
+
+It suffices to place the measurement points <math>x_a</math> and <math>x_b</math> infinitesimally to the left and right of the etalon, respectively.  Then, according to the formula we have developed [[#Transfer matrix across a piecewise-constant system|above]], the transfer matrix is
+
+: <math>\mathbf{M} = \mathbf{Q}(1,n_1)\,\mathbf{P}(n_1,L)\,\mathbf{Q}(n_1,1).</math>
+
+The transfer matrix also depends on the frequency <math>\omega</math>, which enters in the sub-matrix <math>\mathbf{P}</math>.  Further examination reveals that the etalon's transfer matrix has a special property: it depends on <math>\omega</math> and <math>L</math> only via the combination <math>\omega L</math>.
+
+We can compute the transfer matrix numerically, and hence obtain the reflectance and transmittance.  The results are shown in Fig. 4.  The reflectance and transmittance are plotted against <math>\omega L</math>, which we could either think of as varying <math>L</math> while keeping <math>\omega</math> fixed, or vice versa.  Also plotted are the complex arguments of the reflection and transmission coefficients.  These quantities are physically meaningful too; they reveal how the phase of the reflected or transmitted wave changes as we vary the scatterer length <math>L</math>, keeping the wave frequency <math>\omega</math> fixed.
+
+[[File:Etalon rt.svg|frame|center|upright|Fig. 4: Reflectance and transmittance (upper plots), and the complex arguments of the reflection and transmission coefficients (lower plots), versus <math>\omega L</math>, for uniform blocks of refractive index <math>n_1=3</math> and <math>n_1=10</math>.]]
+
+The scattering behavior of the etalon exhibits several interesting features:
+
+* For <math>\omega L \rightarrow 0</math>, the wave is completely transmitted, with zero reflection.  Thus, an etalon is ineffective at scattering a wave whose wavelength is much larger than itself.
+* Apart from <math>\omega L = 0</math> limit, there are certain multiples of <math>\omega L</math> where the transmittance goes to unity and the reflectance goes to zero.  These are called "transmission resonances", and with a bit more work it's possible to show that they occur when<br/>&nbsp;&nbsp;&nbsp;<math>n_1 \omega L = m\pi,\quad m \in \mathbb{Z}^+.</math><br/>Since the wavelength inside the etalon medium is <math>2\pi/n_1 \omega</math>, transmission resonances occur when a half-integer or integer number of wavelengths fit exactly inside the etalon.  This phenomenon is thus an outcome of wave interference.
+* During each resonance "cycle", the phases of both the reflected and transmitted waves advance by <math>\pi</math>.
+* For larger values of <math>n_1</math>, it can be shown that the transmission resonances become narrower.  Thus, for the <math>n_1 = 10</math> case shown in Fig. 4, the transmission peaks, reflectance dips, and phase advances occur over relatively narrower intervals of <math>\omega L</math>.
+* For real and positive <math>n_1</math>, there is no "reflection resonance" phenomenon in which the reflectance goes to unity.  Some of the wave always makes it through the etalon.
+
+Many of these features are also present when looking at wave scattering in higher dimensions, and for more complicated structures.  We will revisit the physics of wave scattering later, after learning a bit more mathematical technology such as [[Green's function|the Green's function method]].
+
+== Exercises ==
+
+<ol>
+<li>
+By modifying [[Energy conservation in 1D wave equation|our earlier proof]] that <math>R + T = 1</math> for real refractive index, show that <math>R + T \le 1</math> if <math>\mathrm{Im}[n(x)] \ge 1</math>.</li>
+<li>The conservation relation <math>R + T = 1</math> was derived by assuming that the two regions on the far left and far right have equal refractive index (i.e., the scatterer is suspended in a uniform medium, such as vacuum).  Now suppose the two regions on the far left and far right have different refractive index: let <math>n(x) = n_a</math> on the far left, and <math>n(x) = n_b</math> on the far right, where <math>n_a, n_b \in \mathbb{R}</math>.  Derive a generalization of the conservation relation.</li>
+<li>Consider a structure consisting of <math>N</math> layers of uniform refractive index <math>n_1 = 1.05</math> and equal length <math>L = 1</math>, separated from one another by gaps of uniform refractive index 1 and length <math>L = 1</math>.  The rest of space is empty, with refractive index <math> n = 1</math>.
+<ol style="list-style-type:lower-alpha">
+<li>Write a program to compute, via the transfer matrix, the reflectance <math>R</math> and transmittance <math>T</math> as a function of the frequency <math>\omega</math>.  Show the results for <math>N = 5, 10, 50</math>.  When the number of layers is large, you should find that the reflectance approaches unity at a certain frequency.  Such a structure is called a ''Bragg reflector''.</li>
+<li>By varying <math>L</math> in your program, deduce an approximate expression for the frequency at which the reflectance peak occurs.</li>
+<li>For comparison, compute  the <math>R</math> versus <math>T</math> versus <math>\omega</math> plot for a uniform block of refractive index <math>n_1</math> and the same total length.</li>
+</ol>
+</li>
+</ol>
+
+
 \end{document}
 
