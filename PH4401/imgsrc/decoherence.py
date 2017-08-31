@@ -41,7 +41,7 @@ def environment_state_overlap(psi):
 dt = 0.05
 U = expm(-1j*dt*H)
 
-t = arange(0,5.0001,dt)
+t = arange(0,4.0001,dt)
 S = zeros(len(t))
 overlap = zeros(len(t))
 
@@ -56,10 +56,15 @@ sys.stdout.write('\n')
 
 plt.subplot(2,1,1)
 plt.plot(t, S)
-plt.xlim(0,5)
+plt.xlim(0,4)
 plt.ylim(0,1)
+
 plt.subplot(2,1,2)
 plt.plot(t, overlap)
-plt.xlim(0,5)
+## Plot predicted entropy for comparison
+p1, p2 = abs(psi_up)**2, abs(psi_down)**2
+S = - p1*log(p1) - p2*log(p2)
+plt.plot([0,4], [S,S])
+plt.xlim(0,4)
 plt.ylim(0,1)
 plt.show()

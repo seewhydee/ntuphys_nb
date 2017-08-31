@@ -660,15 +660,15 @@ mechanics, in being the only place where randomness (or
 ``indeterminism'') creeps into quantum theory.  The other postulates
 do not refer to probabilities.  In particular, the Schr\"odinger equation
 $$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle$$
-is completely deterministic, in the sense that if you know the
-Hamiltonian $\hat{H}(t)$ and the state vector $|\psi(t_0)\rangle$ at a
-certain time $t_0$, you can (in principle) solve the Schr\"odinger
-equation to determine $|\psi(t)\rangle$ for all $t$.  This
-time-evolution consists of a smooth, non-random rotation of the state
-vector within its Hilbert space.  A measurement process, however, has
-a completely different character: it causes the state vector to jump
-discontinuously to a randomly-selected value.  It is strange that the
-theory contains two such different descriptions of state change.
+is completely deterministic.  If you know $\hat{H}(t)$ and are given
+the state $|\psi(t_0)\rangle$ at some time $t_0$, you can (in
+principle) solve the Schr\"odinger equation to determine
+$|\psi(t)\rangle$ for all $t$.  This time-evolution consists of a
+smooth, non-random rotation of the state vector within its Hilbert
+space.  A measurement process, however, has a completely different
+character: it causes the state vector to jump discontinuously to a
+randomly-selected value.  It is strange that quantum theory contains
+two such different descriptions of state change.
 
 Second, the measurement postulate is silent on what constitutes a
 measurement.  Does measurement require a conscious observer?  Surely
@@ -702,11 +702,10 @@ state
 $$|\psi(0)\rangle = \Big(a_+ |\!+z\rangle + a_- |\!-z\rangle\Big) \otimes |\Psi\rangle,$$
 where $a_\pm\in\mathbb{C}$ are the quantum amplitudes for the particle
 to be initially spin-up or spin-down, and $|\Psi\rangle \in
-\mathscr{H}_A$ an the initial state of the apparatus.
+\mathscr{H}_A$ is the initial state of the apparatus.
 
-The combined system now undergoes time evolution via the Schr\"odinger
-equation, according to some Hamiltonian $\hat{H}$.  We aim to show
-that if the Hamiltonian has the form
+The combined system now evolves via the Schr\"odinger equation.  We
+aim to show that if the Hamiltonian has the form
 $$\hat{H} = \hat{S}_z \otimes \hat{V},$$
 where $\hat{S}_z$ is the operator corresponding to the observable
 $S_z$, then time evolution has an effect equivalent to the measurement
@@ -774,13 +773,35 @@ $[-2,2]$, instead of scaling with $d$.  If you are interested in
 learning more about the properties of such ``random matrices'', see
 \hyperref[cite:edelman]{Edelman and Rao (2005)}.
 
-With these, the Schr\"odinger equation can be solved using standard
-numerical linear algebra techniques.  The results are shown in the
-figure below.
+The Schr\"odinger equation can now be solved numerically.  The results
+are shown below:
 
-\textcolor{red}{Fig.}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.7\textwidth]{decoherence}
+\end{figure}
 
+In the inital state, we let $a_+ = 0.7$, so $a_- = \sqrt{1-0.7^2} =
+0.71414\dots$ The upper panel plots the overlap between the two
+apparatus states, $|\langle\Psi_+|\Psi_-\rangle|^2$, versus $t$.  In
+accordance with the preceding discussion, the overlap is unity at $t =
+0$, but subsequently decreases to nearly zero.  For comparison, the
+lower panel plots the entanglement entropy between the two subsystems,
+$S_A = -k_B \mathrm{Tr}_A\left\{\hat{\rho}_A\ln\hat{\rho}_A\right\}$,
+where $\hat{\rho}_A$ is the reduced density matrix obtained by tracing
+over the spin subspace.  We find that $S_A = 0$ at $t=0$, due to the
+fact that the spin and apparatus subsystems start out with definite
+quantum states in $|\psi(0)\rangle$.  As the system evolves, the
+subsystems become increasingly entangled, and $S_A$ increases up to
+$$S_A^{\mathrm{max}}/k_B = - \Big( |a_+|^2 \ln|a_+|^2 + |a_-|^2\ln|a_-|^2 \Big) \approx 0.693$$
+This value is indicated in the figure by a horizontal dashed line, and
+corresponds to the result of the classical entropy formula for
+probabilities $\{|a_+|^2,|a_-|^2\}$.  Moreover, we see that the
+entropy reaches $S_A^{\mathrm{max}}$ at around the same time that
+$|\langle\Psi_+|\Psi_-\rangle|^2$ reaches zero.  This demonstrates the
+close relationship between ``measurement'' and ``entanglement''.
 
+For details about the numerical linear algebra methods used to perform
+the above calculation, refer to Appendix D.
 
 The ``many worlds'' concept can be generalized from the above toy
 model to the universe as a whole.  In the viewpoint of the Many Worlds
@@ -825,10 +846,6 @@ rather than different theories).
 
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
   Nature (News and Views) \textbf{398}, 189 (1999). \label{cite:aspect}
-
-\item R.~P.~Feynman, \textit{Feynman Lectures on Computation} (Revised
-  Ed.), Westview Press (2000)
-\label{cite:feynman}
 
 \item A.~Albrecht, \textit{Following a "collapsing" wave function},
   Physical Review D \textrm{48}, 3768 (1993).
