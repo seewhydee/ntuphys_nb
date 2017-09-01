@@ -323,46 +323,51 @@ k$.  But we're looking for an outgoing solution, and a plane wave
 can't be said to be ``outgoing'' (or ``incoming'').  To find such a
 solution, we turn to curvilinear coordinates.
 
-In 2D, we can adopt polar coordinates $(r,\phi)$, and look for
-separable solutions to the Helmholtz equation of the form
-$A(r)B(\phi)$.  Skipping the math details, the result is that the
-general solution to the 2D Helmholtz equation can be written as
-$$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,H_m^\pm(kr)\,e^{im\phi}.$$
-Each $c_m^\pm$ is a complex coefficient, and $H_m^\pm$ is a special
-function called a \textbf{Hankel function} of the first kind ($+$) or second
-kind ($-$).
+In 2D, we can express the Helmholtz equation using polar coordinates
+$(r,\phi)$.  Skipping the mathematical details, the result is that the
+general solution can be written as
+$$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,\Psi_m^\pm(r,\phi), \;\;\;\mathrm{where}\;\;\,\Psi_m^\pm(r,\phi) = H_m^\pm(kr)\,e^{im\phi}.$$
+This solution is a superposition of elementary ``circular waves''
+$\Psi_m^\pm(r,\phi)$, with arbitrary coefficients $c_m^\pm \in
+\mathbb{C}$.  Each circular wave $\Psi_m^\pm(r,\phi)$ is a solution to
+the 2D Helmholtz equation for a given angular momentum, indexed by $m
+\in \mathbb{Z}$.  Its $r$-dependence is given by the special function
+$H_m^\pm$, called a \textbf{Hankel function} of the ``first kind''
+($+$) or ``second kind'' ($-$).
 
 \begin{figure}[h!]
-  \centering\includegraphics[width=0.68\textwidth]{besselh}
+  \centering\includegraphics[width=0.63\textwidth]{besselh}
 \end{figure}
 
 The $H^+_m$ functions are plotted in the figure above; the $H^-_m$
-functions are their complex conjugates.  Each term in the series
-expression for $\psi(\mathbf{r})$ describes a wave component that has
-a definite angular momentum (indexed by the integer $m$, the angular
-momentum quantum number), and that is moving either toward or away
-from the origin (indexed by the $\pm$ sign).  The reason we can
-identify the $\pm$ sign as the outgoing ($+$) versus incoming ($-$)
-index is due to the behavior of the Hankel functions at $r\rightarrow
-\infty$:
-$$H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{ikr}.$$
+functions are their complex conjugates.  For large values of the
+input, the Hankel functions have the following behavior:
+$$H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{\pm ikr}.$$
+Therefore, the $\pm$ index specifies whether the circular wave is an
+\textbf{outgoing wave} directed outward from the origin ($+$), or an
+\textbf{incoming wave} directed toward the origin ($-$).
 
-In 3D, we use spherical coordinates $(r,\theta,\phi)$.  Again skipping
-the math details, the general solution to the Helmholtz equation can
-be written as
-$$\psi(\mathbf{r})=\sum_{\pm}\sum_{l=0}^\infty\sum_{m=-l}^lc_{lm}^\pm\,h_l^\pm(kr)\,Y_{lm}(\theta,\phi).$$
-The $c$'s are again complex coefficients, each $h_l^\pm$ is a
-\textbf{spherical Hankel function}, and each $Y_{lm}$ is a
-\textbf{spherical harmonic}.  The $l$ and $m$ indices specify the
-angular momentum of each wave component, while $\pm$ denotes if it is
-outgoing ($+$) or incoming ($-$); far from the origin,
-$$h_l^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \frac{1}{kr}\,\exp\left[\pm i\left(kr-\frac{(l+1)\pi}{2}\right)\right] \;\sim\; r^{-1} e^{ikr}.$$
+The 3D case follows a similar logic.  We use spherical coordinates
+$(r,\theta,\phi)$, and the general solution to the Helmholtz equation
+can be written as a superposition of outgoing and incoming spherical
+waves.  The superposition has the following form:
+$$\psi(\mathbf{r})=\sum_{\pm}\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell c_{\ell m}^\pm \,\Psi_{\ell m}^\pm(r,\theta,\phi)\;\;\;\mathrm{where}\;\;\Psi_{\ell m}^\pm(r,\theta,\phi) = \,h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi).$$
+The $c_{\ell m}^\pm$ factors are complex coefficients.  Each
+$h_\ell^\pm$ is a \textbf{spherical Hankel function}, and each
+$Y_{\ell m}$ is a \textbf{spherical harmonic}.  The $\ell$ and $m$
+indices specify the angular momentum of the spherical wave.  For large
+inputs, the spherical Hankel functions have the limiting form
+$$h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \frac{1}{kr}\,\exp\left[\pm i\left(kr-\frac{(\ell+1)\pi}{2}\right)\right] \;\sim\; r^{-1} e^{ikr}.$$
+Hence, the $\pm$ index specifies whether the spherical wave is
+outgoing ($+$) or incoming ($-$).  In Appendix A, we present further
+mathematical details about how these 3D spherical waves are
+derived.
 
 It is now clear what we need to do to get a scattered wavefunction
 $\psi_s(\mathbf{r})$ that is outgoing at infinity.  We take the
 general solution and discard all incoming ($-$) wave components,
 keeping only the $+$ terms:
-$$\psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{lm} c_{lm}^+\,h_l^+(kr)\,Y_{lm}(\theta,\phi),&d=3.\end{cases}$$
+$$\psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}$$
 For large $r$, the outgoing wavefunction's $r$-dependence can be
 written as
 $$\psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} e^{ikr}.$$
@@ -558,12 +563,12 @@ $$\begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &=
 where $k_i$ is the free-space wavenumber, related to the
 particle energy by $E = \hbar^2 k_i^2/2m$.
 
-To proceed, it is necessary to pick a value for the spatial dimension $d$.  We
-will show the $d = 3$ case (the calculations for other $d$ are fairly
-similar).  To calculate the three-dimensional integral over $k$-space,
-we adopt spherical coordinates, denoted by $(k,\theta,\phi)$.  The
-axes of the spherical coordinates are aligned so that $\theta$ is the
-angle between $\mathbf{r}$ and $\mathbf{r}'$.  We can now do the $k$-space
+To proceed, we must specify the spatial dimension $d$.  Here, we will
+take $d = 3$; the calculations for other $d$ are fairly similar.  To
+calculate the three-dimensional integral over $k$-space, we adopt
+spherical coordinates, denoted by $(k,\theta,\phi)$.  The axes of the
+spherical coordinates are aligned so that $\theta$ is the angle
+between $\mathbf{r}$ and $\mathbf{r}'$.  We can now do the $k$-space
 integral:
 $$\begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k \; \frac{\exp\left[i\mathbf{k}\cdot (\mathbf{r}-\mathbf{r}')\right]}{k_i^2-|\mathbf{k}|^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;k^2\sin\theta\; \frac{\displaystyle \exp\left(ik|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k_i^2-k^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk \int_{-1}^1 d\mu \;k^2\; \frac{\displaystyle \exp\left(ik|\mathbf{r}-\mathbf{r}'|\mu\right)}{k_i^2-k^2} \qquad(\text{letting}\;\mu = \cos\theta) \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk \; \frac{ k^2}{k_i^2-k^2}\, \frac{\displaystyle \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik|\mathbf{r}-\mathbf{r}'|\right)}{ik|\mathbf{r}-\mathbf{r}'|} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk \; \frac{\displaystyle k\, \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{(k - k_i)(k+k_i)}\end{aligned}$$
 The remaining integral looks like something we can do using contour
@@ -617,11 +622,11 @@ features.  For instance, we could flip the sign of $i\varepsilon$ in
 the Green's function redefinition, which displaces the $k$-space poles
 in the opposite direction.  The resulting propagator
 $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$ is
-complex-conjugated, and when viewed as a function of $\mathrm{r}$, it
-describes a wave moving inwards from infinity, ``sinking'' into the
-point $\mathbf{r}'$.  Such a choice of regularization thus corresponds
-to an \textbf{incoming Green's function}.  In the scattering problem,
-we will always deal with the outgoing/causal Green's function.
+complex-conjugated, and describes a wave moving inwards from infinity,
+``sinking'' into the point $\mathbf{r}'$.  Such a choice of
+regularization thus corresponds to an \textbf{incoming Green's
+  function}.  In the scattering problem, we will always deal with the
+outgoing/causal Green's function.
 
 \section{Scattering amplitudes in 3D}
 \label{sec:3damp}

@@ -288,8 +288,8 @@ $$V(r,\theta,\phi) = -V_0\Theta(a-r),$$
 $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+V_0)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}$$
   For the first equation (called the Helmholtz equation), we seek
   solutions of the form
-  $$\psi(r,\theta,\phi) = f(r) \, Y_{lm}(\theta,\phi),$$
-  where $Y_{lm}(\theta,\phi)$ are
+  $$\psi(r,\theta,\phi) = f(r) \, Y_{\ell m}(\theta,\phi),$$
+  where $Y_{\ell m}(\theta,\phi)$ are
   \href{https://en.wikipedia.org/wiki/Spherical_harmonics}{spherical
     harmonics}, and the integers $l$ and $m$ are angular momentum
   quantum numbers satisfying $l \ge 0$ and $-l \le m \le l$.
@@ -297,17 +297,17 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
   $$r^2\frac{d^2f}{dr^2} + 2r \frac{df}{dr}+\left[q^2r^2-l(l+1)\right] f(r) = 0,$$
   which is the \textbf{spherical Bessel equation}.  The solutions to
   this equation that are non-divergent at $r = 0$ are $f(r) =
-  j_l(qr)$, where $j_l$ is called a \textbf{spherical Bessel function
+  j_\ell(qr)$, where $j_\ell$ is called a \textbf{spherical Bessel function
     of the first kind}.  Most numerical packages provide functions to
   calculate these (e.g.,
   \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{\texttt{scipy.special.spherical\_jn}}
   in Scientific Python).
 
   Similarly, solutions for the second equation can be written as
-  $\psi(r,\theta,\phi) = g(r) \, Y_{lm}(\theta,\phi),$ yielding an
+  $\psi(r,\theta,\phi) = g(r) \, Y_{\ell m}(\theta,\phi),$ yielding an
   equation for $g(r)$ called the \textbf{modified spherical Bessel
     equation}.  The solutions which do not diverge as $r\rightarrow
-  \infty$ are $g(r) = k_l(\gamma r)$, where $k_l$ is called a
+  \infty$ are $g(r) = k_\ell(\gamma r)$, where $k_\ell$ is called a
   \textbf{modified spherical Bessel function of the second kind}.
   Again, this can be computed numerically (e.g., using
   \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_kn.html#scipy.special.spherical_kn}{\texttt{scipy.special.spherical\_kn}}
@@ -315,8 +315,8 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
 
   Using the above facts, show that the condition for a bound state to
   exist is
-  $$\frac{qj_l'(qa)}{j_l(qa)} = \frac{\gamma k_l'(\gamma a)}{k_l(\gamma a)},$$
-  where $j_l'$ and $k_l'$ denote the derivatives of the relevant
+  $$\frac{qj_\ell'(qa)}{j_\ell(qa)} = \frac{\gamma k_\ell'(\gamma a)}{k_\ell(\gamma a)},$$
+  where $j_\ell'$ and $k_\ell'$ denote the derivatives of the relevant
   special functions, and $q$ and $\gamma$ depend on $E$ and $V_0$ as
   described above.  Write a program to search for the bound state
   energies at any given $a$ and $V_0$, and hence determine the
