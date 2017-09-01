@@ -176,8 +176,8 @@ Generally, the scattering matrix needs to be calculated numerically.
 The process is greatly simplified if the scattering potential is
 spherically symmetric, i.e.~$V(\mathbf{r}) = V(r)$.  In that case,
 angular momentum is conserved, so an incoming spherical wave with
-angular momentum quantum numbers $(\ell,m)$ must give rise exclusively
-to an outgoing spherical wave with the same $(\ell,m)$.  This means
+angular momentum quantum numbers $(\ell,m)$ must scatter exclusively
+into an outgoing spherical wave with the same $(\ell,m)$.  This means
 that the scattering matrix is diagonal:
 $$S_{\mu \nu} = s_\mu \delta_{\mu\nu}.$$
 
@@ -189,35 +189,33 @@ coordinates as
 $$\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2} + K^2(r) \psi(r,\theta,\phi) = 0,$$
 where
 $$K^2(r) = \sqrt{\frac{2m\big[E-V(r)\big]}{\hbar^2}}.$$
-This is almost the same as the Helmholtz equation, but with $k^2$
-replaced with $K^2(r)$, which depends on $V(r)$.  In each
-scattering channel, the solution has the form
+This is similar to the Helmholtz equation, but with the constant $k^2$
+replaced by a function $K^2(r)$.  In each scattering channel, the
+solution has the form
 $$\psi(r,\theta,\phi) = A(r) \, Y_{\ell m}(\theta, \phi).$$
 Upon substitution into the Schr\"odinger wave equation, we find that
 $A(r)$ must satisfy
 $$\frac{d}{dr}\left(r^2\frac{dA}{dr}\right) + \Big[K^2(r)\, r^2 - \ell(\ell+1)\Big] A(r) = 0, \;\;\;\ell \in \mathbb{Z}_0^+.$$
-As before, the equation for $A(r)$ does not involve $m$; this tells us
-that the scattering parameters $s_\mu \equiv s_{\ell m}$ will not
-depend on $m$, and can thus simply be written as $s_\ell$.  The
-second-order ordinary differential equation can now be solved
-numerically by supplying two boundary conditions at $r=0$, integrating
-up to a large value of $r$, and matching to the exterior solution
+As before, the equation for $A(r)$ does not involve $m$; hence, the
+scattering parameter $s_\mu \equiv s_{\ell m}$ does not depend on $m$,
+and can be written as just $s_\ell$.  The second-order ordinary
+differential equation can now be solved numerically by supplying two
+boundary conditions at $r=0$, integrating up to a large value of $r$,
+and matching to the exterior solution
 $$A(r) \; \overset{r\rightarrow\infty}{\longrightarrow} \; c^-_\ell h^-_\ell(kr) + c^+_\ell h^+_\ell(kr) = c^-_\ell \Big(h^-_\ell(kr) + s_\ell h^+_\ell(kr)\Big).$$
 The value of $s_\ell$ can then be extracted.  The remaining
-implementation details for this numerical solution method are left as
-an exercise for the reader (see
-\hyperref[ex:numerical_spherical]{Exercise 1}).
+implementation details for this solution method are left as an
+exercise (see \hyperref[ex:numerical_spherical]{Exercise 1}).
 
-The problem simplifies further if we assume that the scattering
-potential has the form of a finite spherical potential well of radius
-$R$:
+The problem simplifies even further if we let the scattering potential
+take the form of a finite spherical potential well of radius $R$:
 $$V(r) = \begin{cases}-V_0 &\mathrm{for}\;\; r < R, \\ \;\;\; 0 & \mathrm{otherwise}.\end{cases}$$
 For simplicity, let us assume that $V_0 > 0$, so that the potential is
 attractive.  (The repulsive case has a few complications, involving
 situations where $E < V(r)$; see
 \hyperref[ex:spherical_barrier]{Exercise 2}.)  The Schr\"odinger wave
-equation now reduces to the Helmholtz equation in the interior
-region as well, but with $k$ replaced by
+equation in the interior region now reduces to the Helmholtz equation,
+but with $k$ replaced with
 $$q = \sqrt{2m(E+V_0)/\hbar^2}.$$
 The elementary solutions for $A(r)$ in the interior region are
 $j_\ell(qr)$ and $y_\ell(qr)$.  However, we must exclude the latter,
@@ -229,21 +227,31 @@ with exterior solutions defined away from the origin.)
 Thus, we arrive at a solution of the form
 $$A(r) = \begin{cases} \alpha_\ell\, j_\ell(qr), & r \le R \\ c^-_\ell \Big(h^-_\ell(kr) + s_\ell h^+_\ell(kr)\Big) & r \ge R.\end{cases}$$
 So far, the values of $\alpha_\ell$, $c^-_\ell$, and $s_\ell$ remain
-unknown.  Next, we match the wavefunction and its
+unknown.  To proceed, we match the wavefunction and its
 derivative at the boundary $r = R$:
 $$\begin{aligned} \alpha_\ell\, j_\ell(qR) &= c^-_\ell \Big(h^-_\ell(kR) + s_\ell h^+_\ell(kR)\Big) \\ \alpha_\ell\, q j_\ell'(qR) &= c^-_\ell k \Big({h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)\Big).\end{aligned}$$
 Here, $j_\ell'$ denotes the derivative of the spherical Bessel
 function, and likewise for ${h_\ell^\pm}'$.  Taking the ratio of these
 two equations gives
 $$\frac{q j_\ell'(qR)}{j_\ell(qR)} = k \frac{{h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)}{h^-_\ell(kR) + s_\ell h^+_\ell(kR)}.$$
-And with a bit of rearrangement,
+With a bit of rearrangement, this becomes
 $$s_\ell = - \frac{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}.$$
 The numerator and denominator are complex conjugates of one another,
 since $j_\ell$ is real and $(h_\ell^+)^* = h_\ell^-$.  Hence, we
 arrive at the result
 $$s_\ell = - e^{i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = 2\,\mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].$$
+The scattering matrix component is a pure phase factor.  This is to be
+expected, due to energy conservation.  Since the scattering matrix is
+diagonal, the incoming flux and outgoing flux in each scattering
+channel must be equal, so the only possible effect of the scattering
+potential is to vary the phase of each outgoing spherical wave.
 
+\textcolor{red}{[Numerical results]}
 
+We can consolidate these results with the discussion from the previous
+section.  For an incident plane wave with wave-vector $\mathbf{k}_i$,
+the scattered wavefunction is
+$$\begin{aligned}\psi_s(\mathbf{r}) &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell c_{\ell m}^s h_\ell^+(kr) \, Y_{\ell m}(\theta,\phi) \\ &= - 2\pi \sum_{\ell=0}^\infty (e^{i\delta_\ell} + 1) e^{i\ell\pi/2} h_\ell^+(kr) \sum_{m=-\ell}^\ell Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\theta,\phi). \end{aligned}$$
 
 
 \section*{Exercises}
