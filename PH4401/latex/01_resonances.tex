@@ -39,7 +39,7 @@ square well of depth $V_0$ and width $2a$.  Inside the well region
 \end{figure}
 
 We wish to solve the time-independent Schr\"odinger equation for this
-Hamiltonian.  In Appendix A, we describe a common numerical method,
+Hamiltonian.  In Appendix B, we describe a common numerical method,
 known as the \textbf{transfer matrix method}, which can be used to
 generate solutions for the square well and other similar 1D
 potentials.  In this section, we not deal with the calculation
@@ -76,7 +76,7 @@ $$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x <
 Within each external region, $\psi(x)$ consists of a superposition of
 left-moving and right-moving plane waves, with wavenumber $k$.  The
 coefficients $\alpha_\pm$ and $\beta_\pm$ are not independent
-quantities, but are linked by a linear relation (see Appendix A).  In
+quantities, but are linked by a linear relation (see Appendix B).  In
 order to satisfy Schr\"odinger's equation, $k$ must satisfy
 $$\frac{\hbar^2k^2}{2m} = E,$$
 which means that extended states occur only for energies $E \ge 0$.
@@ -91,7 +91,7 @@ well with $V_0 = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
 energy spectrum is shown on the left side.  There exist five bound
 states; their plots of $|\psi|^2$ versus $x$ are shown on the right
 side.  These results were computed using the transfer matrix code
-described in Appendix A.
+described in Appendix B.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.81\textwidth]{boundvsextended}
@@ -201,7 +201,7 @@ takes the form
 $$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}$$
 The scattering amplitudes $f_+$ and $f_-$ can be found by solving the
 Schr\"odinger wave equation, using the transfer matrix method (see
-Appendix A).  The figure below shows numerical results obtained for
+Appendix B).  The figure below shows numerical results obtained for
 $V_0 = 10,\,V_1 = 30,\,a=1$, and $b = 1.2$ or $b = 1.4$, with $\hbar =
 m = 1$.
 
@@ -267,8 +267,6 @@ provides a convenient and general way to study them.
 
 \section{Decay rate of a quasi-bound state: Fermi's Golden Rule}
 
-\section{The decay spectrum of beta particles}
-
 
 \section*{Exercises}
 
@@ -282,21 +280,25 @@ provides a convenient and general way to study them.
 $$V(r,\theta,\phi) = -V_0\Theta(a-r),$$
   where $a$ is the radius of the spherical well, $V_0$ is the depth,
   and $(r,\theta,\phi)$ are spherical coordinates defined in the usual
-  way.  For $E < 0$, the Schr\"odinger equation reduces to
+  way.
+
+  The solution involves a variant of the partial wave analysis
+  discussed in Appendix A.  For $E < 0$, the Schr\"odinger equation
+  reduces to
 $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+V_0)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}$$
   For the first equation (called the Helmholtz equation), we seek
   solutions of the form
   $$\psi(r,\theta,\phi) = f(r) \, Y_{lm}(\theta,\phi),$$
   where $Y_{lm}(\theta,\phi)$ are
   \href{https://en.wikipedia.org/wiki/Spherical_harmonics}{spherical
-    harmonics}; the integers $l$ and $m$ are angular momentum
+    harmonics}, and the integers $l$ and $m$ are angular momentum
   quantum numbers satisfying $l \ge 0$ and $-l \le m \le l$.
-  Substituting this into the Helmholtz equation gives
+  Substituting into the Helmholtz equation yields
   $$r^2\frac{d^2f}{dr^2} + 2r \frac{df}{dr}+\left[q^2r^2-l(l+1)\right] f(r) = 0,$$
-  which is the \textbf{spherical Bessel equation}.  The set of
-  solutions that are non-divergent at $r = 0$ are $f(r) = j_l(qr)$,
-  where $j_l$ is called a \textbf{spherical Bessel function of the
-    first kind}.  Most numerical packages provide functions to
+  which is the \textbf{spherical Bessel equation}.  The solutions to
+  this equation that are non-divergent at $r = 0$ are $f(r) =
+  j_l(qr)$, where $j_l$ is called a \textbf{spherical Bessel function
+    of the first kind}.  Most numerical packages provide functions to
   calculate these (e.g.,
   \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{\texttt{scipy.special.spherical\_jn}}
   in Scientific Python).
