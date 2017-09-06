@@ -241,17 +241,21 @@ bound state.
 \end{figure}
 
 The enhancement of $|\psi(x)|^2$ is called a \textbf{resonance}.  It
-happens because the system has a quasi-bound state (an extended state)
-that is very similar to a bound state of a closely-related system
-(which is localized to the well region).  This phenomenon is closely
-analogous to resonances occurring in classical mechanics.  Recall that
-if we take a classical damped harmonic oscillator and apply an
-oscillatory driving force, then when the frequency of the driving
-force matches the natural frequency of the damped oscillator, the
-resulting motion has an extremely large amplitude.  In the present
-case, the incident wave plays the role of a driving force, and the
-quasi-bound state energies act as different natural frequencies of
-oscillation.
+happens because the system has a quasi-bound state---an extended state
+that is very similar to a bound state.  When an incident particle
+enters the scattering region, it can become temporarily trapped within
+the potential well region, spending a long time ``bouncing around''
+there before eventually escaping back to infinity.
+
+This phenomenon is closely analogous to resonances occurring in
+classical mechanics, which occur when we take a classical damped
+harmonic oscillator and apply an oscillatory driving force.  When the
+frequency of the driving force matches the natural frequency of the
+oscillator, the system will oscillate with an extremely large
+amplitude.  In the quantum mechanical context, the incident
+wavefunction plays the role of a driving force, the incident particle
+energy $E$ plays the role of the driving frequency, and the energy of
+each quasi-bound state is like a natural frequency of oscillation.
 
 Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
@@ -284,12 +288,12 @@ barrier.  An example of this decomposition is shown below, for the
 Let us assume that if the potential consisted of just $\hat{V}_0$
 (i.e., the potential well without the barrier), the system has a
 single bound state.  Denote this bound state by $|\varphi\rangle$, and
-its energy $E = -\Delta$.  Furthermore, let us denote the continuum of
+its energy by $E_0$.  Furthermore, let us denote the continuum of
 extended states for the potential well by $\{|\psi_k\rangle\}$, with
 energies $E_k$, where $k$ is a continuous index enumerating the
 extended states.  The bound state and extended states satisfy the
 Schr\"odinger equation
-$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle &= -\Delta |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
+$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
 \end{aligned}$$
 along with the orthogonality and completeness relations
 $$\langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
@@ -314,8 +318,8 @@ We can now compute the matrix element
 $\langle\varphi|\cdots|\varphi\rangle$ for both sides of this equation:
 $$\begin{aligned}\langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\
 \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\ \lim_{\varepsilon\rightarrow0^+}
-\langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E + \Delta + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E + \Delta + i\varepsilon} \left(1+ \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \\
-\lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E + \Delta -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1.\end{aligned}$$
+\langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E - E_0 + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E  - E_0 + i\varepsilon} \left(1+ \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \\
+\lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1.\end{aligned}$$
 Similarly, computing the matrix element
 $\langle\varphi|\cdots|\psi_k\rangle$ gives:
 $$\begin{aligned}
@@ -333,27 +337,84 @@ self-consistent one.
 With this approximation,
 $$\langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.$$
 Combining this with the other equation gives
-$$\lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E + \Delta -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.$$
+$$\lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.$$
 Hence,
-$$\boxed{\begin{aligned}\quad \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{1}{\displaystyle E + \Delta - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \qquad \\
-\mathrm{where}\;\;\Sigma(E) \equiv \int dk\, \frac{\displaystyle\langle\varphi|\hat{V}_1|\psi_k\rangle \langle\psi_k| \hat{V}_1|\varphi\rangle}{\displaystyle E-E_k+i\varepsilon}. \qquad
+$$\boxed{\begin{aligned}\langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \qquad \\ \quad \mathrm{where}\;\;\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int dk\, \frac{\displaystyle\langle\varphi|\hat{V}_1|\psi_k\rangle \langle\psi_k| \hat{V}_1|\varphi\rangle}{\displaystyle E-E_k+i\varepsilon}. \qquad
 \end{aligned}}$$
+The quantity $\Sigma(E)$ is called the \textbf{self-energy}, and we
+will have much more to say about it shortly.  It is dependent on $E$,
+but let us assume for now that the dependence is weak, so that
+$\Sigma$ can be effectively treated as a constant.  It is
+complex-valued, and both its real and imaginary parts will be
+important.  (We will later show that $\mathrm{Im}(\Sigma) < 0$.)
 
-This is an extremely significant result.  It tells us that
+The above result is extremely meaningful.  It tells us that
 $\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
-denominator is as close to zero as possible.  As we vary $E$, the
-energy of the incident particle in the scattering experiment, this is
-satisfied when $E$ meets the \textbf{resonance condition}
-$$E \approx - \Delta + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\Sigma(E)\big].$$
-The first term in this expression is the energy of the bound state in
-the potential well, while the second term describes how this bound
-state energy is shifted by the barrier potential $\hat{V}_1$.  The
-third term involves the energy-dependent quantity $\Sigma(E)$, called
-the \textbf{self-energy} of the resonance.  It describes how the
-resonance energy is altered by the influence of the continuum states.
+denominator is as close to zero as possible, which is called the
+\textbf{resonance condition} (and is self-consistent with the
+approximation that we made in the above derivation).  As we vary the
+incident energy $E$ (over real values), the resonance condition is
+satisfied when
+$$E \;\approx\; E_{\mathrm{res}} \,\equiv\, E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big].$$
+We call $E_{\mathrm{res}}$ the \textbf{resonance energy}.  Its first
+term is the energy of the bound state in the absence of the barrier
+potential $\hat{V}_1$, and the second term describes the energy shift
+induced by $\hat{V}_1$.  The third term is equal to the real part of
+the self-energy $\Sigma$, and has a more subtle meaning: since the
+definition of $\Sigma$ involves $\{|\psi_k\rangle\}$, we can think of
+this term as an energy shift induced by the presence of the continuum
+of extended states.
+
+In Section VIII of the previous chapter, we derived the following
+relationship between the Green's function and the scattering amplitude
+$f$:
+$$f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.$$
+Here, $|\mathbf{k}\rangle$ and $|\mathbf{k}'\rangle$ are incident and
+scattered plane-wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
+The first term describes the lowest-order scattering process (the
+first Born approximation).  The second term contains all the
+higher-order scattering processes, including resonant scenarios where
+the particle ``bounces around'' inside the potential before escaping.
+By inserting resolutions of the identity between each $\hat{V}$ and
+$\hat{G}$ operator in the second term, we find that one of the terms
+contributing to $f$ has the form
+$$\Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]}.$$
+This can become the dominant contribution to the scattering amplitude
+if the resonance condition is satisfied.  The energy dependence of
+$\Delta f$ is now determined by its denominator, and has a
+characteristic behavior summarized in the figure below:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.7\textwidth]{resonance}
+\end{figure}
+
+The graph of $|\Delta f|^2$ versus $E$ has a peaked shape known as a
+\textbf{Lorentzian}.  The peak is centered at $E = E_{\mathrm{res}}$,
+where the resonance condition is satisfied.  The width of the peak (as
+measured by the ``full-width at half-maximum'') is $\delta E \sim
+2|\mathrm{Im}[\Sigma]|$.  In other words, the smaller the imaginary
+part of the self-energy, the sharper the peak.
+
+The phase, $\mathrm{arg}[\Delta f]$, also contains useful information.
+As $E$ crosses $E_{\mathrm{res}}$ from below, the phase increases by
+$\pi$.  The energy range over which this phase shift occurs is $\sim
+|\mathrm{Im}[\Sigma]|$.
+
+These two resonance signatures---peaks and phase shifts---are sought
+after in numerous real-world scattering experiments.  In real
+experiments, the peaks and phase shifts are often overlaid on a
+``background'' caused by non-resonant effects.  As an example, the
+plot below was released by the CMS experiment at the Large Hadron
+Collider (LHC), showing a resonance peak on a large background.  This
+was part of the experimental evidence that led to the LHC's discovery
+of a new particle, the Higgs boson, in 2012.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.45\textwidth]{higgs}
+\end{figure}
 
 
-\section{Decay rate of a quasi-bound state: Fermi's Golden Rule}
+\section{Fermi's Golden Rule}
 
 
 \section*{Exercises}
@@ -429,11 +490,6 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
 \item Bransden \& Joachain, \S4.4, 9.2--9.3, 13.4
 \item Sakurai, \S5.6, 7.7--7.8
 
-\end{itemize}
-
-\section*{Further Reading}
-
-\begin{itemize}
 \item 
   C.~W.~Hsu, B.~Zhen, A.~D.~Stone, J.~D.~Joannopoulos, and
   M.~Solja\u{c}i\'{c}, \textit{Bound states in the continuum},
