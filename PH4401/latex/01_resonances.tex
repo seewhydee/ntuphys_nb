@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -260,13 +261,96 @@ various important features of the quasi-bound state, which often
 provides a great deal of important information about the system
 itself.
 
-\section{General analysis of scattering resonances}
+\section{Green's function analysis of scattering resonances}
 
 Quasi-bound states and scattering resonances are not limited to 1D;
 they are equally important, if not more so, in 2D and 3D systems.  The
-Green's function operator, introduced in the previous chapter,
-provides a convenient and general way to study them.
+Green's function, introduced in the previous chapter, provides a very
+general method to study their properties.
 
+Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
+supporting resonances, where $\hat{T}$ is the kinetic energy operator
+and $\hat{V}$ is the potential operator.  We decompose the potential
+into
+$$\hat{V} = \hat{V}_0 + \hat{V}_1,$$
+where $V_0$ describes a potential well and $V_1$ describes a potential
+barrier.  An example of this decomposition is shown below, for the
+1D potential function studied in the previous section.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.99\textwidth]{resonancewell_decomp}
+\end{figure}
+
+Let us assume that if the potential consisted of just $\hat{V}_0$
+(i.e., the potential well without the barrier), the system has a
+single bound state.  Denote this bound state by $|\varphi\rangle$, and
+its energy $E = -\Delta$.  Furthermore, let us denote the continuum of
+extended states for the potential well by $\{|\psi_k\rangle\}$, with
+energies $E_k$, where $k$ is a continuous index enumerating the
+extended states.  The bound state and extended states satisfy the
+Schr\"odinger equation
+$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle &= -\Delta |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
+\end{aligned}$$
+along with the orthogonality and completeness relations
+$$\langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
+As described in Section~VII of the previous chapter, the Green's
+function for this system is
+$$\hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.$$
+
+Now, we introduce the barrier potential $\hat{V}_1$.  According to
+Dyson's equations (see Section~VI of the previous chapter), the
+Green's function for the full problem is
+$$\hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.$$
+Our objective is to determine the matrix elements of $\hat{G}(E)$,
+which can then be used to compute the scattering amplitudes at each
+incident energy $E$.  The eigenstates of the potential well problem,
+$|\varphi\rangle$ and $\{|\psi_k\rangle\}$, will be useful for this
+purpose.  However, as usual when dealing with Dyson's equations, we
+must watch out for the fact that $\hat{G}$ appears on both the left
+and right hand sides.  This can be dealt with by judiciously inserting
+a resolution of the identity:
+$$\begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}$$
+We can now compute the matrix element
+$\langle\varphi|\cdots|\varphi\rangle$ for both sides of this equation:
+$$\begin{aligned}\langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\
+\langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\ \lim_{\varepsilon\rightarrow0^+}
+\langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E + \Delta + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E + \Delta + i\varepsilon} \left(1+ \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \\
+\lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E + \Delta -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1.\end{aligned}$$
+Similarly, computing the matrix element
+$\langle\varphi|\cdots|\psi_k\rangle$ gives:
+$$\begin{aligned}
+\langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
+&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\psi_k\rangle\right)\end{aligned}$$
+Note that the equations thus far have been exact (we have \textit{not}
+used perturbation theory).  At this point, however, we apply an
+approximation: in the last line of the above equation, let the factor
+of $\langle\varphi|G|\varphi\rangle$ be large, so that the first term
+in the sum becomes dominant over the second term.  It will be shown
+below that $\langle\varphi|G|\varphi\rangle$ being large is precisely
+the resonance condition, so this approximation will be a
+self-consistent one.
+
+With this approximation,
+$$\langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.$$
+Combining this with the other equation gives
+$$\lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E + \Delta -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.$$
+Hence,
+$$\boxed{\begin{aligned}\quad \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{1}{\displaystyle E + \Delta - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \qquad \\
+\mathrm{where}\;\;\Sigma(E) \equiv \int dk\, \frac{\displaystyle\langle\varphi|\hat{V}_1|\psi_k\rangle \langle\psi_k| \hat{V}_1|\varphi\rangle}{\displaystyle E-E_k+i\varepsilon}. \qquad
+\end{aligned}}$$
+
+This is an extremely significant result.  It tells us that
+$\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
+denominator is as close to zero as possible.  As we vary $E$, the
+energy of the incident particle in the scattering experiment, this is
+satisfied when $E$ meets the \textbf{resonance condition}
+$$E \approx - \Delta + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\Sigma(E)\big].$$
+The first term in this expression is the energy of the bound state in
+the potential well, while the second term describes how this bound
+state energy is shifted by the barrier potential $\hat{V}_1$.  The
+third term involves the energy-dependent quantity $\Sigma(E)$, called
+the \textbf{self-energy} of the resonance.  It describes how the
+resonance energy is altered by the influence of the continuum states.
 
 
 \section{Decay rate of a quasi-bound state: Fermi's Golden Rule}
