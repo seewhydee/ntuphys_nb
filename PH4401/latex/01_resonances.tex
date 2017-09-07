@@ -21,45 +21,45 @@
 {\Large \textbf{Chapter 1: Resonances}}
 \end{center}
 
-\section{Bound states and extended states}
+\section{Bound states and free states}
 
 One of the most interesting features of wavefunctions in infinite
-space is that they come in two distinct types: (i) \textbf{extended
-  states}, which spread out over the entire space, and (ii)
-\textbf{bound states}, which are localized in one region.  Both types
-can co-exist in a single system.
+space is that they come in two distinct types: (i) \textbf{bound
+  states}, which are localized to one region, and (ii) \textbf{free
+  states}, which extend over the entire space.  Both types can
+co-exist in a single system.
 
 The \textbf{1D finite square well} is a simple model which exhibits
-both bound and extended states.  Consider the Hamiltonian
+both bound states and free states.  Consider the Hamiltonian
 $$\hat{H} = \frac{\hat{p}^2}{2m} - V_0 \,\Theta(a -|\hat{x}|),$$ where
 $\hat{x}$ and $\hat{p}$ are the 1D position and momentum operators,
 $m$ is the particle mass, $V_0$ and $a$ are positive real parameters,
-and $\Theta(\cdots)$ denotes the Heaviside step function (which is 1
-if the input is positive, and 0 otherwise).  The potential describes a
-square well of depth $V_0$ and width $2a$.  Inside the well region
-($|x| < a$), the potential is $-V_0$; outside, it is zero.
+and $\Theta(\cdots)$ denotes the Heaviside step function (1 if the
+input is positive, and 0 otherwise).  As shown below, this describes a
+potential well of depth $V_0$ and width $2a$.  Inside the well ($|x| <
+a$), the potential is $-V_0$; outside, it is zero.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.7\textwidth]{squarewell}
 \end{figure}
 
 We wish to solve the time-independent Schr\"odinger equation for this
-Hamiltonian.  In Appendix B, we describe a common numerical method,
-known as the \textbf{transfer matrix method}, which can be used to
-generate solutions for the square well and other similar 1D
-potentials.  In this section, we not deal with the calculation
-details, but instead zoom in on certain key facts.
+Hamiltonian.  A common numerical method, known as the \textbf{transfer
+  matrix method}, can be used to generate solutions for this potential
+and other similar 1D potentials.  This method is described in Appendix
+B.  In this section, we will bypass the details of the calculation,
+and instead zoom in on certain key aspects.
 
 The first thing to note is that when solving the Schr\"odinger wave
 equation, it's necessary to specify the boundary conditions at
-infinity.  This choice affects whether we get a bound state or
-extended state.  The wavefunction of a bound state diminishes
-exponentially as $x \rightarrow \pm\infty$; thus, in either external
-region (i.e., $x < -a$ or $x > a$), it satisfies
+infinity.  This choice determines whether we get a bound state or free
+state.  The wavefunction of a bound state diminishes exponentially as
+$x \rightarrow \pm\infty$; thus, in the exterior region (i.e., $x <
+-a$ or $x > a$), it satisfies
 $$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),$$
 subject to the boundary conditions
 $$\psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.$$
-The bound state solutions in the external regions therefore take the
+The bound state solutions in the exterior region therefore take the
 form
 $$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.$$
 Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
@@ -74,22 +74,22 @@ $$\int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.$$
 The normalization integral will not diverge, as $|\psi(x)|^2$ vanishes
 exponentially as $x \rightarrow \pm \infty$.
 
-For an extended state, the situation is quite different.  In this
-case, the wavefunction does not vanish exponentially at infinity, but
-instead takes the form
+For a free state, the situation is quite different.  In this case, the
+wavefunction does not vanish exponentially at infinity, but instead
+takes the form
 $$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
-Within each external region, $\psi(x)$ consists of a superposition of
+Outside the potential well, $\psi(x)$ consists of a superposition of
 left-moving and right-moving plane waves, with wavenumber $k$.  The
 coefficients $\alpha_\pm$ and $\beta_\pm$ are not independent
 quantities, but are linked by a linear relation (see Appendix B).  In
 order to satisfy Schr\"odinger's equation, $k$ must satisfy
 $$\frac{\hbar^2k^2}{2m} = E,$$
-which means that extended states occur only for energies $E \ge 0$.
-In fact, the solutions form a continuum, meaning we can find extended
-states for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$ does not
-diminish exponentially at infinity, the integral $\int_{-\infty}^\infty
-|\psi(x)|^2\, dx$ is divergent.  Hence, the wavefunction
-has no finite normalization.
+which means that free states occur only for energies $E \ge 0$.  In
+fact, the solutions form a continuum, meaning we can find free states
+for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$ does not diminish
+exponentially at infinity, the integral $\int_{-\infty}^\infty
+|\psi(x)|^2\, dx$ is divergent.  Hence, the wavefunction has no finite
+normalization.
 
 The following figure shows numerically-obtained results for a square
 well with $V_0 = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
@@ -102,23 +102,17 @@ described in Appendix B.
   \centering\includegraphics[width=0.81\textwidth]{boundvsextended}
 \end{figure}
 
-%% For $E \ge 0$, there is a continuum of extended states, which do not
-%% have any finite normalization.  For $-V_0 < E < 0$, which is the
-%% energy range ``inside'' the potential well, there exists a discrete
-%% and finite set of bound states, whose wavefunctions vanish
-%% exponentially outside the well and are therefore normalizable.
-
 Many of the lessons drawn from this square well model can be
 generalized to more complicated potential wells.  (Also, in cases
 where the potential at infinity is $V_{\textrm{ext}}$ rather than
-zero, extended states occur for $E \ge V_{\textrm{ext}}$ and bound
-states occur for $\textrm{min}(V) < E < V_{\textrm{ext}}$.)
+zero, free states occur for $E \ge V_{\textrm{ext}}$ and bound states
+occur for $\textrm{min}(V) < E < V_{\textrm{ext}}$.)
 
-There are, however, two important provisos to bear in mind.  The first
-is that if we vary the potential, the number of bound states can
-change: i.e., bound state solutions can either appear or disappear.  A
-numerical example is given below, showing the bound state energies for
-the square well model with fixed $a = 1$ and varying well depth $V_0$:
+There is, however, a proviso to bear in mind.  If we vary the
+potential, the number of bound states can change: i.e., bound state
+solutions can either appear or disappear.  A numerical example is
+given below, showing the bound state energies for the square well
+model with fixed $a = 1$ and varying well depth $V_0$:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.65\textwidth]{boundstate1d}
@@ -143,36 +137,31 @@ quantum numbers).  For details, see
   \centering\includegraphics[width=0.65\textwidth]{boundstate3d}
 \end{figure}
 
-Another proviso to keep in mind is that in certain cases, it is
-actually possible to have bound states with energy $E \ge 0$.  These
-are called ``bound states in the continuum'', since they lie in the
-same energy range as the continuum of extended states.  We will ignore
-this phenomenon, since it happens only under special circumstances
-that lie outside the scope of the present discussion.  The interested
-reader may refer to the review by \hyperref[cite:hsu]{Hsu \textit{et
-    al.}~(2016)}.
-
 \section{Quasi-bound states and resonances}
 
-For the 1D finite square well, bound states and extended states behave
-very differently from each other.  In certain other models, however,
-extended states can take on characteristics similar to bound states.
-These are called \textbf{quasi-bound states}, and they play an
-especially important role in scattering experiments.
+In the 1D finite square well model, there is a sharp distinction
+between bound states and free states.  In certain other models,
+however, there exist an interesting class of quantum states called
+\textbf{quasi-bound states}.  Like a bound state, a quasi-bound state
+is localized in one region of space, rather than extending over all
+space.  However, it is an \textit{approximate} eigenstate of the
+Hamiltonian, and lies within the energy range of the free state
+continuum.  As we shall see, the existence of quasi-bound states has
+extremely important implications for scattering experiments.
 
-An example of a potential function $V(x)$ that supports quasi-bound
-states is shown below.  In the external regions, $|x| > b$, the
-potential is zero.  Between $x = -b$ and $x = b$, sits a ``barrier''
-of positive potential $V_1$.  Embedded in the middle of this barrier,
-in the region $|x| < a$, is a central well of potential $V_0$ such
-that $0 < V_0 < V_1$.
+The figure below shows an example of a potential function that can
+give rise to quasi-bound states.  In the exterior region, $|x| > b$,
+the potential is zero.  Between $x = -b$ and $x = b$, there is a
+``barrier'' of positive potential $V_1$.  Embedded in the middle of
+this barrier, in the region $|x| < a$, is a central well of potential
+$V_0$ such that $0 < V_0 < V_1$.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.7\textwidth]{resonancewell}
 \end{figure}
 
-This potential is purely repulsive, so the discussion in the previous
-section tells us there are no bound states, only extended states.
+This potential is purely repulsive, so there are no bound states.  The
+only exact eigenstates of the Hamiltonian are free states.
 
 However, there's something intriguing about the energy range
 corresponding to the central well, $V_0 < E < V_1$.  Consider a
@@ -189,19 +178,15 @@ act as \textit{approximate} solutions to the Schr\"odinger wave
 equation for the original potential function $V(x)$---which does not
 support bound states!
 
-Turning this argument around, we expect the potential function $V(x)$
-to support certain extended states whose wavefunctions look very
-similar to bound states, but aren't bound.
-
-To find evidence of quasi-bound states, let us analyze the system
-using the framework of a \textbf{scattering experiment}, as developed
-in the previous chapter.  Let a particle be incident from the left,
+To understand the implications of these quasi-bound states, let us
+analyze the system using the \textbf{scattering experiment} framework
+from the previous chapter.  Let a particle be incident from the left,
 with energy $E > 0$, described by the incident wavefunction
 $$\psi_i(x) = \Psi_i \, e^{ik_i x}.$$
 This gives rise to a scattered wavefunction $\psi_s(x)$, such that the
 total wavefunction $\psi_i(x) + \psi_s(x)$ satisfies the Schr\"odinger
 wave equation with energy $E$.  The scattered wavefunction must be
-outgoing (see the previous chapter), so in the external region it
+outgoing (see the previous chapter), so in the exterior region it
 takes the form
 $$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}$$
 The scattering amplitudes $f_+$ and $f_-$ can be found by solving the
@@ -241,11 +226,12 @@ bound state.
 \end{figure}
 
 The enhancement of $|\psi(x)|^2$ is called a \textbf{resonance}.  It
-happens because the system has a quasi-bound state---an extended state
-that is very similar to a bound state.  When an incident particle
-enters the scattering region, it can become temporarily trapped within
-the potential well region, spending a long time ``bouncing around''
-there before eventually escaping back to infinity.
+happens because of the existence of a quasi-bound state---an
+approximate energy eigenstate that is localized within the scattering
+region.  When an incident particle enters the scattering region with
+the right energy, it gets temporarily ``trapped'' in the quasi-bound
+state, and spends a long time oscillating inside the scatterer before
+eventually escaping back to infinity.
 
 This phenomenon is closely analogous to resonances occurring in
 classical mechanics, which occur when we take a classical damped
@@ -254,23 +240,22 @@ frequency of the driving force matches the natural frequency of the
 oscillator, the system will oscillate with an extremely large
 amplitude.  In the quantum mechanical context, the incident
 wavefunction plays the role of a driving force, the incident particle
-energy $E$ plays the role of the driving frequency, and the energy of
-each quasi-bound state is like a natural frequency of oscillation.
+energy plays the role of the driving frequency, and the energy of each
+quasi-bound state is like a natural frequency of oscillation.
 
 Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
 and studying resonances.  When a resonance-induced scattering peak is
 found, the location and shape of the peak can be used to deduce
-various important features of the quasi-bound state, which often
-provides a great deal of important information about the system
-itself.
+various features of the quasi-bound state, which often provides a
+great deal of information about the system itself.
 
 \section{Green's function analysis of scattering resonances}
 
-Quasi-bound states and scattering resonances are not limited to 1D;
-they are equally important, if not more so, in 2D and 3D systems.  The
-Green's function, introduced in the previous chapter, provides a very
-general method to study their properties.
+Quasi-bound states and resonances are not limited to 1D; they are
+equally important, if not more so, in 2D and 3D systems.  The Green's
+function, introduced in the previous chapter, gives us a very general
+tool for studying their properties and consequences.
 
 Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
@@ -288,17 +273,16 @@ barrier.  An example of this decomposition is shown below, for the
 Let us assume that if the potential consisted of just $\hat{V}_0$
 (i.e., the potential well without the barrier), the system has a
 single bound state.  Denote this bound state by $|\varphi\rangle$, and
-its energy by $E_0$.  Furthermore, let us denote the continuum of
-extended states for the potential well by $\{|\psi_k\rangle\}$, with
-energies $E_k$, where $k$ is a continuous index enumerating the
-extended states.  The bound state and extended states satisfy the
-Schr\"odinger equation
+its energy by $E_0$.  Furthermore, let us denote the continuum of free
+states for the potential well by $\{|\psi_k\rangle\}$, with energies
+$E_k$, where $k$ is a continuous index enumerating the free states.
+The bound state and free states satisfy the Schr\"odinger equation
 $$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
 \end{aligned}$$
 along with the orthogonality and completeness relations
 $$\langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
-As described in Section~VII of the previous chapter, the Green's
-function for this system is
+As described in Section~VII of the previous chapter, the causal
+Green's function for this system is
 $$\hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.$$
 
 Now, we introduce the barrier potential $\hat{V}_1$.  According to
@@ -309,10 +293,14 @@ Our objective is to determine the matrix elements of $\hat{G}(E)$,
 which can then be used to compute the scattering amplitudes at each
 incident energy $E$.  The eigenstates of the potential well problem,
 $|\varphi\rangle$ and $\{|\psi_k\rangle\}$, will be useful for this
-purpose.  However, as usual when dealing with Dyson's equations, we
-must watch out for the fact that $\hat{G}$ appears on both the left
-and right hand sides.  This can be dealt with by judiciously inserting
-a resolution of the identity:
+purpose.  In particular, note that $|\varphi\rangle$ is not an
+eigenstate of $\hat{H}$; it will now play the role of a quasi-bound
+state.
+
+As usual when dealing with Dyson's equations, we must watch out for
+the fact that $\hat{G}$ appears on both the left and right hand sides.
+This can be dealt with by judiciously inserting a resolution of the
+identity:
 $$\begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}$$
 We can now compute the matrix element
 $\langle\varphi|\cdots|\varphi\rangle$ for both sides of this equation:
@@ -353,8 +341,8 @@ $\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
 denominator is as close to zero as possible, which is called the
 \textbf{resonance condition} (and is self-consistent with the
 approximation that we made in the above derivation).  As we vary the
-incident energy $E$ (over real values), the resonance condition is
-satisfied when
+incident energy $E$ over the range of real values, the resonance
+condition is satisfied when
 $$E \;\approx\; E_{\mathrm{res}} \,\equiv\, E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big].$$
 We call $E_{\mathrm{res}}$ the \textbf{resonance energy}.  Its first
 term is the energy of the bound state in the absence of the barrier
@@ -363,7 +351,7 @@ induced by $\hat{V}_1$.  The third term is equal to the real part of
 the self-energy $\Sigma$, and has a more subtle meaning: since the
 definition of $\Sigma$ involves $\{|\psi_k\rangle\}$, we can think of
 this term as an energy shift induced by the presence of the continuum
-of extended states.
+of free states.
 
 In Section VIII of the previous chapter, we derived the following
 relationship between the Green's function and the scattering amplitude
@@ -374,7 +362,7 @@ scattered plane-wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
 The first term describes the lowest-order scattering process (the
 first Born approximation).  The second term contains all the
 higher-order scattering processes, including resonant scenarios where
-the particle ``bounces around'' inside the potential before escaping.
+the particle bounces around inside the potential before escaping.
 By inserting resolutions of the identity between each $\hat{V}$ and
 $\hat{G}$ operator in the second term, we find that one of the terms
 contributing to $f$ has the form
@@ -384,9 +372,9 @@ if the resonance condition is satisfied.  The energy dependence of
 $\Delta f$ is now determined by its denominator, and has a
 characteristic behavior summarized in the figure below:
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.7\textwidth]{resonance}
-\end{figure}
+\begin{center}
+  \includegraphics[width=0.7\textwidth]{resonance}  
+\end{center}
 
 The graph of $|\Delta f|^2$ versus $E$ has a peaked shape known as a
 \textbf{Lorentzian}.  The peak is centered at $E = E_{\mathrm{res}}$,
@@ -413,8 +401,58 @@ of a new particle, the Higgs boson, in 2012.
   \centering\includegraphics[width=0.45\textwidth]{higgs}
 \end{figure}
 
-
 \section{Fermi's Golden Rule}
+
+The imaginary part of the self-energy, $\mathrm{Im}[\Sigma]$, which
+determines the width of the resonance peak, has a physical meaning.
+As we shall see, it represents the \textbf{decay rate} of a
+quasi-bound state.  Moreover, it can be approximated using an
+important formula known as \textbf{Fermi's Golden Rule}.
+
+Suppose we set the quantum state of a particle to a quasi-bound state
+$|\varphi\rangle$ at some initial time $t = 0$.  Because
+$|\varphi\rangle$ is not an exact eigenstate of the Hamiltonian, the
+particle will not remain in that state under time evolution.  For $t >
+0$, we should expect its wavefunction to become less and less
+localized, which can be interpreted as the escape of the particle to
+infinity, or as the ``decay'' of the quasi-bound state into the free
+state continuum.
+
+The decay process can be described by the function
+$$P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,$$
+which we can interpret as the probability for the system to continue
+occupying state $|\varphi\rangle$ after time $t$.  To calculate this,
+let us first find
+$$f(t) = \begin{cases} \langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle \,e^{-\varepsilon t}, & t \ge 0 \\ 0, & t < 0,\end{cases}$$
+where $\varepsilon \in \mathbb{R}^+$.  For $t \ge 0$ and $\varepsilon
+\rightarrow 0^+$, we see that $|f(t)|^2 \rightarrow P(t)$.  The reason
+we define this ``regulated'' function $f(t)$, instead of studying
+$\langle\varphi|\exp(-i\hat{H}t/\hbar)|\varphi\rangle$ directly, is
+that its Fourier transform is more well-behaved.  The Fourier transform is
+$$F(\omega) \;=\; \int_{-\infty}^\infty dt \; e^{i\omega t}\, f(t) \;=\; \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \langle\varphi|e^{-i\hat{H}t/\hbar}|\varphi\rangle.$$
+We now insert a resolution of the identity, $\hat{I} = \sum_n
+|n\rangle\langle n|$, where $\{|n\rangle\}$ denotes the exact
+eigenstates of $\hat{H}$ (for free states, the sum goes to an integral
+in the usual way):
+$$\begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle \end{aligned}$$
+Hence, 
+$$\lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,$$
+where $\hat{G}$ is our old friend the causal Green's function.
+
+As discussed in the previous section, when the resonance condition is
+satisfied,
+$$ \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\Sigma]},$$
+where $E_{\mathrm{res}}$ is the resonance energy and $\Sigma$ is the
+self-energy of the quasi-bound state.  We can now perform the
+inverse Fourier transform
+$$\begin{aligned} \lim_{\varepsilon\rightarrow 0^+} f(t) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \; e^{-i\omega t} \, F(\omega) \\ &= \frac{i}{2\pi} \int_{-\infty}^{\infty} d\omega\; \frac{e^{-i\omega t}}{\omega - (E_{\mathrm{res}}+i \mathrm{Im}[\Sigma])/\hbar}\\ &= \exp\left(-\frac{iE_{\mathrm{res}}t}{\hbar}\right)\, \exp\left(-\frac{|\mathrm{Im}[\Sigma]|}{\hbar}\,t\right). \end{aligned}$$
+In deriving the last line, we performed a contour integration assuming
+that $\mathrm{Im}[\Sigma] < 0$; this assumption will be proven
+shortly.  The final result is that
+$$P(t) = \exp\left(-\frac{2|\mathrm{Im}[\Sigma]|}{\hbar}\,t\right).$$
+Hence, $2|\mathrm{Im}[\Sigma]|/\hbar$ plays the role of a
+\textit{rate} governing the decay of the quasi-bound state.
+
 
 
 \section*{Exercises}
@@ -490,11 +528,11 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
 \item Bransden \& Joachain, \S4.4, 9.2--9.3, 13.4
 \item Sakurai, \S5.6, 7.7--7.8
 
-\item 
-  C.~W.~Hsu, B.~Zhen, A.~D.~Stone, J.~D.~Joannopoulos, and
-  M.~Solja\u{c}i\'{c}, \textit{Bound states in the continuum},
-  Nature Reviews Materials \textbf{1}, 16048 (2016).
-  \label{cite:hsu}
+%% \item 
+%%   C.~W.~Hsu, B.~Zhen, A.~D.~Stone, J.~D.~Joannopoulos, and
+%%   M.~Solja\u{c}i\'{c}, \textit{Bound states in the continuum},
+%%   Nature Reviews Materials \textbf{1}, 16048 (2016).
+%%   \label{cite:hsu}
 \end{itemize}
 
 \end{document}
