@@ -303,9 +303,11 @@ single-particle states $\{|\alpha\rangle, |\beta\rangle, |\gamma\rangle, |\delta
 \cdots\}$, which form an orthonormal basis set for the single-particle
 Hilbert space $\mathscr{H}^{(1)}$.  For a multi-particle state, we can
 specify how many particles are in state $|\alpha\rangle$, how many are in
-state $|\beta\rangle$, etc.  The corresponding multi-particle state is
-then \textit{defined} as the appropriate symmetric (for bosons) or
-antisymmetric (for fermions) tensor product state.
+state $|\beta\rangle$, etc.:
+$$|n_\alpha,n_\beta,n_\gamma,\dots\rangle$$
+The corresponding multi-particle state is then \textit{defined} as the
+appropriate symmetric (for bosons) or antisymmetric (for fermions)
+tensor product state.
 
 For instance, $|0,2,0,0,\dots\rangle$ specifies a two-particle state
 in which both particles in state $|\beta\rangle$.  Assuming that the
@@ -407,7 +409,7 @@ Right-multiplying by another occupation number state
 $|n_\alpha',n_\beta',\dots\rangle$ results in
 $$\begin{aligned}\big\langle n_\alpha, n_\beta, \dots \big| \hat{a}_\mu \big|n_\alpha',n_\beta',\dots\big\rangle &= \sqrt{n_\mu+1} \; \big\langle \dots, n_\mu + 1, \dots\big| \dots, n_\mu',\dots\big\rangle \\&= \sqrt{n_\mu+1}\; \delta^{n_\alpha}_{n_\alpha'}\; \delta^{n_\beta}_{n_\beta'} \cdots \delta^{n_\mu+1}_{n_\mu'} \dots \\  &= \sqrt{n_\mu'}\; \delta^{n_\alpha}_{n_\alpha'}\; \delta^{n_\beta}_{n_\beta'} \cdots \delta^{n_\mu+1}_{n_\mu'}\end{aligned}$$
 From this, we can deduce that
-$$\hat{a}_\mu \big|n_\alpha, n_\beta, \dots, n_\mu, \dots\big\rangle = \begin{cases} \sqrt{n_\mu} \; \big|n_\alpha, n_\beta, \dots, n_\mu - 1, \dots\big\rangle, & \mathrm{if}\; n_\mu > 0 \\ 0, & \mathrm{if}\; n_\mu = 0.\end{cases} $$
+$$\hat{a}_\mu \big|n_\alpha', n_\beta', \dots, n_\mu', \dots\big\rangle = \begin{cases} \sqrt{n_\mu'} \; \big|n_\alpha', n_\beta', \dots, n_\mu' - 1, \dots\big\rangle, & \mathrm{if}\; n_\mu' > 0 \\ 0, & \mathrm{if}\; n_\mu' = 0.\end{cases} $$
 In other words, the annihilation operator reduces the occupation
 number of one of the single-particle states by one (hence its name).
 As a special exception, if the given single-particle state is
@@ -456,7 +458,92 @@ chapter.
 
 \subsection{Second quantization for fermions}
 
+For fermions, the multi-particle states are antisymmetric, and this
+gives rise to a complication: for the occupation number representation
+to be well-defined, it is necessary to choose an ordering for the
+single-particle states.
 
+In the bosonic context, it doesn't really matter whether we write
+$|n_\alpha,n_\beta,n_\gamma,\dots\rangle$ or
+$|n_\beta,n_\alpha,n_\gamma,\dots\rangle$, since the multi-particle
+states are symmetric.  But for fermions, each multi-particle state
+involves a sum that contains parity coefficients $s(p)$.  So, for
+example, if we order the states as
+$|n_\alpha,n_\beta,n_\gamma,\dots\rangle$, then
+$$|1,1,0,0,\dots\rangle \equiv \frac{1}{\sqrt{2}} \Big(|\alpha\rangle|\beta\rangle - |\beta\rangle |\alpha\rangle\Big).$$
+Whereas if we order the states as $|n_\beta,n_\alpha,n_\gamma,\dots\rangle$, then
+$$|1,1,0,0,\dots\rangle \equiv \frac{1}{\sqrt{2}} \Big(|\beta\rangle |\alpha\rangle - |\alpha\rangle|\beta\rangle\Big).$$
+This means that we need to decide how the single-particle states are
+ordered.  It does not matter which ordering we choose, so long as we
+make \textit{some} choice, and stick to it consistently.  To emphasize
+this, we will change our notation slightly.  Instead of writing the
+occupation number states as $|n_\alpha,n_\beta,\dots\rangle$, we will
+write them as $|n_1,n_2,n_3,\dots\rangle$, where $n_\mu$ denotes the
+occupation number of the $\mu$-th single-particle state in our ordered
+list.
+
+The fermion creation operator can now be defined as follows:
+$$\begin{aligned}\hat{c}_\mu^\dagger |n_1, n_2, \dots, n_\mu,\dots\rangle &= \begin{cases}(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}} |n_1, n_2, \dots, n_{\mu-1}, 1, \dots\rangle & \mathrm{if} \; n_\mu = 0 \\ \;\;0 & \mathrm{if}\; n_\mu = 1.
+\end{cases} \\&= (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big|n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big\rangle. \end{aligned}$$
+In other words, if state $\mu$ is unoccupied, then $\hat{c}_\mu^\dagger$
+increments the occupation number to 1, and multiplies the state by an
+overall factor of $(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}$ (i.e, $+1$
+if the number of occupied states preceding $\mu$ is even, and $-1$ if
+it is odd).  The purpose of this factor will become more apparent
+later.  If $\mu$ is occupied, then applying $\hat{c}_\mu^\dagger$
+gives the zero vector.  In this way, the occupation numbers are
+forbidden from exceeding one.
+
+The complex conjugate of the creation operator, $\hat{c}_\mu$, is the
+fermion annihilation operator.  To see what it does, take the
+Hermitian conjugate of the definition of the creation operator:
+$$\langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu  =
+(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big\langle n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big|.$$
+Right-multiplying this by $|n_1',n_2',\dots\rangle$ gives
+$$\langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu |n_1', n_2', \dots\rangle  = (-1)^{n_1 + \cdots + n_{\mu-1}} \;\delta^{n_1}_{n_1'} \cdots \;\delta^{n_{\mu-1}}_{n_{\mu-1}'} \left(\delta^{n_\mu}_0 \delta^1_{n_\mu'} \right) \delta^{n_{\mu+1}}_{n_{\mu+1}'} \dots$$
+Hence, we can deduce that
+$$\begin{aligned}\hat{c}_\mu |n_1', \dots, n_\mu',\dots\rangle &= \begin{cases} \;\;0 & \mathrm{if}\; n_\mu' = 0 \\ (-1)^{n_1' + \cdots + n_{\mu-1}'} |n_1', \dots, n_{\mu-1}', 0, \dots\rangle & \mathrm{if} \; n_\mu' = 1. \end{cases} \\ &= (-1)^{n_1' + \cdots + n_{\mu-1}'} \; \delta^1_{n_\mu'} \, \big|n_1', \dots, n_{\mu-1}', 0, \dots\big\rangle.\end{aligned}$$
+In other words, if state $\mu$ is unoccupied, then applying
+$\hat{c}_\mu$ gives the zero vector; if state $\mu$ is occupied,
+applying $\hat{c}_\mu$ decrements the occupation number to $0$, and
+multiplies the state by the aforementioned factor of $\pm 1$.
+
+With these definitions, the fermion creation and annihilation
+operators can be shown to obey the following \textit{anticommutation}
+relations:
+$$\begin{aligned}\,\big\{\hat{c}_\mu,\hat{c}_\nu\big\} = \big\{\hat{c}_\mu^\dagger,\hat{c}_\nu^\dagger\big\} &= 0, \\ \,\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} &= \delta_{\mu\nu}\end{aligned}\qquad\textrm{for all}\;\mu,\nu.$$
+Here, $\{\cdot,\cdot\}$ denotes an anticommutator, which is defined as
+follows:
+$$\left\{\hat{A},\hat{B}\right\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}.$$
+
+Similar to the bosonic commutation relations, these anticommutation
+relations can be derived by taking matrix elements with occupation
+number states.  We will only go over the last one,
+$\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} = \delta_{\mu\nu}$; the
+other derivations follow similar lines.
+
+Firstly, consider the case where the creation and annihilation
+operators act on the same single-particle state $\mu$:
+$$\begin{aligned}\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu \hat{c}_\mu^\dagger \big|\dots, n_\mu', \dots\big\rangle &= (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\mu'} \\ &\quad\times \big\langle n_1,\dots,n_{\mu-1}, 1, \dots\big| n_1',\dots,n_{\mu-1}', 1, \dots \big\rangle \\ &= \delta^0_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots\end{aligned}$$
+And by a similar calculation,
+$$\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu^\dagger \hat{c}_\mu \big|\dots, n_\mu', \dots\big\rangle = \delta^1_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots$$
+By adding these two equations, and using the fact that
+$\delta^0_{n_\mu'} + \delta^1_{n_\mu'} = 1$, we get
+$$\big\langle \dots,n_\mu,\dots \big| \left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} \big|\dots, n_\mu', \dots\big\rangle = \big\langle \dots,n_\mu,\dots \big|\dots, n_\mu', \dots\big\rangle$$
+And hence,
+$$\left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} = \hat{I}.$$
+
+Next, we must prove that $\left\{ \hat{c}_\mu,
+\hat{c}_\nu^\dagger\right\} = 0$ for $\mu \ne \nu$.  We will show this
+for $\mu < \nu$ (the $\mu > \nu$ case follows by Hermitian
+conjugation).  This is, once again, by taking matrix elements:
+$$\begin{aligned}\big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\mu \hat{c}_\nu^\dagger \big| & \dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\nu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\nu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, 1, \dots, n_\nu,\dots\big| \dots,n_{\mu}', \dots,1, \dots \big\rangle \\ &\qquad\quad = (-1)^{n_\mu'+\cdots+n_{\nu-1}'}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'}\right) \cdots \\
+&\qquad\quad = (-1)^{1 + n_{\mu+1} + \cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^0_{n_\mu}\delta^1_{n_\mu'}\right) \cdots \left(\delta^0_{n_\nu'} \delta^1_{n_\nu}\right) \cdots \\
+  \big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\nu^\dagger \hat{c}_\mu \big| &\dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\nu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\nu}_1 \delta^1_{n_\mu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, n_\mu, \dots, 0,\dots\big| \dots,0, \dots,n_\nu', \dots \big\rangle \\ &\qquad\quad= (-1)^{n_{\mu}+\cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'} \right) \cdots \\ &\qquad\quad= (-1)^{0 + n_{\mu+1}+\cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1\delta^0_{n_\nu'}\right) \cdots
+\end{aligned}$$
+The two equations differ by a factor of $-1$, so adding them gives
+zero.  Putting everything together, we conclude that
+$\big\{c_\mu,c_\nu^\dagger\big\} = \delta_{\mu\nu}$.
 
 \section{Measurements and state collapse}
 
