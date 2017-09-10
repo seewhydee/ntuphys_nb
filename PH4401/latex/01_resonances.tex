@@ -423,23 +423,36 @@ state continuum.
 The decay process can be described by
 $$P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,$$
 which is the probability for the system to continue occupying state
-$|\varphi\rangle$ after time $t$.  In order to calculate this, let us
-look at the function
+$|\varphi\rangle$ after time $t$.  In order to calculate $P(t)$, let
+us define the function
 $$f(t) = \begin{cases} \langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle \,e^{-\varepsilon t}, & t \ge 0 \\ 0, & t < 0,\end{cases}$$
 where $\varepsilon \in \mathbb{R}^+$.  For $t \ge 0$ and $\varepsilon
 \rightarrow 0^+$, we see that $|f(t)|^2 \rightarrow P(t)$.  The reason
-we define this ``regulated'' function $f(t)$, instead of studying
-$\langle\varphi|\exp(-i\hat{H}t/\hbar)|\varphi\rangle$ directly, is
-that its Fourier transform is more well-behaved.  The Fourier transform is
+we are interested in $f(t)$, rather than dealing directly with
+$\langle\varphi|\exp(-i\hat{H}t/\hbar)|\varphi\rangle$, is that $f(t)$
+is more well-behaved.  This function is designed so that firstly, it
+vanishes at negative times, prior to start of our thought experiment;
+and secondly, it vanishes as $t\rightarrow\infty$ due to the presence
+of the ``regulator'' $\varepsilon$.  The latter enforces the idea that
+the bound state decays permanently into the continuum of free states,
+and can never be re-populated by waves ``bouncing back'' from
+infinity.
+
+We can determine $f(t)$ by first studying its Fourier transform,
 $$F(\omega) \;=\; \int_{-\infty}^\infty dt \; e^{i\omega t}\, f(t) \;=\; \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \langle\varphi|e^{-i\hat{H}t/\hbar}|\varphi\rangle.$$
-We now insert a resolution of the identity, $\hat{I} = \sum_n
+Now insert a resolution of the identity, $\hat{I} = \sum_n
 |n\rangle\langle n|$, where $\{|n\rangle\}$ denotes the exact
 eigenstates of $\hat{H}$ (for free states, the sum goes to an integral
 in the usual way):
-$$\begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle \end{aligned}$$
-Hence, 
+$$\begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle. \end{aligned}$$
+Note that in the third line, the regulator $\varepsilon$ removes any
+contribution from the $t \rightarrow\infty$ limit of the integral (in
+accordance with our requirement that the decay of the bound state is
+permanent).  Hence,
 $$\lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,$$
-where $\hat{G}$ is our old friend the causal Green's function.
+where $\hat{G}$ is our old friend the causal Green's function.  The
+appearance of the \textit{causal} Green's function is due to our
+definition of the function $f(t)$.
 
 As discussed in the previous section, when the resonance condition is
 satisfied,
@@ -455,14 +468,15 @@ $$P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = -\frac{2|\mathrm{Im}[\S
 The quantity $\kappa$ describes the rate at which the quasi-bound
 state decays away in time.
 
-Let us now take a closer look at the expression for the self-energy.
-From the previous section,
+Let us now take a closer look at the self-energy.  From our earlier
+definition,
 $$\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon},$$
 where $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ are the bound and
 free states of the model in the absence of $\hat{V}_1$, and $E_k$ is
 the energy of the $k$-th free state.  The imaginary part is
-$$\begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \lim_{\varepsilon\rightarrow0^+} \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}.\end{aligned}$$
-The Lorentzian curve in the integrand has the property that
+$$\begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \right] \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}$$
+The quantity inside the square brackets describes a Lorentzian curve,
+which has the property
 $$\lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x),$$
 which comes from the fact that as $\varepsilon\rightarrow0^+$, the
 curve describes a sharper and sharper peak, but the area under the
