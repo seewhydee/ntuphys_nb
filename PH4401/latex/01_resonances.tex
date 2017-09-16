@@ -474,38 +474,47 @@ $$\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displayst
 where $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ are the bound and
 free states of the model in the absence of $\hat{V}_1$, and $E_k$ is
 the energy of the $k$-th free state.  The imaginary part is
-$$\begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \right] \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}$$
-The quantity inside the square brackets describes a Lorentzian curve,
-which has the property
-$$\lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x),$$
-which comes from the fact that as $\varepsilon\rightarrow0^+$, the
-curve describes a sharper and sharper peak, but the area under the
-curve is $\pi$ regardless of the value of $\varepsilon$.  Using this,
-gives us
+$$\begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}$$
+The quantity inside the square brackets is a Lorentzian function,
+which is always positive; hence, $\mathrm{Im}(\Sigma) < 0$, as
+previously asserted.  The Lorentzian function has the limiting form
+$$\lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).$$
+This comes from the fact that as $\varepsilon\rightarrow0^+$, the
+Lorentzian curve describes a sharper and sharper peak, but the area
+under the curve is fixed as $\pi$.  Hence,
 $$\mathrm{Im}\big[\Sigma(E)\big] = - \pi \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \delta(E-E_k).$$
-(Note that this implies $\mathrm{Im}(\Sigma) < 0$, as we previously
-asserted.)  Now, due to the delta function in the integrand, the only
-non-vanishing contributions to the integral come from the parts of
-$k$-space where $E = E_k$.  We can simplify this by defining the
-\textbf{density of states}
-$$\mathcal{D}(E) = \int d^d k\; \delta(E - E_k).$$
-The purpose of this quantity is to describe the ``number'' of free
-states with energy $E$.  Since the free states form a continuum, there
-is an infinite number of states in any finite volume of $k$-space, but
-the volume of $k$-space where the states have energy exactly equal to
-$E$ is infinitesimal; hence, $\mathcal{D}(E)$ ends up being finite.
-(If this is confusing, consult the next section, where we explicitly
-calculate $\mathcal{D}(E)$ for a simple 1D model.)  Because the
-integrand is zero unless $E_k = E$, for any function $f(k)$,
-$$\int d^d k\; f(k) \delta(E - E_k) = \overline{f(k(E))} \mathcal{D}(E),$$
-where $\overline{f(k(E))}$ denotes the mean value of $f(k)$ for those
-free states satisfying $E_k = E$.
+Because of the delta function, we see that the only non-vanishing
+contributions to the integral come from the parts of $k$-space where
+$E = E_k$.
 
-Applying this to the imaginary part of the self-energy gives
-$$\mathrm{Im}\big[\Sigma(E)\big] = - \pi \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \, \mathcal{D}(E).$$
+We can further simplify the result by defining the \textbf{density of
+  states},
+$$\mathcal{D}(E) = \int d^d k\; \delta(E - E_k).$$
+Roughly speaking, this is a measure of the number of free states with
+energy $E$: the $k$-space volume $d^dk$ is proportional to the number
+of free states at each given $k$, while the delta function restricts
+the contributions to only those free states having energy $E$.  (In
+the next section, we'll see an explicit example of how to calculate
+$\mathcal{D}(E)$.)  Now, for any function $f(k)$,
+$$\int d^d k\; f(k) \, \delta(E - E_k) = \overline{f(k(E))} \;\mathcal{D}(E),$$
+where $\overline{f(k(E))}$ denotes the mean value of $f(k)$ for the
+free states satisfying $E_k = E$.  Applying this to the imaginary part
+of the self-energy gives
+$$\mathrm{Im}\big[\Sigma(E)\big] = - \pi \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).$$
 Hence, the quasi-bound state's decay rate is
-$$\boxed{\quad\kappa = -\frac{2}{\hbar}\mathrm{Im}\big[\Sigma(E)\big] = \frac{2\pi}{\hbar} \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \, \mathcal{D}(E).\quad}$$
-This result is known as \textbf{Fermi's golden rule}.
+$$\boxed{\quad\kappa \,=\, -\frac{2}{\hbar}\mathrm{Im}\big[\Sigma(E)\big] \,=\, \frac{2\pi}{\hbar} \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).\quad}$$
+This extremely important result is known as \textbf{Fermi's golden
+  rule}.  It says that the decay rate of a quasi-bound mode is
+directly proportional to two factors.  The first factor is the mean
+squared value of $\langle\psi_{k}| \hat{V}_1|\varphi\rangle$, which is
+called the ``transition amplitude'' and describes how $\hat{V}_1$
+couples the quasi-bound state and the free states; note that this
+factor goes to zero when $\hat{V}_1 = 0$, which is the case where
+$|\varphi\rangle$ is a true bound state (which does not decay).  The
+second factor is the density of free states that are available for
+$|\varphi\rangle$ to decay into.
+
+
 
 
 \section{Applying Fermi's golden rule to a 1D resonance}
