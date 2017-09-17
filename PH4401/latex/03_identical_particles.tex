@@ -545,19 +545,19 @@ $\big\{c_\mu,c_\nu^\dagger\big\} = \delta_{\mu\nu}$, as stated above.
 \subsection{Second-quantized operators}
 
 One of the key benefits of second quantization is that it allows us to
-express multi-particle quantum operators clearly and succinctly, by
-making use of the creation and annihilation operators defined in
-Sections~\ref{sec:second_quantized_bosons}--\ref{sec:second_quantized_fermions}.
-This is particularly important for formulating multi-particle
-Hamiltonians.
+express multi-particle quantum operators clearly and succinctly, using
+the creation and annihilation operators defined in
+Sections~\ref{sec:second_quantized_bosons}--\ref{sec:second_quantized_fermions}
+as ``building blocks''.  This is particularly important for
+formulating multi-particle Hamiltonians.
 
 We start by considering a system of \textit{non-interacting}
-particles.  In the case where the system contains just one particle
-($N=1$), let $\hat{H}_1$ denote the single-particle Hamiltonian, which
-is some Hermitian operator acting on the single-particle Hilbert space
-$\mathscr{H}^{(1)}$.  For general $N$, the multi-particle Hamiltonian
-$\hat{H}$ is a Hermitian operator acting on the Fock space
-$\mathscr{H}^F$.  Given $\hat{H}_1$, what is $\hat{H}$?
+particles.  When there is just one particle ($N=1$), let $\hat{H}_1$
+denote the single-particle Hamiltonian, which is a Hermitian operator
+acting on the single-particle Hilbert space $\mathscr{H}^{(1)}$.  For
+general $N$, the multi-particle Hamiltonian $\hat{H}$ is a Hermitian
+operator acting on the Fock space $\mathscr{H}^F$.  Given $\hat{H}_1$,
+what is $\hat{H}$?
 
 For bosons, the answer is:
 $$\hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\varphi_\mu|\hat{H}_1|\varphi_\nu\rangle,$$
@@ -575,62 +575,90 @@ results apply equally well to fermions.
 To understand why this expression for $\hat{H}$ makes sense, consider
 its matrix elements with respect to various states.  Firstly, for the
 vacuum state $|\varnothing\rangle$,
-$$\langle\varnothing|\hat{H}|\varnothing\rangle = 0,$$
-Secondly, for single-particle states, they can be written as
+$$\langle\varnothing|\hat{H}|\varnothing\rangle = 0.$$
+Secondly, single-particle states can be written as
 $|\varphi_\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$, so
-$$\begin{aligned}\langle\varphi_\mu|\hat{H}|\varphi_\nu\rangle &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu},\end{aligned}$$
-exactly matching the definition of $H_{\mu\nu}$ in our expression for
-$\hat{H}$.
+$$\begin{aligned}\langle\varphi_\mu|\hat{H}|\varphi_\nu\rangle &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}$$
+This exactly matches the definition of $H_{\mu\nu}$ in the original
+expression for $\hat{H}$.
 
-Thirdly, consider the special case where
-$\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ is an eigenbasis of
+Thirdly, consider the case where
+$\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ forms an eigenbasis of
 $\hat{H}_1$.  Then,
 $$\hat{H}_1|\varphi_\mu\rangle = E_\mu |\varphi_\mu\rangle \;\;\;\Rightarrow\;\;\; H_{\mu\nu} = E_\mu\,\delta_{\mu\nu}. \;\;\;\Rightarrow \;\; \hat{H} = \sum_{\mu} E_\mu \,\hat{n}_\mu.$$
 As previously noted, $\hat{n}_\mu = \hat{a}^\dagger_\mu \hat{a}_\mu$
 is the number operator, a Hermitian operator which corresponds to the
-occupation number of single-particle state $\mu$.  Therefore, the above
-expression for $\hat{H}$ states the total energy is equal to the sum
-of the single-particle energies, which is exactly what we expect for a
-system of non-interacting particles.
+occupation number of single-particle state $\mu$.  Therefore, the
+total energy is the sum of the single-particle energies, which is
+exactly what we expect for a system of non-interacting particles.
 
-As we know, the Hamiltonian is the generator of time evolution.
-Hence, one way to interpret the expression $\hat{H} = \sum_{\mu\nu}
-\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$ is that each infinitesimal
-time step is a superposition of alternative evolution processes.  Each
-process, $\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$, describes a
-particle being annihilated in state $\nu$, and immediately re-created
-in state $\mu$, which is equivalent to transferring a particle from
-$\nu$ to $\mu$.  The quantum amplitude for this process is described
-by the matrix element $H_{\mu\nu}$.  This description applies not only
-to single-particle states, but also to multi-particle states
-containing an arbitrary number of particles.
+Another way to interpret $\hat{H}$ is to think of the Hamiltonian as
+the generator of time evolution.  Then $\hat{H} = \sum_{\mu\nu}
+\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$ says that each
+infinitesimal time step consists of a superposition of alternative
+evolution processes.  Each term in the superposition,
+$\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$, describes a particle
+being annihilated in state $\nu$, and immediately re-created in state
+$\mu$, which is equivalent to ``transferring'' a particle from $\nu$
+to $\mu$.  The quantum amplitude for this process is described by the
+matrix element $H_{\mu\nu}$.  This description of time evolution is
+applicable not just to single-particle states, but also to
+multi-particle states containing any number of particles.
 
-Note also that in this description, the number of particles does not
-change.  Any time a particle is annihilated in some state $\nu$, it is
-immediately replaced by a particle created in some state $\mu$.  This
-implies that the Hamiltonian commutes with the total particle number
-operator:
+Note also that the number of particles does not change during time
+evolution.  Whenever a particle is annihilated in a state $\nu$, it is
+immediately re-created in some state $\mu$.  This implies that the
+Hamiltonian commutes with the total particle number operator:
 $$[\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.$$
-The formal proof for this is left as an exercise to the reader (see
-\hyperref[ex:n_conserved]{Exercise 5}).  It follows directly from the
-creation and annihilation operators' commutation relations (for
-bosons) or anticommuattion relations (for fermions).
+The formal proof for this is left as an exercise (see
+\hyperref[ex:n_conserved]{Exercise 5}).  It follows from the creation
+and annihilation operators' commutation relations (for bosons) or
+anticommuattion relations (for fermions).
 
-
-The result can also be extended to any kind of single-particle
-observable, including momentum, angular momentum, and so forth.  In
-general, let $\hat{A}_1$ be a Hermitian operator acting on
-single-particle states, corresponding to a physical observable $A$.
-For multi-particle states, the operator corresponding to the ``total
-$A$'' is
+Apart from the total energy, other kinds of observables---such as the
+total momentum, total angular momentum, etc.---can be expressed in a
+similar way.  Let $\hat{A}_1$ be a Hermitian operator acting on
+single-particle states, corresponding to some physical observable $A$.
+Then, for a multi-particle system, the operator corresponding to the
+``total $A$'' is
 $$\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle.$$
 
-\textcolor{red}{[Interaction energy]}
+Hermitian operators can also be constructed out of other kinds of
+groupings of creation and annihilation operators.  For example, a
+pairwise (two-particle) potential can be described with a
+superposition of creation and annihilation operator pairs, of the form
+$$\hat{V} = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \, V_{\mu\nu;\lambda\sigma}\, \hat{a}_\lambda \hat{a}_\sigma.$$
+We can ensure that $\hat{V}$ is Hermitian by imposing a
+constraint on the coefficents:
+$$\hat{V}^\dagger = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\sigma \hat{a}^\dagger_\lambda \, V_{\mu\nu;\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V} \;\;\Leftarrow \;\; V_{\sigma\lambda;\nu\mu}^* = V_{\mu\nu;\lambda\sigma}.$$
+In the next section, we will show how to determine the
+$V_{\mu\nu;\lambda\sigma}$ coefficients for any given two-particle
+interaction, such as the electrostatic potential function.  The
+$\hat{V}$ operator can then be added to a Hamiltonian to describe a
+system of interacting particles.  In terms of time evolution, the
+$\hat{V}$ operator ``transfers'' (annihilates and then re-creates) a
+\textit{pair} of particles during each infinitesimal time step.  Since
+the number of annihilated particles is always equal to the number of
+created particles, the interaction conserves the total particle
+number.
 
-\textcolor{red}{[Particle non-conserving terms]}
-
+Another way to construct a Hermitian operator from creation and
+annihilation operators is
+$$\hat{A} = \sum_\mu \left(\alpha_\mu \hat{a}_\mu^\dagger + \alpha^*_\mu \hat{a}_\mu\right).$$
+If such a term is added to a Hamiltonian, it breaks the conservation
+of total particle number.  Each infinitesimal time step will contain a
+superposition of processes that decrease the particle number (due to
+$\hat{a}_\mu$), and processes that increase the particle number (due
+to $\hat{a}_\mu^\dagger$).  Even if we start out with a state with a
+fixed number of particles, such as the vacuum state
+$|\varnothing\rangle$, the system subsequently evolves into a
+superposition of states of different particle numbers.  In the
+theory of quantum electrodynamics, this type of operator is used to
+describe the emission and absorption of photons caused by moving
+charges.
 
 \section{Quantum field theory}
+\label{sec:qft}
 
 Thus far, we have been agnostic about what the single-particle states
 $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ actually are.
@@ -641,11 +669,6 @@ wavefunction
 $$\psi_\mu(\mathbf{r}) = \langle\mathbf{r}|\varphi_\mu\rangle,$$
 where $|\mathbf{r}\rangle$ denotes a position eigenstate for a
 $d$-dimensional space.
-
-Then, using the creation and annihilation operators
-
-Hamiltonians
-
 
 
 \section{The spin-statistics connection}
