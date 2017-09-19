@@ -138,6 +138,7 @@ quantum numbers).  For details, see
 \end{figure}
 
 \section{Quasi-bound states and resonances}
+\label{sec:resonances}
 
 In the 1D finite square well model, there is a sharp distinction
 between bound states and free states.  In certain other models,
@@ -152,9 +153,9 @@ extremely important implications for scattering experiments.
 The figure below shows an example of a potential function that can
 give rise to quasi-bound states.  In the exterior region, $|x| > b$,
 the potential is zero.  Between $x = -b$ and $x = b$, there is a
-``barrier'' of positive potential $V_1$.  Embedded in the middle of
+``barrier'' of positive potential $V_b$.  Embedded in the middle of
 this barrier, in the region $|x| < a$, is a central well of depth $U$
-such that $0 < V_1 - U < V_1$.
+such that $0 < V_b - U < V_b$.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.7\textwidth]{resonancewell}
@@ -164,13 +165,13 @@ This potential is purely repulsive, so there are no bound states.  The
 only exact eigenstates of the Hamiltonian are free states.
 
 However, there's something intriguing about the energy range
-corresponding to the central well, $V_1-U < E < V_1$.  Consider a
+corresponding to the central well, $V_b-U < E < V_b$.  Consider a
 slightly different situation, where the potential in the exterior
-region is $V_1$ rather than $0$; i.e., the potential function is a
+region is $V_b$ rather than $0$; i.e., the potential function is a
 finite square well:
-$$V_{\mathrm{alt}}(x) = \begin{cases}V_1 - U, & |x| < a, \\ V_1, & \mathrm{otherwise}.\end{cases}$$
+$$V_{\mathrm{alt}}(x) = \begin{cases}V_b - U, & |x| < a, \\ V_b, & \mathrm{otherwise}.\end{cases}$$
 In this case, there will be bound states somewhere in the energy range
-$V_1-U < E < V_1$.  These bound states' wavefunctions diminish
+$V_b-U < E < V_b$.  These bound states' wavefunctions diminish
 exponentially away from the square well, and are thus close to zero
 for $|x| > b$.  But since $V(x)$ and $V_{\mathrm{alt}}(x)$ differ from
 each other only in the region $|x| > b$, these wavefunctions ought to
@@ -192,7 +193,7 @@ $$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e
 The scattering amplitudes $f_+$ and $f_-$ can be found by solving the
 Schr\"odinger wave equation, using the transfer matrix method (see
 Appendix B).  The figure below shows numerical results obtained for
-$U = 20,\,V_1 = 30,\,a=1$, and $b = 1.2$ or $b = 1.4$, with $\hbar =
+$U = 20,\,V_b = 30,\,a=1$, and $b = 1.2$ or $b = 1.4$, with $\hbar =
 m = 1$.
 
 \begin{figure}[h]
@@ -202,9 +203,9 @@ m = 1$.
 The vertical axis shows $|f_+|^2$, which is called the
 ``transmittance'' and measures the probability for the incident
 particle to pass through the potential.  The horizontal axis is the
-particle energy $E$.  For $E < V_1-U$, the transmittance approaches
-zero, and for $E \gtrsim V_1$, the transmittance approaches unity, as
-expected.  Within the energy range $V_1-U < E \lesssim V_1$, the
+particle energy $E$.  For $E < V_b-U$, the transmittance approaches
+zero, and for $E \gtrsim V_b$, the transmittance approaches unity, as
+expected.  Within the energy range $V_b-U < E \lesssim V_b$, the
 transmittance forms a series of narrow peaks, which get sharper for
 larger $b$ (i.e., when the central well is more isolated from the
 exterior space).  At the top of the figure, we have also plotted the
@@ -515,6 +516,23 @@ second factor is the density of free states available for
 $|\varphi\rangle$ to decay into.
 
 \section{Fermi's golden rule in a 1D resonance model}
+
+Fermi's golden rule can be used to study a wide variety of quantum
+systems, and we will see examples in subsequent chapters.  As a
+demonstration of its utility, let us apply it to the simple 1D model
+from Section~\ref{sec:resonances}.  We will compare the predictions of
+Fermi's golden rule (which, remember, is an approximate result) to the
+``exact'' resonance widths observed in a scattering experiment (as
+computed via the transfer matrix method).
+
+The model potential is
+$$\begin{aligned}V(x) &= V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|).\end{aligned}$$
+The potential well $V_0$ supports one or more bound states.  For
+simplicity, we focus on its ground state, which becomes the lowest
+quasi-bound state once $V_1$ is introduced.
+
+
+
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.85\textwidth]{goldenrule}
