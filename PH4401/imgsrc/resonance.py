@@ -1,10 +1,15 @@
 from scipy import *
 import matplotlib.pyplot as plt
+from scipy.optimize import brentq
 import tmm
+import sys
 
 ## Plot transmittance vs E
 def resonance_demo_1(V0, V1, a, b, Emax):
-    Evec = linspace(0.01, Emax, 5000)
+    # Evec = linspace(0.01, Emax, 5000)
+
+    Evec = linspace(10, 12, 5000)
+
     fm   = empty(len(Evec), dtype=complex)
     fp   = empty(len(Evec), dtype=complex)
 
@@ -56,5 +61,61 @@ def resonance_demo_2():
         plt.ylim(0,1)
     plt.show()
 
-resonance_demo_2()
+## Plot transmittance resonance width vs b
+def resonance_demo_3():
+    V0, V1 =10.0, 30.0
+    a = 1.0
+    V = array([V1, V0, V1])
 
+    ## For given E resolution, b can range from 1.1 to 1.8
+    Evec = linspace(10.6, 11.2, 5000)
+    T    = empty(len(Evec))
+
+    bvec = linspace(1.1, 1.6, 20)
+    fwhm = empty(len(bvec))
+
+    def transmittance(E, dT=0.0):
+        k  = sqrt(2*E)
+        M  = tmm.transfer_matrix(L, V, 0.0, E)
+        fm = -M[1,0]/M[1,1]*exp(-2j*k*b)
+        return abs(M[0,0] * exp(-2j*k*b) + M[0,1]*fm)**2 - dT
+
+    for ii in range(len(bvec)):
+        b = bvec[ii]
+        L = array([b-a, 2*a, b-a])
+        for jj in range(len(Evec)):
+            T[jj] = transmittance(Evec[jj])
+        ## Find where T = 0.5
+        dT  = T - 0.5
+        idx = nonzero(dT[:-1] * dT[1:] < 0)[0]
+        assert len(idx) == 2
+        Eres = empty(2)
+        for n in range(2):
+            jj   = idx[n]
+            Eres[n] = brentq(transmittance, Evec[jj-1], Evec[jj+2], (0.5,))
+        fwhm[ii] = Eres[1] - Eres[0]
+
+        sys.stdout.write('\r' + str(ii+1) + '/' + str(len(bvec)))
+        sys.stdout.flush()
+    sys.stdout.write('\n')
+    plt.plot(bvec, fwhm, 'o')
+
+    ## Fermi's Golden Rule prediction
+    L, V = array([2*a]), array([V0-V1])
+    E0  = tmm.bound_state_energies(L, V)[0]
+    dd  = pi/2 - sqrt(2*(E0+V1-V0))
+    et  = sqrt(-2*E0)
+    k   = sqrt(2*(E0+V1))
+    DOS = sqrt(2/(E0+V1))
+    Bsq = exp(2*et*a) * dd*dd/a * pi / (1+pi)
+
+    bb = linspace(1.05, 1.8, 200)
+    overlap = (et*cos(k*bb) - k*sin(k*bb))**2 * exp(-2*et*bb) / (2*pi)
+    K = 2*pi * Bsq * overlap * DOS
+
+    plt.plot(bb, K)
+    plt.xlim(1, 1.6)
+    plt.ylim(0, 0.35)
+    plt.show()
+
+resonance_demo_3()

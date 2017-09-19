@@ -31,13 +31,13 @@ co-exist in a single system.
 
 The \textbf{1D finite square well} is a simple model which exhibits
 both bound states and free states.  Consider the Hamiltonian
-$$\hat{H} = \frac{\hat{p}^2}{2m} - V_0 \,\Theta(a -|\hat{x}|),$$ where
-$\hat{x}$ and $\hat{p}$ are the 1D position and momentum operators,
-$m$ is the particle mass, $V_0$ and $a$ are positive real parameters,
-and $\Theta(\cdots)$ denotes the Heaviside step function (1 if the
-input is positive, and 0 otherwise).  As shown below, this describes a
-potential well of depth $V_0$ and width $2a$.  Inside the well ($|x| <
-a$), the potential is $-V_0$; outside, it is zero.
+$$\hat{H} = \frac{\hat{p}^2}{2m} - U \,\Theta(a -|\hat{x}|),$$
+where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
+operators, $m$ is the particle mass, $U$ and $a$ are positive real
+parameters governing the potential function, and $\Theta(\cdots)$
+denotes the Heaviside step function (1 if the input is positive, and 0
+otherwise).  As shown below, the potential forms a well of depth $U$
+and width $2a$.  Outside the well, the potential is zero.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.7\textwidth]{squarewell}
@@ -63,8 +63,8 @@ The bound state solutions in the exterior region therefore take the
 form
 $$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.$$
 Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
-0$.  Moreover, the variational principle implies that $E \ge -V_0$.
-Hence, bound state energies are restricted to the range $-V_0 \le E <
+0$.  Moreover, the variational principle implies that $E \ge -U$.
+Hence, bound state energies are restricted to the range $-U \le E <
 0$.  We can also show that the bound state energies are
 \textit{discrete}: the energy spacing decreases with $a$, but so long
 as $a$ is finite, the spacing is non-vanishing.  Another related
@@ -92,7 +92,7 @@ exponentially at infinity, the integral $\int_{-\infty}^\infty
 normalization.
 
 The following figure shows numerically-obtained results for a square
-well with $V_0 = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
+well with $U = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
 energy spectrum is shown on the left side.  There exist five bound
 states; their plots of $|\psi|^2$ versus $x$ are shown on the right
 side.  These results were computed using the transfer matrix code
@@ -112,15 +112,15 @@ There is, however, a proviso to bear in mind.  If we vary the
 potential, the number of bound states can change: i.e., bound state
 solutions can either appear or disappear.  A numerical example is
 given below, showing the bound state energies for the square well
-model with fixed $a = 1$ and varying well depth $V_0$:
+model with fixed $a = 1$, as we vary the potential minimum $-U$:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.65\textwidth]{boundstate1d}
 \end{figure}
 
-For $V_0 = 30$, there are five bound states, but these disappear one
-by one as we make the potential well shallower.  Note, however, that
-one bound state survives in the limit $V_0 \rightarrow 0$.  There is a
+For $U = 30$, there are five bound states, but these disappear one by
+one as we make the potential well shallower.  Note, however, that one
+bound state survives in the limit $U \rightarrow 0$.  There is a
 theorem which states that any 1D attractive potential, no matter how
 weak, always supports at least one bound state.  For details, see
 \hyperref[ex:boundstate]{Exercise 1}.
@@ -153,8 +153,8 @@ The figure below shows an example of a potential function that can
 give rise to quasi-bound states.  In the exterior region, $|x| > b$,
 the potential is zero.  Between $x = -b$ and $x = b$, there is a
 ``barrier'' of positive potential $V_1$.  Embedded in the middle of
-this barrier, in the region $|x| < a$, is a central well of potential
-$V_0$ such that $0 < V_0 < V_1$.
+this barrier, in the region $|x| < a$, is a central well of depth $U$
+such that $0 < V_1 - U < V_1$.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.7\textwidth]{resonancewell}
@@ -164,13 +164,13 @@ This potential is purely repulsive, so there are no bound states.  The
 only exact eigenstates of the Hamiltonian are free states.
 
 However, there's something intriguing about the energy range
-corresponding to the central well, $V_0 < E < V_1$.  Consider a
+corresponding to the central well, $V_1-U < E < V_1$.  Consider a
 slightly different situation, where the potential in the exterior
 region is $V_1$ rather than $0$; i.e., the potential function is a
 finite square well:
-$$V_{\mathrm{alt}}(x) = \begin{cases}V_0, & |x| < a, \\ V_1, & \mathrm{otherwise}.\end{cases}$$
+$$V_{\mathrm{alt}}(x) = \begin{cases}V_1 - U, & |x| < a, \\ V_1, & \mathrm{otherwise}.\end{cases}$$
 In this case, there will be bound states somewhere in the energy range
-$V_0 < E < V_1$.  These bound states' wavefunctions diminish
+$V_1-U < E < V_1$.  These bound states' wavefunctions diminish
 exponentially away from the square well, and are thus close to zero
 for $|x| > b$.  But since $V(x)$ and $V_{\mathrm{alt}}(x)$ differ from
 each other only in the region $|x| > b$, these wavefunctions ought to
@@ -192,7 +192,7 @@ $$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e
 The scattering amplitudes $f_+$ and $f_-$ can be found by solving the
 Schr\"odinger wave equation, using the transfer matrix method (see
 Appendix B).  The figure below shows numerical results obtained for
-$V_0 = 10,\,V_1 = 30,\,a=1$, and $b = 1.2$ or $b = 1.4$, with $\hbar =
+$U = 20,\,V_1 = 30,\,a=1$, and $b = 1.2$ or $b = 1.4$, with $\hbar =
 m = 1$.
 
 \begin{figure}[h]
@@ -202,15 +202,15 @@ m = 1$.
 The vertical axis shows $|f_+|^2$, which is called the
 ``transmittance'' and measures the probability for the incident
 particle to pass through the potential.  The horizontal axis is the
-particle energy $E$.  For $E < V_0$, the transmittance approaches
+particle energy $E$.  For $E < V_1-U$, the transmittance approaches
 zero, and for $E \gtrsim V_1$, the transmittance approaches unity, as
-expected.  Within the energy range $V_0 < E \lesssim V_1$, the
+expected.  Within the energy range $V_1-U < E \lesssim V_1$, the
 transmittance forms a series of narrow peaks, which get sharper for
 larger $b$ (i.e., when the central well is more isolated from the
 exterior space).  At the top of the figure, we have also plotted the
-bound state energies for the square well potential $V'(x)$, which
-closely matches the energies of the transmittance peaks (at least, the
-first four peaks).
+bound state energies for the square well potential
+$V_{\mathrm{alt}}(x)$, which closely matches the energies of the
+transmittance peaks (at least, the first four peaks).
 
 Upon examining the total wavefunction $\psi(x)$ at these special
 energies, we see something very interesting.  The figure below plots
@@ -511,13 +511,14 @@ called the ``transition amplitude'' and describes how $\hat{V}_1$
 couples the quasi-bound state and the free states; note that this
 factor goes to zero when $\hat{V}_1 = 0$, which is the case where
 $|\varphi\rangle$ is a true bound state (which does not decay).  The
-second factor is the density of free states that are available for
+second factor is the density of free states available for
 $|\varphi\rangle$ to decay into.
 
+\section{Fermi's golden rule in a 1D resonance model}
 
-
-
-\section{Applying Fermi's golden rule to a 1D resonance}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.85\textwidth]{goldenrule}
+\end{figure}
 
 \section*{Exercises}
 
@@ -528,15 +529,15 @@ $|\varphi\rangle$ to decay into.
 \item In this problem, you will investigate the existence of bound
   states in a 3D potential well that is finite, uniform, and
   spherically-symmetric.  The potential function is
-$$V(r,\theta,\phi) = -V_0\Theta(a-r),$$
-  where $a$ is the radius of the spherical well, $V_0$ is the depth,
+$$V(r,\theta,\phi) = -U\Theta(a-r),$$
+  where $a$ is the radius of the spherical well, $U$ is the depth,
   and $(r,\theta,\phi)$ are spherical coordinates defined in the usual
   way.
 
   The solution involves a variant of the partial wave analysis
   discussed in Appendix A.  For $E < 0$, the Schr\"odinger equation
   reduces to
-$$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+V_0)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}$$
+$$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+U)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}$$
   For the first equation (called the Helmholtz equation), we seek
   solutions of the form
   $$\psi(r,\theta,\phi) = f(r) \, Y_{\ell m}(\theta,\phi),$$
@@ -568,9 +569,9 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
   exist is
   $$\frac{qj_\ell'(qa)}{j_\ell(qa)} = \frac{\gamma k_\ell'(\gamma a)}{k_\ell(\gamma a)},$$
   where $j_\ell'$ and $k_\ell'$ denote the derivatives of the relevant
-  special functions, and $q$ and $\gamma$ depend on $E$ and $V_0$ as
+  special functions, and $q$ and $\gamma$ depend on $E$ and $U$ as
   described above.  Write a program to search for the bound state
-  energies at any given $a$ and $V_0$, and hence determine the
+  energies at any given $a$ and $U$, and hence determine the
   conditions under which the potential does not support bound
   states.
 
