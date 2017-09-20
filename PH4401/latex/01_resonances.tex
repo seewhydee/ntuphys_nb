@@ -29,7 +29,7 @@ space is that they come in two distinct types: (i) \textbf{bound
   states}, which extend over the entire space.  Both types can
 co-exist in a single system.
 
-The \textbf{1D finite square well} is a simple model which exhibits
+The \textbf{1D finite square well} is a simple model that exhibits
 both bound states and free states.  Consider the Hamiltonian
 $$\hat{H} = \frac{\hat{p}^2}{2m} - U \,\Theta(a -|\hat{x}|),$$
 where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
@@ -79,7 +79,7 @@ wavefunction does not vanish exponentially at infinity, but instead
 takes the form
 $$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
 Outside the potential well, $\psi(x)$ consists of a superposition of
-left-moving and right-moving plane waves, with wavenumber $k$.  The
+left-moving and right-moving plane waves, with real wavenumber $k$.  The
 coefficients $\alpha_\pm$ and $\beta_\pm$ are not independent
 quantities, but are linked by a linear relation (see Appendix B).  In
 order to satisfy Schr\"odinger's equation, $k$ must satisfy
@@ -125,12 +125,11 @@ theorem which states that any 1D attractive potential, no matter how
 weak, always supports at least one bound state.  For details, see
 \hyperref[ex:boundstate]{Exercise 1}.
 
-In 3D, however, it is possible for an attractive potential to be ``too
-weak'' to support a bound state.  Intuitively, this happens if the
-zero-point energy of any prospective ground state exceeds the well
-depth.  A numerical example is given below, for a uniform
-spherically-symmetric well in 3D (the $l$'s label the angular momentum
-quantum numbers).  For details, see
+In 3D, however, an attractive potential can be too weak to support a
+bound state.  Intuitively, this happens if the zero-point energy of
+any prospective ground state exceeds the well depth.  A numerical
+example is given below for a uniform 3D spherically symmetric well
+(the $l$'s are angular momentum quantum numbers).  For details, see
 \hyperref[ex:boundstate3d]{Exercise 2}.
 
 \begin{figure}[h]
@@ -170,14 +169,14 @@ slightly different situation, where the potential in the exterior
 region is $V_b$ rather than $0$; i.e., the potential function is a
 finite square well:
 $$V_{\mathrm{alt}}(x) = \begin{cases}V_b - U, & |x| < a, \\ V_b, & \mathrm{otherwise}.\end{cases}$$
-In this case, there will be bound states somewhere in the energy range
-$V_b-U < E < V_b$.  These bound states' wavefunctions diminish
-exponentially away from the square well, and are thus close to zero
-for $|x| > b$.  But since $V(x)$ and $V_{\mathrm{alt}}(x)$ differ from
-each other only in the region $|x| > b$, these wavefunctions ought to
-act as \textit{approximate} solutions to the Schr\"odinger wave
-equation for the original potential function $V(x)$---which does not
-support bound states!
+In this case, there will be one or more bound states, in the energy
+range $V_b-U < E < V_b$.  These bound states' wavefunctions diminish
+exponentially away from the well, and are thus close to zero for $|x|
+> b$.  But since $V(x)$ and $V_{\mathrm{alt}}(x)$ differ only in the
+region $|x| > b$, these wavefunctions ought to act as
+\textit{approximate} solutions to the Schr\"odinger wave equation for
+the original potential function $V(x)$---which does not support bound
+states!
 
 To understand the implications of these quasi-bound states, let us
 analyze the system using the \textbf{scattering experiment} framework
@@ -201,26 +200,25 @@ m = 1$.
 \end{figure}
 
 The vertical axis shows $|f_+|^2$, which is called the
-``transmittance'' and measures the probability for the incident
+``transmittance'' and corresponds to the probability for the incident
 particle to pass through the potential.  The horizontal axis is the
 particle energy $E$.  For $E < V_b-U$, the transmittance approaches
 zero, and for $E \gtrsim V_b$, the transmittance approaches unity, as
 expected.  Within the energy range $V_b-U < E \lesssim V_b$, the
-transmittance forms a series of narrow peaks, which get sharper for
-larger $b$ (i.e., when the central well is more isolated from the
-exterior space).  At the top of the figure, we have also plotted the
-bound state energies for the square well potential
-$V_{\mathrm{alt}}(x)$, which closely matches the energies of the
+transmittance forms a series of narrow peaks.  For larger values of
+$b$ (i.e., when the central well is more isolated from the exterior
+space), the peaks are narrower.  At the top of the figure, we have
+also plotted the bound state energies for the square well potential
+$V_{\mathrm{alt}}(x)$, which closely match the centers of the
 transmittance peaks (at least, the first four peaks).
 
 Upon examining the total wavefunction $\psi(x)$ at these special
-energies, we see something very interesting.  The figure below plots
-$|\psi(x)|^2$ versus $x$ at the energies corresponding to the first
-three transmittance peaks, along with the bound state wavefunctions
-for the corresponding square well.  We find that $|\psi(x)|^2$ is much
-larger within the potential region than the exterior region.
-Moreover, its profile is very similar to the corresponding square well
-bound state.
+energies, we see something else interesting.  The figure below plots
+$|\psi(x)|^2$ versus $x$ at the energies of the first three
+transmittance peaks, along with the corresponding bound state
+wavefunctions for the square well $V_{\mathrm{alt}}$.  At each
+transmittance peak, $|\psi(x)|^2$ is much larger within the potential
+region, and its shape is very similar to a square well bound state.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.75\textwidth]{resonancewavefunctions}
@@ -234,15 +232,17 @@ the right energy, it gets temporarily ``trapped'' in the quasi-bound
 state, and spends a long time oscillating inside the scatterer before
 eventually escaping back to infinity.
 
-This phenomenon is closely analogous to resonances occurring in
-classical mechanics, which occur when we take a classical damped
-harmonic oscillator and apply an oscillatory driving force.  When the
-frequency of the driving force matches the natural frequency of the
-oscillator, the system will oscillate with an extremely large
-amplitude.  In the quantum mechanical context, the incident
-wavefunction plays the role of a driving force, the incident particle
-energy plays the role of the driving frequency, and the energy of each
-quasi-bound state is like a natural frequency of oscillation.
+This is closely analogous to the phenomenon of resonance in a
+classical harmonic oscillator.  When a damped harmonic oscillator is
+subjected to an oscillatory driving force, it will settle into a
+steady-state oscillatory motion at the driving frequency.  When the
+driving frequency matches the oscillator's natural frequency, the
+amplitude of the steady-state oscillation becomes extremely large, and
+is said to be ``resonantly enhanced''.  In the quantum mechanical
+context, the incident wavefunction plays the role of a driving force,
+the incident particle energy plays the role of the driving frequency,
+and the energy of each quasi-bound state is like a natural frequency
+of oscillation.
 
 Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
@@ -252,6 +252,7 @@ various features of the quasi-bound state, which often provides a
 great deal of information about the system itself.
 
 \section{Green's function analysis of scattering resonances}
+\label{sec:green_resonances}
 
 Quasi-bound states and resonances are not limited to 1D; they are
 equally important, if not more so, in 2D and 3D systems.  The Green's
@@ -260,26 +261,27 @@ tool for studying their properties and consequences.
 
 Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
-and $\hat{V}$ is the potential operator.  We decompose the potential
-into
+and $\hat{V}$ is the potential operator.  Let us decompose the
+potential into
 $$\hat{V} = \hat{V}_0 + \hat{V}_1,$$
-where $V_0$ describes a potential well and $V_1$ describes a potential
-barrier.  An example of this decomposition is shown below, for the
-1D potential function studied in the previous section.
+where $\hat{V}_0$ is a ``confining potential'' that supports a bound
+state, and $\hat{V}_1$ is a ``deconfining potential'' that turns the
+bound state into a quasi-bound state.  The figure below shows an
+example of such a decomposition, for the 1D model from the previous
+section.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.99\textwidth]{resonancewell_decomp}
 \end{figure}
 
-Let us assume that if the potential consisted of just $\hat{V}_0$
-(i.e., the potential well without the barrier), the system has a
-single bound state.  Denote this bound state by $|\varphi\rangle$, and
-its energy by $E_0$.  Furthermore, let us denote the continuum of free
-states for the potential well by $\{|\psi_k\rangle\}$, with energies
-$E_k$, where $k$ is some $d$-dimensional continuous index for the free
-states.  The bound state and free states satisfy the Schr\"odinger
-equation
-$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
+For the potential $\hat{V}_0$ (in the absence of $\hat{V}_1$), let
+there be a bound state $|\varphi\rangle$, with energy $E_0$.
+Furthermore, we assume that the potential supports a continuum of free
+states $\{|\psi_k\rangle\}$ with energies $\{E_k\}$, where $k$ is some
+$d$-dimensional continuous index for the free states (analogous to the
+wave-vector for plane wave states).  The bound state and free states
+satisfy the Schr\"odinger equation
+$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
 \end{aligned}$$
 along with the orthogonality and completeness relations
 $$\langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
@@ -287,17 +289,16 @@ As described in Section~VII of the previous chapter, the causal
 Green's function for this system is
 $$\hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.$$
 
-Now, we introduce the barrier potential $\hat{V}_1$.  According to
+Now, we introduce the deconfining potential $\hat{V}_1$.  According to
 Dyson's equations (see Section~VI of the previous chapter), the
-Green's function for the full problem is
+Green's function for the full system is
 $$\hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.$$
 Our objective is to determine the matrix elements of $\hat{G}(E)$,
 which can then be used to compute the scattering amplitudes at each
-incident energy $E$.  The eigenstates of the potential well problem,
-$|\varphi\rangle$ and $\{|\psi_k\rangle\}$, will be useful for this
-purpose.  In particular, note that $|\varphi\rangle$ is not an
-eigenstate of $\hat{H}$; it will now play the role of a quasi-bound
-state.
+energy $E$.  The states $|\varphi\rangle$ and $\{|\psi_k\rangle\}$
+will be useful for this purpose.  In particular, note that
+$|\varphi\rangle$ is not an eigenstate of the full Hamiltonian
+$\hat{H}$, so it plays the role of a quasi-bound state.
 
 As usual when dealing with Dyson's equations, we must watch out for
 the fact that $\hat{G}$ appears on both the left and right hand sides.
@@ -314,17 +315,15 @@ Similarly, computing the matrix element
 $\langle\varphi|\cdots|\psi_k\rangle$ gives:
 $$\begin{aligned}
 \langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
-&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\psi_k\rangle\right)\end{aligned}$$
+&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\psi_k\rangle\right).\end{aligned}$$
 Note that the equations thus far have been exact (we have \textit{not}
-used perturbation theory).  At this point, however, we apply an
-approximation: in the last line of the above equation, let the factor
-of $\langle\varphi|G|\varphi\rangle$ be large, so that the first term
-in the sum becomes dominant over the second term.  It will be shown
-below that $\langle\varphi|G|\varphi\rangle$ being large is precisely
-the resonance condition, so this approximation will be a
-self-consistent one.
-
-With this approximation,
+used perturbation theory).  At this point, we apply an approximation:
+in the last line of the above equation, let the factor of
+$\langle\varphi|G|\varphi\rangle$ be large, so that the first term in
+the sum becomes dominant.  It will be shown below that
+$\langle\varphi|G|\varphi\rangle$ being large is precisely the
+resonance condition, so this approximation will be self-consistent.
+Now, we obtain
 $$\langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.$$
 Combining this with the other equation gives
 $$\lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int d^dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.$$
@@ -347,13 +346,13 @@ incident energy $E$ over the range of real values, the resonance
 condition is satisfied when
 $$E \;\approx\; E_{\mathrm{res}} \,\equiv\, E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big].$$
 We call $E_{\mathrm{res}}$ the \textbf{resonance energy}.  Its first
-term is the energy of the bound state in the absence of the barrier
-potential $\hat{V}_1$, and the second term describes the energy shift
-induced by $\hat{V}_1$.  The third term is equal to the real part of
-the self-energy $\Sigma$, and has a more subtle meaning: since the
-definition of $\Sigma$ involves $\{|\psi_k\rangle\}$, we can think of
-this term as an energy shift induced by the presence of the continuum
-of free states.
+term is the energy of the original bound state, in the absence of the
+deconfining potential $\hat{V}_1$.  The second term is the energy
+shift induced by $\hat{V}_1$.  The third term is equal to the real
+part of the self-energy $\Sigma$, and has a more subtle meaning.
+Since the definition of $\Sigma$ involves $\{|\psi_k\rangle\}$, we can
+think of this term as an energy shift induced by the continuum of free
+states.
 
 In Section VIII of the previous chapter, we derived the following
 relationship between the Green's function and the scattering amplitude
@@ -375,15 +374,17 @@ $\Delta f$ is now determined by its denominator, and has a
 characteristic behavior summarized in the figure below:
 
 \begin{center}
-  \includegraphics[width=0.7\textwidth]{resonance}  
+  \includegraphics[width=0.74\textwidth]{resonance}  
 \end{center}
 
 The graph of $|\Delta f|^2$ versus $E$ has a peaked shape known as a
 \textbf{Lorentzian}.  The peak is centered at $E = E_{\mathrm{res}}$,
-where the resonance condition is satisfied.  The width of the peak (as
-measured by the ``full-width at half-maximum'') is $\delta E \sim
-2|\mathrm{Im}[\Sigma]|$.  In other words, the smaller the imaginary
-part of the self-energy, the sharper the peak.
+where the resonance condition is satisfied.  The width of the peak is
+measured by the \textbf{full-width at half-maximum} (FWHM), i.e.~the
+spacing between the two energies where $|\Delta f|^2$ has half its
+maximum value.  The result is $\delta E \sim 2|\mathrm{Im}[\Sigma]|$.
+In other words, the smaller the imaginary part of the self-energy, the
+sharper the peak.
 
 The phase, $\mathrm{arg}[\Delta f]$, also contains useful information.
 As $E$ crosses $E_{\mathrm{res}}$ from below, the phase increases by
@@ -400,26 +401,27 @@ was part of the experimental evidence that led to the LHC's discovery
 of a new particle, the Higgs boson, in 2012.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.45\textwidth]{higgs}
+  \centering\includegraphics[width=0.5\textwidth]{higgs}
 \end{figure}
 
 \section{Fermi's Golden Rule}
+\label{sec:goldenrule}
 
 We have seen that the width of a resonance is determined by the
 imaginary part of the self-energy, $\mathrm{Im}[\Sigma]$.  In this
 section, we will show that $\mathrm{Im}[\Sigma]$ has a physical
 meaning: it represents the \textbf{decay rate} of a quasi-bound state.
-Moreover, it can be approximated using an important formula known as
-\textbf{Fermi's Golden Rule}.
+Moreover, it can be approximated using a simple but important formula
+known as \textbf{Fermi's Golden Rule}.
 
 Suppose we set the quantum state of a particle to a quasi-bound state
 $|\varphi\rangle$ at some initial time $t = 0$.  Because
 $|\varphi\rangle$ is not an exact eigenstate of the Hamiltonian, the
-particle will not remain in that state under time evolution.  Hence,
-for $t > 0$, we expect its wavefunction to become less and less
-localized, which can be interpreted as the escape of the particle to
-infinity, or as the ``decay'' of the quasi-bound state into the free
-state continuum.
+particle will not remain in that state under time evolution.  For $t >
+0$, we expect its wavefunction to become less and less localized,
+which can be interpreted as the escape of the particle to infinity, or
+as the ``decay'' of the quasi-bound state into the free state
+continuum.
 
 The decay process can be described by
 $$P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,$$
@@ -447,13 +449,13 @@ eigenstates of $\hat{H}$ (for free states, the sum goes to an integral
 in the usual way):
 $$\begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle. \end{aligned}$$
 Note that in the third line, the regulator $\varepsilon$ removes any
-contribution from the $t \rightarrow\infty$ limit of the integral (in
+contribution from the $t \rightarrow\infty$ limit of the integral, in
 accordance with our requirement that the decay of the bound state is
-permanent).  Hence,
+permanent.  Hence, we obtain
 $$\lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,$$
 where $\hat{G}$ is our old friend the causal Green's function.  The
-appearance of the \textit{causal} Green's function is due to our
-definition of the function $f(t)$.
+fact that the \textit{causal} Green's function shows up is due to our
+definition of $f(t)$, which vanishes for $t < 0$.
 
 As discussed in the previous section, when the resonance condition is
 satisfied,
@@ -466,8 +468,6 @@ In deriving the last line, we performed a contour integration assuming
 that $\mathrm{Im}[\Sigma] < 0$; this assumption will be proven
 shortly.  The final result is that
 $$P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = -\frac{2|\mathrm{Im}[\Sigma]|}{\hbar}.$$
-The quantity $\kappa$ describes the rate at which the quasi-bound
-state decays away in time.
 
 Let us now take a closer look at the self-energy.  From our earlier
 definition,
@@ -491,10 +491,10 @@ $E = E_k$.
 We can further simplify the result by defining the \textbf{density of
   states},
 $$\mathcal{D}(E) = \int d^d k\; \delta(E - E_k).$$
-Roughly speaking, this is a measure of the number of free states with
-energy $E$: the $k$-space volume $d^dk$ is proportional to the number
-of free states at each given $k$, while the delta function restricts
-the contributions to only those free states having energy $E$.  (In
+Roughly speaking, this measures the number of free states that exist
+at energy $E$.  The $k$-space volume $d^dk$ is proportional to the
+number of free states at each $k$, while the delta function restricts
+the contributions to only those free states with energy $E$.  (In
 the next section, we'll see an explicit example of how to calculate
 $\mathcal{D}(E)$.)  Now, for any function $f(k)$,
 $$\int d^d k\; f(k) \, \delta(E - E_k) = \overline{f(k(E))} \;\mathcal{D}(E),$$
@@ -503,40 +503,111 @@ free states satisfying $E_k = E$.  Applying this to the imaginary part
 of the self-energy gives
 $$\mathrm{Im}\big[\Sigma(E)\big] = - \pi \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).$$
 Hence, the quasi-bound state's decay rate is
-$$\boxed{\quad\kappa \,=\, -\frac{2}{\hbar}\mathrm{Im}\big[\Sigma(E)\big] \,=\, \frac{2\pi}{\hbar} \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).\quad}$$
+$$\boxed{\quad\kappa \,=\, -\frac{2}{\hbar}\mathrm{Im}\big[\Sigma(E_{\mathrm{res}})\big] \,=\, \frac{2\pi}{\hbar} \; \overline{\Big| \langle\psi_{k(E_{\mathrm{res}})}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E_{\mathrm{res}}).\quad}$$
 This extremely important result is known as \textbf{Fermi's golden
   rule}.  It says that the decay rate of a quasi-bound mode is
-directly proportional to two factors.  The first factor is the mean
-squared value of $\langle\psi_{k}| \hat{V}_1|\varphi\rangle$, which is
-called the ``transition amplitude'' and describes how $\hat{V}_1$
-couples the quasi-bound state and the free states; note that this
-factor goes to zero when $\hat{V}_1 = 0$, which is the case where
-$|\varphi\rangle$ is a true bound state (which does not decay).  The
-second factor is the density of free states available for
-$|\varphi\rangle$ to decay into.
+directly proportional to two factors.  The first factor describes how
+strongly $\hat{V}_1$ couples the quasi-bound state and the free
+states; this is determined by $\langle\psi_{k}|
+\hat{V}_1|\varphi\rangle$, which is called the \textbf{transition
+  amplitude}.  It goes to zero when $\hat{V}_1 = 0$, which is
+the case where $|\varphi\rangle$ is a true bound state that does not
+decay.  The second factor is the density of free states, and
+describes how many free states are available for $|\varphi\rangle$ to
+decay into.  Both factors depend on energy, and must be evaluated at
+the resonance energy $E_{\mathrm{res}}$.
 
 \section{Fermi's golden rule in a 1D resonance model}
 
 Fermi's golden rule can be used to study a wide variety of quantum
-systems, and we will see examples in subsequent chapters.  As a
-demonstration of its utility, let us apply it to the simple 1D model
-from Section~\ref{sec:resonances}.  We will compare the predictions of
-Fermi's golden rule (which, remember, is an approximate result) to the
-``exact'' resonance widths observed in a scattering experiment (as
-computed via the transfer matrix method).
+systems, and we will see examples of its usefulness in subsequent
+chapters.  In this section, we will apply it to the simple 1D model
+from Section~\ref{sec:resonances}, and evaluate how well it works.
 
 The model potential is
-$$\begin{aligned}V(x) &= V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|).\end{aligned}$$
+$$\begin{aligned}&V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|), \;\;\; 0<U<V_b.\end{aligned}$$
 The potential well $V_0$ supports one or more bound states.  For
-simplicity, we focus on its ground state, which becomes the lowest
-quasi-bound state once $V_1$ is introduced.
+simplicity, we focus on the ground state, whose energy $E_0$ lies in
+the range $[-U,0]$.  Once $V_1$ is introduced, this will turn into the
+lowest quasi-bound state, with resonance energy $E_{\mathrm{res}}
+\approx E_0 + V_b > 0$.
 
+When the potential consists only of $V_0$, the ground state
+wavefunction can be obtained by solving the Schr\"odinger wave
+equation for the boundary condition $\varphi(x) \rightarrow 0$ as
+$|x|\rightarrow\infty$.  It has the form
+$$\varphi(x) = \begin{cases}\mathcal{A}\,\cos(qx), & |x| < a \\
+\mathcal{B} \, \exp\left(-\eta|x|\right), & |x| \ge a,\end{cases}$$
+where $\mathcal{A}$ and $\mathcal{B}$ are constants to be determined,
+and
+$$q = \sqrt{\frac{2m}{\hbar^2}(E_0+U)}, \;\; \eta = \sqrt{\frac{2m}{\hbar^2}|E_0|}.$$
+By matching both $\varphi(x)$ and $d\varphi/dx$ across the $x=a$
+interface, we can derive a transcendental equation for $E_0$, which
+can be solved numerically.  Once we know $E_0$, we also know $q$ and
+$\eta$.  We can then relate $\mathcal{A}$ and $\mathcal{B}$ by
+matching $\varphi(x)$ across the $x=a$ interface:
+$$\mathcal{A} = \mathcal{B}\; \frac{\exp(-\eta a)}{\cos(qa)}.$$
+Moreover, the wavefunction must be normalized to unity:
+$$\begin{aligned}1 &= \mathcal{A}^2 \int_{-a}^a \cos^2(qx) + 2\mathcal{B}^2 \int_a^\infty dx\; \exp(-2\eta x) \\ &= \mathcal{A}^2 \left(a+\frac{\sin(2qa)}{2q}\right) + \mathcal{B}^2\, \frac{\exp(-2\eta a)}{\eta}.\end{aligned}$$
+Putting the last two equations together yields
+$$\mathcal{B}^2 = \frac{\exp\big(2\eta a\big)}{a} \left[\frac{1+\sin(2qa)/2qa}{\cos^2(qa)}+\frac{1}{\eta a}\right]^{-1}.$$
+We now wish to compute the transition amplitude
+$$\langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x),$$
+where $\psi_k(x)$ is the wavefunction of a free state for the system
+with potential $V_0(x)$, which is labelled by some continuous index
+$k$.  We can use a trick to avoid calculating the exact form of
+$\psi_k(x)$.  Because $\psi_k(x)$ and $\varphi(x)$ must be orthogonal,
+$$\int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x) = - \int_{|x| > a} dx \; \psi_k^*(x) \,\varphi(x).$$
+When evaluating the free states outside the potential well, we can
+approximate them as the free states of the particle without the
+potential well, i.e., simple plane waves:
+$$\psi_k(x) = \frac{1}{\sqrt{2\pi}}\, e^{ikx}, \;\;\;k\in\mathbb{R}, \;\;|x|>a.$$
+We likewise approximate their energies by $E_k \approx \hbar^2k^2/2m$.
+Plugging $\psi_k(x)$ into the formula for the transition amplitude,
+and performing the necessary integrals, yields
+$$\langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, - \mathcal{B} \, \sqrt{\frac{2}{\pi}} \, \frac{\hbar^2}{2m} \; \big[\eta\cos(kb) - k\sin(kb)\big] \, \exp(-\eta b).$$
+Within Fermi's golden rule, we must use a value of $k$ such that
+$$E_k = E_{\mathrm{res}} \approx E_0 + V_b \;\;\;\Rightarrow \;\;\; k \approx \sqrt{\frac{2m}{\hbar^2}(E_0+V_b)}.$$
 
+The next thing that we need to calculate is the density of free
+states.  This can be done by once again taking $E_k \approx
+\hbar^2k^2/2m$, and performing a change of variables:
+$$\begin{aligned}\mathcal{D}(E) &= \int_{-\infty}^\infty dk \; \delta\left(E-\frac{\hbar^2k^2}{2m}\right) \\ &= 2 \cdot \int_0^\infty dE' \, \frac{dk}{dE'} \, \delta(E-E') \\ &= \sqrt{\frac{2m}{\hbar^2 E}}.
+\end{aligned}$$
+Note the factor of 2 on the second line; it is there because there is
+both a positive and a negative value of $k$ for each $E$.
 
+Having obtained expressions for the transition amplitude and the
+density of states, we just have to plug them into Fermi's golden rule
+to obtain the decay rate $\kappa$.  The figure below shows how
+$\kappa$ varies with the barrier thickness $b-a$, with all other model
+parameters fixed ($U = 20, V_b = 30, a = 1$):
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.85\textwidth]{goldenrule}
 \end{figure}
+
+For comparison, the figure also plots the width of the resonant
+scattering peak, which according to our preceding discussion is
+supposed to be equal to $\kappa$.  To obtain these values, we use the
+transfer matrix method to compute the $E$-dependent transmittance for
+particles incident on one side of the potential (see Appendix B).  The
+transmittance is peaked near $E_{\mathrm{res}}$, and the full-width at
+half-maximum (see Section~\ref{sec:green_resonances}) is estimated
+numerically.  The results are shown as blue dots in the figure.
+
+We see that Fermi's golden rule generally agrees well with the results
+from the transfer matrix method.  There is a bit of discrepancy,
+notably when the barrier is thin.  Remember that Fermi's golden rule
+relies on the approximation that the quasi-bound state is strongly
+confined (i.e., having $\langle \varphi|G|\varphi\rangle$ be large in
+the derivations of Sections~\ref{sec:green_resonances} and
+\ref{sec:goldenrule}).  Moreover, we have approximated the free states
+$|\psi_k\rangle$ using the plane wave states in the absence of any
+potential, which is an assumption that is very commonly employed when
+using Fermi's golden rule.
+
+
 
 \section*{Exercises}
 
