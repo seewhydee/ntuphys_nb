@@ -644,19 +644,19 @@ similar way.
 
 In the $r\rightarrow\infty$ limit, the propagator can be simplified
 using the Taylor expansion
-$$|\mathbf{r} - \mathbf{r}'| = r - \mathbf{e}_r \cdot \mathbf{r}' + \cdots,$$
-where $\mathbf{e}_r$ denotes the unit vector pointing parallel to
+$$|\mathbf{r} - \mathbf{r}'| = r - \hat{\mathbf{r}} \cdot \mathbf{r}' + \cdots,$$
+where $\hat{\mathbf{r}}$ denotes the unit vector pointing parallel to
 $\mathbf{r}$.  (This is the same ``large-$r$'' expansion used in
 deriving the electric dipole moment in classical electromagnetism.)
 Applying this to the 3D outgoing propagator gives, to lowest order,
-$$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\approx} - \frac{2m}{\hbar^2}\, \frac{e^{ik_ir}}{4\pi r}\; \exp\left(-ik_i \,\mathbf{e}_r \cdot \mathbf{r}'\right)$$
+$$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\approx} - \frac{2m}{\hbar^2}\, \frac{e^{ik_ir}}{4\pi r}\; \exp\left(-ik_i \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)$$
 Hence, the scattered wavefunction is
-$$\begin{aligned}\psi_s(\mathbf{r}) &\;\;= \;\; \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\overset{r\rightarrow\infty}{\approx} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik_i \,\mathbf{e}_r \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r} \; (2\pi)^{3/2} \; \big\langle k_i \mathbf{e}_r \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle, \end{aligned}$$
-where $|k_i\mathbf{e}_r \rangle$ denotes the momentum eigenstate
-corresponding to the wave-vector $\mathbf{k} = k_i\mathbf{e}_r$.
+$$\begin{aligned}\psi_s(\mathbf{r}) &\;\;= \;\; \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\overset{r\rightarrow\infty}{\approx} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik_i \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r} \; (2\pi)^{3/2} \; \big\langle k_i \hat{\mathbf{r}} \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle. \end{aligned}$$
+Here, $|k_i\hat{\mathbf{r}} \rangle$ denotes the momentum eigenstate
+corresponding to the wave-vector $\mathbf{k} = k_i \hat{\mathbf{r}}$.
 Comparing this to the above definition of the scattering amplitude, we
 obtain
-$$f(\mathbf{k}_i\rightarrow k_i\mathbf{e}_r )\; \Psi_i = - \frac{2m}{\hbar^2} \,\sqrt{\frac{\pi}{2}} \; \big\langle k_i \mathbf{e}_r \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle,$$
+$$f(\mathbf{k}_i\rightarrow k_i\hat{\mathbf{r}} )\; \Psi_i = - \frac{2m}{\hbar^2} \,\sqrt{\frac{\pi}{2}} \; \big\langle k_i \hat{\mathbf{r}} \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle,$$
 where $f(\mathbf{k}\rightarrow \mathbf{k}')$ denotes the scattering
 amplitude to scatter from $\mathbf{k}$ to $\mathbf{k}'$.  We now
 plug in
