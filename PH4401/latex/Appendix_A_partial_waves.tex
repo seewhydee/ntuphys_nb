@@ -158,14 +158,14 @@ $$\begin{aligned}e^{i\mathbf{k}_i \cdot \mathbf{r}} &= \sum_{\ell=0}^\infty \sum
 Here, $\hat{\mathbf{k}}_i$ denotes the angular components (in
 spherical coordinates) of the incident wave-vector $\mathbf{k}_i$,
 while $\hat{\mathbf{r}}$ likewise denotes the angular components of
-the position vector $\mathbf{r}$.  Therefore, the plane wave can be
-decomposed into a superposition of incoming and outgoing spherical
-waves, with the wave coefficients
+the position vector $\mathbf{r}$.  Therefore, the incident plane wave
+can be decomposed into a superposition of incoming and outgoing
+spherical waves, with the wave coefficients
 $$c^{\pm}_{i, \ell m} = 2 \pi e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; \Psi_i.$$
 As described in Chapter 1, the total wavefunction in a scattering
 problem is the sum of the incident wavefunction $\psi_i(\mathbf{r})$
 and the scattered wavefunction $\psi_s(\mathbf{r})$.  The latter must
-be a superposition of outgoing spherical waves; let us denote the
+be a superposition of only outgoing spherical waves; let us denote the
 coefficients by $c^+_{s,\ell m}$.  The scattering matrix relation can
 then be re-written as
 $$\begin{aligned}c^+_\mu &= c^+_{i,\mu} + c^+_{s,\mu} = \sum_{\mu\nu} S_{\mu\nu} c^-_{i,\nu} \\ \Rightarrow \;\;\; c^+_{s,\ell m} &= 2 \pi \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; \Psi_i. \end{aligned}$$
@@ -185,9 +185,9 @@ spherically symmetric, i.e.~$V(\mathbf{r}) = V(r)$.  In that case,
 angular momentum is conserved, so an incoming spherical wave with
 angular momentum quantum numbers $(\ell,m)$ must scatter exclusively
 into an outgoing spherical wave with the same $(\ell,m)$.  This means
-that the scattering matrix is diagonal:
+that the scattering matrix components have the form
 $$S_{\ell m, \ell'm'} = s_{\ell m}\, \delta_{\ell\ell'}\, \delta_{mm'}.$$
-The scattering amplitude simplifies to
+The scattering amplitude then simplifies to
 $$f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \Big(s_{\ell m} - 1\Big) \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
 
 Our task is now to obtain the $s_{\ell m}$'s.  The procedure is very
@@ -248,7 +248,7 @@ With a bit of rearrangement, this becomes
 $$s_\ell = - \frac{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}.$$
 The numerator and denominator are complex conjugates of one another,
 since $j_\ell$ is real and $(h_\ell^+)^* = h_\ell^-$.  Hence,
-$$s_\ell = - e^{i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = 2\,\mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].$$
+$$s_\ell = e^{2i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = \frac{\pi}{2} + \mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].$$
 In other words, the scattering matrix component is a pure phase
 factor.  This is actually a consequence of energy conservation.  Since
 the scattering matrix does not couple different angular momentum
@@ -258,14 +258,14 @@ the scattering potential can do is to shift the phase of the outgoing
 spherical wave component in each channel.
 
 Once we find $\delta_\ell$, we can compute the scattering amplitude
-$$f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi i}{k}\, \sum_{\ell =0}^\infty \big(e^{i\delta_\ell} + 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
+$$f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
 This can be simplified with the aid of the following addition theorem
 for spherical harmonics:
 $$P_\ell(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_2) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\hat{\mathbf{r}}_1) Y_{\ell m}(\hat{\mathbf{r}}_2).$$
 where $P_\ell(\cdots)$ denotes a
 \href{https://en.wikipedia.org/wiki/Legendre_polynomials}{Legendre
   polynomial}.  We finally obtain
-$$\boxed{\quad\begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{i}{2k}\, \sum_{\ell =0}^\infty \big(e^{i\delta_\ell} + 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= 2\,\mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}\quad}$$
+$$\boxed{\quad\begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}\quad}$$
 This result for the scattering amplitude depends upon two variables:
 (i) $E$, the particle energy (which is conserved), and (ii) $\Delta
 \theta = \cos^{-1}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}})$, the
