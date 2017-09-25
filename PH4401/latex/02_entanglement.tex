@@ -140,11 +140,17 @@ we measure $Q$, then (i) the probability of obtaining the measurement
 outcome $q_i$ is $P_i = |\psi_i|^2$, the absolute square of the
 coefficient of $|q_i\rangle$ in the basis expansion; and (ii) upon
 obtaining this outcome, the system instantly ``collapses'' into state
-$|q_i\rangle$.  Mathematically, the state collapse can be described
-using the projection operation
-$$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; |q_i\rangle\langle q_i|\psi\rangle,$$
-where the prefactor $\mathcal{N} = |\psi_i|^2$ ensures that the new
-state remains normalized.
+$|q_i\rangle$.
+
+Mathematically, these two rules can be summarized using the projection
+operator
+$$\hat{\Pi}(q_i) = |q_i\rangle\langle q_i|.$$
+Applying this operator to $|\psi\rangle$ gives
+$$|\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle,$$
+which is not normalized to unity.  Its absolute square,
+$\langle\psi'|\psi'\rangle = |\langle q_i|\psi\rangle|^2$, gives the
+measurement probability.  Moreover, re-normalizing $|\psi'\rangle$
+yields the post-collapse state $|q_i\rangle$.
 
 For multi-particle systems, there is a new complication: what if a
 measurement is performed on just one particle?
@@ -161,16 +167,20 @@ $$\begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle |\nu_j\rang
 Unlike the single-particle case, the ``coefficient'' of
 $|\mu_i\rangle$ in this basis expansion is not a complex number, but a
 vector $|\varphi_i\rangle \in \mathscr{H}_B$.  Proceeding by analogy,
-we postulate that the probability of obtaining the outcome $\mu_i$ is
-the ``absolute square'' of this ``coefficient'':
-$$P_i = \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
-After we obtain the measurement result $\mu_i$, the state should
-collapse.  This can be described by the projection operation
-$$|\psi\rangle \longrightarrow \frac{1}{\sqrt{\mathcal{N}}}\; \Big(|\mu_i\rangle\langle \mu_i|  \hat{I}\Big) |\psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\; |\mu_i\rangle |\varphi_i\rangle.$$
-Note that the projection operator $|\mu_i\rangle\langle \mu_i|$ acts
-only upon the $\mathscr{H}_A$ part of the two-particle space.  The
-prefactor $\mathcal{N}$ is, once again, defined so that the new state
-is normalized.
+the probability of obtaining the outcome $\mu_i$ ought to be the
+``absolute square'' of this ``coefficient'',
+$\langle\varphi_i|\varphi_i\rangle$.  To make the analogy a bit more
+rigorous, let us define the partial projector
+$$\hat{\Pi}(\mu_i) \,=\, |\mu_i\rangle\langle \mu_i| \otimes  \hat{I}.$$
+This contains a projector, $|\mu_i\rangle\langle \mu_i|$, which only
+acts upon the $\mathscr{H}_A$ part of the two-particle space.
+Applying this to the above multi-particle state gives
+$$|\psi'\rangle = \Pi_i |\psi\rangle = |\mu_i\rangle |\varphi_i\rangle.$$
+The absolute square of $|\psi'\rangle$ gives the measurement
+probability,
+$$P_i = \langle\psi'|\psi'\rangle = \langle \mu_i|\mu_i\rangle\, \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
+Moreover, the post-measurement collapsed state is obtained by
+re-normalizing $|\psi'\rangle$.
 
 Let's work through an example.  Consider a system of two spin-$1/2$
 particles, with state

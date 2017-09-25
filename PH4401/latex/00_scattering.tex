@@ -97,14 +97,13 @@ We will give the formulation first, before discussing its meaning:
 The particle is described by a state $|\psi\rangle$ obeying the
 time-independent Schr\"odinger equation
 $$\hat{H} |\psi\rangle = E |\psi\rangle,$$
-where $E$ is the incoming particle energy.  
+where $E$ is the incoming particle energy.
 
 \item
 This state can be decomposed into two terms,
 $$|\psi\rangle \,=\, |\psi_i\rangle \,+\, |\psi_s\rangle,$$
 where $|\psi_i\rangle$ is called the \textbf{incident state} and
-$|\psi_s\rangle$ is called the \textbf{scattered state}.  We will also
-refer to $|\psi\rangle$ as the \textbf{total state}.
+$|\psi_s\rangle$ is called the \textbf{scattered state}.
 
 \item
 The incident state is an eigenstate of $\hat{H}_0$ with energy $E$:
@@ -188,8 +187,8 @@ quantized to a multiple of $\Delta p = 2\pi\hbar/L$.
 Next, we take the limit of an infinite box, $L \rightarrow \infty$.
 In this limit, $\Delta p \rightarrow 0$, and therefore the momentum
 eigenvalues coalesce into a continuum.  In order to properly handle
-the momentum eigenstates in this limit, it is conventional to alter
-their normalization as follows:
+the momentum eigenstates in this limit, it is conventional to
+re-normalize them this way:
 $$|\mathbf{k}\rangle \rightarrow \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle.$$
 Then, in the $L\rightarrow\infty$ limit, the re-normalized momentum
 eigenstates satisfy
@@ -308,8 +307,7 @@ We now consider scattering experiments in spatial dimension $d \ge 2$.
 Compared to the 1D example discussed in the previous section, these
 cases have an important distinguishing feature.  For $d = 1$, the
 particle can only scatter forward or backward, but for $d \ge 2$ it
-can also scatter ``sideways''.  The concept of an outgoing
-wavefunction must therefore be formulated with care.
+can also scatter ``to the side''.
 
 Far from the scatterer, where $V(\mathbf{r})\rightarrow 0$, we know
 that the scattered wavefunction $\psi_s(\mathbf{r})$ satisfies the
@@ -319,19 +317,20 @@ Here, $\nabla^2$ denotes the $d$-dimensional Laplacian.  Let $E =
 \hbar^2 k^2 / 2m$, where $k \in \mathbf{R}^+$ is the wavenumber in
 free space.  Then the above equation can be written as
 $$\left[\nabla^2 + k^2\right] \psi_s(\mathbf{r}) = 0,$$
-which is the Helmholtz equation in $d$-dimensional space.
+which is the \textbf{Helmholtz equation} in $d$-dimensional space.
 
-One set of elementary solutions to the Helmholtz equation are the
-plane waves, $\exp(i\mathbf{k}\cdot\mathbf{r})$, where $|\mathbf{k}| =
-k$.  But we're looking for an outgoing solution, and a plane wave
-can't be said to be ``outgoing'' (or ``incoming'').  To find such a
-solution, we turn to curvilinear coordinates.
+One set of elementary solutions to the Helmholtz equation are plane
+waves $\exp(i\mathbf{k}\cdot\mathbf{r})$, whose wave-vectors satisfy
+$|\mathbf{k}| = k$.  But we're looking for an outgoing solution, and a
+plane wave can't be said to be ``outgoing''.  Therefore, we turn
+instead to curvilinear coordinates.
 
-In 2D, we can express the Helmholtz equation using polar coordinates
-$(r,\phi)$.  Skipping the mathematical details, the result is that the
-general solution can be written as
+In 2D, we can use polar coordinates $(r,\phi)$.  We will skip the
+mathematical details of how to solve the 2D Helmholtz equation in
+these coordinates; the basic result is that the general solution can
+be written in the form of a linear combination
 $$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,\Psi_m^\pm(r,\phi), \;\;\;\mathrm{where}\;\;\,\Psi_m^\pm(r,\phi) = H_m^\pm(kr)\,e^{im\phi}.$$
-This solution is a superposition of elementary ``circular waves''
+This describes a superposition of elementary circular waves
 $\Psi_m^\pm(r,\phi)$, with arbitrary coefficients $c_m^\pm \in
 \mathbb{C}$.  Each circular wave $\Psi_m^\pm(r,\phi)$ is a solution to
 the 2D Helmholtz equation for a given angular momentum, indexed by $m
@@ -361,16 +360,15 @@ $h_\ell^\pm$ is a \textbf{spherical Hankel function}, and each
 $Y_{\ell m}$ is a \textbf{spherical harmonic}.  The $\ell$ and $m$
 indices specify the angular momentum of the spherical wave.  For large
 inputs, the spherical Hankel functions have the limiting form
-$$h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \frac{1}{ikr}\,\exp\left[\pm i\left(kr-\frac{(\ell+1)\pi}{2}\right)\right] \;\sim\; r^{-1} e^{ikr}.$$
+$$h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \pm \frac{\exp\!\left[\pm i\!\left(kr-\frac{\ell\pi}{2}\right)\right]}{ikr}.$$
 Hence, the $\pm$ index specifies whether the spherical wave is
-outgoing ($+$) or incoming ($-$).  In Appendix A, we present further
-mathematical details about how these 3D spherical waves are
-derived.
+outgoing ($+$) or incoming ($-$).  More discussion about these
+spherical waves can be found in Appendix A.
 
 It is now clear what we need to do to get a scattered wavefunction
 $\psi_s(\mathbf{r})$ that is outgoing at infinity.  We take the
 general solution and discard all incoming ($-$) wave components,
-keeping only the $+$ terms:
+keeping only the outgoing ($+$) terms:
 $$\psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}$$
 For large $r$, the outgoing wavefunction's $r$-dependence can be
 written as
@@ -378,21 +376,20 @@ $$\psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} 
 
 For $d > 1$, the magnitude of the wavefunction decreases with distance
 from the origin.  This is to be expected, because with increasing $r$,
-an outgoing wave spreads out over a wider area.  To verify this
-intuition, consider the probability current density
-$\mathbf{J} = (\hbar/m) \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right]$;
-its $r$-component is
+an outgoing wave spreads out over a wider area.  Consider the
+probability current density $\mathbf{J} = (\hbar/m)
+\mathrm{Im}\left[\psi_s^*\nabla\psi_s\right]$; its $r$-component is
 $$\begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; kr^{1-d}.\end{aligned}$$
-In $d$ dimensions, the ``area'' of a ``spherical'' wave-front scales
-as $r^{d-1}$, so the probability flux goes as $J_r \,r^{d-1} \sim k$,
-independent of $r$.  Thus, the outgoing solution describes a constant
-probability flux flowing outward from the origin.  Note also that if
-we plug $d=1$ into the above formula, we get a scattered probability
-flux that scales as $r^0$ (i.e., a constant), which is consistent
-with the findings from the 1D model in the previous section.
-In 1D, waves do not spread out with distance since there is no
-transverse dimension; accordingly, $\psi_s$ and $J_r$ are independent
-of the distance traveled.
+In $d$ dimensions, the area of a wave-front scales as $r^{d-1}$, so
+the probability flux goes as $J_r \,r^{d-1} \sim k$, independent of
+$r$.  Thus, the outgoing solution describes a constant probability
+flux flowing outward from the origin.  Note also that if we plug $d=1$
+into the above formula, we get a scattered probability flux that
+scales as $r^0$ (i.e., a constant), which is consistent with the
+findings from the 1D model in the previous section.  In 1D, waves do
+not spread out with distance since there is no transverse dimension;
+accordingly, $\psi_s$ and $J_r$ are independent of the distance
+traveled.
 
 \section{The scattering amplitude and scattering cross section}
 
@@ -443,25 +440,26 @@ wave, which has units of $[x^{-d}]$ (i.e., inverse $d$-dimensional
 $$J_{i} = \frac{\hbar k_i}{m} \;|\Psi_i|^2.$$
 This has units of $[x^{1-d}t^{-1}]$ (i.e., rate per unit ``area'').
 
-Now, let us re-imagine this incident flux $J_i$ as a stream of
-classical particles, and the scatterer as a ``hard-body'' scatterer
-that only interacts with those particles striking it directly.  The
-scattering rate will be $J_{i}$ times the cross-sectional area of the
-scatterer exposed to the particle stream.  If we denote this area by
-$\sigma$, the scattering rate is
-$$I_s = J_i \, \sigma.$$
+Let us re-imagine this incident flux $J_i$ as a stream of classical
+particles, and the scatterer as a ``hard-body'' scatterer that only
+interacts with those particles striking it directly:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.5\textwidth]{crosssection}
+  \centering\includegraphics[width=0.42\textwidth]{crosssection}
 \end{figure}
 
-Comparing this to the quantum scattering expression, we identify $\int
-d\Omega\,|f|^2$ as playing a role analogous to the classical hard-body
-cross-sectional area.  We hence call this the ``total scattering cross
-section''.  Moreover, this quantity is expressed as an integral over
-angles; the integrand $|f|^2$ is called the ``differential scattering
-cross section'', and it represents the rate, per unit of solid angle,
-at which particles are scattered in a given direction.
+In this classical picture, the scattering rate should be
+$$I_s = J_i \, \sigma,$$
+where $\sigma$ is the cross-sectional area of the scatterer exposed to
+the particle stream.  By comparing the above quantum scattering result
+to this expression, we see that $\int d\Omega\,|f|^2$ plays a role
+analogous to the classical hard-body cross-sectional area.  We hence
+call
+$$\sigma \equiv \int d\Omega\,|f|^2$$
+the \textbf{total scattering cross section}.  Moreover, the integrand
+$|f|^2$ is called the \textbf{differential scattering cross section};
+it represents the rate, per unit of solid angle, at which particles
+are scattered in a given direction.
 
 \section{The Green's function}
 
@@ -506,7 +504,7 @@ $$\begin{aligned}|\psi_s\rangle &= \left(\hat{G}_0 + \hat{G}_0\hat{V}\hat{G}\rig
 This is a useful simplification, since it involves $\hat{G}_0$ rather
 than $\hat{G}$.  The downside is that the equation is implicit, since
 the right-hand side contains not $|\psi_i\rangle$ (which is given to
-us), but the total state $|\psi\rangle$ (which we do not know).
+us), but $|\psi\rangle$ (which we do not know).
 
 One way we can try to solve the implicit equation is to plug the
 expression for $|\psi_s\rangle$ repeatedly back into the right-hand
