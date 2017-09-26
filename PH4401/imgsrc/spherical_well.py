@@ -1,7 +1,8 @@
 from scipy import *
 import matplotlib.pyplot as plt
 from scipy.optimize import root
-from scipy.special import spherical_jn, spherical_kn
+from scipy.special import spherical_jn, spherical_kn, spherical_yn, lpmv
+from scipy.stats import uniform
 import sys
 
 ## Find and report the energies of a spherical well
