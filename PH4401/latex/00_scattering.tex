@@ -3,6 +3,8 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue]{hyperref}
+
 \def\ket#1{\left|#1\right\rangle}
 \def\bra#1{\left\langle#1\right|}
 \def\braket#1{\left\langle#1\right\rangle}
@@ -302,6 +304,7 @@ an attractive potential ($\gamma < 0$) and a repulsive potential
 ($\gamma > 0$) are equally effective at scattering the particle.
 
 \section{Scattering in 2D and 3D}
+\label{sec:2d3d_scattering}
 
 We now consider scattering experiments in spatial dimension $d \ge 2$.
 Compared to the 1D example discussed in the previous section, these
@@ -314,22 +317,22 @@ that the scattered wavefunction $\psi_s(\mathbf{r})$ satisfies the
 free-space Schr\"odinger wave equation:
 $$-\frac{\hbar^2}{2m} \nabla^2 \psi_s(\mathbf{r}) = E \psi_s(\mathbf{r}).$$
 Here, $\nabla^2$ denotes the $d$-dimensional Laplacian.  Let $E =
-\hbar^2 k^2 / 2m$, where $k \in \mathbf{R}^+$ is the wavenumber in
+\hbar^2 k_i^2 / 2m$, where $k \in \mathbf{R}^+$ is the wavenumber in
 free space.  Then the above equation can be written as
-$$\left[\nabla^2 + k^2\right] \psi_s(\mathbf{r}) = 0,$$
+$$\left[\nabla^2 + k_i^2\right] \psi_s(\mathbf{r}) = 0,$$
 which is the \textbf{Helmholtz equation} in $d$-dimensional space.
 
 One set of elementary solutions to the Helmholtz equation are plane
 waves $\exp(i\mathbf{k}\cdot\mathbf{r})$, whose wave-vectors satisfy
-$|\mathbf{k}| = k$.  But we're looking for an outgoing solution, and a
-plane wave can't be said to be ``outgoing''.  Therefore, we turn
+$|\mathbf{k}| = k_i$.  But we're looking for an outgoing solution, and
+a plane wave can't be said to be ``outgoing''.  Therefore, we turn
 instead to curvilinear coordinates.
 
 In 2D, we can use polar coordinates $(r,\phi)$.  We will skip the
 mathematical details of how to solve the 2D Helmholtz equation in
 these coordinates; the basic result is that the general solution can
 be written in the form of a linear combination
-$$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,\Psi_m^\pm(r,\phi), \;\;\;\mathrm{where}\;\;\,\Psi_m^\pm(r,\phi) = H_m^\pm(kr)\,e^{im\phi}.$$
+$$\psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,\Psi_m^\pm(r,\phi), \;\;\;\mathrm{where}\;\;\,\Psi_m^\pm(r,\phi) = H_m^\pm(k_ir)\,e^{im\phi}.$$
 This describes a superposition of elementary circular waves
 $\Psi_m^\pm(r,\phi)$, with arbitrary coefficients $c_m^\pm \in
 \mathbb{C}$.  Each circular wave $\Psi_m^\pm(r,\phi)$ is a solution to
@@ -354,7 +357,7 @@ The 3D case follows a similar logic.  We use spherical coordinates
 $(r,\theta,\phi)$, and the general solution to the Helmholtz equation
 can be written as a superposition of outgoing and incoming spherical
 waves.  The superposition has the following form:
-$$\psi(\mathbf{r})=\sum_{\pm}\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell c_{\ell m}^\pm \,\Psi_{\ell m}^\pm(r,\theta,\phi)\;\;\;\mathrm{where}\;\;\Psi_{\ell m}^\pm(r,\theta,\phi) = \,h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi).$$
+$$\psi(\mathbf{r})=\sum_{\pm}\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell c_{\ell m}^\pm \,\Psi_{\ell m}^\pm(r,\theta,\phi)\;\;\;\mathrm{where}\;\;\Psi_{\ell m}^\pm(r,\theta,\phi) = \,h_\ell^\pm(k_ir)\,Y_{\ell m}(\theta,\phi).$$
 The $c_{\ell m}^\pm$ factors are complex coefficients.  Each
 $h_\ell^\pm$ is a \textbf{spherical Hankel function}, and each
 $Y_{\ell m}$ is a \textbf{spherical harmonic}.  The $\ell$ and $m$
@@ -369,29 +372,29 @@ It is now clear what we need to do to get a scattered wavefunction
 $\psi_s(\mathbf{r})$ that is outgoing at infinity.  We take the
 general solution and discard all incoming ($-$) wave components,
 keeping only the outgoing ($+$) terms:
-$$\psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}$$
+$$\psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(k_ir)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(k_ir)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}$$
 For large $r$, the outgoing wavefunction's $r$-dependence can be
 written as
-$$\psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} e^{ikr}.$$
+$$\psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} \,\exp\left(ik_ir\right).$$
 
 For $d > 1$, the magnitude of the wavefunction decreases with distance
 from the origin.  This is to be expected, because with increasing $r$,
 an outgoing wave spreads out over a wider area.  Consider the
 probability current density $\mathbf{J} = (\hbar/m)
 \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right]$; its $r$-component is
-$$\begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; kr^{1-d}.\end{aligned}$$
+$$\begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ik_ir} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ik_ir}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik_i r^{1-d}\right]\\ &\;\;=\;\;\; k_i \,r^{1-d}.\end{aligned}$$
 In $d$ dimensions, the area of a wave-front scales as $r^{d-1}$, so
-the probability flux goes as $J_r \,r^{d-1} \sim k$, independent of
-$r$.  Thus, the outgoing solution describes a constant probability
-flux flowing outward from the origin.  Note also that if we plug $d=1$
-into the above formula, we get a scattered probability flux that
-scales as $r^0$ (i.e., a constant), which is consistent with the
-findings from the 1D model in the previous section.  In 1D, waves do
-not spread out with distance since there is no transverse dimension;
-accordingly, $\psi_s$ and $J_r$ are independent of the distance
-traveled.
+the probability flux goes as $J_r \,r^{d-1} \sim k_i$, which is
+positive and independent of $r$.  This describes a constant
+probability flux flowing outward from the origin.  Note that if we
+plug $d=1$ into the above formula, we find that $J_r$ scales as $r^0$
+(i.e., a constant).  This is consistent with the findings of the
+previous section; waves in 1D do not spread out with distance, since
+there is no transverse dimension, so $\psi_s$ and $J_r$ are
+independent of the distance traveled.
 
 \section{The scattering amplitude and scattering cross section}
+\label{sec:scattering_amplitude}
 
 We can use the results of the previous section to systematically
 characterize the outcomes of a scattering experiment.  Let the
@@ -412,8 +415,20 @@ The complex function $f(\Omega)$, called the \textbf{scattering
   amplitude}, is the fundamental object of interest in scattering
 experiments.  It describes how the particle is scattered in various
 directions, and it depends on the inputs to the scattering problem,
-including $\mathbf{k}_i$ and the scattering potential.  From it, we
-can also define two other important quantities of interest:
+including $\mathbf{k}_i$ and the scattering potential.
+
+Sometimes, we will write the scattering amplitude using the
+alternative notation
+$$f(\mathbf{k}_i \rightarrow k_i \hat{\mathbf{r}}).$$
+This emphasizes that the incident wave-vector is $\mathbf{k}_i$, and
+that the particle gets scattered in a direction specified by the unit
+position vector $\hat{\mathbf{r}}$ (which can be expressed with
+directional coordinates $\Omega$).  This can be regarded as the
+scattering of the particle into the momentum state specified by
+$\mathbf{k}_f = k_i \hat{\mathbf{r}}$.
+
+From the scattering amplitude, we can define two other important
+quantities of interest:
 $$\boxed{\begin{aligned}\frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\quad \text{(the \textbf{differential scattering cross section})} \\ \sigma &= \int d\Omega\; \big|f(\Omega)\big|^2 \quad\; \text{(the \textbf{total scattering cross section}).}
   \end{aligned}}$$
 In the second equation, $\int d\Omega$ denotes the integral(s) over
@@ -462,6 +477,7 @@ it represents the rate, per unit of solid angle, at which particles
 are scattered in a given direction.
 
 \section{The Green's function}
+\label{sec:greensfun}
 
 Having defined the scattering amplitude $f(\Omega)$, we still need to
 figure out how to calculate it.  This can be done using a variety of
@@ -503,8 +519,8 @@ scattering problem gives
 $$\begin{aligned}|\psi_s\rangle &= \left(\hat{G}_0 + \hat{G}_0\hat{V}\hat{G}\right) \hat{V} |\psi_i\rangle \\ &= \hat{G}_0 \hat{V} |\psi_i\rangle + \hat{G}_0\hat{V}\hat{G} \hat{V} |\psi_i\rangle \\ &= \hat{G}_0 \hat{V} |\psi_i\rangle + \hat{G}_0\hat{V} |\psi_s\rangle \\ &= \hat{G}_0\hat{V} |\psi\rangle.\end{aligned}$$
 This is a useful simplification, since it involves $\hat{G}_0$ rather
 than $\hat{G}$.  The downside is that the equation is implicit, since
-the right-hand side contains not $|\psi_i\rangle$ (which is given to
-us), but $|\psi\rangle$ (which we do not know).
+the right-hand side contains not $|\psi_i\rangle$, which is known to
+us, but $|\psi\rangle$, which is not known.
 
 One way we can try to solve the implicit equation is to plug the
 expression for $|\psi_s\rangle$ repeatedly back into the right-hand
@@ -512,8 +528,10 @@ side.  This yields an infinite series formula:
 $$\begin{aligned}|\psi_s\rangle &= \hat{G}_0 \hat{V} \left(|\psi_i\rangle + \hat{G}_0 \hat{V}|\psi\rangle\right) \\ &= \quad \vdots \\ &= \left[\hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.\end{aligned}$$
 Or, equivalently,
 $$|\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.$$
-This is called the \textbf{Born series}.  To understand its meaning,
-let us go to the position basis:
+This is called the \textbf{Born series}.
+
+To understand the meaning of the Born series, let us go to the
+position basis:
 $$\begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}$$
 The Born series describes the phenomenon of \textbf{multiple
   scattering}.  Due to the presence of the scatterer, the particle
@@ -550,36 +568,43 @@ the scope of our present discussion.)
 \label{sec:freegreen}
 
 We have defined the free-particle Green's function as the operator
-$$\hat{G}_0=\big(E-\hat{H}_0\big)^{-1}.$$
-Its matrix element in the position basis,
-$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, is called the
-\textbf{propagator}.  As we have just seen, when the Born series is
-written in the position basis, the propagator appears in the integrand
-and describes how the particle travels, or ``propagates'', between
-scattering points.
+$\hat{G}_0=\big(E-\hat{H}_0\big)^{-1}$.  Its representation in the
+position basis, $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, is
+called the \textbf{propagator}.  As we have just seen, when the Born
+series is written in the position basis, the propagator appears in the
+integrand and describes how the particle ``propagates'' between
+discrete scattering events.
 
-We can calculate the propagator with the aid of the momentum
-eigenstates:
+The propagator is a solution to a partial differential equation:
+$$\begin{aligned}\langle\mathbf{r} |\big(E-\hat{H}_0\big) \hat{G}_0 |\mathbf{r}'\rangle &= \langle\mathbf{r}|\hat{I}|\mathbf{r}'\rangle \\ = \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}') \\ \Rightarrow \qquad\quad \left(\nabla^2 + k_i^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}'),\end{aligned}$$
+where
+$$k_i = \sqrt{\frac{2mE}{\hbar^2}}$$
+is the wavenumber of plane waves in free space for energy $E$ (the
+energy of the incident particle).  Therefore, up to a factor of
+$2m/\hbar^2$, the propagator is the Green's function for the
+$d$-dimensional Helmholtz equation (see
+Section~\ref{sec:2d3d_scattering}).  Note that the $\nabla^2$ acts
+upon the $\mathbf{r}$ coordinates, not $\mathbf{r}'$.
+
+To solve for $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, we can
+use the momentum eigenstates:
 $$\begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &=
-  \langle\mathbf{r}|\hat{G}_0 \Big(\int d^dk |\mathbf{k}\rangle\langle\mathbf{k}| \Big) |\mathbf{r}'\rangle \\ &= \int d^dk \; \langle\mathbf{r}|\mathbf{k}\rangle \; \frac{1}{E-\frac{\hbar^2|\mathbf{k}|^2}{2m}} \; \langle\mathbf{k}|\mathbf{r}'\rangle \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^d} \int d^dk \; \frac{\exp\left[i\mathbf{k}\cdot (\mathbf{r}-\mathbf{r}')\right]}{k_i^2-|\mathbf{k}|^2},\end{aligned}$$
-where $k_i$ is the free-space wavenumber, related to the
-particle energy by $E = \hbar^2 k_i^2/2m$.
+  \langle\mathbf{r}|\hat{G}_0 \Big(\int d^dk |\mathbf{k}\rangle\langle\mathbf{k}| \Big) |\mathbf{r}'\rangle \\ &= \int d^dk \; \langle\mathbf{r}|\mathbf{k}\rangle \; \frac{1}{E-\frac{\hbar^2|\mathbf{k}|^2}{2m}} \; \langle\mathbf{k}|\mathbf{r}'\rangle \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^d} \int d^dk \; \frac{\exp\left[i\mathbf{k}\cdot (\mathbf{r}-\mathbf{r}')\right]}{k_i^2-|\mathbf{k}|^2}.\end{aligned}$$
 
 To proceed, we must specify the spatial dimension $d$.  Here, we will
 take $d = 3$; the calculations for other $d$ are fairly similar.  To
-calculate the three-dimensional integral over $k$-space, we adopt
-spherical coordinates, denoted by $(k,\theta,\phi)$.  The axes of the
-spherical coordinates are aligned so that $\theta$ is the angle
-between $\mathbf{r}$ and $\mathbf{r}'$.  We can now do the $k$-space
-integral:
+calculate the integral over the 3D $k$-space, we adopt spherical
+coordinates $(k,\theta,\phi)$, with the coordinate axes aligned so
+that $\mathbf{r}-\mathbf{r}'$ points along the $\theta=0$ direction.
+We can now do the $k$-space integral:
 $$\begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k \; \frac{\exp\left[i\mathbf{k}\cdot (\mathbf{r}-\mathbf{r}')\right]}{k_i^2-|\mathbf{k}|^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;k^2\sin\theta\; \frac{\displaystyle \exp\left(ik|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k_i^2-k^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk \int_{-1}^1 d\mu \;k^2\; \frac{\displaystyle \exp\left(ik|\mathbf{r}-\mathbf{r}'|\mu\right)}{k_i^2-k^2} \qquad(\text{letting}\;\mu = \cos\theta) \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk \; \frac{ k^2}{k_i^2-k^2}\, \frac{\displaystyle \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik|\mathbf{r}-\mathbf{r}'|\right)}{ik|\mathbf{r}-\mathbf{r}'|} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk \; \frac{\displaystyle k\, \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{(k - k_i)(k+k_i)}\end{aligned}$$
-The remaining integral looks like something we can do using contour
-integration techniques.  But there's a snag: the integration contour
-runs over the real-$k$ line, and since $k_i \in \mathbb{R}^+$, there
-are two poles on the contour (at $\pm k_i$).  Hence, the value of the
-integral, as written, is formally singular.
+This looks like something we can handle with contour integration
+techniques.  But there's a snag: the integration contour runs over the
+real-$k$ line, and since $k_i \in \mathbb{R}^+$, there are two poles
+on the contour (at $\pm k_i$).  Hence, the value of the integral, as
+written, is singular.
 
-To give the integral a well-defined value, we must ``regularize'' it
+To give the integral a non-singular value, we must ``regularize'' it
 by somehow tweaking its definition.  One way is to displace the poles
 infinitesimally in the complex-$k$ plane, shifting them off the
 contour.  We have a choice of whether to move each pole upwards or
@@ -611,7 +636,7 @@ $\mathbf{r}$, describing a wave propagating isotropically outwards
 from a source point $\mathbf{r}'$.  This behavior is a consequence of
 our above choice of regularization, which tweaked the definition of
 the Green's function to be
-$$\boxed{\quad\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H} + i \varepsilon\big)^{-1}.\quad}$$
+$$\boxed{\quad\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.\quad}$$
 
 This is called an \textbf{outgoing} or \textbf{causal Green's
   function}.  The word ``causal'' refers to the concept of
@@ -633,12 +658,12 @@ outgoing/causal Green's function.
 \section{Scattering amplitudes in 3D}
 \label{sec:3damp}
 
-The outgoing propagator can now be plugged into the scattering problem
-$$\begin{aligned} \psi_i(\mathbf{r}) &= \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}}, \\ \psi_s(\mathbf{r}) &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \;\; \overset{r\rightarrow\infty}{\longrightarrow}\;\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ik_ir} \, f(\Omega).
+The propagator can now be plugged into the scattering problem
+posed in Sections~\ref{sec:scattering_amplitude}--\ref{sec:greensfun}:
+$$\begin{aligned} \psi_i(\mathbf{r}) &= \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}}, \\ \psi_s(\mathbf{r}) &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \;\; \overset{r\rightarrow\infty}{\longrightarrow}\;\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ik_ir} \, f(\mathbf{k}_i\rightarrow k_i\hat{\mathbf{r}}).
 \end{aligned}$$
-Our goal is to determine the scattering amplitude $f(\Omega)$.  We
-will focus on the 3D case; the 1D and 2D cases are handled in a
-similar way.
+Our goal is to determine the scattering amplitude $f$.  We will focus
+on the 3D case; the 1D and 2D cases are handled in a similar way.
 
 In the $r\rightarrow\infty$ limit, the propagator can be simplified
 using the Taylor expansion
@@ -649,25 +674,20 @@ deriving the electric dipole moment in classical electromagnetism.)
 Applying this to the 3D outgoing propagator gives, to lowest order,
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\approx} - \frac{2m}{\hbar^2}\, \frac{e^{ik_ir}}{4\pi r}\; \exp\left(-ik_i \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)$$
 Hence, the scattered wavefunction is
-$$\begin{aligned}\psi_s(\mathbf{r}) &\;\;= \;\; \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\overset{r\rightarrow\infty}{\approx} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik_i \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r} \; (2\pi)^{3/2} \; \big\langle k_i \hat{\mathbf{r}} \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle. \end{aligned}$$
-Here, $|k_i\hat{\mathbf{r}} \rangle$ denotes the momentum eigenstate
-corresponding to the wave-vector $\mathbf{k} = k_i \hat{\mathbf{r}}$.
-Comparing this to the above definition of the scattering amplitude, we
-obtain
-$$f(\mathbf{k}_i\rightarrow k_i\hat{\mathbf{r}} )\; \Psi_i = - \frac{2m}{\hbar^2} \,\sqrt{\frac{\pi}{2}} \; \big\langle k_i \hat{\mathbf{r}} \big|V(\hat{\mathbf{r}})\big|\psi\big\rangle,$$
-where $f(\mathbf{k}\rightarrow \mathbf{k}')$ denotes the scattering
-amplitude to scatter from $\mathbf{k}$ to $\mathbf{k}'$.  We now
-plug in
+$$\begin{aligned}\psi_s(\mathbf{r}) &\;\;= \;\; \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\overset{r\rightarrow\infty}{\approx} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik_i \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r} \; (2\pi)^{3/2} \; \big\langle k_i \hat{\mathbf{r}} \big|\hat{V}\big|\psi\big\rangle. \end{aligned}$$
+Here, $|k_i\hat{\mathbf{r}} \rangle$ denotes a momentum eigenstate
+with wave-vector $\mathbf{k} = k_i \hat{\mathbf{r}}$.  We now plug in
 $$|\psi\rangle = \left(\hat{I} + \hat{G}\hat{V}\right)|\psi_i\rangle,$$
-together with our definition of the incident wavefunction.  The result
-is
-$$f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}\big\rangle, \;\;\;\mathrm{where} \;\; |\mathbf{k}| = |\mathbf{k}'|.$$
+and obtain
+$$\begin{aligned}\psi_s(\mathbf{r}) \; &\overset{r\rightarrow\infty}{\longrightarrow} \; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{r} \; \sqrt{\frac{\pi}{2}} \; \big\langle k_i \hat{\mathbf{r}} \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\psi_i\big\rangle \\ &= - \frac{2m}{\hbar^2} \, \Psi_i\, \frac{e^{ikr}}{r} \; 2\pi^2 \; \big\langle k_i \hat{\mathbf{r}} \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\mathbf{k}_i\big\rangle.\end{aligned}$$
+This can be compared to the earlier definition of the scattering amplitude,
+$$\psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\longrightarrow} \; \Psi_i \frac{e^{ik_ir}}{r} f(\mathbf{k}_i\rightarrow k_i\hat{\mathbf{r}} ).$$
+Hence, we get
+$$\boxed{\;\;\;\begin{aligned}f(\mathbf{k}\rightarrow \mathbf{k}') &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}\big\rangle \\ &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}\big\rangle,  \end{aligned}\quad\; \mathrm{where}\;\; |\mathbf{k}| = |\mathbf{k}'|.\;\;\;}$$
+In deriving the last line, we used the Born series
+$$|\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.$$
 
-We can also expand $|\psi\rangle$ in terms of the Born series
-$$|\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle,$$
-thus obtaining
-$$\boxed{\;\;\;f(\mathbf{k}\rightarrow \mathbf{k}') = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \,\cdot\, \big\langle \mathbf{k}'\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}\big\rangle, \;\;\; \;\; |\mathbf{k}| = |\mathbf{k}'|.\;\;\;}$$
-This equation is the culmination of the numerous definitions and
+The above result is the culmination of the numerous definitions and
 sub-derivations of the preceding sections.  On the left side is the
 scattering amplitude, which is the fundamental quantity of interest in
 scattering experiments.  On the right side is an expression involving
