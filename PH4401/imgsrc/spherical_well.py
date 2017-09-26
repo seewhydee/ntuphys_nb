@@ -108,7 +108,7 @@ def spherical_well_f_E(Evec, U, R, theta, lmax=30):
     return f
 
 ## Monte Carlo calculation of scattering amplitude versus E
-def spherical_well_f_E_mc(Evec, U, R, theta, nmc=10000):
+def spherical_well_f_E_mc(Evec, U, R, theta, nmc=30000):
     rdist = uniform(loc=-R, scale=(2*R))
     Rsq   = R*R
     f1    = zeros(len(Evec), dtype=complex)
@@ -160,7 +160,7 @@ def spherical_well_angle_demo(E=0.10, U=1.0, R=1.0):
 ## series (from Monte Carlo integration).
 def spherical_well_E_demo():
     theta = pi/2
-    U, R  = 0.1, 1.0
+    U, R  = 1.0, 1.0
     Evec  = linspace(1e-6, 10, 1000)
     Evec2 = linspace(1e-6, 10, 25)
 
