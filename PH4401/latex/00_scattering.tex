@@ -701,12 +701,13 @@ different numerical prefactors.
 
 Let us test the Born series against a simple example, consisting of
 the scattering potential
-$$V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0, & |\mathbf{r}| > 0. \end{cases}$$
-We will assume that $U > 0$, so that the potential is attactive and
-describes a uniform spherically symmetric well of depth $U$ and radius
-$R$, surrounded by empty space.  For this potential, the scattering
-problem can be solved exactly.  The details are described in Appendix
-A, and the resulting scattering amplitudes are
+$$V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
+  & |\mathbf{r}| > 0. \end{cases}$$ We will assume that $U > 0$, so
+that the potential is attactive and describes a uniform spherically
+symmetric well of depth $U$ and radius $R$, surrounded by empty space.
+For this potential, the scattering problem can be solved exactly,
+using the method of \textbf{partial wave analysis} described in
+Appendix A.  The resulting scattering amplitudes are
 $$\begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}$$
 This solution is expressed in terms of various special functions;
 $j_\ell$ and $h_\ell$ are the spherical Bessel function of the first
@@ -750,13 +751,14 @@ This method for calculating the Born series can be readily generalized
 to more complicated scattering potentials, including potentials for
 which there is no exact solution.
 
-The figure below compares the Born approximations, computed for the
-uniform potential well via Monte Carlo integration, to the ``exact''
-solution.  It plots $|f|^2$ versus the scattering energy $E$, for the
-case of $90^\circ$ scattering (i.e., $\mathbf{k}_f$ perpendicular to
-$\mathbf{k}_i$), for two wells of different depths $U$ and the same
-radius $R = 1$.  We take computational units $\hbar = m = 1$, and each
-Monte Carlo integral is computed using $3\times10^4$ samples.
+The figure below shows the results of the Born approximation for the
+uniform potential well, compared to the ``exact'' solution computed
+from partial wave analysis.  It plots $|f|^2$ versus the scattering
+energy $E$, for the case of $90^\circ$ scattering (i.e.,
+$\mathbf{k}_f$ perpendicular to $\mathbf{k}_i$), with wells of
+different depth $U$ and the same radius $R = 1$.  We adopt
+computational units $\hbar = m = 1$, and each Monte Carlo integral is
+computed using $3\times10^4$ samples.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.97\textwidth]{spherical_well_scattering}
@@ -777,13 +779,11 @@ interpret this is that as a scattering potential gets stronger, an
 incident particle has a higher chance to undergo multiple-scattering
 (i.e., bouncing around the potential multiple times before escaping),
 which means that higher terms in the Born series become more
-important.  In fact, if the potential is too strong (what ``too
-strong'' means is a complicated issue that we can't discuss here),
-even taking the Born approximation to higher orders might not work,
-because the Born series can become non-convergent.  In those cases,
-different methods must be brought to bear.  (We will see an example in
-the next chapter, in the form of phenomena known as ``scattering
-resonances''.)
+important.  In fact, if the potential is too strong, even taking the
+Born approximation to higher orders might not work, because the Born
+series can become non-convergent.  In those cases, different methods
+must be brought to bear.  We will see an example in the next chapter,
+in the form of phenomena known as ``scattering resonances''.
 
 \section*{Exercises}
 
