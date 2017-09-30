@@ -132,67 +132,84 @@ identity matrix, as expected.
 \subsection{Transfer matrix across a piecewise-constant system}
 
 Using the results of the previous two sections, we can find the
-transfer matrix for any piecewise-constant potential.  Suppose we have
-a potential function which is divided into segments of length $L_1,
-L_2, \dots L_N$, with the values $V_1, V_2, \dots, V_N$, as shown
-below:
+transfer matrix for any piecewise-constant potential.  Consider the
+potential function shown below.  It consists of segments of length
+$L_1, L_2, \dots L_N$, with potential $V_1, V_2, \dots, V_N$; outside,
+the potential is $V_0$:
 
 \begin{center}
   \includegraphics[width=0.5\textwidth]{transfer_matrix_setup2}
 \end{center}
 
-Let $x_a$ and $x_b$ lie at the ends of the first and last segments; we
-assume that $x_b > x_a$.  We can compute $\Psi_b$ by starting with
-$\Psi_a$, and left-multiplying by a sequence of transfer matrices, one
-after the other.  These transfer matrices consist of the two types
-derived in the previous sections: $\mathbf{M}_0$ (to cross a uniform
-segment) and $\mathbf{M}_s$ (to cross a potential step).  Each matrix
-multiplication ``transfers'' us to another point to the right, until
-we reach $x_b$.
+Let $x_a$ and $x_b$ lie right beyond the first and last segments
+(where $V = V_0$), with $x_b > x_a$.  We can compute $\Psi_b$ by
+starting with $\Psi_a$, and left-multiplying by a sequence of transfer
+matrices, one after the other.  These transfer matrices consist of the
+two types derived in the previous sections: $\mathbf{M}_0$ (to cross a
+uniform segment) and $\mathbf{M}_s$ (to cross a potential step).  Each
+matrix multiplication ``transfers'' us to another point to the right,
+until we reach $x_b$.
 
 Therefore, the overall transfer matrix between the two points is
-$$\boxed{\;\;\;\begin{aligned}\mathbf{M}(x_b, x_a) &= \mathbf{M}_0(k_N,L_N) \; \mathbf{M}_s(k_N, k_{N-1}) \cdots \mathbf{M}_0(k_2,L_2) \; \mathbf{M}_s(k_2, k_1) \; \mathbf{M}_0(k_1,L_1) \;\;\;\\ \mathrm{where}\;\;\; \mathbf{M}_0(k,L) &= \begin{bmatrix}e^{ikL} & 0 \\ 0 & e^{-ikL}\end{bmatrix} \\ \mathbf{M}_s(k_+,k_-) &= \frac{1}{2} \begin{bmatrix}1+\frac{k_-}{k_+} & 1-\frac{k_-}{k_+} \\ 1-\frac{k_-}{k_+} & 1+\frac{k_-}{k_+}\end{bmatrix}\\ k_n &= \sqrt{\frac{2m(E-V_n)}{\hbar^2}}.\end{aligned}}$$
+$$\boxed{\;\;\;\begin{aligned}\mathbf{M}(x_b, x_a) &= \mathbf{M}_s(k_0,k_N)\; \mathbf{M}_0(k_N,L_N) \; \mathbf{M}_s(k_N, k_{N-1}) \cdots \\ & \quad\;\cdots \times \mathbf{M}_s(k_3, k_2)\; \mathbf{M}_0(k_2,L_2) \; \mathbf{M}_s(k_2, k_1) \; \mathbf{M}_0(k_1,L_1) \; \mathbf{M}_s(k_1,k_0) \;\;\;\\ \mathrm{where}\;\;\; \mathbf{M}_0(k,L) &= \begin{bmatrix}e^{ikL} & 0 \\ 0 & e^{-ikL}\end{bmatrix} \\ \mathbf{M}_s(k_+,k_-) &= \frac{1}{2} \begin{bmatrix}1+\frac{k_-}{k_+} & 1-\frac{k_-}{k_+} \\ 1-\frac{k_-}{k_+} & 1+\frac{k_-}{k_+}\end{bmatrix}\\ k_n &= \sqrt{\frac{2m(E-V_n)}{\hbar^2}}.\end{aligned}}$$
 The expression for $\mathbf{M}(x_b,x_a)$ should be read from right to
-left.  Starting from $x_a$, we cross segment 1, then cross the
-potential step from segment 1 to segment 2, then cross segment 2, and
-so forth.  (A common mistake, when writing transfer matrix code, is to
-assemble the matrices left-to-right, i.e.~right-multiplying when you
-should be left-multiplying.)
+left.  Starting from $x_a$, we cross the potential step into segment
+1, then pass through segment 1, cross the potential step from segment
+1 to segment 2, pass through segment 2, and so forth.  (Note that as
+we move left-to-right through the structure, the matrices are
+assembled right-to-left; a common mistake when writing a program to
+implement the transfer matrix method is to assemble the matrices in
+the wrong order, i.e.~right-multiplying instead of left-multiplying.)
 
+\section{Reflection and transmission coefficients}
 
+The transfer matrix method is typically used to study how a 1D
+potential scatters an incident wave.  Consider a 1D scatterer that is
+confined within a region $x_a \le x \le x_b$:
+$$V(x) = 0 \;\;\;\mathrm{for}\;\;x < x_a \;\textrm{or}\; x > x_b.$$
+The total wavefunction consists of an incident wave and a scattered
+wave,
+$$\psi(x) = \psi_i(x) + \psi_s(x).$$
+The incident wave is assumed to be incident from the left:
+$$\psi_i(x) = \Psi_i \, \exp[ik_0(x-x_a)], \;\;\;\textrm{where}\;\;\; k_0 = \sqrt{\frac{2mE}{\hbar^2}}.$$
+We have inserted the extra phase factor of $\exp(-ik_0x_a)$ to ensure
+that $\psi_i(x_a) = \Psi_i$, which will be convenient.  The wave is
+scattered as it meets the structure, and part of it is reflected back
+to the left, while another part is transmitted across to the right.
+Due to the linearity of the Schr\"odinger wave equation, the total
+wavefunction must be directly proportional to $\Psi_i$.  Let us
+write the wave components at $x_z$ and $x_b$ as
+$$\begin{aligned} \Psi(x_a) &= \begin{bmatrix}\psi_+(x_a) \\ \psi_-(x_a) \end{bmatrix} = \Psi_i \begin{bmatrix}\,\,1\, \\ r \end{bmatrix} \\ \Psi(x_b) &= \begin{bmatrix}\psi_+(x_b) \\ \psi_-(x_b) \end{bmatrix} = \Psi_i \begin{bmatrix}\,\,t\,\, \\ 0 \end{bmatrix}.\end{aligned}$$
+The complex numbers $r$ and $t$ are called the \textbf{reflection
+  coefficient} and the \textbf{transmission coefficient},
+respectively.  Their values do \textit{not} depend on $\Psi_i$, since
+they specify the wave components for the reflected and transmitted
+waves \textit{relative} to $\Psi_i$.  Note also that there is no
+$\psi_-$ wave component at $x_b$, as the scattered wavefunction
+must be purely outgoing.
+
+\begin{center}
+  \includegraphics[width=0.65\textwidth]{transfer_matrix_setup3}
+\end{center}
+
+From the reflection and transmisison coefficients, we can also define
+the real quantities
+$$R = |r|^2, \;\;\; T = |t|^2,$$
+which are called the \textbf{reflectance} and \textbf{transmittance}
+respectively.  These are directly proportional to the total current
+flowing to the left and right.
+
+According to the transfer matrix relation,
+$$\begin{bmatrix}\,t\, \\ 0 \end{bmatrix} = \textbf{M}(x_b,x_a) \begin{bmatrix}\,1\, \\ r
+\end{bmatrix}.$$
+Hence, $r$ and $t$ can be expressed in terms of the components of the
+transfer matrix:
+$$r = \frac{M_{21}}{M_{22}}, \quad t = \frac{M_{11} M_{22} - M_{12}M_{21}}{M_{22}} = \frac{\det(\textbf{M})}{M_{22}}.$$
 
 \end{document}
 
 
-== Wave scattering in 1D ==
-
-The transfer matrix method is typically used to study how a structure, such as a block of dense material, scatters an incident wave (be it an electromagnetic wave, a sound wave, or any other kind of wave describable by the 1D wave equation).  Let us consider a finite structure suspended in empty space.  For positions $x$ lying in some finite region, the refractive index function $n(x)$ varies in a particular way, but the rest of space is empty, so
-
-: $n(x) = 1 \quad \mathrm{for}\;\mathrm{large}\;\, |x|.$
-
-We are interested in what happens when a wave is incident on the structure from the empty-space region.  For the moment, let's suppose the incident wave is coming from the left.  The wave will be scattered as it meets the structure, and in 1D (but not in higher dimensions), the scattering consists of two distinct processes: part of the wave will be ''reflected'' back to the left, while another part will be ''transmitted'' across the structure and into the empty-space region on the right.
-
-This can be described in terms of wave components.  If we pick an arbitrary point $x_a$ in the empty-space region on the left, the right-moving wave component $\psi_+(x_a)$ corresponds to the incident wave, and the left-moving wave component $\psi_-(x_a)$ corresponds to reflected wave.  Picking an arbitrary point $x_b$ in the empty-space region on the right, the right-moving wave component $\psi_+(x_b)$ corresponds to the transmitted wave, and ''the left-moving wave component is zero'' since there is (by assumption) no wave incident from the right.
-
-==== Reflection and transmission coefficients ====
-
-We define the "reflection coefficient" $r$ as the ratio of the reflected to incident wave components, and the "transmission coefficient" $t$  as the ratio of the transmitted to incident wave components:
-
-: $r = \frac{\psi_-(x_a)}{\psi_+(x_a)},\quad t = \frac{\psi_+(x_b)}{\psi_+(x_a)}.$
-
-Note that both $r$ and $t$ are complex numbers.  Now, using the fact that the wave components are related by the transfer matrix equation
-
-:$\mathbf{M}(x_b,x_a) \begin{bmatrix}\psi_+(x_a) \\ \psi_-(x_a)\end{bmatrix} = \begin{bmatrix}\psi_+(x_b) \\ 0\end{bmatrix},$
-
-one can easily show that
-
-: $r = \frac{M_{21}}{M_{22}}, \quad t = \frac{M_{11} M_{22} - M_{12}M_{21}}{M_{22}}.$
-
-Here, $M_{ij}$ denotes the $i,j$ matrix element of $\mathbf{M}(x_b,x_a)$.  The reflection and transmission coefficients depend on the transfer matrix (and hence on the refractive index function and the frequency).  They do ''not'' depend on the magnitude of the incident wave.  This is to be expected, because of the linearity of the wave equation: if we change the amplitude of the incident wave, the reflected and transmitted waves change by a proportionate factor, which leaves $r$ and $t$ unaffected due to their definition as ratios.
-
-==== Reflectance and transmittance ====
-
-The squared magnitude of the reflection coefficient, $R \equiv |r|^2$, is called the "reflectance".  The squared magnitude of the transmission coefficient, $T \equiv |t|^2$, is called the "transmittance".  When $n(x)$ is everywhere real, the reflectance and transmittance obey the equation
+When $n(x)$ is everywhere real, the reflectance and transmittance obey the equation
 
 : $R + T = 1.$
 
@@ -227,21 +244,6 @@ The scattering behavior of the etalon exhibits several interesting features:
 * For real and positive $n_1$, there is no "reflection resonance" phenomenon in which the reflectance goes to unity.  Some of the wave always makes it through the etalon.
 
 Many of these features are also present when looking at wave scattering in higher dimensions, and for more complicated structures.  We will revisit the physics of wave scattering later, after learning a bit more mathematical technology such as [[Green's function|the Green's function method]].
-
-== Exercises ==
-
-<ol>
-<li>
-By modifying [[Energy conservation in 1D wave equation|our earlier proof]] that $R + T = 1$ for real refractive index, show that $R + T \le 1$ if $\mathrm{Im}[n(x)] \ge 1$.</li>
-<li>The conservation relation $R + T = 1$ was derived by assuming that the two regions on the far left and far right have equal refractive index (i.e., the scatterer is suspended in a uniform medium, such as vacuum).  Now suppose the two regions on the far left and far right have different refractive index: let $n(x) = n_a$ on the far left, and $n(x) = n_b$ on the far right, where $n_a, n_b \in \mathbb{R}$.  Derive a generalization of the conservation relation.</li>
-<li>Consider a structure consisting of $N$ layers of uniform refractive index $n_1 = 1.05$ and equal length $L = 1$, separated from one another by gaps of uniform refractive index 1 and length $L = 1$.  The rest of space is empty, with refractive index $ n = 1$.
-<ol style="list-style-type:lower-alpha">
-<li>Write a program to compute, via the transfer matrix, the reflectance $R$ and transmittance $T$ as a function of the frequency $\omega$.  Show the results for $N = 5, 10, 50$.  When the number of layers is large, you should find that the reflectance approaches unity at a certain frequency.  Such a structure is called a ''Bragg reflector''.</li>
-<li>By varying $L$ in your program, deduce an approximate expression for the frequency at which the reflectance peak occurs.</li>
-<li>For comparison, compute  the $R$ versus $T$ versus $\omega$ plot for a uniform block of refractive index $n_1$ and the same total length.</li>
-</ol>
-</li>
-</ol>
 
 
 \end{document}
