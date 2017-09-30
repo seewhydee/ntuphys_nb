@@ -24,7 +24,7 @@ def scattering_amplitude_theta(E, U, R, thetavec, lmax=30):
     hlp = spherical_jn(lvec, kR, True) + 1j*spherical_yn(lvec, kR, True)
 
     ## Phase shifts for each l component
-    delt = 0.5*pi + angle((kR*hlp*jl - qR*hl*jlp)/R)
+    delt = 0.5*pi - angle((kR*hlp*jl - qR*hl*jlp)/R)
     coef = (exp(2j*delt)-1) * (2*lvec+1)
     return (-0.5j*R/kR) * dot(coef, P)
 
@@ -44,7 +44,7 @@ def scattering_amplitude_energy(Evec, U, R, theta, lmax=30):
         hl  = spherical_jn(ll, kR) + 1j*spherical_yn(ll, kR)
         hlp = spherical_jn(ll, kR, True) + 1j*spherical_yn(ll, kR, True)
 
-        delt = 0.5*pi + angle((kR*hlp*jl - qR*hl*jlp)/R)
+        delt = 0.5*pi - angle((kR*hlp*jl - qR*hl*jlp)/R)
         f += (-0.5j*R/kR) * (exp(2j*delt)-1) * (2*ll+1) * P[ll]
     return f
 
@@ -160,4 +160,5 @@ def spherical_well_demo():
     plt.ylim(-20, 0)
     plt.show()
 
-# spherical_well_E_demo()
+spherical_well_E_demo(U=0.2, do_mc=False)
+
