@@ -617,7 +617,7 @@ using Fermi's golden rule.
   has at least one bound state.  Assume that the potential $V(x)$
   satisfies (i) $V(x) < 0$ for all $x$, and (ii) $V(x)\rightarrow 0$
   for $x\rightarrow\pm\infty$.  The Hamiltonian is
-  $$\mathcal{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x).$$
+  $$\hat{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x).$$
   Consider a (real) trial wavefunction
   $$\psi(x;\gamma) = \left(\frac{2\gamma}{\pi}\right)^{1/4} \,e^{-\gamma x^2}.$$
   Note that this can be shown to be normalized to unity, using Gauss'
@@ -625,7 +625,7 @@ using Fermi's golden rule.
   $$\int_{-\infty}^{\infty} dx\; e^{-2\gamma x^2} = \sqrt{\frac{\pi}{2\gamma}}.$$
   Now prove that
   $$\begin{aligned}
-      \langle E \rangle &= \int_{-\infty}^\infty dx \; \psi(x) \, \mathcal{H} \,\psi(x) \\
+      \langle E \rangle &= \int_{-\infty}^\infty dx \; \psi(x) \, \hat{H} \,\psi(x) \\
       &= \frac{\hbar^2}{2m} \int_{-\infty}^\infty dx\, \left(\frac{d\psi}{dx}\right)^2
       \;+\; \int_{-\infty}^\infty dx\; V(x) \,\psi^2(x) \\
       &= A\sqrt{\gamma} \left[\sqrt{\gamma}
