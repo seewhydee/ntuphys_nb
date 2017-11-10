@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{mathrsfs}
+\usepackage{enumerate}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -122,8 +123,8 @@ For $U = 30$, there are five bound states, but these disappear one by
 one as we make the potential well shallower.  Note, however, that one
 bound state survives in the limit $U \rightarrow 0$.  There is a
 theorem which states that any 1D attractive potential, no matter how
-weak, always supports at least one bound state.  For details, see
-\hyperref[ex:boundstate]{Exercise 1}.
+weak, always supports at least one bound state.  For more details
+about this phenomenon, see \hyperref[ex:boundstate]{Exercise 1}.
 
 In 3D, however, an attractive potential can be too weak to support a
 bound state.  Intuitively, this happens if the zero-point energy of
@@ -612,8 +613,37 @@ using Fermi's golden rule.
 \section*{Exercises}
 
 \begin{enumerate}
-\item Existence of bound states in 1D
-\label{ex:boundstate}
+\item Use the variational theorem to prove that a 1D potential well
+  has at least one bound state.  Assume that the potential $V(x)$
+  satisfies (i) $V(x) < 0$ for all $x$, and (ii) $V(x)\rightarrow 0$
+  for $x\rightarrow\pm\infty$.  The Hamiltonian is
+  $$\mathcal{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x).$$
+  Consider a (real) trial wavefunction
+  $$\psi(x;\gamma) = \left(\frac{2\gamma}{\pi}\right)^{1/4} \,e^{-\gamma x^2}.$$
+  Note that this can be shown to be normalized to unity, using Gauss'
+  integral
+  $$\int_{-\infty}^{\infty} dx\; e^{-2\gamma x^2} = \sqrt{\frac{\pi}{2\gamma}}.$$
+  Now prove that
+  $$\begin{aligned}
+      \langle E \rangle &= \int_{-\infty}^\infty dx \; \psi(x) \, \mathcal{H} \,\psi(x) \\
+      &= \frac{\hbar^2}{2m} \int_{-\infty}^\infty dx\, \left(\frac{d\psi}{dx}\right)^2
+      \;+\; \int_{-\infty}^\infty dx\; V(x) \,\psi^2(x) \\
+      &= A\sqrt{\gamma} \left[\sqrt{\gamma}
+        \;+\, B \int_{-\infty}^\infty dx\; V(x) \;e^{-\gamma x^2}
+        \right],
+    \end{aligned}$$
+  where $A$ and $B$ are positive real constants to be determined.  By
+  looking at the quantity in square brackets in the limit $\gamma
+  \rightarrow 0$, argue that $\langle E \rangle < 0$ in this limit.
+  Hence, explain why this implies the existence of a bound state.
+
+  Finally, try generalizing this approach to the case of a 2D
+  radially-symmetric potential well $V(x,y) = V(r)$, where $r =
+  \sqrt{x^2+y^2}$.  Identify which part of the argument fails in 2D.
+       [See also \hyperref[cite:simon]{Simon (1976)} for a discussion
+         of certain 2D potential wells that \textit{do} always support
+         bounds states, similar to 1D potential wells.]
+  \label{ex:boundstate}
 
 \item In this problem, you will investigate the existence of bound
   states in a 3D potential well that is finite, uniform, and
@@ -663,14 +693,7 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
   energies at any given $a$ and $U$, and hence determine the
   conditions under which the potential does not support bound
   states.
-
-
-
 \label{ex:boundstate3d}
-
-\item Phase shift under scattering resonance
-
-\item Classical driven oscillator analogy  
 \end{enumerate}
 
 
@@ -678,16 +701,15 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
 
 \section*{Further Reading}
 
-\begin{itemize}
+\begin{enumerate}[[1{]}]
 \item Bransden \& Joachain, \S4.4, 9.2--9.3, 13.4
 \item Sakurai, \S5.6, 7.7--7.8
 
-%% \item 
-%%   C.~W.~Hsu, B.~Zhen, A.~D.~Stone, J.~D.~Joannopoulos, and
-%%   M.~Solja\u{c}i\'{c}, \textit{Bound states in the continuum},
-%%   Nature Reviews Materials \textbf{1}, 16048 (2016).
-%%   \label{cite:hsu}
-\end{itemize}
+\item B.~Simon, \textit{The bound state of weakly coupled
+  Schr\"odinger operators in one and two dimensions}, Annals of
+  Physics \textbf{97}, 279 (1976).
+\label{cite:simon}
+\end{enumerate}
 
 \end{document}
 
