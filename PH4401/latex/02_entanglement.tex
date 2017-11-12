@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{mathrsfs}
+\usepackage{enumerate}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -22,6 +23,7 @@
 \end{center}
 
 \section{Quantum mechanics of multi-particle systems}
+\label{sec:tensorprod}
 
 So far, we have studied quantum mechanical systems consisting of
 single particles.  The next important step is to look at systems of
@@ -67,9 +69,10 @@ $$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\ran
 In other words, we (i) calculate the inner product for space A, (ii)
 calculate the inner product for space B, and (iii) multiply the two
 resulting numbers together.  You can check that this satisfies the
-formal requirements for an inner product in linear algebra.
+formal requirements for an inner product in linear algebra (see
+\hyperref[ex:innerprod]{Exercise 1}).
 
-As an example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both 2D
+For example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both 2D
 Hilbert spaces describing spin-$1/2$ degrees of freedom.  Each space
 can be spanned by an orthonormal basis $\{\,|\!+\!z\rangle,
 \,|\!-\!z\rangle \, \}$, representing ``spin-up'' and ``spin-down''.
@@ -720,19 +723,18 @@ to be initially spin-up or spin-down, and $|\Psi\rangle \in
 
 The combined system now evolves via the Schr\"odinger equation.  We
 aim to show that if the Hamiltonian has the form
-$$\hat{H} = \hat{S}_z \otimes \hat{V},$$
-where $\hat{S}_z$ is the operator corresponding to the observable
-$S_z$, then time evolution has an effect equivalent to the measurement
-of $S_z$.  To show this, it turns out that we do not need to make any
-special choices for $\hat{V}$ or the initial apparatus state
-$|\Psi\rangle$.  We only need $d \gg 2$, and for $|\Psi\rangle$ and
-$\hat{V}$ to be both ``sufficiently complicated''.
+$$\hat{H} = \hat{S}_z \otimes \hat{V},$$ where $\hat{S}_z$ is the
+operator corresponding to the observable $S_z$, then time evolution
+has an effect equivalent to the measurement of $S_z$.
 
-In fact, we can choose $|\Psi\rangle$ to be a random state vector, and
-choose random matrix components for the operator $\hat{V}$.  The
-precise generation procedures will be elaborated on later.  Once we
-decide on $|\Psi\rangle$ and $\hat{V}$, we can evolve the system by
-solving the Sch\"odinger equation
+It turns out that we can show this without making any special choices
+for $\hat{V}$ or $|\Psi\rangle$.  We only need $d \gg 2$, and for both
+$\hat{V}$ and $|\Psi\rangle$ to be ``sufficiently complicated''.  We
+choose $|\Psi\rangle$ to be a random state vector, and choose random
+matrix components for the operator $\hat{V}$.  The precise generation
+procedures will be elaborated on later.  Once we decide on
+$|\Psi\rangle$ and $\hat{V}$, we can evolve the system by solving the
+Sch\"odinger equation
 $$|\psi(t)\rangle = U(t)|\psi(0)\rangle, \;\;\;\mathrm{where}\;\; \hat{U}(t) = \exp\left[-\frac{i}{\hbar}\hat{H}t\right].$$
 Because the part of $\hat{H}$ acting on the $\mathscr{H}_S$ subspace
 is $\hat{S}_z$, the result necessarily has the following form:
@@ -766,10 +768,10 @@ The above description can be tested numerically.  Let us use an
 arbitrary basis for the apparatus space $\mathscr{H}_A$; in that
 basis, let the $d$ components of the initial apparatus state vector
 $|\Psi\rangle$ be random complex numbers:
-\begin{equation}
+$$\begin{aligned}
   |\Psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\, \begin{pmatrix}\Psi_0 \\ \Psi_1 \\ \vdots \\ \Psi_{d-1}
   \end{pmatrix}, \;\; \mathrm{where} \;\; \mathrm{Re}(\Psi_j), \mathrm{Im}(\Psi_j) \sim N(0,1).
-\end{equation}
+\end{aligned}$$
 In other words, the real and imaginary parts of each complex number
 $\Psi_j$ are independently drawn from the the standard normal
 (Gaussian) distribution, denoted by $N(0,1)$.  The normalization
@@ -838,15 +840,39 @@ rather than different theories).
 \section*{Exercises}
 
 \begin{enumerate}
-\item \textcolor{red}{Prove that the inner product for tensor product basis states satisfies inner product axiom.}
-\item \textcolor{red}{Calculate entropy for Bell states.}
-\item \textcolor{red}{Explicit model for MWI state collapse.}
+\item Let $\mathscr{H}_A$ and $\mathscr{H}_B$ denote single-particle
+  Hilbert spaces with well-defined inner products.  That is to say,
+  for all vectors $|\mu\rangle, |\mu'\rangle, |\mu''\rangle \in
+  \mathscr{H}_A$, that Hilbert space's inner product satisfies the
+  inner product axioms
+  \begin{enumerate}
+  \item $\langle \mu|\mu' \rangle = \langle\mu'|\mu\rangle^*$
+  \item $\langle \mu|\mu \rangle \in \mathbb{R}^+_0$, and $\langle \mu|\mu \rangle = 0$ if and only if $|\mu\rangle = 0$.
+  \item $\langle\mu| \, \big(|\mu'\rangle + |\mu'' \rangle\big)
+    = \langle \mu|\mu'\rangle + \langle \mu|\mu''\rangle$
+  \item $\langle \mu | \,\big(c|\mu'\rangle\big) = c\langle\mu|\mu'\rangle$ for all $c\in\mathbb{C}$,
+  \end{enumerate}
+  and likewise for vectors from $\mathscr{H}_B$ with that Hilbert
+  space's inner product.
+
+  In Section~\ref{sec:tensorprod}, we defined a tensor product space
+  $\mathscr{H}_A\otimes\mathscr{H}_B$ as the space spanned by the
+  basis vectors $\{|\mu_i\rangle\otimes|\nu_j\rangle\}$, where
+  $|\mu_i\rangle$ are basis vectors for $\mathscr{H}_A$ and
+  $|\nu_j\rangle$ are basis vectors for $\mathscr{H}_B$.  Prove that
+  we can define an inner product using
+$$\Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}$$
+  which satisfies the inner product axioms.
+  \label{ex:innerprod}
+
+\item For a system of two spin-1/2 particles, calculate the
+  entanglement entropy for the state
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!+\!x\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
 \end{enumerate}
 
 \section*{Further Reading}
 
-\begin{itemize}
-
+\begin{enumerate}[[1{]}]
 \item Bransden \& Joachain, \S14.1---14.4, \S17.1--17.5
 
 \item Sakurai, \S3.9
@@ -866,14 +892,14 @@ rather than different theories).
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
   Nature (News and Views) \textbf{398}, 189 (1999). \label{cite:aspect}
 
-\item A.~Albrecht, \textit{Following a "collapsing" wave function},
+\item A.~Albrecht, \textit{Following a ``collapsing'' wave function},
   Physical Review D \textrm{48}, 3768 (1993).
 \label{cite:albrecht}
 
 \item A.~Edelman and N.~R.~Rao, \textit{Random matrix theory}, Acta
   Numerica \textbf{14}, 233 (2005).
 \label{cite:edelman}
-\end{itemize}
+\end{enumerate}
 
 \end{document}
 
