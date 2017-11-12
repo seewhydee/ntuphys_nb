@@ -16,7 +16,9 @@
 
 \begin{document}
 
-\section*{Appendix C: Entropy}
+\begin{center}
+{\large \textbf{Appendix C: Entropy}}
+\end{center}
 
 In classical contexts, ``entropy'' is a quantitative way to describe
 our lack of knowledge about a system.  In information theory,
@@ -24,18 +26,18 @@ our lack of knowledge about a system.  In information theory,
 contents of a message before receiving it.  In thermodynamics and
 statistical mechanics, \textbf{thermodynamic entropy} describes our
 uncertainty about the microscopic details (``microstate'') of a
-complex many-body system.  In fact, these two formulations are
-consistent with each other; for a description of how they are related,
-see \hyperref[cite:feynman]{Feynman (2000)}.  Here, we will use the
-statistical mechanics point of view.
+complex many-body system.  In fact, these two formulations are closely
+related and mutually consistent; for a discussion of this
+relationship, see \hyperref[cite:feynman]{Feynman (2000)}.  Here, we
+will use the statistical mechanics point of view.
 
 Suppose a system has discrete microstates labeled by integers
 $\{1,2,3,\dots\}$ , which have probabilities $\{p_1, p_2, p_3,
 \dots\}$.  Then the entropy of the system is defined as
 $$S_{\mathrm{cl.}} = - k_B \sum_{i} p_i \ln(p_i).$$
-The probabilities $p_i$ are to be understood as \textit{conditional}
-probabilities, conditioned on the known facts about the macroscopic
-features of the system (e.g., we might know the total energy $E$).
+The probabilities $p_i$ are \textit{conditional} probabilities,
+conditioned on the known facts about the macroscopic features of the
+system (e.g., we might know the total energy $E$).
 
 If we know exactly which microstate the system is in (i.e., $p_k = 1$
 for some state $k$), the entropy formula gives $S _{\mathrm{cl.}} =
@@ -59,10 +61,10 @@ uncertainty, yields an entropy $S_{\mathrm{cl.}}$ lying between $0$
 and $k_B \ln W$.  To see that zero is the lower bound, first note that
 for $0 \le p_i \le 1$, each term in the entropy formula satisfies
 $-k_B\, p_i\ln(p_i) \ge 0$, and the equality holds if and only if $p_i
-= 0$ or $p_i = 1$ (see the figure below):
+= 0$ or $p_i = 1$.  See the figure below:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.7\textwidth]{plogp}
+  \centering\includegraphics[width=0.55\textwidth]{plogp}
 \end{figure}
 
 This implies that $S_{\mathrm{cl.}}\ge 0$, and moreover that

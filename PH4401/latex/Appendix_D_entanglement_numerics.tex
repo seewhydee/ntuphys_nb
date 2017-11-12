@@ -1,0 +1,38 @@
+\documentclass[pra,12pt]{revtex4}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0.07in}
+
+\begin{document}
+
+\begin{center}
+{\large \textbf{Appendix D: Numerical Tensor Products}}
+\end{center}
+
+As described in Chapter 2, multi-particle quantum states are described
+mathematically using tensor products.  This appendix describes these
+tensor product states, and the operators acting upon them, are handled
+in numerical linear algebra software.  Our examples will be given in
+terms of \href{https://scipy.org/}{Scientific Python}, but the
+underlying concepts carry over to other programming languages like GNU
+Octave or Matlab.
+
+Tensor products of vectors (states) and matrices (operators) are
+implemented using the
+\href{https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.kron.html}{\texttt{numpy.kron}}
+function.  (GNU Octave and Matlab also has a \texttt{kron} function
+which does almost exactly the same thing.)
+
+
+\end{document}
