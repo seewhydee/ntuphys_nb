@@ -21,18 +21,59 @@
 \end{center}
 
 As described in Chapter 2, multi-particle quantum states are described
-mathematically using tensor products.  This appendix describes these
+mathematically using tensor products.  This appendix discusses how
 tensor product states, and the operators acting upon them, are handled
 in numerical linear algebra software.  Our examples will be given in
 terms of \href{https://scipy.org/}{Scientific Python}, but the
 underlying concepts carry over to other programming languages like GNU
 Octave or Matlab.
 
-Tensor products of vectors (states) and matrices (operators) are
-implemented using the
+Numerical linear algebra is always performed within some given basis.
+In that basis, states are represented by arrays of explicit vector
+components, and linear operators are represented by matrices.  As for
+tensor products, they can be represented by an operation known as the
+``Kronecker product'', which is implemented by the
 \href{https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.kron.html}{\texttt{numpy.kron}}
-function.  (GNU Octave and Matlab also has a \texttt{kron} function
-which does almost exactly the same thing.)
+function in Scientific Python.  (GNU Octave and Matlab have the
+\texttt{kron} function, which is almost identical.)
 
+The \texttt{kron} function takes two inputs, $A$ and $B$, and returns
+a new array that consists of blocks of $B$ scaled by the components of
+$A$.  What this means is best understood in terms of the two most
+common cases: (i) products of vectors, and (ii) products of matrices.
+
+First, suppose that $A$ and $B$ are one-dimensional arrays (i.e.,
+vectors), of length $M$ and $N$ respectively; let their components be
+$(A_0, A_1, \dots, A_{M-1})$ and $(B_0, B_1, \dots, B_{N-1})$.
+(Following the conventions of Scientific Python, we do not distinguish
+between row and column vectors, and components are indexed starting
+from 0.)  Then the Kronecker product returns a vector
+$$\texttt{kron}(A, B) = (A_0B_0,\dots, A_0 B_{N-1}, A_1 B_0, \dots, A_1 B_{N-1}, \dots, A_{M-1}B_{N-1}).$$
+This vector has length $MN$, and its first $N$ components are $A_0
+(B_0, \dots,B_{N-1})$, the next $N$ components are $A_1 (B_0, \dots,
+B_{N-1})$, etc.  We can describe this compactly in index notation:
+$$\big[\, \texttt{kron}(A, B) \,\big]_{\mu} = A_m \, B_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.$$
+This can be used to describe the tensor product of two quantum state
+vectors.  Suppose we have a state vector $|A\rangle$ in an
+$M$-dimensional Hilbert space with basis $\{|m\rangle\}$, and a state
+vector $|B\rangle$ in an $N$-dimensional Hilbert space with basis
+$\{|n\rangle\}$.  The basis decompositions for these two state vectors
+are
+$$|A\rangle = \sum_{m=0}^{M-1} A_m |m\rangle, \quad |B\rangle = \sum_{n=0}^{N-1} B_n |n\rangle.$$
+The tensor product $|A\rangle\otimes|B\rangle$ is a vector in an
+$MN$-dimensional space.  A natural basis for this product space is
+$$\Big\{|\mu\rangle \equiv |m\rangle\otimes |n\rangle\Big\} \;\;\;\mathrm{where} \;\begin{cases}\mu\!\!\!\! &= mN+n \\ m \!\!\!\!&= 0,1,\dots,M-1 \\ n \!\!\!\!&= 0,1, \dots, N-1.\end{cases}$$
+Then the components of $|A\rangle\otimes|B\rangle$ in this basis are
+exactly the components of the Kronecker product:
+$$|A\rangle\otimes|B\rangle = \sum_{\mu=0}^{MN-1} C_\mu \, |\mu\rangle, \;\;\; \mathrm{where}\;\;\; C_\mu\, = \big[\,\texttt{kron}(A,B)\,\big]_\mu.$$
+
+Second, consider the case where $A$ is an $M\times M$ matrix and $B$
+is an $N\times N$ matrix:
+$$A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\; B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.$$
+In this case, the Kronecker product yields an $MN\times MN$ matrix of
+the form
+$$\texttt{kron}(A,B) = \begin{bmatrix} A_{00}B & \cdots & A_{0,M-1}B \\ \vdots & \ddots & \vdots \\ A_{M-1,0}B & \cdots & A_{M-1,M-1}B\end{bmatrix}.$$
+In component terms,
+$$\big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} = A_{mm'} B_{nn'}\;\;\;\mathrm{where}\;\;\;\mu = mN+n, \; \mu' = m'N+n'.$$
 
 \end{document}
