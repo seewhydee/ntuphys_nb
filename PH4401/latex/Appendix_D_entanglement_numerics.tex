@@ -28,60 +28,61 @@ in numerical linear algebra software like
 \href{https://scipy.org/}{Scientific Python}, GNU Octave, or Matlab.
 
 Numerical linear algebra is always performed in an explicit basis, so
-that states are represented by arrays of vector components, and linear
-operators are represented by matrices.  Tensor products can be
-represented by an operation known as the ``Kronecker product'', which
-is implemented by the
-\href{https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.kron.html}{\texttt{numpy.kron}}
-function in Scientific Python, and the \texttt{kron} function in GNU
-Octave and Matlab.
+that states are represented by 1D arrays of numbers (vectors), and
+linear operators are represented by 2D arrays (matrices).  Tensor
+products can be represented by an operation known as the ``Kronecker
+product'', which is implemented by the
+\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html}{\texttt{numpy.kron}}
+function in Python, and the \texttt{kron} function in GNU Octave and
+Matlab.
 
-The Kronecker product operation takes two inputs, $A$ and $B$, and
-returns a new array consisting of blocks of $B$ scaled by the
-components of $A$.  What this means is best understood in terms of the
-two most common cases: (i) products of vectors, and (ii) products of
-matrices.
+The Kronecker product operation takes two array inputs, and returns a
+new array consisting of blocks of the second array scaled by the
+components of the first array.  What this means is best understood in
+terms of two distinct cases: (i) products of 1D arrays, and (ii)
+products of 2D arrays.
 
-\section{Product of two vectors}
+\section{Products of vectors}
 
-First, suppose that $A$ and $B$ are two vectors (i.e.,
-one-dimensional arrays arrays), of length $M$ and $N$ respectively;
-let their components be $(A_0, A_1, \dots, A_{M-1})$ and $(B_0, B_1,
-\dots, B_{N-1})$.  (Following the conventions of Scientific Python, we
-will not distinguish between row and column vectors, and components
-are indexed starting from 0.)  Then
-$$\texttt{kron}(A, B) = \Big(A_0B_0,\,\dots,\, A_0 B_{N-1},\, A_1 B_0,\, \dots,\, A_1 B_{N-1},\, \dots,\, A_{M-1}B_{N-1}\Big).$$
-This vector has length $MN$, and its first $N$ components are $A_0
-(B_0, \dots,B_{N-1})$, the next $N$ components are $A_1 (B_0, \dots,
-B_{N-1})$, etc.  We can describe this compactly in index notation:
-$$\big[\, \texttt{kron}(A, B) \,\big]_{\mu} = A_m \, B_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.$$
+Suppose that $a$ and $b$ are both 1D arrays, of length $M$ and $N$
+respectively; let their components be $(a_0, a_1, \dots, a_{M-1})$ and
+$(b_0, b_1, \dots, b_{N-1})$.  Following the conventions of Scientific
+Python, we will not distinguish between ``row vectors'' and ``column
+vectors'', and components are indexed from 0.  The Kronecker product
+has the following effect:
+$$\texttt{kron}(a, b) = \Big(a_0b_0,\,\dots,\, a_0 b_{N-1},\, a_1 b_0,\, \dots,\, a_1 b_{N-1},\, \dots,\, a_{M-1}b_{N-1}\Big).$$
+This is a 1D array of length $MN$, and its first $N$ components are
+$a_0 (b_0, \dots,b_{N-1})$, the next $N$ components are $a_1 (b_0,
+\dots, b_{N-1})$, etc.  We can describe this compactly in index
+notation:
+$$\big[\, \texttt{kron}(a, b) \,\big]_{\mu} = a_m \, b_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.$$
 Note that the index $\mu$ sweeps through the values $\mu =
 0,1,\dots,MN-1$, without duplication, as we take $m = 0,\dots,M-1$ and
 $n = 0,\dots,N-1$.
 
 This operation can be used to describe the tensor product of two
-quantum state vectors.  Suppose we have a state vector $|A\rangle$ in
+quantum state vectors.  Suppose we have a state vector $|a\rangle$ in
 an $M$-dimensional Hilbert space $\mathscr{H}_A$, and a state vector
-$|B\rangle$ in an $N$-dimensional Hilbert space $\mathscr{H}_B$.  Let
+$|b\rangle$ in an $N$-dimensional Hilbert space $\mathscr{H}_B$.  Let
 the two Hilbert spaces have bases $\{|m\rangle\}$ and $\{|n\rangle\}$
 respectively.  The state vectors can be written using the basis
 decompositions
-$$|A\rangle = \sum_{m=0}^{M-1} A_m |m\rangle, \quad |B\rangle = \sum_{n=0}^{N-1} B_n |n\rangle.$$
-The tensor product $|A\rangle\otimes|B\rangle$ is a vector in the
+$$|a\rangle = \sum_{m=0}^{M-1} a_m |m\rangle, \quad |b\rangle = \sum_{n=0}^{N-1} b_n |n\rangle.$$
+The tensor product $|a\rangle\otimes|b\rangle$ is a vector in the
 space $\mathscr{H}_A\otimes \mathscr{H}_B$, which is $MN$-dimensional.
-A natural basis for this product space is
+We can adopt a natural basis for this product space,
 $$\Big\{|\mu\rangle \equiv |m\rangle\otimes |n\rangle\Big\} \;\;\;\mathrm{where} \;\begin{cases}\mu\!\!\!\! &= mN+n \\ m \!\!\!\!&= 0,1,\dots,M-1 \\ n \!\!\!\!&= 0,1, \dots, N-1.\end{cases}$$
 Then the components of $|A\rangle\otimes|B\rangle$ in this basis are
-given by the Kronecker product:
-$$|A\rangle\otimes|B\rangle = \sum_{\mu=0}^{MN-1} C_\mu \, |\mu\rangle, \;\;\; \mathrm{where}\;\;\; C_\mu\, = \big[\,\texttt{kron}(A,B)\,\big]_\mu.$$
+given by the components of the Kronecker product:
+$$|a\rangle\otimes|b\rangle = \sum_{\mu=0}^{MN-1} \big[\texttt{kron}(a,b)\big]_\mu \; |\mu\rangle.$$
 
-\section{Product of two matrices}
+\section{Products of matrices}
 
-Consider the case where $A$ is an $M\times M$ matrix and $B$ is an
-$N\times N$ matrix:
+Consider the case where $A$ and $B$ are 2D arrays (matrices), whose
+sizes are $M\times M$ and $N\times N$ respectively:
 $$A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\; B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.$$
 In this case, the Kronecker product of $A$ and $B$ is an $MN\times MN$
-matrix of the form
+array of the form
 $$\texttt{kron}(A,B) = \begin{bmatrix} A_{00}B & \cdots & A_{0,M-1}B \\ \vdots & \ddots & \vdots \\ A_{M-1,0}B & \cdots & A_{M-1,M-1}B\end{bmatrix}.$$
 In component terms,
 $$\big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} = A_{mm'} B_{nn'}\;\;\;\mathrm{where}\;\;\;\mu = mN+n, \; \mu' = m'N+n'.$$
@@ -89,33 +90,112 @@ The index $\mu$ sweeps through the values $\mu = 0,1,\dots,MN-1$,
 without duplication, as we take $m = 0,\dots,M-1$ and $n =
 0,\dots,N-1$; and likewise for the primed indices.
 
-The Kronecker product of two matrices can be used to describe the
-tensor product of two quantum operators.  Let $\hat{A}$ be a quantum
-operator acting on the $M$-dimensional Hilbert space $\mathscr{H}_A$,
-and $\hat{B}$ a quantum operator acting on the $N$-dimensional Hilbert
-space $\mathscr{H}_B$.  As before, let the bases for the two spaces be
+This Kronecker product can be used to describe the tensor product of
+two quantum operators.  Let $\hat{A}$ be a quantum operator acting on
+the $M$-dimensional Hilbert space $\mathscr{H}_A$, and $\hat{B}$ a
+quantum operator acting on the $N$-dimensional Hilbert space
+$\mathscr{H}_B$.  As before, let the bases for the two spaces be
 $\{|m\rangle\}$ and $\{|n\rangle\}$ respectively, so that
 $$\hat{A} = \sum_{m,m'=0}^{M-1}  |m\rangle A_{mm'} \langle m'|, \quad \hat{B} = \sum_{n,n'=0}^{N-1} |n\rangle B_{nn'}\langle n'|.$$
 The tensor product $\hat{A}\otimes\hat{B}$ acts on the
 $MN$-dimensional Hilbert space $\mathscr{H}_A\otimes \mathscr{H}_B$.
 Again, we adopt the basis $\big\{|\mu\rangle \equiv |m\rangle\otimes
-|n\rangle \big\}$ where $\mu = mN+n$; then
-$$\hat{A}\otimes\hat{B} = \sum_{\mu,\mu'=0}^{MN-1} |\mu\rangle C_{\mu\mu'} \langle\mu'| \;\;\; \mathrm{where}\;\;\; C_{\mu\mu'}\, = \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'}.$$
+|n\rangle \big\}$ where $\mu = mN+n$.  Then the matrix elements in
+this basis are given by the components of the Kronecker product:
+$$\hat{A}\otimes\hat{B} = \sum_{\mu,\mu'=0}^{MN-1} |\mu\rangle \; \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} \; \langle\mu'|.$$
 
 Thus, we see that the Kronecker product takes pairs of vectors, or
-pairs of linear operators, and returns the tensor product components
-corresponding to a particular basis choice for the product space.
-Note that the order of inputs matters: $\texttt{kron}(A,B)$ is not the
-same as $\texttt{kron}(B,A)$, since the inputs determine the ordering
-of the basis vectors in the product space (in the former case, $\mu =
-mN+n$ rather than $\mu = nM+m$).  Therefore, we must stick to one
-choice throughout a program (e.g., vectors and matrices for Hilbert
-space $\mathscr{H}_A$ always go in the first slot, and those for
-Hilbert space $\mathscr{H}_B$ in the second slot).
+pairs of matrices, and returns the tensor product corresponding to a
+particular straightforward basis choice for the product space.  Note
+that the order of inputs matters: $\texttt{kron}(A,B)$ is not the same
+as $\texttt{kron}(B,A)$, since the inputs determine the ordering of
+the basis vectors for the product space (e.g., in the former case, we
+define $\mu = mN+n$ rather than $\mu = nM+m$).  We have to be careful
+to stick to one choice throughout a program (e.g., vectors and
+matrices for $\mathscr{H}_A$ always go in the first slot, and those
+for $\mathscr{H}_B$ in the second slot).
 
-\section{Projections and partial traces}
+\section{Projections}
 
+Let $|\psi\rangle \in \mathscr{H}_A\otimes \mathscr{H}_B$ be the quantum state
+of a two-particle system.  Let its vector components, in the basis
+used by the Kronecker product, be $\{\psi_0, \dots, \psi_{MN-1}\}$:
+$$|\psi\rangle = \sum_{\mu} \psi_\mu |\mu\rangle = \sum_{mn} \psi_{\mu(m,n)} |m\rangle\otimes|n\rangle, \;\;\;\mathrm{where}\;\;\mu(m,n) = mN+n.$$
+To keep the notation from getting too crowded, we will stop explicitly
+indicating the summation limits; each sum is assumed to run over the
+full range of the index concerned.
 
-\section{Example: coupled spin-$\frac{1}{2}$ systems}
+Suppose we perform a measurement on subsystem $A$, and collapse that
+subsystem into the state $|a\rangle = \sum_m a_m |m\rangle \in
+\mathscr{H}_A$.  According to the discussion in Chapter 2, the
+probability of achieving this result is
+$$P = \big|\langle b|b\rangle\big|^2 \;\;\; \mathrm{where} \;\; |b\rangle = \langle a | \psi\rangle \in \mathscr{H}_B.$$
+Hence, we need to compute the \textit{projection} of $|\psi\rangle$
+onto the Hilbert space $\mathscr{H}_B$ (which is a vector in
+$\mathscr{H}_B$).  In index notation,
+$$\begin{aligned}|b\rangle = \langle a | \psi\rangle &= \left(\sum_{m'} \langle m'| a_{m'}^* \right) \left(\sum_{mn}\psi_{\mu(m,n)} |m\rangle\otimes|n\rangle \right) \\ &= \sum_{n} \left(\sum_m a_{m}^*\, \psi_{\mu(m,n)}\right) |n\rangle\end{aligned}$$
+The components of the projected vector are
+$$b_n = \sum_m a_{m}^*\, \psi_{mN+n}.$$
+To calculate this, it is convenient to first re-arrange $\psi$ from a
+1D array to a 2D array, using the
+\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.resize.html}{\texttt{numpy.resize}}
+function in Python (or the equivalent \texttt{resize} function in GNU
+Octave or Matlab).  If \texttt{psi} is a 1D array of length $MN$ whose
+components are $\psi_{\mu(m,n)}$, then \texttt{resize(psi, (M,N))}
+returns an $M\times N$ matrix whose components are
+$\psi_{mn}^{(\mathrm{resized})} = \psi_{\mu(m,n)}$.  Therefore,
+$$b_n = \sum_m a_{m}^*\, \psi_{mn}^{(\mathrm{resized})}.$$
+The $b$ array can thus be computed with the code
+\begin{verbatim}
+    b = dot(conj(a), resize(psi, (M,N)))     # Projecting out space A
+\end{verbatim}
+Here, \texttt{conj} returns the complex conjugate, and the
+\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html}{\texttt{dot}}
+function performs a sum product over the last index of the first input
+and the next-to-last index of the second input (in this case, this
+means summing over the index $m$).
+
+For projections onto the other Hilbert space, the procedure is very
+slightly different.  Suppose we perform a measurement on subsystem
+$B$, and collapse that subsystem into the state $|b\rangle = \sum_n
+b_n |n\rangle \in \mathscr{H}_B$.  In that case, we would need to
+calculate the projection
+$$\begin{aligned}|a\rangle &= \langle b | \psi\rangle  \;\; \in \;\; \mathscr{H}_A \\ &= 
+\left(\sum_{n'} \langle n'| b_{n'}^* \right) \left(\sum_{mn}\psi_{\mu(m,n)} |m\rangle\otimes|n\rangle \right) \\ &= \sum_{m} \left(\sum_n b_{n}^*\, \psi_{\mu(m,n)}\right) |m\rangle
+\end{aligned}$$
+The components of the projected vector are
+$$a_n = \sum_n b_n^* \, \psi_{mN+n} = \sum_n \psi_{mn}^{(\mathrm{resized})}\, b_{n}^*.$$
+To compute this, we supply the arrays to the \texttt{dot} function
+in the opposite order:
+\begin{verbatim}
+    a = dot(resize(psi, (M,N)), conj(b))     # Projecting out space B
+\end{verbatim}
+
+\section{Partial traces}
+
+Another common computation that we need to perform is the partial
+trace, which is used to in constructing density matrices, computing
+the entanglement entropy, etc.  Consider an operator $\hat{C}$ acting
+on the space $\mathscr{H}_A\otimes\mathscr{H}_B$, such that
+$$\hat{C} = \sum_{\mu,\mu'} |\mu\rangle \, C_{\mu\mu'} \, \langle\mu'|.$$
+As before, we take $|\mu\rangle \equiv |m\rangle\otimes|n\rangle$
+where $\mu = mN+n$, which is the basis corresponding to the Kronecker
+product.  Suppose we wish to trace over subsystem $A$:
+$$\begin{aligned}\mathrm{Tr}_A \big[\hat{C}\big] &= \sum_m \langle m| \,\hat{C} \,|m\rangle \\ &= \sum_{nn'} |n\rangle \left(\sum_m C_{mN+n, mN+n'}\right) \langle n'| \end{aligned}$$
+Such a matrix can be computed by array slicing:
+\begin{verbatim}
+    Ctrace = zeros((N,N))                    # Tracing out space A
+    for m in range(M):
+        Ctrace += C[m*N:(m+1)*N, m*N:(m+1)*N]
+\end{verbatim}
+
+If we instead perform a partial trace over subsystem $B$, then
+$$\mathrm{Tr}_B \big[\hat{C}\big] = \sum_{mm'} |m\rangle \left(\sum_n C_{mN+n, m'N+n}\right) \langle m'|.$$
+This can be computed as follows:
+\begin{verbatim}
+    Ctrace = zeros((M,M))                    # Tracing out space B
+    for n in range(N):
+        Ctrace += C[n:M*N+n:N, n:M*N+n:N]
+\end{verbatim}
 
 \end{document}
