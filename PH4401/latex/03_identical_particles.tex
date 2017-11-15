@@ -30,8 +30,8 @@ omitted an important feature of multi-particle systems, namely the
 fact that particles of the same type are fundamentally
 indistinguishable from each other.  As it turns out,
 indistinguishability imposes a strong constraint on the form of the
-multi-particle quantum states.  Looking into this will ultimately lead
-us to a fundamental re-interpretation of what ``particles'' are.
+multi-particle quantum states, and looking into this will ultimately
+lead us to a fundamental re-interpretation of what ``particles'' are.
 
 Suppose we have two particles of the same type, e.g.~two electrons.
 It is a fact of Nature that all electrons have identical physical
@@ -41,26 +41,26 @@ must be mathematically identical.  Let us denote this space by
 $\mathscr{H}^{(1)}$.  For a two-electron system, the Hilbert space is
 a tensor product of two single-electron Hilbert spaces, denoted by
 $$\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.$$
-Moreover, any Hamiltonian acting on such a system must affect the two
-electrons in a symmetrical way.  An example of such a Hamiltonian is
-$$\hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|},$$
-which contains non-relativistic kinetic energies for the two
-electrons, as well as the potential energy for the Coulomb interaction
-between the electrons.  The operators $\hat{\mathbf{p}}_1$ and
+Moreover, any Hamiltonian must affect the two electrons in a
+symmetrical way.  An example of such a Hamiltonian is
+$$\hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|}.$$
+The first term is the non-relativistic kinetic energy of the
+electrons, and the second term is the potential energy of their
+Coulomb interaction.  Operators $\hat{\mathbf{p}}_1$ and
 $\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
-$\hat{\mathbf{r}}_2$ act on electron 2.  Evidently, this Hamiltonian
-is invariant under an interchange of the operators acting on the two
-electrons (i.e., $\hat{\mathbf{p}}_1 \leftrightarrow
-\hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1 \leftrightarrow
-\hat{\mathbf{r}}_2$).  This can be regarded as a kind of symmetry,
-called \textbf{exchange symmetry}.
+$\hat{\mathbf{r}}_2$ act on electron 2.
 
-As we know, symmetries of quantum systems can be represented by
-unitary operators that commute with the Hamiltonian.  Exchange
-symmetry can thus be represented by an operator $\hat{P}$, defined as
-follows: let $\{|\mu_i\rangle\}$ be a basis for the single-electron
-Hilbert space $\mathscr{H}^{(1)}$; then $\hat{P}$ interchanges the
-basis vectors for the two electrons:
+Evidently, this Hamiltonian is invariant under an interchange of the
+operators acting on the two electrons (i.e., $\hat{\mathbf{p}}_1
+\leftrightarrow \hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1
+\leftrightarrow \hat{\mathbf{r}}_2$).  This can be regarded as a kind
+of symmetry, called \textbf{exchange symmetry}.  As we know,
+symmetries of quantum systems can be represented by unitary operators
+that commute with the Hamiltonian.  Exchange symmetry can thus be
+represented by an operator $\hat{P}$, defined as follows: let
+$\{|\mu_i\rangle\}$ be a basis for the single-electron Hilbert space
+$\mathscr{H}^{(1)}$; then $\hat{P}$ interchanges the basis vectors for
+the two electrons:
 $$\begin{aligned}\hat{P} \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
 \;&\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle \\&= \sum_{ij} \psi_{ji} |\mu_i\rangle|\mu_j\rangle \;\;\;\textrm{(interchanging $i\leftrightarrow j$ in the double sum)}\end{aligned}$$
 The exchange operator has the following properties:
@@ -94,8 +94,8 @@ particles.  Given $N$ particles, we can define a set of exchange
 operators $\hat{P}_{ij}$, where $i,j\in\{1,2,\dots,N\}$ and $i\ne j$,
 such that $\hat{P}_{ij}$ exchanges particle $i$ and particle $j$.  If
 the particles are identical, the Hamiltonian must commute with
-\textit{all} the exchange operators---i.e., the parities ($\pm 1$) are
-all separately conserved.
+\textit{all} the exchange operators, so the parities ($\pm 1$) are
+individually conserved.
 
 We now invoke the following postulates:
 \begin{enumerate}
@@ -105,8 +105,8 @@ We now invoke the following postulates:
 \item For each $\hat{P}_{ij}$, the exchange parity $p_{ij}$ has the
   same value: i.e., all $+1$ or all $-1$.
 
-\item The exchange parity $p_{ij}$ depends \textit{uniquely} on the
-  type of particle involved.
+\item The exchange parity $p_{ij}$ is determined solely by the type of
+  particle involved.
 \end{enumerate}
 You should \textit{not} think of these as statements as being
 ``derived'' from more fundamental facts!  Rather, they are hypotheses
@@ -140,7 +140,7 @@ operator:
 $$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i, j \in\{1,\dots,N\},\;\; i\ne j.$$
 
 There is a standard way to construct multi-particle states obeying
-this symmetry condition, which is based on the ``occupancy'' of the
+this symmetry condition, based on the ``occupancy'' of the
 single-particle states.  To illustrate the procedure, consider a
 two-boson system ($N = 2$).  Suppose both bosons occupy the same
 single-particle state, $|\varphi\rangle \in \mathscr{H}^{(1)}$; then
@@ -180,13 +180,13 @@ n_\alpha + n_\beta + \cdots$ is the total number of particles.  The proof of
 this is left as an exercise (\hyperref[ex:boson_norm]{Exercise 3}).
 
 To see that the above $N$-particle state has the right exchange
-symmetry, let us apply an arbitrary exchange operator $\hat{P}_{ij}$:
+symmetry, apply an arbitrary exchange operator $\hat{P}_{ij}$:
 $$\begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}$$
 In each term of the sum, the states $i$ and $j$ are interchanged.  But
 since the sum runs through all permutations of the states, the result
 is the same with or without the exchange, so we still end up with
 $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  The multi-particle state is
-therefore symmetric under every exchange operation.
+thus symmetric under every exchange operation.
 
 As an example, consider a three-boson system with two particles in
 state $|\varphi_1\rangle$, and one particle in state
@@ -234,13 +234,12 @@ state is
 $$|\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_1\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle\Big).$$
 We can easily check that
 $$\hat{P}_{12} |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_2\rangle|\varphi_1\rangle - |\varphi_1\rangle|\varphi_2\rangle\Big) = - |\varphi_1,\varphi_2\rangle.$$
-This construction breaks down if we try letting $|\varphi_1\rangle$
-and $|\varphi_2\rangle$ be the same state: in that case, the two terms
+This fails if we try to let $|\varphi_1\rangle$ and
+$|\varphi_2\rangle$ be the same state: in that case, the two terms
 cancel to give the zero vector, which is not a valid quantum state.
-This leads to the \textbf{Pauli exclusion principle}, which states
-that fermions cannot occupy the same state; or, equivalently, that each
-single-particle state is either unoccupied, or occupied by exactly one
-fermion.
+The \textbf{Pauli exclusion principle} states that fermions cannot
+occupy the same state; or, equivalently, that each single-particle
+state is either unoccupied, or occupied by exactly one fermion.
 
 For general $N$, let us enumerate the occupied single-particle states
 by $\{|\phi_1\rangle, |\phi_2\rangle,\dots,|\phi_N\rangle\}$.  Then
@@ -254,10 +253,10 @@ The parity of a permutation $p$ is defined as $+1$ if $p$ involves an
 even number of exchanges starting from the sequence $\{1,2,\dots,N\}$,
 and $-1$ if $p$ involves an odd number of exchanges.
 
-A couple of examples will make these definitions clearer.  For $N=2$,
-the sequence $\{1,2\}$ has $2! = 2$ permutations:
+A couple of examples are helpful for understanding these definitions.
+First, consider $N=2$; the sequence $\{1,2\}$ has $2! = 2$ permutations:
 $$\begin{aligned}p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}$$
-For $N=3$, the sequence $\{1,2,3\}$ has $3!=6$ permutations:
+Next, consider $N=3$.  The sequence $\{1,2,3\}$ has $3!=6$ permutations:
 $$\begin{aligned}
   p_1 : \{1,2,3\} &\rightarrow \{1,2,3\}, \;\;\;s(p_1) = +1 \\
   p_2 : \{1,2,3\} &\rightarrow \{2,1,3\}, \;\;\;s(p_2) = -1 \\
@@ -674,30 +673,104 @@ describe the emission and absorption of photons caused by moving
 charges.
 
 Incidentally, the name ``second quantization'' comes from this process
-of using particle creation and annihilation operators to define
-Hamiltonians.  The idea is that single-particle quantum mechanics is
-derived by ``quantizing'' classical Hamiltonians, imposing commutation
-relations like $[x,p] = i\hbar$.  Then, to extend the theory to
-multi-particle systems, we use the single-particle states to define
-creation/annihilation operators obeying a set of commutation or
-anticommutation relations.  This was viewed this as a ``second''
-quantization step.  It is not a particularly good name.  For one
-thing, creation/annihilation operators need not be defined from
-single-particle states; as we shall see in the next section, they can
-also be derived from the ``first quantization'' of a classical field.
+of using creation and annihilation operators to define Hamiltonians.
+The idea is that single-particle quantum mechanics is derived by
+``quantizing'' classical Hamiltonians, via the imposition of
+commutation relations like $[x,p] = i\hbar$.  Then, to extend the
+theory to multi-particle systems, we use the single-particle states to
+define creation/annihilation operators obeying a set of commutation or
+anticommutation relations.  This can be viewed as a ``second''
+quantization step.
 
 \section{Quantum field theory}
 \label{sec:qft}
 
-Thus far, we have been agnostic about what the single-particle states
-$\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ actually are.
-Typically, each of these states describes a particle moving in space,
-which can be represented by a wavefunction.  For a given
-single-particle state $|\varphi_\mu\rangle$, we can define a
-wavefunction
-$$\psi_\mu(\mathbf{r}) = \langle\mathbf{r}|\varphi_\mu\rangle,$$
-where $|\mathbf{r}\rangle$ denotes a position eigenstate for a
-$d$-dimensional space.
+So far we have been agnostic about the nature of the single-particle
+states $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ used for
+constructing the particle creation and annihilation operators.  Let us
+now suppose that they are quantum states of a particle moving in
+space, representable by a wavefunction.  Let $|\mathbf{r}\rangle$
+denote a position eigenstate for a $d$-dimensional space.  Then, for
+each single-particle state $|\varphi_\mu\rangle$, the wavefunction is
+$$\varphi_\mu(\mathbf{r}) = \langle\mathbf{r}|\varphi_\mu\rangle.$$
+Due to the completeness and orthonormality of the basis, the
+wavefunctions satisfy
+$$\begin{aligned}\int d^dr \; \varphi_\mu^*(\mathbf{r})\, \varphi_\nu(\mathbf{r}) &= \langle\varphi_\mu| \left(\int d^dr\, |\mathbf{r}\rangle\langle\mathbf{r}|\right) |\varphi_\nu\rangle \,= \delta_{\mu\nu}, \\\sum_\mu \varphi_\mu^*(\mathbf{r}) \varphi_\mu(\mathbf{r}') &=\, \langle \mathbf{r}'| \left(\sum_\mu |\varphi_\mu\rangle\langle\varphi_\mu|\right)|\mathbf{r}\rangle \;\;=\, \delta^d(\mathbf{r}-\mathbf{r}').\end{aligned}$$
+
+Using the wavefunctions and the creation/annihilation operators, we
+can construct a new and extremely interesting set of operators.  For
+now, suppose the particles are bosons.  Define
+$$\begin{aligned}\hat{\psi}(\mathbf{r}) = \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu \\ \hat{\psi}^\dagger(\mathbf{r}) = \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger. \end{aligned}$$
+Using the aforementioned wavefunction properties, we can also invert
+the above relations, obtaining
+$$\begin{aligned}\hat{a}_\mu &= \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}) \\ \hat{a}_\mu^\dagger &= \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).\end{aligned}$$
+
+The $\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$
+operators are called \textbf{field operators}.  Think of the classical
+notion of a field, which assigns to each point of space, $\mathbf{r}$,
+a set of numbers that corresponding to physical quantities, such as
+the electric field components $E_x(\mathbf{r})$, $E_y(\mathbf{r})$,
+and $E_z(\mathbf{r})$.  In the present case, we assign to each point
+of space not a \textit{number}, but a \textit{quantum mechanical
+  operator} $\hat{\psi}(\mathbf{r})$ and its Hermitian conjugate
+$\hat{\psi}^\dagger(\mathbf{r})$.  The field operators allow us to
+extend the classical concept of a field to quantum theory---i.e., to
+formulate a \textbf{quantum field theory}.
+
+Using the commutation relations between the bosonic
+creation/annihilation operators, we can show that the field operators
+obey
+$$\left[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\right] = \left[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = 0, \quad \left[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = \delta^d(\mathbf{r}-\mathbf{r}').$$
+With these, we can use the field operators to re-express the second
+quantized observables from the previous section.  For any Hermitian
+operator $\hat{A}_1$ acting on single-particle, we saw that there is a
+``total'' observable, applicable to states with arbitrary numbers of
+particles, of the form $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu
+A_{\mu\nu} \hat{a}_\nu$, where $A_{\mu\nu} =
+\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  In terms of the
+field operators,
+$$\hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').$$
+For example, the Hamiltonian for a single particle in a potential
+$V(\mathbf{r})$ is
+$$\hat{H}_1 = \hat{T}_1 + \hat{V}_1, \;\;\; \hat{T}_1 = \frac{|\hat{\mathbf{p}}|^2}{2m}, \;\;\; \hat{V}_1 = V(\hat{\mathbf{r}}),$$
+where $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the
+single-particle position and momentum operators.  We can show that the
+corresponding second quantized operators for the total kinetic energy
+and the total potential energy are
+$$\begin{aligned}\hat{T} &= \frac{\hbar^2}{2m} \int d^dr\; d^dr'\; \hat{\psi}^\dagger(\mathbf{r}) \left(\int\frac{d^dk}{(2\pi)^d} \; |\mathbf{k}|^2 \; e^{i\mathbf{k}\cdot(\mathbf{r}-\mathbf{r}')}\right) \; \hat{\psi}(\mathbf{r}') \\ &= \frac{\hbar^2}{2m} \int d^d r\; \nabla \hat{\psi}^\dagger (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}) \\ \hat{V} &= \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}).\end{aligned}$$
+(In going from the first to the second line, we performed integrations
+by parts.)  This result is strongly reminiscent of the expression for
+the expected kinetic and potential energies in single-particle quantum
+mechanics:
+$$\langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,$$
+where $\psi(\mathbf{r})$ is the single-particle wavefunction.
+
+
+
+
+To further clarify the relationship between the classical and quantum
+field theories, we can re-arrange the field operators by defining
+$\hat{Q}(\mathbf{r})$ and $\hat{P}(\mathbf{r})$ such that
+$$\begin{aligned}\begin{cases}\hat{Q}(\mathbf{r}) &= \displaystyle\frac{1}{\sqrt{2}}\left(\hat{\psi}(\mathbf{r}) + \hat{\psi}(\mathbf{r})\right) \\ \hat{P}(\mathbf{r}) &= \displaystyle -\frac{i\hbar}{\sqrt{2}}\left(\hat{\psi}(\mathbf{r}) - \hat{\psi}(\mathbf{r})\right) \end{cases} \;\;\;\Leftrightarrow\;\;\; \begin{cases}\hat{\psi}(\mathbf{r}) &= \displaystyle\frac{1}{\sqrt{2}}\left(\hat{Q}(\mathbf{r})+\frac{i}{\hbar}\hat{P}(\mathbf{r})\right) \\ \hat{\psi}^\dagger(\mathbf{r}) &= \displaystyle\frac{1}{\sqrt{2}}\left(\hat{Q}(\mathbf{r})-\frac{i}{\hbar}\hat{P}(\mathbf{r})\right).\end{cases}\end{aligned}$$
+The $\hat{Q}(\mathbf{r})$ and $\hat{P}(\mathbf{r})$ operators are
+Hermitian, and are therefore valid observables.  They serve as quantum
+analogues of the classical notion of the ``value of a field at a point
+in space''.  Using the commutation relations for the
+$\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$
+operators, we can show that
+$$\left[\hat{Q}(\mathbf{r}), \hat{Q}(\mathbf{r}')\right] = \left[\hat{P}(\mathbf{r}), \hat{P}(\mathbf{r}')\right] = 0, \quad \left[\hat{Q}(\mathbf{r}), \hat{P}(\mathbf{r}')\right] = i\hbar\,\delta(\mathbf{r}-\mathbf{r}').$$
+These are generalizations of the canonical commutation relations
+between position and momentum operators.  Hence, one feature of
+quantum fields is that certain field observables \textit{at the same
+  point} cannot be simultaneously observed, in the same way that
+position and momentum are not simultaneously observable in ordinary
+quantum mechanics.
+
+
+
+
+
+
 
 
 \section{The spin-statistics connection}
@@ -714,8 +787,7 @@ $$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
   \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle.$$
   Prove that $\hat{P}$ is linear, unitary, and Hermitian.  Moreover,
   prove that the operation is basis-independent: i.e., given any other
-  basis $\{\nu_j\}$ that spans $\mathscr{H}^{(1)}$, it is likewise
-  true that
+  basis $\{\nu_j\}$ that spans $\mathscr{H}^{(1)}$,
 $$P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle|\nu_j\rangle \Big)
   \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle|\nu_i\rangle.$$
   \label{ex:1}
