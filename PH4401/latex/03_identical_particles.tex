@@ -721,14 +721,15 @@ Using the commutation relations between the bosonic
 creation/annihilation operators, we can show that the field operators
 obey
 $$\left[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\right] = \left[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = 0, \quad \left[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = \delta^d(\mathbf{r}-\mathbf{r}').$$
-With these, we can use the field operators to re-express the second
-quantized observables from the previous section.  For any Hermitian
-operator $\hat{A}_1$ acting on single-particle, we saw that there is a
-``total'' observable, applicable to states with arbitrary numbers of
-particles, of the form $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu
-A_{\mu\nu} \hat{a}_\nu$, where $A_{\mu\nu} =
-\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  In terms of the
-field operators,
+With these, we can use the field operators to express the second
+quantized observables from the previous section, in a way that does
+not refer to the single-particle wavefunctions anymore.  For any
+Hermitian operator $\hat{A}_1$ acting on single-particle, we
+previously saw that the corresponding many-particle observable has the
+form $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu}
+\hat{a}_\nu$, where $A_{\mu\nu} =
+\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  The expression in
+terms of the field operators is
 $$\hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').$$
 For example, the Hamiltonian for a single particle in a potential
 $V(\mathbf{r})$ is
@@ -744,37 +745,6 @@ the expected kinetic and potential energies in single-particle quantum
 mechanics:
 $$\langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,$$
 where $\psi(\mathbf{r})$ is the single-particle wavefunction.
-
-
-
-
-To further clarify the relationship between the classical and quantum
-field theories, we can re-arrange the field operators by defining
-$\hat{Q}(\mathbf{r})$ and $\hat{P}(\mathbf{r})$ such that
-$$\begin{aligned}\begin{cases}\hat{Q}(\mathbf{r}) &= \displaystyle\frac{1}{\sqrt{2}}\left(\hat{\psi}(\mathbf{r}) + \hat{\psi}(\mathbf{r})\right) \\ \hat{P}(\mathbf{r}) &= \displaystyle -\frac{i\hbar}{\sqrt{2}}\left(\hat{\psi}(\mathbf{r}) - \hat{\psi}(\mathbf{r})\right) \end{cases} \;\;\;\Leftrightarrow\;\;\; \begin{cases}\hat{\psi}(\mathbf{r}) &= \displaystyle\frac{1}{\sqrt{2}}\left(\hat{Q}(\mathbf{r})+\frac{i}{\hbar}\hat{P}(\mathbf{r})\right) \\ \hat{\psi}^\dagger(\mathbf{r}) &= \displaystyle\frac{1}{\sqrt{2}}\left(\hat{Q}(\mathbf{r})-\frac{i}{\hbar}\hat{P}(\mathbf{r})\right).\end{cases}\end{aligned}$$
-The $\hat{Q}(\mathbf{r})$ and $\hat{P}(\mathbf{r})$ operators are
-Hermitian, and are therefore valid observables.  They serve as quantum
-analogues of the classical notion of the ``value of a field at a point
-in space''.  Using the commutation relations for the
-$\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$
-operators, we can show that
-$$\left[\hat{Q}(\mathbf{r}), \hat{Q}(\mathbf{r}')\right] = \left[\hat{P}(\mathbf{r}), \hat{P}(\mathbf{r}')\right] = 0, \quad \left[\hat{Q}(\mathbf{r}), \hat{P}(\mathbf{r}')\right] = i\hbar\,\delta(\mathbf{r}-\mathbf{r}').$$
-These are generalizations of the canonical commutation relations
-between position and momentum operators.  Hence, one feature of
-quantum fields is that certain field observables \textit{at the same
-  point} cannot be simultaneously observed, in the same way that
-position and momentum are not simultaneously observable in ordinary
-quantum mechanics.
-
-
-
-
-
-
-
-
-\section{The spin-statistics connection}
-\label{sec:spinstats}
 
 \section*{Exercises}
 
