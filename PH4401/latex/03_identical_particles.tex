@@ -558,6 +558,7 @@ creation operators or two annihilation operators would
 definitions we picked are ultimately the desirable ones.
 
 \subsection{Second-quantized operators}
+\label{sec:second_quant_op}
 
 One of the key benefits of second quantization is that it allows us to
 express multi-particle quantum operators clearly and succinctly, using
@@ -700,44 +701,52 @@ $$\begin{aligned}\int d^dr \; \varphi_\mu^*(\mathbf{r})\, \varphi_\nu(\mathbf{r}
 Using the wavefunctions and the creation/annihilation operators, we
 can construct a new and extremely interesting set of operators.  For
 now, suppose the particles are bosons.  Define
-$$\begin{aligned}\hat{\psi}(\mathbf{r}) = \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu \\ \hat{\psi}^\dagger(\mathbf{r}) = \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger. \end{aligned}$$
-Using the aforementioned wavefunction properties, we can also invert
-the above relations, obtaining
-$$\begin{aligned}\hat{a}_\mu &= \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}) \\ \hat{a}_\mu^\dagger &= \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).\end{aligned}$$
-
-The $\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$
-operators are called \textbf{field operators}.  Think of the classical
-notion of a field, which assigns to each point of space, $\mathbf{r}$,
-a set of numbers that corresponding to physical quantities, such as
-the electric field components $E_x(\mathbf{r})$, $E_y(\mathbf{r})$,
-and $E_z(\mathbf{r})$.  In the present case, we assign to each point
-of space not a \textit{number}, but a \textit{quantum mechanical
-  operator} $\hat{\psi}(\mathbf{r})$ and its Hermitian conjugate
-$\hat{\psi}^\dagger(\mathbf{r})$.  The field operators allow us to
-extend the classical concept of a field to quantum theory---i.e., to
-formulate a \textbf{quantum field theory}.
-
-Using the commutation relations between the bosonic
-creation/annihilation operators, we can show that the field operators
-obey
+$$\hat{\psi}(\mathbf{r}) = \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu, \quad\;\; \hat{\psi}^\dagger(\mathbf{r}) = \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger.$$
+Using the aforementioned wavefunction properties, we can derive the
+inverse relations
+$$\hat{a}_\mu = \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}), \quad\;\; \hat{a}_\mu^\dagger = \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).$$
+Using the commutation relations for the bosonic $a_\mu$ and
+$a_\mu^\dagger$ operators, we can show that
 $$\left[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\right] = \left[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = 0, \quad \left[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = \delta^d(\mathbf{r}-\mathbf{r}').$$
-With these, we can use the field operators to express the second
-quantized observables from the previous section, in a way that does
-not refer to the single-particle wavefunctions anymore.  For any
-Hermitian operator $\hat{A}_1$ acting on single-particle, we
-previously saw that the corresponding many-particle observable has the
-form $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu}
-\hat{a}_\nu$, where $A_{\mu\nu} =
-\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  The expression in
-terms of the field operators is
+In the original commutation relations, the operators for different
+single-particle states commute; now, the operators for different
+\textit{positions} commute.  The interpretion is that the operators
+$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$
+respectively create and annihilate one particle at a given point
+$\mathbf{r}$.
+
+It is important to note that $\mathbf{r}$ here does not play the role
+of an observable; it is an index, in the sense that each distinct
+$\mathbf{r}$ is associated with a distinct pair of
+$\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$
+operators.  This concept of $\mathbf{r}$-dependent operators is a
+generalization of the classical concept of a \textbf{field}.  In a
+classical field theory, each point $\mathbf{r}$ is assigned a set of
+numbers corresponding to physical quantities, such as the electric
+field components $E_x(\mathbf{r})$, $E_y(\mathbf{r})$, and
+$E_z(\mathbf{r})$.  The present theory, where each $\mathbf{r}$ is
+assigned a set of quantum operators, is called a \textbf{quantum field
+  theory}.
+
+Using the $\hat{\psi}(\mathbf{r})$ and
+$\hat{\psi}^\dagger(\mathbf{r})$ operators, second quantized
+observables can be written in a manner independent of the choice of
+single-particle wavefunctions.  As discussed in the
+\hyperref[sec:second_quant_op]{previous section}, for any Hermitian
+single-particle operator $\hat{A}_1$, we can define a corresponding
+many-particle observable $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu
+A_{\mu\nu} \hat{a}_\nu$, where $A_{\mu\nu} =
+\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  This can be
+re-written in terms of the $\hat{\psi}(\mathbf{r})$ and
+$\hat{\psi}^\dagger(\mathbf{r})$ operators as
 $$\hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').$$
 For example, the Hamiltonian for a single particle in a potential
 $V(\mathbf{r})$ is
 $$\hat{H}_1 = \hat{T}_1 + \hat{V}_1, \;\;\; \hat{T}_1 = \frac{|\hat{\mathbf{p}}|^2}{2m}, \;\;\; \hat{V}_1 = V(\hat{\mathbf{r}}),$$
-where $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the
-single-particle position and momentum operators.  We can show that the
-corresponding second quantized operators for the total kinetic energy
-and the total potential energy are
+where $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are position and
+momentum operators (single-particle observables).  We can show that
+the corresponding second quantized operators for the total kinetic
+energy and the total potential energy are
 $$\begin{aligned}\hat{T} &= \frac{\hbar^2}{2m} \int d^dr\; d^dr'\; \hat{\psi}^\dagger(\mathbf{r}) \left(\int\frac{d^dk}{(2\pi)^d} \; |\mathbf{k}|^2 \; e^{i\mathbf{k}\cdot(\mathbf{r}-\mathbf{r}')}\right) \; \hat{\psi}(\mathbf{r}') \\ &= \frac{\hbar^2}{2m} \int d^d r\; \nabla \hat{\psi}^\dagger (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}) \\ \hat{V} &= \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}).\end{aligned}$$
 (In going from the first to the second line, we performed integrations
 by parts.)  This result is strongly reminiscent of the expression for
