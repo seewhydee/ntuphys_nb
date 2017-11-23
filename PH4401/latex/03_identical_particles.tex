@@ -687,20 +687,20 @@ quantization step.
 \label{sec:qft}
 
 So far we have been agnostic about the nature of the single-particle
-states $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ used for
-constructing the particle creation and annihilation operators.  Let us
-now suppose that they are quantum states of a particle moving in
-space, representable by a wavefunction.  Let $|\mathbf{r}\rangle$
-denote a position eigenstate for a $d$-dimensional space.  Then, for
-each single-particle state $|\varphi_\mu\rangle$, the wavefunction is
+states $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ used to
+construct the particle creation and annihilation operators.  Let us
+now consider the special case where these quantum states are
+representable by a wavefunction.  Let $|\mathbf{r}\rangle$ denote a
+position eigenstate for a $d$-dimensional space; for each
+single-particle state $|\varphi_\mu\rangle$, the wavefunction is
 $$\varphi_\mu(\mathbf{r}) = \langle\mathbf{r}|\varphi_\mu\rangle.$$
-Due to the completeness and orthonormality of the basis, the
+Due to the completeness and orthonormality of the basis, these
 wavefunctions satisfy
 $$\begin{aligned}\int d^dr \; \varphi_\mu^*(\mathbf{r})\, \varphi_\nu(\mathbf{r}) &= \langle\varphi_\mu| \left(\int d^dr\, |\mathbf{r}\rangle\langle\mathbf{r}|\right) |\varphi_\nu\rangle \,= \delta_{\mu\nu}, \\\sum_\mu \varphi_\mu^*(\mathbf{r}) \varphi_\mu(\mathbf{r}') &=\, \langle \mathbf{r}'| \left(\sum_\mu |\varphi_\mu\rangle\langle\varphi_\mu|\right)|\mathbf{r}\rangle \;\;=\, \delta^d(\mathbf{r}-\mathbf{r}').\end{aligned}$$
 
-Using the wavefunctions and the creation/annihilation operators, we
-can construct a new and extremely interesting set of operators.  For
-now, suppose the particles are bosons.  Define
+We can use the wavefunctions and the creation/annihilation operators
+to construct a new and interesting set of operators.  \textit{For now,
+  suppose the particles are bosons.}  Let us define
 $$\hat{\psi}(\mathbf{r}) = \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu, \quad\;\; \hat{\psi}^\dagger(\mathbf{r}) = \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger.$$
 Using the aforementioned wavefunction properties, we can derive the
 inverse relations
@@ -710,23 +710,24 @@ $a_\mu^\dagger$ operators, we can show that
 $$\left[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\right] = \left[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = 0, \quad \left[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = \delta^d(\mathbf{r}-\mathbf{r}').$$
 In the original commutation relations, the operators for different
 single-particle states commute; now, the operators for different
-\textit{positions} commute.  The interpretion is that the operators
-$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$
-respectively create and annihilate one particle at a given point
-$\mathbf{r}$.
+\textit{positions} commute.  A straightforward interpretion for the
+operators $\hat{\psi}^\dagger(\mathbf{r})$ and
+$\hat{\psi}(\mathbf{r})$ is that they respectively create and
+annihilate one particle at a given point $\mathbf{r}$.  (By contrast,
+the old creation/annihilation operators create/annihilate a particle
+in a given eigenstate.)
 
 It is important to note that $\mathbf{r}$ here does not play the role
 of an observable; it is an index, in the sense that each distinct
-$\mathbf{r}$ is associated with a distinct pair of
-$\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$
-operators.  This concept of $\mathbf{r}$-dependent operators is a
-generalization of the classical concept of a \textbf{field}.  In a
-classical field theory, each point $\mathbf{r}$ is assigned a set of
-numbers corresponding to physical quantities, such as the electric
-field components $E_x(\mathbf{r})$, $E_y(\mathbf{r})$, and
-$E_z(\mathbf{r})$.  The present theory, where each $\mathbf{r}$ is
-assigned a set of quantum operators, is called a \textbf{quantum field
-  theory}.
+$\mathbf{r}$ is associated with one pair of $\hat{\psi}(\mathbf{r})$
+and $\hat{\psi}^\dagger(\mathbf{r})$ operators.  These
+$\mathbf{r}$-dependent operators serve to generalize the classical
+concept of a \textbf{field}.  In a classical field theory, each point
+$\mathbf{r}$ is assigned a set of numbers corresponding to physical
+quantities, such as the electric field components $E_x(\mathbf{r})$,
+$E_y(\mathbf{r})$, and $E_z(\mathbf{r})$.  In the present case, each
+$\mathbf{r}$ is assigned a set of quantum operators.  This is called a
+\textbf{quantum field theory}.
 
 Using the $\hat{\psi}(\mathbf{r})$ and
 $\hat{\psi}^\dagger(\mathbf{r})$ operators, second quantized
@@ -736,9 +737,7 @@ single-particle wavefunctions.  As discussed in the
 single-particle operator $\hat{A}_1$, we can define a corresponding
 many-particle observable $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu
 A_{\mu\nu} \hat{a}_\nu$, where $A_{\mu\nu} =
-\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  This can be
-re-written in terms of the $\hat{\psi}(\mathbf{r})$ and
-$\hat{\psi}^\dagger(\mathbf{r})$ operators as
+\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  Then we can show that
 $$\hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').$$
 For example, the Hamiltonian for a single particle in a potential
 $V(\mathbf{r})$ is
@@ -754,6 +753,40 @@ the expected kinetic and potential energies in single-particle quantum
 mechanics:
 $$\langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,$$
 where $\psi(\mathbf{r})$ is the single-particle wavefunction.
+
+How are the particle creation and annihilation operators related to
+the classical notion of ``the value of a field at point
+$\mathbf{r}$''?  As we know, observable quantities correspond to
+Hermitian operators, whereas $\hat{\psi}(\mathbf{r})$ and
+$\hat{\psi}^\dagger(\mathbf{r})$ are not Hermitian.  One way to
+construct a Hermitian operator is to multiply a creation operator with
+an annihilation operator: this gives the operator
+$\hat{\psi}^\dagger(\mathbf{r})\hat{\psi}(\mathbf{r})$, which is an
+observable corresponding to the local particle density.  However,
+there is another (possibly less obvious) class of observables that we
+can construct by taking \textit{linear superpositions} of creation and
+annihilation operator.  For example,
+$$\psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger$$
+is necessarily Hermitian.  More generally, consider an operator of the
+form
+$$F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),$$
+where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  This type of
+Hermitian operator is the quantum analogue of the classical value of a
+field at a point.
+
+This situation is closely analogous to the quantum harmonic
+oscillator.  There, the creation and annihilation operators are
+non-Hermitian operators satisfying $[\hat{a},\hat{a}^\dagger]$, with
+the Hermitian operator $\hat{a}^\dagger\hat{a}$ corresponding to the
+number of oscillator quanta excited.  Moreover the creation and
+annihilation operators can be related to another pair of Hermitian
+observables,
+$$\hat{x} = \sqrt{\frac{\hbar}{2m\omega_0}} \, \left(\hat{a}+\hat{a}^\dagger\right), \;\;\;\hat{p} = -i \sqrt{\frac{m\omega_0\hbar}{2}} \, \left(\hat{a}-\hat{a}^\dagger\right),$$
+which obey the canonical commutation relation $[\hat{x},\hat{p}] =
+i\hbar$.  These operators correspond, of course, to the position and
+momentum coordinates of the underlying oscillator ($m$ and $\omega_0$
+denote the oscillator's mass and natural frequency).
+
 
 \section*{Exercises}
 
