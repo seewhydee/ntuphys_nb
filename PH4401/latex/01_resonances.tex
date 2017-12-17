@@ -32,7 +32,9 @@ co-exist in a single system.
 
 The \textbf{1D finite square well} is a simple model that exhibits
 both bound states and free states.  Consider the Hamiltonian
-$$\hat{H} = \frac{\hat{p}^2}{2m} - U \,\Theta(a -|\hat{x}|),$$
+\begin{equation}
+  \hat{H} = \frac{\hat{p}^2}{2m} - U \,\Theta(a -|\hat{x}|),
+\end{equation}
 where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
 operators, $m$ is the particle mass, $U$ and $a$ are positive real
 parameters governing the potential function, and $\Theta(\cdots)$
@@ -57,12 +59,18 @@ infinity.  This choice determines whether we get a bound state or free
 state.  The wavefunction of a bound state diminishes exponentially as
 $x \rightarrow \pm\infty$; thus, in the exterior region (i.e., $x <
 -a$ or $x > a$), it satisfies
-$$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),$$
+\begin{equation}
+  -\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),
+\end{equation}
 subject to the boundary conditions
-$$\psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.$$
+\begin{equation}
+  \psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.
+\end{equation}
 The bound state solutions in the exterior region therefore take the
 form
-$$\psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.$$
+\begin{equation}
+  \psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.
+\end{equation}
 Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
 0$.  Moreover, the variational principle implies that $E \ge -U$.
 Hence, bound state energies are restricted to the range $-U \le E <
@@ -71,20 +79,26 @@ Hence, bound state energies are restricted to the range $-U \le E <
 as $a$ is finite, the spacing is non-vanishing.  Another related
 fact is that the wavefunction for a bound state can always be
 normalized:
-$$\int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.$$
+\begin{equation}
+  \int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.
+\end{equation}
 The normalization integral will not diverge, as $|\psi(x)|^2$ vanishes
 exponentially as $x \rightarrow \pm \infty$.
 
 For a free state, the situation is quite different.  In this case, the
 wavefunction does not vanish exponentially at infinity, but instead
 takes the form
-$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}$$
+\begin{equation}
+  \psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}
+\end{equation}
 Outside the potential well, $\psi(x)$ consists of a superposition of
 left-moving and right-moving plane waves, with real wave-number $k$.  The
 coefficients $\alpha_\pm$ and $\beta_\pm$ are not independent
 quantities, but are linked by a linear relation (see Appendix B).  In
 order to satisfy Schr\"odinger's equation, $k$ must satisfy
-$$\frac{\hbar^2k^2}{2m} = E,$$
+\begin{equation}
+  \frac{\hbar^2k^2}{2m} = E,
+\end{equation}
 which means that free states occur only for energies $E \ge 0$.  In
 fact, the solutions form a continuum, meaning we can find free states
 for \textit{every} $E \ge 0$.  Since $|\psi(x)|^2$ does not diminish
@@ -169,7 +183,9 @@ corresponding to the central well, $V_b-U < E < V_b$.  Consider a
 slightly different situation, where the potential in the exterior
 region is $V_b$ rather than $0$; i.e., the potential function is a
 finite square well:
-$$V_{\mathrm{alt}}(x) = \begin{cases}V_b - U, & |x| < a, \\ V_b, & \mathrm{otherwise}.\end{cases}$$
+\begin{equation}
+  V_{\mathrm{alt}}(x) = \begin{cases}V_b - U, & |x| < a, \\ V_b, & \mathrm{otherwise}.\end{cases}
+\end{equation}
 In this case, there will be one or more bound states, in the energy
 range $V_b-U < E < V_b$.  These bound states' wavefunctions diminish
 exponentially away from the well, and are thus close to zero for $|x|
@@ -183,13 +199,17 @@ To understand the implications of these quasi-bound states, let us
 analyze the system using the \textbf{scattering experiment} framework
 from the previous chapter.  Let a particle be incident from the left,
 with energy $E > 0$, described by the incident wavefunction
-$$\psi_i(x) = \Psi_i \, e^{ik_i x}.$$
+\begin{equation}
+  \psi_i(x) = \Psi_i \, e^{ik_i x}.
+\end{equation}
 This gives rise to a scattered wavefunction $\psi_s(x)$, such that the
 total wavefunction $\psi_i(x) + \psi_s(x)$ satisfies the Schr\"odinger
 wave equation with energy $E$.  The scattered wavefunction must be
 outgoing (see the previous chapter), so in the exterior region it
 takes the form
-$$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}$$
+\begin{equation}
+  \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}
+\end{equation}
 The scattering amplitudes $f_+$ and $f_-$ can be found by solving the
 Schr\"odinger wave equation, using the transfer matrix method (see
 Appendix B).  The figure below shows numerical results obtained for
@@ -264,7 +284,9 @@ Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
 and $\hat{V}$ is the potential operator.  Let us decompose the
 potential into
-$$\hat{V} = \hat{V}_0 + \hat{V}_1,$$
+\begin{equation}
+  \hat{V} = \hat{V}_0 + \hat{V}_1,
+\end{equation}
 where $\hat{V}_0$ is a ``confining potential'' that supports a bound
 state, and $\hat{V}_1$ is a ``deconfining potential'' that turns the
 bound state into a quasi-bound state.  The figure below shows an
@@ -282,18 +304,26 @@ states $\{|\psi_k\rangle\}$ with energies $\{E_k\}$, where $k$ is some
 $d$-dimensional continuous index for the free states (analogous to the
 wave-vector for plane wave states).  The bound state and free states
 satisfy the Schr\"odinger equation
-$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
-\end{aligned}$$
+\begin{align}
+  \begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
+  \end{aligned}
+\end{align}
 along with the orthogonality and completeness relations
-$$\langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
+\begin{equation}
+  \langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.
+\end{equation}
 As described in Section~VII of the previous chapter, the causal
 Green's function for this system is
-$$\hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.$$
+\begin{equation}
+  \hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.
+\end{equation}
 
 Now, we introduce the deconfining potential $\hat{V}_1$.  According to
 Dyson's equations (see Section~VI of the previous chapter), the
 Green's function for the full system is
-$$\hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.$$
+\begin{equation}
+  \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.
+\end{equation}
 Our objective is to determine the matrix elements of $\hat{G}(E)$,
 which can then be used to compute the scattering amplitudes at each
 energy $E$.  The states $|\varphi\rangle$ and $\{|\psi_k\rangle\}$
@@ -305,18 +335,24 @@ As usual when dealing with Dyson's equations, we must watch out for
 the fact that $\hat{G}$ appears on both the left and right hand sides.
 This can be dealt with by judiciously inserting a resolution of the
 identity:
-$$\begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}
+\end{align}
 We can now compute the matrix element
 $\langle\varphi|\cdots|\varphi\rangle$ for both sides of this equation:
-$$\begin{aligned}\langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\
+\begin{align*}
+  \begin{aligned}\langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\
 \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\ \lim_{\varepsilon\rightarrow0^+}
 \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E - E_0 + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E  - E_0 + i\varepsilon} \left(1+ \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \\
-\lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1.\end{aligned}$$
+\lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1.\end{aligned}
+\end{align*}
 Similarly, computing the matrix element
 $\langle\varphi|\cdots|\psi_k\rangle$ gives:
-$$\begin{aligned}
+\begin{align*}
+  \begin{aligned}
 \langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
-&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\psi_k\rangle\right).\end{aligned}$$
+&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\psi_k\rangle\right).\end{aligned}
+\end{align*}
 Note that the equations thus far have been exact (we have \textit{not}
 used perturbation theory).  At this point, we apply an approximation:
 in the last line of the above equation, let the factor of
@@ -325,9 +361,13 @@ the sum becomes dominant.  It will be shown below that
 $\langle\varphi|G|\varphi\rangle$ being large is precisely the
 resonance condition, so this approximation will be self-consistent.
 Now, we obtain
-$$\langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.$$
+\begin{equation}
+  \langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.
+\end{equation}
 Combining this with the other equation gives
-$$\lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int d^dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.$$
+\begin{equation}
+  \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int d^dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
+\end{equation}
 Hence,
 $$\boxed{\begin{aligned}\langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \qquad \\ \quad \mathrm{where}\;\;\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}. \qquad
 \end{aligned}}$$
@@ -345,7 +385,9 @@ denominator is as close to zero as possible, which is called the
 approximation that we made in the above derivation).  As we vary the
 incident energy $E$ over the range of real values, the resonance
 condition is satisfied when
-$$E \;\approx\; E_{\mathrm{res}} \,\equiv\, E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big].$$
+\begin{equation}
+  E \;\approx\; E_{\mathrm{res}} \,\equiv\, E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big].
+\end{equation}
 We call $E_{\mathrm{res}}$ the \textbf{resonance energy}.  Its first
 term is the energy of the original bound state, in the absence of the
 deconfining potential $\hat{V}_1$.  The second term is the energy
@@ -358,7 +400,9 @@ states.
 In Section VIII of the previous chapter, we derived the following
 relationship between the Green's function and the scattering amplitude
 $f$:
-$$f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.$$
+\begin{equation}
+  f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.
+\end{equation}
 Here, $|\mathbf{k}\rangle$ and $|\mathbf{k}'\rangle$ are incident and
 scattered plane-wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
 The first term describes the lowest-order scattering process (the
@@ -368,7 +412,9 @@ the particle bounces around inside the potential before escaping.
 By inserting resolutions of the identity between each $\hat{V}$ and
 $\hat{G}$ operator in the second term, we find that $f$ contains a
 contribution of the form
-$$\Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]}.$$
+\begin{equation}
+  \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]}.
+\end{equation}
 This can become the dominant contribution to the scattering amplitude
 if the resonance condition is satisfied.  The energy dependence of
 $\Delta f$ is now determined by its denominator, and has a
@@ -425,11 +471,15 @@ as the ``decay'' of the quasi-bound state into the free state
 continuum.
 
 The decay process can be described by
-$$P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,$$
+\begin{equation}
+  P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,
+\end{equation}
 which is the probability for the system to continue occupying state
 $|\varphi\rangle$ after time $t$.  In order to calculate $P(t)$, let
 us define the function
-$$f(t) = \begin{cases} \langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle \,e^{-\varepsilon t}, & t \ge 0 \\ 0, & t < 0,\end{cases}$$
+\begin{equation}
+  f(t) = \begin{cases} \langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle \,e^{-\varepsilon t}, & t \ge 0 \\ 0, & t < 0,\end{cases}
+\end{equation}
 where $\varepsilon \in \mathbb{R}^+$.  For $t \ge 0$ and $\varepsilon
 \rightarrow 0^+$, we see that $|f(t)|^2 \rightarrow P(t)$.  The reason
 we are interested in $f(t)$, rather than dealing directly with
@@ -443,66 +493,92 @@ and can never be re-populated by waves ``bouncing back'' from
 infinity.
 
 We can determine $f(t)$ by first studying its Fourier transform,
-$$F(\omega) \;=\; \int_{-\infty}^\infty dt \; e^{i\omega t}\, f(t) \;=\; \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \langle\varphi|e^{-i\hat{H}t/\hbar}|\varphi\rangle.$$
+\begin{equation}
+  F(\omega) \;=\; \int_{-\infty}^\infty dt \; e^{i\omega t}\, f(t) \;=\; \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \langle\varphi|e^{-i\hat{H}t/\hbar}|\varphi\rangle.
+\end{equation}
 Now insert a resolution of the identity, $\hat{I} = \sum_n
 |n\rangle\langle n|$, where $\{|n\rangle\}$ denotes the exact
 eigenstates of $\hat{H}$ (for free states, the sum goes to an integral
 in the usual way):
-$$\begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle. \end{aligned}$$
+\begin{align}
+  \begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle. \end{aligned}
+\end{align}
 Note that in the third line, the regulator $\varepsilon$ removes any
 contribution from the $t \rightarrow\infty$ limit of the integral, in
 accordance with our requirement that the decay of the bound state is
 permanent.  Hence, we obtain
-$$\lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,$$
+\begin{equation}
+  \lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,
+\end{equation}
 where $\hat{G}$ is our old friend the causal Green's function.  The
 fact that the \textit{causal} Green's function shows up is due to our
 definition of $f(t)$, which vanishes for $t < 0$.
 
 As discussed in the previous section, when the resonance condition is
 satisfied,
-$$ \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\Sigma]},$$
+\begin{equation}
+  \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\Sigma]},
+\end{equation}
 where $E_{\mathrm{res}}$ is the resonance energy and $\Sigma$ is the
 self-energy of the quasi-bound state.  We can now perform the
 inverse Fourier transform
-$$\begin{aligned} \lim_{\varepsilon\rightarrow 0^+} f(t) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \; e^{-i\omega t} \, F(\omega) \\ &= \frac{i}{2\pi} \int_{-\infty}^{\infty} d\omega\; \frac{e^{-i\omega t}}{\omega - (E_{\mathrm{res}}+i \mathrm{Im}[\Sigma])/\hbar}\\ &= \exp\left(-\frac{iE_{\mathrm{res}}t}{\hbar}\right)\, \exp\left(-\frac{|\mathrm{Im}[\Sigma]|}{\hbar}\,t\right). \end{aligned}$$
+\begin{align}
+  \begin{aligned} \lim_{\varepsilon\rightarrow 0^+} f(t) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \; e^{-i\omega t} \, F(\omega) \\ &= \frac{i}{2\pi} \int_{-\infty}^{\infty} d\omega\; \frac{e^{-i\omega t}}{\omega - (E_{\mathrm{res}}+i \mathrm{Im}[\Sigma])/\hbar}\\ &= \exp\left(-\frac{iE_{\mathrm{res}}t}{\hbar}\right)\, \exp\left(-\frac{|\mathrm{Im}[\Sigma]|}{\hbar}\,t\right). \end{aligned}
+\end{align}
 In deriving the last line, we performed a contour integration assuming
 that $\mathrm{Im}[\Sigma] < 0$; this assumption will be proven
-shortly.  The final result is that
-$$P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = -\frac{2|\mathrm{Im}[\Sigma]|}{\hbar}.$$
+shortly.  The final result is
+\begin{equation}
+  P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = -\frac{2|\mathrm{Im}[\Sigma]|}{\hbar}.
+\end{equation}
 
 Let us now take a closer look at the self-energy.  From our earlier
 definition,
-$$\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon},$$
+\begin{equation}
+  \Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon},
+\end{equation}
 where $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ are the bound and
 free states of the model in the absence of $\hat{V}_1$, and $E_k$ is
 the energy of the $k$-th free state.  The imaginary part is
-$$\begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}$$
+\begin{align}
+  \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
+\end{align}
 The quantity inside the square brackets is a Lorentzian function,
 which is always positive; hence, $\mathrm{Im}(\Sigma) < 0$, as
 previously asserted.  The Lorentzian function has the limiting form
-$$\lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).$$
+\begin{equation}
+  \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
+\end{equation}
 This comes from the fact that as $\varepsilon\rightarrow0^+$, the
 Lorentzian curve describes a sharper and sharper peak, but the area
 under the curve is fixed as $\pi$.  Hence,
-$$\mathrm{Im}\big[\Sigma(E)\big] = - \pi \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \delta(E-E_k).$$
+\begin{equation}
+  \mathrm{Im}\big[\Sigma(E)\big] = - \pi \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \delta(E-E_k).
+\end{equation}
 Because of the delta function, we see that the only non-vanishing
 contributions to the integral come from the parts of $k$-space where
 $E = E_k$.
 
 We can further simplify the result by defining the \textbf{density of
   states},
-$$\mathcal{D}(E) = \int d^d k\; \delta(E - E_k).$$
+\begin{equation}
+  \mathcal{D}(E) = \int d^d k\; \delta(E - E_k).
+\end{equation}
 Roughly speaking, this measures the number of free states that exist
 at energy $E$.  The $k$-space volume $d^dk$ is proportional to the
 number of free states at each $k$, while the delta function restricts
 the contributions to only those free states with energy $E$.  (In
 the next section, we'll see an explicit example of how to calculate
 $\mathcal{D}(E)$.)  Now, for any function $f(k)$,
-$$\int d^d k\; f(k) \, \delta(E - E_k) = \overline{f(k(E))} \;\mathcal{D}(E),$$
+\begin{equation}
+  \int d^d k\; f(k) \, \delta(E - E_k) = \overline{f(k(E))} \;\mathcal{D}(E),
+\end{equation}
 where $\overline{f(k(E))}$ denotes the mean value of $f(k)$ for the
 free states satisfying $E_k = E$.  Applying this to the imaginary part
 of the self-energy gives
-$$\mathrm{Im}\big[\Sigma(E)\big] = - \pi \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).$$
+\begin{equation}
+  \mathrm{Im}\big[\Sigma(E)\big] = - \pi \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).
+\end{equation}
 Hence, the quasi-bound state's decay rate is
 $$\boxed{\quad\kappa \,=\, -\frac{2}{\hbar}\mathrm{Im}\big[\Sigma(E_{\mathrm{res}})\big] \,=\, \frac{2\pi}{\hbar} \; \overline{\Big| \langle\psi_{k(E_{\mathrm{res}})}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E_{\mathrm{res}}).\quad}$$
 This extremely important result is known as \textbf{Fermi's golden
@@ -526,7 +602,9 @@ chapters.  In this section, we will apply it to the simple 1D model
 from Section~\ref{sec:resonances}, and evaluate how well it works.
 
 The model potential is
-$$\begin{aligned}&V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|), \;\;\; 0<U<V_b.\end{aligned}$$
+\begin{equation}
+  \begin{aligned}&V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|), \;\;\; 0<U<V_b.\end{aligned}
+\end{equation}
 The potential well $V_0$ supports one or more bound states.  For
 simplicity, we focus on the ground state, whose energy $E_0$ lies in
 the range $[-U,0]$.  Once $V_1$ is introduced, this will turn into the
@@ -537,44 +615,66 @@ When the potential consists only of $V_0$, the ground state
 wavefunction can be obtained by solving the Schr\"odinger wave
 equation for the boundary condition $\varphi(x) \rightarrow 0$ as
 $|x|\rightarrow\infty$.  It has the form
-$$\varphi(x) = \begin{cases}\mathcal{A}\,\cos(qx), & |x| < a \\
-\mathcal{B} \, \exp\left(-\eta|x|\right), & |x| \ge a,\end{cases}$$
+\begin{equation}
+  \varphi(x) = \begin{cases}\mathcal{A}\,\cos(qx), & |x| < a \\
+    \mathcal{B} \, \exp\left(-\eta|x|\right), & |x| \ge a,\end{cases}
+\end{equation}
 where $\mathcal{A}$ and $\mathcal{B}$ are constants to be determined,
 and
-$$q = \sqrt{\frac{2m}{\hbar^2}(E_0+U)}, \;\; \eta = \sqrt{\frac{2m}{\hbar^2}|E_0|}.$$
+\begin{equation}
+  q = \sqrt{\frac{2m}{\hbar^2}(E_0+U)}, \;\; \eta = \sqrt{\frac{2m}{\hbar^2}|E_0|}.
+\end{equation}
 By matching both $\varphi(x)$ and $d\varphi/dx$ across the $x=a$
 interface, we can derive a transcendental equation for $E_0$, which
 can be solved numerically.  Once we know $E_0$, we also know $q$ and
 $\eta$.  We can then relate $\mathcal{A}$ and $\mathcal{B}$ by
 matching $\varphi(x)$ across the $x=a$ interface:
-$$\mathcal{A} = \mathcal{B}\; \frac{\exp(-\eta a)}{\cos(qa)}.$$
+\begin{equation}
+  \mathcal{A} = \mathcal{B}\; \frac{\exp(-\eta a)}{\cos(qa)}.
+\end{equation}
 Moreover, the wavefunction must be normalized to unity:
-$$\begin{aligned}1 &= \mathcal{A}^2 \int_{-a}^a \cos^2(qx) + 2\mathcal{B}^2 \int_a^\infty dx\; \exp(-2\eta x) \\ &= \mathcal{A}^2 \left(a+\frac{\sin(2qa)}{2q}\right) + \mathcal{B}^2\, \frac{\exp(-2\eta a)}{\eta}.\end{aligned}$$
+\begin{align}
+  \begin{aligned}1 &= \mathcal{A}^2 \int_{-a}^a \cos^2(qx) + 2\mathcal{B}^2 \int_a^\infty dx\; \exp(-2\eta x) \\ &= \mathcal{A}^2 \left(a+\frac{\sin(2qa)}{2q}\right) + \mathcal{B}^2\, \frac{\exp(-2\eta a)}{\eta}.\end{aligned}
+\end{align}
 Putting the last two equations together yields
-$$\mathcal{B}^2 = \frac{\exp\big(2\eta a\big)}{a} \left[\frac{1+\sin(2qa)/2qa}{\cos^2(qa)}+\frac{1}{\eta a}\right]^{-1}.$$
+\begin{equation}
+  \mathcal{B}^2 = \frac{\exp\big(2\eta a\big)}{a} \left[\frac{1+\sin(2qa)/2qa}{\cos^2(qa)}+\frac{1}{\eta a}\right]^{-1}.
+\end{equation}
 We now wish to compute the transition amplitude
-$$\langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x),$$
+\begin{equation}
+  \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x),
+\end{equation}
 where $\psi_k(x)$ is the wavefunction of a free state for the system
 with potential $V_0(x)$, which is labelled by some continuous index
 $k$.  We can use a trick to avoid calculating the exact form of
 $\psi_k(x)$.  Because $\psi_k(x)$ and $\varphi(x)$ must be orthogonal,
-$$\int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x) = - \int_{|x| > a} dx \; \psi_k^*(x) \,\varphi(x).$$
+\begin{equation}
+  \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x) = - \int_{|x| > a} dx \; \psi_k^*(x) \,\varphi(x).
+\end{equation}
 When evaluating the free states outside the potential well, we can
 approximate them as the free states of the particle without the
 potential well, i.e., simple plane waves:
-$$\psi_k(x) = \frac{1}{\sqrt{2\pi}}\, e^{ikx}, \;\;\;k\in\mathbb{R}, \;\;|x|>a.$$
+\begin{equation}
+  \psi_k(x) = \frac{1}{\sqrt{2\pi}}\, e^{ikx}, \;\;\;k\in\mathbb{R}, \;\;|x|>a.
+\end{equation}
 We likewise approximate their energies by $E_k \approx \hbar^2k^2/2m$.
 Plugging $\psi_k(x)$ into the formula for the transition amplitude,
 and performing the necessary integrals, yields
-$$\langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, - \mathcal{B} \, \sqrt{\frac{2}{\pi}} \, \frac{\hbar^2}{2m} \; \big[\eta\cos(kb) - k\sin(kb)\big] \, \exp(-\eta b).$$
+\begin{equation}
+  \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, - \mathcal{B} \, \sqrt{\frac{2}{\pi}} \, \frac{\hbar^2}{2m} \; \big[\eta\cos(kb) - k\sin(kb)\big] \, \exp(-\eta b).
+\end{equation}
 Within Fermi's golden rule, we must use a value of $k$ such that
-$$E_k = E_{\mathrm{res}} \approx E_0 + V_b \;\;\;\Rightarrow \;\;\; k \approx \sqrt{\frac{2m}{\hbar^2}(E_0+V_b)}.$$
+\begin{equation}
+  E_k = E_{\mathrm{res}} \approx E_0 + V_b \;\;\;\Rightarrow \;\;\; k \approx \sqrt{\frac{2m}{\hbar^2}(E_0+V_b)}.
+\end{equation}
 
 The next thing that we need to calculate is the density of free
 states.  This can be done by once again taking $E_k \approx
 \hbar^2k^2/2m$, and performing a change of variables:
-$$\begin{aligned}\mathcal{D}(E) &= \int_{-\infty}^\infty dk \; \delta\left(E-\frac{\hbar^2k^2}{2m}\right) \\ &= 2 \cdot \int_0^\infty dE' \, \frac{dk}{dE'} \, \delta(E-E') \\ &= \sqrt{\frac{2m}{\hbar^2 E}}.
-\end{aligned}$$
+\begin{align}
+  \begin{aligned}\mathcal{D}(E) &= \int_{-\infty}^\infty dk \; \delta\left(E-\frac{\hbar^2k^2}{2m}\right) \\ &= 2 \cdot \int_0^\infty dE' \, \frac{dk}{dE'} \, \delta(E-E') \\ &= \sqrt{\frac{2m}{\hbar^2 E}}.
+  \end{aligned}
+\end{align}
 Note the factor of 2 on the second line; it is there because there is
 both a positive and a negative value of $k$ for each $E$.
 
@@ -617,21 +717,29 @@ using Fermi's golden rule.
   has at least one bound state.  Assume that the potential $V(x)$
   satisfies (i) $V(x) < 0$ for all $x$, and (ii) $V(x)\rightarrow 0$
   for $x\rightarrow\pm\infty$.  The Hamiltonian is
-  $$\hat{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x).$$
+  \begin{equation}
+    \hat{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x).
+  \end{equation}
   Consider a (real) trial wavefunction
-  $$\psi(x;\gamma) = \left(\frac{2\gamma}{\pi}\right)^{1/4} \,e^{-\gamma x^2}.$$
+  \begin{equation}
+    \psi(x;\gamma) = \left(\frac{2\gamma}{\pi}\right)^{1/4} \,e^{-\gamma x^2}.
+  \end{equation}
   Note that this can be shown to be normalized to unity, using Gauss'
   integral
-  $$\int_{-\infty}^{\infty} dx\; e^{-2\gamma x^2} = \sqrt{\frac{\pi}{2\gamma}}.$$
+  \begin{equation}
+    \int_{-\infty}^{\infty} dx\; e^{-2\gamma x^2} = \sqrt{\frac{\pi}{2\gamma}}.
+  \end{equation}
   Now prove that
-  $$\begin{aligned}
+  \begin{align}
+    \begin{aligned}
       \langle E \rangle &= \int_{-\infty}^\infty dx \; \psi(x) \, \hat{H} \,\psi(x) \\
       &= \frac{\hbar^2}{2m} \int_{-\infty}^\infty dx\, \left(\frac{d\psi}{dx}\right)^2
       \;+\; \int_{-\infty}^\infty dx\; V(x) \,\psi^2(x) \\
       &= A\sqrt{\gamma} \left[\sqrt{\gamma}
         \;+\, B \int_{-\infty}^\infty dx\; V(x) \;e^{-\gamma x^2}
         \right],
-    \end{aligned}$$
+    \end{aligned}
+  \end{align}
   where $A$ and $B$ are positive real constants to be determined.  By
   looking at the quantity in square brackets in the limit $\gamma
   \rightarrow 0$, argue that $\langle E \rangle < 0$ in this limit.
@@ -648,7 +756,9 @@ using Fermi's golden rule.
 \item In this problem, you will investigate the existence of bound
   states in a 3D potential well that is finite, uniform, and
   spherically-symmetric.  The potential function is
-$$V(r,\theta,\phi) = -U\Theta(a-r),$$
+  \begin{equation}
+    V(r,\theta,\phi) = -U\Theta(a-r),
+  \end{equation}
   where $a$ is the radius of the spherical well, $U$ is the depth,
   and $(r,\theta,\phi)$ are spherical coordinates defined in the usual
   way.
@@ -656,16 +766,22 @@ $$V(r,\theta,\phi) = -U\Theta(a-r),$$
   The solution involves a variant of the partial wave analysis
   discussed in Appendix A.  For $E < 0$, the Schr\"odinger equation
   reduces to
-$$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+U)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}$$
+  \begin{equation}
+    \begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+U)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases}
+  \end{equation}
   For the first equation (called the Helmholtz equation), we seek
   solutions of the form
-  $$\psi(r,\theta,\phi) = f(r) \, Y_{\ell m}(\theta,\phi),$$
+  \begin{equation}
+    \psi(r,\theta,\phi) = f(r) \, Y_{\ell m}(\theta,\phi),
+  \end{equation}
   where $Y_{\ell m}(\theta,\phi)$ are
   \href{https://en.wikipedia.org/wiki/Spherical_harmonics}{spherical
     harmonics}, and the integers $l$ and $m$ are angular momentum
   quantum numbers satisfying $l \ge 0$ and $-l \le m \le l$.
   Substituting into the Helmholtz equation yields
-  $$r^2\frac{d^2f}{dr^2} + 2r \frac{df}{dr}+\left[q^2r^2-l(l+1)\right] f(r) = 0,$$
+  \begin{equation}
+    r^2\frac{d^2f}{dr^2} + 2r \frac{df}{dr}+\left[q^2r^2-l(l+1)\right] f(r) = 0,
+  \end{equation}
   which is the \textbf{spherical Bessel equation}.  The solutions to
   this equation that are non-divergent at $r = 0$ are $f(r) =
   j_\ell(qr)$, where $j_\ell$ is called a \textbf{spherical Bessel function
@@ -686,7 +802,9 @@ $$\begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{wher
 
   Using the above facts, show that the condition for a bound state to
   exist is
-  $$\frac{qj_\ell'(qa)}{j_\ell(qa)} = \frac{\gamma k_\ell'(\gamma a)}{k_\ell(\gamma a)},$$
+  \begin{equation}
+    \frac{qj_\ell'(qa)}{j_\ell(qa)} = \frac{\gamma k_\ell'(\gamma a)}{k_\ell(\gamma a)},
+  \end{equation}
   where $j_\ell'$ and $k_\ell'$ denote the derivatives of the relevant
   special functions, and $q$ and $\gamma$ depend on $E$ and $U$ as
   described above.  Write a program to search for the bound state

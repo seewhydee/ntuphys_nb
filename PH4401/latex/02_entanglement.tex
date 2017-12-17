@@ -45,7 +45,9 @@ described by a vector in a complex Hilbert space.  Let $\mathscr{H}_A$
 and $\mathscr{H}_B$ denote the respective single-particle Hilbert
 spaces.  When the two particles are considered as a single system, the
 combined Hilbert space is denoted
-$$\mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.$$
+\begin{equation}
+  \mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.
+\end{equation}
 The symbol $\otimes$ refers to a \textbf{tensor product}, which is a
 mathematical operation that combines two Hilbert spaces to form
 another Hilbert space.  Its meaning is as follows: let $\mathscr{H}_A$
@@ -54,18 +56,24 @@ be spanned by an orthonormal basis $\{|\mu_1\rangle, |\mu_2\rangle,
 $\{|\nu_1\rangle, |\nu_2\rangle, |\nu_3\rangle, \dots\}$.  Then
 $\mathscr{H}_A \otimes \mathscr{H}_B$ is a space spanned by the basis
 vectors
-$$\Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \Big| \;\; \textrm{all}\;|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.$$
+\begin{equation}
+  \Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \Big| \;\; \textrm{all}\;|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.
+\end{equation}
 This reflects the intuitive notion that if particle A has some state
 $|\mu_i\rangle$ and particle B has state $|\nu_j\rangle$, then the
 state of the combined system is fully specified.  Note that if
 $\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has dimension
 $d_B$, then the combined Hilbert space $\mathscr{H}$ has dimension
 $d_A d_B$.  Using such a basis, any two-particle state can be written as
-$$|\psi\rangle = \sum_{i} \sum_{j} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.$$
+\begin{equation}
+  |\psi\rangle = \sum_{i} \sum_{j} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.
+\end{equation}
 
 The inner product between the tensor product basis states is defined
 as follows:
-$$\Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.$$
+\begin{equation}
+  \Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.
+\end{equation}
 In other words, we (i) calculate the inner product for space A, (ii)
 calculate the inner product for space B, and (iii) multiply the two
 resulting numbers together.  You can check that this satisfies the
@@ -77,7 +85,9 @@ Hilbert spaces describing spin-$1/2$ degrees of freedom.  Each space
 can be spanned by an orthonormal basis $\{\,|\!+\!z\rangle,
 \,|\!-\!z\rangle \, \}$, representing ``spin-up'' and ``spin-down''.
 Then the tensor product space $\mathscr{H}$ is a 4D space spanned by
-$$\Big\{\;|\!+\!z\rangle\otimes|\!+\!z\rangle\,,\; |\!+\!z\rangle\otimes|\!-\!z\rangle\,,\; |\!-z\!\rangle\otimes|\!+\!z\rangle\,,\; |\!-\!z\rangle\otimes|\!-\!z\rangle \;\Big\}.$$
+\begin{equation*}
+  \Big\{\;|\!+\!z\rangle\otimes|\!+\!z\rangle\,,\; |\!+\!z\rangle\otimes|\!-\!z\rangle\,,\; |\!-z\!\rangle\otimes|\!+\!z\rangle\,,\; |\!-\!z\rangle\otimes|\!-\!z\rangle \;\Big\}.
+\end{equation*}
 
 We now make an important observation.  As previously noted, if
 particle $A$ is in state $|\mu_i\rangle$ and particle $B$ is in state
@@ -86,7 +96,9 @@ the reverse is not generally true!  There are states of the combined
 system that \textit{cannot} be expressed in terms of definite states
 of the individual particles.  For example, take the previous example
 of two spaces describing spin-$1/2$ degrees of freedom, and consider
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).$$
+\begin{equation}
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).
+\end{equation}
 
 This two-particle state is constructed from two of the basis states of
 the tensor product space, $|\!+\!z\rangle\otimes|\!-\!z\rangle$ and
@@ -97,7 +109,9 @@ $|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.  Moreover, we shall show
 (in Section~\ref{sec:entropy}) that there's \textit{no} choice of
 basis that allows the individual particles to be expressed with
 definite quantum states; i.e.,
-$$|\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.$$
+\begin{equation}
+  |\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.
+\end{equation}
 In such a situation, the two particles are said to be
 \textbf{entangled}.  They cannot be described by individual
 single-particle quantum states, but are intrinsically ``mixed
@@ -109,8 +123,10 @@ contains $N$ subsystems described by the individual Hilbert spaces
 $\{\mathscr{H}_1, \mathscr{H}_2, \dots, \mathscr{H}_N\}$, which have
 dimensionality $\{d_1, \dots, d_N\}$.  Then the overall system is
 described by the Hilbert space
-$$\mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
-\otimes \mathscr{H}_N.$$
+\begin{equation}
+  \mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
+  \otimes \mathscr{H}_N.
+\end{equation}
 This combined Hilbert space has dimensionality $d = d_1 d_2\cdots
 d_N$.  It is interesting to note that the dimensionality scales
 \textit{exponentially} with the number of subsystems.  For instance,
@@ -124,7 +140,9 @@ quantum computing.
 It is sometimes cumbersome to write the $\otimes$ symbol in tensor
 product states, so we will often omit whenever it is obvious a tensor
 product is taking place.  For instance,
-$$\frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \;\;\equiv \;\; \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+\begin{equation}
+  \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \;\;\equiv \;\; \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+\end{equation}
 
 
 \section{Partial measurements}
@@ -133,11 +151,15 @@ $$\frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rang
 Let us recall how measurements work in single-particle quantum theory.
 Each observable $Q$ is described by some Hermitian operator $\hat{Q}$,
 which has an eigenbasis $\{|q_i\rangle\}$ such that
-$$\hat{Q}|q_i\rangle = q_i |q_i\rangle.$$
+\begin{equation}
+  \hat{Q}|q_i\rangle = q_i |q_i\rangle.
+\end{equation}
 For simplicity, let the eigenvalues $\{q_i\}$ be non-degenerate.
 Suppose a particle initially has quantum state $|\psi\rangle$; this
 can always be expanded in terms of the eigenbasis of $\hat{Q}$:
-$$|\psi\rangle = \sum_i \psi_i\, |q_i\rangle, \;\;\mathrm{where}\;\;\,\textrm{and}\;\, \psi_i = \langle q_i|\psi\rangle.$$
+\begin{equation}
+  |\psi\rangle = \sum_i \psi_i\, |q_i\rangle, \;\;\mathrm{where}\;\;\,\textrm{and}\;\, \psi_i = \langle q_i|\psi\rangle.
+\end{equation}
 The \textbf{measurement postulate of quantum mechanics} states that if
 we measure $Q$, then (i) the probability of obtaining the measurement
 outcome $q_i$ is $P_i = |\psi_i|^2$, the absolute square of the
@@ -147,9 +169,13 @@ $|q_i\rangle$.
 
 Mathematically, these two rules can be summarized using the projection
 operator
-$$\hat{\Pi}(q_i) = |q_i\rangle\langle q_i|.$$
+\begin{equation}
+  \hat{\Pi}(q_i) = |q_i\rangle\langle q_i|.
+\end{equation}
 Applying this operator to $|\psi\rangle$ gives
-$$|\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle,$$
+\begin{equation}
+  |\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle,
+\end{equation}
 which is not normalized to unity.  Its absolute square,
 $\langle\psi'|\psi'\rangle = |\langle q_i|\psi\rangle|^2$, gives the
 measurement probability.  Moreover, re-normalizing $|\psi'\rangle$
@@ -166,7 +192,9 @@ that acts upon $\mathscr{H}_A$ and has eigenvectors $\{|\mu_1\rangle,
 the eigenbasis of $\hat{\mu}$ for the $\mathscr{H}_A$ part, and an
 arbitrary basis $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for the
 $\mathscr{H}_B$ part:
-$$\begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle |\nu_j\rangle \\&= \sum_i |\mu_i\rangle |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle.\end{aligned}$$
+\begin{align}
+  \begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle |\nu_j\rangle \\&= \sum_i |\mu_i\rangle |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle.\end{aligned}
+\end{align}
 Unlike the single-particle case, the ``coefficient'' of
 $|\mu_i\rangle$ in this basis expansion is not a complex number, but a
 vector $|\varphi_i\rangle \in \mathscr{H}_B$.  Proceeding by analogy,
@@ -174,20 +202,28 @@ the probability of obtaining the outcome $\mu_i$ ought to be the
 ``absolute square'' of this ``coefficient'',
 $\langle\varphi_i|\varphi_i\rangle$.  To make the analogy a bit more
 rigorous, let us define the partial projector
-$$\hat{\Pi}(\mu_i) \,=\, |\mu_i\rangle\langle \mu_i| \otimes  \hat{I}.$$
+\begin{equation}
+  \hat{\Pi}(\mu_i) \,=\, |\mu_i\rangle\langle \mu_i| \otimes  \hat{I}.
+\end{equation}
 This contains a projector, $|\mu_i\rangle\langle \mu_i|$, which only
 acts upon the $\mathscr{H}_A$ part of the two-particle space.
 Applying this to the above multi-particle state gives
-$$|\psi'\rangle = \Pi_i |\psi\rangle = |\mu_i\rangle |\varphi_i\rangle.$$
+\begin{equation}
+  |\psi'\rangle = \Pi_i |\psi\rangle = |\mu_i\rangle |\varphi_i\rangle.
+\end{equation}
 The absolute square of $|\psi'\rangle$ gives the measurement
 probability,
-$$P_i = \langle\psi'|\psi'\rangle = \langle \mu_i|\mu_i\rangle\, \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.$$
+\begin{equation}
+  P_i = \langle\psi'|\psi'\rangle = \langle \mu_i|\mu_i\rangle\, \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.
+\end{equation}
 Moreover, the post-measurement collapsed state is obtained by
 re-normalizing $|\psi'\rangle$.
 
 Let's work through an example.  Consider a system of two spin-$1/2$
 particles, with state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+\begin{equation}
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+\end{equation}
 For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
 eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
 and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
@@ -222,7 +258,9 @@ described in this thought experiment.
 
 The EPR paradox begins with an entangled state, such as
 this state of two spin-$1/2$ particles:
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+\begin{equation}
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+\end{equation}
 As discussed in the previous section, measuring $S_z$ on particle $A$
 collapses the system into a two-particle state that is unentangled
 (where each particle has a definite spin).  If the measurement outcome
@@ -270,14 +308,22 @@ But the experimentalist at Alpha Centauri can choose to measure the
 spin of $A$ along another axis, say $S_x$.  In the basis of spin-up
 and spin-down states, the operator $\hat{S}_x$ has matrix
 representation
-$$\hat{S}_x = \frac{\hbar}{2}\, \begin{pmatrix}0&1\\1&0\end{pmatrix}.$$
+\begin{equation}
+  \hat{S}_x = \frac{\hbar}{2}\, \begin{pmatrix}0&1\\1&0\end{pmatrix}.
+  \end{equation}
 The eigenvalues and eigenvectors are
-$$\begin{aligned}s_x = \;\;\frac{\hbar}{2},\; &\;\;\; |\!+\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle + |\!-\!z\rangle\Big) \\ s_x = -\frac{\hbar}{2}, &\;\;\; |\!-\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle - |\!-\!z\rangle\Big).\end{aligned}$$
+\begin{align}
+  \begin{aligned}s_x = \;\;\frac{\hbar}{2},\; &\;\;\; |\!+\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle + |\!-\!z\rangle\Big) \\ s_x = -\frac{\hbar}{2}, &\;\;\; |\!-\!x\rangle = \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle - |\!-\!z\rangle\Big).\end{aligned}
+\end{align}
 Conversely, we can write the $\hat{S}_z$ eigenstates in the $\{|\!+\!x\rangle,|\!-\!x\rangle\}$ basis:
-$$\begin{aligned}|\!+\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle + |\!-\!x\rangle\Big) \\ |\!-\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle - |\!-\!x\rangle\Big).\end{aligned}$$
+\begin{align}
+  \begin{aligned}|\!+\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle + |\!-\!x\rangle\Big) \\ |\!-\!z\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!x\rangle - |\!-\!x\rangle\Big).\end{aligned}
+\end{align}
 This allows us to write the two-particle entangled state in the
 $\hat{S}_x$ basis:
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle|\!+\!x\rangle \,-\, |\!+\!x\rangle|\!-\!x\rangle\Big).$$
+\begin{equation}
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle|\!+\!x\rangle \,-\, |\!+\!x\rangle|\!-\!x\rangle\Big).
+\end{equation}
 The Alpha Centauri measurement still collapses the particles into
 definite spin states with opposite spins---but now spin states of
 ${S}_x$ rather than ${S}_z$.
@@ -297,7 +343,9 @@ which collapses $B$ to either $|\!+\!z\rangle$ or $|\!-\!z\rangle$
 choose which measurement to perform.  If $S_z$ is measured, the
 outcome is $+\hbar/2$ or $-\hbar/2$ with equal probabilities.  If
 $S_x$ is measured, the probabilities are:
-$$\begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2},\end{aligned}$$
+\begin{align}
+  \begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2},\end{aligned}
+\end{align}
 which has exactly the same distribution!  The analysis can be repeated
 for any other choice of spin axis; we always find that the outcomes
 occur with 50/50 probability.  Thus, the Betelgeuse measurement does
@@ -366,7 +414,9 @@ axes need not correspond to orthogonal spatial directions.
 We now repeatedly prepare two-particle systems, and send the particles
 to Alpha Centauri and Betelgeuse.  Each time, the prepared
 two-particle state is
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+\begin{equation}
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+\end{equation}
 During each round of the experiment, each experimentalist randomly
 chooses one of the three spin axes $S_1$, $S_2$, or $S_3$, and
 performs that spin measurement.  It doesn't matter which
@@ -397,7 +447,9 @@ Let us denote this by $[++-]$.  To be consistent with the predictions
 of quantum theory, the hidden spin variables for the two particles
 must have opposite values along each direction.  This means that there
 are $8$ distinct possibilities, which we can denote as
-$$\begin{aligned}{[}{+++};{---}], \;\;\; [{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}], \;\;\; [{---};{+++}].\end{aligned}$$
+\begin{align*}
+  \begin{aligned}{[}{+++};{---}], \;\;\; [{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}], \;\;\; [{---};{+++}].\end{aligned}
+\end{align*}
 For instance, $[{++-};{--+}]$ indicates that for particle $A$, $S_1 =
 S_2 = +\hbar/2$ and $S_3 = -\hbar/2$, while particle $B$ has the
 opposite spin values, $S_1 = S_2 = -\hbar/2$ and $S_3 = +\hbar/2$.
@@ -410,7 +462,9 @@ experimentalists happened to choose \textit{different} spin axes
 this subset, what is the probability \textit{for the two measurement
   results to have opposite signs} (i.e., one $+$ and one $-$)?  To
 answer this question, we first look at the following 6 cases:
-$$\begin{aligned}{[}{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}].\end{aligned}$$
+\begin{align*}
+  \begin{aligned}{[}{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}].\end{aligned}
+\end{align*}
 These are the cases which do not have all $+$ or all $-$ for each
 particle.  Consider one of these, say ${[}{++-};{--+}]$.  The two
 experimentalists picked their measurement axes at random each time,
@@ -424,7 +478,9 @@ measurement results with opposite signs is 1/3.  If we go through all
 probability for opposite signs is 1/3.
 
 Now look at the remaining 2 cases:
-$${[}{+++};{---}], \;\;\; [{---};{+++}].$$
+\begin{equation*}
+  {[}{+++};{---}], \;\;\; [{---};{+++}].
+\end{equation*}
 For these, the experimentalists always obtain results that have
 opposite signs.  Combining this with the findings from the previous
 paragraph, we obtain the following statement:
@@ -454,14 +510,18 @@ from $S_1$, as shown below:
 
 The corresponding spin operators can be written in the eigenbasis of
 $\hat{S}_z$:
-$$\begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \sigma_3 \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 + \sin(2\pi/3)\sigma_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 - \sin(2\pi/3)\sigma_1\right].\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \sigma_3 \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 + \sin(2\pi/3)\sigma_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 - \sin(2\pi/3)\sigma_1\right].\end{aligned}
+\end{align}
 
 Suppose the Alpha Centauri experimentalist chooses $S_1$, and obtains
 $+\hbar/2$.  Particle $A$ collapses to state $|\!+\!z\rangle$, and
 particle $B$ collapses to state $|\!-\!z\rangle$.  The Betelgeuse
 experimentalist is assumed to choose a different spin axis.  If the
 choice is $S_2$, the expectation value is
-$$\begin{aligned}\langle\, - z \, | \, S_2 \,|-\!z\,\rangle &= \frac{\hbar}{2} \Big[\cos(2\pi/3) \langle\,- z\,|\sigma_3| - \!z\,\rangle + \sin(2\pi/3)\langle\,- z\,|\sigma_1|-\!z\,\rangle\Big]\\ &= \frac{\hbar}{2} \cdot \frac{1}{2} \end{aligned}$$
+\begin{align}
+  \begin{aligned}\langle\, - z \, | \, S_2 \,|-\!z\,\rangle &= \frac{\hbar}{2} \Big[\cos(2\pi/3) \langle\,- z\,|\sigma_3| - \!z\,\rangle + \sin(2\pi/3)\langle\,- z\,|\sigma_1|-\!z\,\rangle\Big]\\ &= \frac{\hbar}{2} \cdot \frac{1}{2} \end{aligned}
+\end{align}
 If $P_+$ and $P_-$ respectively denote the probability of measuring
 $+\hbar/2$ and $-\hbar/2$ in this measurement, the above equation
 implies that $P_+ - P_- = + 1/2$.  Moreover, $P_+ + P_- = 1$ by
@@ -503,7 +563,9 @@ statistical mechanics, and information theory.
 Consider a quantum system with a $d$-dimensional Hilbert space
 $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
 \mathscr{H}$, we can define an operator
-$$\hat{\rho}(\psi) = |\psi\rangle\, \langle\psi|.$$
+\begin{equation}
+  \hat{\rho}(\psi) = |\psi\rangle\, \langle\psi|.
+\end{equation}
 This is simply the projection operator associated with $|\psi\rangle$,
 but in this context we call it a \textbf{density operator}.  In the
 language of linear algebra, $\hat{\rho}(\psi)$ is formed by taking the
@@ -521,7 +583,9 @@ perform a measurement corresponding to the Hermitian operator
 $\hat{Q}$, which has eigenvalues $\{q_1,q_2,\dots\}$ and eigenvectors
 $\{|q_1\rangle,|q_2\rangle,\dots\}$.  The probability of measuring
 $q_i$ is
-$$P_i \;=\; |\langle q_i| \psi\rangle|^2 \;=\; \langle q_i |\psi\rangle \langle \psi|q_i\rangle \;=\; \langle q_i |\, \hat{\rho}(\psi)\, |q_i \rangle.$$
+\begin{equation}
+  P_i \;=\; |\langle q_i| \psi\rangle|^2 \;=\; \langle q_i |\psi\rangle \langle \psi|q_i\rangle \;=\; \langle q_i |\, \hat{\rho}(\psi)\, |q_i \rangle.
+\end{equation}
 In other words, the expectation values of $\hat{\rho}(\psi)$
 correspond to the probabilities for the outcomes of measurements
 performed on $|\psi\rangle$.
@@ -531,7 +595,9 @@ $\mathscr{H}_A$ and $\mathscr{H}_B$ are the Hilbert spaces of two
 subsystems.  Starting from a density operator of the combined system,
 $\hat{\rho}(\psi)$, we can define a \textbf{``reduced density
   operator''} for subsystem A:
-$$\hat{\rho}_A(\psi) = \mathrm{Tr}_B \,\big[\,\hat{\rho}(\psi)\,\big].$$
+\begin{equation}
+  \hat{\rho}_A(\psi) = \mathrm{Tr}_B \,\big[\,\hat{\rho}(\psi)\,\big].
+\end{equation}
 Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace},
 tracing over the Hilbert space of subsystem B.  What's left after
 this partial trace is an operator acting solely on the Hilbert space
@@ -542,12 +608,18 @@ an explicit basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a
 basis for $\mathscr{H}_A$, and $\{|\nu_1\rangle,
 |\nu_2\rangle,\cdots\}$ a basis for $\mathscr{H}_B$.  A given state of
 the combined system can be written in the tensor product basis:
-$$|\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.$$
+\begin{equation}
+  |\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.
+\end{equation}
 The density operator of the combined system is
-$$\hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).$$
+\begin{equation}
+  \hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).
+\end{equation}
 The density operator for subsystem A is found by tracing over
 the states of subsystem B:
-$$\begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}
+\end{align}
 Note that $\hat{\rho}_A(\psi)$ is clearly Hermitian.
 
 The density operator for subsystem A contains information about the
@@ -557,14 +629,18 @@ and we perform a measurement on subsystem A corresponding to a
 Hermitian operator $\hat{\mu}$, which has eigenvectors
 $\{|\mu_1\rangle,|\mu_2\rangle,\dots\}$.  Then the probability of
 measuring $\mu_i$ is
-$$\langle \mu_i | \hat{\rho}_A |\mu_i \rangle \,=\, \rho_{ii}^A \,=\, \sum_{j} |\psi_{ij}|^2.$$
+\begin{equation}
+  \langle \mu_i | \hat{\rho}_A |\mu_i \rangle \,=\, \rho_{ii}^A \,=\, \sum_{j} |\psi_{ij}|^2.
+\end{equation}
 (Note that this is consistent with the discussion of partial
 measurements in Section~\ref{sec:partialmeasurements}.)  In other
 words, the diagonal matrix elements of $\hat{\rho}_A$, in any basis,
 specify the outcome probabilities for measurements corresponding to
 that basis.  Conservation of probability implies that $\sum_i
 \rho^A_{ii} = 1$, and hence that
-$$\mathrm{Tr}\big[\rho_A\big] = 1.$$
+\begin{equation}
+  \mathrm{Tr}\big[\rho_A\big] = 1.
+\end{equation}
 
 In entangled systems, the density operator essentially takes over the
 theoretical role of the quantum state.  In a single-particle or
@@ -576,7 +652,9 @@ operator.
 
 Given a density operator, we can define a quantity called the
 \textbf{entanglement entropy}:
-$$S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big]\Big\}.$$
+\begin{equation}
+  S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big]\Big\}.
+\end{equation}
 Here, $S_{\mathrm{ent.}}$ refers to the entropy of the system or
 subsystem described by density operator $\hat{\rho}$.  For instance,
 if we use the density operator $\hat{\rho}_A$ in the above formula, we
@@ -594,7 +672,9 @@ information) about a system's underlying microscopic state, or
 ``microstate''.  Suppose a system has $W$ possible microstates that
 occur with probabilities $\{p_1, p_2, \dots, p_W\}$, satisfying
 $\sum_i p_i = 1$.  Then we define the classical entropy
-$$S_{\mathrm{cl.}} = - k_B \sum_{i=1}^W p_i \ln(p_i).$$
+\begin{equation}
+  S_{\mathrm{cl.}} = - k_B \sum_{i=1}^W p_i \ln(p_i).
+\end{equation}
 In a situation of complete certainty where the system is known to be
 in a specific microstate $k$ ($p_i = \delta_{ik}$), the formula gives
 $S_{\mathrm{cl.}} = 0$.  (Note that $x \ln(x)\rightarrow 0$ as
@@ -621,7 +701,9 @@ entropy, $S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \big\{ \hat{\rho}\,
 which is basis-independent.  This also means that if we look
 specifically at the eigenbasis for $\hat{\rho}$, denoted by
 $\{|\mu'_i\rangle\}$, then
-$$\begin{aligned}S_{\mathrm{ent.}} &= -k_B \sum_i \langle \mu'_i | \hat{\rho}\ln(\hat{\rho}) | \mu'_i\rangle  \\ &= - k_B \sum_i p_i' \ln(p_i') \;\;\;\mathrm{where}\;\;\hat{\rho}\,|\mu'_i\rangle = p_i' |\mu'_i\rangle\end{aligned}$$
+\begin{align}
+  \begin{aligned}S_{\mathrm{ent.}} &= -k_B \sum_i \langle \mu'_i | \hat{\rho}\ln(\hat{\rho}) | \mu'_i\rangle  \\ &= - k_B \sum_i p_i' \ln(p_i') \;\;\;\mathrm{where}\;\;\hat{\rho}\,|\mu'_i\rangle = p_i' |\mu'_i\rangle\end{aligned}
+\end{align}
 In this basis, where the eigenvalues $p_i =
 \langle\mu'_i|\hat{\rho}|\mu'_i\rangle$ are also the measurement
 probabilities, the entanglement entropy is consistent with the
@@ -642,17 +724,27 @@ entanglement entropy lies between these two extremes, $0 \le
 S_{\mathrm{ent.}} \le k_B\ln(d)$.
 
 As an example, consider the following state of two spin-$1/2$ particles:
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+\begin{align}
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+\end{align}
 The density operator for the two-particle system is
-$$\hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).$$
+\begin{equation}
+  \hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).
+\end{equation}
 Tracing over the B subsystem gives the reduced density operator:
-$$\hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).$$
+\begin{equation}
+  \hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).
+\end{equation}
 This can be expressed as a matrix in the
 $\{|\!+z\rangle,|\!-z\rangle\}$ basis:
-$$\hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.$$
+\begin{equation}
+  \hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.
+\end{equation}
 Note that this satisfies $\mathrm{Tr}(\hat\rho_A) = 1$, as expected.
 Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem A:
-$$S_{\mathrm{ent.}}^A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_B\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_B\ln(2).$$
+\begin{equation}
+  S_{\mathrm{ent.}}^A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_B\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_B\ln(2).
+\end{equation}
 This is the maximum possible entanglement entropy for a system with a
 2D Hilbert space.  Hence, subsystems A and B are maximally entangled.
 
@@ -676,7 +768,9 @@ First, it seems to stand apart from the other postulates of quantum
 mechanics, in being the only place where randomness (or
 ``indeterminism'') creeps into quantum theory.  The other postulates
 do not refer to probabilities.  In particular, the Schr\"odinger equation
-$$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle$$
+\begin{equation}
+  i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle
+\end{equation}
 is completely deterministic.  If you know $\hat{H}(t)$ and are given
 the state $|\psi(t_0)\rangle$ at some time $t_0$, you can (in
 principle) solve the Schr\"odinger equation to determine
@@ -713,19 +807,26 @@ $\mathscr{H}_A$ be the Hilbert space of the apparatus (which has
 dimension $d$).  We will assume that $d$ is very large, as actual
 experimental apparatuses are macroscopic objects containing $10^{23}$
 or more atoms!  The Hilbert space of the combined system is
-$$\mathscr{H} = \mathscr{H}_S \otimes \mathscr{H}_A,$$
+\begin{equation}
+  \mathscr{H} = \mathscr{H}_S \otimes \mathscr{H}_A,
+\end{equation}
 and is $2d$-dimensional.  Let us suppose the system is prepared in an initial
 state
-$$|\psi(0)\rangle = \Big(a_+ |\!+z\rangle + a_- |\!-z\rangle\Big) \otimes |\Psi\rangle,$$
+\begin{equation}
+  |\psi(0)\rangle = \Big(a_+ |\!+z\rangle + a_- |\!-z\rangle\Big) \otimes |\Psi\rangle,
+\end{equation}
 where $a_\pm\in\mathbb{C}$ are the quantum amplitudes for the particle
 to be initially spin-up or spin-down, and $|\Psi\rangle \in
 \mathscr{H}_A$ is the initial state of the apparatus.
 
 The combined system now evolves via the Schr\"odinger equation.  We
 aim to show that if the Hamiltonian has the form
-$$\hat{H} = \hat{S}_z \otimes \hat{V},$$ where $\hat{S}_z$ is the
-operator corresponding to the observable $S_z$, then time evolution
-has an effect equivalent to the measurement of $S_z$.
+\begin{equation}
+  \hat{H} = \hat{S}_z \otimes \hat{V},
+\end{equation}
+where $\hat{S}_z$ is the operator corresponding to the observable
+$S_z$, then time evolution has an effect equivalent to the measurement
+of $S_z$.
 
 It turns out that we can show this without making any special choices
 for $\hat{V}$ or $|\Psi\rangle$.  We only need $d \gg 2$, and for both
@@ -735,10 +836,14 @@ matrix components for the operator $\hat{V}$.  The precise generation
 procedures will be elaborated on later.  Once we decide on
 $|\Psi\rangle$ and $\hat{V}$, we can evolve the system by solving the
 Sch\"odinger equation
-$$|\psi(t)\rangle = U(t)|\psi(0)\rangle, \;\;\;\mathrm{where}\;\; \hat{U}(t) = \exp\left[-\frac{i}{\hbar}\hat{H}t\right].$$
+\begin{equation}
+  |\psi(t)\rangle = U(t)|\psi(0)\rangle, \;\;\;\mathrm{where}\;\; \hat{U}(t) = \exp\left[-\frac{i}{\hbar}\hat{H}t\right].
+\end{equation}
 Because the part of $\hat{H}$ acting on the $\mathscr{H}_S$ subspace
 is $\hat{S}_z$, the result necessarily has the following form:
-$$\begin{aligned}|\psi(t)\rangle &= \hat{U}(t)\Big(a_+ |\!+\!z\rangle + a_- |\!-\!z\rangle\Big) \otimes |\Psi\rangle \\ &= a_+ |\!+\!z\rangle \otimes |\Psi_+(t)\rangle \;+\; a_- |\!-\!z\rangle \otimes |\Psi_-(t)\rangle. \end{aligned}$$
+\begin{align}
+  \begin{aligned}|\psi(t)\rangle &= \hat{U}(t)\Big(a_+ |\!+\!z\rangle + a_- |\!-\!z\rangle\Big) \otimes |\Psi\rangle \\ &= a_+ |\!+\!z\rangle \otimes |\Psi_+(t)\rangle \;+\; a_- |\!-\!z\rangle \otimes |\Psi_-(t)\rangle. \end{aligned}
+\end{align}
 Here, $|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are apparatus states
 that are ``paired up'' with the $|\!+\!z\rangle$ and $|\!-\!z\rangle$
 states of the spin-$1/2$ subsystem.  At $t=0$, both
@@ -749,7 +854,9 @@ is sufficiently large, and both $\hat{V}$ and $|\Psi\rangle$ are
 sufficiently complicated, we can guess (and we will verify numerically) that
 the two state vectors rotate into completely different parts of
 the state space, so that
-$$\langle\Psi_+(t) | \Psi_-(t)\rangle \approx 0 \;\;\;\textrm{for sufficiently large}\;\; t.$$
+\begin{equation}
+  \langle\Psi_+(t) | \Psi_-(t)\rangle \approx 0 \;\;\;\textrm{for sufficiently large}\;\; t.
+\end{equation}
 Once this is the case, the two terms in the above expression for
 $|\psi(t)\rangle$ can be interpreted as two decoupled ``worlds''.  In
 one world, the spin has a definite value $+\hbar/2$, and the apparatus
@@ -768,10 +875,12 @@ The above description can be tested numerically.  Let us use an
 arbitrary basis for the apparatus space $\mathscr{H}_A$; in that
 basis, let the $d$ components of the initial apparatus state vector
 $|\Psi\rangle$ be random complex numbers:
-$$\begin{aligned}
+\begin{align}
+  \begin{aligned}
   |\Psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\, \begin{pmatrix}\Psi_0 \\ \Psi_1 \\ \vdots \\ \Psi_{d-1}
   \end{pmatrix}, \;\; \mathrm{where} \;\; \mathrm{Re}(\Psi_j), \mathrm{Im}(\Psi_j) \sim N(0,1).
-\end{aligned}$$
+  \end{aligned}
+\end{align}
 In other words, the real and imaginary parts of each complex number
 $\Psi_j$ are independently drawn from the the standard normal
 (Gaussian) distribution, denoted by $N(0,1)$.  The normalization
@@ -780,7 +889,9 @@ constant $\mathcal{N}$ is defined so that $\langle\Psi|\Psi\rangle =
 
 Likewise, we generate the matrix elements of $\hat{V}$ according to
 the following random scheme:
-$$\begin{aligned}A_{ij} &\sim u_{ij} + i v_{ij}, \;\;\;\mathrm{where}\;\;u_{ij},v_{ij}\sim N(0,1)\\ \hat{V} &= \frac{1}{2\sqrt{d}} \left(\hat{A} + \hat{A}^\dagger\right).\end{aligned}$$
+\begin{align}
+  \begin{aligned}A_{ij} &\sim u_{ij} + i v_{ij}, \;\;\;\mathrm{where}\;\;u_{ij},v_{ij}\sim N(0,1)\\ \hat{V} &= \frac{1}{2\sqrt{d}} \left(\hat{A} + \hat{A}^\dagger\right).\end{aligned}
+\end{align}
 This scheme produces a $d\times d$ matrix with random components,
 subject to the requirement that the overall matrix be Hermitian.  The
 normalization factor $1/2\sqrt{d}$ is relatively unimportant; it
@@ -808,7 +919,9 @@ over the spin subspace.  We find that $S_A = 0$ at $t=0$, due to the
 fact that the spin and apparatus subsystems start out with definite
 quantum states in $|\psi(0)\rangle$.  As the system evolves, the
 subsystems become increasingly entangled, and $S_A$ increases up to
-$$S_A^{\mathrm{max}}/k_B = - \Big( |a_+|^2 \ln|a_+|^2 + |a_-|^2\ln|a_-|^2 \Big) \approx 0.693$$
+\begin{equation}
+  S_A^{\mathrm{max}}/k_B = - \Big( |a_+|^2 \ln|a_+|^2 + |a_-|^2\ln|a_-|^2 \Big) \approx 0.693
+\end{equation}
 This value is indicated in the figure by a horizontal dashed line, and
 corresponds to the result of the classical entropy formula for
 probabilities $\{|a_+|^2,|a_-|^2\}$.  Moreover, we see that the
@@ -861,13 +974,17 @@ rather than different theories.
   $|\mu_i\rangle$ are basis vectors for $\mathscr{H}_A$ and
   $|\nu_j\rangle$ are basis vectors for $\mathscr{H}_B$.  Prove that
   we can define an inner product using
-$$\Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}$$
+  \begin{equation}
+    \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}
+  \end{equation}
   which satisfies the inner product axioms.
   \label{ex:innerprod}
 
 \item For a system of two spin-1/2 particles, calculate the
   entanglement entropy for the state
-$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!+\!x\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).$$
+  \begin{equation}
+    |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!+\!x\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+  \end{equation}
 \end{enumerate}
 
 \section*{Further Reading}

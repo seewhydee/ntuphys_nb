@@ -1,0 +1,287 @@
+\documentclass[pra,12pt]{revtex4}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+\usepackage{epigraph}
+\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\baselinestretch}{1.0}
+\setlength{\parskip}{0.07in}
+\setlength{\epigraphwidth}{.6\textwidth}
+
+\begin{document}
+
+\begin{center}
+{\Large \textbf{Chapter 4: Quantum Electrodynamics}}
+\end{center}
+
+This chapter describes \textbf{quantum electrodynamics}, the quantum
+theory of the electromagnetic field and how it interacts with charged
+particles such as electrons.  We start by formulating Hamiltonians
+that describe how a quantum mechanical electron is affected by
+classical electric and magnetic fields.  Next, we describe the
+quantization of Maxwell's equations, which yields a quantum field
+theory in which the elementary excitations are photons---particles of
+light.  Finally, we can formulate a theory in which both electrons and
+photons are treated on the same footing, as excitations of underlying
+quantum fields.  Along the way, we will see how relativity is
+accomodated into the framework of quantum mechanics.
+
+Quantum electrodynamics is a rich and intricate theory, and we will
+not be able to cover many important topics, such as diagrammatic
+methods for performing field theoretical calculations.  If you are
+interested in this topic, a good introductory textbook is Zee's
+\textit{Quantum Field Theory in a Nutshell} \hyperref[cite:zee]{(Zee
+  2010)}.
+
+\section{Particles in a classical electromagnetic field}
+
+\subsection{Non-relativistic spinless particles}
+
+Consider a non-relativistic charged particle in an electromagnetic
+field.  As we are mainly interested in the physics of electrons
+interacting with electromagnetic fields, we will henceforth take the
+electric charge of the particle to be $-e$, where $e =
+1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  If you
+wish to describe particles with an arbitrary electric charge $q$,
+simply perform the substitution $e \rightarrow -q$ in all formulas in
+the rest of this chapter.
+
+We will begin by treating the electromagnetic field as a classical
+field, in the sense that the electric and magnetic fields have
+definite values and are not subject to quantum dynamics.  For
+simplicity, let us also assume for now that the particle carries
+electric charge but is otherwise featureless; in particular, unlike a
+real electron, it has no spin angular momentum, and no magnetic dipole
+moment.
+
+Our goal is to formulate the Hamiltonian governing the quantum
+dynamics of this non-relativistic charged particle.  To do this,
+however, we must first understand the classical equations of motion.
+In the classical regime, the action of an electromagnetic field on a
+point charged particle is decribed by the Lorentz force law,
+\begin{equation}
+  \mathbf{F}(\mathrm{r},t) = -e\Big(\mathbf{E}(\mathrm{r},t)
+  + \dot{\mathbf{r}}\times \mathbf{B}(\mathrm{r},t)\Big),
+\end{equation}
+where $\mathbf{r}$ and $\dot{\mathbf{r}}$ respectively denote the
+position and velocity of the particle, $t$ is the time, and
+$\mathbf{E}$ and $\mathbf{B}$ are the electric and magnetic fields.
+If there are no other forces acting on the particle, then according to
+Newton's second law, the equation of motion is
+\begin{equation}
+  m\ddot{\mathbf{r}} = -e\Big(\mathbf{E}(\mathrm{r},t)
+  + \dot{\mathbf{r}} \times \mathbf{B}(\mathrm{r},t)\Big),
+  \label{eom}
+\end{equation}
+where $m$ is the particle's mass.  To quantize this, we must convert
+this equation of motion into the form of Hamilton's equations of
+motion.
+
+First, we introduce the electromagnetic scalar and vector potentials
+$\phi(\mathrm{r},t)$ and $\mathbf{A}(\mathrm{r},t)$, where
+\begin{align}
+  \mathbf{E}(\mathbf{r},t) &= - \nabla \phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t} \\
+  \mathbf{B}(\mathbf{r},t) &= \nabla \times \mathbf{A}(\mathbf{r},t).
+  \label{Bfield}
+\end{align}
+We now postulate that the above equation of motion can be described by
+the Lagrangian
+\begin{equation}
+  L(\mathbf{r},\dot{\mathbf{r}},t) = \frac{1}{2}m\dot{\mathbf{r}}^2
+  + e \Big[\phi(\mathbf{r},t) - \dot{\mathbf{r}} \cdot \mathbf{A}(\mathbf{r},t)
+    \Big].
+\end{equation}
+This is very similar to the usual prescription for the Lagrangian as
+the kinetic energy minus the potential energy, with $-e\phi$ serving
+as the potential energy function.  However, there is an extra
+$-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term; this will turn out to be
+responsible for the magnetic force.  Let us plug the Lagrangian into
+the Euler-Lagrange equations:
+\begin{equation}
+  \frac{\partial L}{\partial r_i} = \frac{d}{dt}
+  \frac{\partial L}{\partial \dot{r}_i}.
+\end{equation}
+The partial derivatives of the Lagrangian are:
+\begin{align}
+  \begin{aligned}
+    \frac{\partial L}{\partial r_i} &=
+    e\Big[\partial_i \phi - \dot{r}_j \,\partial_i A_j \Big]\\
+    \frac{\partial L}{\partial \dot{r}_i} &= m\dot{r}_i - e A_i.
+  \end{aligned}
+\end{align}
+Next, we want to take the \textit{total} time derivative of $\partial
+L /\partial \dot{r}_i$.  In doing so, we note that the $\mathbf{A}$
+field has its own $t$-dependence, as well as varying with the
+particle's $t$-dependent position:
+\begin{align}
+  \begin{aligned}
+    \frac{d}{dt} \frac{\partial L}{\partial \dot{r}_i}
+    &= m\ddot{r}_i - e\, \frac{d}{dt} A_i(\mathbf{r}(t),t) \\
+    &= m\ddot{r}_i - e\, \partial_t A_i
+    - e\, \dot{r}_j \partial_j A_i.
+  \end{aligned}
+\end{align}
+(In the above equations, $\partial_i \equiv \partial/\partial r_i$,
+where $r_i$ is the $i$-th component of the position vector, while
+$\partial_t \equiv \partial/\partial t$.)  Putting these results into
+the Euler-Lagrange equations yields
+\begin{align}
+  \begin{aligned}
+    m\ddot{r}_i &=
+    -e\Big[\Big(-\partial_i \phi - \partial_t A_i\Big)
+      + \dot{r}_j \Big( \partial_i A_j - \partial_j A_i\Big) \Big] \\
+    &= -e \Big[E_i(\mathbf{r},t) + \big(\dot{\mathbf{r}} \times
+      \mathbf{B}(\mathbf{r},t) \big)_i\; \Big].
+  \end{aligned}
+\end{align}
+(The last step can be derived by expressing the cross product using
+the Levi-Cevita symbol, and using the identity $\varepsilon_{ijk}
+\varepsilon_{lmk} = \delta_{il} \delta_{jm} - \delta_{im}
+\delta_{jl}$.)  And indeed, this is the equation of motion
+corresponding to the Lorentz force.
+
+We can now derive the classical Hamiltonian.  First, we define the
+canonical momentum:
+\begin{equation}
+  p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i.
+\end{equation}
+Now the Hamiltonian can be defined as $H(\mathbf{r},\mathbf{p}) =
+\mathbf{p} \cdot \dot{\mathbf{r}} - L$, which needs to be expressed
+using the $\mathbf{p}$ variables rather than $\dot{\mathbf{r}}$
+variables:
+\begin{align}
+  \begin{aligned}
+    H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
+    - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
+    + e\phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
+    &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
+    - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
+    - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
+    + e\phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right)
+  \end{aligned}
+\end{align}
+After cancelling various terms, we arrive at the result
+$$\boxed{\qquad H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\phi(\mathbf{r},t).\qquad}$$
+
+This looks much like the familiar Hamiltonian for a non-relativistic
+particle that we have dealt with many times,
+\begin{equation}
+  H = \frac{|\mathbf{p}|^2}{2m} + V(\mathbf{r},t).
+\end{equation}
+The scalar potential $\phi(\mathbf{r},t)$ enters into the potential
+energy term, as might be expected.  What may be more surprising is
+that the vector potential appears via the substitution
+\begin{equation}
+  \mathbf{p} \rightarrow \mathbf{p} + e\mathbf{A}(\mathbf{r},t).  
+\end{equation}
+What does this mean?
+
+To answer this question, let us think about what ``momentum'' means in
+the context of a charged particle in an electromagnetic field.
+Generally, the meaning of ``momentum'' is rooted in Noether's theorem,
+which states that every symmetry of a system (whether classical or
+quantum) is associated with a conserved quantity.  Momentum is
+supposed to be the quantity conserved when the system is symmetric
+under spatial translations.  We can see this from the Hamilton
+equation
+\begin{equation*}
+  \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
+\end{equation*}
+which implies that if a Hamiltonian is $\mathbf{r}$-independent, then
+$d\mathbf{p}/dt = 0$.  However, when the electromagnetic potentials
+are $\mathbf{r}$-independent, the quantity $m\dot{\mathbf{r}}$ (which
+we usually call momentum) is \textit{not} necessarily conserved!
+Consider the potentials
+\begin{equation}
+  \phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
+\end{equation}
+where $C$ is some constant.  These potentials are evidently
+$\mathbf{r}$-independent, but the vector potential is time-dependent,
+so the $-\dot{\mathbf{A}}$ term in Eq.~\eqref{Bfield} gives a
+non-vanishing electric field:
+\begin{equation}
+  \mathbf{E}(\mathbf{r},t) = - C\hat{z}, \;\;\;\mathbf{B}(\mathbf{r},t) = 0.
+\end{equation}
+The Lorentz force law then says that
+\begin{equation}
+  \frac{d}{dt}(m\dot{\mathbf{r}}) = eC\hat{z},
+\end{equation}
+and thus $m\dot{\mathbf{r}}$ is not conserved.  On the other hand, the
+quantity $\mathbf{p} = m\dot{\mathbf{r}} - e \mathbf{A}$ \textit{is}
+conserved:
+\begin{equation}
+  \frac{d}{dt}(m\dot{\mathbf{r}} - e\mathbf{A}) =
+  eC\hat{z} - eC\hat{z} = 0.
+\end{equation}
+
+To go from classical to quantum mechanics, we merely need to replace
+$\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
+$\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  Hence,
+the quantum Hamiltonian is
+\begin{equation}
+  \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
+  - e\phi(\hat{\mathbf{r}},t).
+\end{equation}
+
+\subsection{Non-relativistic electrons: the Pauli Hamiltonian}
+
+
+\subsection{Relativistic electrons: the Dirac Hamiltonian}
+
+
+\section{Quantizing the electromagnetic field}
+
+\subsection{The electromagnetic field Hamiltonian}
+
+\subsection{Relativity and quantum mechanics}
+
+\section{The electron-photon interaction}
+
+\subsection{The electromagnetic shift of energy levels}
+
+Bethe's Lamb shift calculation.
+
+\subsection{Photon emission and absorption}
+
+Dirac's calculation of the coefficient of spontaneous emission.
+
+\section{Looking ahead}
+
+Need to treat both electrons and photons on the same footing, with QFT
+language.  Renormalization.
+
+\section*{Exercises}
+
+\begin{enumerate}
+\item Gauge transformations.
+\end{enumerate}
+
+\section*{Further Reading}
+
+\begin{enumerate}[[1{]}]
+\item A.~Zee, \textit{Quantum Field Theory in a Nutshell} (Princeton
+  University Press, 2010).
+\label{cite:zee}
+\end{enumerate}
+
+\end{document}
+
+
+%% For decades after the discovery of quantum mechanics, the quantum
+%% double-slit experiment was just a ``thought experiment'', meant to
+%% illustrate the features of quantum mechanics that had been uncovered
+%% by other, more complicated experiments.  Nowadays, the most convenient
+%% way to do the experiment is with light, using single-photon sources
+%% and single-photon detectors.  Quantum interference has also been
+%% demonstrated experimentally using electrons, neutrons, and even
+%% large-scale particles such as buckyballs.

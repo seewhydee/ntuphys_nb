@@ -51,10 +51,14 @@ consequence, the single-particle Hilbert spaces of the two electrons
 must be mathematically identical.  Let us denote this space by
 $\mathscr{H}^{(1)}$.  For a two-electron system, the Hilbert space is
 a tensor product of two single-electron Hilbert spaces, denoted by
-$$\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.$$
+\begin{equation}
+  \mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.
+\end{equation}
 Moreover, any Hamiltonian must affect the two electrons in a
 symmetrical way.  An example of such a Hamiltonian is
-$$\hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|},$$
+\begin{equation}
+  \hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|},
+\end{equation}
 consisting of the non-relativistic kinetic energies and the Coulomb
 potential energy.  Operators $\hat{\mathbf{p}}_1$ and
 $\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
@@ -70,8 +74,10 @@ that commute with the Hamiltonian.  Exchange symmetry is represented
 by an operator $\hat{P}$, defined as follows: let $\{|\mu_i\rangle\}$
 be a basis for the single-electron Hilbert space $\mathscr{H}^{(1)}$;
 then $\hat{P}$ interchanges the basis vectors for the two electrons:
-$$\begin{aligned}\hat{P} \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
-\;&\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle \\&= \sum_{ij} \psi_{ji} |\mu_i\rangle|\mu_j\rangle \;\;\;\textrm{(interchanging $i\leftrightarrow j$ in the double sum)}\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{P} \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
+    \;&\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle \\&= \sum_{ij} \psi_{ji} |\mu_i\rangle|\mu_j\rangle \;\;\;\textrm{(interchanging $i\leftrightarrow j$ in the double sum)}\end{aligned}
+\end{align}
 The exchange operator has the following properties:
 \begin{enumerate}
 \item $\hat{P}^2 = \hat{I},$ where $\hat{I}$ is the identity operator.
@@ -93,7 +99,9 @@ law.  In the case of exchange symmetry, $\hat{P}$ is both Hermitian
 eigenvalue of $\hat{P}$ itself.  We call this eigenvalue, $p$, the
 \textbf{exchange parity}.  Given that $\hat{P}^2 = \hat{I}$, there are
 just two possibilities:
-$$\hat{P} |\psi\rangle = p|\psi\rangle \;\;\;\Rightarrow\;\;\; p = \begin{cases}+1 & \textrm{(``symmetric\;state'')}, \;\;\textrm{or} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}$$
+\begin{equation}
+  \hat{P} |\psi\rangle = p|\psi\rangle \;\;\;\Rightarrow\;\;\; p = \begin{cases}+1 & \textrm{(``symmetric\;state'')}, \;\;\textrm{or} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}
+\end{equation}
 Since $\hat{P}$ commutes with $\hat{H}$, if the system starts out in
 an eigenstate of $\hat{P}$ with parity $p$, it retains the same
 definite parity at subsequent times.
@@ -146,13 +154,17 @@ neutrons, which are each composed of three quarks.
 
 A state of $N$ bosons must be symmetric under every possible exchange
 operator:
-$$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i, j \in\{1,\dots,N\},\;\; i\ne j.$$
+\begin{equation}
+  \hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i, j \in\{1,\dots,N\},\;\; i\ne j.
+\end{equation}
 
 There is a standard way to construct multi-particle states obeying
 this symmetry condition.  First, consider a two-boson system ($N =
 2$).  If both bosons occupy the same single-particle state,
 $|\varphi\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
-$$|\varphi,\varphi\rangle = |\varphi\rangle  |\varphi\rangle.$$
+\begin{equation}
+  |\varphi,\varphi\rangle = |\varphi\rangle  |\varphi\rangle.
+\end{equation}
 This evidently satisfies $\hat{P}_{12} |\varphi,\varphi\rangle =
 |\varphi,\varphi\rangle$, as required.  Next, suppose the two bosons
 occupy \textit{different} single-particle states, $|\varphi_1\rangle$
@@ -160,13 +172,19 @@ and $|\varphi_2\rangle$.  It would be wrong to write the two-boson
 state as $|\varphi_1\rangle |\varphi_2\rangle$, because the particles
 would not be symmetric under exchange.  Instead, we construct the
 multi-particle state
-$$|\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big( |\varphi_1\rangle  |\varphi_2\rangle + |\varphi_1\rangle  |\varphi_2\rangle\Big).$$
+\begin{equation}
+  |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big( |\varphi_1\rangle  |\varphi_2\rangle + |\varphi_1\rangle  |\varphi_2\rangle\Big).
+\end{equation}
 This has the appropriate exchange symmetry:
-$$\hat{P}_{12}\,|\varphi_1,\varphi_2\rangle \;=\; \frac{1}{\sqrt{2}} \Big( |\varphi_2\rangle  |\varphi_1\rangle + |\varphi_1\rangle  |\varphi_2\rangle\Big) \;=\; |\varphi_1,\varphi_2\rangle.$$
+\begin{equation}
+  \hat{P}_{12}\,|\varphi_1,\varphi_2\rangle \;=\; \frac{1}{\sqrt{2}} \Big( |\varphi_2\rangle  |\varphi_1\rangle + |\varphi_1\rangle  |\varphi_2\rangle\Big) \;=\; |\varphi_1,\varphi_2\rangle.
+\end{equation}
 
 This construction can be generalized to arbitrary $N$.  Suppose the
 $N$ particles occupy single-particle states enumerated by
-$$|\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.$$
+\begin{equation}
+  |\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.
+\end{equation}
 Here, we use the symbol $\phi$, rather than $\varphi$, to indicate
 that the states in this list need not be unique.  For example, we
 could have $|\phi_1\rangle = |\phi_2\rangle = |\varphi_1\rangle$,
@@ -174,20 +192,26 @@ meaning there is a certain single-particle state $|\varphi_1\rangle$
 occupied by two particles.
 
 The $N$-boson state can now be written as
-$$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).$$
+\begin{equation}
+  |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).
+\end{equation}
 The sum is taken over each of the $N!$ permutations acting on
 $\{1,2,\dots,N\}$.  For each permutation $p$, we let $p(j)$ denote the
 integer that $j$ is permuted into.  The prefactor $\mathcal{N}$ is a
 normalization constant, and it can be shown that its appropriate value
 is
-$$\mathcal{N} = \sqrt{\frac{n_a!n_b!\cdots}{N!}},$$
+\begin{equation}
+  \mathcal{N} = \sqrt{\frac{n_a!n_b!\cdots}{N!}},
+\end{equation}
 where $n_\mu$ denotes the number of particles in state $\mu$, and $N =
 n_\alpha + n_\beta + \cdots$ is the total number of particles.  The proof of
 this is left as an exercise (\hyperref[ex:boson_norm]{Exercise 3}).
 
 To see that the above $N$-particle state is symmetric under exchange,
 apply an arbitrary exchange operator $\hat{P}_{ij}$:
-$$\begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}
+\end{align}
 In each term of the sum, two states $i$ and $j$ are interchanged.  But
 since the sum runs through all permutations of the states, the result
 is the same with or without the exchange, so we still end up with
@@ -200,7 +224,8 @@ $|\varphi_2\rangle$.  To express the three-particle state, we define
 $\{|\phi_1\rangle, |\phi_2\rangle, |\phi_3\rangle\}$ such that
 $|\phi_1\rangle = |\phi_2\rangle = |\varphi_1\rangle$ and
 $|\phi_3\rangle = |\varphi_2\rangle$.  Then
-$$\begin{aligned}|\phi_1,\phi_2,\phi_3\rangle &= \mathcal{N} \Big( \;\;
+\begin{align}
+  \begin{aligned}|\phi_1,\phi_2,\phi_3\rangle &= \mathcal{N} \Big( \;\;
 |\phi_1\rangle|\phi_2\rangle|\phi_3\rangle +
 |\phi_2\rangle|\phi_3\rangle|\phi_1\rangle +
 |\phi_3\rangle|\phi_1\rangle|\phi_2\rangle \\ &\qquad\;\, +
@@ -211,9 +236,11 @@ $$\begin{aligned}|\phi_1,\phi_2,\phi_3\rangle &= \mathcal{N} \Big( \;\;
 |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
 |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
 |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big).
-\end{aligned}$$
+  \end{aligned}
+\end{align}
 The three distinct exchange symmetry operators have the following effects:
-$$\begin{aligned}\hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle &= 2\mathcal{N} \Big(
+\begin{align}
+  \begin{aligned}\hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle &= 2\mathcal{N} \Big(
 |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
 |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
 |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle\Big) = |\phi_1,\phi_2,\phi_3\rangle \\
@@ -225,21 +252,28 @@ $$\begin{aligned}\hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle &= 2\mathcal{N} \Big(
 |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
 |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
 |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle\Big) = |\phi_1,\phi_2,\phi_3\rangle.
-\end{aligned}$$
+  \end{aligned}
+\end{align}
 
 \section{Fermions}
 
 A state of $N$ fermions must be antisymmetric under every possible
 exchange operator:
-$$\hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle \;\;\; \forall\, i,j\in\{1,\dots,N\}, \; i\ne j.$$
+\begin{equation}
+  \hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle \;\;\; \forall\, i,j\in\{1,\dots,N\}, \; i\ne j.
+\end{equation}
 Similar to the bosonic case, we can explicitly construct multi-fermion
 states based on the occupancy of single-particle states.  Let us
 consider the $N=2$ case first.  If the fermions occupy states
 $|\varphi_1\rangle$ and $|\varphi_2\rangle$, the appropriate two-particle
 state is
-$$|\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_1\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle\Big).$$
+\begin{equation}
+  |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_1\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle\Big).
+\end{equation}
 We can easily check that
-$$\hat{P}_{12} |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_2\rangle|\varphi_1\rangle - |\varphi_1\rangle|\varphi_2\rangle\Big) = - |\varphi_1,\varphi_2\rangle.$$
+\begin{equation}
+  \hat{P}_{12} |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_2\rangle|\varphi_1\rangle - |\varphi_1\rangle|\varphi_2\rangle\Big) = - |\varphi_1,\varphi_2\rangle.
+\end{equation}
 This fails if we try to let $|\varphi_1\rangle$ and
 $|\varphi_2\rangle$ be the same state: in that case, the two terms
 cancel to give the zero vector, which is not a valid quantum state.
@@ -251,7 +285,9 @@ occupied by exactly one fermion.
 For general $N$, let us enumerate the occupied single-particle states
 by $\{|\phi_1\rangle, |\phi_2\rangle,\dots,|\phi_N\rangle\}$.  Then
 the appropriate $N$-fermion state is
-$$|\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.$$
+\begin{equation}
+  |\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.
+\end{equation}
 The $1/\sqrt{N!}$ prefactor is a normalization constant (as you can
 verify).  The expression involves a sum over every permutation $p$ of
 the sequence $\{1,2,\dots,N\}$.  Each term in the sum has a
@@ -262,22 +298,28 @@ and $-1$ if $p$ involves an odd number of exchanges.
 
 A couple of examples are helpful for understanding these definitions.
 First, consider $N=2$; the sequence $\{1,2\}$ has $2! = 2$ permutations:
-$$\begin{aligned}p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}$$
+\begin{align}
+  \begin{aligned}p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}
+\end{align}
 Next, consider $N=3$.  The sequence $\{1,2,3\}$ has $3!=6$ permutations:
-$$\begin{aligned}
+\begin{align}
+  \begin{aligned}
   p_1 : \{1,2,3\} &\rightarrow \{1,2,3\}, \;\;\;s(p_1) = +1 \\
   p_2 : \{1,2,3\} &\rightarrow \{2,1,3\}, \;\;\;s(p_2) = -1 \\
   p_3 : \{1,2,3\} &\rightarrow \{2,3,1\}, \;\;\;s(p_3) = +1 \\
   p_4 : \{1,2,3\} &\rightarrow \{3,2,1\}, \;\;\;s(p_4) = -1 \\
   p_5 : \{1,2,3\} &\rightarrow \{3,1,2\}, \;\;\;s(p_5) = +1 \\
-  p_6 : \{1,2,3\} &\rightarrow \{1,3,2\}, \;\;\;s(p_6) = -1.\end{aligned}$$
+  p_6 : \{1,2,3\} &\rightarrow \{1,3,2\}, \;\;\;s(p_6) = -1.\end{aligned}
+\end{align}
 The permutations can be generated by exchanging pairs of sequence
 elements; each time we perform such an exchange, the sign of $s(p)$
 is reversed.
 
 We can now see why the above $N$-particle state describes fermions.
 Let us apply $\hat{P}_{ij}$ to it:
-$$\begin{aligned}\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij} \big[\cdots |\phi_{p(i)}\rangle \cdots |\phi_{p(j)}\rangle \cdots\big] \\&= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\phi_{p(j)}\rangle \cdots |\phi_{p(i)}\rangle \cdots\big].\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij} \big[\cdots |\phi_{p(i)}\rangle \cdots |\phi_{p(j)}\rangle \cdots\big] \\&= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\phi_{p(j)}\rangle \cdots |\phi_{p(i)}\rangle \cdots\big].\end{aligned}
+\end{align}
 Consider each term in the above sum.  Here, the single-particle state
 for $p(i)$ and $p(j)$ have exchanged places.  The resulting term must
 be a match for another one of the terms in
@@ -311,7 +353,9 @@ single-particle Hilbert space $\mathscr{H}^{(1)}$.  Then, we build
 multi-particle states by specifying how many particles are in state
 $|\varphi_1\rangle$, denoted $n_1$; how many are in state
 $|\varphi_2\rangle$, denoted $n_2$; and so on.  Thus,
-$$|n_1,n_2,n_3,\dots\rangle$$
+\begin{equation*}
+  |n_1,n_2,n_3,\dots\rangle
+\end{equation*}
 is a multi-particle state \textit{defined} as the appropriate
 symmetric (for bosons) or antisymmetric (for fermions) tensor product
 state.  The multi-particle state is indexed by the occupation numbers
@@ -323,19 +367,25 @@ $|0,2,0,0,\dots\rangle$, a two-particle state with both particles in
 state $|\varphi_2\rangle$.  (This only makes sense if the particles
 are bosons, as fermions cannot share the same state.)  The symmetric
 tensor product state is
-$$|0,2,0,0,\dots\rangle \equiv |\varphi_2\rangle|\varphi_2\rangle.$$
+\begin{equation}
+  |0,2,0,0,\dots\rangle \equiv |\varphi_2\rangle|\varphi_2\rangle.
+\end{equation}
 
 As our second example, consider $|1,1,1,0,0,\dots\rangle$.  This
 specifies a three-particle state where there is one particle each
 occupying $|\varphi_1\rangle$, $|\varphi_2\rangle$, and
 $|\varphi_3\rangle$.  If the particles are bosons, this corresponds to
 the symmetric state
-$$\begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad+ |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle \Big).
-\end{aligned}$$
+\begin{align}
+  \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad+ |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle \Big).
+  \end{aligned}
+\end{align}
 And if the particles are fermions, the appropriate antisymmetric state
 is
-$$\begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad - |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle - |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle\Big).
-\end{aligned}$$
+\begin{align}
+  \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad - |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle - |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle\Big).
+  \end{aligned}
+\end{align}
 
 \subsection{Fock space}
 
@@ -364,7 +414,9 @@ work with by defining an ``extended'' Hilbert space, called the
 \textbf{Fock space}, that is the space of bosonic/fermionic states
 \textit{for arbitrary numbers of particles}.  In the formal language
 of linear algebra, the Fock space can be written as
-$$\mathscr{H}_{S/A}^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_{S/A} \oplus \mathscr{H}^{(3)}_{S/A} \oplus \mathscr{H}^{(4)}_{S/A} \oplus \cdots$$
+\begin{equation}
+  \mathscr{H}_{S/A}^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_{S/A} \oplus \mathscr{H}^{(3)}_{S/A} \oplus \mathscr{H}^{(4)}_{S/A} \oplus \cdots
+\end{equation}
 Here, $\oplus$ represents the \textbf{direct sum} operation, which
 combines vector spaces by directly grouping their basis vectors into a
 larger basis set; if $\mathscr{H}_1$ has dimension $d_1$ and
@@ -384,7 +436,9 @@ $\mathscr{H}^{F}_{S/A}$.
 You may have noticed that the definition of the Fock space included
 $\mathscr{H}^{(0)}$, the ``Hilbert space of 0 particles''.  This
 Hilbert space contains only one distinct state vector, denoted by
-$$|\varnothing\rangle \equiv |0,0,0,0,\dots\rangle.$$
+\begin{equation}
+  |\varnothing\rangle \equiv |0,0,0,0,\dots\rangle.
+\end{equation}
 
 This is called the \textbf{vacuum state}, and represents a state in
 which there are literally no particles.  Note that
@@ -399,7 +453,9 @@ Section~\ref{sec:qft}.)
 Another subtle consequence of introducing the Fock space concept is
 that it is now legitimate to write down quantum states that lack
 definite particle numbers.  For example,
-$$\frac{1}{\sqrt{2}} \Big(|1,0,0,0,0,\dots\rangle + |1,1,1,0,0,\dots\rangle\Big)$$
+\begin{equation*}
+  \frac{1}{\sqrt{2}} \Big(|1,0,0,0,0,\dots\rangle + |1,1,1,0,0,\dots\rangle\Big)
+\end{equation*}
 is a valid state vector in $\mathscr{H}^{F}_{S/A}$, consisting of the
 superposition of a one-particle state and a three-particle state.
 Such states are not mere curiosities.  For instance, in the next
@@ -414,7 +470,9 @@ second quantization.  Let us concentrate on bosons first.
 
 We define an operator called the \textbf{particle creation operator},
 denoted by $\hat{a}_\mu^\dagger$ and acting in the following way:
-$$\hat{a}_\mu^\dagger \big|n_1, n_2, \dots, n_\mu, \dots\big\rangle = \sqrt{n_\mu+1} \; \big|n_1, n_2, \dots, n_\mu + 1, \dots\big\rangle. $$
+\begin{equation}
+  \hat{a}_\mu^\dagger \big|n_1, n_2, \dots, n_\mu, \dots\big\rangle = \sqrt{n_\mu+1} \; \big|n_1, n_2, \dots, n_\mu + 1, \dots\big\rangle.
+\end{equation}
 In this definition, there is one particle creation operator for each
 state in the single-particle basis
 $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$.  Each creation operator is
@@ -425,19 +483,27 @@ $\sqrt{n_\mu+1}$ is defined for later convenience.
 
 In particular, applying a creation operator to the vacuum state yields
 a single-particle state:
-$$\begin{aligned}\hat{a}_\mu^\dagger |\varnothing\rangle \, &= \, |0,\dots,0, 1, 0, 0, \dots\rangle. \\[-1ex] &\qquad\qquad\quad\;\;\rotatebox[origin=c]{90}{$\Rsh$}\,\mu
-\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{a}_\mu^\dagger |\varnothing\rangle \, &= \, |0,\dots,0, 1, 0, 0, \dots\rangle. \\[-1ex] &\qquad\qquad\quad\;\;\rotatebox[origin=c]{90}{$\Rsh$}\,\mu
+  \end{aligned}
+\end{align}
 
 The Hermitian conjugate of the creation operator, denoted by $\hat{a}_\mu$,
 is called the \textbf{particle annihilation operator}.  To observe its
 effects, let us first take the Hermitian conjugate of the equation
 that defines $\hat{a}_\mu^\dagger$:
-$$\big\langle n_1, n_2, \dots\big| \hat{a}_\mu = \sqrt{n_\mu+1} \; \big\langle n_1, n_2, \dots, n_\mu + 1, \dots\big|. $$
+\begin{equation}
+  \big\langle n_1, n_2, \dots\big| \hat{a}_\mu = \sqrt{n_\mu+1} \; \big\langle n_1, n_2, \dots, n_\mu + 1, \dots\big|.
+\end{equation}
 Right-multiplying by another occupation number state
 $|n_1',n_2',\dots\rangle$ results in
-$$\begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \big|n_1',n_2',\dots\big\rangle &= \sqrt{n_\mu+1} \; \big\langle \dots, n_\mu + 1, \dots\big| \dots, n_\mu',\dots\big\rangle \\&= \sqrt{n_\mu+1}\; \delta^{n_1}_{n_1'}\; \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu+1}_{n_\mu'} \dots \\  &= \sqrt{n_\mu'}\; \delta^{n_1}_{n_1'}\; \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu+1}_{n_\mu'}\cdots\end{aligned}$$
+\begin{align}
+  \begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \big|n_1',n_2',\dots\big\rangle &= \sqrt{n_\mu+1} \; \big\langle \dots, n_\mu + 1, \dots\big| \dots, n_\mu',\dots\big\rangle \\&= \sqrt{n_\mu+1}\; \delta^{n_1}_{n_1'}\; \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu+1}_{n_\mu'} \dots \\  &= \sqrt{n_\mu'}\; \delta^{n_1}_{n_1'}\; \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu+1}_{n_\mu'}\cdots\end{aligned}
+  \end{align}
 From this, we can deduce that
-$$\hat{a}_\mu \big|n_1', n_2', \dots, n_\mu', \dots\big\rangle = \begin{cases} \sqrt{n_\mu'} \; \big|n_1', n_2', \dots, n_\mu' - 1, \dots\big\rangle, & \mathrm{if}\; n_\mu' > 0 \\ 0, & \mathrm{if}\; n_\mu' = 0.\end{cases} $$
+\begin{equation}
+  \hat{a}_\mu \big|n_1', n_2', \dots, n_\mu', \dots\big\rangle = \begin{cases} \sqrt{n_\mu'} \; \big|n_1', n_2', \dots, n_\mu' - 1, \dots\big\rangle, & \mathrm{if}\; n_\mu' > 0 \\ 0, & \mathrm{if}\; n_\mu' = 0.\end{cases}
+\end{equation}
 In other words, the annihilation operator reduces the occupation
 number of one of the single-particle states by one (hence its name).
 As a special exception, if the given single-particle state is
@@ -456,25 +522,39 @@ last commutation relation; the others are left as an exercise
 To prove that $[\hat{a}_\mu,\hat{a}_\nu^\dagger] = \delta_{\mu\nu}$,
 we first consider the case where the creation/annihilation operators
 act on the same single-particle state:
-$$\begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \hat{a}_\mu^\dagger \big| n_1', n_2'\dots\big\rangle &= \sqrt{(n_\mu+1)(n_\mu'+1)}\; \big\langle \dots, n_\mu+1, \dots \big| \dots, n_\mu'+1, \dots\big\rangle \\ &= \sqrt{(n_\mu+1)(n_\mu'+1)} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu+1}_{n_\mu'+1}\cdots \\ &= (n_\mu+1) \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \\ \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle &= \sqrt{n_\mu n_\mu'}\; \big\langle \dots, n_\mu-1, \dots \big| \dots, n_\mu'-1, \dots\big\rangle \\&= \sqrt{n_\mu n_\mu'} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu-1}_{n_\mu'-1}\cdots \\ &= n_\mu \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \end{aligned}$$
+\begin{align}
+  \begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \hat{a}_\mu^\dagger \big| n_1', n_2'\dots\big\rangle &= \sqrt{(n_\mu+1)(n_\mu'+1)}\; \big\langle \dots, n_\mu+1, \dots \big| \dots, n_\mu'+1, \dots\big\rangle \\ &= \sqrt{(n_\mu+1)(n_\mu'+1)} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu+1}_{n_\mu'+1}\cdots \\ &= (n_\mu+1) \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \\ \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle &= \sqrt{n_\mu n_\mu'}\; \big\langle \dots, n_\mu-1, \dots \big| \dots, n_\mu'-1, \dots\big\rangle \\&= \sqrt{n_\mu n_\mu'} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu-1}_{n_\mu'-1}\cdots \\ &= n_\mu \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \end{aligned}
+\end{align}
 In the second equation, we were a bit sloppy in handling the $n_\mu =
 0$ and $n_\mu' = 0$ cases, but you can check for yourself that the
 result on the last line remains correct.  Upon taking the
 difference of the two equations, we get
-$$\big\langle n_1, n_2, \dots \big| \left(\hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu\right) \big| n_1', n_2'\dots\big\rangle = \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots = \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.$$
+\begin{equation}
+  \big\langle n_1, n_2, \dots \big| \left(\hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu\right) \big| n_1', n_2'\dots\big\rangle = \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots = \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.
+\end{equation}
 Since the occupation number states form a basis set for
 $\mathscr{H}^F_S$, we conclude that
-$$\hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu = \hat{I}.$$
+\begin{equation}
+  \hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu = \hat{I}.
+\end{equation}
 Next, consider the case where $\mu \ne \nu$:
-$$\begin{aligned}\big\langle n_1, \dots \big| \hat{a}_\mu \hat{a}_\nu^\dagger \big| n_1', \dots\big\rangle &= \sqrt{(n_\mu+1)(n_\nu'+1)}\, \langle \dots, n_\mu+1, \dots, n_\nu, \dots | \dots, n_\mu, \dots, n_\mu'+1, \dots\rangle \\ &= \sqrt{n_\mu' n_\nu} \;\, \delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu+1}_{n_\mu'} \cdots \delta^{n_\nu}_{n_\nu' + 1}\cdots \\ \big\langle n_1, \dots \big| \hat{a}_\nu^\dagger \hat{a}_\mu \big| n_1', \dots\big\rangle &= \sqrt{n_\mu' n_\nu}\, \langle \dots, n_\mu, \dots,n_\nu-1,\dots | \dots, n_\mu'-1, \dots, n_\nu'\dots\rangle \\&= \sqrt{n_\mu' n_\nu} \;\delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu}_{n_\mu'-1}\cdots \delta^{n_\nu-1}_{n_\nu'} \cdots \\ &= \sqrt{n_\mu' n_\nu} \; \delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu+1}_{n_\mu'}\cdots \delta^{n_\nu}_{n_\nu'+1} \cdots\end{aligned}$$
+\begin{align*}
+  \begin{aligned}\big\langle n_1, \dots \big| \hat{a}_\mu \hat{a}_\nu^\dagger \big| n_1', \dots\big\rangle &= \sqrt{(n_\mu+1)(n_\nu'+1)}\, \langle \dots, n_\mu+1, \dots, n_\nu, \dots | \dots, n_\mu, \dots, n_\mu'+1, \dots\rangle \\ &= \sqrt{n_\mu' n_\nu} \;\, \delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu+1}_{n_\mu'} \cdots \delta^{n_\nu}_{n_\nu' + 1}\cdots \\ \big\langle n_1, \dots \big| \hat{a}_\nu^\dagger \hat{a}_\mu \big| n_1', \dots\big\rangle &= \sqrt{n_\mu' n_\nu}\, \langle \dots, n_\mu, \dots,n_\nu-1,\dots | \dots, n_\mu'-1, \dots, n_\nu'\dots\rangle \\&= \sqrt{n_\mu' n_\nu} \;\delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu}_{n_\mu'-1}\cdots \delta^{n_\nu-1}_{n_\nu'} \cdots \\ &= \sqrt{n_\mu' n_\nu} \; \delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu+1}_{n_\mu'}\cdots \delta^{n_\nu}_{n_\nu'+1} \cdots\end{aligned}
+\end{align*}
 Hence,
-$$\hat{a}_\mu \hat{a}_\nu^\dagger - \hat{a}_\nu^\dagger \hat{a}_\mu = 0 \;\;\;\mathrm{for}\;\;\mu\ne\nu.$$
+\begin{equation}
+  \hat{a}_\mu \hat{a}_\nu^\dagger - \hat{a}_\nu^\dagger \hat{a}_\mu = 0 \;\;\;\mathrm{for}\;\;\mu\ne\nu.
+\end{equation}
 Combining these two results gives the desired commutation relation,
 $[\hat{a}_\mu, \hat{a}_\nu^\dagger] = \delta_{\mu\nu}$.  Another useful result which
 emerges from the first part of the proof is that
-$$\big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle = n_\mu \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.$$
+\begin{equation}
+  \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle = n_\mu \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.
+\end{equation}
 Hence, we can define the Hermitian operator
-$$\hat{n}_\mu \equiv \hat{a}_\mu^\dagger \hat{a}_\mu,$$
+\begin{equation}
+  \hat{n}_\mu \equiv \hat{a}_\mu^\dagger \hat{a}_\mu,
+\end{equation}
 whose eigenvalue is the occupation number of single-particle state $\mu$.
 
 If you are familiar with the method of creation/annihilation operators
@@ -489,8 +569,10 @@ chapter.
 
 For fermions, the multi-particle states are antisymmetric.  The
 fermion creation operator can be defined as follows:
-$$\begin{aligned}\hat{c}_\mu^\dagger |n_1, n_2, \dots, n_\mu,\dots\rangle &= \begin{cases}(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}} |n_1, n_2, \dots, n_{\mu-1}, 1, \dots\rangle & \mathrm{if} \; n_\mu = 0 \\ \;\;0 & \mathrm{if}\; n_\mu = 1.
-\end{cases} \\&= (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big|n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big\rangle. \end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{c}_\mu^\dagger |n_1, n_2, \dots, n_\mu,\dots\rangle &= \begin{cases}(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}} |n_1, n_2, \dots, n_{\mu-1}, 1, \dots\rangle & \mathrm{if} \; n_\mu = 0 \\ \;\;0 & \mathrm{if}\; n_\mu = 1.
+    \end{cases} \\&= (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big|n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big\rangle. \end{aligned}
+\end{align}
 In other words, if state $\mu$ is unoccupied, then
 $\hat{c}_\mu^\dagger$ increments the occupation number to 1, and
 multiplies the state by an overall factor of $(-1)^{n_1 + n_2 + \cdots
@@ -509,12 +591,18 @@ are therefore forbidden from being larger than 1.
 The conjugate operator, $\hat{c}_\mu$, is the fermion annihilation
 operator.  To see what it does, take the Hermitian conjugate of the
 definition of the creation operator:
-$$\langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu  =
-(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big\langle n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big|.$$
+\begin{equation}
+  \langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu  =
+  (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big\langle n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big|.
+\end{equation}
 Right-multiplying this by $|n_1',n_2',\dots\rangle$ gives
-$$\langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu |n_1', n_2', \dots\rangle  = (-1)^{n_1 + \cdots + n_{\mu-1}} \;\delta^{n_1}_{n_1'} \cdots \;\delta^{n_{\mu-1}}_{n_{\mu-1}'} \left(\delta^{n_\mu}_0 \delta^1_{n_\mu'} \right) \delta^{n_{\mu+1}}_{n_{\mu+1}'} \dots$$
+\begin{equation}
+  \langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu |n_1', n_2', \dots\rangle  = (-1)^{n_1 + \cdots + n_{\mu-1}} \;\delta^{n_1}_{n_1'} \cdots \;\delta^{n_{\mu-1}}_{n_{\mu-1}'} \left(\delta^{n_\mu}_0 \delta^1_{n_\mu'} \right) \delta^{n_{\mu+1}}_{n_{\mu+1}'} \dots
+\end{equation}
 Hence, we can deduce that
-$$\begin{aligned}\hat{c}_\mu |n_1', \dots, n_\mu',\dots\rangle &= \begin{cases} \;\;0 & \mathrm{if}\; n_\mu' = 0 \\ (-1)^{n_1' + \cdots + n_{\mu-1}'} |n_1', \dots, n_{\mu-1}', 0, \dots\rangle & \mathrm{if} \; n_\mu' = 1. \end{cases} \\ &= (-1)^{n_1' + \cdots + n_{\mu-1}'} \; \delta^1_{n_\mu'} \, \big|n_1', \dots, n_{\mu-1}', 0, \dots\big\rangle.\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{c}_\mu |n_1', \dots, n_\mu',\dots\rangle &= \begin{cases} \;\;0 & \mathrm{if}\; n_\mu' = 0 \\ (-1)^{n_1' + \cdots + n_{\mu-1}'} |n_1', \dots, n_{\mu-1}', 0, \dots\rangle & \mathrm{if} \; n_\mu' = 1. \end{cases} \\ &= (-1)^{n_1' + \cdots + n_{\mu-1}'} \; \delta^1_{n_\mu'} \, \big|n_1', \dots, n_{\mu-1}', 0, \dots\big\rangle.\end{aligned}
+\end{align}
 In other words, if state $\mu$ is unoccupied, then applying
 $\hat{c}_\mu$ gives the zero vector; if state $\mu$ is occupied,
 applying $\hat{c}_\mu$ decrements the occupation number to $0$, and
@@ -525,7 +613,9 @@ can be shown to obey the following \textit{anticommutation} relations:
 $$\boxed{\quad\begin{aligned}\,\big\{\hat{c}_\mu,\hat{c}_\nu\big\} = \big\{\hat{c}_\mu^\dagger,\hat{c}_\nu^\dagger\big\} &= 0, \\ \,\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} &= \delta_{\mu\nu}\end{aligned}\qquad\textrm{for all}\;\mu,\nu.\quad}$$
 Here, $\{\cdot,\cdot\}$ denotes an anticommutator, which is defined as
 follows:
-$$\left\{\hat{A},\hat{B}\right\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}.$$
+\begin{equation}
+  \left\{\hat{A},\hat{B}\right\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}.
+\end{equation}
 
 Similar to the bosonic commutation relations, these anticommutation
 relations can be derived by taking matrix elements with occupation
@@ -535,23 +625,33 @@ other derivations follow similar lines.
 
 Firstly, consider the case where the creation and annihilation
 operators act on the same single-particle state $\mu$:
-$$\begin{aligned}\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu \hat{c}_\mu^\dagger \big|\dots, n_\mu', \dots\big\rangle &= (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\mu'} \\ &\quad\times \big\langle n_1,\dots,n_{\mu-1}, 1, \dots\big| n_1',\dots,n_{\mu-1}', 1, \dots \big\rangle \\ &= \delta^0_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots\end{aligned}$$
+\begin{align}
+  \begin{aligned}\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu \hat{c}_\mu^\dagger \big|\dots, n_\mu', \dots\big\rangle &= (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\mu'} \\ &\quad\times \big\langle n_1,\dots,n_{\mu-1}, 1, \dots\big| n_1',\dots,n_{\mu-1}', 1, \dots \big\rangle \\ &= \delta^0_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots\end{aligned}
+\end{align}
 And by a similar calculation,
-$$\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu^\dagger \hat{c}_\mu \big|\dots, n_\mu', \dots\big\rangle = \delta^1_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots$$
+\begin{equation}
+  \big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu^\dagger \hat{c}_\mu \big|\dots, n_\mu', \dots\big\rangle = \delta^1_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots
+\end{equation}
 By adding these two equations, and using the fact that
 $\delta^0_{n_\mu'} + \delta^1_{n_\mu'} = 1$, we get
-$$\big\langle \dots,n_\mu,\dots \big| \left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} \big|\dots, n_\mu', \dots\big\rangle = \big\langle \dots,n_\mu,\dots \big|\dots, n_\mu', \dots\big\rangle$$
+\begin{equation}
+  \big\langle \dots,n_\mu,\dots \big| \left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} \big|\dots, n_\mu', \dots\big\rangle = \big\langle \dots,n_\mu,\dots \big|\dots, n_\mu', \dots\big\rangle
+\end{equation}
 And hence,
-$$\left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} = \hat{I}.$$
+\begin{equation}
+  \left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} = \hat{I}.
+\end{equation}
 
 Next, we must prove that $\left\{ \hat{c}_\mu,
 \hat{c}_\nu^\dagger\right\} = 0$ for $\mu \ne \nu$.  We will show this
 for $\mu < \nu$ (the $\mu > \nu$ case follows by Hermitian
 conjugation).  This is, once again, by taking matrix elements:
-$$\begin{aligned}\big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\mu \hat{c}_\nu^\dagger \big| & \dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\nu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\nu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, 1, \dots, n_\nu,\dots\big| \dots,n_{\mu}', \dots,1, \dots \big\rangle \\ &\qquad\quad = (-1)^{n_\mu'+\cdots+n_{\nu-1}'}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'}\right) \cdots \\
+\begin{align*}
+  \begin{aligned}\big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\mu \hat{c}_\nu^\dagger \big| & \dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\nu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\nu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, 1, \dots, n_\nu,\dots\big| \dots,n_{\mu}', \dots,1, \dots \big\rangle \\ &\qquad\quad = (-1)^{n_\mu'+\cdots+n_{\nu-1}'}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'}\right) \cdots \\
 &\qquad\quad = (-1)^{1 + n_{\mu+1} + \cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^0_{n_\mu}\delta^1_{n_\mu'}\right) \cdots \left(\delta^0_{n_\nu'} \delta^1_{n_\nu}\right) \cdots \\
   \big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\nu^\dagger \hat{c}_\mu \big| &\dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\nu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\nu}_1 \delta^1_{n_\mu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, n_\mu, \dots, 0,\dots\big| \dots,0, \dots,n_\nu', \dots \big\rangle \\ &\qquad\quad= (-1)^{n_{\mu}+\cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'} \right) \cdots \\ &\qquad\quad= (-1)^{0 + n_{\mu+1}+\cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1\delta^0_{n_\nu'}\right) \cdots
-\end{aligned}$$
+  \end{aligned}
+\end{align*}
 The two equations differ by a factor of $-1$, so adding them gives
 zero.  Putting everything together, we conclude that
 $\big\{c_\mu,c_\nu^\dagger\big\} = \delta_{\mu\nu}$, as stated above.
@@ -590,7 +690,9 @@ operator acting on the Fock space $\mathscr{H}^F$.  Given $\hat{H}_1$,
 what is $\hat{H}$?
 
 For bosons, the answer is:
-$$\hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\varphi_\mu|\hat{H}_1|\varphi_\nu\rangle,$$
+\begin{equation}
+  \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\varphi_\mu|\hat{H}_1|\varphi_\nu\rangle,
+\end{equation}
 where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
 and annihilation operators defined in
 Section~\ref{sec:second_quantized_bosons}.  For fermions, the
@@ -604,17 +706,23 @@ operators, but the results apply equally well to fermions.
 To understand why this expression for $\hat{H}$ makes sense, consider
 its matrix elements with respect to various states.  Firstly, for the
 vacuum state $|\varnothing\rangle$,
-$$\langle\varnothing|\hat{H}|\varnothing\rangle = 0.$$
+\begin{equation}
+  \langle\varnothing|\hat{H}|\varnothing\rangle = 0.
+\end{equation}
 This makes sense. Secondly, single-particle states can be written as
 $|\varphi_\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$, so
-$$\begin{aligned}\langle\varphi_\mu|\hat{H}|\varphi_\nu\rangle &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}$$
+\begin{equation}
+  \begin{aligned}\langle\varphi_\mu|\hat{H}|\varphi_\nu\rangle &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}
+\end{equation}
 This exactly matches the definition of $H_{\mu\nu}$ in the original
 expression for $\hat{H}$.
 
 Thirdly, consider the case where
 $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ forms an eigenbasis of
 $\hat{H}_1$.  Then,
-$$\hat{H}_1|\varphi_\mu\rangle = E_\mu |\varphi_\mu\rangle \;\;\;\Rightarrow\;\;\; H_{\mu\nu} = E_\mu\,\delta_{\mu\nu}. \;\;\;\Rightarrow \;\; \hat{H} = \sum_{\mu} E_\mu \,\hat{n}_\mu.$$
+\begin{equation}
+  \hat{H}_1|\varphi_\mu\rangle = E_\mu |\varphi_\mu\rangle \;\;\;\Rightarrow\;\;\; H_{\mu\nu} = E_\mu\,\delta_{\mu\nu}. \;\;\;\Rightarrow \;\; \hat{H} = \sum_{\mu} E_\mu \,\hat{n}_\mu.
+\end{equation}
 As previously noted, $\hat{n}_\mu = \hat{a}^\dagger_\mu \hat{a}_\mu$
 is the number operator, a Hermitian operator which corresponds to the
 occupation number of single-particle state $\mu$.  Therefore, the
@@ -638,7 +746,9 @@ Note also that the number of particles does not change during time
 evolution.  Whenever a particle is annihilated in a state $\nu$, it is
 immediately re-created in some state $\mu$.  This implies that the
 Hamiltonian commutes with the total particle number operator:
-$$[\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.$$
+\begin{equation}
+  [\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.
+\end{equation}
 The formal proof for this is left as an exercise (see
 \hyperref[ex:n_conserved]{Exercise 5}).  It follows from the creation
 and annihilation operators' commutation relations (for bosons) or
@@ -650,16 +760,22 @@ similar way.  Let $\hat{A}_1$ be a Hermitian operator acting on
 single-particle states, corresponding to some physical observable $A$.
 Then, for a multi-particle system, the operator corresponding to the
 ``total $A$'' is
-$$\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle.$$
+\begin{equation}
+  \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle.
+\end{equation}
 
 Hermitian operators can also be constructed out of other kinds of
 groupings of creation and annihilation operators.  For example, a
 pairwise (two-particle) potential can be described with a
 superposition of creation and annihilation operator pairs, of the form
-$$\hat{V} = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \, V_{\mu\nu;\lambda\sigma}\, \hat{a}_\lambda \hat{a}_\sigma.$$
+\begin{equation}
+  \hat{V} = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \, V_{\mu\nu;\lambda\sigma}\, \hat{a}_\lambda \hat{a}_\sigma.
+\end{equation}
 We can ensure that $\hat{V}$ is Hermitian by imposing a
 constraint on the coefficents:
-$$\hat{V}^\dagger = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\sigma \hat{a}^\dagger_\lambda \, V_{\mu\nu;\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V} \;\;\Leftarrow \;\; V_{\sigma\lambda;\nu\mu}^* = V_{\mu\nu;\lambda\sigma}.$$
+\begin{equation}
+  \hat{V}^\dagger = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\sigma \hat{a}^\dagger_\lambda \, V_{\mu\nu;\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V} \;\;\Leftarrow \;\; V_{\sigma\lambda;\nu\mu}^* = V_{\mu\nu;\lambda\sigma}.
+\end{equation}
 In the next section, we will show how to determine the
 $V_{\mu\nu;\lambda\sigma}$ coefficients for any given two-particle
 interaction, such as the electrostatic potential function.  The
@@ -673,7 +789,9 @@ number.
 
 Another way to construct a Hermitian operator from creation and
 annihilation operators is
-$$\hat{A} = \sum_\mu \left(\alpha_\mu \hat{a}_\mu^\dagger + \alpha^*_\mu \hat{a}_\mu\right).$$
+\begin{equation}
+  \hat{A} = \sum_\mu \left(\alpha_\mu \hat{a}_\mu^\dagger + \alpha^*_\mu \hat{a}_\mu\right).
+\end{equation}
 If such a term is added to a Hamiltonian, it breaks the conservation
 of total particle number.  Each infinitesimal time step will contain a
 superposition of processes that decrease the particle number (due to
@@ -706,21 +824,31 @@ consider the special case where these quantum states are representable
 by wavefunctions.  Let $|\mathbf{r}\rangle$ denote a position
 eigenstate for a $d$-dimensional space.  A single-particle state
 $|\varphi_\mu\rangle$ has a wavefunction
-$$\varphi_\mu(\mathbf{r}) = \langle\mathbf{r}|\varphi_\mu\rangle.$$
+\begin{equation}
+  \varphi_\mu(\mathbf{r}) = \langle\mathbf{r}|\varphi_\mu\rangle.
+\end{equation}
 Due to the completeness and orthonormality of the basis, these
 wavefunctions satisfy
-$$\begin{aligned}\int d^dr \; \varphi_\mu^*(\mathbf{r})\, \varphi_\nu(\mathbf{r}) &= \langle\varphi_\mu| \left(\int d^dr\, |\mathbf{r}\rangle\langle\mathbf{r}|\right) |\varphi_\nu\rangle \,= \delta_{\mu\nu}, \\\sum_\mu \varphi_\mu^*(\mathbf{r}) \varphi_\mu(\mathbf{r}') &=\, \langle \mathbf{r}'| \left(\sum_\mu |\varphi_\mu\rangle\langle\varphi_\mu|\right)|\mathbf{r}\rangle \;\;=\, \delta^d(\mathbf{r}-\mathbf{r}').\end{aligned}$$
+\begin{align}
+  \begin{aligned}\int d^dr \; \varphi_\mu^*(\mathbf{r})\, \varphi_\nu(\mathbf{r}) &= \langle\varphi_\mu| \left(\int d^dr\, |\mathbf{r}\rangle\langle\mathbf{r}|\right) |\varphi_\nu\rangle \,= \delta_{\mu\nu}, \\\sum_\mu \varphi_\mu^*(\mathbf{r}) \varphi_\mu(\mathbf{r}') &=\, \langle \mathbf{r}'| \left(\sum_\mu |\varphi_\mu\rangle\langle\varphi_\mu|\right)|\mathbf{r}\rangle \;\;=\, \delta^d(\mathbf{r}-\mathbf{r}').\end{aligned}
+\end{align}
 
 We can use the wavefunctions and the creation/annihilation operators
 to construct a new and interesting set of operators.  For simplicity,
 suppose the particles are bosons, and let
-$$\hat{\psi}(\mathbf{r}) = \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu, \quad\;\; \hat{\psi}^\dagger(\mathbf{r}) = \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger.$$
+\begin{equation}
+  \hat{\psi}(\mathbf{r}) = \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu, \quad\;\; \hat{\psi}^\dagger(\mathbf{r}) = \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger.
+\end{equation}
 Using the aforementioned wavefunction properties, we can derive the
 inverse relations
-$$\hat{a}_\mu = \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}), \quad\;\; \hat{a}_\mu^\dagger = \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).$$
+\begin{equation}
+  \hat{a}_\mu = \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}), \quad\;\; \hat{a}_\mu^\dagger = \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).
+\end{equation}
 From the commutation relations for the bosonic $a_\mu$ and
 $a_\mu^\dagger$ operators, we can show that
-$$\left[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\right] = \left[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = 0, \quad \left[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = \delta^d(\mathbf{r}-\mathbf{r}').$$
+\begin{equation}
+  \left[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\right] = \left[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = 0, \quad \left[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\right] = \delta^d(\mathbf{r}-\mathbf{r}').
+\end{equation}
 In the original commutation relations, the operators for different
 single-particle states commute; now, the operators for different
 \textit{positions} commute.  A straightforward interpretion for the
@@ -752,20 +880,28 @@ observable $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu}
 \hat{a}_\nu$, where $A_{\mu\nu} =
 \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  We can now show
 that
-$$\hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').$$
+\begin{equation}
+  \hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').
+\end{equation}
 For example, the Hamiltonian for a single particle in a potential
 $V(\mathbf{r})$ is
-$$\hat{H}_1 = \hat{T}_1 + \hat{V}_1, \;\;\; \hat{T}_1 = \frac{|\hat{\mathbf{p}}|^2}{2m}, \;\;\; \hat{V}_1 = V(\hat{\mathbf{r}}),$$
+\begin{equation}
+  \hat{H}_1 = \hat{T}_1 + \hat{V}_1, \;\;\; \hat{T}_1 = \frac{|\hat{\mathbf{p}}|^2}{2m}, \;\;\; \hat{V}_1 = V(\hat{\mathbf{r}}),
+\end{equation}
 where $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are position and
 momentum operators (single-particle observables).  The corresponding
 second quantized operators for the kinetic energy and potential energy
 are
-$$\begin{aligned}\hat{T} &= \frac{\hbar^2}{2m} \int d^dr\; d^dr'\; \hat{\psi}^\dagger(\mathbf{r}) \left(\int\frac{d^dk}{(2\pi)^d} \; |\mathbf{k}|^2 \; e^{i\mathbf{k}\cdot(\mathbf{r}-\mathbf{r}')}\right) \; \hat{\psi}(\mathbf{r}') \\ &= \frac{\hbar^2}{2m} \int d^d r\; \nabla \hat{\psi}^\dagger (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}) \\ \hat{V} &= \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}).\end{aligned}$$
+\begin{align}
+  \begin{aligned}\hat{T} &= \frac{\hbar^2}{2m} \int d^dr\; d^dr'\; \hat{\psi}^\dagger(\mathbf{r}) \left(\int\frac{d^dk}{(2\pi)^d} \; |\mathbf{k}|^2 \; e^{i\mathbf{k}\cdot(\mathbf{r}-\mathbf{r}')}\right) \; \hat{\psi}(\mathbf{r}') \\ &= \frac{\hbar^2}{2m} \int d^d r\; \nabla \hat{\psi}^\dagger (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}) \\ \hat{V} &= \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}).\end{aligned}
+\end{align}
 (In going from the first to the second line, we performed integrations
 by parts.)  This result is strongly reminiscent of the expression for
 the expected kinetic and potential energies in single-particle quantum
 mechanics:
-$$\langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,$$
+\begin{equation}
+  \langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,
+\end{equation}
 where $\psi(\mathbf{r})$ is the single-particle wavefunction.
 
 How are the particle creation and annihilation operators related to
@@ -778,10 +914,14 @@ $\hat{\psi}^\dagger(\mathbf{r})\hat{\psi}(\mathbf{r})$, an observable
 corresponding to the local particle density.  Another (possibly less
 obvious) type of observable is obtained by taking \textit{linear
   superpositions} of creation and annihilation operator.  For example,
-$$\psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger$$
+\begin{equation*}
+  \psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger
+\end{equation*}
 is necessarily Hermitian.  More generally, we can consider operators
 of the form
-$$F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),$$
+\begin{equation}
+  F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),
+\end{equation}
 where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  This type
 of Hermitian operator, called a \textbf{field operator}, corresponds
 to the observable value of a field at a given point $\mathbf{r}$.
@@ -792,7 +932,9 @@ operators satisfying $[\hat{a},\hat{a}^\dagger]$.  The product
 $\hat{a}^\dagger\hat{a}$ is Hermitian, and corresponds to the number
 of oscillator quanta excited.  We can also take linear combinations of
 the creation and annihilation operators,
-$$\hat{x} = \sqrt{\frac{\hbar}{2m\omega_0}} \, \left(\hat{a}+\hat{a}^\dagger\right), \;\;\;\hat{p} = -i \sqrt{\frac{m\omega_0\hbar}{2}} \, \left(\hat{a}-\hat{a}^\dagger\right),$$
+\begin{equation}
+  \hat{x} = \sqrt{\frac{\hbar}{2m\omega_0}} \, \left(\hat{a}+\hat{a}^\dagger\right), \;\;\;\hat{p} = -i \sqrt{\frac{m\omega_0\hbar}{2}} \, \left(\hat{a}-\hat{a}^\dagger\right),
+\end{equation}
 which are Hermitian operators obeying the canonical commutation
 relation $[\hat{x},\hat{p}] = i\hbar$.  These correspond, of course,
 to the position and momentum coordinates of the underlying oscillator
@@ -836,24 +978,35 @@ underlying fundamental entity---a quantum field.
   single-particle Hilbert space $\mathscr{H}^{(1)}$ is spanned by a
   basis $\{|\mu_i\}$.  The exchange operator is defined on
   $\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}$ by
-$$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
-  \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle.$$
+  \begin{equation}
+    P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
+    \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle.
+  \end{equation}
   Prove that $\hat{P}$ is linear, unitary, and Hermitian.  Moreover,
   prove that the operation is basis-independent: i.e., given any other
   basis $\{\nu_j\}$ that spans $\mathscr{H}^{(1)}$,
-$$P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle|\nu_j\rangle \Big)
-  \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle|\nu_i\rangle.$$
+  \begin{equation}
+    P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle|\nu_j\rangle \Big)
+    \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle|\nu_i\rangle.
+  \end{equation}
   \label{ex:1}
 
 \item
   Prove that the exchange operator commutes with the Hamiltonian
-$$\hat{H} = - \frac{\hbar^2}{2m_e} \Big(\nabla_1^2 + \nabla^2_2\Big) + \frac{e^2}{4\pi\varepsilon_0|\mathbf{r}_1 - \mathbf{r}_2|}.$$ \label{ex:2}
+  \begin{equation}
+    \hat{H} = - \frac{\hbar^2}{2m_e} \Big(\nabla_1^2 + \nabla^2_2\Big) + \frac{e^2}{4\pi\varepsilon_0|\mathbf{r}_1 - \mathbf{r}_2|}.
+  \end{equation}
+  \label{ex:2}
 
 \item
   An $N$-boson state can be written as
-$$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).$$
+  \begin{equation}
+    |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).
+  \end{equation}
   Prove that the normalization constant is
-$$\mathcal{N} = \sqrt{\frac{n_a!n_b!\cdots}{N!}},$$
+  \begin{equation}
+    \mathcal{N} = \sqrt{\frac{n_a!n_b!\cdots}{N!}},
+  \end{equation}
   where $n_\mu$ denotes the number of particles in state $\mu$.
   \label{ex:boson_norm}
 
@@ -866,19 +1019,27 @@ $$\mathcal{N} = \sqrt{\frac{n_a!n_b!\cdots}{N!}},$$
   single-particle states.  Given a single-particle basis
   $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$, define the
   bosonic multi-particle observable
-  $$\hat{A} = \sum_{\mu\nu} \,a^\dagger_\mu \; \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle \; a_\nu,$$
+  \begin{equation}
+    \hat{A} = \sum_{\mu\nu} \,a^\dagger_\mu \; \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle \; a_\nu,
+  \end{equation}
   where $a_\mu^\dagger$ and $a_\mu$ are creation and annihilation
   operators satisfying the usual bosonic commutation relations,
   $[a_\mu,a_\nu] = 0$ and $[a_\mu,a_\nu^\dagger] = \delta_{\mu\nu}$.
   Prove that $\hat{A}$ commutes with the total number operator:
-  $$\Big[\hat{A}, \sum_\mu a^\dagger_\mu a_\mu \Big] = 0.$$
+  \begin{equation}
+    \Big[\hat{A}, \sum_\mu a^\dagger_\mu a_\mu \Big] = 0.
+  \end{equation}
   Next, repeat the proof for a fermionic multi-particle observable
-  $$\hat{A} = \sum_{\mu\nu} \,c^\dagger_\mu \; \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle \; c_\nu,$$
+  \begin{equation}
+    \hat{A} = \sum_{\mu\nu} \,c^\dagger_\mu \; \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle \; c_\nu,
+  \end{equation}
   where $c_\mu^\dagger$ and $c_\mu$ are creation and annihilation
   operators satisfying the fermionic anticommutation relations,
   $\{c_\mu,c_\nu\} = 0$ and $\{c_\mu,c_\nu^\dagger\} = \delta_{\mu\nu}$.
   In this case, prove that
-  $$\Big[\hat{A}, \sum_\mu c^\dagger_\mu c_\mu \Big] = 0.$$
+  \begin{equation}
+    \Big[\hat{A}, \sum_\mu c^\dagger_\mu c_\mu \Big] = 0.
+  \end{equation}
   \label{ex:n_conserved}
 
 \end{enumerate}
