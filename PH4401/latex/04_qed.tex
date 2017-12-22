@@ -40,8 +40,8 @@ Quantum electrodynamics is a rich and intricate theory, and we will
 not be able to cover many important topics, such as diagrammatic
 methods for performing field theoretical calculations.  If you are
 interested in this topic, a good introductory textbook is Zee's
-\textit{Quantum Field Theory in a Nutshell} \hyperref[cite:zee]{(Zee
-  2010)}.
+\textit{Quantum Field Theory in a Nutshell} (\hyperref[cite:zee]{Zee
+  2010}).
 
 \section{Particles in a classical electromagnetic field}
 
@@ -51,22 +51,21 @@ Consider a non-relativistic charged particle in an electromagnetic
 field.  As we are mainly interested in the physics of electrons
 interacting with electromagnetic fields, we will henceforth take the
 electric charge of the particle to be $-e$, where $e =
-1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  If you
+1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  (If you
 wish to describe particles with an arbitrary electric charge $q$,
 simply perform the substitution $e \rightarrow -q$ in all formulas in
-the rest of this chapter.
+the rest of this chapter.)  For simplicity, we also assume (for now)
+that the particle has charge and mass but is otherwise
+``featureless''; in particular, unlike a real electron, it has no spin
+angular momentum, and no magnetic dipole moment.
 
-We will begin by treating the electromagnetic field as a classical
-field, in the sense that the electric and magnetic fields have
-definite values and are not subject to quantum dynamics.  For
-simplicity, let us also assume for now that the particle carries
-electric charge but is otherwise featureless; in particular, unlike a
-real electron, it has no spin angular momentum, and no magnetic dipole
-moment.
+Suppose we treat the electromagnetic field as a classical field, in
+the sense that the electric and magnetic field strengths are definite
+quantities, not subject to quantum dynamics.  Our goal is to formulate
+the Hamiltonian governing the quantum dynamics of this
+non-relativistic charged particle.  To do this, let us first derive
+the particle's \textit{classical} equations of motion.
 
-Our goal is to formulate the Hamiltonian governing the quantum
-dynamics of this non-relativistic charged particle.  To do this,
-however, we must first understand the classical equations of motion.
 In the classical regime, the action of an electromagnetic field on a
 point charged particle is decribed by the Lorentz force law,
 \begin{equation}
@@ -186,21 +185,20 @@ that the vector potential appears via the substitution
 \end{equation}
 What does this mean?
 
-To answer this question, let us think about what ``momentum'' means in
-the context of a charged particle in an electromagnetic field.
-Generally, the meaning of ``momentum'' is rooted in Noether's theorem,
-which states that every symmetry of a system (whether classical or
-quantum) is associated with a conserved quantity.  Momentum is
-supposed to be the quantity conserved when the system is symmetric
-under spatial translations.  We can see this from the Hamilton
-equation
+To answer this, think about what ``momentum'' means in the context of
+a charged particle in an electromagnetic field.  The meaning of
+``momentum'' is rooted in Noether's theorem, which states that every
+symmetry of a system (whether classical or quantum) is associated with
+a conserved quantity.  Momentum is the quantity conserved when the
+system is symmetric under spatial translations.  We can see this from
+the Hamilton equation
 \begin{equation*}
   \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
 \end{equation*}
 which implies that if a Hamiltonian is $\mathbf{r}$-independent, then
-$d\mathbf{p}/dt = 0$.  However, when the electromagnetic potentials
-are $\mathbf{r}$-independent, the quantity $m\dot{\mathbf{r}}$ (which
-we usually call momentum) is \textit{not} necessarily conserved!
+$d\mathbf{p}/dt = 0$.  But when the electromagnetic potentials are
+$\mathbf{r}$-independent, the quantity $m\dot{\mathbf{r}}$ (which we
+usually call momentum) is \textit{not} necessarily conserved!
 Consider the potentials
 \begin{equation}
   \phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
@@ -229,9 +227,95 @@ $\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
 $\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  Hence,
 the quantum Hamiltonian is
 \begin{equation}
-  \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
+  \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
   - e\phi(\hat{\mathbf{r}},t).
+  \label{quantumH}
 \end{equation}
+In the wavefunction representation, the momentum operator is
+$\hat{\mathbf{p}} = -i\hbar\nabla$, as usual.
+
+\subsection{Gauge symmetry}
+
+The Hamiltonian \eqref{quantumH} possesses a subtle property known as
+\textbf{gauge symmetry}.  Suppose we modify the scalar and vector
+potentials via the substitutions
+\begin{align}
+  \begin{aligned}
+    \phi(\mathbf{r},t) &\rightarrow \phi(\mathbf{r},t) + \dot{\lambda}(\mathbf{r},t)\\
+    \mathbf{A}(\mathbf{r},t) &\rightarrow
+    \mathbf{A}(\mathbf{r},t) - \nabla{\lambda}(\mathbf{r},t),
+  \end{aligned}
+\end{align}
+where $\lambda(\mathbf{r},t)$ is an arbitrary scalar field called a
+\textbf{gauge field}.  We know, from classical electrodynamics, that
+such a transformation leaves the electric and mangetic fields
+unchanged.  Applied to the Hamiltonian \eqref{quantumH}, the gauge
+transformation generates a new Hamiltonian,
+\begin{equation}
+  \hat{H}_\lambda(t)
+  = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t) + e\nabla\lambda(\hat{\mathbf{r}},t)|^2}{2m}
+  - e\phi(\hat{\mathbf{r}},t) - e\dot{\lambda}(\hat{\mathbf{r}},t).
+\end{equation}
+If $\psi(\mathbf{r},t)$ is any wavefunction obeying the Schr\"odinger
+equation for the original Hamiltonian,
+\begin{equation}
+  i\hbar\frac{\partial\psi}{\partial t} =
+  \hat{H}(t) \psi(\mathbf{r},t)
+  = \left[\frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
+  - e\phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t),
+\end{equation}
+then it can be shown that the wavefunction $\psi(\mathbf{r},t)
+\exp(ie\lambda/\hbar)$ automatically satisfies the Schr\"odinger
+equation for the transformed Hamiltonian:
+\begin{equation}
+  i\hbar\frac{\partial}{\partial t} \left[\psi(\mathbf{r},t) \, \exp\left(\frac{ie\lambda(\mathbf{r},t)}{\hbar}\right)\right] =
+  \hat{H}_\lambda(t) \left[\psi(\mathbf{r},t) \, \exp\left(\frac{ie\lambda(\mathbf{r},t)}{\hbar}\right)\right].
+  \label{gaugeschrod}
+\end{equation}
+
+To prove this, observe how time and space derivatives act on the new
+wavefunction:
+\begin{align}
+  \begin{aligned}
+    \frac{\partial}{\partial t} \left[\psi \, \exp\left(\frac{ie\lambda}{\hbar}\right)\right] &=
+    \left[\frac{\partial\psi}{\partial t} \;+\; \frac{ie}{\hbar} \dot{\lambda} \psi
+      \,\, \right] \exp\left(\frac{ie\lambda}{\hbar}\right)\\
+    \nabla \left[\psi \, \exp\left(\frac{ie\lambda}{\hbar}\right)\right] &=
+    \left[\nabla \psi + \frac{ie}{\hbar} \nabla \lambda \psi \right] \exp\left(\frac{ie\lambda}{\hbar}\right).
+  \end{aligned}
+\end{align}
+When the extra terms generated by the $\exp(ie\lambda/\hbar)$ factor
+are slotted into the Schr\"odinger equation, they cancel the gauge
+terms in the scalar and vector potentials.  For example:
+\begin{align}
+  \begin{aligned}
+    \Big(-i\hbar\nabla + e\mathbf{A} - e\nabla\lambda\Big)
+    \left[\psi \, \exp\left(\frac{ie\lambda}{\hbar}\right)\right] &=
+    \Big[\left(-i\hbar\nabla + e\mathbf{A}\right)\psi\Big]\;
+    \exp\left(\frac{ie\lambda}{\hbar}\right) \\
+    \Big|-i\hbar\nabla + e\mathbf{A} - e\nabla\lambda\;\Big|^2
+    \left[\psi \, \exp\left(\frac{ie\lambda}{\hbar}\right)\right] &=
+    \Big[\left|-i\hbar\nabla + e\mathbf{A}\right|^2\psi\Big]\;
+    \exp\left(\frac{ie\lambda}{\hbar}\right).
+  \end{aligned}
+\end{align}
+The remainder of the proof for Eq.~\eqref{gaugeschrod} is then
+straightforward, and is left to the reader.
+
+In the context of static fields (i.e., when $\phi$, $\mathbf{A}$, and
+$\lambda$ are time-independent), the same result implies that if
+$\hat{H}$ is a time-independent electromagnetic Hamiltonian, then the
+gauge transformed Hamiltonian $\hat{H}_\lambda$ has the same energy
+spectrum.  Moreover, the eigenfunctions of $\hat{H}_\lambda$ are
+obtained by multiplying the eigenfunctions of $\hat{H}$ by
+$\exp[ie\lambda(\mathbf{r})/\hbar]$.
+
+The fact that gauge transformations do not alter the energy spectrum
+may tempt us to dismiss them as trivialities.  In fact, however, they
+have important and far-reaching consequences for the quantum mechanics
+of charged particles.
+
+
 
 \subsection{Non-relativistic electrons: the Pauli Hamiltonian}
 
