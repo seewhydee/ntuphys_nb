@@ -302,18 +302,29 @@ terms in the scalar and vector potentials.  For example:
 The remainder of the proof for Eq.~\eqref{gaugeschrod} is then
 straightforward, and is left to the reader.
 
-In the context of static fields (i.e., when $\phi$, $\mathbf{A}$, and
-$\lambda$ are time-independent), the same result implies that if
-$\hat{H}$ is a time-independent electromagnetic Hamiltonian, then the
-gauge transformed Hamiltonian $\hat{H}_\lambda$ has the same energy
-spectrum.  Moreover, the eigenfunctions of $\hat{H}_\lambda$ are
-obtained by multiplying the eigenfunctions of $\hat{H}$ by
-$\exp[ie\lambda(\mathbf{r})/\hbar]$.
+For static electromagnetic fields, the above result is simpler to
+state.  Suppose
+\begin{equation}
+  \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}})|^2}{2m}
+  - e\phi(\hat{\mathbf{r}})
+\end{equation}
+is a time-independent electromagnetic Hamiltonian, with eigenenergies
+$\{E_m \}$ and the corresponding energy eigenfunctions
+$\{\psi_m(\mathbf{r})\}$.  Then the Hamiltonian
+\begin{equation}
+  \hat{H}_\lambda = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}}) + e\nabla\lambda(\mathbf{r})|^2}{2m}
+  - e\phi(\hat{\mathbf{r}})
+\end{equation}
+has the same energy spectrum $\{E_m\}$, with eigenfunctions
+$\{\,\psi_m(\mathbf{r}) \exp[ie\lambda(\mathbf{r})/\hbar]\,\}$.
 
-The fact that gauge transformations do not alter the energy spectrum
-may tempt us to dismiss them as trivialities.  In fact, however, they
-have important and far-reaching consequences for the quantum mechanics
-of charged particles.
+One particularly interesting class of gauge transformations involves
+gauge fields of the form
+\begin{equation}
+  \lambda(\mathbf{r}) = \alpha\, \phi,
+\end{equation}
+where $\phi$ is the azimuthal coordinate in the cylindrical coordinate
+system $(r,\phi,z)$.
 
 
 
