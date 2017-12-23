@@ -323,54 +323,105 @@ $\{\,\psi_m(\mathbf{r}) \exp[ie\lambda(\mathbf{r})/\hbar]\,\}$.
 
 \subsection{The Aharanov-Bohm effect}
 
-Unlike in classical electrodynamics, in quantum electrodynamics it is
-the scalar and vector potentials that enter directly into the theory,
-not the electric and magnetic fields.  One interesting consequence is
-that when a quantum charged particle resides in a region of space
-where the magnetic field is zero, the particle can still be acted on
-by the magnetic \textit{vector potential}, if that is nonzero.  This
-is called the \textbf{Aharanov-Bohm effect}.
+Unlike classical electrodynamics, quantum electrodynamics has the
+scalar and vector potentials entering directly into the theory, rather
+than the electric and magnetic fields.  This has many profound
+consequences.  One of them is that when a charged particle resides in
+a region with zero magnetic field, it can still feel the effect of
+nonzero \textit{vector potentials} produced by magnetic fluxes
+elsewhere in space.  This is called the \textbf{Aharanov-Bohm effect}.
 
 A simple setting for observing the Aharanov-Bohm effect is shown in
-Fig.~???.  A particle is trapped in a ring-shaped region (an
+the figure below.  A particle is trapped in a ring-shaped region (an
 ``annulus''), of radius $R$ and width $d \ll R$.  Outside the annulus,
-we set $|\!-e\Phi|\rightarrow\infty$ so that the wavefunction
-vanishes; within the annulus, $\Phi = 0$.  We ignore the
-$z$-dependence of all fields and wavefunctions, so that the problem is
-two-dimensional.
+we set $-e\Phi\rightarrow\infty$ so that the wavefunction vanishes;
+inside the annulus, we set $\Phi = 0$.  We ignore the $z$-dependence
+of all fields and wavefunctions, so that the problem is
+two-dimensional.  We define polar coordinates $(r,\phi)$ with the
+origin at the ring's center.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{annulus}
+\end{figure}
 
 Now, suppose we thread magnetic flux (e.g., using a solenoid) through
-the interior region enclosed by the annulus.  This can be described
-using the vector potential
+the origin, which lies in the region enclosed by the annulus.  This
+flux can be described via the vector potential
 \begin{equation}
   \mathbf{A}(r,\phi) = \frac{\Phi_B}{2\pi r} \, \hat{e}_\phi.
   \label{Asolenoid}
 \end{equation}
-We can easily verify from Eq.~\eqref{Asolenoid} that the magnetic flux
+We can verify from Eq.~\eqref{Asolenoid} that the magnetic flux
 through any loop of radius $r$ enclosing the origin is $(\Phi_B/2\pi
-r)(2\pi r) = \Phi_B$, independent of $r$.  Hence, $\mathbf{B} = 0$
-everywhere except at the origin, whereas $\mathbf{A}$ is nonzero
-everywhere.
+r)(2\pi r) = \Phi_B$, independent of $r$.  Hence, the magnetic flux is
+confined to an infintesimal area surrounding the origin, with
+$\mathbf{B} = 0$ everywhere else. The vector potential $\mathbf{A}$,
+however, is nonzero everywhere.
 
-Energy levels:
+The time-independent Schr\"odinger equation is
+\begin{equation}
+  \frac{1}{2m}\left|-i\hbar\nabla+
+  \frac{e\Phi_B}{2\pi r} \, \hat{e}_\phi\right|^2 \psi(r,\phi)
+  = E\psi(r,\phi),
+  \label{ABschrod}
+\end{equation}
+with the boundary conditions $\psi(R\pm d/2,0) = 0$.  For sufficiently
+large $R$, we can guess that the eigenfunctions have the form
+\begin{equation}
+  \psi(r,\phi) \approx
+  \psi_0 \, \cos\left(\frac{\pi}{d}(r-R)\right)\, e^{i k R \phi},
+\end{equation}
+where $\psi_0$ is a normalization constant.  This describes a waveform
+with a half-wavelength wave profile in the $r$ direction (so as to
+vanish at $r = R \pm d/2$), and traveling along the azimuthal
+direction with wavenumber $k$.  In order for the wavefunction to be
+single-valued,
+\begin{equation}
+  k \cdot 2\pi R = 2\pi n \;\;\;\Rightarrow \;\;\; k = \frac{n}{R},
+  \;\;\;\mathrm{where}\;\; n \in \mathbb{Z}.
+\end{equation}
+Plugging this into Eq.~\eqref{ABschrod} yields the energy levels
 \begin{align}
   E_n &= \frac{1}{2m} \left[
     \left(\frac{n\hbar}{R} + \frac{e\Phi_B}{2\pi R}\right)^2
-    + \left(\frac{\pi}{d}\right)^2 \right] \\
+    + \left(\frac{\pi\hbar}{d}\right)^2 \right] \\
   &= \frac{e^2}{8\pi^2mR^2} \left(\Phi_B + \frac{nh}{e} \right)^2
-  + \frac{\pi^2}{2md^2}.
+  + \frac{\pi^2\hbar^2}{2md^2}.
+  \label{abcurves}
 \end{align}
+In the figure below, these energy levels are sketched versus the
+magnetic flux $\Phi_B$.  According to Eq.~\eqref{abcurves}, the
+energies are described by a set of quadratic curves, translated along
+the $\Phi_B$ axis by integer multiples of $h/e$.  Evidently, varying
+$\Phi_B$ will shift the eigen-energies in the annulus, despite the
+fact that the magnetic field vanishes in the annulus.  This is a
+manifestation of the Aharanov-Bohm effect.
 
-Energy levels vary continuously with $\Phi_B$.  This is the
-Aharanov-Bohm effect.
+\begin{figure}[h]
+  \centering\includegraphics[width=0.65\textwidth]{abring}
+\end{figure}
 
-Integer magnetic flux quanta bring the spectrum back to itself.
-Change in vector potential can be undone by a gauge transformation.
-
-
-
-
-
+One very interesting feature of this energy spectrum is that it
+remains the same whenever the magnetic flux changes by an exact
+multiple of $h/e = 4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$.
+This fundamental unit of magnetic flux is called the \textbf{magnetic
+  flux quantum}.  Notably, it does not depend on the radius of the
+annulus, or any other geometrical parameters of the system.  This is
+because the invariance property arises from the gauge symmetry of the
+Hamiltonian.  When an extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is
+threaded through the annulus, Eq.~\eqref{Asolenoid} tells us that the
+change in vector potential is $\Delta \mathbf{A} = (n\hbar/ e r)
+\hat{e}_\phi$.  We can undo the effects of this additional vector
+potential using the gauge field
+\begin{equation}
+  \lambda(r,\phi) = \frac{n\hbar}{e} \, \phi \;\;\;\Rightarrow
+  \begin{cases}\nabla \lambda &= \displaystyle (n\hbar/er) \hat{e}_\phi
+    \\ \displaystyle e^{ie\lambda/\hbar} &= \displaystyle e^{in\phi}.
+  \end{cases}
+\end{equation}
+Note that this gauge field is not single-valued, but it's not a
+problem since both $\nabla\lambda$ and the phase factor
+$\exp(ie\lambda/\hbar)$ remain single-valued.
 
 \subsection{Non-relativistic electrons: the Pauli Hamiltonian}
 
