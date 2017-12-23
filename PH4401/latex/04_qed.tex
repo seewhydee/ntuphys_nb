@@ -87,9 +87,9 @@ this equation of motion into the form of Hamilton's equations of
 motion.
 
 First, we introduce the electromagnetic scalar and vector potentials
-$\phi(\mathrm{r},t)$ and $\mathbf{A}(\mathrm{r},t)$, where
+$\Phi(\mathrm{r},t)$ and $\mathbf{A}(\mathrm{r},t)$, where
 \begin{align}
-  \mathbf{E}(\mathbf{r},t) &= - \nabla \phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t} \\
+  \mathbf{E}(\mathbf{r},t) &= - \nabla \Phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t} \\
   \mathbf{B}(\mathbf{r},t) &= \nabla \times \mathbf{A}(\mathbf{r},t).
   \label{Bfield}
 \end{align}
@@ -97,11 +97,11 @@ We now postulate that the above equation of motion can be described by
 the Lagrangian
 \begin{equation}
   L(\mathbf{r},\dot{\mathbf{r}},t) = \frac{1}{2}m\dot{\mathbf{r}}^2
-  + e \Big[\phi(\mathbf{r},t) - \dot{\mathbf{r}} \cdot \mathbf{A}(\mathbf{r},t)
+  + e \Big[\Phi(\mathbf{r},t) - \dot{\mathbf{r}} \cdot \mathbf{A}(\mathbf{r},t)
     \Big].
 \end{equation}
 This is very similar to the usual prescription for the Lagrangian as
-the kinetic energy minus the potential energy, with $-e\phi$ serving
+the kinetic energy minus the potential energy, with $-e\Phi$ serving
 as the potential energy function.  However, there is an extra
 $-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term; this will turn out to be
 responsible for the magnetic force.  Let us plug the Lagrangian into
@@ -114,7 +114,7 @@ The partial derivatives of the Lagrangian are:
 \begin{align}
   \begin{aligned}
     \frac{\partial L}{\partial r_i} &=
-    e\Big[\partial_i \phi - \dot{r}_j \,\partial_i A_j \Big]\\
+    e\Big[\partial_i \Phi - \dot{r}_j \,\partial_i A_j \Big]\\
     \frac{\partial L}{\partial \dot{r}_i} &= m\dot{r}_i - e A_i.
   \end{aligned}
 \end{align}
@@ -137,7 +137,7 @@ the Euler-Lagrange equations yields
 \begin{align}
   \begin{aligned}
     m\ddot{r}_i &=
-    -e\Big[\Big(-\partial_i \phi - \partial_t A_i\Big)
+    -e\Big[\Big(-\partial_i \Phi - \partial_t A_i\Big)
       + \dot{r}_j \Big( \partial_i A_j - \partial_j A_i\Big) \Big] \\
     &= -e \Big[E_i(\mathbf{r},t) + \big(\dot{\mathbf{r}} \times
       \mathbf{B}(\mathbf{r},t) \big)_i\; \Big].
@@ -162,22 +162,22 @@ variables:
   \begin{aligned}
     H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
     - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
-    + e\phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
+    + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
     &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
     - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
     - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
-    + e\phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right)
+    + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right)
   \end{aligned}
 \end{align}
 After cancelling various terms, we arrive at the result
-$$\boxed{\qquad H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\phi(\mathbf{r},t).\qquad}$$
+$$\boxed{\qquad H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).\qquad}$$
 
 This looks much like the familiar Hamiltonian for a non-relativistic
 particle that we have dealt with many times,
 \begin{equation}
   H = \frac{|\mathbf{p}|^2}{2m} + V(\mathbf{r},t).
 \end{equation}
-The scalar potential $\phi(\mathbf{r},t)$ enters into the potential
+The scalar potential $\Phi(\mathbf{r},t)$ enters into the potential
 energy term, as might be expected.  What may be more surprising is
 that the vector potential appears via the substitution
 \begin{equation}
@@ -201,7 +201,7 @@ $\mathbf{r}$-independent, the quantity $m\dot{\mathbf{r}}$ (which we
 usually call momentum) is \textit{not} necessarily conserved!
 Consider the potentials
 \begin{equation}
-  \phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
+  \Phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
 \end{equation}
 where $C$ is some constant.  These potentials are evidently
 $\mathbf{r}$-independent, but the vector potential is time-dependent,
@@ -228,7 +228,7 @@ $\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  Hence,
 the quantum Hamiltonian is
 \begin{equation}
   \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\phi(\hat{\mathbf{r}},t).
+  - e\Phi(\hat{\mathbf{r}},t).
   \label{quantumH}
 \end{equation}
 In the wavefunction representation, the momentum operator is
@@ -241,20 +241,21 @@ The Hamiltonian \eqref{quantumH} possesses a subtle property known as
 potentials via the substitutions
 \begin{align}
   \begin{aligned}
-    \phi(\mathbf{r},t) &\rightarrow \phi(\mathbf{r},t) + \dot{\lambda}(\mathbf{r},t)\\
+    \Phi(\mathbf{r},t) &\rightarrow \Phi(\mathbf{r},t) + \dot{\lambda}(\mathbf{r},t)\\
     \mathbf{A}(\mathbf{r},t) &\rightarrow
     \mathbf{A}(\mathbf{r},t) - \nabla{\lambda}(\mathbf{r},t),
   \end{aligned}
 \end{align}
 where $\lambda(\mathbf{r},t)$ is an arbitrary scalar field called a
-\textbf{gauge field}.  We know, from classical electrodynamics, that
-such a transformation leaves the electric and mangetic fields
-unchanged.  Applied to the Hamiltonian \eqref{quantumH}, the gauge
-transformation generates a new Hamiltonian,
+\textbf{gauge field}.  This is the familiar \textbf{gauge
+  transformation} from classical electrodynamics, which we know leaves
+the electric and mangetic fields unchanged.  Applied to the
+Hamiltonian \eqref{quantumH}, the gauge transformation generates a new
+Hamiltonian,
 \begin{equation}
   \hat{H}_\lambda(t)
   = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t) + e\nabla\lambda(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\phi(\hat{\mathbf{r}},t) - e\dot{\lambda}(\hat{\mathbf{r}},t).
+  - e\Phi(\hat{\mathbf{r}},t) - e\dot{\lambda}(\hat{\mathbf{r}},t).
 \end{equation}
 If $\psi(\mathbf{r},t)$ is any wavefunction obeying the Schr\"odinger
 equation for the original Hamiltonian,
@@ -262,7 +263,7 @@ equation for the original Hamiltonian,
   i\hbar\frac{\partial\psi}{\partial t} =
   \hat{H}(t) \psi(\mathbf{r},t)
   = \left[\frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t),
+  - e\Phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t),
 \end{equation}
 then it can be shown that the wavefunction $\psi(\mathbf{r},t)
 \exp(ie\lambda/\hbar)$ automatically satisfies the Schr\"odinger
@@ -299,32 +300,75 @@ terms in the scalar and vector potentials.  For example:
     \exp\left(\frac{ie\lambda}{\hbar}\right).
   \end{aligned}
 \end{align}
-The remainder of the proof for Eq.~\eqref{gaugeschrod} is then
-straightforward, and is left to the reader.
+The remainder of the proof for Eq.~\eqref{gaugeschrod} can be carried
+out in a straightforward manner.
 
-For static electromagnetic fields, the above result is simpler to
-state.  Suppose
+
+The above result can be stated in a simpler form if the
+electromagnetic fields are static.  For static fields, the
+time-independent electromagnetic Hamiltonian is
 \begin{equation}
   \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}})|^2}{2m}
-  - e\phi(\hat{\mathbf{r}})
+  - e\Phi(\hat{\mathbf{r}}).
 \end{equation}
-is a time-independent electromagnetic Hamiltonian, with eigenenergies
-$\{E_m \}$ and the corresponding energy eigenfunctions
-$\{\psi_m(\mathbf{r})\}$.  Then the Hamiltonian
+Suppose that $\hat{H}$ has eigenenergies $\{E_m \}$ and energy
+eigenfunctions $\{\psi_m(\mathbf{r})\}$.  Then the gauge-transformed
+Hamiltonian
 \begin{equation}
   \hat{H}_\lambda = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}}) + e\nabla\lambda(\mathbf{r})|^2}{2m}
-  - e\phi(\hat{\mathbf{r}})
+  - e\Phi(\hat{\mathbf{r}})
 \end{equation}
 has the same energy spectrum $\{E_m\}$, with eigenfunctions
 $\{\,\psi_m(\mathbf{r}) \exp[ie\lambda(\mathbf{r})/\hbar]\,\}$.
 
-One particularly interesting class of gauge transformations involves
-gauge fields of the form
+\subsection{The Aharanov-Bohm effect}
+
+Unlike in classical electrodynamics, in quantum electrodynamics it is
+the scalar and vector potentials that enter directly into the theory,
+not the electric and magnetic fields.  One interesting consequence is
+that when a quantum charged particle resides in a region of space
+where the magnetic field is zero, the particle can still be acted on
+by the magnetic \textit{vector potential}, if that is nonzero.  This
+is called the \textbf{Aharanov-Bohm effect}.
+
+A simple setting for observing the Aharanov-Bohm effect is shown in
+Fig.~???.  A particle is trapped in a ring-shaped region (an
+``annulus''), of radius $R$ and width $d \ll R$.  Outside the annulus,
+we set $|\!-e\Phi|\rightarrow\infty$ so that the wavefunction
+vanishes; within the annulus, $\Phi = 0$.  We ignore the
+$z$-dependence of all fields and wavefunctions, so that the problem is
+two-dimensional.
+
+Now, suppose we thread magnetic flux (e.g., using a solenoid) through
+the interior region enclosed by the annulus.  This can be described
+using the vector potential
 \begin{equation}
-  \lambda(\mathbf{r}) = \alpha\, \phi,
+  \mathbf{A}(r,\phi) = \frac{\Phi_B}{2\pi r} \, \hat{e}_\phi.
+  \label{Asolenoid}
 \end{equation}
-where $\phi$ is the azimuthal coordinate in the cylindrical coordinate
-system $(r,\phi,z)$.
+We can easily verify from Eq.~\eqref{Asolenoid} that the magnetic flux
+through any loop of radius $r$ enclosing the origin is $(\Phi_B/2\pi
+r)(2\pi r) = \Phi_B$, independent of $r$.  Hence, $\mathbf{B} = 0$
+everywhere except at the origin, whereas $\mathbf{A}$ is nonzero
+everywhere.
+
+Energy levels:
+\begin{align}
+  E_n &= \frac{1}{2m} \left[
+    \left(\frac{n\hbar}{R} + \frac{e\Phi_B}{2\pi R}\right)^2
+    + \left(\frac{\pi}{d}\right)^2 \right] \\
+  &= \frac{e^2}{8\pi^2mR^2} \left(\Phi_B + \frac{nh}{e} \right)^2
+  + \frac{\pi^2}{2md^2}.
+\end{align}
+
+Energy levels vary continuously with $\Phi_B$.  This is the
+Aharanov-Bohm effect.
+
+Integer magnetic flux quanta bring the spectrum back to itself.
+Change in vector potential can be undone by a gauge transformation.
+
+
+
 
 
 
