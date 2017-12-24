@@ -436,17 +436,17 @@ Dirac's theory is able to describe a range of important electrodynamic
 phenomena.  Most notably, Dirac was able to use his theory to derive
 the magnetic moment of the electron.
 
-As we shall see, however, Dirac's theory contains the seeds of its own
+But as we shall see, Dirac's theory contains the seeds of its own
 destruction, in the form of unphysical ``negative energy'' solutions.
-We now know that these unphysical solutions arise from the fact that a
-consistent theory of \textit{single-particle} relativistic quantum
-mechanics is ultimately impossible.  The right way to marry relativity
-and quantum mechanics is to use the framework of quantum field theory,
-which can describe states with arbitrary numbers of electrons and
-photons.  When the Dirac Hamiltonian is translated into this
-framework, and coupled to a quantized electromagnetic field, the
-resulting theory of quantum electrodynamics (QED) constitutes the most
-fundamental and successful theory of electromagnetism known to us.
+We now know that these problems stem from the fact that a consistent
+theory of \textit{single-particle} relativistic quantum mechanics is
+ultimately impossible.  The right way to marry relativity and quantum
+mechanics is to use the framework of quantum field theory, which can
+describe states with arbitrary numbers of electrons and photons.  When
+the Dirac Hamiltonian is translated into this framework, and coupled
+to a quantized electromagnetic field, the resulting theory of quantum
+electrodynamics (QED) constitutes the most fundamental and successful
+theory of electromagnetism known to date.
 
 To formulate the Dirac Hamiltonian, we start from the time-dependent
 Schr\"odinger equation.  In the wavefunction representation, this has
@@ -457,29 +457,29 @@ the form
 \end{equation}
 Note that the left side has a first-order time derivative.  On the
 right side, the Hamiltonian $\hat{H}$ contains spatial derivatives.
-We know that the time and space derivatives of wavefunctions are
-related to energy and momentum by
+We know that time and space derivatives of wavefunctions are related
+to energy and momentum by
 \begin{equation}
     i\hbar\,\frac{\partial}{\partial t}\; \leftrightarrow \;
     E, \qquad
     -i\hbar\,\frac{\partial}{\partial x_j} \;\leftrightarrow \;
     p.
 \end{equation}
-And we also know that the energy and momentum of a relativistic
-particle are related by
+We also know that the energy and momentum of a relativistic particle
+are related by
 \begin{equation}
-  E^2 = \sum_{j=1}^3 p_j^2c^2 + m^2c^4,
+  E^2 = m^2c^4 + \sum_{j=1}^3 p_j^2c^2,
   \label{Erelativistic}
 \end{equation}
-where $m$ is the rest mass and $c$ is the speed of light.  (We adopt
-the index labels $\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$,
-as is the usual practice in relativity theory.)  Notably, $E$ and $p$
-appear to the same order in Eq.~\eqref{Erelativistic}---unlike the
-non-relativistic kinetic energy $E = p^2/2m$, where $E$ is first-order
-while $p$ is second-order.  Since the left side of the Schr\"odinger
-equation has a first-order time derivative, we expect that a
-relativistic Hamiltonian $\hat{H}$ should contain only first-order
-spatial derivatives (momentum operators).  So we make the guess
+where $m$ is the rest mass and $c$ is the speed of light.  (Following
+the usual practice in relativity theory, we use Roman indices $j \in
+\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$.)  Note that $E$
+and $p$ appear to the same order in Eq.~\eqref{Erelativistic}---unlike
+the non-relativistic kinetic energy $E = p^2/2m$, where $E$ is
+first-order while $p$ is second-order.  Since the left side of the
+Schr\"odinger equation has a first-order time derivative, we expect a
+relativistic Hamiltonian $\hat{H}$ to contain only first-order spatial
+derivatives.  So we make the guess
 \begin{equation}
   \hat{H} = \alpha_0 mc^2 + \sum_{j=1}^3 \alpha_j \hat{p}_j c, \;\;\;
   \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\frac{\partial}{\partial x_j}.
@@ -491,21 +491,19 @@ $mc^2$ and $c$ have been inserted into Eq.~\eqref{Dirac} for later
 convenience.
 
 Now, for a wavefunction with definite momentum $\mathbf{p}$ and energy
-$E$, this gives
+$E$,
 \begin{equation}
   \hat{H}\psi = E \psi \;\;\;\Rightarrow \;\;\;
   \left(\alpha_0mc^2 + \sum_{j=1}^3\alpha_j p_jc\right) \psi = E\,\psi,
 \end{equation}
-where the $\hat{p}_j$ operators have been replaced with definite
-numbers.  If $\psi$ is a scalar wavefunction, this would imply that
-$\alpha_0 mc^2 + \sum_{j}\alpha_j p_j c = E$, which does not match the
-relativistic energy-mass-momentum relation \eqref{Erelativistic}.
-However, we can get it to work if $\psi$ is a multi-component
-wavefunction, and the $\alpha$'s are not ordinary numbers, but
-non-commuting matrices.  In that case, applying the Hamiltonian twice
-gives
+where the $\hat{p}_j$ operators are replaced with definite numbers.
+If $\psi$ is a scalar, this would imply that $\alpha_0 mc^2 +
+\sum_{j}\alpha_j p_j c = E$, which does not match the relativistic
+energy-mass-momentum relation \eqref{Erelativistic}.  However, we can
+get it to work if the $\alpha$'s are matrices rather than ordinary
+numbers.  In that case, applying the Hamiltonian twice gives
 \begin{equation}
-  \left(\hat{\alpha}_0mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^2
+  \left(\hat{\alpha}_0mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^{\!2}\;
   \psi = E^2\,\psi.
 \end{equation}
 This can be satisfied if
@@ -513,16 +511,16 @@ This can be satisfied if
   \left(\hat{\alpha}_0 mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^2
   = E^2\, \hat{I},
 \end{equation}
-where $\hat{I}$ is the identity matrix.  Multiplying out the squared
-term on the left side gives (and taking care of the fact that the
-$\hat{\alpha}_\mu$ matrices need not commute) yields
+where $\hat{I}$ is the identity matrix.  Expanding the square (and
+taking care of the fact that the $\hat{\alpha}_\mu$ matrices need not
+commute) yields
 \begin{equation}
   \hat{\alpha}_0^2 m^2c^4
   + \sum_j \left(\hat{\alpha}_0 \hat{\alpha}_j + \hat{\alpha}_j \hat{\alpha}_0\right) mc^3 p_j
   + \sum_{jj'} \left(\hat{\alpha}_j \hat{\alpha}_{j'} + \hat{\alpha}_{j'} \hat{\alpha}_j\right) p_j p_{j'} = E^2\hat{I}.
 \end{equation}
-This reduces to the relativistic energy-mass-momentum relation
-\eqref{Erelativistic} if the $\hat{\alpha}_\mu$ matrices satisfy
+This reduces to Eq.~\eqref{Erelativistic} if the $\hat{\alpha}_\mu$
+matrices satisfy
 \begin{align}
   \begin{aligned}
     \hat{\alpha}_\mu^2 &= \hat{I} \;\;\; \textrm{for} \;\;\mu=0,1,2,3,
@@ -532,33 +530,58 @@ This reduces to the relativistic energy-mass-momentum relation
     \;\;\; \textrm{for} \;\;\mu \ne \nu.
   \end{aligned}
 \end{align}
-(Here, we adopt the convention from relativity theory of using Greek
-symbols to label indices ranging over $\{0,1,2,3\}$, and Latin symbols
-for indices ranging over $\{1,2,3\}$.)  The above relations can be
-written more concisely as
+(Here, we adopt the usual relativistic convention of using Greek
+symbols to label indices ranging over $\{0,1,2,3\}$.)  The above can
+be written more concisely using the anticommutator notation,
+$\{\hat{A},\hat{B}\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}$:
 \begin{equation}
   \{\hat{\alpha}_\mu, \hat{\alpha}_\nu\} = 2\delta_{\mu\nu},
-  \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3.
+  \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3,
   \label{Dirac_anticomm}
 \end{equation}
-Here, $\{\cdots,\cdots\}$ denotes the anticommutator,
-$\{\hat{A},\hat{B}\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}$.
+Also, we need the $\hat{\alpha}_\mu$ matrices to be Hermitian, so that
+$\hat{H}$ is Hermitian.
 
-It turns out that the simplest set of four matrices that can satisfy
-Eq.~\eqref{Dirac_anticomm} are $4\times4$ matrices.  This implies that
-the wavefunction $\psi(\mathbf{r})$ is not a complex scalar field, but
-a complex four-component field.  We have previously seen two-component
-wavefunctions used to describe non-relativistic particles with a
-spin-$1/2$ degree of freedom, with the two components being used
-represent ``spin-up'' and ``spin-down'' quantum amplitudes.  It is
-natural to guess that the four components of Dirac's wavefunctions are
-(at least partly) related to spin.  This suggests that in relativistic
-quantum mechanics, spin has to be incorporated into the theory at a
-fundamental level, rather than being an ``optional'' component like in
-non-relativistic quantum mechanics.
+It turns out that the smallest possible Hermitian matrices that can
+satisfy Eq.~\eqref{Dirac_anticomm} are $4\times4$ matrices.  Thus,
+$\psi(\mathbf{r})$ cannot be a scalar field; it must have four
+components.
 
-There is no unique choice for matrices satisfying
-Eq.~\eqref{Dirac_anticomm}.  A typical choice is
+What might these four components represent?  First of all, note that
+Eq.~\eqref{Erelativistic} only gives $E$ up to a $\pm$ sign:
+\begin{equation}
+  E = \pm \sqrt{m^2c^4 + \sum_{j} p_j^2c^2}.
+\end{equation}
+As shown in the figure below, the energy spectrum forms two ``bands'';
+for any given momentum $\mathbf{p}$, there is a positive value of $E$,
+and a negative value.  This implies that there has to be an even
+number of wavefunction components: one set describing quantum
+amplitudes corresponding to the upper band, and the other set
+describing quantum amplitudes corresponding to the lower band.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.3\textwidth]{diraccone}
+\end{figure}
+
+Within each band, there is another two-fold degree of freedom; this
+turns out to come from the particle's spin.  We are already familiar
+with the fact that two-component wavefunctions can be used to describe
+the spin-$1/2$ degree of freedom for non-relativistic particles; the
+components can represent, for instance, the quantum amplitudes for
+``spin up'' and ``spin down'' ($+z$ and $-z$), or whatever choice of
+spin basis we choose to adopt.  It is highly noteworthy that we did
+not set out to include spin in the theory, yet it has popped up,
+seemingly unavoidably, in the process of satisfying the relativistic
+energy-mass-momentum relation.  This is a hint that relativistic
+quantum mechanics is much more theoretically ``rigid'' than
+non-relativistic quantum mechanics.  Features such as spin are not
+optional parts of the theory, but need to be included at a fundamental
+level.
+
+There is no unique way to specify the $\hat{\alpha}_\mu$ matrices.
+Different choices correspond to different wavefunction
+representations, similar to the choice of spin basis in the familiar
+two-component non-relativistic theory.  A typical choice is
 \begin{align}
   \begin{aligned}
     \hat{\alpha}_0 &= \begin{bmatrix}
@@ -576,14 +599,21 @@ Eq.~\eqref{Dirac_anticomm}.  A typical choice is
   \end{aligned}
 \end{align}
 where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
-denote the usual Pauli matrices.  Different choices for the
-$\hat{\alpha}_\mu$ matrices correspond to different choices of
-wavefunction representation.  This is similar to how, in the
-non-relativistic spin-$1/2$ case, we can choose the two wavefunction
-components to represent the spin amplitudes for the $+z$ and $-z$
-basis, or the $+x$ and $-x$ basis, or any other basis.
+denote the usual Pauli matrices.  
 
-Dirac cone
+These matrices are nice and simple to remember, but be careful when
+using them!  Contrary to the simple description given above (``two
+bands, with two-fold spin in each band''), the wavefunction components
+in this representation are actually \textit{not} neatly divided into
+``upper band'' and ``lower band'' components.  The band degree of
+freedom and the spin degree of freedom are scrambled together, such
+that even if a state is, say, entirely in the upper band with a
+definite spin, all four wavefunction components are typically nonzero.
+(See \hyperref[cite:foldy]{Foldy and Wouthuysen (1949)} for a cunning
+and non-trivial way around this problem.)
+
+
+
 
 Coordinate transformations
 
@@ -622,6 +652,11 @@ language.  Renormalization.
 \item A.~Zee, \textit{Quantum Field Theory in a Nutshell} (Princeton
   University Press, 2010).
 \label{cite:zee}
+
+\item L.~L.~Foldy and S.~A.~Wouthuysen, \textit{On the Dirac Theory of
+  Spin $1/2$ Particles and Its Non-Relativistic Limit}, Physical
+  Review \textbf{78}, 29 (1950).
+\label{cite:foldy}
 \end{enumerate}
 
 \end{document}
