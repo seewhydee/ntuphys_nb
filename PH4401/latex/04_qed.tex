@@ -463,7 +463,7 @@ to energy and momentum by
     i\hbar\,\frac{\partial}{\partial t}\; \leftrightarrow \;
     E, \qquad
     -i\hbar\,\frac{\partial}{\partial x_j} \;\leftrightarrow \;
-    p.
+    p_j.
 \end{equation}
 We also know that the energy and momentum of a relativistic particle
 are related by
@@ -543,45 +543,8 @@ Also, we need the $\hat{\alpha}_\mu$ matrices to be Hermitian, so that
 $\hat{H}$ is Hermitian.
 
 It turns out that the smallest possible Hermitian matrices that can
-satisfy Eq.~\eqref{Dirac_anticomm} are $4\times4$ matrices.  Thus,
-$\psi(\mathbf{r})$ cannot be a scalar field; it must have four
-components.
-
-What might these four components represent?  First of all, note that
-Eq.~\eqref{Erelativistic} only gives $E$ up to a $\pm$ sign:
-\begin{equation}
-  E = \pm \sqrt{m^2c^4 + \sum_{j} p_j^2c^2}.
-\end{equation}
-As shown in the figure below, the energy spectrum forms two ``bands'';
-for any given momentum $\mathbf{p}$, there is a positive value of $E$,
-and a negative value.  This implies that there has to be an even
-number of wavefunction components: one set describing quantum
-amplitudes corresponding to the upper band, and the other set
-describing quantum amplitudes corresponding to the lower band.
-
-\begin{figure}[h]
-  \centering\includegraphics[width=0.3\textwidth]{diraccone}
-\end{figure}
-
-Within each band, there is another two-fold degree of freedom; this
-turns out to come from the particle's spin.  We are already familiar
-with the fact that two-component wavefunctions can be used to describe
-the spin-$1/2$ degree of freedom for non-relativistic particles; the
-components can represent, for instance, the quantum amplitudes for
-``spin up'' and ``spin down'' ($+z$ and $-z$), or whatever choice of
-spin basis we choose to adopt.  It is highly noteworthy that we did
-not set out to include spin in the theory, yet it has popped up,
-seemingly unavoidably, in the process of satisfying the relativistic
-energy-mass-momentum relation.  This is a hint that relativistic
-quantum mechanics is much more theoretically ``rigid'' than
-non-relativistic quantum mechanics.  Features such as spin are not
-optional parts of the theory, but need to be included at a fundamental
-level.
-
-There is no unique way to specify the $\hat{\alpha}_\mu$ matrices.
-Different choices correspond to different wavefunction
-representations, similar to the choice of spin basis in the familiar
-two-component non-relativistic theory.  A typical choice is
+satisfy Eq.~\eqref{Dirac_anticomm} are $4\times4$ matrices.  The
+choice of matrices is not uniquely determined; a commonly used set is
 \begin{align}
   \begin{aligned}
     \hat{\alpha}_0 &= \begin{bmatrix}
@@ -597,22 +560,67 @@ two-component non-relativistic theory.  A typical choice is
       \hat{0} & \hat{\sigma}_3 \\ \hat{\sigma}_3 & \hat{0}
     \end{bmatrix},
   \end{aligned}
+  \label{alpha_matrices}
 \end{align}
 where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
-denote the usual Pauli matrices.  
+denote the usual Pauli matrices.  It follows also that
+$\psi(\mathbf{r})$ cannot be a scalar field, but must be a
+four-component field.
 
-These matrices are nice and simple to remember, but be careful when
-using them!  Contrary to the simple description given above (``two
-bands, with two-fold spin in each band''), the wavefunction components
-in this representation are actually \textit{not} neatly divided into
-``upper band'' and ``lower band'' components.  The band degree of
-freedom and the spin degree of freedom are scrambled together, such
-that even if a state is, say, entirely in the upper band with a
-definite spin, all four wavefunction components are typically nonzero.
-(See \hyperref[cite:foldy]{Foldy and Wouthuysen (1949)} for a cunning
-and non-trivial way around this problem.)
+What might the four components of the wavefunction represent?  First
+of all, note that Eq.~\eqref{Erelativistic} only gives $E$ up to a
+$\pm$ sign:
+\begin{equation}
+  E = \pm \sqrt{m^2c^4 + \sum_{j} p_j^2c^2}.
+\end{equation}
+As shown in the figure below, the energy spectrum forms two ``bands'';
+for any given momentum $\mathbf{p}$, there is a positive value of $E$,
+and a negative value.  Putting aside the question of what these
+negative-energy states mean for now, the existence of two bands
+implies that there must be an even number of wavefunction components:
+one set for the quantum amplitudes of the upper band, and the other
+for the lower band.
 
+\begin{figure}[h]
+  \centering\includegraphics[width=0.3\textwidth]{diraccone}
+\end{figure}
 
+Within each band, there is another two-fold degree of freedom, which
+turns out to describe the particle's spin; thus, the total number of
+degrees of freedom is $2\times2 = 4$.  We are already familiar with
+the use of two-component wavefunctions to describe spin-$1/2$
+non-relativistic particles; the components can represent, for
+instance, the quantum amplitudes for ``spin up'' and ``spin down''
+($+z$ and $-z$), or whatever choice of spin basis we want.  It is
+highly noteworthy that we did not set out to include spin in the
+theory; yet it has popped up, seemingly unavoidably, in the process of
+satisfying the relativistic energy-mass-momentum relation.  This is an
+example of the more general fact that relativistic quantum mechanics
+is more ``theoretically rigid'' than non-relativistic quantum
+mechanics.  Features such as spin are not optional parts of the
+theory, but need to be included at a fundamental level.
+
+Different choices of the $\hat{\alpha}_\mu$ matrices correspond to
+different wavefunction representations, similar to the choice of
+spin-$1/2$ basis in the non-relativistic theory.  Be warned, however!
+Even for $\hat{\alpha}_\mu$ matrices that appear neat and simple, like
+those in Eq.~\eqref{alpha_matrices}, the wavefunction components do
+not have simple interpretations.  Contrary to the simple description
+given above (``two bands, with two-fold spin in each band''), the
+wavefunction components are generally \textit{not} neatly divided into
+``upper band'' and ``lower band'' components.  Instead, the band and
+spin degrees of freedom are mixed together; even if a state is, say,
+entirely in the upper band with a definite spin, all of its four
+wavefunction components may be nonzero.  (See
+\hyperref[cite:foldy]{Foldy and Wouthuysen (1949)} for an interesting
+way around this problem.)
+
+There is a great deal more to say about the structure and
+interpretation of the Dirac Hamiltonian and its wavefunctions,
+particularly regarding their behavior under rotations and Lorentzian
+transformations.  For these and other important topics, the reader is
+referred to more detailed works, such as \hyperref[cite:dyson]{Dyson
+  (1951)}.
 
 
 Coordinate transformations
@@ -655,8 +663,12 @@ language.  Renormalization.
 
 \item L.~L.~Foldy and S.~A.~Wouthuysen, \textit{On the Dirac Theory of
   Spin $1/2$ Particles and Its Non-Relativistic Limit}, Physical
-  Review \textbf{78}, 29 (1950).
+  Review \textbf{78}, 29 (1950). [\href{https://journals.aps.org/pr/abstract/10.1103/PhysRev.78.29}{link}]
 \label{cite:foldy}
+
+\item F.~J.~Dyson, \textit{1951 Lectures on Advanced Quantum Mechanics
+  Second Edition}, arxiv:quant-ph/0608140. [\href{https://arxiv.org/abs/quant-ph/0608140}{link}]
+\label{cite:dyson}
 \end{enumerate}
 
 \end{document}
