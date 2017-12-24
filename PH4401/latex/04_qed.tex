@@ -39,13 +39,13 @@ accomodated into the framework of quantum mechanics.
 Quantum electrodynamics is a rich and intricate theory, and we will
 not be able to cover many important topics, such as diagrammatic
 methods for performing field theoretical calculations.  If you are
-interested in this topic, a good introductory textbook is Zee's
-\textit{Quantum Field Theory in a Nutshell} (\hyperref[cite:zee]{Zee
-  2010}).
+interested, a good introductory textbook is Zee's \textit{Quantum
+  Field Theory in a Nutshell} (\hyperref[cite:zee]{Zee 2010}).
 
 \section{Particles in a classical electromagnetic field}
 
 \subsection{Non-relativistic spinless particles}
+\label{sec:nonrel}
 
 Consider a non-relativistic charged particle in an electromagnetic
 field.  As we are mainly interested in the physics of electrons
@@ -423,11 +423,171 @@ Note that this gauge field is not single-valued, but it's not a
 problem since both $\nabla\lambda$ and the phase factor
 $\exp(ie\lambda/\hbar)$ remain single-valued.
 
-\subsection{Non-relativistic electrons: the Pauli Hamiltonian}
+\subsection{The Dirac equation}
 
+The $p^2/2m$-type Hamiltonians we have been dealing with describe
+non-relativistic particles.  In 1928, Paul Dirac formulated a new type
+of Hamiltonian that can be used to describe particles moving close to
+the speed of light.  Dirac's theory was the first to successfully
+combine quantum mechanics with the special theory of relativity.
+Moreover, when electromagnetic scalar and vector potentials are
+introduced (using the methods discussed in Sec.~\ref{sec:nonrel}),
+Dirac's theory is able to describe a range of important electrodynamic
+phenomena.  Most notably, Dirac was able to use his theory to derive
+the magnetic moment of the electron.
 
-\subsection{Relativistic electrons: the Dirac Hamiltonian}
+As we shall see, however, Dirac's theory contains the seeds of its own
+destruction, in the form of unphysical ``negative energy'' solutions.
+We now know that these unphysical solutions arise from the fact that a
+consistent theory of \textit{single-particle} relativistic quantum
+mechanics is ultimately impossible.  The right way to marry relativity
+and quantum mechanics is to use the framework of quantum field theory,
+which can describe states with arbitrary numbers of electrons and
+photons.  When the Dirac Hamiltonian is translated into this
+framework, and coupled to a quantized electromagnetic field, the
+resulting theory of quantum electrodynamics (QED) constitutes the most
+fundamental and successful theory of electromagnetism known to us.
 
+To formulate the Dirac Hamiltonian, we start from the time-dependent
+Schr\"odinger equation.  In the wavefunction representation, this has
+the form
+\begin{equation}
+  i\hbar \frac{\partial}{\partial t} \psi(\mathbf{r},t)
+  = \hat{H} \psi(\mathbf{r},t).
+\end{equation}
+Note that the left side has a first-order time derivative.  On the
+right side, the Hamiltonian $\hat{H}$ contains spatial derivatives.
+We know that the time and space derivatives of wavefunctions are
+related to energy and momentum by
+\begin{equation}
+    i\hbar\,\frac{\partial}{\partial t}\; \leftrightarrow \;
+    E, \qquad
+    -i\hbar\,\frac{\partial}{\partial x_j} \;\leftrightarrow \;
+    p.
+\end{equation}
+And we also know that the energy and momentum of a relativistic
+particle are related by
+\begin{equation}
+  E^2 = \sum_{j=1}^3 p_j^2c^2 + m^2c^4,
+  \label{Erelativistic}
+\end{equation}
+where $m$ is the rest mass and $c$ is the speed of light.  (We adopt
+the index labels $\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$,
+as is the usual practice in relativity theory.)  Notably, $E$ and $p$
+appear to the same order in Eq.~\eqref{Erelativistic}---unlike the
+non-relativistic kinetic energy $E = p^2/2m$, where $E$ is first-order
+while $p$ is second-order.  Since the left side of the Schr\"odinger
+equation has a first-order time derivative, we expect that a
+relativistic Hamiltonian $\hat{H}$ should contain only first-order
+spatial derivatives (momentum operators).  So we make the guess
+\begin{equation}
+  \hat{H} = \alpha_0 mc^2 + \sum_{j=1}^3 \alpha_j \hat{p}_j c, \;\;\;
+  \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\frac{\partial}{\partial x_j}.
+  \label{Dirac}
+\end{equation}
+We will need to figure out the ``coefficients'' $\alpha_0$,
+$\alpha_1$, $\alpha_2$, and $\alpha_3$.  The extra coefficients of
+$mc^2$ and $c$ have been inserted into Eq.~\eqref{Dirac} for later
+convenience.
+
+Now, for a wavefunction with definite momentum $\mathbf{p}$ and energy
+$E$, this gives
+\begin{equation}
+  \hat{H}\psi = E \psi \;\;\;\Rightarrow \;\;\;
+  \left(\alpha_0mc^2 + \sum_{j=1}^3\alpha_j p_jc\right) \psi = E\,\psi,
+\end{equation}
+where the $\hat{p}_j$ operators have been replaced with definite
+numbers.  If $\psi$ is a scalar wavefunction, this would imply that
+$\alpha_0 mc^2 + \sum_{j}\alpha_j p_j c = E$, which does not match the
+relativistic energy-mass-momentum relation \eqref{Erelativistic}.
+However, we can get it to work if $\psi$ is a multi-component
+wavefunction, and the $\alpha$'s are not ordinary numbers, but
+non-commuting matrices.  In that case, applying the Hamiltonian twice
+gives
+\begin{equation}
+  \left(\hat{\alpha}_0mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^2
+  \psi = E^2\,\psi.
+\end{equation}
+This can be satisfied if
+\begin{equation}
+  \left(\hat{\alpha}_0 mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^2
+  = E^2\, \hat{I},
+\end{equation}
+where $\hat{I}$ is the identity matrix.  Multiplying out the squared
+term on the left side gives (and taking care of the fact that the
+$\hat{\alpha}_\mu$ matrices need not commute) yields
+\begin{equation}
+  \hat{\alpha}_0^2 m^2c^4
+  + \sum_j \left(\hat{\alpha}_0 \hat{\alpha}_j + \hat{\alpha}_j \hat{\alpha}_0\right) mc^3 p_j
+  + \sum_{jj'} \left(\hat{\alpha}_j \hat{\alpha}_{j'} + \hat{\alpha}_{j'} \hat{\alpha}_j\right) p_j p_{j'} = E^2\hat{I}.
+\end{equation}
+This reduces to the relativistic energy-mass-momentum relation
+\eqref{Erelativistic} if the $\hat{\alpha}_\mu$ matrices satisfy
+\begin{align}
+  \begin{aligned}
+    \hat{\alpha}_\mu^2 &= \hat{I} \;\;\; \textrm{for} \;\;\mu=0,1,2,3,
+    \;\;\textrm{and} \\
+    \hat{\alpha}_\mu \hat{\alpha}_\nu
+    + \hat{\alpha}_\nu \hat{\alpha}_\mu &= 0
+    \;\;\; \textrm{for} \;\;\mu \ne \nu.
+  \end{aligned}
+\end{align}
+(Here, we adopt the convention from relativity theory of using Greek
+symbols to label indices ranging over $\{0,1,2,3\}$, and Latin symbols
+for indices ranging over $\{1,2,3\}$.)  The above relations can be
+written more concisely as
+\begin{equation}
+  \{\hat{\alpha}_\mu, \hat{\alpha}_\nu\} = 2\delta_{\mu\nu},
+  \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3.
+  \label{Dirac_anticomm}
+\end{equation}
+Here, $\{\cdots,\cdots\}$ denotes the anticommutator,
+$\{\hat{A},\hat{B}\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}$.
+
+It turns out that the simplest set of four matrices that can satisfy
+Eq.~\eqref{Dirac_anticomm} are $4\times4$ matrices.  This implies that
+the wavefunction $\psi(\mathbf{r})$ is not a complex scalar field, but
+a complex four-component field.  We have previously seen two-component
+wavefunctions used to describe non-relativistic particles with a
+spin-$1/2$ degree of freedom, with the two components being used
+represent ``spin-up'' and ``spin-down'' quantum amplitudes.  It is
+natural to guess that the four components of Dirac's wavefunctions are
+(at least partly) related to spin.  This suggests that in relativistic
+quantum mechanics, spin has to be incorporated into the theory at a
+fundamental level, rather than being an ``optional'' component like in
+non-relativistic quantum mechanics.
+
+There is no unique choice for matrices satisfying
+Eq.~\eqref{Dirac_anticomm}.  A typical choice is
+\begin{align}
+  \begin{aligned}
+    \hat{\alpha}_0 &= \begin{bmatrix}
+      \hat{I}\, & \hat{0} \\ \hat{0} & -\hat{I}
+    \end{bmatrix}, \;\;\;
+    \hat{\alpha}_1 = \begin{bmatrix}
+      \hat{0} & \hat{\sigma}_1 \\ \hat{\sigma}_1 & \hat{0}
+    \end{bmatrix} \\
+    \hat{\alpha}_2 &= \begin{bmatrix}
+      \hat{0} & \hat{\sigma}_2 \\ \hat{\sigma}_2 & \hat{0}
+    \end{bmatrix}, \;\;\;
+    \hat{\alpha}_3 = \begin{bmatrix}
+      \hat{0} & \hat{\sigma}_3 \\ \hat{\sigma}_3 & \hat{0}
+    \end{bmatrix},
+  \end{aligned}
+\end{align}
+where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
+denote the usual Pauli matrices.  Different choices for the
+$\hat{\alpha}_\mu$ matrices correspond to different choices of
+wavefunction representation.  This is similar to how, in the
+non-relativistic spin-$1/2$ case, we can choose the two wavefunction
+components to represent the spin amplitudes for the $+z$ and $-z$
+basis, or the $+x$ and $-x$ basis, or any other basis.
+
+Dirac cone
+
+Coordinate transformations
+
+Coupling to electromagnetism; electronic magnetic moment.
 
 \section{Quantizing the electromagnetic field}
 
