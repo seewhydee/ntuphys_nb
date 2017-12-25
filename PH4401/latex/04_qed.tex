@@ -24,17 +24,17 @@
 {\Large \textbf{Chapter 4: Quantum Electrodynamics}}
 \end{center}
 
-This chapter describes \textbf{quantum electrodynamics}, the quantum
-theory of the electromagnetic field and how it interacts with charged
-particles such as electrons.  We start by formulating Hamiltonians
-that describe how a quantum mechanical electron is affected by
-classical electric and magnetic fields.  Next, we describe the
+This chapter provides a survey of \textbf{quantum electrodynamics},
+the quantum theory of the electromagnetic field and its interaction
+with charged particles such as electrons.  We start by formulating
+Hamiltonians to describe how a quantum mechanical electron is affected
+by classical electric and magnetic fields.  Next, we describe the
 quantization of Maxwell's equations, which yields a quantum field
 theory in which the elementary excitations are photons---particles of
-light.  Finally, we can formulate a theory in which both electrons and
-photons are treated on the same footing, as excitations of underlying
-quantum fields.  Along the way, we will see how relativity is
-accomodated into the framework of quantum mechanics.
+light.  The last step is to formulate a theory in which both electrons
+and photons are treated on the same footing, as excitations of
+underlying quantum fields.  Along the way, we will see how relativity
+can be accomodated within quantum mechanics.
 
 Quantum electrodynamics is a rich and intricate theory, and we will
 not be able to cover a lot of important ground, such as diagrammatic
@@ -46,7 +46,7 @@ reading, I recommend Dyson's 1951 lecture notes
 
 \section{Particles in a classical electromagnetic field}
 
-\subsection{Non-relativistic spinless particles}
+\subsection{Non-relativistic spinless particles in an electromagnetic field}
 \label{sec:nonrel}
 
 Consider a non-relativistic charged particle in an electromagnetic
@@ -455,7 +455,7 @@ To formulate the Dirac Hamiltonian, we start from the time-dependent
 Schr\"odinger equation.  In the wavefunction representation, this has
 the form
 \begin{equation}
-  i\hbar \frac{\partial}{\partial t} \psi(\mathbf{r},t)
+  i\hbar\, \partial_t\, \psi(\mathbf{r},t)
   = \hat{H} \psi(\mathbf{r},t).
 \end{equation}
 Note that the left side has a first-order time derivative.  On the
@@ -463,9 +463,9 @@ right side, the Hamiltonian $\hat{H}$ contains spatial derivatives.
 We know that time and space derivatives of wavefunctions are related
 to energy and momentum by
 \begin{equation}
-    i\hbar\,\frac{\partial}{\partial t}\; \leftrightarrow \;
+    i\hbar\, \partial_t\; \leftrightarrow \;
     E, \qquad
-    -i\hbar\,\frac{\partial}{\partial x_j} \;\leftrightarrow \;
+    -i\hbar\, \partial_j \;\leftrightarrow \;
     p_j.
 \end{equation}
 We also know that the energy and momentum of a relativistic particle
@@ -505,7 +505,7 @@ If $\psi$ is a scalar, this would imply that $\alpha_0 mc^2 +
 energy-mass-momentum relation \eqref{Erelativistic}.  However, we can
 get it to work if the $\alpha$'s are matrices rather than numbers:
 \begin{equation}
-\boxed{\qquad \hat{H} = \hat{\alpha}_0 mc^2 + \sum_{j=1}^3 \hat{\alpha}_j \hat{p}_j c, \;\; \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\frac{\partial}{\partial x_j}.\qquad}
+\boxed{\qquad \hat{H} = \hat{\alpha}_0 mc^2 + \sum_{j=1}^3 \hat{\alpha}_j \hat{p}_j c, \;\; \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\, \partial_j.\qquad}
 \label{Dirac}
 \end{equation}
 In that case, applying the Hamiltonian twice gives
@@ -611,44 +611,153 @@ level.
 
 Different choices of the $\hat{\alpha}_\mu$ matrices correspond to
 different wavefunction representations, similar to the choice of
-spin-$1/2$ basis in the non-relativistic theory.  Be warned, however!
-Contrary to the above hand-waving description (``two bands, with
-two-fold spin in each band''), the components of the Dirac
-wavefunction are generally \textit{not} neatly grouped into ``upper
-band'' and ``lower band'' components---even for a seemingly-simple
-choice of $\hat{\alpha}_\mu$ matrices like Eq.~\eqref{alpha_matrices}.
-For a detailed discussion about the structure and interpretation of
-the Dirac Hamiltonian and its wavefunction (including the important
-issue of how they behave under rotations and Lorentzian
-transformations), refer to \hyperref[cite:dyson]{Dyson (1951)}.
+spin-$1/2$ basis in the non-relativistic theory.  The matrices in
+Eq.~\eqref{alpha_matrices} are designed so that they reduce to the
+non-relativistic limit in a nice way.  Upon plugging them into
+Eq.~\eqref{Dirac}, we find that for an eigenstate with energy $E$ and
+momentum $\mathbf{p}$,
+\begin{align}
+  \psi = \begin{bmatrix}\psi_A \\ \psi_B
+  \end{bmatrix}, \;\;\;\mathrm{where}\;\;\; \left\{
+  \begin{aligned}
+    \psi_A &= \frac{1}{E - mc^2} \sum_j \hat{\sigma}_j p_j \psi_B, \\
+    \psi_B &= \frac{1}{E + mc^2} \sum_j \hat{\sigma}_j p_j \psi_A.
+  \end{aligned}\right.
+  \label{dirac_nonrelativistic}
+\end{align}
+Hence, in the non-relativistic limit, for the upper band ($E \gtrsim
+mc^2$) the wavefunction is dominated by the two upper components
+($|\psi_B| \rightarrow 0$); and for the lower band ($E \lesssim
+-mc^2$) the wavefunction is dominated by the two lower components
+($|\psi_A| \rightarrow 0$).  The two non-negligible wavefunction
+components for each band then describe the spin-$1/2$ degree of
+freedom.  (However, please note that this clean grouping into ``upper
+band'' and ``lower band'' components only works in the
+non-relativistic limit!  In the relativistic case, upper band states
+acquire non-vanishing values in the lower two wavefunction components,
+and vice versa.)
 
-\subsection{Relativistic electrons in an electromagnetic field}
+There is much more to be said about the structure and interpretation
+of the Dirac Hamiltonian and its wavefunction, especially the
+important issue of how they behave under rotations and Lorentzian
+transformations.  For these details, the reader is referred to
+\hyperref[cite:dyson]{Dyson (1951)}.
 
-Having obtained a Hamiltonian that describes the dynamics of a
-relativistic electron, we are naturally interested in putting the
-electron in an electromagnetic field.  The non-relativistic theory
-from Section~\ref{sec:nonrel} provides a natural guess for how to do
-this.  There, we simply add $-e\Phi(\mathbf{r},t)$ as a scalar
-potential function, and insert the vector potential via the
-substitution
+\subsection{Electrons in an electromagnetic field}
+
+Having obtained a Hamiltonian that describes the relativistic dynamics
+of a electron, we are naturally interested in putting the electron in
+an electromagnetic field.  The non-relativistic theory from
+Section~\ref{sec:nonrel} allows us to guess how to do this.  There, we
+simply added $-e\Phi(\mathbf{r},t)$ as a scalar potential function,
+and inserted the vector potential via the substitution
 \begin{equation}
   \hat{\mathbf{p}} \rightarrow \hat{\mathbf{p}}
   + e\mathbf{A}(\hat{\mathbf{r}},t).  
 \end{equation}
-If we apply this procedure to the Dirac Hamiltonian (\ref{Dirac}), the
-result is
+If we apply the same procedure to the Dirac Hamiltonian (\ref{Dirac}),
+the result is
 \begin{equation}
-  \hat{H} = \hat{\alpha}_0 mc^2 -e\Phi(\mathbf{r},t)
-  + \sum_{j=1}^3 \hat{\alpha}_j \left[-i\hbar\frac{\partial}{\partial x_j}
-    +eA_j(\mathbf{r},t) \right] c.
+  i\hbar \, \partial_t \psi
+  = \left\{\hat{\alpha}_0 mc^2 -e\Phi(\mathbf{r},t)
+  + \sum_{j} \hat{\alpha}_j \Big[-i\hbar\,\partial_j
+    +eA_j(\mathbf{r},t) \Big] c\right\}\psi(\mathbf{r},t).
+\end{equation}
+Using the $\hat{\alpha}_\mu$ matrices from Eq.~\eqref{alpha_matrices},
+this reduces to a pair of two-component equations:
+\begin{align}
+  i\hbar\, \partial_t \, \psi_A
+  &= \big(+mc^2 -e\Phi \big)\,
+  \psi_A
+  \,+\, \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
+    +eA_j \big) \,c\;\psi_B \label{Dirac2a} \\
+  i\hbar\, \partial_t \, \psi_B
+  &= \big(- mc^2 -e\Phi\big)\,
+  \psi_B \,+\, \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
+    +eA_j \big)\, c\;\psi_A, \label{Dirac2b}
+\end{align}
+where $\psi_A(\mathrm{r},t)$ and $\psi_B(\mathrm{r},t)$ are upper and
+lower wavefunction components, like in
+Eq.~\eqref{dirac_nonrelativistic}.
+
+An extremely important result is obtained by taking the
+non-relativistic limit of the above equations.  In this limit, we look
+for solutions in the ``slowly-varying envelope approximation''
+\begin{equation}
+  \psi_{A/B}(\mathbf{r},t) = \Psi_{A/B}(\mathbf{r},t)\,
+  \exp\left[-i\left(\frac{mc^2}{\hbar}\right)t\right].
+\end{equation}
+The exponential on the right side is the $\exp(-i\omega t)$ factor
+corresponding to the rest energy $mc^2$, which is the dominant
+contribution to the electron's energy in the non-relativistic limit.
+The two-component ``envelope'' functions $\Psi_A$ and $\Psi_B$ vary
+slowly in $t$ compared to the exponential factor.  Note that by
+putting $mc^2$ rather than $-mc^2$ in the exponential factor, we are
+explicitly looking for positive-energy solutions.
+
+Plugging this ansatz into Eqs.~\eqref{Dirac2a}--\eqref{Dirac2b} gives
+\begin{align}
+  i\hbar\, \partial_t \, \Psi_A
+  &= -e\Phi\; \Psi_A
+  \,+\, \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
+    +eA_j \big) c\;\Psi_B \label{Dirac3a} \\
+  \big(i\hbar\, \partial_t \, + 2mc^2 + e\Phi\big)
+  \Psi_B
+  &= \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
+    +eA_j \big) c\;\Psi_A. \label{Dirac3b}
+\end{align}
+On the left side of Eq.~\eqref{Dirac3b}, the $2mc^2$ term dominates
+over the other two, so
+\begin{equation}
+  \Psi_B \;\approx\; \frac{1}{2mc}\, \sum_{j}
+  \hat{\sigma}_j \big(-i\hbar\partial_j +eA_j \big) \;\Psi_A.
+\end{equation}
+Plugging this into Eq.~\eqref{Dirac3a} yields
+\begin{equation}
+  i\hbar\, \partial_t \, \Psi_A
+  = \left\{-e\Phi \,+\, \frac{1}{2m} \sum_{jk} \hat{\sigma}_j \hat{\sigma}_k
+  \big(-i\hbar\partial_j +eA_j \big)
+  \big(-i\hbar\partial_k +eA_k \big) \right\}\;\Psi_A.
+\end{equation}
+Using the identity $\hat{\sigma}_j\hat{\sigma}_k = \delta_{jk}\hat{I}
++ i \sum_i \varepsilon_{ijk}\sigma_i$:
+\begin{align}
+  \begin{aligned}
+  i\hbar\, \partial_t \, \Psi_A
+  &= \Bigg\{-e\Phi
+  \,+\, \frac{1}{2m} \big|-i\hbar\nabla +e\mathbf{A} \big|^2 \\
+  &\qquad+\, \frac{i}{2m} \sum_{ijk} \varepsilon_{ijk} \hat{\sigma}_i
+  \big(-i\hbar\partial_j +eA_j \big)
+  \big(-i\hbar\partial_k +eA_k \big)
+  \Bigg\} \Psi_A.
+  \end{aligned}
+\end{align}
+Look carefully at the last term in the curly brackets.  Expanding the
+square yields
+\begin{equation*}
+  \frac{i}{2m}\sum_{ijk}\varepsilon_{ijk}\hat{\sigma}_i
+  \Big(-\partial_j\partial_k -i\hbar e \partial_jA_k
+  - i\hbar e \big[A_k\partial_j + A_j\partial_k \big]
+  + e^2A_jA_k \Big).
+\end{equation*}
+Due to the $\varepsilon_{ijk}$, all terms that are symmetric under $j$
+and $k$ will cancel out after the sums are carried out.  The only
+surviving term is the second one, which yields
+\begin{equation}
+  \frac{\hbar e}{2m}\sum_{ijk}\varepsilon_{ijk}\hat{\sigma}_i
+  \partial_jA_k = \frac{\hbar e}{2m} \hat{\boldsymbol{\sigma}}
+  \,\cdot\, \mathbf{B}(\mathbf{r},t),
+\end{equation}
+where $\mathbf{B} = \nabla\times\mathbf{A}$ is the magnetic field.
+Hence,
+\begin{equation}
+  i\hbar\, \partial_t \, \Psi_A
+  = \left\{-e\Phi
+  \,+\, \frac{1}{2m} \big|-i\hbar\nabla +e\mathbf{A} \big|^2
+  \,-\, \left(-\frac{\hbar e}{2m}\, \hat{\boldsymbol{\sigma}}\right)
+  \,\cdot\, \mathbf{B} \right\} \Psi_A.
 \end{equation}
 
-
-
-
-
-
-Radiation
 
 
 \section{Quantizing the electromagnetic field}
