@@ -16,7 +16,7 @@
 \def\braket#1{\left\langle#1\right\rangle}
 
 \fancyhf{}
-\lhead{NTU/SPMS/PH2198 Lab}
+\lhead{NTU/SPMS/PH2198--PH2199 Lab}
 \rhead{Error Analysis}
 \lfoot{\tiny\textcopyright \;2017 Nanyang Technological University.  Released under \href{http://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.}
 \rfoot{\thepage}
@@ -94,7 +94,7 @@ $\;\;=\; \left(0.35 \pm 0.05\right) \, \mathrm{A}$
 Measurement uncertainties can also come from other aspects of an
 experiment.  Suppose you use a ruler to measure the distance to an
 object, but the object wobbles by $\pm 2\,\textrm{mm}$, larger than
-the $1\textrm{mm}$ hatch marks of the ruler.  In that case, you should
+the $1\,\textrm{mm}$ hatch marks of the ruler.  In that case, you should
 report a measurement error of $\pm 2\,\textrm{mm}$, not $\pm
 0.05\,\textrm{mm}$.
 
@@ -211,31 +211,28 @@ which may be either direct measurement results, or derived from
 measurements.  You are then required to fit these data to a relation
 such as
 \begin{equation*}
-  Y = a X + b.
+  Y = b_0 + b_1 X.
 \end{equation*}
-The goal is to determine $a$ and $b$, which are called
+The goal is to determine $b_0$ and $b_1$, which are called
 \textbf{estimators}.
 
 Curve fitting, and the propagation of error into estimators, is a
-complicated subject in applied statistics.  In this course, you only
-need to know how to use a simple curve fitting method known as
+complicated subject in applied statistics.  For most experiments in
+this course, you only need a simple curve fitting method known as
 \textbf{weighted linear least squares regression}.
 
 In this method, each data point $(X_i,Y_i)$ is assigned a relative
 weight $w_i$.  Data points with smaller errors are treated as more
-importance (higher ``weight'') during the fit.  If $X_i$ is error-free
-and $Y_i$ has error $\pm \Delta Y_i$, a standard weight assignment is
+importance (higher ``weight'') during the fit.  A standard weight
+assignment is
 \begin{equation*}
-  w_i = \begin{cases} (\Delta Y_i)^{-1} & \textrm{(Python convention)} \\
-    (\Delta Y_i)^{-2} & \textrm{(Matlab convention).}
-  \end{cases}
+  w_i = \Delta Y_i.
+  \label{weighting}
 \end{equation*}
-(The two cases are only a matter of definition; see below.)
-
-If both $X_i$ and $Y_i$ have errors, there is no standard way to
-assign the weights.  Some texts recommend letting the variable with
-more serious error be the $Y$ variable, so that its error is used for
-weighting.
+Note that this ignores the errors in $X$.  There is no standard
+weighting procedure that accounts for errors in both $X$ and $Y$.  So
+it is best to let the variable with more ``serious'' error be the $Y$
+variable, so its error is used for weighting.
 
 As an example, suppose we measure the period of a pendulum, $T$, with
 varying arm length $L$.  Theoretically, $T$ and $L$ are related to the
@@ -245,13 +242,13 @@ gravitational constant $g$ by
 \end{equation*}
 We can fit our data to the relation
 \begin{equation*}
-  T^2 = a L + b,
+  T^2 = b_0 + b_1 L,
 \end{equation*}
-and use $a$ to estimate $4\pi^2/g$.  Hence, we can find $g =
-4\pi^2/a$, and its error $\Delta g$:
+and use $b_1$ to estimate $4\pi^2/g$.  Hence, we can find $g =
+4\pi^2/b_1$, and its error $\Delta g$:
 \begin{equation*}
-  \frac{\Delta g}{g} = \frac{\Delta a}{a} \;\;\;\Rightarrow\;\;\;
-  \Delta g = \frac{4\pi^2\Delta a}{a^2}.
+  \frac{\Delta g}{g} = \frac{\Delta b_1}{b_1} \;\;\;\Rightarrow\;\;\;
+  \Delta g = \frac{4\pi^2\Delta b_1}{b_1^2}.
 \end{equation*}
 Suppose all our measurements of $T$ have the same measurement error
 $\pm \Delta T$.  From the error propagation rule for powers
@@ -267,26 +264,28 @@ have more error.
 
 A sample Python program for weighted linear least squares curve
 fitting is shown below.  The fitting is done by the
-\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.polyfit.html}{\texttt{polyfit}}
-function, from the \href{http://www.numpy.org/}{\texttt{numpy}}
+\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html}{\texttt{curve\_fit}}
+function, from the
+\href{https://docs.scipy.org/doc/scipy/reference/optimize.html}{\texttt{scipy.optimize}}
 module.
 
-In this code sample, \texttt{polyfit} is called with five inputs: the
-$x$ data, the $y$ data, the degree of the fitting polynomial (1), an
-array of weights (the inverse of the standard errors), and
-\texttt{cov=True} (which says to include estimator errors in the
-output).
+In this program, \texttt{curve\_fit} is called with four inputs: the
+model function, the $x$ data, the $y$ data, and the standard errors of
+the $y$ data.  The first input is a function that you must define,
+telling \texttt{curve\_fit} what kind of curve to fit to (in this
+case, a first-order polynomial).  The last three inputs are arrays of
+numbers.
 
-The function returns two outputs, named \texttt{est} and
-\texttt{covar} in this code sample.  The first output is an array of
-estimators, in decreasing polynomial degree (in this case, $a$
-followed by $b$).  The second output is a ``covariance matrix'', whose
-diagonal terms are the estimator variances (i.e., the squares of the
-standard errors).
-
+The \texttt{curve\_fit} function returns two outputs.  The first
+output is an array of estimators (i.e., the additional inputs that,
+when passed to the model function, give the best fit to the data).
+The second output is a ``covariance matrix'', whose diagonal terms are
+the estimator variances (i.e., taking their square roots yields the
+standard errors of the estimators).
 
 \begin{Verbatim}[frame=single,baselinestretch=1,fontsize=\small,commandchars=\\\{\}]
 from scipy import *
+from scipy.optimize import curve_fit
 
 \textcolor{dgreen}{## Input data (generated by simulation with random noise).}
 L  = array([0.10, 0.16, 0.22, 0.28, 0.34, 0.40, 0.46, 0.52, 0.58, 0.64])
@@ -296,20 +295,20 @@ dT = array([0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05])
 Tsq = T**2           \textcolor{dgreen}{# Estimates for T^2}
 Tsq_error = 2*T*dT   \textcolor{dgreen}{# Errors for T^2, from error propagation rules}
 
-\textcolor{dgreen}{## Fit L vs Tsq with a first-order polynomial}
-degree  = 1
-weights = 1/Tsq_error
-est, covar = polyfit(L, Tsq, degree, w=weights, cov=True)
+\textcolor{dgreen}{## Define a function, named f, that returns an order-1 polynomial.}
+def f(x, b0, b1): return b0 + b1*x
+
+\textcolor{dgreen}{## Use f to fit the L vs Tsq data}
+est, covar = curve_fit(f, L, Tsq, sigma=Tsq_error)
 
 \textcolor{dgreen}{## Estimators and their errors:}
-a  = est[0]               \textcolor{dgreen}{# Estimate of a}
-b  = est[1]               \textcolor{dgreen}{# Estimate of b}
-da = sqrt(covar[0,0])     \textcolor{dgreen}{# Standard error of a}
-db = sqrt(covar[1,1])     \textcolor{dgreen}{# Standard error of b}
+b0  = est[0]               \textcolor{dgreen}{# Estimate of intercept}
+b1  = est[1]               \textcolor{dgreen}{# Estimate of slop}
+db0 = sqrt(covar[0,0])     \textcolor{dgreen}{# Standard error of intercept}
+db1 = sqrt(covar[1,1])     \textcolor{dgreen}{# Standard error of slope}
 
-\textcolor{dgreen}{## From a, calculate the estimate of g}
-g  = 4*pi*pi/a
-dg = (g/a)*da
+g  = 4*pi*pi/b1            \textcolor{dgreen}{# Estimate for g (computed from b1)}
+dg = (g/b1)*db1            \textcolor{dgreen}{# Estimate for standard error of g}
 
 \textcolor{dgreen}{## Plot the data points, with error bars}
 import matplotlib.pyplot as plt
@@ -318,7 +317,7 @@ plt.xlabel('L (m)', fontsize=12)
 plt.ylabel('T^2 (s^2)', fontsize=12)
 \textcolor{dgreen}{## Include the fitted curve in the plot}
 L2 = linspace(0, 0.7, 100)
-plt.plot(L2, a*L2+b)
+plt.plot(L2, b0+b1*L2)
 \textcolor{dgreen}{## State fitted value of g in the figure title}
 t = "g = " + "\{:.1f\}".format(g) + " +/- " + "\{:.1f\}".format(dg) + " m/s^2"
 plt.title(t, fontsize=12)
@@ -326,7 +325,7 @@ plt.show()
 \end{Verbatim}
 The resulting plot looks like this:
 \begin{center}
-  \includegraphics[width=0.71\textwidth]{errorpy.pdf}
+  \includegraphics[width=0.66\textwidth]{errorpy.pdf}
 \end{center}
 
 \subsection{Sample Matlab program}
@@ -336,10 +335,7 @@ curve fitting.  It uses the
 \href{https://www.mathworks.com/help/stats/glmfit.html}{\texttt{glmfit}}
 function from Matlab's
 \href{https://www.mathworks.com/help/stats/index.html}{Statistics
-  Toolbox}.  Note that in Matlab, each weight is specified as the
-inverse square of the standard error.  Also, the estimators are listed
-in order of \textit{increasing} polynomial degree (i.e., $b$ followed
-by $a$).
+  Toolbox}.
 
 \begin{Verbatim}[frame=single,baselinestretch=1,fontsize=\small,commandchars=\\\{\}]
 L  = [0.10, 0.16, 0.22, 0.28, 0.34, 0.40, 0.46, 0.52, 0.58, 0.64];
@@ -354,14 +350,13 @@ wt = 1 ./ (Tsq_error.^2);   \textcolor{dgreen}{% Vector of weights}
 [est, dev, stats] = glmfit(L, Tsq, 'normal', 'weights', wt);
 
 \textcolor{dgreen}{%% Estimators and their errors:}
-a = est(2);                 \textcolor{dgreen}{% Estimate of a}
-b = est(1);                 \textcolor{dgreen}{% Estimate of b}
-da = stats.se(2);           \textcolor{dgreen}{% Standard error of a}
-db = stats.se(1);           \textcolor{dgreen}{% Standard error of b}
+b0  = est(1);                \textcolor{dgreen}{% Estimate of intercept}
+b1  = est(2);                \textcolor{dgreen}{% Estimate of slope}
+db0 = stats.se(1);           \textcolor{dgreen}{% Standard error of intercept}
+db1 = stats.se(2);           \textcolor{dgreen}{% Standard error of slope}
 
-\textcolor{dgreen}{%% Compute the estimate of g}
-g  = 4*pi*pi/a;
-dg = (g/a)*da;
+g  = 4*pi*pi/b1;              \textcolor{dgreen}{% Estimate for g (computed from b1)}
+dg = (g/b1)*db1;              \textcolor{dgreen}{% Estimate for standard error of g}
 
 \textcolor{dgreen}{%% Plot the data points and fitted curve}
 errorbar(L, Tsq, Tsq_error, "o");
@@ -372,12 +367,55 @@ t = "g = " + num2str(g,3) + " +/- " + num2str(dg,1) + " m/s^2";
 title(t);
 \textcolor{dgreen}{%% Plot the fitted curve}
 L2 = linspace(0, 0.7, 100);
-hold on; plot(L2, a*L2+b); hold off;
+hold on; plot(L2, b0 + b1*L2); hold off;
 \end{Verbatim}
 The resulting plot looks like this:
 \begin{center}
   \includegraphics[width=0.78\textwidth]{errormatlab.pdf}
 \end{center}
+
+\subsection{Curve fitting with Origin}
+
+The procedure for curve fitting with Origin is summarized below.
+For more details, consult the
+\href{https://www.originlab.com/doc/Origin-Help/Linear-Polynomial-Regression}{Origin
+  online documentation}.
+
+\begin{enumerate}
+\item Populate a worksheet with columns for (i) $X$, (ii) $Y$, and
+  (iii) $\Delta Y$.  You can enter the numbers manually, or import
+  them from an external file.
+
+\item Select the menu item
+  \texttt{Plot$\,\rightarrow\,$Symbol$\,\rightarrow\,$Scatter}.  Click on the
+  appropriate boxes to specify (i) which column to use for the
+  horizontal ($X$) variable, (ii) which column to use for the vertical
+  ($Y$) variable, and (iii) which column to use for the error $\Delta
+  Y$.
+
+\item Select the menu item
+  \texttt{Analysis$\,\rightarrow\,$Fitting$\,\rightarrow\,$Linear
+    Fit}.  In the dialog box, check that the right fitting options are
+  entered.  Under \texttt{Fit Control$\,\rightarrow\,$Errors as
+    Weight}, ensure that the \texttt{Instrumental} option is chosen.
+  This corresponds to the weighting scheme of Eq.~\eqref{weighting}.
+  Once ready, perform the fit.
+
+\item The fitted curve will be inserted automatically into the graph.
+  By default, a \texttt{Fit Results} table is also automatically
+  added; you can click-and-drag to move or resize this table, and
+  double-click to edit its contents.
+
+  By default, Origin makes the table too small to be legible, so you
+  ought to increase the size.  Also, you should omit any statistical
+  quantities listed in this table that are not relevant to your data
+  analysis (e.g., the Pearson's $r$).
+\end{enumerate}
+The resulting plot looks like this:
+\begin{center}
+  \includegraphics[width=0.56\textwidth]{origin.png}
+\end{center}
+
 
 \begin{thebibliography}{99}
 \bibitem{Hughes} I.~G.~Hughes and T.~P.~A.~Hase, \textit{Measurements
