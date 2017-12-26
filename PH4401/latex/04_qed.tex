@@ -173,7 +173,7 @@ variables:
 \end{align}
 After cancelling various terms, we arrive at the result
 \begin{equation}
-\boxed{\qquad H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).\qquad}
+H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
 \end{equation}
 
 This looks a lot like the familiar Hamiltonian for a non-relativistic
@@ -231,8 +231,9 @@ $\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
 $\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  Hence,
 the quantum Hamiltonian is
 \begin{equation}
+\boxed{\qquad
   \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\Phi(\hat{\mathbf{r}},t).
+  - e\Phi(\hat{\mathbf{r}},t).\qquad}
   \label{quantumH}
 \end{equation}
 In the wavefunction representation, the momentum operator is
@@ -757,12 +758,33 @@ Hence,
   \,-\, \left(-\frac{\hbar e}{2m}\, \hat{\boldsymbol{\sigma}}\right)
   \,\cdot\, \mathbf{B} \right\} \Psi_A.
 \end{equation}
+This is an exact match for Eq.~\eqref{quantumH}, except that the
+Hamiltonian has an additional term of the form $-
+\hat{\boldsymbol{\mu}} \cdot \hat{\mathbf{B}}$.  This additional term
+corresponds to the potential energy of a magnetic dipole of moment
+$\boldsymbol{\mu}$ in a magnetic field $\mathbf{B}$.  The Dirac theory
+therefore predicts that the electron's magnetic dipole moment is
+\begin{equation}
+  |\boldsymbol{\mu}| = \frac{\hbar e}{2m}.
+  \label{Diracmu}
+\end{equation}
+This remarkable result matches the experimentally-observed magnetic
+dipole moment to about one part in $10^3$.  We thus see that the
+electron's magnetic dipole moment is not an arbitrary quantity, but an
+outcome of combining quantum mechanics with relativity.  The residual
+mismatch between Eq.~\eqref{Diracmu} and the actual magnetic dipole
+moment of the electron is understood to arise from quantum
+fluctuations of the electronic and electromagnetic quantum fields;
+this ``anomalous magnetic moment'' can be calculated using the full
+QED theory, and matches experiment to around one part in $10^9$,
+making it one of the most precise theoretical predictions in physics.
+For details, see \hyperref[cite:zee]{Zee (2010)}.
 
-
+\subsection{The electron-positron field}
 
 \section{Quantizing the electromagnetic field}
 
-\subsection{The electromagnetic field Hamiltonian}
+\subsection{Lagrangian and Hamiltonian for the Maxwell field}
 
 \subsection{Relativity and quantum mechanics}
 
