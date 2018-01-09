@@ -908,79 +908,90 @@ where $\psi(\mathbf{r})$ is the single-particle wavefunction.
 
 How are the particle creation and annihilation operators related to
 the classical notion of ``the value of a field at point
-$\mathbf{r}$''?  As we know, observable quantities correspond to
-Hermitian operators, whereas $\hat{\psi}(\mathbf{r})$ and
-$\hat{\psi}^\dagger(\mathbf{r})$ are not Hermitian.  One way to
-construct a Hermitian operator from them is the product
-$\hat{\psi}^\dagger(\mathbf{r})\hat{\psi}(\mathbf{r})$, an observable
-corresponding to the local particle density.  Another (possibly less
-obvious) type of observable is obtained by taking \textit{linear
-  superpositions} of creation and annihilation operator.  For example,
+$\mathbf{r}$'', like an electric field $\mathbf{E}(\mathbf{r})$ or
+magnetic field $\mathbf{B}(\mathbf{r})$?  Field variables are
+measurable quantities, and should be described by Hermitian operators.
+So far, we have seen how Hermitian operators corresponding to the
+kinetic and potential energy can be constructed via \textit{products}
+of $\hat{\psi}^\dagger(\mathbf{r})$ with $\hat{\psi}(\mathbf{r})$.
+But there is another type of Hermitian operator that we can construct
+by taking \textit{linear combinations} of of
+$\hat{\psi}^\dagger(\mathbf{r})$ with $\hat{\psi}(\mathbf{r})$.  One
+example is
 \begin{equation*}
   \psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger
 \end{equation*}
-is necessarily Hermitian.  More generally, we can consider operators
-of the form
+Other possible Hermitian operators have the form
 \begin{equation}
   F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),
   \label{fieldop}
 \end{equation}
-where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  This type
-of Hermitian operator corresponds to the observable value of a field
-at a given point $\mathbf{r}$.
+where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  As we
+shall see, it is this type of Hermitian operator that corresponds to
+the classical notion of the value of a field at a point.
 
 \subsection{Revisiting the harmonic oscillator}
 
 To better understand how Hermitian operators of the form
-\eqref{fieldop} are related to the classical notion of a field
-variable, we first need to take a more detailed look at the harmonic
-oscillator.  In particular, we are interested in how the concept of a
-``mode of oscillation'' carries over from classical to quantum
-mechanics (later, this will be generalized to the independent modes of
-oscillation of a field).
+\eqref{fieldop} are related to classical field variables, we first
+need to take a more detailed look at the harmonic oscillator.  In
+particular, we need to know how the concept of a \textbf{mode of
+  oscillation} carries over from classical to quantum mechanics.
+(Later, we will generalize this to the modes of oscillation of a
+field.)
 
-The Hamiltonian of a classical harmonic oscillator is
+A classical harmonic oscillator is described by the Hamiltonian
 \begin{equation}
   H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2x^2,
   \label{Hclass}
 \end{equation}
-where $x$ is the oscillator variable, $p$ is the corresponding
-momentum variable, $m$ is the mass, and $\omega$ is the natural
-frequency of oscillation.  We know that the classical equation of
-motion has the general form
+where $x$ is the ``position'' of the oscillator, which we call the
+\textbf{oscillator variable}; $p$ is the corresponding momentum
+variable; $m$ is the mass; and $\omega$ is the natural frequency of
+oscillation.  We know that the classical equation of motion has the
+general form
 \begin{equation}
   x(t) = \mathcal{A}\, e^{-i\omega t} + \mathcal{A}^*\, e^{i\omega t}.
   \label{xt0}
 \end{equation}
-This motion is completely parameterized by the ``mode amplitude''
-$\mathcal{A}$, a complex number that determines the magnitude and
-phase of the oscillation.
+This describes an oscillation of frequency $\omega$ (the natural
+frequency of the harmonic oscillator).  It is parameterized by the
+\textbf{mode amplitude} $\mathcal{A}$, a complex number that
+determines the magnitude and phase of the oscillation.
 
-For the quantum harmonic oscillator, the position and momentum
-variables are promoted to Hermitian operators, $\hat{x}$ and
-$\hat{p}$.  As we have previously seen, these can be used to define
-the annihilation and creation operators,
-\begin{equation}
-  \hat{a} = \sqrt{\frac{m\omega}{2\hbar}} \left(\hat{x} + \frac{i\hat{p}}{m\omega}\right), \;\;\;
-  \hat{a}^\dagger = \sqrt{\frac{m\omega}{2\hbar}} \left(\hat{x} - \frac{i\hat{p}}{m\omega}\right).
+For the quantum harmonic oscillator, the $x$ and $p$ variables are
+replaced by the Hermitian operators $\hat{x}$ and $\hat{p}$.  As we
+know, the annihilation and creation operators $\hat{a}$ and
+$\hat{a}^\dagger$ can then be defined:
+\begin{align}
+  \left\{
+  \begin{aligned}
+  \hat{a} &= \sqrt{\frac{m\omega}{2\hbar}} \left(\hat{x} + \frac{i\hat{p}}{m\omega}\right), \\
+  \hat{a}^\dagger &= \sqrt{\frac{m\omega}{2\hbar}} \left(\hat{x} - \frac{i\hat{p}}{m\omega}\right).
+  \end{aligned}\right. \quad
+  \Leftrightarrow\quad\left\{
+  \begin{aligned}
+    \hat{x} &= \;\;\;\;\sqrt{\frac{\hbar}{2m\omega}}
+    \, \left(\hat{a}+\hat{a}^\dagger\right) \\
+    \hat{p} &= -i \sqrt{\frac{m\omega\hbar}{2}}
+    \, \left(\hat{a}-\hat{a}^\dagger\right).
+  \end{aligned}\right.
   \label{create_annihilate}
-\end{equation}
-These can be inverted to give
-\begin{equation}
-  \hat{x} = \sqrt{\frac{\hbar}{2m\omega}} \, \left(\hat{a}+\hat{a}^\dagger\right), \;\;\;\hat{p} = -i \sqrt{\frac{m\omega\hbar}{2}} \, \left(\hat{a}-\hat{a}^\dagger\right).
-\end{equation}
+\end{align}
 We can then show that
 \begin{equation}
   \left[\,\hat{a}\,,\,\hat{a}^\dagger\,\right] = 1, \;\;\;
-  \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right).
+  \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right),
   \label{create_annihilate_qho}
 \end{equation}
-From these, the energy spectrum of the quantum harmonic oscillator can
-be derived; we will not go through the details again here.
+and from these the energy spectrum of the quantum harmonic oscillator
+can be derived.  These facts should have been covered in an earlier
+course.
 
-Let us focus on the \textit{dynamics} of the quantum harmonic
-oscillator.  In the Heisenberg picture (with $t = 0$ as the reference
-time), we define the time-dependent operator
+Here, let us see how the creation and annihilation operators relate to
+the \textit{dynamics} of the quantum harmonic oscillator.  In the
+Heisenberg picture (with $t = 0$ as the reference time), we define the
+time-dependent operator
 \begin{equation}
   \hat{x}(t) = \hat{U}^\dagger(t) \,\hat{x}\, \hat{U}(t), \;\;\;
   \hat{U}(t) \equiv \exp\left(-\frac{i}{\hbar}\hat{H}t\right).
@@ -1017,32 +1028,29 @@ Hence, Eq.~\eqref{xt1} becomes
   \hat{a}^\dagger\, e^{i\omega t}\Big).
   \label{xtquantum}
 \end{equation}
-Comparing this with the classical solution \eqref{xt0}, we see that
-$\hat{a}$ plays the role of the classical mode amplitude
-$\mathcal{A}$, up to a scale factor.
+This has exactly the same form as the classical oscillatory solution
+\eqref{xt0}!  Comparing the two, we see that $\hat{a}$ times the scale
+factor $\sqrt{\hbar/2m\omega}$ plays the role of the mode amplitude
+$\mathcal{A}$.
 
-Now, suppose we come at things from the opposite end: we have creation
-and annihilation operators satisfying
-Eq.~\eqref{create_annihilate_qho}, from which follow
-Eqs.~\eqref{heisenbergeq}--\eqref{at}.  Using the creation and
-annihilation operators, we can construct Hermitian operators of the
-form
+Now, suppose we come at things from the opposite end.  Let's say we
+start with creation and annihilation operators satisfying
+Eq.~\eqref{create_annihilate_qho}, from which
+Eqs.~\eqref{heisenbergeq}--\eqref{at} follow.  Using the creation and
+annihilation operators, we would like to construct an observable
+corresponding to an oscillator variable.  We take the ansatz
 \begin{equation}
   \hat{x}(t) = 
   \mathcal{C}\, \hat{a} \,e^{-i\omega t} \,+\,
   \mathcal{C}^*\, \hat{a}^\dagger\, e^{i\omega t},
   \label{xtc}
 \end{equation}
-where $\mathcal{C}$ is any constant.  As a matter of convention, we
-will take $\mathcal{C}$ to be real.  The question is, what is the
-appropriate $\mathcal{C}$ so that this operator corresponds to the
-position variable of an oscillator?
+which is manifestly Hermitian.  How should the constant $\mathcal{C}$
+be chosen?
 
-One way to answer this question is to look at the classical limit, and
-identify how the position variable of a classical oscillator relates
-to its energy.  It can be shown that the energy of a classical
-oscillator
-is
+We can answer this question by identifying how the oscillator variable
+relates to the oscillator energy \textit{in the classical limit}.  For
+a standard classical harmonic oscillator, the energy satisfies
 \begin{equation}
   E = m\omega^2\, \overline{x^2},
   \label{xavg2}
@@ -1064,10 +1072,15 @@ labelled by a complex number $\alpha$, such that
 How this state is defined need not concern us for now; for details,
 see Appendix E.  In this state, the expectation value of the energy is
 \begin{equation}
+  \langle E\rangle =
   \langle\alpha|\hat{H}|\alpha\rangle = \hbar \omega \left(|\alpha|^2 + \frac{1}{2}\right).
   \label{Havg1}
 \end{equation}
-Moreover, using Eq.~\eqref{coherent} with \eqref{xtc} gives
+We can use Eq.~\eqref{coherent} with Eq.~\eqref{xtc} to compute the
+expectated mean squared displacement in the coherent state.  We
+moreover assume that $\mathcal{C}$ is real (this is a matter of
+convention; the creation and annihilation operators can always be
+re-defined so that this holds).  We get
 \begin{equation}
   \langle\alpha|\hat{x}^2(t)|\alpha\rangle
   = \mathcal{C}^2 \left(\alpha^2 \, e^{-2i\omega t} + 2|\alpha|^2
@@ -1079,18 +1092,145 @@ Averaging over an oscillation cycle,
   = 2\, \mathcal{C}^2 |\alpha|^2.
   \label{xavg1}
 \end{equation}
-The classical limit is reached for $|\alpha|\rightarrow \infty$, which
-corresponds to energies much larger than the energy quantum
-$\hbar\omega$.  Combining Eqs.~\eqref{xavg2}, \eqref{Havg1}, and
-\eqref{xavg1} in this limit gives
+Finally, the classical limit is reached by taking $|\alpha|\rightarrow
+\infty$ (corresponding to energies much larger than $\hbar\omega$).
+Combining Eqs.~\eqref{xavg2}, \eqref{Havg1}, and \eqref{xavg1} in this
+limit gives
 \begin{align}
   \hbar \omega |\alpha|^2 &= m\omega^2 \cdot 2\mathcal{C}^2|\alpha|^2 \\
-  \Rightarrow\;\;\; \mathcal{C} &= \sqrt{\frac{\hbar}{2m\omega}},
+  \Rightarrow\;\;\; \mathcal{C} &= \sqrt{\frac{\hbar}{2m\omega}}.
 \end{align}
-which is precisely the scale factor found in Eq.~\eqref{xtquantum}.
+This is precisely the scale factor found in Eq.~\eqref{xtquantum}.
 
-\subsection{A 1D scalar boson field}
+\subsection{A scalar boson field}
 
+We now have the tools available to establish the connection between
+the simplest possible classical field and its quantum field theory.
+The classical field variable $f(x,t)$ is a scalar defined in one
+spatial dimension, whose classical equation of motion is the wave
+equation:
+\begin{equation}
+  \frac{\partial^2\! f(x,t)}{\partial x^2}
+  = \frac{1}{c^2} \frac{\partial^2\! f(x,t)}{\partial t^2}.
+  \label{waveeqn}
+\end{equation}
+The constant $c$ is a wave speed.  This sort of classical field arises
+in many physical contexts, including the propagation of sound through
+air, in which case $c$ is the speed of sound.
+
+For simplicity, let us first assume that the field is defined within a
+finite interval of length $L$, with periodic boundary conditions:
+$f(x,t) \equiv f(x+L, t)$.  Solutions to the wave equation can be
+described by the following ansatz:
+\begin{equation}
+  f(x,t) = \sum_n \left( \mathcal{A}_n\, \varphi_n(x) \, e^{-i\omega_n t}
+  + \mathcal{A}_n^*\, \varphi_n^*(x) \, e^{i\omega_n t}\right).
+  \label{fnorm}
+\end{equation}
+This ansatz describes a superposition of \textbf{normal modes}.  Each
+normal mode (labelled $n$) varies harmonically in time with a mode
+frequency $\omega_n$, and varies in space according to a complex mode
+profile $\varphi_n(x)$; its overall magnitude and phase is specified
+by the mode amplitude $\mathcal{A}_n$.  The mode profiles are
+normalized according to some fixed convention, e.g.
+\begin{equation}
+  \int_0^L dx \, |\varphi_n(x)|^2 = 1.
+\end{equation}
+
+By substituting Eq.~\eqref{fnorm} into Eq.~\eqref{waveeqn}, and using
+the periodic boundary conditions, we find
+\begin{align}
+  \varphi_n(x) = \frac{1}{\sqrt{L}}\, \exp\left(ik_n x\right), \;\;\;
+  \omega_n = c k_n = \frac{2\pi c n}{L}, \;\;\; n \in \mathbb{Z}.
+  \label{classical_modes}
+\end{align}
+These mode profiles are orthonormal:
+\begin{equation}
+  \int_0^L dx \, \varphi_m^*(x) \, \varphi_n(x) = \delta_{mn}.
+\end{equation}
+Each normal mode also carries energy.  We assume that the
+time-averaged energy density for normal mode $n$ has the form
+\begin{equation}
+  U_n(x) = \rho_n \, |\varphi_n(x)|^2,
+  \label{classical_energy_density}
+\end{equation}
+where $\rho_n$ is some parameter that has to be derived from the
+underlying physical context.  (For example, for acoustic modes,
+$\rho_n$ will depend on the mass density of the underlying acoustic
+medium.  In the next chapter, we will see a concrete example involving
+the energy density of an electromagnetic mode.)  The time-averaged
+total energy is
+\begin{equation}
+  \overline{E} = \int_0^L dx \sum_n U_n(x).
+  \label{classical_energy}
+\end{equation}
+
+To quantize this classical field, we treat each normal mode as an
+independent oscillator, with creation and annihilation operators
+$\hat{a}_n^\dagger$ and $\hat{a}_n$ satisfying
+\begin{equation}
+  \big[\,\hat{a}_m\,,\, \hat{a}_n^\dagger\big] = \delta_{mn}, \;\;\;
+  \big[\,\hat{a}_m\,,\, \hat{a}_n\big] =
+  \big[\,\hat{a}_m^\dagger\,,\, \hat{a}_n^\dagger\big] = 0.
+\end{equation}
+The Hamiltonian is that of a collection of decoupled quantum harmonic
+oscillators:
+\begin{equation}
+  \hat{H} = \sum_n \hbar \omega_n \hat{a}_n^\dagger \hat{a}_n + E_0,
+\end{equation}
+where $E_0$ is the ground-state energy.  Just like in the previous
+section, we can define a Heisenberg-picture annihilation operator, and
+solving its Heisenberg equation yields
+\begin{equation}
+  \hat{a}_n(t) = \hat{a}_n e^{-i\omega_n t}.
+\end{equation}
+Thus, suppose we define a Schr\"odinger picture field operator
+\begin{equation}
+  \hat{f}(x) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x)
+  + \hat{a}_n^\dagger \varphi_n^*(x) \Big),
+\end{equation}
+where $\mathcal{C}_n$ is a real constant (one for each normal mode).
+Then the corresponding Heisenberg picture operator is
+\begin{equation}
+  \hat{f}(x,t) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
+  + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big),
+\end{equation}
+which we can identify as the quantum version of the classical solution
+\eqref{fnorm}.
+
+To determine $\mathcal{C}_n$, we again follow the procedure from the
+previous section, comparing the energy of the quantum system's
+classical limit and the energy of the classical field theory given by
+Eqs.~\eqref{classical_energy_density}--\eqref{classical_energy}.  In
+the end, we find that the field operator corresponding to the
+classical field variable is
+\begin{equation}
+  \hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n}}
+  \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
+  + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).
+\end{equation}
+Returning to the Schr\"odinger picture, and using the explicit mode
+profiles from Eq.~\eqref{classical_modes},
+\begin{equation}
+  \hat{f}(x) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n L}}
+  \Big(\hat{a}_n e^{ik_n x}
+  + \hat{a}_n^\dagger e^{-ik_n x} \Big).
+\end{equation}
+
+Finally, if we are interested in the infinite-$L$ limit, we can
+convert the sum over $n$ into an integral.
+The result is
+\begin{equation}
+  \hat{f}(x) = \int dk\; \sqrt{\frac{\hbar\omega(k)}{4\pi\rho(k)}}
+  \Big(\hat{a}(k)\, e^{ik x} + \hat{a}^\dagger(k)\, e^{-ik x} \Big),
+\end{equation}
+where $\hat{a}(k)$ denotes a rescaled annihilation operator defined by
+$\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
+\begin{align}
+  \Big[\,\hat{a}(k)\,,\, \hat{a}^\dagger(k')\,\Big] = \delta(k-k').
+\end{align}
+
+%% \subsection{The vacuum energy problem}
 
 \subsection{Looking ahead}
 
