@@ -856,37 +856,39 @@ single-particle states commute; now, the operators for different
 \textit{positions} commute.  A straightforward interpretion for the
 operators $\hat{\psi}^\dagger(\mathbf{r})$ and
 $\hat{\psi}(\mathbf{r})$ is that they respectively create and
-annihilate one particle at a given point $\mathbf{r}$.  (By contrast,
-the old creation/annihilation operators create/annihilate a particle
-not at a point, but in a given eigenstate.)
+annihilate one particle at a point $\mathbf{r}$ (rather than one
+particle in a given eigenstate).
 
 It is important to note that $\mathbf{r}$ here does not play the role
-of an observable; it is an index, in the sense that each distinct
-$\mathbf{r}$ is associated with one pair of $\hat{\psi}(\mathbf{r})$
-and $\hat{\psi}^\dagger(\mathbf{r})$ operators.  These
+of an observable.  It is an \textit{index}, in the sense that each
+$\mathbf{r}$ is associated with distinct $\hat{\psi}(\mathbf{r})$ and
+$\hat{\psi}^\dagger(\mathbf{r})$ operators.  These
 $\mathbf{r}$-dependent operators serve to generalize the classical
 concept of a \textbf{field}.  In a classical field theory, each point
 $\mathbf{r}$ is assigned a set of numbers corresponding to physical
 quantities, such as the electric field components $E_x(\mathbf{r})$,
 $E_y(\mathbf{r})$, and $E_z(\mathbf{r})$.  In the present case, each
-$\mathbf{r}$ is assigned a set of quantum operators.  This is called a
-\textbf{quantum field theory}.
+$\mathbf{r}$ is assigned a set of quantum operators.  This kind of
+quantum theory is called a \textbf{quantum field theory}.
 
 We can use the $\hat{\psi}(\mathbf{r})$ and
 $\hat{\psi}^\dagger(\mathbf{r})$ operators to write second quantized
 observables in a way that is independent of the choice of
 single-particle basis wavefunctions.  As discussed in the
-\hyperref[sec:second_quant_op]{previous section}, for each Hermitian
+\hyperref[sec:second_quant_op]{previous section}, given a Hermitian
 single-particle operator $\hat{A}_1$ we can define a many-particle
 observable $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu}
 \hat{a}_\nu$, where $A_{\mu\nu} =
-\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  We can now show
-that
+\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  This many-particle
+observable can be re-written as
 \begin{equation}
-  \hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r}) \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').
+  \hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r})
+  \;\langle \mathbf{r}|\hat{A}_1|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}'),
 \end{equation}
-For example, the Hamiltonian for a single particle in a potential
-$V(\mathbf{r})$ is
+which makes no explicit reference to the single-particle basis states.
+
+For example, consider the familiar single-particle Hamiltonian
+describing a particle in a potential $V(\mathbf{r})$:
 \begin{equation}
   \hat{H}_1 = \hat{T}_1 + \hat{V}_1, \;\;\; \hat{T}_1 = \frac{|\hat{\mathbf{p}}|^2}{2m}, \;\;\; \hat{V}_1 = V(\hat{\mathbf{r}}),
 \end{equation}
@@ -911,15 +913,15 @@ the classical notion of ``the value of a field at point
 $\mathbf{r}$'', like an electric field $\mathbf{E}(\mathbf{r})$ or
 magnetic field $\mathbf{B}(\mathbf{r})$?  Field variables are
 measurable quantities, and should be described by Hermitian operators.
-So far, we have seen how Hermitian operators corresponding to the
-kinetic and potential energy can be constructed via \textit{products}
-of $\hat{\psi}^\dagger(\mathbf{r})$ with $\hat{\psi}(\mathbf{r})$.
-But there is another type of Hermitian operator that we can construct
-by taking \textit{linear combinations} of of
+As we have just seen, Hermitian operators corresponding to the kinetic
+and potential energy can be constructed via \textit{products} of
+$\hat{\psi}^\dagger(\mathbf{r})$ with $\hat{\psi}(\mathbf{r})$.  But
+there is another type of Hermitian operator that we can construct by
+taking \textit{linear combinations} of of
 $\hat{\psi}^\dagger(\mathbf{r})$ with $\hat{\psi}(\mathbf{r})$.  One
 example is
 \begin{equation*}
-  \psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger
+  \psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger.
 \end{equation*}
 Other possible Hermitian operators have the form
 \begin{equation}
@@ -928,17 +930,16 @@ Other possible Hermitian operators have the form
 \end{equation}
 where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  As we
 shall see, it is this type of Hermitian operator that corresponds to
-the classical notion of the value of a field at a point.
+the classical notion of a field variable like an electric or magnetic
+field.
 
 \subsection{Revisiting the harmonic oscillator}
 
-To better understand how Hermitian operators of the form
-\eqref{fieldop} are related to classical field variables, we first
-need to take a more detailed look at the harmonic oscillator.  In
-particular, we need to know how the concept of a \textbf{mode of
-  oscillation} carries over from classical to quantum mechanics.
-(Later, we will generalize this to the modes of oscillation of a
-field.)
+To better understand the relationship between classical fields and
+quantum fields, we first need to take a more detailed look at the
+harmonic oscillator.  In particular, we need to know how the concept
+of a \textbf{mode of oscillation} carries over from classical to
+quantum mechanics.
 
 A classical harmonic oscillator is described by the Hamiltonian
 \begin{equation}
@@ -954,15 +955,13 @@ general form
   x(t) = \mathcal{A}\, e^{-i\omega t} + \mathcal{A}^*\, e^{i\omega t}.
   \label{xt0}
 \end{equation}
-This describes an oscillation of frequency $\omega$ (the natural
-frequency of the harmonic oscillator).  It is parameterized by the
-\textbf{mode amplitude} $\mathcal{A}$, a complex number that
-determines the magnitude and phase of the oscillation.
+This describes an oscillation of frequency $\omega$.  It is
+parameterized by the \textbf{mode amplitude} $\mathcal{A}$, a complex
+number that determines the magnitude and phase of the oscillation.
 
-For the quantum harmonic oscillator, the $x$ and $p$ variables are
-replaced by the Hermitian operators $\hat{x}$ and $\hat{p}$.  As we
-know, the annihilation and creation operators $\hat{a}$ and
-$\hat{a}^\dagger$ can then be defined:
+For the quantum harmonic oscillator, $x$ and $p$ are replaced by the
+Hermitian operators $\hat{x}$ and $\hat{p}$.  From these, the
+operators $\hat{a}$ and $\hat{a}^\dagger$ can be defined:
 \begin{align}
   \left\{
   \begin{aligned}
@@ -988,20 +987,20 @@ and from these the energy spectrum of the quantum harmonic oscillator
 can be derived.  These facts should have been covered in an earlier
 course.
 
-Here, let us see how the creation and annihilation operators relate to
-the \textit{dynamics} of the quantum harmonic oscillator.  In the
-Heisenberg picture (with $t = 0$ as the reference time), we define the
-time-dependent operator
+Here, we are interested in how the creation and annihilation operators
+relate to the \textit{dynamics} of the quantum harmonic oscillator.
+In the Heisenberg picture, with $t = 0$ as the reference time, we
+define the time-dependent operator
 \begin{equation}
   \hat{x}(t) = \hat{U}^\dagger(t) \,\hat{x}\, \hat{U}(t), \;\;\;
   \hat{U}(t) \equiv \exp\left(-\frac{i}{\hbar}\hat{H}t\right).
 \end{equation}
-Here, we adopt the notation that those operators written with an
-explicit time dependence are Heisenberg picture operators, while those
-without are Schr\"odinger picture operators; hence, $\hat{x} \equiv
-\hat{x}(0)$.  We can likewise define the Heisenberg picture creation
-and annihilation operators, $\hat{a}^\dagger(t)$ and $\hat{a}(t)$,
-which are related to $\hat{x}(t)$ by
+We will adopt the convention that all operators written with an
+explicit time dependence are Heisenberg picture operators, while
+operators without an explicit time dependence are Schr\"odinger
+picture operators; hence, $\hat{x} \equiv \hat{x}(0)$.  The Heisenberg
+picture creation and annihilation operators, $\hat{a}^\dagger(t)$ and
+$\hat{a}(t)$, are related to $\hat{x}(t)$ by
 \begin{equation}
   \hat{x}(t) = \sqrt{\frac{\hbar}{2m\omega}} \, \Big(\hat{a}(t)+\hat{a}^\dagger(t)\Big).
   \label{xt1}
@@ -1016,12 +1015,12 @@ The Heisenberg equation for the annihilation operator is
   \end{aligned}
   \label{heisenbergeq}
 \end{align}
-The solution for this differential equation is
+Hence, solution for this differential equation is
 \begin{equation}
-  \hat{a}(t) = \hat{a} \, e^{-i\omega t}.
+  \hat{a}(t) = \hat{a} \, e^{-i\omega t},
   \label{at}
 \end{equation}
-Hence, Eq.~\eqref{xt1} becomes
+and Eq.~\eqref{xt1} becomes
 \begin{equation}
   \hat{x}(t) = \sqrt{\frac{\hbar}{2m\omega}} \,
   \Big(\hat{a} \,e^{-i\omega t} \,+\,
@@ -1037,30 +1036,30 @@ Now, suppose we come at things from the opposite end.  Let's say we
 start with creation and annihilation operators satisfying
 Eq.~\eqref{create_annihilate_qho}, from which
 Eqs.~\eqref{heisenbergeq}--\eqref{at} follow.  Using the creation and
-annihilation operators, we would like to construct an observable
-corresponding to an oscillator variable.  We take the ansatz
+annihilation operators, we would like to construct an observable that
+corresponds to a classical oscillator variable.  A natural ansatz is
 \begin{equation}
   \hat{x}(t) = 
   \mathcal{C}\, \hat{a} \,e^{-i\omega t} \,+\,
   \mathcal{C}^*\, \hat{a}^\dagger\, e^{i\omega t},
   \label{xtc}
 \end{equation}
-which is manifestly Hermitian.  How should the constant $\mathcal{C}$
-be chosen?
+which is manifestly Hermitian.
 
-We can answer this question by identifying how the oscillator variable
-relates to the oscillator energy \textit{in the classical limit}.  For
-a standard classical harmonic oscillator, the energy satisfies
+How might the constant $\mathcal{C}$ be chosen?  A convenient method
+is to identify how the oscillator variable relates to the oscillator
+energy \textit{in the classical limit}.  For a standard classical
+harmonic oscillator, the energy satisfies
 \begin{equation}
   E = m\omega^2\, \overline{x^2},
   \label{xavg2}
 \end{equation}
 where $\overline{x^2}$ denotes the mean squared displacement over an
 oscillation cycle.  This can be proven rigorously from
-Eqs.~\eqref{Hclass}--\eqref{xt0}, but one way to remember this result
-is that for a harmonic oscillator, the average kinetic energy equals
-the average potential energy (this is an instance of the virial
-theorem of classical mechanics).
+Eqs.~\eqref{Hclass}--\eqref{xt0}; one way to remember it is that the
+average kinetic energy of a harmonic oscillator equals its average
+potential energy (this is an instance of the virial theorem of
+classical mechanics).
 
 The classical limit of a quantum harmonic oscillator is defined using
 a \textit{coherent state}, which is a quantum state $|\alpha\rangle$
@@ -1080,7 +1079,7 @@ We can use Eq.~\eqref{coherent} with Eq.~\eqref{xtc} to compute the
 expectated mean squared displacement in the coherent state.  We
 moreover assume that $\mathcal{C}$ is real (this is a matter of
 convention; the creation and annihilation operators can always be
-re-defined so that this holds).  We get
+re-defined so that this holds), so
 \begin{equation}
   \langle\alpha|\hat{x}^2(t)|\alpha\rangle
   = \mathcal{C}^2 \left(\alpha^2 \, e^{-2i\omega t} + 2|\alpha|^2
@@ -1093,9 +1092,9 @@ Averaging over an oscillation cycle,
   \label{xavg1}
 \end{equation}
 Finally, the classical limit is reached by taking $|\alpha|\rightarrow
-\infty$ (corresponding to energies much larger than $\hbar\omega$).
-Combining Eqs.~\eqref{xavg2}, \eqref{Havg1}, and \eqref{xavg1} in this
-limit gives
+\infty$ (so that the energy is much larger than the energy quantum
+$\hbar\omega$).  Combining Eqs.~\eqref{xavg2}, \eqref{Havg1}, and
+\eqref{xavg1} in this limit gives
 \begin{align}
   \hbar \omega |\alpha|^2 &= m\omega^2 \cdot 2\mathcal{C}^2|\alpha|^2 \\
   \Rightarrow\;\;\; \mathcal{C} &= \sqrt{\frac{\hbar}{2m\omega}}.
@@ -1104,11 +1103,10 @@ This is precisely the scale factor found in Eq.~\eqref{xtquantum}.
 
 \subsection{A scalar boson field}
 
-We now have the tools available to establish the connection between
-the simplest possible classical field and its quantum field theory.
-The classical field variable $f(x,t)$ is a scalar defined in one
-spatial dimension, whose classical equation of motion is the wave
-equation:
+We now have the tools available to understand the connection between a
+very simple classical field and its quantum counterpart.  Consider a
+classical scalar field variable $f(x,t)$, defined in one spatial
+dimension, whose classical equation of motion is the wave equation:
 \begin{equation}
   \frac{\partial^2\! f(x,t)}{\partial x^2}
   = \frac{1}{c^2} \frac{\partial^2\! f(x,t)}{\partial t^2}.
@@ -1173,8 +1171,8 @@ $\hat{a}_n^\dagger$ and $\hat{a}_n$ satisfying
   \big[\,\hat{a}_m\,,\, \hat{a}_n\big] =
   \big[\,\hat{a}_m^\dagger\,,\, \hat{a}_n^\dagger\big] = 0.
 \end{equation}
-The Hamiltonian is that of a collection of decoupled quantum harmonic
-oscillators:
+We then take the Hamiltonian to be that of a set of independent
+harmonic oscillators:
 \begin{equation}
   \hat{H} = \sum_n \hbar \omega_n \hat{a}_n^\dagger \hat{a}_n + E_0,
 \end{equation}
@@ -1184,13 +1182,14 @@ solving its Heisenberg equation yields
 \begin{equation}
   \hat{a}_n(t) = \hat{a}_n e^{-i\omega_n t}.
 \end{equation}
-Thus, suppose we define a Schr\"odinger picture field operator
+We can then define a Schr\"odinger picture Hermitian operator of the
+form
 \begin{equation}
   \hat{f}(x) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x)
   + \hat{a}_n^\dagger \varphi_n^*(x) \Big),
 \end{equation}
 where $\mathcal{C}_n$ is a real constant (one for each normal mode).
-Then the corresponding Heisenberg picture operator is
+The corresponding Heisenberg picture operator is
 \begin{equation}
   \hat{f}(x,t) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
   + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big),
@@ -1198,19 +1197,19 @@ Then the corresponding Heisenberg picture operator is
 which we can identify as the quantum version of the classical solution
 \eqref{fnorm}.
 
-To determine $\mathcal{C}_n$, we again follow the procedure from the
-previous section, comparing the energy of the quantum system's
-classical limit and the energy of the classical field theory given by
-Eqs.~\eqref{classical_energy_density}--\eqref{classical_energy}.  In
-the end, we find that the field operator corresponding to the
-classical field variable is
+To determine the $\mathcal{C}_n$ scale factors, we again follow the
+procedure from the previous section, comparing the energy of the
+quantum system's classical limit to the energy of the classical field
+theory; the latter is described by
+Eqs.~\eqref{classical_energy_density}--\eqref{classical_energy}.  The
+resulting field operator is
 \begin{equation}
   \hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n}}
   \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
   + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).
 \end{equation}
 Returning to the Schr\"odinger picture, and using the explicit mode
-profiles from Eq.~\eqref{classical_modes},
+profiles from Eq.~\eqref{classical_modes}, we get
 \begin{equation}
   \hat{f}(x) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n L}}
   \Big(\hat{a}_n e^{ik_n x}
@@ -1230,16 +1229,15 @@ $\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
   \Big[\,\hat{a}(k)\,,\, \hat{a}^\dagger(k')\,\Big] = \delta(k-k').
 \end{align}
 
-%% \subsection{The vacuum energy problem}
-
 \subsection{Looking ahead}
 
 In the next chapter, we will use these ideas to formulate a quantum
 theory of electromagnetism.  The theory contains particles called
-\textbf{photons}, elementary particles of light that can be generated
-and destroyed by creation and annihilation operators.  We will define
-Hermitian field operators that correspond to the components of the
-electromagnetic field at each point of space.
+\textbf{photons}, elementary bosonic particles of light that are
+generated and destroyed by creation and annihilation operators.  We
+can define Hermitian field operators that correspond to the classical
+electromagnetic field variables (i.e., the components of the electric
+and magnetic fields at each point of space).
 
 It is hard to overstate the importance of quantum field theories in
 fundamental physics.  All elementary particles known to humanity can
@@ -1248,21 +1246,27 @@ Standard Model.  As \hyperref[cite:wilczek]{Wilczek (1999)} has
 pointed out, the modern picture of fundamental physics bears a
 striking resemblence to the old idea of ``luminiferous ether'': a
 medium filling all of space (and time), whose vibrations are light
-waves.  We now understand that the ether is not a classical medium,
+waves.  We now understand that this ether is not a classical medium,
 but one obeying the rules of quantum mechanics---a \textbf{quantum
   field}.  (It's also compatible with relativity, unlike the old
 luminiferous ether theory.)  The vacuum state $|\varnothing\rangle$ is
 not merely a mathematical trick, but describes the ground state of the
-field itself.  Moreover, there is not just one quantum field but
-several interacting fields, whose various excitations give rise not
-only to light (photons), but also the particles that make up matter
-(e.g.,~quarks and electrons), and other force-carrying particles like
-gluons.  It is quite natural to regard the quantum fields, not
-particles, as the fundamental objects.  In this view, the fact that
-particles of the same type all have identical physical properties, and
-are indistinguishable from each other, seems quite straightforward:
-the particles are not really distinct objects, but excitations of an
-underlying fundamental entity---a quantum field.
+field itself.
+
+Moreover, the ether is not composed of a single quantum field, but
+several interacting fields.  The various excitations of these fields
+give rise not only to light (photons), but also other force-carrying
+particles like gluons, as well as the particles that make up matter
+(e.g.,~quarks and electrons).  The latter are described by fermionic
+fields, which are inherently quantum mechanical entities with no
+straightforward classical counterpart.
+
+It is then quite natural to regard the quantum fields, not particles,
+as fundamental objects.  In this view, the fact that particles of the
+same type all have identical physical properties, and are
+indistinguishable from each other, is a natural feature.  The
+particles are not really distinct objects, but excitations of more
+fundamental, underlying entities---quantum fields.
 
 \section*{Exercises}
 
