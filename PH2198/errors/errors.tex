@@ -200,6 +200,7 @@ Then, plug this into the rule for products:
 \end{align}
 
 \section{Curve Fitting}
+\label{sec:curvefit}
 
 Many experiments require you to perform \textbf{curve fitting}.  You
 have data points
@@ -226,7 +227,7 @@ weight $w_i$.  Data points with smaller errors are treated as more
 importance (higher ``weight'') during the fit.  A standard weight
 assignment is
 \begin{equation*}
-  w_i = \Delta Y_i.
+  w_i = (\Delta Y_i)^{-2}.
   \label{weighting}
 \end{equation*}
 Note that this ignores the errors in $X$.  There is no standard
@@ -398,8 +399,8 @@ For more details, consult the
     Fit}.  In the dialog box, check that the right fitting options are
   entered.  Under \texttt{Fit Control$\,\rightarrow\,$Errors as
     Weight}, ensure that the \texttt{Instrumental} option is chosen.
-  This corresponds to the weighting scheme of Eq.~\eqref{weighting}.
-  Once ready, perform the fit.
+  This corresponds to the standard weighting scheme from
+  Section~\ref{sec:curvefit}.  Once ready, perform the fit.
 
 \item The fitted curve will be inserted automatically into the graph.
   By default, a \texttt{Fit Results} table is also automatically
@@ -409,8 +410,11 @@ For more details, consult the
   By default, Origin makes the table too small to be legible, so you
   ought to increase the size.  Also, you should omit any statistical
   quantities listed in this table that are not relevant to your data
-  analysis (e.g., the Pearson's $r$).
+  analysis (e.g., the Pearson's $r$).  Finally, you still need to
+  convert the estimators into whatever quantities you are ultimately
+  interested in (such as $g$).
 \end{enumerate}
+
 The resulting plot looks like this:
 \begin{center}
   \includegraphics[width=0.56\textwidth]{origin.png}
