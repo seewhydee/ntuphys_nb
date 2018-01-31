@@ -8,22 +8,22 @@ import sys
 def resonance_demo_1(U, Vb, a, b, Emax):
     Evec = linspace(0.01, Emax, 5000)
 
-    fm   = empty(len(Evec), dtype=complex)
-    fp   = empty(len(Evec), dtype=complex)
+    psim = empty(len(Evec), dtype=complex)
+    psip = empty(len(Evec), dtype=complex)
 
     L, V = array([b-a, 2*a, b-a]), array([Vb, Vb-U, Vb])
     for jj in range(len(Evec)):
         k = sqrt(2*Evec[jj])
         M = tmm.transfer_matrix(L, V, 0.0, Evec[jj])
-        fm[jj] = -M[1,0]/M[1,1]*exp(-2j*k*b)
-        fp[jj] = M[0,0] * exp(-2j*k*b) + M[0,1]*fm[jj]
+        psim[jj] = -M[1,0]/M[1,1]*exp(-2j*k*b)
+        psip[jj] = M[0,0] * exp(-2j*k*b) + M[0,1]*psim[jj]
 
-    plt.plot(Evec, abs(fp)**2)
+    plt.plot(Evec, abs(psip)**2)
     plt.xlim(0, Emax)
     plt.ylim(0,1.05)
     plt.show()
 
-# resonance_demo_1(20.0, 30.0, 1.0, 1.4, 70.0)
+resonance_demo_1(20.0, 30.0, 1.0, 1.4, 70.0)
 
 
 ## Plot resonance wavefunctions
@@ -116,4 +116,4 @@ def resonance_demo_3():
     plt.ylim(0, 0.35)
     plt.show()
 
-resonance_demo_3()
+# resonance_demo_1()
