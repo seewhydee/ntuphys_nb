@@ -46,3 +46,4 @@ def square_well_demo_2():
     plt.show()
 
 square_well_demo_1()
+square_well_demo_2()
