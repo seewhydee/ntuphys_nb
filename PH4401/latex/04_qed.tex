@@ -240,6 +240,7 @@ In the wavefunction representation, the momentum operator is
 $\hat{\mathbf{p}} = -i\hbar\nabla$, as usual.
 
 \subsection{Gauge symmetry}
+\label{sec:gauge}
 
 The Hamiltonian \eqref{quantumH} possesses a subtle property known as
 \textbf{gauge symmetry}.  Suppose we modify the scalar and vector
@@ -784,9 +785,105 @@ For details, see \hyperref[cite:zee]{Zee (2010)}.
 
 \section{Quantizing the electromagnetic field}
 
-\subsection{Lagrangian and Hamiltonian for the Maxwell field}
+\subsection{Photons}
 
-\subsection{Relativity and quantum mechanics}
+Previously, we have seen how a simple scalar boson field can be
+quantized (see Chapter 3, Section V.C, ``A scalar boson field''): the
+classical field is decomposed into its normal modes, and each normal
+mode is promoted into an oscillator-like quantum degree of freedom,
+with its own creation and annihilation operators.  By comparing the
+classical and quantum energies, we can then derive the Hermitian
+operator corresponding to the classical field variable, expressed in
+terms of the creation and annihilation operators.  With only minor
+adjustments, this basic strategy can also be used to quantize the
+electromagnetic field.
+
+In this section, we will restrict our attentions to the case of a
+``source-free'' electromagnetic field---i.e., all electric charges and
+currents are absent.  In this scenario, Maxwell's equations (in SI
+units) reduce to:
+\begin{align}
+  \nabla\cdot \mathbf{E} &= 0 \label{max1} \\
+  \nabla\cdot \mathbf{B} &= 0 \label{max2}\\
+  \nabla\times \mathbf{E} &= -\frac{\partial \mathbf{B}}{\partial t} \label{max3}\\
+  \nabla\times \mathbf{B} &= \frac{1}{c^2} \frac{\partial \mathbf{E}}{\partial t}.
+  \label{max4}
+\end{align}
+Once again, we introduce the electromagnetic scalar potential $\Phi$
+and vector potential $\mathbf{A}$:
+\begin{align}
+  \mathbf{E} &= - \nabla \Phi - \frac{\partial\mathbf{A}}{\partial t} \\
+  \mathbf{B} &= \nabla \times \mathbf{A}.
+  \label{Bfield}
+\end{align}
+With two relations, Eqs.~\eqref{max2} and \eqref{max3} are satisfied
+automatically, via vector identities.  The other two Maxwell
+equations, \eqref{max1} and \eqref{max2}, become:
+\begin{align}
+  \nabla^2 \Phi &= -\frac{\partial}{\partial t} \nabla \cdot \mathbf{A} \label{max5} \\
+  \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)
+  \mathbf{A} &= \nabla\left[\frac{1}{c^2}\frac{\partial}{\partial t}  \Phi + \nabla\cdot\mathbf{A}\right]. \label{max6}
+\end{align}
+
+In the next step, we choose a convenient gauge called the
+\textbf{Coulomb gauge}:
+\begin{equation}
+  \Phi = 0, \;\;\; \nabla \cdot \mathbf{A} = 0.
+  \label{coulomb}
+\end{equation}
+(To see that we can always make such a gauge choice, suppose we start
+out with a scalar potential $\Phi_0$ and vector potential
+$\mathbf{A}_0$ not satisfying \eqref{coulomb}.  Perform a gauge
+transformation with a gauge field $\lambda(\mathbf{r}, t) = - \int^t
+dt'\; \Phi_0(\mathbf{r}, t')$.  Then the new scalar potential is $\Phi
+= \Phi_0 + \dot{\lambda} = 0$; moreover, the new vector potential
+satisfies
+\begin{equation}
+  \nabla\cdot\mathbf{A} = \nabla\cdot \mathbf{A}_0 - \nabla^2 \lambda
+  = \nabla\cdot \mathbf{A}_0 + \int^t dt'\; \nabla^2\Phi_0(\mathbf{r}, t').
+\end{equation}
+Upon using Eq.~\eqref{max5}, we find that $\nabla\cdot\mathbf{A} =
+0$.)
+
+Hence, in the Coulomb gauge Eq.~\eqref{max5} is automatically
+satisfied, and the remaining field equation \eqref{max6} simplifies to
+\begin{equation}
+  \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)
+  \mathbf{A} = 0. \label{max8}
+\end{equation}
+Hence, we can guess the normal modes of the electromagnetic field:
+they are \textbf{plane waves}, for which the vector potential has the
+form
+\begin{equation}
+  \mathbf{A}(\mathbf{r},t) = \mathcal{A}\, \hat{e} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} +
+  \mathcal{A}^* \, \hat{e}\, e^{-i(\mathbf{k}\cdot\mathbf{r} - \omega t)},
+\end{equation}
+where $\mathcal{A}$ is a complex number, and $\hat{e}$ is a real unit
+vector specifying the direction along which the vector potential is
+polarized.  Referring to Eq.~\eqref{max8}, we see that the frequency
+$\omega$ and wave-vector $\mathbf{k}$ must satisfy
+\begin{equation}
+  \omega = c|\mathbf{k}|.
+\end{equation}
+Moreover, since $\nabla \cdot \mathbf{A} = 0$, it must be the case
+that
+\begin{equation}
+  \mathbf{k} \cdot \hat{e} = 0.
+\end{equation}
+In other words, the polarization vector is perpendicular to the plane
+wave's direction of propagation.  For a given $\mathbf{k}$, there are
+two orthogonal polarization, which we can label by some index $\lambda
+= 1,2$.  Hence, the decomposition of the vector potential into a
+superposition of plane wave normal modes has the form
+\begin{equation}
+  \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k},\lambda} 
+  \mathcal{A}_{\mathbf{k},\lambda} \, \hat{e}_{\mathbf{k},\lambda}
+  \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} +
+  \mathcal{A}_{\mathbf{k},\lambda}^* \, \hat{e}_{\mathbf{k},\lambda}\,
+  e^{-i(\mathbf{k}\cdot\mathbf{r} - \omega t)}, \;\;\; \mathrm{where}
+  \;\;\;\omega = c|\mathbf{k}|.
+\end{equation}
+
 
 \section{The electron-photon interaction}
 
