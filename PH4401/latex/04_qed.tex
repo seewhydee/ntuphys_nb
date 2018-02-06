@@ -785,23 +785,19 @@ For details, see \hyperref[cite:zee]{Zee (2010)}.
 
 \section{Quantizing the electromagnetic field}
 
-\subsection{Photons}
+We have previously seen how to quantize a simple scalar boson field
+(Chapter 3, Sec.~V.C): the classical field is decomposed into normal
+modes, and each mode is quantized by treating it as an independent
+oscillator, with its own creation and annihilation operators.  By
+comparing the oscillator energies in the classical and quantum
+regimes, we then derive the Hermitian operator corresponding to the
+classical field variable, expressed in terms of the creation and
+annihilation operators.  We will use this approach, with only minor
+adjustments, to quantize the electromagnetic field.
 
-Previously, we have seen how a simple scalar boson field can be
-quantized (see Chapter 3, Section V.C, ``A scalar boson field''): the
-classical field is decomposed into its normal modes, and each normal
-mode is promoted into an oscillator-like quantum degree of freedom,
-with its own creation and annihilation operators.  By comparing the
-classical and quantum energies, we can then derive the Hermitian
-operator corresponding to the classical field variable, expressed in
-terms of the creation and annihilation operators.  With only minor
-adjustments, this basic strategy can also be used to quantize the
-electromagnetic field.
-
-In this section, we will restrict our attentions to the case of a
-``source-free'' electromagnetic field---i.e., all electric charges and
-currents are absent.  In this scenario, Maxwell's equations (in SI
-units) reduce to:
+For now, we will restrict our attention to a ``source-free''
+electromagnetic field---i.e., with no electric charges and currents.
+In this scenario, Maxwell's equations (in SI units) reduce to:
 \begin{align}
   \nabla\cdot \mathbf{E} &= 0 \label{max1} \\
   \nabla\cdot \mathbf{B} &= 0 \label{max2}\\
@@ -809,16 +805,16 @@ units) reduce to:
   \nabla\times \mathbf{B} &= \frac{1}{c^2} \frac{\partial \mathbf{E}}{\partial t}.
   \label{max4}
 \end{align}
-Once again, we introduce the electromagnetic scalar potential $\Phi$
-and vector potential $\mathbf{A}$:
+Once again, we introduce the scalar potential $\Phi$ and vector
+potential $\mathbf{A}$:
 \begin{align}
   \mathbf{E} &= - \nabla \Phi - \frac{\partial\mathbf{A}}{\partial t} \\
   \mathbf{B} &= \nabla \times \mathbf{A}.
   \label{Bfield}
 \end{align}
-With two relations, Eqs.~\eqref{max2} and \eqref{max3} are satisfied
-automatically, via vector identities.  The other two Maxwell
-equations, \eqref{max1} and \eqref{max2}, become:
+These relations cause Eqs.~\eqref{max2} and \eqref{max3} to be
+satisfied automatically, via vector identities.  The other two Maxwell
+equations, \eqref{max1} and \eqref{max4}, become:
 \begin{align}
   \nabla^2 \Phi &= -\frac{\partial}{\partial t} \nabla \cdot \mathbf{A} \label{max5} \\
   \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)
@@ -845,53 +841,174 @@ satisfies
 Upon using Eq.~\eqref{max5}, we find that $\nabla\cdot\mathbf{A} =
 0$.)
 
-Hence, in the Coulomb gauge Eq.~\eqref{max5} is automatically
-satisfied, and the remaining field equation \eqref{max6} simplifies to
+In the Coulomb gauge, Eq.~\eqref{max5} is automatically satisfied.
+The remaining equation, \eqref{max6}, simplifies to
 \begin{equation}
   \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)
   \mathbf{A} = 0. \label{max8}
 \end{equation}
-Hence, we can guess the normal modes of the electromagnetic field:
-they are \textbf{plane waves}, for which the vector potential has the
-form
+Hence, we deduce that the normal modes are \textbf{light waves} that
+have the plane-wave form
 \begin{equation}
-  \mathbf{A}(\mathbf{r},t) = \mathcal{A}\, \hat{e} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} +
-  \mathcal{A}^* \, \hat{e}\, e^{-i(\mathbf{k}\cdot\mathbf{r} - \omega t)},
+  \mathbf{A}(\mathbf{r},t) = \Big(\mathcal{A}\,
+  \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} + \mathrm{c.c.}\Big)\, \hat{e},
+  \label{lightplanewave}
 \end{equation}
-where $\mathcal{A}$ is a complex number, and $\hat{e}$ is a real unit
-vector specifying the direction along which the vector potential is
-polarized.  Referring to Eq.~\eqref{max8}, we see that the frequency
-$\omega$ and wave-vector $\mathbf{k}$ must satisfy
+where $\mathcal{A}$ is a complex number (the \textbf{mode amplitude})
+that specifies the magnitude and phase of the plane wave, $\hat{e}$ is
+a real unit vector (the \textbf{polarization vector}) that specifies
+which direction the vector potential points along, and
+``c.c.''~denotes the complex conjugate of the first term.  Referring
+to Eq.~\eqref{max8}, we see that the frequency $\omega$ must satisfy
 \begin{equation}
   \omega = c|\mathbf{k}|.
 \end{equation}
-Moreover, since $\nabla \cdot \mathbf{A} = 0$, it must be the case
-that
+For convenience, let's suppose for now that we put the electromagnetic
+field in a box of volume $L^3$, with periodic boundary conditions, so
+that the $\mathbf{k}$ vectors form a discrete set:
+\begin{equation}
+  k_j = \frac{2\pi n_j}{L}, \;\; n_j \in \mathbf{Z}, \;\;\mathrm{for}
+  \;\; j = 1,2,3.
+\end{equation}
+We will take the $L \rightarrow \infty$ limit at the very end.
+
+Since $\nabla \cdot \mathbf{A} = 0$, it must also be the case that
 \begin{equation}
   \mathbf{k} \cdot \hat{e} = 0.
 \end{equation}
-In other words, the polarization vector is perpendicular to the plane
-wave's direction of propagation.  For a given $\mathbf{k}$, there are
-two orthogonal polarization, which we can label by some index $\lambda
-= 1,2$.  Hence, the decomposition of the vector potential into a
-superposition of plane wave normal modes has the form
+In other words, the polarization vector is perpendicular to the
+propagation direction.  For each $\mathbf{k}$, there are two
+orthogonal polarization, which can be labelled by an index $\lambda =
+1,2$.
+
+Hence, the vector potential field can be generally decomposed into a
+discrete superposition of plane waves:
 \begin{equation}
-  \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k},\lambda} 
-  \mathcal{A}_{\mathbf{k},\lambda} \, \hat{e}_{\mathbf{k},\lambda}
-  \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} +
-  \mathcal{A}_{\mathbf{k},\lambda}^* \, \hat{e}_{\mathbf{k},\lambda}\,
-  e^{-i(\mathbf{k}\cdot\mathbf{r} - \omega t)}, \;\;\; \mathrm{where}
-  \;\;\;\omega = c|\mathbf{k}|.
+  \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
+  \Big(\mathcal{A}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{c.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+  \;\;\; \mathrm{where}
+  \;\;\;\omega_{\mathbf{k}} = c|\mathbf{k}|.
+\end{equation}
+To convert the classical field theory into a quantum field theory, for
+each $(\mathbf{k},\lambda)$ we define an independent set of creation
+and annihilation operators:
+\begin{equation}
+  \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}^\dagger\big]
+  = \delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'}, \;\;\;
+  \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}\big]
+  = \big[\hat{a}_{\mathbf{k}\lambda}^\dagger, \hat{a}_{\mathbf{k}'\lambda'}^\dagger\big]
+  = 0.
+\end{equation}
+Then the Hamiltonian for the electromagnetic field is
+\begin{equation}
+  \hat{H} = \sum_{\mathbf{k}\lambda} \hbar \omega_{\mathbf{k}} \,
+  \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda},
+  \;\;\; \mathrm{where}
+  \;\;\;\omega_{\mathbf{k}} = c|\mathbf{k}|.
+\end{equation}
+And the vector potential is promoted into a Hermitian operator in the
+Heisenberg picture:
+\begin{equation}
+  \hat{\mathbf{A}}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
+  \mathcal{C}_{\mathbf{k}\lambda}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}.
+\end{equation}
+Here, $\mathcal{C}_{\mathbf{k}\lambda}$ is a constant to be
+determined, and ``h.c.''~denotes the Hermitian conjugate.  The
+creation and annihilation operators in this equation are Schr\"odinger
+picture ($t = 0$) operators (see Chapter 3, Sec.~V.C).  The particles
+that they create/annihilate are called \textbf{photons}---elementary
+particles of light.
+
+To find $\mathcal{C}_{\mathbf{k}\lambda}$, we compare the quantum and
+classical energies.  Consider the quantum case first: suppose the
+electromagnetic field is in a coherent state
+$|\alpha_{\mathbf{k}\lambda}\rangle$ such that
+\begin{equation}
+  \hat{a}_{\mathbf{k}\lambda}|\alpha_{\mathbf{k}\lambda}\rangle
+  = \alpha_{\mathbf{k}\lambda}|\alpha_{\mathbf{k}\lambda}\rangle,
+  \label{coherent}
+\end{equation}
+for some $\alpha_{\mathbf{k}\lambda} \in \mathbb{C}$.  Then the mean
+squared expectation value of $A^2$, where $A$ is the vector potential
+component parallel to the polarization vector
+$\hat{e}_{\mathbf{k}\lambda}$, is
+\begin{equation}
+  \overline{\langle \alpha_{\mathbf{k}\lambda} | \hat{A}^2(\mathbf{r},t) | \alpha_{\mathbf{k}\lambda}\rangle}
+  = 2 \, |\mathcal{C}_{\mathbf{k}\lambda}|^2 \, |\alpha_{\mathbf{k}\lambda}|^2.
+  \label{quant_Asq}
+\end{equation}
+The energy is
+\begin{equation}
+  E = \hbar\omega_{\mathbf{k}} |\alpha_{\mathbf{k}\lambda}|^2.
+  \label{quant_energy}
 \end{equation}
 
+Now compare this to the classical case.  The energy density (energy
+per unit volume) of a classical source-free electromagnetic plane wave
+is
+\begin{equation}
+  \overline{u} = \varepsilon_0\, \omega^2 \, \overline{A^2},
+\end{equation}
+where $\varepsilon_0$ is the permittivity of free space.  Combining
+this with Eqs.~\eqref{quant_Asq} and \eqref{quant_energy}, and taking
+$E = \overline{u} L^3$, yields
+\begin{align}
+  \hbar\omega_{\mathbf{k}} |\alpha_{\mathbf{k}\lambda}|^2 &=
+  \left(\varepsilon_0\, \omega^2\right) \,
+  \left(2 \, |\mathcal{C}_{\mathbf{k}\lambda}|^2 \, |\alpha_{\mathbf{k}\lambda}|^2\right)\, L^3 \\
+  \Rightarrow \quad \mathcal{C}_{\mathbf{k}\lambda} &= \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}L^3}}.
+\end{align}
+We thus arrive at the result
+\begin{align}
+\boxed{\qquad
+  \begin{aligned}
+    \hat{H} &= \sum_{\mathbf{k}\lambda} \hbar \omega_{\mathbf{k}} \,
+    \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
+  \hat{\mathbf{A}}(\mathbf{r},t) &= \sum_{\mathbf{k}\lambda} 
+  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}L^3}}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
+  \omega_{\mathbf{k}} &= c|\mathbf{k}|,  \;\;\;
+  \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}^\dagger\big]
+  = \delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'}, \;\;\;
+  \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}\big]
+  = 0.
+  \end{aligned}
+  \qquad}
+  \label{qed1}
+\end{align}
+To describe infinite free space rather than a finite-volume box, we
+take the $L\rightarrow \infty$ limit and re-normalize the creation and
+annihilation operators:
+\begin{equation}
+  \hat{a}_{\mathbf{k}\lambda} \rightarrow \left(\frac{2\pi}{L}\right)^{3/2} \,
+  \hat{a}_{\mathbf{k}\lambda}.
+\end{equation}
+Then the sums over $\mathbf{k}$ become integrals over the infinite
+three-dimensional space:
+\begin{align}
+\boxed{\qquad
+  \begin{aligned}
+    \hat{H} &= \int d^3k\sum_{\lambda} \hbar \omega_{\mathbf{k}} \,
+    \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
+  \hat{\mathbf{A}}(\mathbf{r},t) &= \int d^3k \sum_{\lambda} 
+  \sqrt{\frac{\hbar}{16\pi^3\varepsilon_0\omega_{\mathbf{k}}}}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
+  \omega_{\mathbf{k}} &= c|\mathbf{k}|,  \;\;\;
+  \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}^\dagger\big]
+  = \delta^3(\mathbf{k}-\mathbf{k}') \delta_{\lambda\lambda'}, \;\;\;
+  \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}\big]
+  = 0.
+  \end{aligned}
+  \qquad}
+  \label{qed2}
+\end{align}
 
 \section{The electron-photon interaction}
-
-\subsection{The electromagnetic shift of energy levels}
-
-Bethe's Lamb shift calculation.
-
-\subsection{Photon emission and absorption}
 
 Dirac's calculation of the coefficient of spontaneous emission.
 
