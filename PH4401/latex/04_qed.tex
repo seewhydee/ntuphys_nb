@@ -429,6 +429,7 @@ problem since both $\nabla\lambda$ and the phase factor
 $\exp(ie\lambda/\hbar)$ remain single-valued.
 
 \subsection{The Dirac Hamiltonian}
+\label{sec:DiracH}
 
 The $p^2/2m$-type Hamiltonians we have been dealing with describe
 non-relativistic particles.  In 1928, Paul Dirac formulated a new type
@@ -646,6 +647,7 @@ transformations.  For these details, the reader is referred to
 \hyperref[cite:dyson]{Dyson (1951)}.
 
 \subsection{Electrons in an electromagnetic field}
+\label{sec:diracem}
 
 Having obtained a Hamiltonian that describes the relativistic dynamics
 of a electron, we are naturally interested in putting the electron in
@@ -784,6 +786,7 @@ For details, see \hyperref[cite:zee]{Zee (2010)}.
 \subsection{The electron-positron field}
 
 \section{Quantizing the electromagnetic field}
+\label{sec:em_quantization}
 
 We have previously seen how to quantize a simple scalar boson field
 (Chapter 3, Sec.~V.C): the classical field is decomposed into normal
@@ -864,7 +867,7 @@ to Eq.~\eqref{max8}, we see that the frequency $\omega$ must satisfy
   \omega = c|\mathbf{k}|.
 \end{equation}
 For convenience, let's suppose for now that we put the electromagnetic
-field in a box of volume $L^3$, with periodic boundary conditions, so
+field in a box of volume $V = L^3$, with periodic boundary conditions, so
 that the $\mathbf{k}$ vectors form a discrete set:
 \begin{equation}
   k_j = \frac{2\pi n_j}{L}, \;\; n_j \in \mathbf{Z}, \;\;\mathrm{for}
@@ -954,12 +957,12 @@ is
 \end{equation}
 where $\varepsilon_0$ is the permittivity of free space.  Combining
 this with Eqs.~\eqref{quant_Asq} and \eqref{quant_energy}, and taking
-$E = \overline{u} L^3$, yields
+$E = \overline{u} V$, yields
 \begin{align}
   \hbar\omega_{\mathbf{k}} |\alpha_{\mathbf{k}\lambda}|^2 &=
   \left(\varepsilon_0\, \omega^2\right) \,
-  \left(2 \, |\mathcal{C}_{\mathbf{k}\lambda}|^2 \, |\alpha_{\mathbf{k}\lambda}|^2\right)\, L^3 \\
-  \Rightarrow \quad \mathcal{C}_{\mathbf{k}\lambda} &= \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}L^3}}.
+  \left(2 \, |\mathcal{C}_{\mathbf{k}\lambda}|^2 \, |\alpha_{\mathbf{k}\lambda}|^2\right)\, V \\
+  \Rightarrow \quad \mathcal{C}_{\mathbf{k}\lambda} &= \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}.
 \end{align}
 We thus arrive at the result
 \begin{align}
@@ -968,7 +971,7 @@ We thus arrive at the result
     \hat{H} &= \sum_{\mathbf{k}\lambda} \hbar \omega_{\mathbf{k}} \,
     \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
   \hat{\mathbf{A}}(\mathbf{r},t) &= \sum_{\mathbf{k}\lambda} 
-  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}L^3}}\,
+  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
   + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
   \omega_{\mathbf{k}} &= c|\mathbf{k}|,  \;\;\;
@@ -984,7 +987,7 @@ To describe infinite free space rather than a finite-volume box, we
 take the $L\rightarrow \infty$ limit and re-normalize the creation and
 annihilation operators:
 \begin{equation}
-  \hat{a}_{\mathbf{k}\lambda} \rightarrow \left(\frac{2\pi}{L}\right)^{3/2} \,
+  \hat{a}_{\mathbf{k}\lambda} \rightarrow \sqrt{\frac{(2\pi)^3}{V}} \;
   \hat{a}_{\mathbf{k}\lambda}.
 \end{equation}
 Then the sums over $\mathbf{k}$ become integrals over the infinite
@@ -1010,7 +1013,56 @@ three-dimensional space:
 
 \section{The electron-photon interaction}
 
-Dirac's calculation of the coefficient of spontaneous emission.
+Now that we have separate quantum theories for the electron and the
+electromagnetic field, we can put them together into a theory of
+\textbf{quantum electrodynamics}.  This theory will be able to
+describe processes involving electrons interacting with the
+electromagnetic field by absorbing and/or radiating photons.
+
+In concrete terms, let $\mathscr{H}_{\mathrm{e}}$ denote the Hilbert
+space for one electron (for now, we'll use a single-particle rather
+than field-theoretical description for the electron).  Let
+$\mathscr{H}_{\mathrm{EM}}$ denote the Hilbert space for the
+electromagnetic field (i.e., a Fock space for photons).  The states of
+the combined system lie in the product space
+\begin{equation*}
+  \mathscr{H}_e \otimes \mathscr{H}_{\mathrm{EM}}.
+\end{equation*}
+We seek a Hamiltonian of the form
+\begin{equation}
+  H = H_e + H_{\mathrm{EM}} + H_{\mathrm{int}},
+\end{equation}
+where $H_e$ is the Hamiltonian for the ``bare'' electron (either an
+ordinary $p^2/2m$-type Hamiltonian, or the Dirac Hamiltonian described
+in Section~\ref{sec:DiracH}); $H_{\mathrm{EM}}$ is the Hamiltonian for
+the source-free electromagnetic field (derived in
+Section~\ref{sec:em_quantization}); and $H_{\mathrm{int}}$ is an
+\textbf{interaction Hamiltonian} describing how the electron interacts
+with photons.
+
+We can use the discussion in the previous sections as a guide to
+finding $H_{\mathrm{int}}$.  Let us once again adopt the Coulomb
+gauge, so that the scalar potential is zero, and the electromagnetic
+field is solely described via the vector potential.  In
+Section~\ref{sec:nonrel}, we saw that the effect of the vector
+potential on a charged particle can be described via the substitution
+\begin{equation}
+  \hat{\mathbf{p}} \rightarrow \hat{\mathbf{p}} +
+  e\mathbf{A}(\hat{\mathbf{r}},t).
+\end{equation}
+In Section~\ref{sec:diracem}, we saw that this substitution is
+applicable not just to non-relativistic particles, but also to fully
+relativistic particles described by the Dirac Hamiltonian.
+Previously, we have treated the $\mathbf{A}$ in this substitution as a
+classical object lacking quantum dynamics of its own.  Now, we simply
+replace it by the vector potential \textit{operator} derived in
+Section~\ref{sec:em_quantization}:
+\begin{equation}
+  \hat{\mathbf{A}}(\hat{\mathbf{r}},t) = \int d^3k \sum_{\lambda} 
+  \sqrt{\frac{\hbar}{16\pi^3\varepsilon_0\omega_{\mathbf{k}}}}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\hat{\mathbf{r}} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}.
+\end{equation}
 
 \section{Looking ahead}
 
