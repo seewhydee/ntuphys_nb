@@ -590,8 +590,8 @@ interested in.  However, once we couple the electron to the
 electromagnetic field, the existence of the negative-energy states
 points to a nonsensical scenario.  The negative-energy band extends
 down to $E \rightarrow -\infty$, which means the system has no ground
-state.  So the electron can constantly lose energy by photon emission,
-forever hopping to ever-lower-energy states!
+state.  This implies that the electron can keep losing energy by
+photon emission, forever hopping to ever-lower-energy states!
 
 The resolution of this problem is an interesting story, but one we
 will not be able to pursue in this course.  Basically, we now know
@@ -825,7 +825,6 @@ potential $\mathbf{A}$:
 \begin{align}
   \mathbf{E} &= - \nabla \Phi - \frac{\partial\mathbf{A}}{\partial t} \\
   \mathbf{B} &= \nabla \times \mathbf{A}.
-  \label{Bfield}
 \end{align}
 These relations cause Eqs.~\eqref{max2} and \eqref{max3} to be
 satisfied automatically, via vector identities.  The other two Maxwell
@@ -997,7 +996,7 @@ We thus arrive at the result
 \end{align}
 To describe infinite free space rather than a finite-volume box, we
 take the $L\rightarrow \infty$ limit and re-normalize the creation and
-annihilation operators:
+annihilation operators by the replacement
 \begin{equation}
   \hat{a}_{\mathbf{k}\lambda} \rightarrow \sqrt{\frac{(2\pi)^3}{V}} \;
   \hat{a}_{\mathbf{k}\lambda}.
@@ -1066,26 +1065,173 @@ In Section~\ref{sec:diracem}, we saw that this substitution is
 applicable not just to non-relativistic particles, but also to fully
 relativistic particles described by the Dirac Hamiltonian.
 Previously, we have treated the $\mathbf{A}$ in this substitution as a
-classical object lacking quantum dynamics of its own.  Now, we simply
-replace it by the vector potential \textit{operator} derived in
+classical object lacking quantum dynamics of its own.  Now, we replace
+it by the vector potential \textit{operator} derived in
 Section~\ref{sec:em_quantization}:
 \begin{equation}
-  \hat{\mathbf{A}}(\hat{\mathbf{r}},t) = \int d^3k \sum_{\lambda} 
+  \hat{\mathbf{A}}(\hat{\mathbf{r}},t) =
+  \begin{cases}
+    \displaystyle
+    \sum_{\mathbf{k}\lambda} 
+  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}, & (\mathrm{finite}\;\mathrm{volume}) \\
+  \displaystyle \int d^3k \sum_{\lambda} 
   \sqrt{\frac{\hbar}{16\pi^3\varepsilon_0\omega_{\mathbf{k}}}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\hat{\mathbf{r}} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}.
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+  & (\mathrm{infinite}\;\mathrm{space}).
+  \end{cases}
+  \label{Aoperator}
 \end{equation}
 
-\section{Looking ahead}
+Using this, together with either the electronic and electromagnetic
+Hamiltonians, we are finally able to describe the emission and
+absorption of photons by electrons.  We will illustrate with a
+calculation of the rate of spontaneous emission of an atom.
 
-Need to treat both electrons and photons on the same footing, with QFT
-language.  Renormalization.
+Suppose a non-relativistic electron is orbiting an atomic nucleus in
+the excited state $|1\rangle \in \mathscr{H}_e$.  Initially, the
+photon field is in its ground state, $|\varnothing\rangle \in
+\mathscr{H}_{\mathrm{EM}}$.  Hence, the initial state of the combined
+system is
+\begin{equation}
+  |\psi_i\rangle = |1\rangle \otimes |\varnothing\rangle.
+\end{equation}
+Let $H_{\mathrm{int}}$ be the Hamiltonian term responsible for photon
+absorption/emission.  If $H_{\mathrm{int}} = 0$, then $|\psi_i\rangle$
+would be an energy eigenstate.  The atom would remain in its excited
+state forever.
 
-\section*{Exercises}
+In actuality, $H_{\mathrm{int}}$ is not zero, so $|\psi_i\rangle$ is
+not an energy eigenstate.  As the system evolves, the excited electron
+may decay into the ground state by emitting a photon with energy $E$,
+equal to the energy difference between the atom's excited state
+$|1\rangle$ and ground state $|0\rangle$.  For a non-relativistic
+electron, the Hamiltonian \eqref{quantumH} yields the interaction
+Hamiltonian
+\begin{equation}
+  H_{\mathrm{int}} = \frac{e}{2m} \left( \hat{\mathbf{p}} \cdot \hat{\mathbf{A}} + \mathrm{h.c.}\right).
+\end{equation}
+We will have to treat $\hat{\mathbf{A}}$ not as a classical field, but
+as a field operator.
 
-\begin{enumerate}
-\item Gauge transformations.
-\end{enumerate}
+Next, consider the states that $|\psi_i\rangle$ can decay into.  There
+is a continuum of possible final states, each having the form
+\begin{equation}
+  | \psi_{f}^{(\mathbf{k}\lambda)} \rangle = |0\rangle \otimes
+  \left( \hat{a}_{\mathbf{k}\lambda}^\dagger |\varnothing\rangle\right),
+  \label{decaystate}
+\end{equation}
+which describes the electron being in its ground state and the
+electromagnetic field containing one photon, with wave-vector
+$\mathbf{k}$ and polarization $\lambda$.
+
+According to Fermi's Golden Rule (remember this?!?), the decay rate is
+\begin{equation}
+  \kappa = \frac{2\pi}{\hbar} \;
+  \overline{\Big| \langle \psi_{f}^{(\mathbf{k}\lambda)} | \hat{H}_{\mathrm{int}}|\psi_i\rangle\Big|^2} \;
+  \mathcal{D}(E),
+\end{equation}
+where $\overline{(\cdots)}$ denotes the average over the possible
+decay states of energy $E$ (i.e., equal to the energy of the initial
+state), and $\mathcal{D}(E)$ is the density of states (which has units
+of inverse energy).
+
+We therefore have to calculate the matrix element $\langle
+\psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle$.
+We will use the finite-volume version of the vector field operator,
+Eq.~\eqref{Aoperator} (this is to avoid complications about how
+Eq.~\eqref{decaystate} is to be normalized---in the finite-volume
+case, we simply normalize to unity).  Moreover, in
+Eq.~\eqref{Aoperator}, the $t$ dependence turns out not to matter in
+this calculation, so we take $t = 0$; we also take $\hat{\mathbf{r}}
+\approx 0$, which is a good approximation since the size of a typical
+atomic orbital ($\sim 10^{-9}\,\textrm{m}$) is much smaller than the
+optical wavelength ($\sim 10^{-6}\,\textrm{m}$).  With these
+simplifications,
+\begin{equation}
+  \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
+  \approx \frac{e}{m} \sum_{j=1}^3 \langle 0 |\hat{p}_j|1\rangle
+  \langle \varnothing| \hat{a}_{\mathbf{k}\lambda}
+\left(\sum_{\mathbf{k}'\lambda'} 
+  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}'}V}}\,
+  \Big(\hat{a}_{\mathbf{k}'\lambda'} + \mathrm{h.c.}\Big)
+  \, \hat{e}_{\mathbf{k}\lambda'}^j\right)
+  |\varnothing \rangle.
+  \label{matrixelt}
+\end{equation}
+The right side of Eq.~\eqref{matrixelt} contains two matrix elements,
+one involving the electron space, and the other involving the photon
+space.  The first matrix element can be simplified by observing that
+for $\hat{H}_e = |\hat{\mathbf{p}}|^2/2m + V(\mathbf{r})$,
+\begin{equation}
+  [\hat{H}_e, \hat{\mathbf{r}}] = -i\hbar\mathbf{p}/m \;\;\;\Rightarrow \;\;\;
+  \langle 0|\hat{p}_j|1\rangle = - \frac{imE \mathbf{d}}{\hbar},
+\end{equation}
+where $\mathbf{d} = \langle 0 |\mathbf{r} | 1\rangle$ is called the
+\textbf{transition dipole moment} (note that this is generally a
+complex number).  As for the photon matrix element in
+\eqref{matrixelt}, the only non-vanishing elements are those of the
+form
+\begin{equation*}
+  \langle\varnothing|\hat{a}_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}'\lambda'}^\dagger|\varnothing\rangle
+  = 
+  \langle\varnothing| \left[\delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'} - \hat{a}_{\mathbf{k}'\lambda'}^\dagger \hat{a}_{\mathbf{k}\lambda}\right]|\varnothing\rangle =
+  \delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'}.
+\end{equation*}
+With that, Eq.~\eqref{matrixelt} simplifies to
+\begin{equation}
+  \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
+  \approx - ie \sqrt{\frac{E}{2\varepsilon_0V}}\;
+  \mathbf{d}\cdot \hat{e}_{\mathbf{k}\lambda}.
+\end{equation}
+In applying Fermi's Golden Rule, we have to take the absolute square
+of this, and average over the possible photon states ($\mathbf{k}$ and
+$\lambda$).  In taking this average, the polarization vector runs over
+all possible directions, and a straightforward angular integration
+shows us that
+\begin{equation}
+  \overline{|\mathbf{d}\cdot \hat{e}_{\mathbf{k}\lambda}|^2}
+  \,=\, \sum_{j=1}^3 |d_j|^2 \;\overline{e_j^2}
+  \,=\, \sum_{j=1}^3 |d_j|^2 \cdot \frac{1}{3}
+  \,=\, \frac{|\mathbf{d}|^2}{3}.
+\end{equation}
+
+
+The only remaining thing we need for Fermi's Golden Rule is the
+density of photon states.  Using the dispersion relation $E = \hbar c
+|\mathbf{k}|$, we can show that
+\begin{equation}
+  \mathcal{D}(E) = \frac{E^2 V}{\pi^2\hbar^3c^3}.
+\end{equation}
+(This includes a factor of 2 for the photons' two-fold polarization
+degree of freedom.)  Putting everything together, we arrive at the
+following rate of spontaneous decay:
+\begin{equation}
+  \kappa = \frac{e^2\, E^3\, \overline{|\mathbf{d}|^2}}{3\pi\hbar^4c^3\varepsilon_0}
+\end{equation}
+We can make this look nicer by defining the \textbf{fine-structure constant}
+\begin{equation}
+  \alpha = \frac{e^2}{4\pi\varepsilon_0\hbar c},
+\end{equation}
+and letting $\omega = E / \hbar$ be the frequency of the emitted
+photon.  Then
+\begin{equation}
+  \kappa = \frac{4 \alpha \omega^3\, \overline{|\mathbf{d}|^2}}{3c^2}.
+\end{equation}
+
+
+%% \section{Looking ahead}
+
+%% Need to treat both electrons and photons on the same footing, with QFT
+%% language.  Renormalization.
+
+%% \section*{Exercises}
+
+%% \begin{enumerate}
+%% \item Gauge transformations.
+%% \end{enumerate}
 
 \section*{Further Reading}
 
