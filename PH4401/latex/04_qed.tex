@@ -1211,18 +1211,43 @@ following rate of spontaneous decay:
 \begin{equation}
   \kappa = \frac{e^2\, E^3\, \overline{|\mathbf{d}|^2}}{3\pi\hbar^4c^3\varepsilon_0}
 \end{equation}
-We can make this look nicer by defining the \textbf{fine-structure constant}
+We can make this look nicer by defining the dimensionless
+\textbf{fine-structure constant}
 \begin{equation}
-  \alpha = \frac{e^2}{4\pi\varepsilon_0\hbar c},
+  \alpha = \frac{e^2}{4\pi\varepsilon_0\hbar c} \approx \frac{1}{137},
 \end{equation}
-and letting $\omega = E / \hbar$ be the frequency of the emitted
-photon.  Then
-\begin{equation}
+and defining $\omega = E / \hbar$ as the frequency of the emitted
+photon.  The resulting decay rate is
+$$\boxed{\;\;\;
   \kappa = \frac{4 \alpha \omega^3\, \overline{|\mathbf{d}|^2}}{3c^2}.
-\end{equation}
+  \;\;\;}
+$$
+ 
+The figure below compares this prediction to experimentally-determined
+decay rates for the simplest excited states of hydrogen, lithium, and
+sodium atoms.  The experimental data are derived from atomic emission
+line-widths, and correspond to the rate of spontaneous emission (or
+``Einstein $A$ coefficient'') as the excited state decays to the
+ground state.  For the Fermi's Golden Rule curve, we simply
+approximated the transition dipole moment as $|\mathbf{d}| \approx
+10^{-10}\,\mathrm{m}$ (based on the fact that $|\mathbf{d}|$ has units
+of length, and the length scale of an atomic orbital is about an
+angstrom); to be more precise, $\mathbf{d}$ ought to be calculated
+using the actual orbital wavefunctions.  But even with this crude
+approximation, the prediction based on Fermi's Golden Rule is within
+striking distance of the experimental values.
 
-
-%% \section{Looking ahead}
+\begin{figure}[h]
+  \centering\includegraphics[width=0.6\textwidth]{emissionrates}
+  \caption{Spontaneous emission rates (Einstein $A$ coefficients) for
+    the $2p\rightarrow 1s$ transition in hydrogen, the
+    $2p\rightarrow2s$ transition in lithium, and the $3p\rightarrow3s$
+    transition in sodium.  Data points extracted from the NIST Atomic
+    Spectra Database
+    (\href{https://www.nist.gov/pml/atomic-spectra-database}{https://www.nist.gov/pml/atomic-spectra-database}).
+    The dashed curve shows the decay rate based on Fermi's Golden
+    Rule, with $|\mathbf{d}| \approx 10^{-10}\,\mathrm{m}$.  }
+\end{figure}
 
 %% Need to treat both electrons and photons on the same footing, with QFT
 %% language.  Renormalization.
