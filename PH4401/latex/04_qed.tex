@@ -26,20 +26,21 @@
 
 This chapter provides a survey of \textbf{quantum electrodynamics},
 the quantum theory of the electromagnetic field and its interaction
-with charged particles such as electrons.  We start by formulating
-Hamiltonians to describe how a quantum mechanical electron is affected
-by classical electric and magnetic fields.  Next, we describe the
-quantization of Maxwell's equations, which yields a quantum field
-theory in which the elementary excitations are photons---particles of
-light.  The last step is to formulate a theory in which both electrons
-and photons are treated on the same footing, as excitations of
-underlying quantum fields.  Along the way, we will see how relativity
-can be accomodated within quantum mechanics.
+with electrically charged particles, such as electrons.  We start by
+formulating Hamiltonians to describe how a quantum mechanical electron
+is affected by classical electric and magnetic fields.  Next, we
+describe the quantization of Maxwell's equations, which yields a
+quantum field theory in which the elementary excitations are
+photons---particles of light.  The last step is to formulate a theory
+in which both electrons and photons are treated on the same footing,
+as excitations of underlying quantum fields.  Along the way, we will
+see how relativity can be accomodated within quantum mechanics.
 
 Quantum electrodynamics is a rich and intricate theory, and we will
-not be able to cover a lot of important ground, such as diagrammatic
-methods for performing field theoretical calculations.  For further
-reading, I recommend Dyson's 1951 lecture notes
+not be able to cover a lot of important ground, such as the
+relationship with special relativity and diagrammatic methods for
+performing field theoretical calculations.  For further reading, the
+interested student may refer to Dyson's 1951 lecture notes
 (\hyperref[cite:dyson]{Dyson 1951}) and Zee's introductory textbook
 \textit{Quantum Field Theory in a Nutshell} (\hyperref[cite:zee]{Zee
   2010}).
@@ -53,22 +54,21 @@ Consider a non-relativistic charged particle in an electromagnetic
 field.  As we are mainly interested in the physics of electrons
 interacting with electromagnetic fields, we will henceforth take the
 electric charge of the particle to be $-e$, where $e =
-1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  (If you
-wish to describe particles with an arbitrary electric charge $q$,
-simply perform the substitution $e \rightarrow -q$ in all formulas in
-the rest of this chapter.)  For simplicity, we also assume (for now)
-that the particle has charge and mass but is otherwise
-``featureless''; in particular, unlike a real electron, it has no spin
-angular momentum, and no magnetic dipole moment.
+1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  (To
+describe particles with an arbitrary electric charge $q$, simply
+perform the substitution $e \rightarrow -q$ in all formulas in the
+rest of this chapter.)
 
-Suppose we treat the electromagnetic field as a classical field, in
-the sense that the electric and magnetic field strengths are definite
-quantities, not subject to quantum dynamics.  Our goal is to formulate
-the Hamiltonian governing the quantum dynamics of this
-non-relativistic charged particle.  To do this, let us first derive
-the particle's \textit{classical} equations of motion.
+We wish to formulate the Hamiltonian governing the quantum dynamics of
+such a particle, subject to two simplifying assumptions: (i) the
+particle has charge and mass but is otherwise ``featureless'' (i.e.,
+unlike a real electron, it has no spin angular momentum, and no
+magnetic dipole moment), and (ii) the electromagnetic field is treated
+as a classical field (i.e., the electric and magnetic fields are
+definite quantities).
 
-In the classical regime, the action of an electromagnetic field on a
+Let us first derive the \textit{classical} equations of motion.  In
+the classical regime, the action of an electromagnetic field on a
 point charged particle is decribed by the Lorentz force law,
 \begin{equation}
   \mathbf{F}(\mathrm{r},t) = -e\Big(\mathbf{E}(\mathrm{r},t)
@@ -120,10 +120,10 @@ The partial derivatives of the Lagrangian are:
     \frac{\partial L}{\partial \dot{r}_i} &= m\dot{r}_i - e A_i.
   \end{aligned}
 \end{align}
-Next, we want to take the \textit{total} time derivative of $\partial
-L /\partial \dot{r}_i$.  In doing so, we note that the $\mathbf{A}$
-field has its own $t$-dependence, as well as varying with the
-particle's $t$-dependent position:
+Now we want to take the \textit{total} time derivative of $\partial L
+/\partial \dot{r}_i$.  In doing so, note that the $\mathbf{A}$ field
+has its own $t$-dependence, as well as varying with the particle's
+$t$-dependent position.  Thus,
 \begin{align}
   \begin{aligned}
     \frac{d}{dt} \frac{\partial L}{\partial \dot{r}_i}
@@ -134,30 +134,30 @@ particle's $t$-dependent position:
 \end{align}
 (In the above equations, $\partial_i \equiv \partial/\partial r_i$,
 where $r_i$ is the $i$-th component of the position vector, while
-$\partial_t \equiv \partial/\partial t$.)  Putting these results into
-the Euler-Lagrange equations yields
+$\partial_t \equiv \partial/\partial t$.)  Plugging these expressions
+into the Euler-Lagrange equations yields
 \begin{align}
   \begin{aligned}
     m\ddot{r}_i &=
     -e\Big[\Big(-\partial_i \Phi - \partial_t A_i\Big)
       + \dot{r}_j \Big( \partial_i A_j - \partial_j A_i\Big) \Big] \\
     &= -e \Big[E_i(\mathbf{r},t) + \big(\dot{\mathbf{r}} \times
-      \mathbf{B}(\mathbf{r},t) \big)_i\; \Big].
+      \mathbf{B}(\mathbf{r},t) \big)_i\, \Big].
   \end{aligned}
 \end{align}
 (The last step can be derived by expressing the cross product using
 the Levi-Cevita symbol, and using the identity $\varepsilon_{ijk}
 \varepsilon_{lmk} = \delta_{il} \delta_{jm} - \delta_{im}
-\delta_{jl}$.)  And indeed, this is the equation of motion
+\delta_{jl}$.)  As desired, this is the equation of motion
 corresponding to the Lorentz force.
 
-We can now derive the classical Hamiltonian.  First, we define the
-canonical momentum:
+We can now use the Lagrangian to derive the Hamiltonian.  The
+canonical momentum is
 \begin{equation}
   p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i.
 \end{equation}
-Now the Hamiltonian can be defined as $H(\mathbf{r},\mathbf{p}) =
-\mathbf{p} \cdot \dot{\mathbf{r}} - L$, which needs to be expressed
+The Hamiltonian can be defined as $H(\mathbf{r},\mathbf{p}) =
+\mathbf{p} \cdot \dot{\mathbf{r}} - L$.  This has to be expressed
 using the $\mathbf{p}$ variables rather than $\dot{\mathbf{r}}$
 variables:
 \begin{align}
@@ -168,7 +168,7 @@ variables:
     &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
     - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
     - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
-    + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right)
+    + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right).
   \end{aligned}
 \end{align}
 After cancelling various terms, we arrive at the result
@@ -226,10 +226,10 @@ conserved:
   eC\hat{z} - eC\hat{z} = 0.
 \end{equation}
 
-To go from classical to quantum mechanics, we merely need to replace
-$\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
-$\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  Hence,
-the quantum Hamiltonian is
+The last step is to go from classical to quantum mechanics.  For this,
+we merely need to replace $\mathbf{r}$ with the position operator
+$\hat{\mathbf{r}}$, and $\mathbf{p}$ with the momentum operator
+$\hat{\mathbf{p}}$.  Hence, the quantum Hamiltonian is
 \begin{equation}
 \boxed{\qquad
   \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
@@ -434,27 +434,13 @@ $\exp(ie\lambda/\hbar)$ remain single-valued.
 The $p^2/2m$-type Hamiltonians we have been dealing with describe
 non-relativistic particles.  In 1928, Paul Dirac formulated a new type
 of Hamiltonian that can be used to describe particles moving close to
-the speed of light.  Dirac's theory was the first to successfully
-combine quantum mechanics with the special theory of relativity.
-Moreover, when electromagnetic scalar and vector potentials are
-introduced (using the methods discussed in Sec.~\ref{sec:nonrel}),
-Dirac's theory is able to describe a range of important electrodynamic
-phenomena.  Most notably, Dirac was able to use his theory to derive
-the magnetic moment of the electron.
+the speed of light, thus successfully combining quantum mechanics with
+the special theory of relativity. Another triumph of Dirac's theory is
+that after including electromagnetic scalar and vector potentials
+(following the procedures discussed in Sec.~\ref{sec:nonrel}), it
+accurately predicts the magnetic moment of the electron.
 
-But as we shall see, Dirac's theory contains the seeds of its own
-destruction, in the form of unphysical ``negative energy'' solutions.
-We now know that these problems stem from the fact that a consistent
-theory of \textit{single-particle} relativistic quantum mechanics is
-ultimately impossible.  The right way to marry relativity and quantum
-mechanics is to use the framework of quantum field theory, which can
-describe states with arbitrary numbers of electrons and photons.  When
-the Dirac Hamiltonian is translated into this framework, and coupled
-to a quantized electromagnetic field, the resulting theory of quantum
-electrodynamics (QED) constitutes the most fundamental and successful
-theory of electromagnetism known to date.
-
-To formulate the Dirac Hamiltonian, we start from the time-dependent
+To formulate Dirac's Hamiltonian, we start from the time-dependent
 Schr\"odinger equation.  In the wavefunction representation, this has
 the form
 \begin{equation}
@@ -479,24 +465,24 @@ are related by
 \end{equation}
 where $m$ is the rest mass and $c$ is the speed of light.  (Following
 the usual practice in relativity theory, we use Roman indices $j \in
-\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$.)  Note that $E$
-and $p$ appear to the same order in Eq.~\eqref{Erelativistic}---unlike
-the non-relativistic kinetic energy $E = p^2/2m$, where $E$ is
-first-order while $p$ is second-order.  Since the left side of the
-Schr\"odinger equation has a first-order time derivative, we expect a
-relativistic Hamiltonian $\hat{H}$ to contain only first-order spatial
-derivatives.  So we make the guess
+\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$.)  In
+Eq.~\eqref{Erelativistic}, $E$ and $p$ appear to the same
+order---unlike the non-relativistic kinetic energy $E = p^2/2m$, where
+$E$ is first-order while $p$ is second-order.  Since the left side of
+the Schr\"odinger equation has a first-order time derivative, a
+relativistic Hamiltonian $\hat{H}$ ought to contain only first-order
+spatial derivatives.  So we make the guess
 \begin{equation}
   \hat{H} = \alpha_0 mc^2 + \sum_{j=1}^3 \alpha_j \hat{p}_j c,
   \label{Dirac0}
 \end{equation}
 where $\hat{p}_j \equiv -i\hbar \partial/\partial x_j$ is the usual
-momentum operator.  We will need to figure out the ``coefficients''
-$\alpha_0$, $\alpha_1$, $\alpha_2$, and $\alpha_3$.  The extra
-coefficients of $mc^2$ and $c$ have been inserted into
-Eq.~\eqref{Dirac0} for later convenience.
+momentum operator.  We now need to determine the ``coefficients''
+$\alpha_0$, $\alpha_1$, $\alpha_2$, and $\alpha_3$.  The extra factors
+of $mc^2$ and $c$ are included in Eq.~\eqref{Dirac0} for later
+convenience.
 
-Now, for a wavefunction with definite momentum $\mathbf{p}$ and energy
+For a wavefunction with definite momentum $\mathbf{p}$ and energy
 $E$,
 \begin{equation}
   \hat{H}\psi = E \psi \;\;\;\Rightarrow \;\;\;
@@ -577,40 +563,66 @@ denote the usual Pauli matrices.  It follows also that
 $\psi(\mathbf{r})$ cannot be a scalar field, but must be a
 four-component field.
 
-What do the four components of the wavefunction represent?  First of
-all, note that Eq.~\eqref{Erelativistic} yields the following values
-for $E$:
+\subsection{Eigenstates of the Dirac Hamiltonian}
+
+According to Eq.~\eqref{Erelativistic}, the energy eigenvalues of the
+Dirac Hamiltonian are
 \begin{equation}
   E = \pm \sqrt{m^2c^4 + \sum_{j} p_j^2c^2}.
 \end{equation}
-As shown in the figure below, the energy spectrum forms two ``bands'';
-for any given momentum $\mathbf{p}$, there is a positive value of $E$,
+
+\pagebreak
+
+As shown in the figure below, the energy spectrum forms two ``bands''.
+For any given momentum $\mathbf{p}$, there is a positive value of $E$,
 and a negative value.
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.3\textwidth]{diraccone}
-\end{figure}
+\begin{center}
+  \includegraphics[width=0.3\textwidth]{diraccone}
+\end{center}
 
-Let us put aside the meaning of the negative-energy states for now.
-So long as we are considering a single isolated electron, it suffices
-to declare that the positive-energy states are those we are interested
-in.  Nevertheless, since the Hamiltonian supports two bands of
-solutions, there must be an even number of wavefunction components:
-one set for the quantum amplitudes of the upper band, and the other
-for the lower band.
+The upper band matches the dispersion relation for a massive
+relativistic particle, which is what we were originally after.
+However, there is also a band of negative-energy states---who ordered
+that?!  So long as we are considering a single isolated electron, we
+can simply declare that the positive-energy states are the ones we are
+interested in.  However, once we couple the electron to the
+electromagnetic field, the existence of the negative-energy states
+points to a nonsensical scenario.  The negative-energy band extends
+down to $E \rightarrow -\infty$, which means the system has no ground
+state.  This implies that the electron can keep losing energy by
+photon emission, forever hopping to ever-lower-energy states!
 
-Within each band, there is another two-fold degree of freedom, which
+The resolution of this problem is an interesting story, but one we
+will not be able to pursue in this course.  Basically, we now know
+that Dirac's original theory contains the seeds of its own
+destruction, since a consistent theory of \textit{single-particle}
+relativistic quantum mechanics is ultimately impossible.  The right
+way to marry relativity and quantum mechanics is to use the framework
+of quantum field theory, which is capable of describing states with
+arbitrary numbers of electrons and photons.  When the Dirac
+Hamiltonian is translated into this framework, and coupled to a
+quantized electromagnetic field, the resulting theory of quantum
+electrodynamics (QED) is more well-behaved, and constitutes the most
+fundamental and successful theory of electromagnetism known to date.
+
+Let us put such issues aside for now, and do a bit more analysis on
+the eigenstates of the single-particle Dirac Hamiltonian.  Since the
+Hamiltonian supports two bands of solutions, there must be an even
+number of wavefunction components: one set for the quantum amplitudes
+of the upper band, and the other for the lower band.
+
+Within each band, there is another two-fold degree of freedom.  This
 turns out to describe the particle's spin (we are already familiar
 with the use of two-component wavefunctions to describe spin-$1/2$
 non-relativistic particles).  Hence, the number of components is
-$2\times2 = 4$.  It is highly noteworthy that we did not set out to
-include spin in the theory, yet it has popped up, seemingly
-unavoidably, in the process of trying to satisfy the relativistic
-energy-mass-momentum relation!  This is an indicator that relativistic
-quantum mechanics is more ``theoretically rigid'' than
-non-relativistic quantum mechanics.  Features like spin are not
-optional parts of the theory, but have to be included at a fundamental
-level.
+$2\times2 = 4$.  It is noteworthy that we did not set out to include
+spin in the theory, yet it has popped up, seemingly unavoidably, in
+the process of satisfying the relativistic energy-mass-momentum
+relation!  This is an indicator that relativistic quantum mechanics is
+more ``theoretically rigid'' than non-relativistic quantum mechanics.
+Features like spin are not optional parts of the theory, but have to
+be included at a fundamental level.
 
 Different choices of the $\hat{\alpha}_\mu$ matrices correspond to
 different wavefunction representations, similar to the choice of
@@ -783,8 +795,6 @@ QED theory, and matches experiment to around one part in $10^9$,
 making it one of the most precise theoretical predictions in physics.
 For details, see \hyperref[cite:zee]{Zee (2010)}.
 
-\subsection{The electron-positron field}
-
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
 
@@ -793,14 +803,16 @@ We have previously seen how to quantize a simple scalar boson field
 modes, and each mode is quantized by treating it as an independent
 oscillator, with its own creation and annihilation operators.  By
 comparing the oscillator energies in the classical and quantum
-regimes, we then derive the Hermitian operator corresponding to the
+regimes, we derive the Hermitian operator corresponding to the
 classical field variable, expressed in terms of the creation and
-annihilation operators.  We will use this approach, with only minor
-adjustments, to quantize the electromagnetic field.
+annihilation operators.
 
-For now, we will restrict our attention to a ``source-free''
-electromagnetic field---i.e., with no electric charges and currents.
-In this scenario, Maxwell's equations (in SI units) reduce to:
+We will use this approach, with minor adjustments, to quantize the
+electromagnetic field.
+
+First, consider a ``source-free'' electromagnetic field---i.e., with
+no electric charges and currents.  Without sources, Maxwell's
+equations (in SI units, and in a vacuum) reduce to:
 \begin{align}
   \nabla\cdot \mathbf{E} &= 0 \label{max1} \\
   \nabla\cdot \mathbf{B} &= 0 \label{max2}\\
@@ -813,7 +825,6 @@ potential $\mathbf{A}$:
 \begin{align}
   \mathbf{E} &= - \nabla \Phi - \frac{\partial\mathbf{A}}{\partial t} \\
   \mathbf{B} &= \nabla \times \mathbf{A}.
-  \label{Bfield}
 \end{align}
 These relations cause Eqs.~\eqref{max2} and \eqref{max3} to be
 satisfied automatically, via vector identities.  The other two Maxwell
@@ -866,8 +877,8 @@ to Eq.~\eqref{max8}, we see that the frequency $\omega$ must satisfy
 \begin{equation}
   \omega = c|\mathbf{k}|.
 \end{equation}
-For convenience, let's suppose for now that we put the electromagnetic
-field in a box of volume $V = L^3$, with periodic boundary conditions, so
+For convenience, suppose for now that we put the electromagnetic field
+in a box of volume $V = L^3$, with periodic boundary conditions, so
 that the $\mathbf{k}$ vectors form a discrete set:
 \begin{equation}
   k_j = \frac{2\pi n_j}{L}, \;\; n_j \in \mathbf{Z}, \;\;\mathrm{for}
@@ -985,7 +996,7 @@ We thus arrive at the result
 \end{align}
 To describe infinite free space rather than a finite-volume box, we
 take the $L\rightarrow \infty$ limit and re-normalize the creation and
-annihilation operators:
+annihilation operators by the replacement
 \begin{equation}
   \hat{a}_{\mathbf{k}\lambda} \rightarrow \sqrt{\frac{(2\pi)^3}{V}} \;
   \hat{a}_{\mathbf{k}\lambda}.
@@ -1054,26 +1065,198 @@ In Section~\ref{sec:diracem}, we saw that this substitution is
 applicable not just to non-relativistic particles, but also to fully
 relativistic particles described by the Dirac Hamiltonian.
 Previously, we have treated the $\mathbf{A}$ in this substitution as a
-classical object lacking quantum dynamics of its own.  Now, we simply
-replace it by the vector potential \textit{operator} derived in
+classical object lacking quantum dynamics of its own.  Now, we replace
+it by the vector potential \textit{operator} derived in
 Section~\ref{sec:em_quantization}:
 \begin{equation}
-  \hat{\mathbf{A}}(\hat{\mathbf{r}},t) = \int d^3k \sum_{\lambda} 
+  \hat{\mathbf{A}}(\hat{\mathbf{r}},t) =
+  \begin{cases}
+    \displaystyle
+    \sum_{\mathbf{k}\lambda} 
+  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}, & (\mathrm{finite}\;\mathrm{volume}) \\
+  \displaystyle \int d^3k \sum_{\lambda} 
   \sqrt{\frac{\hbar}{16\pi^3\varepsilon_0\omega_{\mathbf{k}}}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\hat{\mathbf{r}} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}.
+  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+  & (\mathrm{infinite}\;\mathrm{space}).
+  \end{cases}
+  \label{Aoperator}
 \end{equation}
 
-\section{Looking ahead}
+Using this, together with either the electronic and electromagnetic
+Hamiltonians, we are finally able to describe the emission and
+absorption of photons by electrons.  We will illustrate with a
+calculation of the rate of spontaneous emission of an atom.
 
-Need to treat both electrons and photons on the same footing, with QFT
-language.  Renormalization.
+Suppose a non-relativistic electron is orbiting an atomic nucleus in
+the excited state $|1\rangle \in \mathscr{H}_e$.  Initially, the
+photon field is in its ground state, $|\varnothing\rangle \in
+\mathscr{H}_{\mathrm{EM}}$.  Hence, the initial state of the combined
+system is
+\begin{equation}
+  |\psi_i\rangle = |1\rangle \otimes |\varnothing\rangle.
+\end{equation}
+Let $H_{\mathrm{int}}$ be the Hamiltonian term responsible for photon
+absorption/emission.  If $H_{\mathrm{int}} = 0$, then $|\psi_i\rangle$
+would be an energy eigenstate.  The atom would remain in its excited
+state forever.
 
-\section*{Exercises}
+In actuality, $H_{\mathrm{int}}$ is not zero, so $|\psi_i\rangle$ is
+not an energy eigenstate.  As the system evolves, the excited electron
+may decay into the ground state by emitting a photon with energy $E$,
+equal to the energy difference between the atom's excited state
+$|1\rangle$ and ground state $|0\rangle$.  For a non-relativistic
+electron, the Hamiltonian \eqref{quantumH} yields the interaction
+Hamiltonian
+\begin{equation}
+  H_{\mathrm{int}} = \frac{e}{2m} \left( \hat{\mathbf{p}} \cdot \hat{\mathbf{A}} + \mathrm{h.c.}\right).
+\end{equation}
+We will have to treat $\hat{\mathbf{A}}$ not as a classical field, but
+as a field operator.
 
-\begin{enumerate}
-\item Gauge transformations.
-\end{enumerate}
+Next, consider the states that $|\psi_i\rangle$ can decay into.  There
+is a continuum of possible final states, each having the form
+\begin{equation}
+  | \psi_{f}^{(\mathbf{k}\lambda)} \rangle = |0\rangle \otimes
+  \left( \hat{a}_{\mathbf{k}\lambda}^\dagger |\varnothing\rangle\right),
+  \label{decaystate}
+\end{equation}
+which describes the electron being in its ground state and the
+electromagnetic field containing one photon, with wave-vector
+$\mathbf{k}$ and polarization $\lambda$.
+
+According to Fermi's Golden Rule (remember this?!?), the decay rate is
+\begin{equation}
+  \kappa = \frac{2\pi}{\hbar} \;
+  \overline{\Big| \langle \psi_{f}^{(\mathbf{k}\lambda)} | \hat{H}_{\mathrm{int}}|\psi_i\rangle\Big|^2} \;
+  \mathcal{D}(E),
+\end{equation}
+where $\overline{(\cdots)}$ denotes the average over the possible
+decay states of energy $E$ (i.e., equal to the energy of the initial
+state), and $\mathcal{D}(E)$ is the density of states (which has units
+of inverse energy).
+
+We therefore have to calculate the matrix element $\langle
+\psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle$.
+We will use the finite-volume version of the vector field operator,
+Eq.~\eqref{Aoperator} (this is to avoid complications about how
+Eq.~\eqref{decaystate} is to be normalized---in the finite-volume
+case, we simply normalize to unity).  Moreover, in
+Eq.~\eqref{Aoperator}, the $t$ dependence turns out not to matter in
+this calculation, so we take $t = 0$; we also take $\hat{\mathbf{r}}
+\approx 0$, which is a good approximation since the size of a typical
+atomic orbital ($\sim 10^{-9}\,\textrm{m}$) is much smaller than the
+optical wavelength ($\sim 10^{-6}\,\textrm{m}$).  With these
+simplifications,
+\begin{equation}
+  \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
+  \approx \frac{e}{m} \sum_{j=1}^3 \langle 0 |\hat{p}_j|1\rangle
+  \langle \varnothing| \hat{a}_{\mathbf{k}\lambda}
+\left(\sum_{\mathbf{k}'\lambda'} 
+  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}'}V}}\,
+  \Big(\hat{a}_{\mathbf{k}'\lambda'} + \mathrm{h.c.}\Big)
+  \, \hat{e}_{\mathbf{k}\lambda'}^j\right)
+  |\varnothing \rangle.
+  \label{matrixelt}
+\end{equation}
+The right side of Eq.~\eqref{matrixelt} contains two matrix elements,
+one involving the electron space, and the other involving the photon
+space.  The first matrix element can be simplified by observing that
+for $\hat{H}_e = |\hat{\mathbf{p}}|^2/2m + V(\mathbf{r})$,
+\begin{equation}
+  [\hat{H}_e, \hat{\mathbf{r}}] = -i\hbar\mathbf{p}/m \;\;\;\Rightarrow \;\;\;
+  \langle 0|\hat{p}_j|1\rangle = - \frac{imE \mathbf{d}}{\hbar},
+\end{equation}
+where $\mathbf{d} = \langle 0 |\mathbf{r} | 1\rangle$ is called the
+\textbf{transition dipole moment} (note that this is generally a
+complex number).  As for the photon matrix element in
+\eqref{matrixelt}, the only non-vanishing elements are those of the
+form
+\begin{equation*}
+  \langle\varnothing|\hat{a}_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}'\lambda'}^\dagger|\varnothing\rangle
+  = 
+  \langle\varnothing| \left[\delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'} - \hat{a}_{\mathbf{k}'\lambda'}^\dagger \hat{a}_{\mathbf{k}\lambda}\right]|\varnothing\rangle =
+  \delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'}.
+\end{equation*}
+With that, Eq.~\eqref{matrixelt} simplifies to
+\begin{equation}
+  \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
+  \approx - ie \sqrt{\frac{E}{2\varepsilon_0V}}\;
+  \mathbf{d}\cdot \hat{e}_{\mathbf{k}\lambda}.
+\end{equation}
+In applying Fermi's Golden Rule, we have to take the absolute square
+of this, and average over the possible photon states ($\mathbf{k}$ and
+$\lambda$).  In taking this average, the polarization vector runs over
+all possible directions, and a straightforward angular integration
+shows us that
+\begin{equation}
+  \overline{|\mathbf{d}\cdot \hat{e}_{\mathbf{k}\lambda}|^2}
+  \,=\, \sum_{j=1}^3 |d_j|^2 \;\overline{e_j^2}
+  \,=\, \sum_{j=1}^3 |d_j|^2 \cdot \frac{1}{3}
+  \,=\, \frac{|\mathbf{d}|^2}{3}.
+\end{equation}
+
+
+The only remaining thing we need for Fermi's Golden Rule is the
+density of photon states.  Using the dispersion relation $E = \hbar c
+|\mathbf{k}|$, we can show that
+\begin{equation}
+  \mathcal{D}(E) = \frac{E^2 V}{\pi^2\hbar^3c^3}.
+\end{equation}
+(This includes a factor of 2 for the photons' two-fold polarization
+degree of freedom.)  Putting everything together, we arrive at the
+following rate of spontaneous decay:
+\begin{equation}
+  \kappa = \frac{e^2\, E^3\, \overline{|\mathbf{d}|^2}}{3\pi\hbar^4c^3\varepsilon_0}
+\end{equation}
+We can make this look nicer by defining the dimensionless
+\textbf{fine-structure constant}
+\begin{equation}
+  \alpha = \frac{e^2}{4\pi\varepsilon_0\hbar c} \approx \frac{1}{137},
+\end{equation}
+and defining $\omega = E / \hbar$ as the frequency of the emitted
+photon.  The resulting decay rate is
+$$\boxed{\;\;\;
+  \kappa = \frac{4 \alpha \omega^3\, \overline{|\mathbf{d}|^2}}{3c^2}.
+  \;\;\;}
+$$
+ 
+The figure below compares this prediction to experimentally-determined
+decay rates for the simplest excited states of hydrogen, lithium, and
+sodium atoms.  The experimental data are derived from atomic emission
+line-widths, and correspond to the rate of spontaneous emission (or
+``Einstein $A$ coefficient'') as the excited state decays to the
+ground state.  For the Fermi's Golden Rule curve, we simply
+approximated the transition dipole moment as $|\mathbf{d}| \approx
+10^{-10}\,\mathrm{m}$ (based on the fact that $|\mathbf{d}|$ has units
+of length, and the length scale of an atomic orbital is about an
+angstrom); to be more precise, $\mathbf{d}$ ought to be calculated
+using the actual orbital wavefunctions.  But even with this crude
+approximation, the prediction based on Fermi's Golden Rule is within
+striking distance of the experimental values.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.6\textwidth]{emissionrates}
+  \caption{Spontaneous emission rates (Einstein $A$ coefficients) for
+    the $2p\rightarrow 1s$ transition in hydrogen, the
+    $2p\rightarrow2s$ transition in lithium, and the $3p\rightarrow3s$
+    transition in sodium.  Data points extracted from the NIST Atomic
+    Spectra Database
+    (\href{https://www.nist.gov/pml/atomic-spectra-database}{https://www.nist.gov/pml/atomic-spectra-database}).
+    The dashed curve shows the decay rate based on Fermi's Golden
+    Rule, with $|\mathbf{d}| \approx 10^{-10}\,\mathrm{m}$.  }
+\end{figure}
+
+%% Need to treat both electrons and photons on the same footing, with QFT
+%% language.  Renormalization.
+
+%% \section*{Exercises}
+
+%% \begin{enumerate}
+%% \item Gauge transformations.
+%% \end{enumerate}
 
 \section*{Further Reading}
 
