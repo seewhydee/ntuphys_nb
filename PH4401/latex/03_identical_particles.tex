@@ -1155,21 +1155,26 @@ These mode profiles are orthonormal:
 Each normal mode also carries energy.  We assume that the
 time-averaged energy density for normal mode $n$ has the form
 \begin{equation}
-  U_n(x) = \rho_n \, |\varphi_n(x)|^2,
+  U(x) = \rho \, \overline{|f(x)|^2},
   \label{classical_energy_density}
 \end{equation}
-where $\rho_n$ is some parameter that has to be derived from the
-underlying physical context.  (For example, for acoustic modes,
-$\rho_n$ will depend on the mass density of the underlying acoustic
-medium.  In the next chapter, we will see a concrete example involving
-the energy density of an electromagnetic mode.)  The time-averaged
-total energy is
-\begin{equation}
-  \overline{E} = \int_0^L dx \sum_n U_n(x).
+where $\rho$ is some parameter that has to be derived from the
+underlying physical context, and $\overline{(\cdots)}$ denotes a
+time-average.  (For example, for acoustic modes, $\rho$ is the mass
+density of the underlying acoustic medium; in the next chapter, we
+will see a concrete example involving the energy density of an
+electromagnetic mode.)  Hence, using Eq.~\eqref{fnorm}, we find the
+time-averaged total energy
+\begin{align}
+  \begin{aligned}
+  \overline{E} &= \int_0^L dx \; U(x)\\
+  &= \int_0^L dx \; \rho \left(2 \sum_n|A_n|^2 \, |\varphi_n(x)|^2\right)\\
+  &= 2 \rho \sum_n |A_n|^2.
+  \end{aligned}
   \label{classical_energy}
-\end{equation}
+\end{align}
 
-To quantize this classical field, we treat each normal mode as an
+To quantize the classical field, we treat each normal mode as an
 independent oscillator, with creation and annihilation operators
 $\hat{a}_n^\dagger$ and $\hat{a}_n$ satisfying
 \begin{equation}
@@ -1206,8 +1211,7 @@ which we can identify as the quantum version of the classical solution
 To determine the $\mathcal{C}_n$ scale factors, we again follow the
 procedure from the previous section, comparing the energy of the
 quantum system's classical limit to the energy of the classical field
-theory; the latter is described by
-Eqs.~\eqref{classical_energy_density}--\eqref{classical_energy}.  The
+theory; the latter is described by Eq.~\eqref{classical_energy}.  The
 resulting field operator is
 \begin{equation}
   \hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n}}
@@ -1243,36 +1247,38 @@ which the creation and annihilation operators act upon particles
 called \textbf{photons}---the elementary particles of light.  Linear
 combinations of these photon operators can be used to define Hermitian
 field operators that correspond to the classical electromagnetic field
-variables.  Thus, in the classical limit, the quantum field theory
-reduces to Maxwell's theory of the electromagnetic field.
+variables.  In the classical limit, the quantum field theory reduces
+to Maxwell's theory of the electromagnetic field.
 
 It is hard to overstate the importance of quantum field theories in
-fundamental physics.  All elementary particles known to humanity can
-be accurately described using a quantum field theory known as the
-Standard Model.  As \hyperref[cite:wilczek]{Wilczek (1999)} has
-pointed out, the modern picture of fundamental physics bears a
-striking resemblence to the old idea of ``luminiferous ether'': a
-medium filling all of space (and time), whose vibrations are light
-waves.  We now understand that this ether is not a classical medium,
-but one obeying the rules of quantum mechanics---a \textbf{quantum
-  field}.  (Also, unlike the old luminiferous ether theory, it is
-compatible with relativity.)
+physics.  At a fundamental level, all elementary particles currently
+known to humanity can be described using a quantum field theory called
+the Standard Model.  These particles are roughly divided into two
+categories.  The first consists of ``force-carrying''
+particles---photons (which carry the electromagnetic force), gluons
+(which carry the strong nuclear force), and the $W/Z$ bosons (which
+carry the weak nuclear force); all these particles are excitations of
+bosonic quantum fields, similar to the one described in the previous
+section.  The second category consists of ``particles of matter'',
+such as electrons, quarks, and neutrinos; these are excitations of
+\textit{fermionic} quantum fields, whose creation and annihilation
+operators obey anticommutation relations.
 
-Moreover, this ``ether'' is not composed of a single quantum field,
-but of several fields that can interact with each other.  The various
-elementary excitations of these fields are particles of light
-(photons), other types of particles that carry nuclear forces (e.g.,
-gluons), as well as the particles that make up matter
-(e.g.,~electrons, quarks, and neutrinos).  Roughly speaking, the
-``force-carrying'' particles are described by bosonic fields, while
-the ``matter'' particles are described by fermionic fields.
+As \hyperref[cite:wilczek]{Wilczek (1999)} has pointed out, the modern
+picture of fundamental physics bears a striking resemblence to the old
+idea of ``luminiferous ether'': a medium filling all of space and
+time, whose vibrations are physically-observable light waves.  The key
+difference, as we now understand, is that the ether is not a classical
+medium, but one obeying the rules of quantum mechanics.  (Another
+difference, which we have not discussed so far, is that these modern
+field theories can be made compatible with relativity.)  
 
-It is then quite natural to regard quantum fields, not particles, as
-the fundamental entities that make up the universe.  From this point
-of view, it is not surprising that particles of the same type all have
-identical physical properties, and are indistinguishable from each
-other.  Particles are not really distinct objects, but are excitations
-of more fundamental underlying objects---the quantum fields.
+It is quite compelling to think of fields, not individual particles,
+as the fundamental objects in the universe.  This point of view
+``explains'', in a sense, why all particles of the same type have the
+same properties (e.g., why all electrons in the universe have exactly
+the same mass).  The particles themselves are not fundamental; they
+are excitations of deeper, more fundamental entities---quantum fields!
 
 \section*{Exercises}
 
