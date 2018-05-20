@@ -21,7 +21,7 @@
 
 \fancyhf{}
 \lhead{NTU/SPMS/PH2198--PH2199 Lab}
-\rhead{Error Analysis}
+\rhead{Writing a Good Lab Report}
 \lfoot{\tiny\textcopyright \;2018 Nanyang Technological University.  Released under \href{http://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.}
 \rfoot{\thepage}
 \pagestyle{fancy}
@@ -42,10 +42,10 @@
 
 \section{What is---and isn't---a proper lab report}
 
-The lab reports that you are expected to prepare in this class are
-shorter and simpler versions of the reports that working scientists
-use to communicate their findings.  Such reports are expected to be
-accurate, complete, concise, and readable.
+The lab reports that you will prepare in this course are shorter and
+simpler versions of the reports that working scientists use to
+communicate their findings.  Such reports are expected to be accurate,
+complete, concise, and readable.
 
 \begin{itemize}
 \item \textit{Accurate}---The contents must be unambiguous and
@@ -76,9 +76,9 @@ accurate, complete, concise, and readable.
   form, and do not organize your report as a mere collection of
   bullet-point lists.  Your descriptions of experimental procedures
   shouldn't be a list of steps lifted from the lab manual; that
-  information should be converted into proper paragraphs, and blended
-  with explanations about the goal of the procedures, what happened
-  during the experiment, etc.
+  information should be converted into proper paragraphs, and
+  interwoven with explanations about the intention of the procedures,
+  what happened during the experiment, etc.
 \end{itemize}
 
 \noindent
@@ -105,20 +105,20 @@ acceptable outline:
 \item \textit{Methods}---Descriptions of the experimental set-up and
   procedures.  When writing about the set-up, do not follow the lab
   manual in listing out individual pieces of equipment and assembly
-  instructions; that's irrelevant for a lab report!  Instead, describe
-  the apparatus as a whole (preferably with a diagram), and explain
-  how it works.
+  instructions; that's not relevant information in a lab report!
+  Instead, describe the apparatus as a whole (preferably with a
+  diagram), and explain how it works.
 
-  In describing the experimental procedure, do not simply lift
-  instructions from the lab manual.  Your description should take the
-  form of a narrative, and include information not present in the
+  Likewise, when describing the experimental procedure, do not simply
+  lift instructions from the lab manual.  Your description should take
+  the form of a narrative, and include information not present in the
   manual, such as descriptions of what happened during intermediate
   steps of the experiment.
 
 \item \textit{Results}---This section should contain \textit{both}
   complete paragraphs of text \textit{and} figures/tables.  It should
   be possible to understand what's going on by just reading through
-  the text paragraphs (without looking at the figures).  Every
+  the text paragraphs, without looking at the figures.  Every
   figure/table must be referenced and discussed somewhere in the text
   (e.g., ``\textit{The dependence of the sample temperature on applied
     voltage is plotted in Fig.~3.  From the data, we observe an
@@ -151,7 +151,7 @@ it might be better to divide the experiment into several conceptually
 distinct parts, and describe the methods and results for each part
 within a single section.
 
-Some lab reports provide an explicit list of issues/questions to be
+Some lab manuals provide an explicit list of issues/questions to be
 addressed in your report.  \underline{Do not create a
   Question-and-Answer section for this.}  Instead, deal with these
 issues at appropriate places in your report; it is up to you to decide
@@ -162,33 +162,33 @@ your description of experimental procedures.
 
 \section{Figures}
 
-It is up to you to choose the software for preparing the figures in
-your lab report, so long as it can produce plots of professional
-scientific quality.  The software must be able to plot horizontal and
-vertical error bars, text labels, multiple curve and data point types,
-and logarithmically-scaled axes.  We specifically recommend Python's
+You are free to choose the software for preparing the figures in your
+lab report.  The software must be able to produce plots of
+professional scientific quality, including horizontal and vertical
+error bars, text labels, multiple curve and data point types, and
+logarithmically-scaled axes.  We specifically recommend Python's
 \href{https://matplotlib.org/}{Matplotlib} module,
 \href{https://www.gnu.org/software/octave/}{GNU Octave},
 \href{https://www.mathworks.com/products/matlab.html}{Matlab}, or
 \href{https://www.originlab.com/}{Origin} (the first two are free).
 
-Here is a list of issues to watch out for when making plots:
+Here are some issues to watch out for when making plots:
 
 \begin{itemize}
 \item All data points must have error bars---preferably both vertical
   and horizontal error bars---unless there's a good reason otherwise.
 
 \item Axes must be clearly titled, including units.  If space permits,
-  axis titles should have descriptive text, not just symbols; for
-  example, ``Applied Force $F$ (mN)'' instead of ``$F$ (mN)''.
+  axis titles should have descriptive text, not just symbols; e.g.,
+  ``Applied force $F$ (mN)'' is better than ``$F$ (mN)''.
 
 \item If a graph has multiple sets of curves/data points, they must be
   distinguishable (e.g., solid versus dashed curves, or circular
   versus triangular data points).  The different sets should be
   labeled in the figure and/or described in the caption.
 
-\item The figure must have a caption describing the contents of the
-  figure.  Never worry about putting ``too much'' in the captions; it
+\item The figure must have a caption describing its contents.  Never
+  worry about putting ``too much'' in the captions; in particular, it
   is OK to have overlap between the contents of the caption and the
   main text.
 
@@ -196,8 +196,8 @@ Here is a list of issues to watch out for when making plots:
   All text in the figure (including the legends, axis labels, and axis
   titles) must be big enough to read.  As a rule of thumb, figure text
   should be 60--100\% the size of the regular text in the manuscript,
-  and no smaller.  Many plotting programs produce overly-small text by
-  default; you must adjust it yourself.
+  and no smaller.  If your plotting program produces text that's too
+  small by default, adjust it yourself.
 \end{itemize}
 \noindent
 An example of a good figure is shown in Fig.~\ref{pendulum-figure-1}.
@@ -209,40 +209,110 @@ Appendix~\ref{sec:bad-examples}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.8\textwidth]{pendulum-figure-1.pdf} \\
-  \caption{\small Plot of squared pendulum period $T^2$ versus
-    pendulum arm length $L$.  The solid orange line shows the linear
-    least-squares fit, which yields an estimated gravitational
-    constant $g \approx 10.4 \pm 0.8\,\textrm{ms}^{-2}$.}
+  \caption{\small [Example of a good figure.]  Plot of squared
+    pendulum period $T^2$ versus pendulum arm length $L$.  The solid
+    orange line shows the linear least-squares fit, which yields an
+    estimated gravitational constant of $g \approx 10.4 \pm
+    0.8\,\textrm{ms}^{-2}$.}
   \label{pendulum-figure-1}
 \end{figure}
 
-
-
 \section{Miscellaneous Issues}
 
-Raw data
+\begin{itemize}
+
+\item \textit{Figures from the lab manual}---You may excerpt figures
+  from the lab manual, where appropriate.  However, the figure caption
+  must note that the figure is from the lab manual, with an
+  appropriate citation/reference.
+
+\item \textit{Page and figure/table/equation/section numbering}---All
+  pages should be numbered, and so should figures, tables, equations,
+  and sections.  Refer to these numbers whenever possible; e.g.,
+  ``\textit{as described in Section 2...}'' instead of ``\textit{as
+    described above...}''
+
+\item \textit{Curve fits must make sense}---When fitting data, you
+  should be able to justify the type of curve you are using (e.g.,
+  based on theory).  It is a mistake to simply fit to a high-order
+  polynomial, like in Fig.~\ref{bad-curve-fit}, without any idea
+  whether the ``actual'' curve ought to have such a form.  Such a fit
+  might look nice, but it supplies no actual information!
+  
+  \begin{figure}[h]
+  \centering
+  \fbox{\includegraphics[width=0.5\textwidth]{bad-curve-fit.jpg}} \\
+  \caption{\small An example of a curve fit that makes no sense.}
+  \label{bad-curve-fit}
+\end{figure}
+
+  
+\item \textit{Raw data}---Include your raw experimental data in table
+  form, with proper captions and column headings (including units and
+  uncertainties).  If the table is quite large, put it in an appendix.
+  If there is truly too much raw data to put into the report, you may
+  omit it, but in that case you must bring the raw data (in hardcopy
+  or electronic form) to the viva.  You must be able to provide the
+  raw data on request anytime during the semester, so do not dispose
+  of it until after the semester, when you have received a grade for
+  the course.
+
+\item \textit{Length}---Lab reports in this course typically need not
+  exceed 7 pages.  Use $\approx 11 $ point fonts, with normal
+  (\textit{not} double) line spacing.
+\end{itemize}
+
 
 \pagebreak
 
 \begin{center}
-  {\LARGE \textbf{Appendices}}
+  {\LARGE \textbf{Appendix}}
 \end{center}
 
 \appendix
 \section{Bad Examples}
 \label{sec:bad-examples}
 
-Here is a selection of examples showing what \textit{not} to do in lab
-reports.
+Here are some examples showing what \textit{not} to do in lab reports.
 
 \begin{figure}[h]
   \centering
   \fbox{\includegraphics[width=0.75\textwidth]{bad-example-1.png}} \\
-  \caption{\small Here, the ``Apparatus'' and ``Procedure'' sections are
-    lifted from the lab manual.  The list of equipment components, and
-    assembly instructions, are irrelevant in a lab report.
-    Bullet-point lists are given, instead of proper paragraphs of
-    text.}
+  \caption{\small Here, the ``Apparatus'' and ``Procedure'' sections
+    are lifted from the lab manual.  The list of components, and
+    assembly instructions, are irrelevant in a lab report; only the
+    assembled apparatus ought to be described.  The text should
+    consist of proper paragraphs describing the experimental method,
+    not bullet-point lists.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=0.85\textwidth]{bad-example-4.png}} \\
+  \caption{\small This student has set aside a separate section for
+    answering the lab manual's question list.  Don't do this.  You
+    should instead address the questions at relevant points in the lab
+    report.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=0.5\textwidth]{bad-example-2.png}} \\
+  \caption{\small Here, the text in the lower box is too small to
+    read.  Any text appearing in a figure is assumed to be relevant,
+    and should thus be legible; if the text is irrelevant, omit it.
+    Also, the data points should have error bars.}
+\end{figure}
+
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=0.6\textwidth]{bad-example-3.png}} \\
+  \caption{\small There are multiple problems with this figure.  Three
+    different data sets are plotted with indistinguishable lines;
+    different line types should instead be used, and labelled in a
+    legend.  The horizontal axis should have a proper title (text
+    description and symbol, not just a unit).  The vertical axis
+    should have a text description, not just a symbol.  }
 \end{figure}
 
 
