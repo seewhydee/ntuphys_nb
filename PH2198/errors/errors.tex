@@ -18,7 +18,7 @@
 \fancyhf{}
 \lhead{NTU/SPMS/PH2198--PH2199 Lab}
 \rhead{Error Analysis}
-\lfoot{\tiny\textcopyright \;2017 Nanyang Technological University.  Released under \href{http://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.}
+\lfoot{\tiny\textcopyright \;2018 Nanyang Technological University.  Released under \href{http://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.}
 \rfoot{\thepage}
 \pagestyle{fancy}
 
@@ -29,7 +29,7 @@
 \begin{center}
 \textbf{Division of Physics\;\,\&\;Applied Physics}
 
-\textbf{PH2198 Physics Laboratory IIA}
+\textbf{PH2198/2198---Physics Laboratory IIA/IIB}
 
 \vskip 0.05in
 
@@ -218,22 +218,23 @@ The goal is to determine $b_0$ and $b_1$, which are called
 \textbf{estimators}.
 
 Curve fitting, and the propagation of error into estimators, is a
-complicated subject in applied statistics.  For most experiments in
-this course, you only need a simple curve fitting method known as
-\textbf{weighted linear least squares regression}.
+complicated subject within the mathematical discipline of statistics.
+For most experiments in this course, you will only need the most basic
+method, which is called \textbf{weighted linear least squares
+  regression}.
 
 In this method, each data point $(X_i,Y_i)$ is assigned a relative
-weight $w_i$.  Data points with smaller errors are treated as more
-importance (higher ``weight'') during the fit.  A standard weight
+weight $w_i$.  Data points with smaller errors are considered more
+important (i.e., they have more ``weight'').  A standard weight
 assignment is
 \begin{equation*}
-  w_i = (\Delta Y_i)^{-2}.
+  w_i = \frac{1}{\Delta Y_i^{2}}.
   \label{weighting}
 \end{equation*}
 Note that this ignores the errors in $X$.  There is no standard
 weighting procedure that accounts for errors in both $X$ and $Y$.  So
-it is best to let the variable with more ``serious'' error be the $Y$
-variable, so its error is used for weighting.
+you should let the variable with more ``relevant'' error be the $Y$
+variable, so its error is used for the curve-fitting weights.
 
 As an example, suppose we measure the period of a pendulum, $T$, with
 varying arm length $L$.  Theoretically, $T$ and $L$ are related to the
