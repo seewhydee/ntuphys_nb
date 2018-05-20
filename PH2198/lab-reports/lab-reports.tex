@@ -1,0 +1,177 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage[margin=3.5cm]{geometry}
+\usepackage{framed}
+\usepackage{enumerate}
+\usepackage{textcomp}
+\usepackage{fancyvrb}
+
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=black,linkcolor=black]{hyperref}
+\def\ket#1{\left|#1\right\rangle}
+\def\bra#1{\left\langle#1\right|}
+\def\braket#1{\left\langle#1\right\rangle}
+
+\fancyhf{}
+\lhead{NTU/SPMS/PH2198--PH2199 Lab}
+\rhead{Error Analysis}
+\lfoot{\tiny\textcopyright \;2018 Nanyang Technological University.  Released under \href{http://creativecommons.org/licenses/by-sa/4.0/}{CC BY-SA 4.0}.}
+\rfoot{\thepage}
+\pagestyle{fancy}
+
+\definecolor{dgreen}{RGB}{70,128,13}
+
+\begin{document}
+
+\begin{center}
+\textbf{Division of Physics\;\,\&\;Applied Physics}
+
+\textbf{PH2198/2198---Physics Laboratory IIA/IIB}
+
+\vskip 0.05in
+
+\underline{\Huge Writing a Good Lab Report}
+\end{center}
+
+\section{What is---and isn't---a proper lab report}
+
+The lab reports that you are expected to prepare in this class are
+shorter and simpler versions of the reports that working scientists
+use to communicate their findings.  Such reports are expected to be
+accurate, complete, concise, and readable.
+
+\begin{itemize}
+\item \textit{Accurate}---The contents must be as unambiguous and
+  correct as possible.  ``Correct'', in this context, means what is
+  written in the report matches what happened during the experiment;
+  it does not mean ``getting the right answer''.  It is OK to have
+  results that are uncertain or not matching expectations, provided
+  these uncertainties and deviations are pointed out and/or explained.
+
+\item \textit{Complete}---The report must include all information a
+  reader would reasonably need in order to ``get the point''.  For
+  example, if you use a symbol in an equation, figure, or text, that
+  symbol needs to be defined in a caption or the main text.  If you
+  show a figure of experimental results, the main text should describe
+  how the data were obtained, and what conclusions the reader ought to
+  draw from the figure.
+
+\item \textit{Concise}---Do not clutter the report with useless
+  information.  Assume that the reader is scientifically literate, at
+  the level of a fellow undergraduate physics student.  For example,
+  you need not explain the theory of classical mechanics before
+  talking about forces.  You should omit details that a reasonable
+  reader would consider trivial (e.g., the fact that the voltage on a
+  power supply can be increased by turning a dial clockwise).
+
+\item \textit{Readable}---The text in the lab report must form a
+  coherent, readable narrative.  The main text should form proper
+  paragraphs.  Do not write your report in Q\&A (question-and-answer)
+  form, and do not organize your report as a mere collection of
+  bullet-point lists.  The description of your experimental procedures
+  shouldn't be a list of steps lifted from the lab manual; you must
+  re-write that information, incorporating details about the intention
+  of the various steps, what happened during the experiment, etc.
+\end{itemize}
+
+\noindent
+These criteria are easy to remember if you bear in mind the goal of a
+lab report, which is to communicate a set of scientific findings to
+interested parties.  Readers will be happy if the information in the
+report is presented clearly and accurately, and contains all the
+details that they need to understand and appreciate the results.  They
+will be annoyed if you write about irrelevancies, or give your report
+in an inscrutable format like a bullet-point list.
+
+\section{Sections of the report}
+
+Your lab report should be divided into distinct sections.  This course
+does not impose a standard set or sequence of sections.  However, a
+typical report might be divided as follows:
+
+\begin{enumerate}
+\item \textit{Introduction}---Here, you can describe the purpose of
+  the experiment, in your own words and according to your own
+  understanding.  Do not lift the text from the lab manual (that is
+  plagiarism).  This introduction need not be long; in many cases, one
+  or two paragraphs is enough.
+
+\item \textit{Procedure}---Here, you can describe the experimental
+  set-up and procedure.  When describing the set-up, do not follow the
+  lab manual in giving a list of individual pieces of equipment and
+  instructions for how to assemble them.  You should instead describe
+  the apparatus as a whole (preferably with a diagram), and how it
+  works and why.
+
+  When describing the experimental procedure, do not simply lift the
+  instructions from the lab manual.  The write-up should take the form
+  of a coherent narrative, and include information not present in the
+  manual.
+
+\item \textit{Results}---This section should contain \textit{both}
+  complete paragraphs of text \textit{and} figures/tables.  It should
+  be possible, by reading through the text paragraphs (without looking
+  at the figures), to understand what results you obtained.  Every
+  figure/table must be referenced and discussed somewhere in the text
+  (e.g., ``\textit{The dependence of the sample temperature on applied
+    voltage is plotted in Fig.~3.  From the data, we observe an
+    approximately linear relationship...}'').
+
+  You should include all necessary details about how you analyzed your
+  data.  This includes error analysis: i.e., derivations for the
+  uncertainty estimates.  If the analyses are too long, you may
+  relegate the details to an appendix.
+
+\item \textit{Conclusions}---This section should briefly summarize
+  what scientific conclusions you drew from the experiment.  If you
+  obtained results that are unexpected, or seem unreliable, you can
+  discuss possible explanations.  It is OK for this section to be as
+  short as a single paragraph.
+
+\item \textit{Appendices}---You can use appendices for detailed
+  derivations, tables of raw data, etc., to avoid cluttering up the
+  main text.
+
+\item \textit{References}---If you referred to any other works in the
+  text of the lab report, list them here.  References should be
+  numbered, and appear in the same order they are mentioned in the
+  text.  The text should cite the references by number.
+\end{enumerate}
+
+\noindent
+You don't need to stick religiously to the above outline.  For
+example, instead of \textit{Procedure} and \textit{Results} section,
+in some cases it might make sense to divide the experiment into
+several parts, and combine the experimental procedure and results in
+each part.
+
+
+
+
+
+
+
+\section{Figures}
+
+\begin{itemize}
+\item All text in figures must be legible.  A common mistake is to
+  have text that is too small to read.
+
+\item Axes must be clearly labeled, including units.
+
+\item If a graph has multiple sets of curves/data points, they must
+  be clearly distinguishable and properly labeled.
+
+\item Data points should have error bars (preferably in both
+  directions), unless there's a good reason otherwise.
+
+\item Captions must be present, and must describe the figure clearly.
+\end{itemize}
+
+
+\section{Raw data}
+
+\end{document}
