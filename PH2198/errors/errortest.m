@@ -1,4 +1,5 @@
 L  = [0.10, 0.16, 0.22, 0.28, 0.34, 0.40, 0.46, 0.52, 0.58, 0.64];
+dL = [0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01];
 T  = [0.71, 0.76, 0.91, 1.00, 1.20, 1.14, 1.44, 1.40, 1.53, 1.58];
 dT = [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.05];
 
@@ -20,12 +21,11 @@ g  = 4*pi*pi/a;
 dg = (g/a)*da;
 
 %% Plot the data points and fitted curve
-errorbar(L, Tsq, Tsq_error, "o");
-xlabel("L (m)");
-ylabel("T^2 (s^2)");
+errorbar(L, Tsq, Tsq_error, Tsq_error, dL, dL, "o");
+xlabel("Pendulum length L (m)");
+ylabel("Squared period T^2 (s^2)");
 %% State the fitted value of g in the figure
-t = "g = " + num2str(g,3) + " +/- " + num2str(dg,1) + " m/s^2";
-title(t);
+title(sprintf("g = %.1f +/- %.1f m/s^2", g, dg));
 %% Plot the fitted curve
 L2 = linspace(0, 0.7, 100);
 hold on; plot(L2, a*L2+b); hold off;
