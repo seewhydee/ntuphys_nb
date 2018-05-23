@@ -116,13 +116,14 @@ acceptable outline:
   steps of the experiment.
 
 \item \textit{Results}---This section should contain \textit{both}
-  complete paragraphs of text \textit{and} figures/tables.  It should
-  be possible to understand what's going on by just reading through
-  the text paragraphs, without looking at the figures.  Every
-  figure/table must be referenced and discussed somewhere in the text
-  (e.g., ``\textit{The dependence of the sample temperature on applied
-    voltage is plotted in Fig.~3.  From the data, we observe an
-    approximately linear relationship...}'').
+  complete paragraphs of text \textit{and} figures/tables.  The text
+  paragraphs should be written in such a way that it is possible to
+  understand what's going on by just reading through them, without
+  looking at the figures.  Every figure/table must be referenced and
+  discussed somewhere in the text (e.g., ``\textit{The dependence of
+    the sample temperature on applied voltage is plotted in Fig.~3.
+    From the data, we observe an approximately linear relationship.  A
+    linear least squares fit shows that...}'').
 
   The report should contain all necessary details about how the data
   were analyzed, including error analysis (i.e., derivations for the
@@ -213,7 +214,7 @@ Appendix~\ref{sec:bad-examples}.
     pendulum period $T^2$ versus pendulum arm length $L$.  The solid
     orange line shows the linear least-squares fit, which yields an
     estimated gravitational constant of $g \approx 10.4 \pm
-    0.8\,\textrm{ms}^{-2}$.}
+    0.7\,\textrm{ms}^{-2}$.}
   \label{pendulum-figure-1}
 \end{figure}
 
@@ -270,48 +271,86 @@ Appendix~\ref{sec:bad-examples}.
 \end{center}
 
 \appendix
-\section{Bad Examples}
+\section{Good and Bad Examples}
 \label{sec:bad-examples}
 
-Here are some examples showing what \textit{not} to do in lab reports.
+Here are some examples showing good and bad practices in lab reports.
 
 \begin{figure}[h]
   \centering
-  \fbox{\includegraphics[width=0.75\textwidth]{bad-example-1.png}} \\
-  \caption{\small Here, the ``Apparatus'' and ``Procedure'' sections
-    are lifted from the lab manual.  The pictures are from the lab
-    manual, which should be cited.  The equipment list and assembly
+  \fbox{\includegraphics[width=0.73\textwidth]{bad-example-1.png}} \\
+  \caption{\small \textbf{Bad example}.  Here, the ``Apparatus'' and
+    ``Procedure'' sections are essentially lifted from the lab manual,
+    which is unacceptable.  The pictures are from the lab manual,
+    which ought to be cited.  The equipment list and assembly
     instructions are irrelevant; only the assembled apparatus ought to
     be described.  The text should consist of complete paragraphs, not
     bullet-point lists.  }
 \end{figure}
 
+\begin{figure}[h]
+  \centering
+  \fbox{\includegraphics[width=0.85\textwidth]{good-writeup.png}} \\
+  \caption{\small \textbf{Good example}.  The experimental setup is
+    shown in a schematic figure, and is then explained clearly and
+    concisely in the main text.}
+\end{figure}
+
+
 \begin{figure}
   \centering
   \fbox{\includegraphics[width=0.85\textwidth]{bad-example-4.png}} \\
-  \caption{\small This student has set aside a separate section for
-    answering the lab manual's question list.  Instead, the questions
-    should be addressed at relevant points in the lab report.}
+  \caption{\small \textbf{Bad example} A separate section has been set
+    aside for answering the lab manual's question list.  Please
+    instead address the questions at relevant points in the report.}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \fbox{\includegraphics[width=0.85\textwidth]{bad-conclusion.png}} \\
+  \caption{\small \textbf{Bad example}.  The conclusion is too
+    qualitative, and too much of it is spent discussing issues outside
+    the scope of the experiment.}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \fbox{\includegraphics[width=0.85\textwidth]{good-conclusion.png}}
+  \\
+  \caption{\small \textbf{Good example}.  The experimental results are
+    summarized clearly and precisely.}
 \end{figure}
 
 \begin{figure}
   \centering
-  \fbox{\includegraphics[width=0.5\textwidth]{bad-example-2.png}} \\
-  \caption{\small Here, the text in the lower box is too small to
-    read.  Any text appearing in a figure is assumed to be relevant,
-    and should thus be legible; if the text is irrelevant, omit it.
-    Also, the data points should have error bars.}
+  \fbox{\includegraphics[width=0.6\textwidth]{good-table.png}} \\
+  \caption{\small \textbf{Good example}.  This data table has clear
+    column headings with both descriptive text and units. Measured
+    quantities include error estimates (reported to one significant
+    figure), and in each reported value the number of digits matches
+    the error. }
+\end{figure}
+
+
+\begin{figure}
+  \centering
+  \fbox{\includegraphics[width=0.6\textwidth]{bad-example-2.png}} \\
+  \caption{\small \textbf{Bad example}.  The text in the lower box is
+    too small to read.  Any text appearing in a figure is assumed to
+    be relevant, and should thus be legible; if the text is
+    irrelevant, omit it.  Also, the data points should have error
+    bars.}
 \end{figure}
 
 \begin{figure}
   \centering
   \fbox{\includegraphics[width=0.6\textwidth]{bad-example-3.png}} \\
-  \caption{\small Here, three different data sets are plotted with
-    indistinguishable lines; instead, different line types should be
-    used, and clearly labelled.  Also, the horizontal axis should have
-    a proper title (text description and symbol, not just a unit).
-    The vertical axis should have a text description, not just a
-    symbol.  }
+  \caption{\small \textbf{Bad example}.  Here, three different data
+    sets are plotted with indistinguishable lines; instead, different
+    line types should be used, and clearly labelled.  Also, the
+    horizontal axis should have a proper title (text description and
+    symbol, not just a unit).  The vertical axis should have a text
+    description, not just a symbol.  }
 \end{figure}
 
 
