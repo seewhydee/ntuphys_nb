@@ -8,11 +8,19 @@ function code_toggle() {
     code_show = !code_show
 }
 
-$([IPython.events]).on('notebook_loaded.Notebook', function() {
-    $("#view_menu").append("<li id=\"toggle_input\" title=\"Show/Hide Code\"><a href=\"javascript:code_toggle()\">Show/Hide Code</a></li>")
-    $('div#ipython_notebook').hide()
-    $('span#save_widget').hide()
-    $('span#kernel_logo_widget').hide()
-    // $('div.input').hide()
-    // $('#notebook_panel').append(copyright)
+define([
+    'base/js/namespace',
+    'base/js/promises'
+], function(IPython, promises) {
+    promises.app_initialized.then(function (appName) {
+        if (appName !== 'NotebookApp') return;
+        IPython.toolbar.add_buttons_group([
+            {
+                'label'   : 'Show/Hide Code',
+                'icon'    : 'cogs',
+                'callback': code_toggle
+            }
+        ]);
+	code_toggle()
+    });
 });
