@@ -33,7 +33,7 @@
 
 \vskip 0.05in
 
-\underline{\Huge Error Analysis}
+\underline{\LARGE Error Analysis}
 \end{center}
 
 \section{Measurement error}
@@ -42,25 +42,32 @@ The result of a single measurement should be reported in the format
 \begin{equation*}
   (\textrm{estimate})\, \pm\, (\textrm{measurement error}).
 \end{equation*}
-The \textbf{estimate} is the reading from the device.  The
-\textbf{measurement error} specifies the range where the true value
-may lie.  By convention, the measurement error has \underline{one
-  significant figure}, and the estimate has same precision as the
-measurement error.
+The \textbf{estimate} is your best guess for the true value, while the
+\textbf{measurement error} states the range where the true value might
+lie.  By convention, the estimate and measurement error are formatted
+according to the these rules \cite{Hughes}:
+\begin{enumerate}
+\item 
+  The measurement error has \underline{one significant figure}.
 
+\item
+  The estimate has the same precision as the measurement error.
+\end{enumerate}
+
+\noindent
 Suppose you use a digital multimeter to measure the current in a
 circuit, and the readout is stable (i.e., not fluctuating).  Then you
 should report a result like this:
 \begin{center}
-\raisebox{-.4\height}{\includegraphics[width=0.24\textwidth]{readout.jpg}}
+\raisebox{-.4\height}{\includegraphics[width=0.23\textwidth]{readout.jpg}}
 $\;\;=\; \left(0.320 \pm 0.005\right) \, \mathrm{A}$
 \end{center}
-That's because, according to the readout, the value may be between
-$0.315\,\mathrm{A}$ (which gets rounded up to $0.32\,\mathrm{A}$) and
-$0.324999\dots\mathrm{A}$ (which gets rounded down).  Thus, the
-measurement error is $\pm 0.005 \, \mathrm{A}$.  Note that the
-estimate is reported as $0.320 \,\mathrm{A}$, not $0.32\,\mathrm{A}$,
-to ensure that it has the same precision as the error \cite{Hughes}.
+Why?  According to the readout, the value is between
+$0.315\,\mathrm{A}$ (rounded up to $0.32\,\mathrm{A}$) and
+$0.324999\dots\mathrm{A}$ (which is rounded down).  So the measurement
+error is $\pm 0.005 \, \mathrm{A}$.  Note that the estimate is
+reported as $0.320 \,\mathrm{A}$ to have the same precision as the
+error.
 
 When using a device with hatch marks, such as a ruler or analog
 oscilloscope display, the measurement error is determined by the
@@ -68,7 +75,7 @@ smallest markings.  For example, if the smallest markings on a ruler
 have $1\,\mathrm{mm}$ spacing, the measurement error is $\pm 0.5
 \,\textrm{mm}$, so a reading should be reported like this:
 \begin{center}
-\raisebox{-.4\height}{\includegraphics[width=0.25\textwidth]{ruler.pdf}}
+\raisebox{-.4\height}{\includegraphics[width=0.23\textwidth]{ruler.pdf}}
 $\;\;=\; \left(6.60 \pm 0.05\right) \, \mathrm{cm}$
 \end{center}
 
@@ -80,12 +87,12 @@ is between $0.315\,\mathrm{A}$ and $0.344999\dots\mathrm{A}$, which is
 a range of $\pm0.015\,\mathrm{A}$.  Since we use one significant
 figure for errors, the result is reported like this:
 \begin{center}
-\raisebox{-.4\height}{\includegraphics[width=0.25\textwidth]{readout2.pdf}}
+\raisebox{-.4\height}{\includegraphics[width=0.23\textwidth]{readout2.pdf}}
 $\;\;=\; \left(0.33 \pm 0.02\right) \, \mathrm{A}$
 \end{center}
 Alternatively, suppose the last digit is changing so fast that you
-can't make out what values it takes.  Then you can report the result
-like this:
+can't make out its values at all.  Then you can report the result like
+this:
 \begin{center}
 \raisebox{-.4\height}{\includegraphics[width=0.25\textwidth]{readout3.pdf}}
 $\;\;=\; \left(0.35 \pm 0.05\right) \, \mathrm{A}$
