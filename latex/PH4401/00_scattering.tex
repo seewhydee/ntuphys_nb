@@ -18,7 +18,7 @@
 \rfoot{\thepage}
 \pagestyle{fancy}
 
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{14pt}
 
 \renewcommand{\baselinestretch}{1.0}
 \setlength{\parskip}{0.07in}
@@ -158,18 +158,18 @@ the incoming particles in the experiment.
 \section{Recap: position and momentum states}
 
 Before proceeding, let us review the properties of quantum particles
-in free space.
+in free space.  In a $d$-dimensional space, a coordinate vector
+$\mathbf{r}$ is a real vector of $d$ components.  A quantum particle
+can be described by the position basis---a set of quantum states
+$\{|\mathbf{r}\rangle\}$, one for each possible $\mathbf{r}$.  The
+$\mathbf{r}$'s form a continuum, and so, like the real numbers, this
+set of states is uncountably infinite.  If we are studying a particle
+trapped in a finite region (e.g., a particle in a box), $\mathbf{r}$
+is restricted to that region; otherwise, $\mathbf{r}$ is any real
+$d$-dimensional vector.
 
-In a $d$-dimensional space, a coordinate vector $\mathbf{r}$ is a real
-vector of $d$ components.  A quantum particle can be described by the
-position basis---a set of quantum states $\{|\mathbf{r}\rangle\}$, one
-for each possible $\mathbf{r}$.  The $\mathbf{r}$'s form a continuum,
-and so, like the real numbers, this set of states is uncountably
-infinite.  If we are studying a particle trapped in a finite region
-(e.g., a particle in a box), $\mathbf{r}$ is restricted to that
-region; otherwise, $\mathbf{r}$ is any real $d$-dimensional vector.
-In either case, $\{|\mathbf{r}\rangle\}$ spans the quantum
-state space, so that the identity operator can be resolved as
+In either case, $\{|\mathbf{r}\rangle\}$ spans the state space, so the
+identity operator can be resolved as
 \begin{equation}
   \hat{I} = \int d^dr \, |\mathbf{r}\rangle \,\langle\mathbf{r}|,
 \end{equation}
@@ -186,17 +186,18 @@ function; for example, in 2D,
 \begin{equation}
   \langle x,y \,|\, x',y' \rangle = \delta(x-x') \, \delta(y-y').
 \end{equation}
-The position operator $\hat{\mathbf{r}}$ can be defined by taking
+
+The position operator $\hat{\mathbf{r}}$ is defined by taking
 $|\mathbf{r}\rangle$ and $\mathbf{r}$ as the eigenstates and
 eigenvalues:
 \begin{equation}
   \hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\, |\mathbf{r}\rangle.
 \end{equation}
 
-Momentum eigenstates can be constructed from position eigenstates via
-Fourier transforms.  First, suppose that the allowed region of space
-is a box of length $L$ on each side, and periodic boundary conditions
-in every direction.  Define the set of wave-vectors $\mathbf{k}$
+Momentum eigenstates are constructed from position eigenstates via
+Fourier transforms.  First, suppose the allowed region of space is a
+box of length $L$ on each side, and periodic boundary conditions in
+every direction.  Define the set of wave-vectors $\mathbf{k}$
 corresponding to plane waves that satisfy the periodic boundary
 conditions at the boundaries of the box:
 \begin{equation*}
@@ -221,15 +222,15 @@ Thus, for finite $L$, the momentum eigenstates are discrete and
 normalizable to unity; the momentum component in each direction is
 quantized to a multiple of $\Delta p = 2\pi\hbar/L$.
 
-Next, we take the limit of an infinite box, $L \rightarrow \infty$.
-In this limit, $\Delta p \rightarrow 0$, and therefore the momentum
+Now we take the limit of an infinite box, $L \rightarrow \infty$.  In
+this limit, $\Delta p \rightarrow 0$, meaning that the momentum
 eigenvalues coalesce into a continuum.  In order to properly handle
 the momentum eigenstates in this limit, it is conventional to
 re-normalize them this way:
 \begin{equation}
   |\mathbf{k}\rangle \rightarrow \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle.
 \end{equation}
-Then, in the $L\rightarrow\infty$ limit, the re-normalized momentum
+Thus, in the $L\rightarrow\infty$ limit, the re-normalized momentum
 eigenstates satisfy
 $$\boxed{\begin{aligned} |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \\ |\mathbf{r}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{-i\mathbf{k}\cdot\mathbf{r}} |\mathbf{k}\rangle, \\\langle\mathbf{k}|\mathbf{k}'\rangle = \delta^d(\mathbf{k}-\mathbf{k}'),& \quad \langle\mathbf{r}|\mathbf{k}\rangle = \frac{1}{(2\pi)^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \int d^dk \;|\mathbf{k}\rangle\,\langle\mathbf{k}|,\end{aligned}}$$
 with the integrals now taken over infinite spaces.  The position and
@@ -253,7 +254,7 @@ $[\hat{r}_i, \hat{p}_j] = i\hbar\delta_{ij}$.
 \section{Scattering from a 1D delta-function potential}
 \label{sec:1dscatter}
 
-We are now ready to solve our first scattering problem.  Consider a 1D
+We are now ready to solve a simple scattering problem.  Consider a 1D
 space with spatial coordinate denoted by $x$, and a scattering
 potential that consists of a ``spike'' at $x = 0$:
 \begin{equation}
@@ -267,23 +268,23 @@ controls the strength of the scattering potential.
   \centering\includegraphics[width=0.45\textwidth]{scattering1d}
 \end{figure}
 
-You might be disturbed by the idea of a delta function potential, as
-it is singular.  If so, just think of the delta function as a limiting
-case of a family of non-singular functions (e.g., increasingly tall
-and narrow gaussians centered at $x=0$).  When the Schr\"odinger wave
-equation has a non-singular potential, any solution $\psi(x)$ must be
-continuous and have well-defined first and second derivatives.  In the
-delta function limit, the second derivative of $\psi(x)$ at $x=0$
-blows up; moreover, the first derivative is discontinuous but finite,
-while $\psi(x)$ itself remains continuous.  To verify this, integrate
-the Schr\"odinger wave equation over an infinitesimal range around $x
-= 0$:
+If you are disturbed by the idea of a delta function potential, just
+regard the delta function as a limiting case of a family of
+non-singular functions: increasingly tall and narrow gaussians
+centered at $x=0$.  For any non-singular potential, each solution
+$\psi(x)$ is continuous and has well-defined first and second
+derivatives.  Upon reaching the delta function limit, the second
+derivative of $\psi(x)$ at $x=0$ blows up, while its first derivative
+becomes discontinuous but finite; however, $\psi(x)$ itself remains
+continuous.  To verify this, integrate the Schr\"odinger wave equation
+over an infinitesimal range around $x = 0$:
 \begin{align}
   \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0\\ \Rightarrow \;\; \lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right\}  &=  \gamma \,\psi(0).\end{aligned}
+  \label{delta_discontinuity}
 \end{align}
 
 To proceed, consider a particle incident from the left, with energy
-$E$.  This can be described by an incident state proportional to a
+$E$.  This is described by an incident state proportional to a
 momentum eigenstate $|k\rangle$, where $k = \sqrt{2mE/\hbar^2} > 0$.
 We said ``proportional'', not ``equal'', as it is conventional to
 normalize the incident state by
@@ -291,37 +292,36 @@ normalize the incident state by
   |\psi_i\rangle = \sqrt{2\pi}\Psi_i |k\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik x}.
 \end{equation}
 The constant $\Psi_i$ is called the ``incident amplitude''; its
-physical meaning will be discussed later.  Plug this into the
-Schr\"odinger wave equation:
+physical meaning will be discussed later.  Plugging this into the
+Schr\"odinger wave equation gives
 \begin{equation}
-  \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \left(\Psi_i \, e^{ikx} + \psi_s(x) \right) = E \left(\Psi_i \, e^{ikx} + \psi_s(x) \right)
+  \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \left(\Psi_i \, e^{ikx} + \psi_s(x) \right) = E \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).
 \end{equation}
 Taking $E = \hbar^2k^2/2m$, and doing a bit of algebra, simplifies this to
 \begin{equation}
-  \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).
+  \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right),
 \end{equation}
-This has the form of an inhomogenous ordinary differential equation (ODE)
-for $\psi_s(x)$, with the potential term on the right acting
-as a ``driving term''.  To find the solution, consider the two regions $x <
+which is an inhomogenous ordinary differential equation (ODE) for
+$\psi_s(x)$, with the potential term on the right acting as a
+``driving term''.  To find the solution, consider the two regions $x <
 0$ and $x > 0$.  Since $\delta(x) \rightarrow 0$ for $x \ne 0$, the
 equation in each half-space reduces to
 \begin{equation}
   \left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0.
 \end{equation}
-This second-order ODE is called the \textbf{Helmholtz equation}.  Its
-general solution can be written as
+This is the \textbf{Helmholtz equation}, whose general solution may be
+written as
 \begin{equation}
   \psi_s(x) = \Psi_i \left(f_1 \, e^{ik x} + f_2 \, e^{-ik x}\right),
 \end{equation}
-where $f_1$ and $f_2$ are arbitrary complex constants.  These
-constants can have different values in the two regions $x < 0$ and $x
-> 0$.
+where $f_1$ and $f_2$ are arbitrary complex constants, which can have
+different values in the two different regions ($x < 0$ and $x > 0$).
 
 We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, moving away
-from the scatterer towards infinity.  So, it should be purely
+from the scatterer towards infinity.  So it should be purely
 left-moving for $x < 0$, and purely right-moving for $x > 0$.  To
-achieve this, we let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for $x > 0$,
-so that $\psi_s(x)$ has the form
+achieve this, let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for $x > 0$, so
+that $\psi_s(x)$ has the form
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ikx}, & x < 0 \\ f_+ \,e^{ikx}, & x > 0.\end{cases}
 \end{equation}
@@ -330,13 +330,11 @@ The complex numbers $f_-$ and $f_+$ are called \textbf{scattering
 wavefunction scattered backwards into the $x<0$ region, and scattered
 forward into the $x > 0$ region, respectively.
 
-To calculate the scattering amplitudes, we first recall from earlier
-that the total wavefunction $\psi(x)$ must be continuous everywhere,
-including at $x = 0$.  Since $\psi_i(x)$ is continuous, $\psi_s(x)$
-must be as well, which means that $f_- = f_+$.
-
-Moreover, we previously found that the first derivative of $\psi(x)$
-is discontinuous at $x=0$:
+Now recall from the discussion at the beginning of this section that
+$\psi(x)$ must be continuous everywhere, including at $x = 0$.  Since
+$\psi_i(x)$ is continuous, $\psi_s(x)$ must be as well, meaning that
+$f_- = f_+$.  Moreover, we showed in Eq.~\eqref{delta_discontinuity}
+that the first derivative of $\psi(x)$ is discontinuous at $x=0$:
 \begin{equation}
   \lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right\}  =  \gamma\, \psi(0).
 \end{equation}
@@ -357,27 +355,26 @@ describes the overall strength of the scattering process:
   \centering\includegraphics[width=0.55\textwidth]{scattering1df}
 \end{figure}
 
-The result is plotted above.  It has a number of notable features.
-First, for a fixed potential strength $\gamma$, the scattering
-strength decreases monotonically with $E$; i.e., higher-energy
-particles are scattered less easily, which makes sense.  Second, for
-given $E$, the scattering strength increases with $|\gamma|$, with the
-limit $|f|^2 \rightarrow 1$ as $|\gamma|\rightarrow \infty$.  Third,
-an attractive potential ($\gamma < 0$) and a repulsive potential
-($\gamma > 0$) are equally effective at scattering the particle.
+The result, plotted above, has several notable features.  First, for
+fixed potential strength $\gamma$, the scattering strength decreases
+monotonically with $E$---i.e., higher-energy particles are scattered
+less easily.  Second, for given $E$, the scattering strength increases
+with $|\gamma|$, with the limit $|f|^2 \rightarrow 1$ as
+$|\gamma|\rightarrow \infty$.  Third, an attractive potential ($\gamma
+< 0$) and a repulsive potential ($\gamma > 0$) are equally effective
+at scattering the particle.
 
 \section{Scattering in 2D and 3D}
 \label{sec:2d3d_scattering}
 
-We now consider scattering experiments in spatial dimension $d \ge 2$.
-Compared to the 1D example discussed in the previous section, these
-cases have an important distinguishing feature.  For $d = 1$, the
-particle can only scatter forward or backward, but for $d \ge 2$ it
-can also scatter ``to the side''.
+We now consider scattering experiments in spatial dimension $d \ge 2$,
+which introduces a new and important feature.  For $d = 1$, the
+particle can only scatter forward or backward, but for $d \ge 2$ the
+scattering can occur in other directions.
 
-Far from the scatterer, where $V(\mathbf{r})\rightarrow 0$, we know
-that the scattered wavefunction $\psi_s(\mathbf{r})$ satisfies the
-free-space Schr\"odinger wave equation:
+Far from the scatterer, where $V(\mathbf{r})\rightarrow 0$, the
+scattered wavefunction $\psi_s(\mathbf{r})$ satisfies the free-space
+Schr\"odinger wave equation:
 \begin{equation}
   -\frac{\hbar^2}{2m} \nabla^2 \psi_s(\mathbf{r}) = E \psi_s(\mathbf{r}).
 \end{equation}
@@ -504,8 +501,8 @@ experiments.  It describes how the particle is scattered in various
 directions, and it depends on the inputs to the scattering problem,
 including $\mathbf{k}_i$ and the scattering potential.
 
-Sometimes, we will write the scattering amplitude using the
-alternative notation
+Sometimes, we write the scattering amplitude using the alternative
+notation
 \begin{equation}
   f(\mathbf{k}_i \rightarrow \mathbf{k}_f), \;\;\;\mathrm{where}\;\; \mathbf{k}_f = k \hat{\mathbf{r}}.
 \end{equation}
@@ -521,8 +518,8 @@ quantities of interest:
 $$\boxed{\begin{aligned}\frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\quad \text{(the \textbf{differential scattering cross section})} \\ \sigma &= \int d\Omega\; \big|f(\Omega)\big|^2 \quad\; \text{(the \textbf{total scattering cross section}).}
   \end{aligned}}$$
 In the second equation, $\int d\Omega$ denotes the integral(s) over
-all the angle coordinates (or, in 1D, a sum over the two directions
-$\Omega \in \pm$).
+all the angle coordinates; for 1D, this is instead a discrete sum over
+the two possible directions, forward and backward.
 
 The term ``cross section'' comes from an analogy with the scattering
 of classical particles.  To understand this, consider the probablity
@@ -560,6 +557,7 @@ interacts with those particles striking it directly:
   \centering\includegraphics[width=0.42\textwidth]{crosssection}
 \end{figure}
 
+\noindent
 In this classical picture, the scattering rate should be
 \begin{equation}
   I_s = J_i \, \sigma,
@@ -580,12 +578,11 @@ are scattered in a given direction.
 \section{The Green's function}
 \label{sec:greensfun}
 
-Having defined the scattering amplitude $f(\Omega)$, we still need to
-figure out how to calculate it.  This can be done using a variety of
-methods, including numerical methods.  We will focus on one
-particularly important approach, which is a quantum mechanical version
-of the classical Green's function technique for solving inhomogenous
-differential equations.
+The scattering amplitude $f(\Omega)$ can be calculated using a variety
+of methods, including numerical methods.  We will discuss one
+particularly important approach, which is based on the quantum
+mechanical version of the classical Green's function technique for
+solving inhomogenous differential equations.
 
 Let us return to the previously-discussed formulation of the
 scattering problem:
@@ -665,6 +662,7 @@ two, or more scattering events, as illustrated in the figure below:
   \centering\includegraphics[width=0.98\textwidth]{bornseries}
 \end{figure}
 
+\noindent
 Each successive term in the Born series involves more scattering
 events, i.e., higher multiples of $\hat{V}$.  For example, the
 second-order term is
@@ -746,6 +744,7 @@ and move the pole at $+k$ infinitesimally upwards:
   \centering\includegraphics[width=0.4\textwidth]{greencontour}
 \end{figure}
 
+\noindent
 This means replacing the denominator of the integrand as
 follows:
 \begin{equation}
