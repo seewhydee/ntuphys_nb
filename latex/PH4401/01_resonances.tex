@@ -13,13 +13,14 @@
 
 \usepackage{fancyhdr}
 \fancyhf{}
-\lhead{\tiny Y.~D.~Chong (2018)}
+\lhead{\tiny Y.~D.~Chong}
 \rhead{\scriptsize PH4401: Quantum Mechanics III}
 \lfoot{}
 \rfoot{\thepage}
 \pagestyle{fancy}
 
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{14pt}
+\renewcommand{\theequation}{1.\arabic{equation}}
 
 \renewcommand{\baselinestretch}{1.0}
 \setlength{\parskip}{0.07in}
@@ -32,11 +33,11 @@
 
 \section{Bound states and free states}
 
-One of the most interesting features of wavefunctions in infinite
-space is that they come in two distinct types: (i) \textbf{bound
-  states}, which are localized to one region, and (ii) \textbf{free
-  states}, which extend over the entire space.  Both types can
-co-exist in a single system.
+One of the most curious features of wavefunctions in infinite space is
+that they come in two distinct types: (i) \textbf{bound states}, which
+are localized to one region, and (ii) \textbf{free states}, which
+extend over the entire space.  Both types can co-exist in a single
+system.
 
 The \textbf{1D finite square well} is a simple model that exhibits
 both bound states and free states.  Consider the Hamiltonian
@@ -55,24 +56,24 @@ and width $2a$.  Outside the well, the potential is zero.
 \end{figure}
 
 We wish to solve the time-independent Schr\"odinger equation for this
-Hamiltonian.  A common numerical method, known as the \textbf{transfer
-  matrix method}, can be used to generate solutions for this potential
-and other similar 1D potentials.  This method is described in Appendix
-B.  In this section, we will bypass the details of the calculation,
-and instead zoom in on certain key aspects.
+Hamiltonian.  A numerical procedure called the \textbf{transfer matrix
+  method} can generate solutions for this potential and other similar
+1D potentials.  This method is described in Appendix B.  Here, we will
+bypass the details of the calculation, and instead zoom in on certain
+key aspects.
 
 The first thing to note is that when solving the Schr\"odinger wave
-equation, it's necessary to specify the boundary conditions at
-infinity.  This choice determines whether we get a bound state or free
-state.  The wavefunction of a bound state diminishes exponentially as
-$x \rightarrow \pm\infty$; thus, in the exterior region (i.e., $x <
--a$ or $x > a$), it satisfies
+equation, we must specify the boundary conditions at infinity.  This
+choice determines whether we get a bound state or free state.  The
+wavefunction of a bound state diminishes exponentially as $x
+\rightarrow \pm\infty$; thus, in the exterior region (i.e., $x < -a$
+or $x > a$), it satisfies
 \begin{equation}
   -\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),
 \end{equation}
 subject to the boundary conditions
 \begin{equation}
-  \psi(x) \overset{x\rightarrow\pm\infty}{\sim} e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.
+  \psi(x) \;\overset{x\rightarrow\pm\infty}{\sim} \; e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.
 \end{equation}
 The bound state solutions in the exterior region therefore take the
 form
@@ -82,11 +83,12 @@ form
 Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
 0$.  Moreover, the variational principle implies that $E \ge -U$.
 Hence, bound state energies are restricted to the range $-U \le E <
-0$.  We can also show that the bound state energies are
-\textit{discrete}: the energy spacing decreases with $a$, but so long
-as $a$ is finite, the spacing is non-vanishing.  Another related
-fact is that the wavefunction for a bound state can always be
-normalized:
+0$.
+
+We can also show that the bound state energies are \textit{discrete}:
+the energy spacing decreases with $a$, but so long as $a$ is finite,
+the spacing is non-vanishing.  Another related fact is that the
+wavefunction for a bound state can always be normalized:
 \begin{equation}
   \int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.
 \end{equation}
@@ -99,11 +101,13 @@ takes the form
 \begin{equation}
   \psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}
 \end{equation}
-Outside the potential well, $\psi(x)$ consists of a superposition of
-left-moving and right-moving plane waves, with real wave-number $k$.  The
-coefficients $\alpha_\pm$ and $\beta_\pm$ are not independent
-quantities, but are linked by a linear relation (see Appendix B).  In
-order to satisfy Schr\"odinger's equation, $k$ must satisfy
+Inside the potential well, $\psi(x)$ has a complicated form, but
+outside the potential well it takes the simple form of a superposition
+of left-moving and right-moving plane waves, with real wave-number
+$k$.  (The coefficients $\alpha_\pm$ and $\beta_\pm$ are not
+independent quantities, but are linked by a linear relation; see
+Appendix B.)  In order to satisfy Schr\"odinger's equation, $k$ must
+satisfy
 \begin{equation}
   \frac{\hbar^2k^2}{2m} = E,
 \end{equation}
@@ -118,11 +122,11 @@ The following figure shows numerically-obtained results for a square
 well with $U = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
 energy spectrum is shown on the left side.  There exist five bound
 states; their plots of $|\psi|^2$ versus $x$ are shown on the right
-side.  These results were computed using the transfer matrix code
+side.  These results were computed using the transfer matrix method
 described in Appendix B.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.81\textwidth]{boundvsextended}
+  \centering\includegraphics[width=0.76\textwidth]{boundvsextended}
 \end{figure}
 
 Many of the lessons drawn from this square well model can be
@@ -141,19 +145,20 @@ model with fixed $a = 1$, as we vary the potential minimum $-U$:
   \centering\includegraphics[width=0.65\textwidth]{boundstate1d}
 \end{figure}
 
-For $U = 30$, there are five bound states, but these disappear one by
-one as we make the potential well shallower.  Note, however, that one
+For $U = 30$, there are five bound states, which disappear one by one
+as we make the potential well shallower.  Note, however, that one
 bound state survives in the limit $U \rightarrow 0$.  There is a
 theorem which states that any 1D attractive potential, no matter how
-weak, always supports at least one bound state.  For more details
-about this phenomenon, see \hyperref[ex:boundstate]{Exercise 1}.
+weak, always supports at least one bound state (see
+\hyperref[ex:boundstate]{Exercise 1}).
 
-In 3D, however, an attractive potential can be too weak to support a
-bound state.  Intuitively, this happens if the zero-point energy of
-any prospective ground state exceeds the well depth.  A numerical
-example is given below for a uniform 3D spherically symmetric well
-(the $l$'s are angular momentum quantum numbers).  For details, see
-\hyperref[ex:boundstate3d]{Exercise 2}.
+In 3D, however, it is possible for an attractive potential to be too
+weak to support a bound state.  Intuitively, this happens if the
+zero-point energy of any prospective ground state exceeds the well
+depth.  The figure below shows a numerical example, calculated for a
+uniform 3D spherically symmetric well; the $l$'s labeling the various
+curves are angular momentum quantum numbers.  For details about this
+phenomenon, see \hyperref[ex:boundstate3d]{Exercise 2}.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.65\textwidth]{boundstate3d}
@@ -183,10 +188,11 @@ such that $0 < V_b - U < V_b$.
   \centering\includegraphics[width=0.7\textwidth]{resonancewell}
 \end{figure}
 
+\noindent
 This potential is purely repulsive, so there are no bound states.  The
 only exact eigenstates of the Hamiltonian are free states.
 
-However, there's something intriguing about the energy range
+However, there is something intriguing about the energy range
 corresponding to the central well, $V_b-U < E < V_b$.  Consider a
 slightly different situation, where the potential in the exterior
 region is $V_b$ rather than $0$; i.e., the potential function is a
@@ -210,11 +216,11 @@ with energy $E > 0$, described by the incident wavefunction
 \begin{equation}
   \psi_i(x) = \Psi_i \, e^{ik_i x}.
 \end{equation}
-This gives rise to a scattered wavefunction $\psi_s(x)$, such that the
+This generates a scattered wavefunction $\psi_s(x)$ such that the
 total wavefunction $\psi_i(x) + \psi_s(x)$ satisfies the Schr\"odinger
 wave equation with energy $E$.  The scattered wavefunction must be
-outgoing (see the previous chapter), so in the exterior region it
-takes the form
+outgoing (as discussed in the previous chapter), so in the exterior
+region it takes the form
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}
 \end{equation}
@@ -228,6 +234,7 @@ m = 1$.
   \centering\includegraphics[width=0.65\textwidth]{resonances}
 \end{figure}
 
+\noindent
 The vertical axis shows $|1+f_+|^2$, which is called the
 ``transmittance'' and corresponds to the probability for the incident
 particle to pass through the potential.  The horizontal axis is the
@@ -242,7 +249,7 @@ $V_{\mathrm{alt}}(x)$, which closely match the centers of the
 transmittance peaks (at least, the first four peaks).
 
 Upon examining the total wavefunction $\psi(x)$ at these special
-energies, we see something else interesting.  The figure below plots
+energies, we find something else interesting.  The figure below plots
 $|\psi(x)|^2$ versus $x$ at the energies of the first three
 transmittance peaks, along with the corresponding bound state
 wavefunctions for the square well $V_{\mathrm{alt}}$.  At each
@@ -253,6 +260,7 @@ region, and its shape is very similar to a square well bound state.
   \centering\includegraphics[width=0.75\textwidth]{resonancewavefunctions}
 \end{figure}
 
+\noindent
 The enhancement of $|\psi(x)|^2$ is called a \textbf{resonance}.  It
 happens because of the existence of a quasi-bound state---an
 approximate energy eigenstate that is localized within the scattering
@@ -277,8 +285,8 @@ Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
 and studying resonances.  When a resonance-induced scattering peak is
 found, the location and shape of the peak can be used to deduce
-various features of the quasi-bound state, which often provides a
-great deal of information about the system itself.
+various features of the quasi-bound state, which can provide a great
+deal of information about the underlying system.
 
 \section{Green's function analysis of scattering resonances}
 \label{sec:green_resonances}
@@ -290,8 +298,8 @@ tool for studying their properties and consequences.
 
 Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
-and $\hat{V}$ is the potential operator.  Let us decompose the
-potential into
+and $\hat{V}$ is the potential operator.  We decompose the potential
+into
 \begin{equation}
   \hat{V} = \hat{V}_0 + \hat{V}_1,
 \end{equation}
@@ -313,8 +321,7 @@ $d$-dimensional continuous index for the free states (analogous to the
 wave-vector for plane wave states).  The bound state and free states
 satisfy the Schr\"odinger equation
 \begin{align}
-  \begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
-  \end{aligned}
+  \big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
 \end{align}
 along with the orthogonality and completeness relations
 \begin{equation}
@@ -377,8 +384,10 @@ Combining this with the other equation gives
   \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int d^dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
 \end{equation}
 Hence,
-$$\boxed{\begin{aligned}\langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \qquad \\ \quad \mathrm{where}\;\;\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}. \qquad
-\end{aligned}}$$
+\begin{equation}
+  \boxed{\begin{aligned}\langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \qquad \\ \quad \mathrm{where}\;\;\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}. \qquad
+\end{aligned}}
+\end{equation}
 The quantity $\Sigma(E)$ is called the \textbf{self-energy}, and we
 will have much more to say about it shortly.  It is dependent on $E$,
 but let us assume for now that the dependence is weak, so that
@@ -386,7 +395,7 @@ $\Sigma$ can be effectively treated as a constant.  It is
 complex-valued, and both its real and imaginary parts will be
 important.  (We will later show that $\mathrm{Im}(\Sigma) < 0$.)
 
-The above result is extremely meaningful.  It tells us that
+The above result tells us that
 $\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
 denominator is as close to zero as possible, which is called the
 \textbf{resonance condition} (and is self-consistent with the
@@ -432,6 +441,7 @@ characteristic behavior summarized in the figure below:
   \includegraphics[width=0.74\textwidth]{resonance}  
 \end{center}
 
+\noindent
 The graph of $|\Delta f|^2$ versus $E$ has a peaked shape known as a
 \textbf{Lorentzian}.  The peak is centered at $E = E_{\mathrm{res}}$,
 where the resonance condition is satisfied.  The width of the peak is
@@ -706,15 +716,15 @@ half-maximum (see Section~\ref{sec:green_resonances}) is estimated
 numerically.  The results are shown as blue dots in the figure.
 
 We see that Fermi's golden rule generally agrees well with the results
-from the transfer matrix method.  There is a bit of discrepancy,
-notably when the barrier is thin.  Remember that Fermi's golden rule
-relies on the approximation that the quasi-bound state is strongly
-confined (i.e., having $\langle \varphi|G|\varphi\rangle$ be large in
-the derivations of Sections~\ref{sec:green_resonances} and
+from the transfer matrix method.  There is some discrepancy, notably
+when the barrier is thin.  Remember that Fermi's golden rule relies on
+the approximation that the quasi-bound state is strongly confined
+(i.e., having $\langle \varphi|G|\varphi\rangle$ be large in the
+derivations of Sections~\ref{sec:green_resonances} and
 \ref{sec:goldenrule}).  Moreover, we have approximated the free states
 $|\psi_k\rangle$ using the plane wave states in the absence of any
-potential, which is an assumption that is very commonly employed when
-using Fermi's golden rule.
+potential, which is an assumption commonly employed when using Fermi's
+golden rule.
 
 
 

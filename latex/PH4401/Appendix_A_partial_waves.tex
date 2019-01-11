@@ -11,13 +11,15 @@
 
 \usepackage{fancyhdr}
 \fancyhf{}
-\lhead{\tiny Y.~D.~Chong (2018)}
+\lhead{\tiny Y.~D.~Chong}
 \rhead{\scriptsize PH4401: Quantum Mechanics III}
 \lfoot{}
 \rfoot{\thepage}
 \pagestyle{fancy}
 
-\setlength{\parindent}{0pt}
+\setlength{\parindent}{14pt}
+\renewcommand{\theequation}{A.\arabic{equation}}
+\renewcommand{\thesection}{A\arabic{section}}
 
 \renewcommand{\baselinestretch}{1.0}
 \setlength{\parskip}{0.07in}
@@ -28,14 +30,14 @@
 {\large \textbf{Appendix A: Partial Wave Analysis}}
 \end{center}
 
-In this Appendix, we describe the method of \textbf{partial wave
-  analysis}, which can be used to solve a specific class of 3D
-scattering problems: those with a \textit{spherically symmetric}
-scattering potential, $V(r)$, which depends only on the radial
-distance $r = \sqrt{x^2 + y^2 + z^2}$ and not on direction.  This
-typically describes a situation where a point particle or
-spherically-symmetric object sits at the coordinate origin,
-$\mathbf{r} = 0$, and is bombarded by incident particles.
+This Appendix describes the method of \textbf{partial wave analysis},
+which can be used to solve 3D scattering problems with
+\textit{spherically symmetric} scattering potentials.  Such a
+potential, $V(r)$, depends only on the radial distance $r = \sqrt{x^2
+  + y^2 + z^2}$ and not on direction.  This typically describes a
+situation where a point particle or spherically-symmetric object sits
+at the coordinate origin, $\mathbf{r} = 0$, and is bombarded by
+incident particles.
 
 \section{Spherical waves}
 \label{sec:spherical}
@@ -43,19 +45,26 @@ $\mathbf{r} = 0$, and is bombarded by incident particles.
 We begin by considering ``exterior'' solutions to the Schr\"odinger
 wave equation.  Far from the scatterer, where $V(r) \rightarrow 0$,
 the Schr\"odinger wave equation can be rearranged into
-$$\Big(\nabla^2 + k^2\Big) \psi(\mathbf{r}) = 0,\;\;\;\mathrm{where}\;\;k = \sqrt{2mE/\hbar^2}.$$
+\begin{equation}
+  \Big(\nabla^2 + k^2\Big) \psi(\mathbf{r}) =
+  0,\;\;\;\mathrm{where}\;\;k = \sqrt{2mE/\hbar^2}.  
+\end{equation}
 This partial differential equation is called the \textbf{Helmholtz
   equation}.  We emphasize that $E$ plays the role of a tunable
-parameter, not as an eigenvalue in an eigenproblem.  For the moment,
-we will not specify the boundary conditions, and look instead for a
-general set of solutions for a given $E$ (and hence $k$).
+parameter, and is not an eigenvalue in an eigenproblem.  For the
+moment, we will not specify the boundary conditions, and look instead
+for a general set of solutions for a given $E$ (and hence $k$).
 
 In spherical coordinates $(r,\theta,\phi)$, the Helmholtz equation has
 the explicit form
-$$\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2} + k^2\psi(r,\theta,\phi) = 0.$$
+\begin{equation}
+  \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2} + k^2\psi(r,\theta,\phi) = 0.
+\end{equation}
 There is a standard procedure for solving this.  The first step is to
 perform a separation of variables, and look for solutions of the form
-$$\psi(r,\theta,\phi) = A(r) Y_{\ell m}(\theta,\phi),$$
+\begin{equation}
+  \psi(r,\theta,\phi) = A(r) Y_{\ell m}(\theta,\phi),
+\end{equation}
 where $A(r)$ is a function to be determined and $Y_{\ell
   m}(\theta,\phi)$ is a special function known as a
 \href{https://en.wikipedia.org/wiki/Spherical_harmonics}{spherical
@@ -70,9 +79,11 @@ periodic in $\phi$ and regular at the poles of the spherical
 coordinate system.
 
 After plugging in this form for $\psi(r,\theta,\phi)$, the Helmholtz
-equation reduces to the following ordinary differential equation (a
-variant of the Bessel equation):
-$$\frac{d}{dr}\left(r^2\frac{dA}{dr}\right) + \Big[k^2r^2 - \ell(\ell+1)\Big] A(r) = 0, \;\;\;\ell \in \mathbb{Z}_0^+,$$
+equation reduces to the following ordinary differential equation,
+which is a variant of the Bessel equation:
+\begin{equation}
+  \frac{d}{dr}\left(r^2\frac{dA}{dr}\right) + \Big[k^2r^2 - \ell(\ell+1)\Big] A(r) = 0, \;\;\;\ell \in \mathbb{Z}_0^+.
+\end{equation}
 Note that $m$ drops out of the equation.  Thus, $A(r)$ depends on
 $\ell$, but \textit{not} on $m$.
 
@@ -84,43 +95,53 @@ packages provide functions to calculate these;
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{\texttt{scipy.special.spherical\_jn}}
 and
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_yn.html}{\texttt{scipy.special.spherical\_yn}}.
-Various spherical Bessel functions are plotted below:
+Some spherical Bessel functions are plotted below:
 
 \vskip 0.5cm
 \begin{center}
-  \includegraphics[width=0.63\textwidth]{spherical_bessel}
+  \includegraphics[width=0.67\textwidth]{spherical_bessel}
 \end{center}
 
-Note that the spherical Bessel functions of the second kind,
-$y_\ell(kr)$, diverge at $kr\rightarrow 0$.  This does not bother us,
-since we're interested in solutions defined in the exterior region,
-away from the coordinate origin.
+\noindent
+Note that the $y_\ell$ functions diverge at $kr\rightarrow 0$.  This
+does not bother us, for we are interested in solutions defined in the
+exterior region, away from the coordinate origin.
 
 For large values of the input, the spherical Bessel functions have the
 limiting forms
-$$\begin{aligned}j_\ell(kr)\; &\overset{kr\rightarrow\infty}{\longrightarrow} \; \frac{\sin(kr-\frac{\ell\pi}{2})}{kr} \\ y_\ell(kr)\; &\overset{kr\rightarrow\infty}{\longrightarrow} \; - \frac{\cos(kr-\frac{\ell\pi}{2})}{kr}.\end{aligned}$$
+\begin{align}
+  \begin{aligned}j_\ell(kr)\; &\overset{kr\rightarrow\infty}{\longrightarrow} \; \frac{\sin(kr-\frac{\ell\pi}{2})}{kr} \\ y_\ell(kr)\; &\overset{kr\rightarrow\infty}{\longrightarrow} \; - \frac{\cos(kr-\frac{\ell\pi}{2})}{kr}.\end{aligned}
+\end{align}
 Since we are interested in incoming and outgoing spherical waves, it
 is convenient to define
-$$h_\ell^\pm(kr) = j_\ell(kr) \pm i y_\ell(kr).$$
+\begin{equation}
+  h_\ell^\pm(kr) = j_\ell(kr) \pm i y_\ell(kr).
+\end{equation}
 This complex function is called a \textbf{spherical Hankel function}
 of the first kind ($+$) or second kind ($-$).  It solves the same
 differential equation, but has the limiting form
-$$h_\ell^\pm(kr)\; \overset{kr\rightarrow\infty}{\longrightarrow} \; \pm \frac{\exp\left[\pm i(kr-\frac{\ell\pi}{2})\right]}{ikr}.$$
+\begin{equation}
+  h_\ell^\pm(kr)\; \overset{kr\rightarrow\infty}{\longrightarrow} \; \pm \frac{\exp\left[\pm i(kr-\frac{\ell\pi}{2})\right]}{ikr}.
+\end{equation}
 Using it, we can write down a solution to the Helmholtz equation, in
 the form
-$$\Psi_{\ell m}^\pm(\mathbf{r}) = h_{\ell}^\pm(kr) \,Y_{\ell m}(\theta,\phi).$$
+\begin{equation}
+  \Psi_{\ell m}^\pm(\mathbf{r}) = h_{\ell}^\pm(kr) \,Y_{\ell m}(\theta,\phi).
+\end{equation}
 This describes a spherical wave that is outgoing ($+$) or incoming
 ($-$), and that has a definite angular momentum described by the
 quantum numbers $\ell$ and $m$.
 
 Because the Helmholtz equation is linear, any linear combination of
 spherical waves, with various values of $(\ell,m)$, is also a solution:
-$$\psi(\mathbf{r}) = \sum_\pm \sum_{\ell = 0}^\infty \sum_{m = - \ell}^\ell c_{\ell m}^\pm \Psi_{\ell m}^\pm(\mathbf{r}).$$
-Moreover, it can be shown that the spherical waves form a complete
-solution basis.  In other words, any solution to the 3D Helmholtz
-equation within the exterior region can be written in the above form,
-for some choice of complex coefficients $c_{\ell m}^\pm$.  (By the way,
-these spherical waves are appropriately normalized so that the flux
+\begin{equation}
+  \psi(\mathbf{r}) = \sum_\pm \sum_{\ell = 0}^\infty \sum_{m = - \ell}^\ell c_{\ell m}^\pm \Psi_{\ell m}^\pm(\mathbf{r}).
+\end{equation}
+It can be shown that the spherical waves form a complete solution
+basis.  In other words, any solution to the 3D Helmholtz equation
+within the exterior region can be written in the above form, for some
+choice of complex coefficients $c_{\ell m}^\pm$.  (By the way, these
+spherical waves are appropriately normalized so that the flux
 associated with each term is directly proportional to $|c_{\ell
   m}^\pm|^2$.)
 
@@ -145,45 +166,63 @@ solutions---i.e., solutions to the Schr\"odinger wave equation for the
 same $V(\mathbf{r})$ and $E$.  So if we supply an \textit{arbitrary}
 set of incoming coefficients $\{c_{\ell m}^-\}$, the outgoing
 coefficients must be determined by a linear relation of the form
-$$c_{\ell m}^+ = \sum_{\ell'm'} S_{\ell m, \ell' m'} \;c_{\ell' m'}^-.$$
-To make the notation a bit clearer, let us write this as
-$$c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-,$$
+\begin{equation}
+  c_{\ell m}^+ = \sum_{\ell'm'} S_{\ell m, \ell' m'} \;c_{\ell' m'}^-.
+\end{equation}
+To make the notation cleaner, we rewrite this as
+\begin{equation}
+  c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-,
+\end{equation}
 where each $\mu$ or $\nu$ denotes a pair of angular momentum quantum
 numbers $(\ell,m)$, called a \textbf{scattering channel}.  The matrix
 $S$ is called a \textbf{scattering matrix}.  Knowing $V(\mathbf{r})$
 and $E$, we can calculate $S$, and knowing $S$ we can determine the
 outgoing wavefunction produced by any set of incoming waves.
 
-In the discussion so far, we have not specified how the ``incoming''
-and ``outgoing'' waves are related to the ``incident'' and
-``scattered'' waves of a scattering experiment.  Let us now consider
-an incident plane wave, $\psi_i(\mathbf{r}) = \Psi_i
-\exp(i\mathbf{k}_i\cdot \mathbf{r})$, where $|\mathbf{k}_i| = k$.
-This introduces an important complication: relative to the coordinate
-origin, a plane wave is neither purely ``incoming'' nor ``outgoing''!
-There is a mathematical identity stating that
-$$\begin{aligned}e^{i\mathbf{k}_i \cdot \mathbf{r}} &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 4 \pi j_{\ell}(kr) e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}})\\ &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 2 \pi \left[h_{\ell}^+(kr) + h_{\ell}^-(kr)\right] e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}}).\end{aligned}$$
+Thus far, we have not specified how the ``incoming'' and ``outgoing''
+waves are related to the ``incident'' and ``scattered'' waves of a
+scattering experiment.  We now consider an incident plane wave,
+$\psi_i(\mathbf{r}) = \Psi_i \exp(i\mathbf{k}_i\cdot \mathbf{r})$,
+where $|\mathbf{k}_i| = k$.  This introduces an important
+complication: relative to the coordinate origin, a plane wave is
+neither purely ``incoming'' nor ``outgoing''!  In fact, there is a
+mathematical identity stating that
+\begin{align}
+  \begin{aligned}e^{i\mathbf{k}_i \cdot \mathbf{r}} &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 4 \pi j_{\ell}(kr) e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}})\\ &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 2 \pi \left[h_{\ell}^+(kr) + h_{\ell}^-(kr)\right] e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}}).\end{aligned}
+  \label{plane_wave_decomp}
+\end{align}
 Here, $\hat{\mathbf{k}}_i$ denotes the angular components (in
 spherical coordinates) of the incident wave-vector $\mathbf{k}_i$,
 while $\hat{\mathbf{r}}$ likewise denotes the angular components of
-the position vector $\mathbf{r}$.  Therefore, the incident plane wave
-can be decomposed into a superposition of incoming and outgoing
-spherical waves, with the wave coefficients
-$$c^{\pm}_{i, \ell m} = 2 \pi e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; \Psi_i.$$
-As described in Chapter 1, the total wavefunction in a scattering
+the position vector $\mathbf{r}$.  Eq.~\eqref{plane_wave_decomp}
+informs us that the incident plane wave can be decomposed into a
+superposition of incoming and outgoing spherical waves, with the wave
+coefficients
+\begin{equation}
+  c^{\pm}_{i, \ell m} = 2 \pi e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; \Psi_i.
+\end{equation}
+As described in Chapter 0, the total wavefunction in a scattering
 problem is the sum of the incident wavefunction $\psi_i(\mathbf{r})$
 and the scattered wavefunction $\psi_s(\mathbf{r})$.  The latter must
 be a superposition of only outgoing spherical waves; let us denote the
 coefficients by $c^+_{s,\ell m}$.  The scattering matrix relation can
 then be re-written as
-$$\begin{aligned}c^+_\mu &= c^+_{i,\mu} + c^+_{s,\mu} = \sum_{\mu\nu} S_{\mu\nu} c^-_{i,\nu} \\ \Rightarrow \;\;\; c^+_{s,\ell m} &= 2 \pi \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; \Psi_i. \end{aligned}$$
+\begin{align}
+  c^+_\mu &= c^+_{i,\mu} + c^+_{s,\mu} = \sum_{\mu\nu} S_{\mu\nu} c^-_{i,\nu} \\ \Rightarrow \;\;\; c^+_{s,\ell m} &= 2 \pi \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; \Psi_i.
+\end{align}
 Using this, the scattered wavefunction can be written as
-$$\begin{aligned}\psi_s(\mathbf{r}) &= \sum_{\ell m} c^+_{s,\ell m} h_{\ell}^+(kr) \, Y_{\ell m}(\hat{\mathbf{r}}) \\ &= \Psi_i \sum_{\ell m} \sum_{\ell' m'} 2 \pi \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; h_{\ell}^+(kr) \, Y_{\ell m}(\hat{\mathbf{r}}).\end{aligned}$$
+\begin{equation}
+  \begin{aligned}\psi_s(\mathbf{r}) &= \sum_{\ell m} c^+_{s,\ell m} h_{\ell}^+(kr) \, Y_{\ell m}(\hat{\mathbf{r}}) \\ &= \Psi_i \sum_{\ell m} \sum_{\ell' m'} 2 \pi \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; h_{\ell}^+(kr) \, Y_{\ell m}(\hat{\mathbf{r}}).\end{aligned}
+\end{equation}
 Taking the large-$r$ expansion of the spherical Hankel functions yields
-$$\psi_s(\mathbf{r}) \overset{r\rightarrow\infty}{\longrightarrow} \, \Psi_i \frac{e^{ikr}}{r} \; \left[ \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}})\right].$$
+\begin{equation}
+  \psi_s(\mathbf{r}) \overset{r\rightarrow\infty}{\longrightarrow} \, \Psi_i \frac{e^{ikr}}{r} \; \left[ \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}})\right].
+\end{equation}
 The quantity in square brackets is precisely what we call the
 scattering amplitude:
-$$f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
+\begin{equation}
+  f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
+\end{equation}
 
 \section{Spherically symmetric scattering potentials}
 
@@ -194,47 +233,67 @@ angular momentum is conserved, so an incoming spherical wave with
 angular momentum quantum numbers $(\ell,m)$ must scatter exclusively
 into an outgoing spherical wave with the same $(\ell,m)$.  This means
 that the scattering matrix components have the form
-$$S_{\ell m, \ell'm'} = s_{\ell m}\, \delta_{\ell\ell'}\, \delta_{mm'}.$$
+\begin{equation}
+  S_{\ell m, \ell'm'} = s_{\ell m}\, \delta_{\ell\ell'}\, \delta_{mm'}.
+\end{equation}
 The scattering amplitude then simplifies to
-$$f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \Big(s_{\ell m} - 1\Big) \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
+\begin{equation}
+  f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \Big(s_{\ell m} - 1\Big) \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
+\end{equation}
 
 Our task is now to obtain the $s_{\ell m}$'s.  The procedure is very
 similar to what we already went through in
 Section~\ref{sec:spherical}.  The total wavefunction satisfies the
 Schr\"odinger wave equation, which can be written in spherical
 coordinates as
-$$\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2} + K^2(r) \psi(r,\theta,\phi) = 0,$$
+\begin{equation}
+  \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2} + K^2(r) \psi(r,\theta,\phi) = 0,
+\end{equation}
 where
-$$K^2(r) = \sqrt{\frac{2m\big[E-V(r)\big]}{\hbar^2}}.$$
+\begin{equation}
+  K^2(r) = \sqrt{\frac{2m\big[E-V(r)\big]}{\hbar^2}}.
+\end{equation}
 This is similar to the Helmholtz equation, but with the constant $k^2$
 replaced by a function $K^2(r)$.  In scattering channel $(\ell,m)$,
 the solution has the form
-$$\psi(r,\theta,\phi) = A(r) \, Y_{\ell m}(\theta, \phi).$$
+\begin{equation}
+  \psi(r,\theta,\phi) = A(r) \, Y_{\ell m}(\theta, \phi).
+\end{equation}
 Upon substitution into the Schr\"odinger wave equation, we find that
 $A(r)$ must satisfy
-$$\frac{d}{dr}\left(r^2\frac{dA}{dr}\right) + \Big[K^2(r)\, r^2 - \ell(\ell+1)\Big] A(r) = 0, \;\;\;\ell \in \mathbb{Z}_0^+.$$
+\begin{equation}
+  \frac{d}{dr}\left(r^2\frac{dA}{dr}\right) + \Big[K^2(r)\, r^2 - \ell(\ell+1)\Big] A(r) = 0, \;\;\;\ell \in \mathbb{Z}_0^+.
+\end{equation}
 As before, the equation for $A(r)$ does not involve $m$; hence, the
 scattering matrix components do not depend on $m$, and can be written
 as simply
-$$s_{\ell m} \,=\, s_\ell.$$
+\begin{equation}
+  s_{\ell m} \,=\, s_\ell.
+\end{equation}
 For any given $V(r)$, we can solve the second-order ordinary
 differential equation numerically by supplying two boundary conditions
 at $r=0$, integrating up to a large value of $r$, and matching to the
 exterior solution
-$$A(r) \; \overset{r\rightarrow\infty}{\longrightarrow} \; c^-_\ell h^-_\ell(kr) + c^+_\ell h^+_\ell(kr) = c^-_\ell \Big(h^-_\ell(kr) + s_\ell h^+_\ell(kr)\Big).$$
+\begin{equation}
+  A(r) \; \overset{r\rightarrow\infty}{\longrightarrow} \; c^-_\ell h^-_\ell(kr) + c^+_\ell h^+_\ell(kr) = c^-_\ell \Big(h^-_\ell(kr) + s_\ell h^+_\ell(kr)\Big).
+\end{equation}
 The value of $s_\ell$ can then be extracted.
 
 To simplify the problem even further, let the scattering potential
 take the form of a spherical potential well of radius $R$ and depth
 $U$:
-$$V(r) = \begin{cases}-U &\mathrm{for}\;\; r < R, \\ \;\;\; 0 & \mathrm{otherwise}.\end{cases}$$
+\begin{equation}
+  V(r) = \begin{cases}-U &\mathrm{for}\;\; r < R, \\ \;\;\; 0 & \mathrm{otherwise}.\end{cases}
+\end{equation}
 We will take $U > 0$, so that the potential is attractive.  (The
 interested reader can work through the repulsive case, $U < 0$.  The
 process is almost the same as what is presented below, except that for
 some values of $E$, the wave inside the scatterer becomes evanescent.)
 Now, the Schr\"odinger wave equation in the interior region reduces to
 the Helmholtz equation, but with $k$ replaced with
-$$q = \sqrt{2m(E+U)/\hbar^2}.$$
+\begin{equation}
+  q = \sqrt{2m(E+U)/\hbar^2}.
+\end{equation}
 Note that $q \in \mathbb{R}^+$ for $E > 0$, since we have assumed
 that $U > 0$.  The elementary solutions for $A(r)$ in the interior
 region are $j_\ell(qr)$ and $y_\ell(qr)$.  However, we must exclude
@@ -243,20 +302,30 @@ point in Section~\ref{sec:spherical}, we did not exclude the spherical
 Bessel functions of the second kind, because at the time we were
 concerned with solutions in the exterior region.)  We thus arrive at a
 solution of the form
-$$A(r) = \begin{cases} \alpha_\ell\, j_\ell(qr), & r \le R \\ c^-_\ell \Big(h^-_\ell(kr) + s_\ell h^+_\ell(kr)\Big) & r \ge R.\end{cases}$$
+\begin{equation}
+  A(r) = \begin{cases} \alpha_\ell\, j_\ell(qr), & r \le R \\ c^-_\ell \Big(h^-_\ell(kr) + s_\ell h^+_\ell(kr)\Big) & r \ge R.\end{cases}
+\end{equation}
 So far, the values of $\alpha_\ell$, $c^-_\ell$, and $s_\ell$ remain
 unknown.  To proceed, we match the wavefunction and its
 derivative at the boundary $r = R$:
-$$\begin{aligned} \alpha_\ell\, j_\ell(qR) &= c^-_\ell \Big(h^-_\ell(kR) + s_\ell h^+_\ell(kR)\Big) \\ \alpha_\ell\, q j_\ell'(qR) &= c^-_\ell k \Big({h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)\Big).\end{aligned}$$
+\begin{align}
+  \begin{aligned} \alpha_\ell\, j_\ell(qR) &= c^-_\ell \Big(h^-_\ell(kR) + s_\ell h^+_\ell(kR)\Big) \\ \alpha_\ell\, q j_\ell'(qR) &= c^-_\ell k \Big({h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)\Big).\end{aligned}
+\end{align}
 Here, $j_\ell'$ denotes the derivative of the spherical Bessel
 function, and likewise for ${h_\ell^\pm}'$.  Taking the ratio of these
 two equations eliminates $\alpha_\ell$ and $c_\ell^-$:
-$$\frac{q j_\ell'(qR)}{j_\ell(qR)} = k \frac{{h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)}{h^-_\ell(kR) + s_\ell h^+_\ell(kR)}.$$
+\begin{equation}
+  \frac{q j_\ell'(qR)}{j_\ell(qR)} = k \frac{{h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)}{h^-_\ell(kR) + s_\ell h^+_\ell(kR)}.
+\end{equation}
 With a bit of rearrangement, this becomes
-$$s_\ell = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.$$
+\begin{equation}
+  s_\ell = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.
+\end{equation}
 The numerator and denominator are complex conjugates of one another,
 since $j_\ell$ is real and $(h_\ell^+)^* = h_\ell^-$.  Hence,
-$$s_\ell = e^{2i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].$$
+\begin{equation}
+  s_\ell = e^{2i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].
+\end{equation}
 In other words, the scattering matrix component is a pure phase
 factor.  This is actually a consequence of energy conservation.  Since
 the scattering matrix does not couple different angular momentum
@@ -266,14 +335,20 @@ the scattering potential can do is to shift the phase of the outgoing
 spherical wave component in each channel.
 
 Once we find $\delta_\ell$, we can compute the scattering amplitude
-$$f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
+\begin{equation}
+  f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
+\end{equation}
 This can be simplified with the aid of the following addition theorem
 for spherical harmonics:
-$$P_\ell(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_2) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\hat{\mathbf{r}}_1) Y_{\ell m}(\hat{\mathbf{r}}_2).$$
+\begin{equation}
+  P_\ell(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_2) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\hat{\mathbf{r}}_1) Y_{\ell m}(\hat{\mathbf{r}}_2).
+\end{equation}
 where $P_\ell(\cdots)$ denotes a
 \href{https://en.wikipedia.org/wiki/Legendre_polynomials}{Legendre
   polynomial}.  We finally obtain
-$$\boxed{\quad\begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}\quad}$$
+\begin{equation}
+  \boxed{\quad\begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}\quad}
+\end{equation}
 This result for the scattering amplitude depends upon two variables:
 (i) $E$, the particle energy (which is conserved), and (ii) $\Delta
 \theta = \cos^{-1}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}})$, the
