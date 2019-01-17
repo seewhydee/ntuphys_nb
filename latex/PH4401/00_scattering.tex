@@ -449,7 +449,7 @@ $\psi_s(\mathbf{r})$ that is outgoing at infinity.  We take the
 general solution and discard all incoming ($-$) wave components,
 keeping only the outgoing ($+$) terms:
 \begin{equation}
-  \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^\pm(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
+  \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^+(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
 \end{equation}
 For large $r$, the outgoing wavefunction's $r$-dependence can be
 written as
@@ -653,7 +653,7 @@ This is called the \textbf{Born series}.
 To understand the meaning of the Born series, let us go to the
 position basis:
 \begin{align}
-  \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}
+  \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}
 \end{align}
 This formula can be regarded as a description of \textbf{multiple
   scattering}.  Due to the presence of the scatterer, the particle
@@ -669,7 +669,7 @@ Each successive term in the Born series involves more scattering
 events, i.e., higher multiples of $\hat{V}$.  For example, the
 second-order term is
 \begin{equation*}
-  \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'').
+  \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'').
 \end{equation*}
 This describes the particle undergoing the following process: (i)
 scattering of the incident particle at point $\mathbf{r}''$, (ii)
