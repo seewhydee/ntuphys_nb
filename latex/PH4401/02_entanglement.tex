@@ -174,7 +174,7 @@ which has an eigenbasis $\{|q_i\rangle\}$ such that
   \hat{Q}|q_i\rangle = q_i |q_i\rangle.
 \end{equation}
 For simplicity, let the eigenvalues $\{q_i\}$ be non-degenerate.
-Suppose a particle initially has quantum state $|\psi\rangle$; this
+Suppose a particle initially has quantum state $|\psi\rangle$.  This
 can always be expanded in terms of the eigenbasis of $\hat{Q}$:
 \begin{equation}
   |\psi\rangle = \sum_i \psi_i\, |q_i\rangle, \;\;\mathrm{where}\;\;\,\textrm{and}\;\, \psi_i = \langle q_i|\psi\rangle.
@@ -246,54 +246,58 @@ particles, with state
 For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
 eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
 and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
-Then:
+There are two possible outcomes:
 \begin{itemize}
-\item The outcome $+\hbar/2$ occurs with probability $P_+ = \langle
-  \varphi|\varphi\rangle = \frac{1}{2}$, where $|\varphi\rangle =
-  (1/\sqrt{2})\,|\!-\!z\rangle$.  After the measurement, the state
-  collapses to $|\!+\!z\rangle |\!-\!z\rangle$.
+\item \textbf{First outcome: $+\hbar/2$}.  The projection operator is
+  $|\!+\!z\rangle\langle+z| \otimes \hat{I}$, and applying this to
+  $|\psi\rangle$ yields $|\psi'\rangle =
+  (1/\sqrt{2})\,|\!+\!z\rangle|\!-\!z\rangle$.  Hence, the outcome
+  probability is $P_+ = \langle \psi'|\psi;\rangle = \frac{1}{2}$ and
+  the post-collapse state is $|\!+\!z\rangle |\!-\!z\rangle$.
 
-\item The outcome $-\hbar/2$ occurs with probability $P_- = \langle
-  \varphi|\varphi\rangle = \frac{1}{2}$, where $|\varphi\rangle =
-  (1/\sqrt{2})\,|\!+\!z\rangle$.  After the measurement, the state
-  collapses to $|\!-\!z\rangle |\!+\!z\rangle$.
+\item \textbf{Second outcome: $-\hbar/2$}.  The projection operator is
+  $|\!-\!z\rangle\langle-z| \otimes \hat{I}$, and applying this to
+  $|\psi\rangle$ yields $|\psi'\rangle =
+  (1/\sqrt{2})\,|\!-\!z\rangle|\!+\!z\rangle$.  Hence, the outcome
+  probability is $P_- = \langle \psi'|\psi'\rangle = \frac{1}{2}$ and
+  the post-collapse state is $|\!-\!z\rangle |\!+\!z\rangle$.
 \end{itemize}
-The two possible results, $+\hbar/2$ and $-\hbar/2$, occur with equal
-probability.  In either case, the two-particle state collapses so that
-particle $A$ is in the observed spin eigenstate, and particle $B$
-gets the opposite spin.  After the collapse, the two-particle state is
-no longer entangled.
+The two possible measurement outcomes, $+\hbar/2$ and $-\hbar/2$,
+occur with equal probability.  In either case, the two-particle state
+collapses so that particle $A$ is in the observed spin eigenstate, and
+particle $B$ gets the opposite spin.  After the collapse, the
+two-particle state is no longer entangled.
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
 In 1935, \hyperref[cite:epr]{Einstein, Podolsky, and Rosen (EPR)} used
 the counter-intuitive features of quantum entanglement to formulate a
 thought experiment known as the \textbf{EPR paradox}.  They tried to
-use this thought experiment to argue that quantum theory cannot
-ultimately be a correct description of reality.  Subsequently,
-however, it was shown that the EPR paradox is not an actual paradox;
-physical systems \textit{really do} behave in the strange way
-described in this thought experiment.
+use this thought experiment to argue that quantum theory cannot serve
+as a fundamental description of reality.  Subsequently, however, it
+was shown that the EPR paradox is not an actual paradox; physical
+systems \textit{really do} have the strange behavior that the thought
+experiment highlighted.
 
-The EPR paradox begins with an entangled state, such as
-this state of two spin-$1/2$ particles:
+The EPR paradox begins with an entangled state like this state of two
+spin-$1/2$ particles:
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
 \end{equation}
-As discussed in the previous section, measuring $S_z$ on particle $A$
-collapses the system into a two-particle state that is unentangled
-(where each particle has a definite spin).  If the measurement outcome
-is $+\hbar/2$, the new state is $|\!+\!z\rangle |\!-\!z\rangle$,
-whereas if the outcome is $-\hbar/2$, the new state is
-$|\!-\!z\rangle|\!+\!z\rangle$.
+As before, let the two particles be labeled $A$ and $B$.  Measuring
+$S_z$ on $A$ collapses the system into a two-particle state that is
+unentangled, where each particle has a definite spin.  If the
+measurement outcome is $+\hbar/2$, the new state is $|\!+\!z\rangle
+|\!-\!z\rangle$, whereas if the outcome is $-\hbar/2$, the new state
+is $|\!-\!z\rangle|\!+\!z\rangle$.
 
-According to quantum theory, the state collapse happens
-instantaneously, regardless of the distance separating the particles.
-We can prepare the two-particle state in a laboratory, then transport
-particle $A$ to the Alpha Centauri star system, and transport particle
-$B$ to the Betelgeuse system, separated by $\sim 640$ light years.  In
-principle, this can be done carefully enough to avoid disturbing the
-two-particle quantum state.
+The postulates of quantum theory seem to indicate that the state
+collapse happens instantaneously, regardless of the distance
+separating the particles.  Imagine that we prepare the two-particle
+state in a laboratory, transport particle $A$ to the Alpha Centauri
+star system, and transport particle $B$ to the Betelgeuse system,
+separated by $\sim 640$ light years.  In principle, this can be done
+carefully enough to avoid disturbing the two-particle quantum state.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.75\textwidth]{epr}
@@ -301,24 +305,25 @@ two-particle quantum state.
 
 Once ready, an experimentalist at Alpha Centauri measures $\hat{S}_z$
 on particle $A$, which induces an instantaneous collapse of the
-two-particle state.  Immediately afterwards, another experimentalist
-at Betelgeuse measures $\hat{S}_z$ on particle $B$, and obtains---with
+two-particle state.  Immediately afterwards, an experimentalist at
+Betelgeuse measures $\hat{S}_z$ on particle $B$, and obtains---with
 100\% certainty---the opposite spin.  During the time interval between
 these two measurements, no classical signal could have traveled
-between the two star systems, not even at the speed of light.  Yet,
+between the two star systems, not even at the speed of light.  Yet
 the state collapse induced by the measurement at Alpha Centauri has a
 definite effect on the result of the measurement at Betelgeuse.
 
 There are three noteworthy aspects of this phenomenon:
 
-First, it dispels some intuitive-seeming but mistaken ``explanations''
-of quantum state collapse.  For instance, it is sometimes explained
-that if we want to measure a particle's position, we need to shine a
-light beam on it, or disturb it in some way; due to this disturbance,
-the particle's momentum becomes uncertain after the measurement.  The
-EPR paradox shows that such stories don't capture the full weirdness
-of quantum state collapse, since we can collapse the state of a
-particle by doing a measurement on \textit{another} particle far away!
+First, it dispels some commonsensical but mistaken ``explanations''
+for quantum state collapse in terms of perturbative effects.  For
+instance, it is sometimes explained that if we want to measure a
+particle's position, we need to shine a light beam on it, or disturb
+it in some way, and this disturbance generates an uncertainty in the
+particle's momentum.  The EPR paradox shows that such stories don't
+capture the full weirdness of quantum state collapse, for we can
+collapse the state of a particle by doing a measurement on
+\textit{another} particle far away!
 
 Second, the experimentalist has a certain amount of control over the
 state collapse, due to the choice of what measurement to perform.  So
@@ -347,42 +352,42 @@ The Alpha Centauri measurement still collapses the particles into
 definite spin states with opposite spins---but now spin states of
 ${S}_x$ rather than ${S}_z$.
 
-Third, the choice of measurement cannot be used for superluminal
-communication.  The experimentalist at Alpha Centauri can choose
-whether to (i) measure $S_z$ or (ii) measure $S_x$, and this choice
-instantaneously affects the state of particle $B$.  If the Betelgeuse
-experimentalist can find a way to distinguish between the cases (i)
-and (ii), even statistically, this would serve as a method of
-instantaneous communication, violating the theory of relativity!  Yet
-this turns out to be impossible.  The key problem is that quantum
-states themselves cannot be measured; only observables can be
-measured.  Suppose the Alpha Centauri measurement is $\hat{S}_z$,
-which collapses $B$ to either $|\!+\!z\rangle$ or $|\!-\!z\rangle$
-(each with probability 0.5).  The Betelgeuse experimentalist must now
-choose which measurement to perform.  If $S_z$ is measured, the
-outcome is $+\hbar/2$ or $-\hbar/2$ with equal probabilities.  If
-$S_x$ is measured, the probabilities are:
+Third, this ability to choose the measurement axis \textit{does not}
+allow for superluminal communication.  The experimentalist at Alpha
+Centauri can choose whether to (i) measure $S_z$ or (ii) measure
+$S_x$, and this choice instantaneously affects the quantum state of
+particle $B$.  If the Betelgeuse experimentalist can find a way to
+distinguish between the cases (i) and (ii), even statistically, this
+would serve as a method for instantaneous communication, violating the
+theory of relativity!  Yet this turns out to be impossible.  The key
+problem is that quantum states themselves cannot be measured; only
+observables can be measured.  Suppose the Alpha Centauri measurement
+is $\hat{S}_z$, which collapses $B$ to either $|\!+\!z\rangle$ or
+$|\!-\!z\rangle$, each with probability $1/2$.  The Betelgeuse
+experimentalist must now choose which measurement to perform.  If
+$S_z$ is measured, the outcome is $+\hbar/2$ or $-\hbar/2$ with equal
+probabilities.  If $S_x$ is measured, the probabilities are:
 \begin{align}
-  \begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2},\end{aligned}
+  \begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2}.\end{aligned}
 \end{align}
-which has exactly the same distribution!  The analysis can be repeated
-for any other choice of spin axis; we always find that the outcomes
-occur with 50/50 probability.  Thus, the Betelgeuse measurement does
+The probabilities are still equal!  Repeating this analysis for any
+other choice of spin axis, we find that the two possible outcomes
+always have equal probability.  Thus, the Betelgeuse measurement does
 not yield any information about the choice of measurement axis at
 Alpha Centauri.
 
 Since quantum state collapse does not allow for superluminal
 communication, it is consistent \textit{in practice} with the theory
 of relativity.  However, state collapse is still \textbf{nonlocal}, in
-the sense that certain unobservable ingredients of the theory (quantum
-states) change faster than light can travel between two points.  For
-this reason, EPR argued that quantum theory is
-\textit{philosophically} inconsistent with relativity.
+the sense that unobservable ingredients of the theory (quantum states)
+can change faster than light can travel between two points.  For this
+reason, EPR argued that quantum theory is \textit{philosophically}
+inconsistent with relativity.
 
 EPR suggested an alternative: maybe quantum mechanics is an
 approximation of some deeper theory, whose details are currently
 unknown, but which is deterministic and local.  Such a
-``\textbf{hidden variables theory}'' may give the appearance of
+``\textbf{hidden variable theory}'' may give the appearance of
 quantum state collapse in the following way.  Suppose each particle
 has a definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$
 or $S_z = -\hbar/2$; let us denote these as $[+]$ or $[-]$.  We can
@@ -400,14 +405,14 @@ When the Alpha Centauri experimentalist measures $S_z$, the value of
 the hidden variable is revealed.  A result of $+z$ implies $[+;-]$,
 whereas $-z$ implies $[-;+]$.  When the Betelgeuse experimentalist
 subsequently measures $S_z$, the result obtained is the opposite of
-the Alpha Centauri result.  But this happens simply because those were
-the values all along---there is no instantaneous physical influence
-traveling from Alpha Centauri to Betelguese.
+the Alpha Centauri result.  But those were simply the values all
+along---there is no instantaneous physical influence traveling from
+Alpha Centauri to Betelguese.
 
-Clearly, there are many missing details in this hidden variables
-description.  In particular, such a theory would have to be consistent
-with the huge list of successful predictions made by quantum theory.
-Trying to come up with a suitable hidden variables theory seems
+Clearly, there are many missing details in this hypothetical
+description.  Any actual hidden variable theory would also need to
+replicate the huge list of successful predictions made by quantum
+theory.  Trying to come up with a suitable theory of this sort seems
 difficult, but with enough hard work, one might imagine that it is
 doable.
 
@@ -458,8 +463,8 @@ axis, they always find opposite spins.  (For example, this is the case
 during ``Experiment 4'' in the above figure, where both
 experimentalists happened to measure $S_3$.)
 
-Can a hidden variables theory reproduce the results predicted by
-quantum theory?  In a hidden variables theory, each particle must have
+Can a hidden variable theory reproduce the results predicted by
+quantum theory?  In a hidden variable theory, each particle must have
 a definite value for each spin observable.  For example, particle $A$
 might have $S_1 = +\hbar/2, \, S_2 = +\hbar/2, \, S_3 = -\hbar/2$.
 Let us denote this by $[++-]$.  To be consistent with the predictions
@@ -513,9 +518,9 @@ situation where quantum theory predicts a probability $P < 1/3$ (i.e.,
 a violation of Bell's inequality), that would mean that quantum theory
 is inherently inconsistent with local deterministic hidden variables.
 This conclusion would hold regardless of the ``inner workings'' of the
-hidden variables theory, because the above derivation made no
-assumptions about any such details (such as the probabilities of the
-hidden variable states).
+hidden variable theory.  In particular, note that the above derivation
+made no assumptions about the relative probabilities of the hidden
+variable states.
 
 To complete the proof, we must find a set $\{S_1, S_2, S_3\}$ such
 that the predictions of quantum mechanics violate Bell's inequality.
@@ -566,122 +571,225 @@ mechanics, and in a manner that cannot be replicated by deterministic
 local hidden variables!  A summary of the experimental evidence can be
 found in \hyperref[cite:aspect]{Aspect (1999)}.
 
-\section{Entanglement entropy}
-\label{sec:entropy}
+\section{Density operators}
 
-In previous sections, we said that a multi-particle system is
-``entangled'' if the individual particles do not have definite quantum
-states.  It would be nice to make this statement more precise, by
-formulating an expression for the level of entanglement in any given
-system.  In fact, physicists have come up with several ways of
-quantifying entanglement; in this section, we will describe the most
-commonly-used one, called \textbf{entanglement entropy}, which is
-closely related to the concept of entropy in thermodynamics,
-statistical mechanics, and information theory.
+We will now introduce a theoretical construct called the
+\textbf{density operator}, which helps to streamline many calculations
+in multi-particle quantum mechanics.
 
 Consider a quantum system with a $d$-dimensional Hilbert space
 $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
 \mathscr{H}$, we can define an operator
 \begin{equation}
-  \hat{\rho}(\psi) = |\psi\rangle\, \langle\psi|.
+  \hat{\rho} = |\psi\rangle\, \langle\psi|.
 \end{equation}
 This is simply the projection operator associated with $|\psi\rangle$,
-but in this context we call it a \textbf{density operator}.  In the
-language of linear algebra, $\hat{\rho}(\psi)$ is formed by taking the
-``matrix outer product'' of the vector $|\psi\rangle$ with its
-Hermitian conjugate.  We use the notation $\hat{\rho}(\psi)$ to
-emphasize that the density operator is dependent on the chosen state
-$|\psi\rangle$.  Evidently, it is a Hermitian operator; one eigenvalue
-is 1 (with eigenvector $|\psi\rangle$), and the other $d-1$
-eigenvalues are all $0$ (with eigenvectors given by $d-1$ vectors
-spanning the subspace orthogonal to $|\psi\rangle$).
+but in this context we call it a density operator.  (Some authors call
+it the \textbf{density matrix}, based on the understanding that
+quantum operators can be represented as matrices).
 
-The expectation values of the density operator have a special
-significance.  Suppose the system is in state $|\psi\rangle$, and we
-perform a measurement corresponding to the Hermitian operator
-$\hat{Q}$, which has eigenvalues $\{q_1,q_2,\dots\}$ and eigenvectors
-$\{|q_1\rangle,|q_2\rangle,\dots\}$.  The probability of measuring
-$q_i$ is
-\begin{equation}
-  P_i \;=\; |\langle q_i| \psi\rangle|^2 \;=\; \langle q_i |\psi\rangle \langle \psi|q_i\rangle \;=\; \langle q_i |\, \hat{\rho}(\psi)\, |q_i \rangle.
-\end{equation}
-In other words, the expectation values of $\hat{\rho}(\psi)$
-correspond to the probabilities for the outcomes of measurements
-performed on $|\psi\rangle$.
+In the language of linear algebra, $\hat{\rho}$ is formed by the
+``matrix outer product'' of $|\psi\rangle$ with its Hermitian
+conjugate.  It has the following noteworthy features:
 
-Now suppose $\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$, where
-$\mathscr{H}_A$ and $\mathscr{H}_B$ are the Hilbert spaces of two
-subsystems.  Starting from a density operator of the combined system,
-$\hat{\rho}(\psi)$, we can define a \textbf{``reduced density
-  operator''} for subsystem A:
+\begin{enumerate}
+\item It is a Hermitian operator.  Moreover, one eigenvalue is 1 (with
+  eigenvector $|\psi\rangle$), and the other $d-1$ eigenvalues are all
+  $0$ (the corresponding eigenvectors consist of $d-1$ vectors
+  spanning the subspace orthogonal to $|\psi\rangle$).  Thus,
+\begin{align}
+  \begin{aligned}
+    \textrm{All eigenvalues of $\hat{\rho}$ are real numbers in $[0,1]$.} \\
+    \textrm{Sum of eigenvalues of $\hat{\rho}$} = \mathrm{Tr}\big[\,\hat{\rho} \,\big] = 1.
+  \end{aligned}
+  \label{trrho}
+\end{align}
+
+\item With the system in state $|\psi\rangle$, suppose we perform a
+  measurement corresponding to the Hermitian operator $\hat{Q}$, which
+  has eigenvalues $\{q_1,q_2,\dots\}$ and eigenvectors
+  $\{|q_1\rangle,|q_2\rangle,\dots\}$.  The probability for outcome
+  $q_i$ is $|\langle q_i| \psi\rangle|^2 \;=\; \langle q_i
+  |\psi\rangle \langle \psi|q_i\rangle$; thus,
+  \begin{equation}
+    P(q_i) = \langle q_i |\, \hat{\rho}\, |q_i \rangle.
+    \label{Pi_rho}
+  \end{equation}
+
+\item The expectation value of the $\hat{Q}$ observable is $\langle
+  Q\rangle = \sum_i q_i P(q_i)$, and after a few lines of algebra we
+  can show that
+  \begin{equation}
+    \langle Q\rangle = \mathrm{Tr}\big[\,\hat{Q} \; \hat{\rho}\,\big].
+    \label{Qexpt}
+  \end{equation}
+This is a nice expression, because the trace is a basis-independent
+operation, so $\langle Q\rangle$ is explicitly shown to be
+basis-independent.
+\end{enumerate}
+
+Now, suppose again that the quantum system consists of two particles
+(subsystems) $A$ and $B$, with Hilbert spaces $\mathscr{H}_A$ and
+$\mathscr{H}_B$, where $\mathscr{H} = \mathscr{H}_A \otimes
+\mathscr{H}_B$.  Suppose we are interested in the physical behavior of
+$A$---specifically, the expectation values of partial measurements
+performed on $A$, the corresponding outcome probabilities, etc.  These
+quantities can, of course, be calculated from the overall system state
+$|\psi\rangle$, but this might be inconvenient to deal with (e.g., if
+$A$ is a relatively simple subsystem but $B$ is large and
+complicated).
+
+However, it turns out that there is a way to describe the behavior of
+$A$ in its own terms.  This is done by defining a \textbf{reduced
+  density operator} for $A$:
 \begin{equation}
-  \hat{\rho}_A(\psi) = \mathrm{Tr}_B \,\big[\,\hat{\rho}(\psi)\,\big].
+  \hat{\rho}_A = \mathrm{Tr}_B \,\big[\,\hat{\rho}\,\big].
+  \label{rhoa_def}
 \end{equation}
 Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace},
-tracing over the Hilbert space of subsystem B.  What's left after
-this partial trace is an operator acting solely on the Hilbert space
-$\mathscr{H}_A$.
+which means tracing over the $\mathscr{H}_B$ part of the Hilbert space
+$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  This operation
+yields an operator acting on $\mathscr{H}_A$.
 
-To understand the meaning of $\hat{\rho}_A(\psi)$, let us work in
-an explicit basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a
-basis for $\mathscr{H}_A$, and $\{|\nu_1\rangle,
-|\nu_2\rangle,\cdots\}$ a basis for $\mathscr{H}_B$.  A given state of
-the combined system can be written in the tensor product basis:
+To better understand the implications of Eq.~\eqref{rhoa_def}, let us
+work in an explicit basis.  Let $\{|\mu_1\rangle,
+|\mu_2\rangle,\cdots\}$ be a basis for $\mathscr{H}_A$, and
+$\{|\nu_1\rangle, |\nu_2\rangle,\cdots\}$ be a basis for
+$\mathscr{H}_B$.  Any given state of the combined system can be
+written in the tensor product basis:
 \begin{equation}
   |\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.
 \end{equation}
 The density operator of the combined system is
 \begin{equation}
-  \hat{\rho}(\psi) = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).
+  \hat{\rho} = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).
 \end{equation}
-The density operator for subsystem A is found by tracing over
-the states of subsystem B:
+The reduced density operator for subsystem $A$ is
 \begin{align}
-  \begin{aligned}\hat{\rho}_A(\psi) &= \sum_j \langle \nu_j | \hat{\rho}(\psi) | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}
+  \begin{aligned}\hat{\rho}_A &= \sum_j \langle \nu_j | \hat{\rho} | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}
+  \label{rhoa_explicit}
 \end{align}
-Note that $\hat{\rho}_A(\psi)$ is clearly Hermitian.
+From this, we see that $\hat{\rho}_A$ is Hermitian.  Moreover, if we
+happen to take the $\{|\mu_i\rangle\}$ basis to be the eigenbasis for
+$\hat{\rho}_A$, the eigenvalues are $\rho_{ii}^A$.  We can thus prove
+that:
+\begin{align}
+  \begin{aligned}
+    \textrm{All eigenvalues of $\hat{\rho}_A$ are real numbers in $[0,1]$.} \\
+    \textrm{Sum of eigenvalues of $\hat{\rho}_A$} = \mathrm{Tr}\big[\,\hat{\rho}_A \,\big] = 1.
+  \end{aligned}
+  \label{trrho_reduced}
+\end{align}
 
-The density operator for subsystem A contains information about the
-outcome probabilities for \textit{partial} measurements performed on
-subsystem A.  Suppose the overall system is in state $|\psi\rangle$,
-and we perform a measurement on subsystem A corresponding to a
-Hermitian operator $\hat{\mu}$, which has eigenvectors
-$\{|\mu_1\rangle,|\mu_2\rangle,\dots\}$.  Then the probability of
-measuring $\mu_i$ is
+The reduced density operator contains all the information required to
+calculate outcome probabilities for any \textit{partial} measurement
+performed on $A$.  Suppose we perform a measurement on $A$
+corresponding to a Hermitian operator $\hat{\mu}$.  Without loss of
+generality, we can choose the basis
+$\{|\mu_1\rangle,|\mu_2\rangle,\dots\}$ to be the eigenvectors of
+$\hat{\mu}$.  We claim that the probability of obtaining outcome
+$\mu_i$ is
+\begin{align}
+  P(\mu_i) &= \langle \mu_i | \hat{\rho}_A |\mu_i \rangle \label{Pmui} \\
+  &=\, \rho_{ii}^A \,=\, \sum_{j} |\psi_{ij}|^2.
+\end{align}
+To prove this, recall the rules for partial measurements from
+Section~\ref{sec:partialmeasurements}.  The projection operator for
+measurement outcome $\mu_i$ is
 \begin{equation}
-  \langle \mu_i | \hat{\rho}_A |\mu_i \rangle \,=\, \rho_{ii}^A \,=\, \sum_{j} |\psi_{ij}|^2.
+  \hat{\Pi}(\mu_i) = |\mu_i\rangle\langle \mu_i| \otimes \hat{I}.
 \end{equation}
-(Note that this is consistent with the discussion of partial
-measurements in Section~\ref{sec:partialmeasurements}.)  In other
-words, the diagonal matrix elements of $\hat{\rho}_A$, in any basis,
-specify the outcome probabilities for measurements corresponding to
-that basis.  Conservation of probability implies that $\sum_i
-\rho^A_{ii} = 1$, and hence that
+Therefore,
+\begin{align}
+  \begin{aligned}
+    P(\mu_i) &= \langle \psi | \hat{\Pi}(\mu_i) \hat{\Pi}(\mu_i) |\psi\rangle \\
+    &= \langle \psi | \hat{\Pi}(\mu_i) |\psi\rangle \\
+    &= \langle \psi | \Big(|\mu_i\rangle\langle \mu_i| \otimes \hat{I}\Big)
+    |\psi\rangle \\
+    &= \sum_j \langle \psi | \Big(|\mu_i\rangle\langle \mu_i| \otimes
+    |\nu_j\rangle\langle \nu_j|\Big) |\psi\rangle \\
+    &= \sum_j \Big(\langle\mu_i|\langle\nu_j|\Big) |\psi\rangle\langle\psi|
+    \Big(|\mu_i\rangle |\nu_j\rangle\Big) \\
+    &= \langle \mu_i| \;\mathrm{Tr}_B[ \hat{\rho}]\; |\mu_i\rangle \qquad\qquad
+    (\textrm{Q.E.D.})
+  \end{aligned}
+\end{align}
+It also follows that the expectation value for this measurement is
 \begin{equation}
-  \mathrm{Tr}\big[\rho_A\big] = 1.
+  \langle \mu \rangle =
+  \mathrm{Tr}_A \big[\, \hat{\mu} \; \hat{\rho}_A\,\big].
+  \label{exptrho_reduced}
 \end{equation}
 
-In entangled systems, the density operator essentially takes over the
-theoretical role of the quantum state.  In a single-particle or
-unentangled system, we can define the quantum state and use it to
-calculate the probabilities of various measurement outcomes.  However,
-a system has no definite quantum state if it is entangled with other
-systems.  Probabilities are instead calculated from the density
-operator.
+The reduced density operator's properties \eqref{trrho_reduced},
+\eqref{Pmui}, and \eqref{exptrho_reduced} are precisely the same as
+the original density operator's properties \eqref{trrho},
+\eqref{Pi_rho}, \eqref{Qexpt}.  Hence, we deduce that these are the
+general properties of any density operator, reduced or not.  The
+special class of density operators that can be written in the form
+$\hat{\rho} = |\psi\rangle\, \langle\psi|$ (i.e., in terms of an
+explicit quantum state, like the one we started this discussion with)
+are said to describe \textbf{pure states}.  Density operators that
+cannot be written in such a form are said to describe \textbf{mixed
+  states}.
 
-Given a density operator, we can define a quantity called the
-\textbf{entanglement entropy}:
+A mixed state can also be interpreted as a \textit{classical
+  probability distribution} of quantum states.  To see this, let us
+return to Eq.~\eqref{rhoa_explicit}:
+\begin{align}
+  \begin{aligned}\hat{\rho}_A
+    &= \sum_{ii'j} |\mu_i\rangle \, \psi_{ij} \psi_{i'j}^*
+    \langle \mu_{i'}| \\
+    &= \sum_j |\psi'_j\rangle\langle\psi'_j| \;\;\;\mathrm{where}
+    \;\;\; |\psi'_j\rangle \equiv \sum_i \psi_{ij} |\mu_i\rangle.
+  \end{aligned}
+\end{align}
+However, the $|\psi'\rangle$ vectors inside the sum are not
+normalized.  Re-normalizing them yields the expression
 \begin{equation}
-  S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \Big\{ \hat{\rho}\, \ln\!\big[\hat{\rho}\big]\Big\}.
+  \hat{\rho}_A = \sum_j p_j |\psi''_j\rangle \langle \psi''_j|
+  \;\;\;\mathrm{where}\;\;
+  \begin{cases}
+    \langle \psi''_j|\psi''_j \rangle &= 1 \\
+    p_j &= \sum_i |\psi_{ij}|^2 \\
+    |\psi''_j \rangle &= \frac{1}{\sqrt{p_j}} |\psi_j'\rangle.
+  \end{cases}
 \end{equation}
-Here, $S_{\mathrm{ent.}}$ refers to the entropy of the system or
-subsystem described by density operator $\hat{\rho}$.  For instance,
-if we use the density operator $\hat{\rho}_A$ in the above formula, we
-get the entropy of subsystem A.  In this formula, $\ln[\cdots]$
-denotes the logarithm of an operator, which is the inverse of the
-exponential: $\ln(\hat{A}) = \hat{B} \Rightarrow \exp(\hat{B}) =
-\hat{A}$.  The prefactor $k_B$ is Boltzmann's constant, and ensures
-that $S_{\mathrm{ent.}}$ has the same units as thermodynamic entropy.
+This can be regarded as a weighted sum of different pure state density
+operators, where each pure state corresponds to some state
+$|\psi_j''\rangle \in \mathscr{H}_A$, and the weights are classical
+probabilities $p_j$ that sum to unity.  Note, however, that this
+decomposition is not unique.  A density operator can generally be
+expressed using different choices of pure state density operators.
+For an example, see \hyperref[ex:rho_decomp]{Exercise 3}.
+
+\section{Entanglement entropy}
+\label{sec:entropy}
+
+Previously, we said that a multi-particle system is entangled if the
+individual particles lack definite quantum states.  It would be nice
+to make this statement more precise, and in fact physicists have come
+up with several different quantitive measures of entanglement.  In
+this section, we will describe the most common measure,
+\textbf{entanglement entropy}, which is closely related to the entropy
+concept from thermodynamics, statistical mechanics, and information
+theory.
+
+We have seen from the previous section that if a subsystem $A$ is
+(possibly) entangled with some other subsystem $B$, the information
+required to calculate all partial measurement outcomes on $A$ is
+stored within a reduced density operator $\hat{\rho}_A$.  We can use
+this to define a quantity called the \textbf{entanglement entropy} of
+$A$:
+\begin{equation}
+  S_{A} = - k_b \, \mathrm{Tr}_A \Big\{ \hat{\rho}_A\, \ln\!\big[\hat{\rho}_A\big]\Big\}.
+  \label{entropy}
+\end{equation}
+In this formula, $\ln[\cdots]$ denotes the logarithm of an operator,
+which is the inverse of the exponential: $\ln(\hat{P}) = \hat{Q}
+\Rightarrow \exp(\hat{Q}) = \hat{P}$.  The prefactor $k_b$ is
+Boltzmann's constant, and ensures that $S_A$ has the same units as
+thermodynamic entropy.
 
 The definition of the entanglement entropy is based on an analogy with
 the entropy concept from classical thermodynamics, statistical
@@ -692,55 +800,62 @@ information) about a system's underlying microscopic state, or
 occur with probabilities $\{p_1, p_2, \dots, p_W\}$, satisfying
 $\sum_i p_i = 1$.  Then we define the classical entropy
 \begin{equation}
-  S_{\mathrm{cl.}} = - k_B \sum_{i=1}^W p_i \ln(p_i).
+  S_{\mathrm{cl.}} = - k_b \sum_{i=1}^W p_i \ln(p_i).
 \end{equation}
 In a situation of complete certainty where the system is known to be
 in a specific microstate $k$ ($p_i = \delta_{ik}$), the formula gives
 $S_{\mathrm{cl.}} = 0$.  (Note that $x \ln(x)\rightarrow 0$ as
 $x\rightarrow 0$).  In a situation of complete uncertainty where all
 microstates are equally probable ($p_i = 1/W$), we get
-$S_{\mathrm{cl.}} = k_B \ln W$, the entropy of a microcanonical
+$S_{\mathrm{cl.}} = k_b \ln W$, the entropy of a microcanonical
 ensemble in statistical mechanics.  For any other distribution of
 probabilities, it can be shown that the entropy lies between these two
-extremes: $0 \le S_{\mathrm{cl.}}  \le k_B\ln W$.  For a review of the
+extremes: $0 \le S_{\mathrm{cl.}}  \le k_b\ln W$.  For a review of the
 properties of entropy, see Appendix C.
 
-Entanglement entropy quantifies the uncertainty arising from an
-entangled quantum subsystem's lack of a definite quantum state.  But
-we need to be careful when extending classical notions of probability
-to quantum systems.  As described above, when performing a measurement
-whose possible outcomes are $\{\mu_1, \mu_2, \dots\}$, the probability
-of getting $\mu_i$ is $p_i = \langle \mu_i | \hat{\rho}|\mu_i\rangle$.
+Entanglement entropy quantifies the uncertainty arising from a quantum
+subsystem's lack of a definite quantum state (due to it being
+entangled with another subsystem).  But we need to be careful when
+extending classical notions of probability to quantum systems.  As
+described above, when performing a measurement on $A$ whose possible
+outcomes are $\{\mu_1, \mu_2, \dots\}$, the probability of getting
+$\mu_i$ is $p_i = \langle \mu_i | \hat{\rho}_A|\mu_i\rangle$.
 However, it is problematic to directly substitute these probabilities
 $\{p_i\}$ into the classical entropy formula, since they are
 basis-dependent (i.e., the set of probabilities is dependent on the
-choice of measurement).  The above definition for the entanglement
-entropy, $S_{\mathrm{ent.}} = - k_B \mathrm{Tr} \big\{ \hat{\rho}\,
-\ln[\hat{\rho}] \big\}$, bypasses this problem by using the trace,
-which is basis-independent.  This also means that if we look
-specifically at the eigenbasis for $\hat{\rho}$, denoted by
-$\{|\mu'_i\rangle\}$, then
+choice of measurement).  Eq.~\eqref{entropy} bypasses this problem by
+using the trace, which is basis-independent.
+
+In the special case where $\{|\mu_i\rangle\}$ is the eigenbasis for
+$\hat{\rho}_A$, the connection is easier to see.  From
+\eqref{trrho_reduced}, the eigenvalues $\{p_i\}$ are all real numbers
+between 0 and 1, and summing to unity, so they can be regarded as
+probabilities.  Then the entanglement entropy is
 \begin{align}
-  \begin{aligned}S_{\mathrm{ent.}} &= -k_B \sum_i \langle \mu'_i | \hat{\rho}\ln(\hat{\rho}) | \mu'_i\rangle  \\ &= - k_B \sum_i p_i' \ln(p_i') \;\;\;\mathrm{where}\;\;\hat{\rho}\,|\mu'_i\rangle = p_i' |\mu'_i\rangle\end{aligned}
+  \begin{aligned}S_A &= -k_b \sum_i \langle \mu_i | \hat{\rho}_A \ln(\hat{\rho}_A) | \mu_i\rangle  \\ &= - k_b \sum_i p_i \ln(p_i).
+  \end{aligned}
 \end{align}
-In this basis, where the eigenvalues $p_i =
-\langle\mu'_i|\hat{\rho}|\mu'_i\rangle$ are also the measurement
-probabilities, the entanglement entropy is consistent with the
-classical definition of entropy.
+Therefore, in this particular basis the expression for the
+entanglement entropy is consistent with the classical definition of
+entropy, with the eigenvalues of $\hat{\rho}_A$ serving as the
+relevant probabilities.
 
 For an unentangled system, we can write $\hat{\rho} =
 |\psi\rangle\langle\psi|$ for some state $|\psi\rangle$, so
 $|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$ with eigenvalue
-1; hence, $S_{\mathrm{ent.}} = 0$.  Conversely, if we find that a
-system has $S_{\mathrm{ent.}} \ne 0$, that implies that it is
-entangled, and lacks a definite quantum state.
+1; hence, $S_{A} = 0$.  On the other hand, if we find that a system
+has $S_{A} \ne 0$, that implies that it is entangled, and lacks a
+definite quantum state.
 
-A system is \textbf{maximally entangled} if the density operator
-eigenvalues (measurement probabilities) are all equal: i.e., $p_i' =
-1/d$, where $d$ is the dimension of the Hilbert space.  In that case,
-the entropy is $S_{\mathrm{ent.}} = k_B \ln(d)$.  In general, the
-entanglement entropy lies between these two extremes, $0 \le
-S_{\mathrm{ent.}} \le k_B\ln(d)$.
+By analogy with the classical entropy, the entanglement entropy has
+the following bounds:
+\begin{equation}
+  0 \le S_A \le k_b\ln(d_A),
+\end{equation}
+where $d_A$ is the dimension of $\mathscr{H}_A$.  A system is said to
+be \textbf{maximally entangled} if it saturates the upper bound, $S_A
+= k_b \ln(d_A)$.  This occurs if and only if the eigenvalues of the
+density operator are all equal: i.e., $p_i = 1/d_A$.
 
 As an example, consider the following state of two spin-$1/2$ particles:
 \begin{align}
@@ -750,7 +865,7 @@ The density operator for the two-particle system is
 \begin{equation}
   \hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).
 \end{equation}
-Tracing over the B subsystem gives the reduced density operator:
+Tracing over subsystem $B$ gives the reduced density operator
 \begin{equation}
   \hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).
 \end{equation}
@@ -759,20 +874,19 @@ $\{|\!+z\rangle,|\!-z\rangle\}$ basis:
 \begin{equation}
   \hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.
 \end{equation}
-Note that this satisfies $\mathrm{Tr}(\hat\rho_A) = 1$, as expected.
-Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem A:
+Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem $A$:
 \begin{equation}
-  S_{\mathrm{ent.}}^A = -k_B\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_B\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_B\ln(2).
+  S_A = -k_b\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_b\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_b\ln(2).
 \end{equation}
 This is the maximum possible entanglement entropy for a system with a
-2D Hilbert space.  Hence, subsystems A and B are maximally entangled.
+2D Hilbert space.  Hence, subsystems $A$ and $B$ are maximally entangled.
 
 \section{The Many Worlds Interpretation}
 
 We conclude this chapter by discussing a set of compelling but
 controversial ideas arising from the phenomenon of quantum
-entanglement: the \textbf{Many Worlds Interpretation} of quantum
-theory.
+entanglement: the \textbf{Many Worlds Interpretation} as formulated by
+\hyperref[cite:everett]{Hugh Everett (1956)}.
 
 So far, when describing the phenomenon of state collapse, we have
 relied on the measurement postulate (see
@@ -783,29 +897,31 @@ the theory when doing practical, everyday calculations.
 
 However, the measurement postulate has two bad features:
 
-First, it seems to stand apart from the other postulates of quantum
-mechanics, in being the only place where randomness (or
-``indeterminism'') creeps into quantum theory.  The other postulates
-do not refer to probabilities.  In particular, the Schr\"odinger equation
+\begin{enumerate}
+\item It stands apart from the other postulates of quantum mechanics,
+  for it is the only place where randomness (or ``indeterminism'')
+  creeps into quantum theory.  The other postulates do not refer to
+  probabilities.  In particular, the Schr\"odinger equation
 \begin{equation}
   i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle
 \end{equation}
 is completely deterministic.  If you know $\hat{H}(t)$ and are given
-the state $|\psi(t_0)\rangle$ at some time $t_0$, you can (in
-principle) solve the Schr\"odinger equation to determine
-$|\psi(t)\rangle$ for all $t$.  This time-evolution consists of a
-smooth, non-random rotation of the state vector within its Hilbert
-space.  A measurement process, however, has a completely different
-character: it causes the state vector to jump discontinuously to a
-randomly-selected value.  It is strange that quantum theory contains
-two completely different ways for a state to change.
+the state $|\psi(t_0)\rangle$ at some time $t_0$, you can in principle
+determine $|\psi(t)\rangle$ for all $t$.  This time-evolution consists
+of a smooth, non-random rotation of the state vector within its
+Hilbert space.  A measurement process, however, has a completely
+different character: it causes the state vector to jump
+discontinuously to a randomly-selected value.  It is strange that
+quantum theory contains two completely different ways for a state to
+change.
 
-Second, the measurement postulate is silent on what constitutes a
+\item The measurement postulate is silent on what constitutes a
 measurement.  Does measurement require a conscious observer?  Surely
 not: as Einstein once exasperatedly asked, are we really expected to
 believe that the Moon exists only when we look at it?  But if a given
 device interacts with a particle, what determines whether it acts via
 the Schr\"odinger equation, or performs a measurement?
+\end{enumerate}
 
 The Many Worlds Interpretation seeks to resolve these problems by
 positing that \textit{the measurement postulate is \underline{not} a
@@ -932,14 +1048,14 @@ apparatus states, $|\langle\Psi_+|\Psi_-\rangle|^2$, versus $t$.  In
 accordance with the preceding discussion, the overlap is unity at $t =
 0$, but subsequently decreases to nearly zero.  For comparison, the
 lower panel plots the entanglement entropy between the two subsystems,
-$S_A = -k_B \mathrm{Tr}_A\left\{\hat{\rho}_A\ln\hat{\rho}_A\right\}$,
+$S_A = -k_b \mathrm{Tr}_A\left\{\hat{\rho}_A\ln\hat{\rho}_A\right\}$,
 where $\hat{\rho}_A$ is the reduced density matrix obtained by tracing
 over the spin subspace.  We find that $S_A = 0$ at $t=0$, due to the
 fact that the spin and apparatus subsystems start out with definite
 quantum states in $|\psi(0)\rangle$.  As the system evolves, the
 subsystems become increasingly entangled, and $S_A$ increases up to
 \begin{equation}
-  S_A^{\mathrm{max}}/k_B = - \Big( |a_+|^2 \ln|a_+|^2 + |a_-|^2\ln|a_-|^2 \Big) \approx 0.693
+  S_A^{\mathrm{max}}/k_b = - \Big( |a_+|^2 \ln|a_+|^2 + |a_-|^2\ln|a_-|^2 \Big) \approx 0.693
 \end{equation}
 This value is indicated in the figure by a horizontal dashed line, and
 corresponds to the result of the classical entropy formula for
@@ -999,11 +1115,39 @@ rather than different theories.
   which satisfies the inner product axioms.
   \label{ex:innerprod}
 
-\item For a system of two spin-1/2 particles, calculate the
-  entanglement entropy for the state
+\item Consider the density operator
   \begin{equation}
-    |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!+\!x\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+    \hat{\rho} = \frac{1}{2} |\!+\!z\rangle \langle+z|
+    \,+\, \frac{1}{2} |\!+\!x\rangle \langle+x|
   \end{equation}
+  where $|\!+\!x\rangle = \frac{1}{\sqrt{2}} \left(|\!+\!z\rangle +
+  |\!-\!z\rangle\right)$.  This can be viewed as an equal-probability
+  sum of two different pure states.  However, the density matrix can
+  also be written as
+  \begin{equation}
+    \hat{\rho} \,=\, p_1\, |\psi_1\rangle \langle \psi_1|
+    \,+\, p_2\, |\psi_2\rangle \langle\psi_2|
+  \end{equation}
+  where $|\psi_{1,2}\rangle$ are the eigenvectors of $\hat{\rho}$.
+  Show that $p_1$ and $p_2$ are \textit{not} 1/2.
+  \label{ex:rho_decomp}
+
+
+\item 
+  Consider two distinguishable particles, $A$ and $B$.  The 2D Hilbert
+  space of $A$ is spanned by $\{|\mu\rangle, |\nu\rangle\}$, and the
+  3D Hilbert space of $B$ is spanned by $\{|p\rangle, |q\rangle,
+  |r\rangle\}$.  The two-particle state is
+\begin{equation}
+  |\psi\rangle = \frac{1}{3} \, |\mu\rangle|p\rangle
++ \frac{1}{\sqrt{6}} \, |\mu\rangle|q\rangle
++ \frac{1}{\sqrt{18}} \, |\mu\rangle|r\rangle
++ \frac{\sqrt{2}}{3} \, |\nu\rangle|p\rangle
++ \frac{1}{\sqrt{3}} \, |\nu\rangle|q\rangle
++ \frac{1}{3} \, |\nu\rangle|r\rangle.
+\end{equation}
+Find the entanglement entropy.
+
 \end{enumerate}
 
 \section*{Further Reading}
@@ -1028,6 +1172,11 @@ rather than different theories.
 
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
   Nature (News and Views) \textbf{398}, 189 (1999). [\href{https://www.nature.com/articles/18296}{link}] \label{cite:aspect}
+
+\item H.~Everett, III, \textit{The Theory of the Universal Wave
+  Function} (PhD thesis), Princeton University (1956)
+  [\href{http://ucispace.lib.uci.edu/handle/10575/1302}{link}]
+\label{cite:everett}
 
 \item A.~Albrecht, \textit{Following a ``collapsing'' wave function},
   Physical Review D \textrm{48}, 3768 (1993). [\href{https://journals.aps.org/prd/abstract/10.1103/PhysRevD.48.3768}{link}]
