@@ -36,46 +36,44 @@
 
 So far, we have studied quantum mechanical systems consisting of
 single particles.  The next important step is to look at systems of
-more than one particle.  As we shall see, the postulates of quantum
+more than one particle.  We shall see that the postulates of quantum
 mechanics have interesting implications that only show up in
 multi-particle systems, particularly the phenomenon of \textbf{quantum
   entanglement}.
 
-In the following discussion, you may assume we are dealing with
-systems of ``distinguishable'' particles.  There is another set of
-complications if the particles are ``identical'' or
-``indistinguishable'', which we'll deal with in the next chapter.  (If
-you're unsure what this means, just read on.)
-
-Suppose we have a pair of distinguishable particles, labeled A and B.
-If each individual particle is treated as a quantum system, then
-according to the postulates of quantum mechanics, its state is
-described by a vector in a complex Hilbert space.  Let $\mathscr{H}_A$
-and $\mathscr{H}_B$ denote the respective single-particle Hilbert
-spaces.  When the two particles are considered as a single system, the
-combined Hilbert space is denoted
+Suppose we have two particles labeled $A$ and $B$.  If each individual
+particle is treated as a quantum system, then according to the
+postulates of quantum mechanics, its state is described by a vector in
+a complex Hilbert space.  Let $\mathscr{H}_A$ and $\mathscr{H}_B$
+denote the respective single-particle Hilbert spaces.  When the two
+particles are considered as a single system, the combined Hilbert
+space is
 \begin{equation}
   \mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.
 \end{equation}
-The symbol $\otimes$ refers to a \textbf{tensor product}, which is a
+The symbol $\otimes$ refers to a \textbf{tensor product}, a
 mathematical operation that combines two Hilbert spaces to form
-another Hilbert space.  Its meaning is as follows: let $\mathscr{H}_A$
-be spanned by an orthonormal basis $\{|\mu_1\rangle, |\mu_2\rangle,
-|\mu_3\rangle, \dots\}$, and $\mathscr{H}_B$ spanned by
-$\{|\nu_1\rangle, |\nu_2\rangle, |\nu_3\rangle, \dots\}$.  Then
-$\mathscr{H}_A \otimes \mathscr{H}_B$ is a space spanned by the basis
-vectors
+another Hilbert space.  It is most easily understood in terms of
+explicit basis vectors: let $\mathscr{H}_A$ be spanned by an
+orthonormal basis $\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle,
+\dots\}$, and $\mathscr{H}_B$ be spanned by $\{|\nu_1\rangle,
+|\nu_2\rangle, |\nu_3\rangle, \dots\}$.  Then $\mathscr{H}_A \otimes
+\mathscr{H}_B$ is a space spanned by basis vectors consisting of
+pairwise combinations of the first and second types of basis vector:
 \begin{equation}
-  \Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \Big| \;\; \textrm{all}\;|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.
+  \Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \textrm{for} \; \textrm{all}\;\,|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.
 \end{equation}
-This reflects the intuitive notion that if particle A has some state
-$|\mu_i\rangle$ and particle B has state $|\nu_j\rangle$, then the
-state of the combined system is fully specified.  Note that if
+This reflects the intuitive notion that if $A$ has some state
+$|\mu_i\rangle$ and $B$ has state $|\nu_j\rangle$, then the state of
+the combined system is fully specified.
+
+It follows from the definition of the tensor product that if
 $\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has dimension
 $d_B$, then the combined Hilbert space $\mathscr{H}$ has dimension
-$d_A d_B$.  Using such a basis, any two-particle state can be written as
+$d_A d_B$.  Any two-particle state can be written as a superposition
+of these $d_A d_B$ basis vectors:
 \begin{equation}
-  |\psi\rangle = \sum_{i} \sum_{j} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.
+  |\psi\rangle = \sum_{ij} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.
 \end{equation}
 
 The inner product between the tensor product basis states is defined
@@ -83,75 +81,87 @@ as follows:
 \begin{equation}
   \Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.
 \end{equation}
-In other words, we (i) calculate the inner product for space A, (ii)
-calculate the inner product for space B, and (iii) multiply the two
-resulting numbers together.  You can check that this satisfies the
-formal requirements for an inner product in linear algebra (see
-\hyperref[ex:innerprod]{Exercise 1}).
+In other words, the inner product is performed ``slot-by-slot'': we
+calculate the inner product for $A$, calculate the inner product for
+$B$, and then multiply the two resulting numbers.  You can check that
+this satisfies the formal requirements for an inner product in linear
+algebra (see \hyperref[ex:innerprod]{Exercise 1}).
 
 For example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both 2D
 Hilbert spaces describing spin-$1/2$ degrees of freedom.  Each space
 can be spanned by an orthonormal basis $\{\,|\!+\!z\rangle,
 \,|\!-\!z\rangle \, \}$, representing ``spin-up'' and ``spin-down''.
 Then the tensor product space $\mathscr{H}$ is a 4D space spanned by
-\begin{equation*}
+\begin{equation}
   \Big\{\;|\!+\!z\rangle\otimes|\!+\!z\rangle\,,\; |\!+\!z\rangle\otimes|\!-\!z\rangle\,,\; |\!-z\!\rangle\otimes|\!+\!z\rangle\,,\; |\!-\!z\rangle\otimes|\!-\!z\rangle \;\Big\}.
-\end{equation*}
+  \label{spin12}
+\end{equation}
 
-We now make an important observation.  As previously noted, if
-particle $A$ is in state $|\mu_i\rangle$ and particle $B$ is in state
-$|\nu_j\rangle$, that specifies the state of the combined system.  But
-the reverse is not generally true!  There are states of the combined
-system that \textit{cannot} be expressed in terms of definite states
-of the individual particles.  For example, take the previous example
-of two spaces describing spin-$1/2$ degrees of freedom, and consider
+We now make an important observation.  As previously noted, if $A$ is
+in state $|\mu_i\rangle$ and $B$ is in state $|\nu_j\rangle$, then the
+state of the combined system is fully specified.  But the reverse is
+not generally true!  There exist states of the combined system that
+\textit{cannot} be expressed in terms of definite states of the
+individual particles.  For example, consider a system of two
+spin-$1/2$ particles, and the quantum state
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).
 \end{equation}
-
-This two-particle state is constructed from two of the basis states of
-the tensor product space, $|\!+\!z\rangle\otimes|\!-\!z\rangle$ and
-$|\!-\!z\rangle\otimes|\!+\!z\rangle$; you can check that the factor
-of $1/\sqrt{2}$ normalizes the state so that $\langle\psi|\psi\rangle
-= 1$.  Evidently, neither particle A nor particle B has a definite
-$|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.  Moreover, we shall show
-(in Section~\ref{sec:entropy}) that there's \textit{no} choice of
-basis that allows the individual particles to be expressed with
-definite quantum states; i.e.,
+This state is constructed from two of the four basis states in
+\eqref{spin12}; you can check that the factor of $1/\sqrt{2}$ ensures
+the normalization $\langle\psi|\psi\rangle = 1$.  Evidently, in this
+case neither $A$ nor $B$ has a definite $|\!+\!z\rangle$ or
+$|\!-\!z\rangle$ state.  Moreover, we shall show (in
+Section~\ref{sec:entropy}) that there's \textit{no} choice of basis
+that allows the individual particles to be expressed with definite
+quantum states; i.e.,
 \begin{equation}
   |\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.
 \end{equation}
 In such a situation, the two particles are said to be
-\textbf{entangled}.  They cannot be described by individual
-single-particle quantum states, but are intrinsically ``mixed
-together''.
+\textbf{entangled}.  They are intrinsically mixed up with each other,
+and cannot be assigned individual single-particle quantum states.
 
-For systems of more than two particles, quantum states can be defined
-using multiple tensor products.  In general, suppose a quantum system
-contains $N$ subsystems described by the individual Hilbert spaces
-$\{\mathscr{H}_1, \mathscr{H}_2, \dots, \mathscr{H}_N\}$, which have
-dimensionality $\{d_1, \dots, d_N\}$.  Then the overall system is
-described by the Hilbert space
-\begin{equation}
-  \mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
-  \otimes \mathscr{H}_N.
-\end{equation}
-This combined Hilbert space has dimensionality $d = d_1 d_2\cdots
-d_N$.  It is interesting to note that the dimensionality scales
-\textit{exponentially} with the number of subsystems.  For instance,
-if a single particle has a 2D Hilbert space, a $20$-particle system
-has a Hilbert space of dimensionality $2^{20} =1\,048\,576$.
-Evidently, even for quantum systems containing a modest number of
-particles, the quantum state carries huge amounts of information.
-This is one of the motivations behind the active research field of
-quantum computing.
-
-It is cumbersome to write lots of $\otimes$ symbols, so we will often
-omit the $\otimes$ in cases where the tensor product is obvious.  For
-instance,
+It is cumbersome to keep writing $\otimes$ symbols, so we will
+henceforth omit the $\otimes$ in cases where the tensor product is
+obvious.  For instance,
 \begin{equation}
   \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \;\;\equiv \;\; \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
 \end{equation}
+
+For systems of more than two particles, quantum states can be defined
+using multiple tensor products.  Suppose a quantum system contains $N$
+particles described by the individual Hilbert spaces $\{\mathscr{H}_1,
+\mathscr{H}_2, \dots, \mathscr{H}_N\}$ having dimensionality $\{d_1,
+\dots, d_N\}$.  Then the overall system is described by the Hilbert
+space
+\begin{equation}
+  \mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
+  \otimes \mathscr{H}_N,
+\end{equation}
+which has dimensionality $d = d_1 d_2\cdots d_N$.  The dimensionality
+scales exponentially with the number of particles!  For instance, if
+each particle has a 2D Hilbert space, a $20$-particle system has a
+Hilbert space with $2^{20} =1\,048\,576$ dimensions.  Thus, even in
+quantum systems with a modest number of particles, the quantum state
+can carry huge amounts of information.  This is one of the motivations
+behind the active research field of quantum computing.
+
+Finally, a proviso: although we refer to subsystems like $A$ and $B$
+as ``particles'' for narrative convenience, they need not be actual
+particles.  All this formalism applies to general subsystems---i.e.,
+subsets of a large quantum system's various ``degrees of freedom''.
+For instance, if a quantum system has a position eigenbasis for 3D
+space, the $x$, $y$, and $z$ coordinates are distinct degrees of
+freedom, so each position eigenstate is really a tensor product:
+\begin{equation*}
+  |\,\mathbf{r} = (x,y,z)\,\rangle \;\equiv\; |x\rangle\, |y\rangle\, |z\rangle.
+\end{equation*}
+Also, if the subsystems really \textit{are} particles, we assume for
+now that the particles are ``distinguishable''.  There will be another
+set of complications that arise if the particles are ``identical'' or
+``indistinguishable'', which will be the subject of the next chapter.
+(If you're unsure what this means, just read on.)
 
 
 \section{Partial measurements}
