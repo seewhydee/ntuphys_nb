@@ -5,6 +5,7 @@
 \usepackage{color}
 \usepackage{mathrsfs}
 \usepackage{enumerate}
+\usepackage{epigraph}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -31,47 +32,45 @@
 {\Large \textbf{Chapter 2: Quantum Entanglement}}
 \end{center}
 
-\section{Quantum mechanics of multi-particle systems}
+\epigraph{They don't think it be like it is, \\but it do.}{Oscar Gamble}
+
+\section{Quantum states of multi-particle systems}
 \label{sec:tensorprod}
 
 So far, we have studied quantum mechanical systems consisting of
 single particles.  The next important step is to look at systems of
 more than one particle.  We shall see that the postulates of quantum
-mechanics have interesting implications that only show up in
-multi-particle systems, particularly the phenomenon of \textbf{quantum
+mechanics, when applied to multi-particle systems, give rise to
+interesting and counterintuitive phenomena such as \textbf{quantum
   entanglement}.
 
 Suppose we have two particles labeled $A$ and $B$.  If each individual
-particle is treated as a quantum system, then according to the
-postulates of quantum mechanics, its state is described by a vector in
-a complex Hilbert space.  Let $\mathscr{H}_A$ and $\mathscr{H}_B$
-denote the respective single-particle Hilbert spaces.  When the two
-particles are considered as a single system, the combined Hilbert
-space is
+particle is treated as a quantum system, the postulates of quantum
+mechanics require that its state be described by a vector in a Hilbert
+space.  Let $\mathscr{H}_A$ and $\mathscr{H}_B$ denote the respective
+single-particle Hilbert spaces.  Then the Hilbert space for the
+combined system of two particles is
 \begin{equation}
   \mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.
 \end{equation}
 The symbol $\otimes$ refers to a \textbf{tensor product}, a
 mathematical operation that combines two Hilbert spaces to form
 another Hilbert space.  It is most easily understood in terms of
-explicit basis vectors: let $\mathscr{H}_A$ be spanned by an
-orthonormal basis $\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle,
-\dots\}$, and $\mathscr{H}_B$ be spanned by $\{|\nu_1\rangle,
-|\nu_2\rangle, |\nu_3\rangle, \dots\}$.  Then $\mathscr{H}_A \otimes
-\mathscr{H}_B$ is a space spanned by basis vectors consisting of
-pairwise combinations of the first and second types of basis vector:
+explicit basis vectors: let $\mathscr{H}_A$ be spanned by a basis
+$\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle, \dots\}$, and
+$\mathscr{H}_B$ be spanned by $\{|\nu_1\rangle, |\nu_2\rangle,
+|\nu_3\rangle, \dots\}$.  Then $\mathscr{H}_A \otimes \mathscr{H}_B$
+is a space spanned by basis vectors consisting of \textit{pairwise
+  combinations} of basis vectors drawn from the $\mathscr{H}_A$ and
+$\mathscr{H}_B$ bases:
 \begin{equation}
   \Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \textrm{for} \; \textrm{all}\;\,|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.
 \end{equation}
-This reflects the intuitive notion that if $A$ has some state
-$|\mu_i\rangle$ and $B$ has state $|\nu_j\rangle$, then the state of
-the combined system is fully specified.
 
-It follows from the definition of the tensor product that if
-$\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has dimension
-$d_B$, then the combined Hilbert space $\mathscr{H}$ has dimension
-$d_A d_B$.  Any two-particle state can be written as a superposition
-of these $d_A d_B$ basis vectors:
+Thus, if $\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has
+dimension $d_B$, then $\mathscr{H}_A\otimes \mathscr{H}_B$ has
+dimension $d_A d_B$.  Any two-particle state can be written as a
+superposition of these basis vectors:
 \begin{equation}
   |\psi\rangle = \sum_{ij} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.
 \end{equation}
@@ -80,12 +79,13 @@ The inner product between the tensor product basis states is defined
 as follows:
 \begin{equation}
   \Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.
+  \label{innerprod}
 \end{equation}
-In other words, the inner product is performed ``slot-by-slot'': we
+In other words, the inner product is performed ``slot-by-slot''.  We
 calculate the inner product for $A$, calculate the inner product for
 $B$, and then multiply the two resulting numbers.  You can check that
-this satisfies the formal requirements for an inner product in linear
-algebra (see \hyperref[ex:innerprod]{Exercise 1}).
+this satisfies all the formal requirements for an inner product in
+linear algebra (see \hyperref[ex:innerprod]{Exercise 1}).
 
 For example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both 2D
 Hilbert spaces describing spin-$1/2$ degrees of freedom.  Each space
@@ -97,30 +97,32 @@ Then the tensor product space $\mathscr{H}$ is a 4D space spanned by
   \label{spin12}
 \end{equation}
 
-We now make an important observation.  As previously noted, if $A$ is
-in state $|\mu_i\rangle$ and $B$ is in state $|\nu_j\rangle$, then the
-state of the combined system is fully specified.  But the reverse is
-not generally true!  There exist states of the combined system that
+We now make an important observation.  If $A$ is in state
+$|\mu\rangle$ and $B$ is in state $|\nu\rangle$, then the state of the
+combined system is fully specified: $|\mu\rangle \otimes |\nu\rangle
+\in \mathscr{H}_A \otimes \mathscr{H}_B$.  But the reverse is not
+generally true!  There exist states of the combined system that
 \textit{cannot} be expressed in terms of definite states of the
-individual particles.  For example, consider a system of two
-spin-$1/2$ particles, and the quantum state
+individual particles.  For example, consider the following quantum
+state of two spin-$1/2$ particles:
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).
+  \label{entangled_state}
 \end{equation}
 This state is constructed from two of the four basis states in
-\eqref{spin12}; you can check that the factor of $1/\sqrt{2}$ ensures
-the normalization $\langle\psi|\psi\rangle = 1$.  Evidently, in this
-case neither $A$ nor $B$ has a definite $|\!+\!z\rangle$ or
-$|\!-\!z\rangle$ state.  Moreover, we shall show (in
-Section~\ref{sec:entropy}) that there's \textit{no} choice of basis
-that allows the individual particles to be expressed with definite
-quantum states; i.e.,
+\eqref{spin12}, and you can check that the factor of $1/\sqrt{2}$
+ensures the normalization $\langle\psi|\psi\rangle = 1$ with the inner
+product rule \eqref{innerprod}.  It is evident from looking at
+Eq.~\eqref{entangled_state} that neither $A$ nor $B$ possesses a
+definite $|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.  Moreover, we
+shall show (in Section~\ref{sec:entropy}) that there's \textit{no}
+choice of basis that allows this state to be expressed in terms of
+definite individual-particle states; i.e.,
 \begin{equation}
   |\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.
 \end{equation}
 In such a situation, the two particles are said to be
-\textbf{entangled}.  They are intrinsically mixed up with each other,
-and cannot be assigned individual single-particle quantum states.
+\textbf{entangled}.
 
 It is cumbersome to keep writing $\otimes$ symbols, so we will
 henceforth omit the $\otimes$ in cases where the tensor product is
@@ -150,16 +152,16 @@ behind the active research field of quantum computing.
 Finally, a proviso: although we refer to subsystems like $A$ and $B$
 as ``particles'' for narrative convenience, they need not be actual
 particles.  All this formalism applies to general subsystems---i.e.,
-subsets of a large quantum system's various ``degrees of freedom''.
-For instance, if a quantum system has a position eigenbasis for 3D
-space, the $x$, $y$, and $z$ coordinates are distinct degrees of
-freedom, so each position eigenstate is really a tensor product:
+subsets of a large quantum system's degrees of freedom.  For instance,
+if a quantum system has a position eigenbasis for 3D space, the $x$,
+$y$, and $z$ coordinates are distinct degrees of freedom, so each
+position eigenstate is really a tensor product:
 \begin{equation*}
   |\,\mathbf{r} = (x,y,z)\,\rangle \;\equiv\; |x\rangle\, |y\rangle\, |z\rangle.
 \end{equation*}
-Also, if the subsystems really \textit{are} particles, we assume for
-now that the particles are ``distinguishable''.  There will be another
-set of complications that arise if the particles are ``identical'' or
+Also, if the subsystems really \textit{are} particles, we are going to
+assume for now that the particles are distinguishable.  There are
+other complications that arise if the particles are
 ``indistinguishable'', which will be the subject of the next chapter.
 (If you're unsure what this means, just read on.)
 
@@ -195,10 +197,14 @@ Applying this operator to $|\psi\rangle$ gives
 \begin{equation}
   |\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle,
 \end{equation}
-which is not normalized to unity.  Its absolute square,
-$\langle\psi'|\psi'\rangle = |\langle q_i|\psi\rangle|^2$, gives the
-measurement probability.  Moreover, re-normalizing $|\psi'\rangle$
-yields the post-collapse state $|q_i\rangle$.
+which is not normalized to unity.  Then:
+\begin{enumerate}
+\item The probability of obtaining this outcome is
+  $\langle\psi'|\psi'\rangle = |\langle q_i|\psi\rangle|^2$.
+
+\item The post-collapse state is obtained by the re-normalization
+  $|\psi'\rangle \rightarrow |q_i\rangle$.
+\end{enumerate}
 
 For multi-particle systems, there is a new complication: what if a
 measurement is performed on just one particle?
@@ -228,15 +234,22 @@ This contains a projector, $|\mu_i\rangle\langle \mu_i|$, which only
 acts upon the $\mathscr{H}_A$ part of the two-particle space.
 Applying this to the above multi-particle state gives
 \begin{equation}
-  |\psi'\rangle = \Pi_i |\psi\rangle = |\mu_i\rangle |\varphi_i\rangle.
+  |\psi'\rangle = \hat{\Pi}(\mu_i)\, |\psi\rangle
+  = |\mu_i\rangle |\varphi_i\rangle.
 \end{equation}
-The absolute square of $|\psi'\rangle$ gives the measurement
-probability,
+Now we can follow the same measurement rules as before.  The outcome
+probability is
 \begin{equation}
-  P_i = \langle\psi'|\psi'\rangle = \langle \mu_i|\mu_i\rangle\, \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2.
+  P_i = \langle\psi'|\psi'\rangle = \langle \mu_i|\mu_i\rangle\, \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2,
 \end{equation}
-Moreover, the post-measurement collapsed state is obtained by
-re-normalizing $|\psi'\rangle$.
+and the post-measurement collapsed state is obtained by the
+re-normalization
+\begin{equation}
+  |\psi'\rangle
+ \;\;\rightarrow\;\;
+ \frac{1}{\sqrt{\sum_{j'} |\psi_{ij'}|^2}}\;
+ \sum_{j} \psi_{ij} |\mu_i\rangle |\nu_j\rangle.
+\end{equation}
 
 Let's work through an example.  Consider a system of two spin-$1/2$
 particles, with state
@@ -262,11 +275,10 @@ There are two possible outcomes:
   probability is $P_- = \langle \psi'|\psi'\rangle = \frac{1}{2}$ and
   the post-collapse state is $|\!-\!z\rangle |\!+\!z\rangle$.
 \end{itemize}
-The two possible measurement outcomes, $+\hbar/2$ and $-\hbar/2$,
-occur with equal probability.  In either case, the two-particle state
-collapses so that particle $A$ is in the observed spin eigenstate, and
-particle $B$ gets the opposite spin.  After the collapse, the
-two-particle state is no longer entangled.
+The two possible outcomes, $+\hbar/2$ and $-\hbar/2$, occur with equal
+probability.  In either case, the two-particle state collapses so that
+$A$ is in the observed spin eigenstate, and $B$ has the opposite spin.
+After the collapse, the two-particle state is no longer entangled.
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
@@ -585,7 +597,7 @@ $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
 \end{equation}
 This is simply the projection operator associated with $|\psi\rangle$,
 but in this context we call it a density operator.  (Some authors call
-it the \textbf{density matrix}, based on the understanding that
+it a \textbf{density matrix}, based on the understanding that
 quantum operators can be represented as matrices).
 
 In the language of linear algebra, $\hat{\rho}$ is formed by the
@@ -648,19 +660,20 @@ $A$ in its own terms.  This is done by defining a \textbf{reduced
 \end{equation}
 Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace},
 which means tracing over the $\mathscr{H}_B$ part of the Hilbert space
-$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  This operation
-yields an operator acting on $\mathscr{H}_A$.
+$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  The partial
+trace yields an operator acting on $\mathscr{H}_A$.
 
-To better understand the implications of Eq.~\eqref{rhoa_def}, let us
-work in an explicit basis.  Let $\{|\mu_1\rangle,
-|\mu_2\rangle,\cdots\}$ be a basis for $\mathscr{H}_A$, and
-$\{|\nu_1\rangle, |\nu_2\rangle,\cdots\}$ be a basis for
-$\mathscr{H}_B$.  Any given state of the combined system can be
-written in the tensor product basis:
+To better understand Eq.~\eqref{rhoa_def}, let us work in an explicit
+basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a basis for
+$\mathscr{H}_A$, and $\{|\nu_1\rangle, |\nu_2\rangle,\cdots\}$ be a
+basis for $\mathscr{H}_B$.  Any given state of the combined system can
+be written in the tensor product basis:
 \begin{equation}
-  |\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle, \;\;\; \mathrm{where}\;\; \psi_{ij} \in \mathbb{C}.
+  |\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle,
 \end{equation}
-The density operator of the combined system is
+for some complex coefficients $\psi_{ij}$.  We require $\sum_{ij}
+|\psi_{ij}|^2 = 1$ so that $|\psi\rangle$ is normalized to unity.  The
+density operator of the combined system is
 \begin{equation}
   \hat{\rho} = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).
 \end{equation}
@@ -671,8 +684,8 @@ The reduced density operator for subsystem $A$ is
 \end{align}
 From this, we see that $\hat{\rho}_A$ is Hermitian.  Moreover, if we
 happen to take the $\{|\mu_i\rangle\}$ basis to be the eigenbasis for
-$\hat{\rho}_A$, the eigenvalues are $\rho_{ii}^A$.  We can thus prove
-that:
+$\hat{\rho}_A$, the eigenvalues are $\rho_{ii}^A = \sum_j
+|\psi_{ij}|^2$.  We can thus prove that:
 \begin{align}
   \begin{aligned}
     \textrm{All eigenvalues of $\hat{\rho}_A$ are real numbers in $[0,1]$.} \\
@@ -733,9 +746,9 @@ are said to describe \textbf{pure states}.  Density operators that
 cannot be written in such a form are said to describe \textbf{mixed
   states}.
 
-A mixed state can also be interpreted as a \textit{classical
-  probability distribution} of quantum states.  To see this, let us
-return to Eq.~\eqref{rhoa_explicit}:
+A mixed state can also be interpreted as a \textit{probability
+  distribution of quantum states}.  To see this, let us return to
+Eq.~\eqref{rhoa_explicit}:
 \begin{align}
   \begin{aligned}\hat{\rho}_A
     &= \sum_{ii'j} |\mu_i\rangle \, \psi_{ij} \psi_{i'j}^*
@@ -747,21 +760,30 @@ return to Eq.~\eqref{rhoa_explicit}:
 However, the $|\psi'\rangle$ vectors inside the sum are not
 normalized.  Re-normalizing them yields the expression
 \begin{equation}
-  \hat{\rho}_A = \sum_j p_j |\psi''_j\rangle \langle \psi''_j|
+  \hat{\rho}_A = \sum_j p_j\, |\Psi_j\rangle \langle \Psi_j|
   \;\;\;\mathrm{where}\;\;
   \begin{cases}
-    \langle \psi''_j|\psi''_j \rangle &= 1 \\
-    p_j &= \sum_i |\psi_{ij}|^2 \\
-    |\psi''_j \rangle &= \frac{1}{\sqrt{p_j}} |\psi_j'\rangle.
+    p_j &= \displaystyle \; \langle \psi_j' | \psi_j' \rangle
+    \,=\, \sum_i |\psi_{ij}|^2 \\
+    |\Psi_j \rangle &= \displaystyle \; \frac{1}{\sqrt{p_j}} |\psi_j'\rangle,
+    \;\;\textrm{so}\;\; \langle \Psi_j|\Psi_j \rangle = 1.
   \end{cases}
 \end{equation}
-This can be regarded as a weighted sum of different pure state density
-operators, where each pure state corresponds to some state
-$|\psi_j''\rangle \in \mathscr{H}_A$, and the weights are classical
-probabilities $p_j$ that sum to unity.  Note, however, that this
-decomposition is not unique.  A density operator can generally be
-expressed using different choices of pure state density operators.
-For an example, see \hyperref[ex:rho_decomp]{Exercise 3}.
+This is a weighted sum, where each term involves a pure state
+$|\Psi_j\rangle \langle \Psi_j|$ and a weight $p_j$.  The $p_j$'s are
+real numbers between 0 and 1, and sum to unity, so they can be
+regarded as probabilities.  We can therefore interpret $\hat{\rho}_A$
+as describing an ``ensemble'' of different quantum systems, weighted
+by a set of probabilities $p_j$.
+
+Although this interpretation is highly suggestive, one should not take
+it too seriously.  For one thing, the decomposition is not unique: it
+is possible to express a given density operator using different
+weighted sums, each having a different set of probabilities.  For an
+example, see \hyperref[ex:rho_decomp]{Exercise 3}.  Ultimately, the
+information about the mixed state is encoded in the mathematical
+object $\hat{\rho}_A$ itself, which cannot really be simplified any
+further.
 
 \section{Entanglement entropy}
 \label{sec:entropy}
@@ -813,18 +835,19 @@ probabilities, it can be shown that the entropy lies between these two
 extremes: $0 \le S_{\mathrm{cl.}}  \le k_b\ln W$.  For a review of the
 properties of entropy, see Appendix C.
 
-Entanglement entropy quantifies the uncertainty arising from a quantum
-subsystem's lack of a definite quantum state (due to it being
-entangled with another subsystem).  But we need to be careful when
-extending classical notions of probability to quantum systems.  As
-described above, when performing a measurement on $A$ whose possible
-outcomes are $\{\mu_1, \mu_2, \dots\}$, the probability of getting
-$\mu_i$ is $p_i = \langle \mu_i | \hat{\rho}_A|\mu_i\rangle$.
-However, it is problematic to directly substitute these probabilities
-$\{p_i\}$ into the classical entropy formula, since they are
-basis-dependent (i.e., the set of probabilities is dependent on the
-choice of measurement).  Eq.~\eqref{entropy} bypasses this problem by
-using the trace, which is basis-independent.
+The concept of entanglement entropy aims to quantify the uncertainty
+arising from a quantum (sub)system's lack of a definite quantum state,
+due to it being possibly entangled with another (sub)system.  When
+formulating it, the key issue we need to be careful about is how to
+extend classical notions of probability to quantum systems.  We have
+seen that when performing a measurement on $A$ whose possible outcomes
+are $\{\mu_1, \mu_2, \dots\}$, the probability of getting $\mu_i$ is
+$p_i = \langle \mu_i | \hat{\rho}_A|\mu_i\rangle$.  However, it is
+problematic to directly substitute these probabilities $\{p_i\}$ into
+the classical entropy formula, since they are basis-dependent (i.e.,
+the set of probabilities is dependent on the choice of measurement).
+Eq.~\eqref{entropy} bypasses this problem by using the trace, which is
+basis-independent.
 
 In the special case where $\{|\mu_i\rangle\}$ is the eigenbasis for
 $\hat{\rho}_A$, the connection is easier to see.  From
@@ -840,22 +863,28 @@ entanglement entropy is consistent with the classical definition of
 entropy, with the eigenvalues of $\hat{\rho}_A$ serving as the
 relevant probabilities.
 
-For an unentangled system, we can write $\hat{\rho} =
-|\psi\rangle\langle\psi|$ for some state $|\psi\rangle$, so
-$|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$ with eigenvalue
-1; hence, $S_{A} = 0$.  On the other hand, if we find that a system
-has $S_{A} \ne 0$, that implies that it is entangled, and lacks a
-definite quantum state.
-
-By analogy with the classical entropy, the entanglement entropy has
-the following bounds:
+By analogy with the classical entropy formula (see Appendix C), the
+entanglement entropy has the following bounds:
 \begin{equation}
   0 \le S_A \le k_b\ln(d_A),
+  \label{Sabounds}
 \end{equation}
-where $d_A$ is the dimension of $\mathscr{H}_A$.  A system is said to
-be \textbf{maximally entangled} if it saturates the upper bound, $S_A
-= k_b \ln(d_A)$.  This occurs if and only if the eigenvalues of the
-density operator are all equal: i.e., $p_i = 1/d_A$.
+where $d_A$ is the dimension of $\mathscr{H}_A$.
+
+For an unentangled system---i.e., a pure state---we can write
+$\hat{\rho} = |\psi\rangle\langle\psi|$ for some state $|\psi\rangle$.
+In this case, $|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$
+with eigenvalue 1, so $S_{A} = 0$.  This corresponds to the lower
+bound of \eqref{Sabounds}.  Conversely, if we find that a system has
+$S_{A} \ne 0$, that implies that $\hat{\rho}_A$ cannot be written as a
+pure state $|\psi\rangle\langle\psi|$ for \textit{any} $|\psi\rangle$;
+hence, it must be entangled---i.e., $\hat{\rho}_A$ must describe a
+mixed state.
+
+A system is said to be \textbf{maximally entangled} if it saturates
+the upper bound of \eqref{Sabounds}, $S_A = k_b \ln(d_A)$.  This
+occurs if and only if the eigenvalues of the density operator are all
+equal: i.e., $p_i = 1/d_A$ for all $i = 1, \dots, d_A$.
 
 As an example, consider the following state of two spin-$1/2$ particles:
 \begin{align}
@@ -878,8 +907,7 @@ Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem $A$:
 \begin{equation}
   S_A = -k_b\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_b\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_b\ln(2).
 \end{equation}
-This is the maximum possible entanglement entropy for a system with a
-2D Hilbert space.  Hence, subsystems $A$ and $B$ are maximally entangled.
+Hence, subsystems $A$ and $B$ are maximally entangled.
 
 \section{The Many Worlds Interpretation}
 
