@@ -162,7 +162,9 @@ anti-particles (positrons, anti-neutrinos, etc.).  Certain composite
 particles are also fermions, including protons and neutrons, which are
 each composed of three quarks.
 
-\section{Bosons}
+\section{Symmetric and antisymmetric states}
+
+\subsection{Bosons}
 \label{sec:bosons}
 
 A state of $N$ bosons must be symmetric under every possible exchange
@@ -281,7 +283,7 @@ The exchange symmetry operators have the following effects:
   \end{aligned}
 \end{align}
 
-\section{Fermions}
+\subsection{Fermions}
 \label{sec:fermions}
 
 A state of $N$ fermions must be antisymmetric under every possible
@@ -332,7 +334,6 @@ distinct single-particle states, Eq.~\eqref{Nfermions} would yield the
 zero vector, since the terms in the sum over $p$ cancel out pairwise
 (you can check this).  This is once again consistent with the Pauli
 exclusion principle.
-
 
 It is helpful to look at a couple of concrete examples.  First,
 consider $N=2$.  The sequence $\{1,2\}$ has two permutations:
@@ -390,6 +391,151 @@ $s(p)$ must have an \textit{opposite} sign, since the two permutations
 are related by an exchange.  It follows that
 $\hat{P}_{ij}|\varphi_1,\dots,\varphi_N\rangle = -
 |\varphi_1,\dots,\varphi_N\rangle$ for any choice of $i \ne j$.
+
+\subsection{Distinguishing particles}
+
+When studying the phenomenon of entanglement in the previous chapter,
+we implicitly assumed that the particles are distinguishable.  For
+example, in the EPR thought experiment, we started with the
+two-particle state
+\begin{equation}
+  |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle |\!-\!z\rangle
+  - |\!-\!z\rangle |\!+\!z\rangle \Big),
+  \label{EPR}
+\end{equation}
+and discussed performing a partial measurement of $\hat{S}_z$ on
+particle $A$.  If the measurement result is $+\hbar/2$, the
+two-particle state collapses to $|\!+\!z\rangle |\!-\!z\rangle$.  Is
+that previous discussion invalidated if the particles are identical?
+
+The answer is no, because the particle exchange symmetry refers to an
+exchange of \textit{all} the degrees of freedom of each particle.  If
+we divide the particle degrees of freedom into subsets (e.g., position
+and spin) and ``fix'' one of the subsets, that serves as an effective
+means of distinguishing the particles.
+
+To understand this, let us re-consider the EPR thought experiment in
+detail, assuming that the two particles are identical fermions (the
+discussion for bosons is similar).  We previously focused on each
+particle's spin degree of freedom, but they must also have a position
+degree of freedom---that's how we can have a particle at Alpha
+Centauri ($A$) and a particle at Betelgeuse ($B$).  We previously did
+not explicitly account for this position degree of freedom, but we
+shall now do so.  Let the single-particle Hilbert space be
+\begin{equation}
+  \mathscr{H}^{(1)} = \mathscr{H}_{\mathrm{spin}} \otimes \mathscr{H}_{\mathrm{position}}.
+\end{equation}
+For simplicity, let us treat position as a twofold degree of freedom,
+so that $\mathscr{H}_{\mathrm{position}}$ is a 2D space spanned by the
+basis $\{|A\rangle, |B\rangle\}$.
+
+Now consider the state we previously denoted by $|\!+\!z\rangle
+|\!-\!z\rangle$, which refers to a spin-up particle at $A$ and a
+spin-down particle at $B$.  In our previous notation, it was
+implicitly assumed that $A$ refers to the left-hand slot of the tensor
+product, and $B$ refers to the right-hand slot.  If we want to account
+for the particles' fermionic nature and the fact that $A$ and $B$ are
+quantum degrees of freedom, here is how we write the same state:
+\begin{equation}
+  |+\!z, A;\; -z, B\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
+  - |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big).
+  \label{asym1}
+\end{equation}
+Here, the kets are written in the following order:
+\begin{equation}
+  \Big[
+    (\textrm{spin 1}) \otimes (\textrm{position 1}) \Big]
+  \otimes
+  \Big[
+    (\textrm{spin 2}) \otimes (\textrm{position 2}) \Big]
+  \label{order1}
+\end{equation}
+The exchange operator $\hat{P}_{12}$ swaps the two particles' Hilbert
+spaces---which includes both the position \textit{and} the spin part.
+Hence, Eq.~\eqref{asym1} is explicitly antisymmetric:
+\begin{align}
+  \begin{aligned}
+  \hat{P}_{12} |+\!z, A;\; -z, B\rangle &= \frac{1}{\sqrt{2}}
+  \Big(|\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle
+  - |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle \Big) \\
+  &= - |+\!z, A;\; -z, B\rangle.
+  \end{aligned}
+\end{align}
+
+Likewise, if there is a spin-down particle at $A$ and a spin-up
+particle at $B$, the fermionic two-particle state is
+\begin{equation}
+  |-\!z, A;\; +z, B\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
+  - |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
+  \label{asym2}
+\end{equation}
+Using Eqs.~\eqref{asym1} and \eqref{asym2}, we can rewrite the EPR
+state \eqref{EPR} as
+\begin{align}
+  \begin{aligned}
+    |\psi_{\mathrm{EPR}}\rangle &= \frac{1}{\sqrt{2}} \Big(
+    |\!+\!z, A;\; -\!z, B\rangle - |-\!z, A;\; +\!z, B\rangle \Big)\\
+    &= \frac{1}{2} \Big(
+    |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
+    - |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \\
+    &\qquad\;\;- |\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
+    + |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
+    \label{epr1}
+  \end{aligned}
+\end{align}
+This looks like a mess, but we can clarify it with some careful
+re-ordering.  Instead of using the ordering \eqref{order1}, suppose we
+separate the spin and position:
+\begin{equation}
+  \Big[
+    (\textrm{spin 1}) \otimes (\textrm{spin 2}) \Big]
+  \otimes
+  \Big[
+    (\textrm{position 1}) \otimes (\textrm{position 2}) \Big]
+  \label{order2}
+\end{equation}
+Then Eq.~\eqref{epr1} can be rewritten as
+\begin{equation}
+  |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(
+  |\!+\!z\rangle |\!-\!z\rangle - |\!-\!z\rangle |\!+\!z\rangle \Big)  
+  \otimes \frac{1}{\sqrt{2}} \Big(
+  |A\rangle |B\rangle + |B\rangle |A\rangle \Big).
+\end{equation}
+In other words, the spin degrees of freedom are exactly as described
+by our old notation, Eq.~\eqref{EPR}.  The position degrees of
+freedom, which we previously did not monitor, form a symmetric
+combination, and this makes the overall two-particle state
+antisymmetric.
+
+Suppose we perform a measurement on $|\psi_{\mathrm{EPR}}\rangle$, and
+find that the particle at position $A$ has spin $+z$.  As usual, a
+measurement outcome can be associated with a projection operator.
+Using the ordering \eqref{order1}, we can write the relevant
+projection operator as
+\begin{equation}
+  \hat{\Pi} = \Big(|\!+\!z\rangle \langle+z| \otimes |A\rangle \langle A|\Big)
+  \otimes\Big( \hat{I} \otimes \hat{I}\Big)
+  + \Big(\hat{I} \otimes \hat{I} \Big) \otimes \Big(
+  |\!+\!z\rangle \langle+z| \otimes |A\rangle \langle A| \Big).
+\end{equation}
+This accounts for the fact that the observed phenomenon---spin $+z$ at
+position $A$---may refer to either particle.  Applying $\hat{\Pi}$ to
+the EPR state \eqref{epr1} yields
+\begin{equation}
+  |\psi'\rangle \;=\;
+  \frac{1}{2} \Big(
+    |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
+    - |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big).
+\end{equation}
+Apart from a change in normalization, this is precisely the fermionic
+state $|+z,A;-z,B\rangle$ defined in Eq.~\eqref{asym1}.  In our
+earlier notation, this state was simply written as
+$|+\!z\rangle|-\!z\rangle$.  This goes to show that particle exchange
+symmetry is fully compatible with the concepts of partial
+measurements, entanglement, etc., that we discussed in the previous
+chapter.
 
 \section{Second quantization}
 
