@@ -6,6 +6,7 @@
 \usepackage{mathrsfs}
 \usepackage{enumerate}
 \usepackage{epigraph}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -97,9 +98,10 @@ The exchange operator has the following properties:
 \item The effect of $\hat{P}$ does not depend on the choice
   of basis (see \hyperref[ex:1]{Exercise 1}).
 
-\item $\hat{P}$ commutes with the above Hamiltonian $\hat{H}$, or
-  indeed any Hamiltonian where the single-particle operators appear in
-  a symmetrical manner (see \hyperref[ex:2]{Exercise 2}).
+\item $\hat{P}$ commutes with the above Hamiltonian $\hat{H}$; more
+  generally, it commutes with any two-particle operator built out of
+  symmetrical combinations of single-particle operators (see
+  \hyperref[ex:2]{Exercise 2}).
 \end{enumerate}
 
 According to Noether's theorem, any symmetry implies a conservation
@@ -112,8 +114,8 @@ just two possibilities:
   \hat{P} |\psi\rangle = p|\psi\rangle \;\;\;\Rightarrow\;\;\; p = \begin{cases}+1 & \textrm{(``symmetric\;state'')}, \;\;\textrm{or} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}
 \end{equation}
 Since $\hat{P}$ commutes with $\hat{H}$, if the system starts out in
-an eigenstate of $\hat{P}$ with parity $p$, it retains the same
-definite parity at subsequent times.
+an eigenstate of $\hat{P}$ with parity $p$, it retains the same parity
+for all subsequent times.
 
 The concept of exchange parity generalizes to systems of more than two
 particles.  Given $N$ particles, we can define a set of exchange
@@ -134,11 +136,12 @@ We now invoke the following postulates:
 \item The exchange parity $p_{ij}$ is determined solely by the type of
   particle involved.
 \end{enumerate}
-You should \textit{not} think of these as statements as being
-``derived'' from more fundamental facts!  Rather, they are hypotheses
-about the way particles behave---hypotheses that physicists have
-managed to deduce by looking at a variety of empirical facts.  Our
-task here is to explore the consequences of these hypotheses.
+Do \textit{not} think of these as statements as being derived from
+more fundamental facts!  Rather, they are hypotheses about the way
+particles behave---facts about Nature that physicists have managed to
+deduce through examining a wide assortment of empirical evidence.  Our
+task, for now, shall be to explore the consequences of these
+hypotheses.
 
 Particles that have symmetric states ($p_{ij} = +1$) are called
 \textbf{bosons}.  It turns out that the elementary particles that
@@ -156,10 +159,11 @@ Particles that have antisymmetric states ($p_{ij} = -1$) are called
 \textbf{fermions}.  All the elementary particles of ``matter'' are
 fermions: electrons, muons, tauons, quarks, neutrinos, and their
 anti-particles (positrons, anti-neutrinos, etc.).  Certain composite
-particles are also fermions, the most notable being protons and
-neutrons, which are each composed of three quarks.
+particles are also fermions, including protons and neutrons, which are
+each composed of three quarks.
 
 \section{Bosons}
+\label{sec:bosons}
 
 A state of $N$ bosons must be symmetric under every possible exchange
 operator:
@@ -174,23 +178,25 @@ $|\varphi\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
 \begin{equation}
   |\varphi,\varphi\rangle = |\varphi\rangle  |\varphi\rangle.
 \end{equation}
-This evidently satisfies $\hat{P}_{12} |\varphi,\varphi\rangle =
-|\varphi,\varphi\rangle$, as required.  Next, suppose the two bosons
-occupy \textit{different} single-particle states, $|\varphi_1\rangle$
-and $|\varphi_2\rangle$.  It would be wrong to write the two-boson
-state as $|\varphi_1\rangle |\varphi_2\rangle$, because the particles
-would not be symmetric under exchange.  Instead, we construct the
-multi-particle state
+This evidently satisfies the required symmetry condition $\hat{P}_{12}
+|\varphi,\varphi\rangle = |\varphi,\varphi\rangle$.  Next, suppose the
+two bosons occupy \textit{different} single-particle states,
+$|\varphi_1\rangle$ and $|\varphi_2\rangle$.  It would be wrong to
+write the two-boson state as $|\varphi_1\rangle |\varphi_2\rangle$,
+because the particles would not be symmetric under exchange.  Instead,
+we construct the multi-particle state
 \begin{equation}
   |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big( |\varphi_1\rangle  |\varphi_2\rangle + |\varphi_2\rangle  |\varphi_1\rangle\Big).
 \end{equation}
-This has the appropriate exchange symmetry:
+The $1/\sqrt{2}$ factor ensures normalization.  This has the
+appropriate exchange symmetry:
 \begin{equation}
   \hat{P}_{12}\,|\varphi_1,\varphi_2\rangle \;=\; \frac{1}{\sqrt{2}} \Big( |\varphi_2\rangle  |\varphi_1\rangle + |\varphi_1\rangle  |\varphi_2\rangle\Big) \;=\; |\varphi_1,\varphi_2\rangle.
 \end{equation}
 
-This construction can be generalized to arbitrary $N$.  Suppose the
-$N$ particles occupy single-particle states enumerated by
+The above construction can be generalized to arbitrary numbers of
+bosons.  Suppose we have $N$ bosons occupying single-particle states
+enumerated by
 \begin{equation}
   |\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.
 \end{equation}
@@ -203,6 +209,7 @@ occupied by two particles.
 The $N$-boson state can now be written as
 \begin{equation}
   |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).
+  \label{nbosons}
 \end{equation}
 The sum is taken over each of the $N!$ permutations acting on
 $\{1,2,\dots,N\}$.  For each permutation $p$, we let $p(j)$ denote the
@@ -212,17 +219,18 @@ is
 \begin{equation}
   \mathcal{N} = \sqrt{\frac{1}{N!n_a!n_b!\cdots}},
 \end{equation}
-where $n_\mu$ denotes the number of particles in state $\mu$, and $N =
-n_\alpha + n_\beta + \cdots$ is the total number of particles.  The proof of
-this is left as an exercise (\hyperref[ex:boson_norm]{Exercise 3}).
+where $n_\mu$ denotes the number of particles in each distinct state
+$|\varphi_\mu\rangle$, and $N = n_\alpha + n_\beta + \cdots$ is the
+total number of particles.  The proof of this is left as an exercise
+(\hyperref[ex:boson_norm]{Exercise 3}).
 
 To see that the above $N$-particle state is symmetric under exchange,
 apply an arbitrary exchange operator $\hat{P}_{ij}$:
 \begin{align}
   \begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}
 \end{align}
-In each term of the sum, two states $i$ and $j$ are interchanged.  But
-since the sum runs through all permutations of the states, the result
+In each term of the sum, two states $i$ and $j$ are interchanged.
+Since the sum runs through all permutations of the states, the result
 is the same with or without the exchange, so we still end up with
 $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  Therefore, the multi-particle
 state is symmetric under every possible exchange operation.
@@ -234,37 +242,47 @@ $\{|\phi_1\rangle, |\phi_2\rangle, |\phi_3\rangle\}$ such that
 $|\phi_1\rangle = |\phi_2\rangle = |\varphi_1\rangle$ and
 $|\phi_3\rangle = |\varphi_2\rangle$.  Then
 \begin{align}
-  \begin{aligned}|\phi_1,\phi_2,\phi_3\rangle &= \mathcal{N} \Big( \;\;
-|\phi_1\rangle|\phi_2\rangle|\phi_3\rangle +
-|\phi_2\rangle|\phi_3\rangle|\phi_1\rangle +
-|\phi_3\rangle|\phi_1\rangle|\phi_2\rangle \\ &\qquad\;\, +
-|\phi_1\rangle|\phi_3\rangle|\phi_2\rangle +
-|\phi_3\rangle|\phi_2\rangle|\phi_1\rangle +
-|\phi_2\rangle|\phi_1\rangle|\phi_3\rangle\Big) \\
-&= 2\mathcal{N} \Big(
-|\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
-|\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
-|\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big).
+  \begin{aligned}
+    |\phi_1,\phi_2,\phi_3\rangle &= \frac{1}{\sqrt{12}} \Big( \;
+    |\phi_1\rangle|\phi_2\rangle|\phi_3\rangle +
+    |\phi_2\rangle|\phi_3\rangle|\phi_1\rangle +
+    |\phi_3\rangle|\phi_1\rangle|\phi_2\rangle \\
+    &\qquad\quad\, +
+    |\phi_1\rangle|\phi_3\rangle|\phi_2\rangle +
+    |\phi_3\rangle|\phi_2\rangle|\phi_1\rangle +
+    |\phi_2\rangle|\phi_1\rangle|\phi_3\rangle\Big) \\
+    &= \frac{1}{\sqrt{3}} \;\, \Big(\;
+    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
+    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
+    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big).
   \end{aligned}
 \end{align}
-The three distinct exchange symmetry operators have the following effects:
+The exchange symmetry operators have the following effects:
 \begin{align}
-  \begin{aligned}\hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle &= 2\mathcal{N} \Big(
-|\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
-|\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
-|\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle\Big) = |\phi_1,\phi_2,\phi_3\rangle \\
-\hat{P}_{23}|\phi_1,\phi_2,\phi_3\rangle &= 2\mathcal{N} \Big(
-|\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
-|\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
-|\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big) = |\phi_1,\phi_2,\phi_3\rangle\\
-\hat{P}_{13}|\phi_1,\phi_2,\phi_3\rangle &= 2\mathcal{N} \Big(
-|\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
-|\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
-|\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle\Big) = |\phi_1,\phi_2,\phi_3\rangle.
+  \begin{aligned}
+    \hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle
+    &= \frac{1}{\sqrt{3}} \Big(
+    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
+    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
+    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle\Big)
+    = |\phi_1,\phi_2,\phi_3\rangle \\
+    \hat{P}_{23}|\phi_1,\phi_2,\phi_3\rangle
+    &= \frac{1}{\sqrt{3}} \Big(
+    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
+    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
+    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big)
+    = |\phi_1,\phi_2,\phi_3\rangle\\
+    \hat{P}_{13}|\phi_1,\phi_2,\phi_3\rangle
+    &= \frac{1}{\sqrt{3}} \Big(
+    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
+    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
+    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle\Big)
+    = |\phi_1,\phi_2,\phi_3\rangle.
   \end{aligned}
 \end{align}
 
 \section{Fermions}
+\label{sec:fermions}
 
 A state of $N$ fermions must be antisymmetric under every possible
 exchange operator:
@@ -272,44 +290,59 @@ exchange operator:
   \hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle \;\;\; \forall\, i,j\in\{1,\dots,N\}, \; i\ne j.
 \end{equation}
 Similar to the bosonic case, we can explicitly construct multi-fermion
-states based on the occupancy of single-particle states.  Let us
-consider the $N=2$ case first.  If the fermions occupy states
-$|\varphi_1\rangle$ and $|\varphi_2\rangle$, the appropriate two-particle
-state is
+states based on the occupancy of single-particle state.
+
+First consider $N=2$, with the fermions occupying the single-particle
+states $|\varphi_1\rangle$ and $|\varphi_2\rangle$.  The appropriate
+two-particle state is
 \begin{equation}
   |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_1\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle\Big).
+  \label{two_fermions}
 \end{equation}
-We can easily check that
+We can easily check that this is antisymmetric:
 \begin{equation}
   \hat{P}_{12} |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_2\rangle|\varphi_1\rangle - |\varphi_1\rangle|\varphi_2\rangle\Big) = - |\varphi_1,\varphi_2\rangle.
 \end{equation}
-This fails if we try to let $|\varphi_1\rangle$ and
-$|\varphi_2\rangle$ be the same state: in that case, the two terms
-cancel to give the zero vector, which is not a valid quantum state.
-From this, we can deduce the \textbf{Pauli exclusion principle}, which
-states that two fermions cannot occupy the same state; or,
-equivalently, that each single-particle state is either unoccupied, or
-occupied by exactly one fermion.
+Eq.~\eqref{two_fermions} doesn't work if $|\varphi_1\rangle$ and
+$|\varphi_2\rangle$ are the same; the two terms would cancel to give
+the zero vector, which is not a valid quantum state.  This is a
+manifestation of the \textbf{Pauli exclusion principle}, which states
+that two fermions cannot occupy the same state.  In other words, each
+single-particle state is either unoccupied, or occupied by exactly one
+fermion.
 
-For general $N$, let us enumerate the occupied single-particle states
-by $\{|\phi_1\rangle, |\phi_2\rangle,\dots,|\phi_N\rangle\}$.  Then
-the appropriate $N$-fermion state is
+For general $N$, let the occupied single-particle states be
+$\{|\varphi_1\rangle, |\varphi_2\rangle,\dots,|\varphi_N\rangle\}$.
+Then the appropriate $N$-fermion state is
 \begin{equation}
-  |\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.
+  |\varphi_1,\dots,\varphi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\varphi_{p(1)}\rangle |\varphi_{p(2)}\rangle \cdots |\varphi_{p(N)}\rangle.
+  \label{Nfermions}
 \end{equation}
-The $1/\sqrt{N!}$ prefactor is a normalization constant (as you can
-verify).  The expression involves a sum over every permutation $p$ of
-the sequence $\{1,2,\dots,N\}$.  Each term in the sum has a
-coefficient $s(p)$, denoting the \textbf{parity} of the permutation.
-The parity of a permutation $p$ is defined as $+1$ if $p$ involves an
-even number of exchanges starting from the sequence $\{1,2,\dots,N\}$,
-and $-1$ if $p$ involves an odd number of exchanges.
+It is up to you to verify that the $1/\sqrt{N!}$ prefactor is the
+right normalization constant.  The sum is taken over every permutation
+$p$ of the sequence $\{1,2,\dots,N\}$, and each term in the sum has a
+coefficient $s(p)$ denoting the \textbf{parity of the permutation}.
+The parity of any permutation $p$ is defined as $+1$ if $p$ is
+constructed from an even number of transpositions (i.e., exchanges of
+adjacent elements) starting from the sequence $\{1,2,\dots,N\}$, and
+$-1$ if $p$ involves an odd number of transpositions.
 
-A couple of examples are helpful for understanding these definitions.
-First, consider $N=2$; the sequence $\{1,2\}$ has $2! = 2$ permutations:
+If $\{|\varphi_1\rangle, \dots, |\varphi_N\rangle\}$ are not all
+distinct single-particle states, Eq.~\eqref{Nfermions} would yield the
+zero vector, since the terms in the sum over $p$ cancel out pairwise
+(you can check this).  This is once again consistent with the Pauli
+exclusion principle.
+
+
+It is helpful to look at a couple of concrete examples.  First,
+consider $N=2$.  The sequence $\{1,2\}$ has two permutations:
 \begin{align}
-  \begin{aligned}p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}
+  \begin{aligned}
+    p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}
 \end{align}
+Plugging these into Eq.~\eqref{Nfermions} yields the
+previously-discussed two-fermion state \eqref{two_fermions}.
+
 Next, consider $N=3$.  The sequence $\{1,2,3\}$ has $3!=6$ permutations:
 \begin{align}
   \begin{aligned}
@@ -320,56 +353,71 @@ Next, consider $N=3$.  The sequence $\{1,2,3\}$ has $3!=6$ permutations:
   p_5 : \{1,2,3\} &\rightarrow \{3,1,2\}, \;\;\;s(p_5) = +1 \\
   p_6 : \{1,2,3\} &\rightarrow \{1,3,2\}, \;\;\;s(p_6) = -1.\end{aligned}
 \end{align}
-The permutations can be generated by exchanging pairs of sequence
-elements; each time we perform such an exchange, the sign of $s(p)$
-is reversed.
+The permutations can be generated by consecutive transpositions of
+elements.  Each time we perform a transposition, the sign of $s(p)$ is
+reversed.  Hence, the three-fermion state is
+\begin{align}
+  \begin{aligned}
+    |\varphi_1, \varphi_2, \varphi_3\rangle
+    &= \frac{1}{\sqrt{6}} \Big(
+    |\varphi_1\rangle |\varphi_2\rangle |\varphi_3\rangle
+    - |\varphi_2\rangle |\varphi_1\rangle |\varphi_3\rangle \\
+    & \qquad\; + |\varphi_2\rangle |\varphi_3\rangle |\varphi_1\rangle
+    - |\varphi_3\rangle |\varphi_2\rangle |\varphi_1\rangle \\
+    & \qquad\; + |\varphi_2\rangle |\varphi_3\rangle |\varphi_1\rangle
+    - |\varphi_1\rangle |\varphi_3\rangle |\varphi_2\rangle \Big).
+  \end{aligned}
+\end{align}
 
-We can now see why the above $N$-particle state describes fermions.
+We now see why Eq.~\eqref{Nfermions} describes the $N$-fermion state.
 Let us apply $\hat{P}_{ij}$ to it:
 \begin{align}
-  \begin{aligned}\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij} \big[\cdots |\phi_{p(i)}\rangle \cdots |\phi_{p(j)}\rangle \cdots\big] \\&= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\phi_{p(j)}\rangle \cdots |\phi_{p(i)}\rangle \cdots\big].\end{aligned}
+  \begin{aligned}
+    \hat{P}_{ij}|\varphi_1,\dots,\varphi_N\rangle
+    &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij}
+    \big[\cdots |\varphi_{p(i)}\rangle \cdots
+      |\varphi_{p(j)}\rangle \cdots\big] \\
+    &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\varphi_{p(j)}\rangle
+      \cdots |\varphi_{p(i)}\rangle \cdots\big].
+  \end{aligned}
 \end{align}
-Consider each term in the above sum.  Here, the single-particle state
-for $p(i)$ and $p(j)$ have exchanged places.  The resulting term must
-be a match for another one of the terms in
-$|\phi_1,\dots,\phi_N\rangle$, because the sum runs over all possible
-permutations---\textit{except} for one thing: the coefficient $s(p)$
-must have an \textit{opposite} sign, since the two permutations are
-related by an exchange.  It follows that
-$\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle = -
-|\phi_1,\dots,\phi_N\rangle$, as desired for fermions.
-
-If the occupied single-particle states are non-unique, this
-construction breaks down, as the terms in the sum over $p$ cancel out
-pairwise.  This is again consistent with the Pauli exclusion
-principle.
+Within each term in the above sum, the single-particle states for
+$p(i)$ and $p(j)$ have exchanged places.  The resulting term must be
+an exact match for another term in the original expression for
+$|\varphi_1,\dots,\varphi_N\rangle$, since the sum runs over all
+possible permutations, except for one difference: the coefficient
+$s(p)$ must have an \textit{opposite} sign, since the two permutations
+are related by an exchange.  It follows that
+$\hat{P}_{ij}|\varphi_1,\dots,\varphi_N\rangle = -
+|\varphi_1,\dots,\varphi_N\rangle$ for any choice of $i \ne j$.
 
 \section{Second quantization}
 
-In the usual tensor product notation, it cumbersome to deal with
-symmetric and antisymmetric states.  We will now introduce a more
-convenient formalism, called \textbf{second quantization}.  (The
-reason for the name ``second quantization'' will not be apparent until
-later; it is a bad name, but one we are stuck with for historical
-reasons.)
+In the usual tensor product notation, symmetric and antisymmetric
+states become quite cumbersome to deal with when the number of
+particles is large.  We will now introduce a formalism called
+\textbf{second quantization}, which greatly simplifies manipulations
+of such multi-particle states.  (The reason for the name ``second
+quantization'' will not be apparent until later; it is a bad name, but
+one we are stuck with for historical reasons.)
 
 We start by defining a convenient way to specify states of multiple
 identical particles, called the \textbf{occupation number
-  representation}.  First, let us enumerate a set of single-particle
-states, $\{|\varphi_1\rangle, |\varphi_2\rangle, |\varphi_3\rangle,
-\cdots\}$, that form a complete orthonormal basis for the
-single-particle Hilbert space $\mathscr{H}^{(1)}$.  Then, we build
-multi-particle states by specifying how many particles are in state
-$|\varphi_1\rangle$, denoted $n_1$; how many are in state
-$|\varphi_2\rangle$, denoted $n_2$; and so on.  Thus,
+  representation}.  Let us enumerate a set of single-particle states,
+$\{|\varphi_1\rangle, |\varphi_2\rangle, |\varphi_3\rangle, \cdots\}$,
+that form a complete orthonormal basis for the single-particle Hilbert
+space $\mathscr{H}^{(1)}$.  Then, we build multi-particle states by
+specifying how many particles are in state $|\varphi_1\rangle$,
+denoted $n_1$; how many are in state $|\varphi_2\rangle$, denoted
+$n_2$; and so on.  Thus,
 \begin{equation*}
   |n_1,n_2,n_3,\dots\rangle
 \end{equation*}
-is a multi-particle state \textit{defined} as the appropriate
-symmetric (for bosons) or antisymmetric (for fermions) tensor product
-state.  The multi-particle state is indexed by the occupation numbers
-$\{n_1,n_2,\cdots\}$, one integer for each single-particle state in
-$\{|\varphi_1\rangle, |\varphi_2\rangle, |\varphi_3\rangle, \cdots\}$.
+is \textit{defined} as the appropriate symmetric or antisymmetric
+multi-particle state, constructed using Eq.~\eqref{nbosons} if we're
+dealing with bosons (Section~\ref{sec:bosons}), or using
+Eq.~\eqref{Nfermions} if we're dealing with fermions
+(Section~\ref{sec:fermions}).
 
 Let us run through a couple of examples.  First, consider
 $|0,2,0,0,\dots\rangle$, a two-particle state with both particles in
@@ -398,16 +446,16 @@ is
 
 \subsection{Fock space}
 
-At this point, we have to make a technical detour regarding what
-Hilbert space the state vectors reside in.  The state
-$|0,2,0,0,\dots\rangle$ is a bosonic two-particle state, which is a
-vector in the two-particle Hilbert space $\mathscr{H}^{(2)} =
-\mathscr{H}^{(1)}\otimes \mathscr{H}^{(1)}$.  However,
-$\mathscr{H}^{(2)}$ also contains two-particle states that are not
-symmetric under exchange, which is not allowed for bosons.  Thus, it
-would be more rigorous for us to narrow the Hilbert space to the space
-of state vectors that are symmetric under exchange.  We denote this
-reduced space by $\mathscr{H}^{(2)}_S$.
+There is a subtle point that we have glossed over: what Hilbert space
+do these state vectors reside in?  The state $|0,2,0,0,\dots\rangle$
+is a bosonic two-particle state, which is a vector in the two-particle
+Hilbert space $\mathscr{H}^{(2)} = \mathscr{H}^{(1)}\otimes
+\mathscr{H}^{(1)}$.  However, $\mathscr{H}^{(2)}$ also contains
+two-particle states that are not symmetric under exchange, which is
+not allowed for bosons.  Thus, it would be more rigorous for us to
+narrow the Hilbert space to the space of state vectors that are
+symmetric under exchange.  We denote this reduced space by
+$\mathscr{H}^{(2)}_S$.
 
 Likewise, $|1,1,1,0,\dots\rangle$ is a three-particle state lying in
 $\mathscr{H}^{(3)}$.  If the particles are bosons, we can narrow the
@@ -425,6 +473,7 @@ work with by defining an ``extended'' Hilbert space, called the
 of linear algebra, the Fock space can be written as
 \begin{equation}
   \mathscr{H}_{S/A}^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_{S/A} \oplus \mathscr{H}^{(3)}_{S/A} \oplus \mathscr{H}^{(4)}_{S/A} \oplus \cdots
+  \label{fock}
 \end{equation}
 Here, $\oplus$ represents the \textbf{direct sum} operation, which
 combines vector spaces by directly grouping their basis vectors into a
@@ -439,25 +488,21 @@ fermions ($A$).
 The upshot is that any multi-particle state that we can write down in
 the occupation number representation, $|n_1,n_2,n_3,\dots\rangle$, is
 guaranteed to lie in the Fock space $\mathscr{H}^{F}_{S/A}$.
-Moreover, these states form a complete basis set for
+Moreover, these states form a complete basis for
 $\mathscr{H}^{F}_{S/A}$.
 
-You may have noticed that the definition of the Fock space included
+In Eq.~\eqref{fock}, the first term of the direct sum is
 $\mathscr{H}^{(0)}$, the ``Hilbert space of 0 particles''.  This
 Hilbert space contains only one distinct state vector, denoted by
 \begin{equation}
   |\varnothing\rangle \equiv |0,0,0,0,\dots\rangle.
 \end{equation}
-
-This is called the \textbf{vacuum state}, and represents a state in
-which there are literally no particles.  Note that
-$|\varnothing\rangle$ is \textit{not} the same thing as a zero vector,
-but instead satisfies the usual normalization for state vectors,
-$\langle\varnothing|\varnothing\rangle = 1$.  The concept of a ``state
-of no particles'' may seem silly, but we will see that there are very
-good technical reasons for including it in the formalism.  (It will
-also turn out to have an important physical meaning; see
-Section~\ref{sec:qft}.)
+This refers to the \textbf{vacuum state}, a quantum state in which
+there are literally no particles.  Note that $|\varnothing\rangle$ is
+\textit{not} the same thing as a zero vector; it has the standard
+normalization $\langle\varnothing|\varnothing\rangle = 1$.  The
+concept of a ``state of no particles'' may seem silly, but we will see
+that there are very good reasons to include it in the formalism.
 
 Another subtle consequence of introducing the Fock space concept is
 that it is now legitimate to write down quantum states that lack
@@ -465,11 +510,10 @@ definite particle numbers.  For example,
 \begin{equation*}
   \frac{1}{\sqrt{2}} \Big(|1,0,0,0,0,\dots\rangle + |1,1,1,0,0,\dots\rangle\Big)
 \end{equation*}
-is a valid state vector in $\mathscr{H}^{F}_{S/A}$, consisting of the
-superposition of a one-particle state and a three-particle state.
-Such states are not mere curiosities.  For instance, in the next
-chapter we will show that the optical mode of a laser beam can be
-characterized by a quantum state with an indefinite number of photons.
+is a valid state vector describing the superposition of a one-particle
+state and a three-particle state.  We will revisit the phenomenon of
+quantum states with indeterminate particle numbers in
+Section~\ref{sec:second_quant_op}, and in the next chapter.
 
 \subsection{Second quantization for bosons}
 \label{sec:second_quantized_bosons}
@@ -477,10 +521,11 @@ characterized by a quantum state with an indefinite number of photons.
 After this lengthy prelude, we are ready to introduce the formalism of
 second quantization.  Let us concentrate on bosons first.  
 
-We define an operator called the \textbf{particle creation operator},
+We define an operator called the \textbf{boson creation operator},
 denoted by $\hat{a}_\mu^\dagger$ and acting in the following way:
 \begin{equation}
   \hat{a}_\mu^\dagger \big|n_1, n_2, \dots, n_\mu, \dots\big\rangle = \sqrt{n_\mu+1} \; \big|n_1, n_2, \dots, n_\mu + 1, \dots\big\rangle.
+  \label{amu}
 \end{equation}
 In this definition, there is one particle creation operator for each
 state in the single-particle basis
@@ -490,17 +535,16 @@ $\mathscr{H}^F_S$, and has the effect of incrementing the occupation
 number of its single-particle state by one.  The prefactor of
 $\sqrt{n_\mu+1}$ is defined for later convenience.
 
-In particular, applying a creation operator to the vacuum state yields
-a single-particle state:
+Applying a creation operator to the vacuum state yields a
+single-particle state:
 \begin{align}
   \begin{aligned}\hat{a}_\mu^\dagger |\varnothing\rangle \, &= \, |0,\dots,0, 1, 0, 0, \dots\rangle. \\[-1ex] &\qquad\qquad\quad\;\;\rotatebox[origin=c]{90}{$\Rsh$}\,\mu
   \end{aligned}
 \end{align}
 
-The Hermitian conjugate of the creation operator, denoted by $\hat{a}_\mu$,
-is called the \textbf{particle annihilation operator}.  To observe its
-effects, let us first take the Hermitian conjugate of the equation
-that defines $\hat{a}_\mu^\dagger$:
+The creation operator's Hermitian conjugate, $\hat{a}_\mu$, is the
+\textbf{boson annihilation operator}.  To characterize it, first take
+the Hermitian conjugate of Eq.~\eqref{amu}:
 \begin{equation}
   \big\langle n_1, n_2, \dots\big| \hat{a}_\mu = \sqrt{n_\mu+1} \; \big\langle n_1, n_2, \dots, n_\mu + 1, \dots\big|.
 \end{equation}
@@ -513,24 +557,32 @@ From this, we can deduce that
 \begin{equation}
   \hat{a}_\mu \big|n_1', n_2', \dots, n_\mu', \dots\big\rangle = \begin{cases} \sqrt{n_\mu'} \; \big|n_1', n_2', \dots, n_\mu' - 1, \dots\big\rangle, & \mathrm{if}\; n_\mu' > 0 \\ 0, & \mathrm{if}\; n_\mu' = 0.\end{cases}
 \end{equation}
-In other words, the annihilation operator reduces the occupation
-number of one of the single-particle states by one (hence its name).
+In other words, the annihilation operator decrements the occupation
+number of a specific single-particle state by one (hence its name).
 As a special exception, if the given single-particle state is
-unoccupied ($n_\mu = 0$), then applying $\hat{a}_\mu$ results in a zero
+unoccupied ($n_\mu = 0$), applying $\hat{a}_\mu$ results in a zero
 vector (note that this is \textit{not} the same thing as the vacuum
 state $|\varnothing\rangle$).
 
 The boson creation/annihilation operators obey the following
 commutation relations:
-$$\boxed{\quad\begin{aligned}\,[\hat{a}_\mu,\hat{a}_\nu] = [\hat{a}_\mu^\dagger,\hat{a}_\nu^\dagger] &= 0, \\ \,[\hat{a}_\mu,\hat{a}_\nu^\dagger] &= \delta_{\mu\nu}\end{aligned}\qquad\textrm{for all}\;\mu,\nu.\quad}$$
+\begin{framed}
+  \begin{equation}
+    \,[\hat{a}_\mu,\hat{a}_\nu] = [\hat{a}_\mu^\dagger,\hat{a}_\nu^\dagger] = 0,
+    \qquad [\hat{a}_\mu,\hat{a}_\nu^\dagger] = \delta_{\mu\nu}.
+    \label{commutations}
+  \end{equation}
+\end{framed}
+\vskip -0.1in
+\noindent
 These can be derived by taking the matrix elements with respect to the
 occupation number basis.  We will go through the derivation of the
 last commutation relation; the others are left as an exercise
 (\hyperref[ex:boson_commutators]{Exercise 4}).
 
 To prove that $[\hat{a}_\mu,\hat{a}_\nu^\dagger] = \delta_{\mu\nu}$,
-we first consider the case where the creation/annihilation operators
-act on the same single-particle state:
+first consider the case where the creation/annihilation operators act
+on the same single-particle state:
 \begin{align}
   \begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \hat{a}_\mu^\dagger \big| n_1', n_2'\dots\big\rangle &= \sqrt{(n_\mu+1)(n_\mu'+1)}\; \big\langle \dots, n_\mu+1, \dots \big| \dots, n_\mu'+1, \dots\big\rangle \\ &= \sqrt{(n_\mu+1)(n_\mu'+1)} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu+1}_{n_\mu'+1}\cdots \\ &= (n_\mu+1) \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \\ \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle &= \sqrt{n_\mu n_\mu'}\; \big\langle \dots, n_\mu-1, \dots \big| \dots, n_\mu'-1, \dots\big\rangle \\&= \sqrt{n_\mu n_\mu'} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu-1}_{n_\mu'-1}\cdots \\ &= n_\mu \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \end{aligned}
 \end{align}
@@ -541,8 +593,8 @@ difference of the two equations, we get
 \begin{equation}
   \big\langle n_1, n_2, \dots \big| \left(\hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu\right) \big| n_1', n_2'\dots\big\rangle = \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots = \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.
 \end{equation}
-Since the occupation number states form a basis set for
-$\mathscr{H}^F_S$, we conclude that
+Since the occupation number states form a basis for $\mathscr{H}^F_S$,
+we conclude that
 \begin{equation}
   \hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu = \hat{I}.
 \end{equation}
@@ -555,8 +607,10 @@ Hence,
   \hat{a}_\mu \hat{a}_\nu^\dagger - \hat{a}_\nu^\dagger \hat{a}_\mu = 0 \;\;\;\mathrm{for}\;\;\mu\ne\nu.
 \end{equation}
 Combining these two results gives the desired commutation relation,
-$[\hat{a}_\mu, \hat{a}_\nu^\dagger] = \delta_{\mu\nu}$.  Another useful result which
-emerges from the first part of the proof is that
+$[\hat{a}_\mu, \hat{a}_\nu^\dagger] = \delta_{\mu\nu}$.
+
+Another useful result which emerges from the first part of this proof
+is that
 \begin{equation}
   \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle = n_\mu \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.
 \end{equation}
@@ -587,15 +641,15 @@ $\hat{c}_\mu^\dagger$ increments the occupation number to 1, and
 multiplies the state by an overall factor of $(-1)^{n_1 + n_2 + \cdots
   + n_{\mu-1}}$ (i.e, $+1$ if there is an even number of occupied
 states preceding $\mu$, and $-1$ if there is an odd number).  The role
-of this factor will be apparent later.  Note that this requires us to
-order the single-particle states; otherwise, it would not make sense
-to speak of the states ``preceding'' $\mu$.  It does not matter which
-ordering we choose, so long as we make \textit{some} choice, and stick
-to it consistently.
+of this factor will be apparent later.  Note that this definition
+requires the single-particle states to be ordered in some way;
+otherwise, it would not make sense to speak of the states
+``preceding'' $\mu$.  It does not matter which ordering we choose, so
+long as we make \textit{some} choice, and stick to it consistently.
 
-According to this definition, if $\mu$ is occupied, applying
-$\hat{c}_\mu^\dagger$ gives the zero vector.  The occupation numbers
-are therefore forbidden from being larger than 1.
+If $\mu$ is occupied, applying $\hat{c}_\mu^\dagger$ gives the zero
+vector.  The occupation numbers are therefore forbidden from being
+larger than 1, consistent with the Pauli exclusion principle.
 
 The conjugate operator, $\hat{c}_\mu$, is the fermion annihilation
 operator.  To see what it does, take the Hermitian conjugate of the
@@ -608,7 +662,7 @@ Right-multiplying this by $|n_1',n_2',\dots\rangle$ gives
 \begin{equation}
   \langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu |n_1', n_2', \dots\rangle  = (-1)^{n_1 + \cdots + n_{\mu-1}} \;\delta^{n_1}_{n_1'} \cdots \;\delta^{n_{\mu-1}}_{n_{\mu-1}'} \left(\delta^{n_\mu}_0 \delta^1_{n_\mu'} \right) \delta^{n_{\mu+1}}_{n_{\mu+1}'} \dots
 \end{equation}
-Hence, we can deduce that
+Hence, we deduce that
 \begin{align}
   \begin{aligned}\hat{c}_\mu |n_1', \dots, n_\mu',\dots\rangle &= \begin{cases} \;\;0 & \mathrm{if}\; n_\mu' = 0 \\ (-1)^{n_1' + \cdots + n_{\mu-1}'} |n_1', \dots, n_{\mu-1}', 0, \dots\rangle & \mathrm{if} \; n_\mu' = 1. \end{cases} \\ &= (-1)^{n_1' + \cdots + n_{\mu-1}'} \; \delta^1_{n_\mu'} \, \big|n_1', \dots, n_{\mu-1}', 0, \dots\big\rangle.\end{aligned}
 \end{align}
@@ -619,25 +673,31 @@ multiplies the state by the aforementioned factor of $\pm 1$.
 
 With these definitions, the fermion creation/annihilation operators
 can be shown to obey the following \textit{anticommutation} relations:
-$$\boxed{\quad\begin{aligned}\,\big\{\hat{c}_\mu,\hat{c}_\nu\big\} = \big\{\hat{c}_\mu^\dagger,\hat{c}_\nu^\dagger\big\} &= 0, \\ \,\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} &= \delta_{\mu\nu}\end{aligned}\qquad\textrm{for all}\;\mu,\nu.\quad}$$
-Here, $\{\cdot,\cdot\}$ denotes an anticommutator, which is defined as
-follows:
+\begin{framed}
+  \begin{equation}
+    \big\{\hat{c}_\mu,\hat{c}_\nu\big\} = \big\{\hat{c}_\mu^\dagger,\hat{c}_\nu^\dagger\big\} = 0, \qquad \big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} = \delta_{\mu\nu}.
+    \label{anticommutation}
+  \end{equation}
+\end{framed}
+\vskip -0.15in
+\noindent
+Here, $\{\cdot,\cdot\}$ denotes an anticommutator, which is defined by
 \begin{equation}
   \left\{\hat{A},\hat{B}\right\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}.
 \end{equation}
 
-Similar to the bosonic commutation relations, these anticommutation
-relations can be derived by taking matrix elements with occupation
-number states.  We will only go over the last one,
-$\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} = \delta_{\mu\nu}$; the
-other derivations follow similar lines.
+Similar to the bosonic commutation relations \eqref{commutations}, the
+anticommutation relations \eqref{anticommutation} can be derived by
+taking matrix elements with occupation number states.  We will only go
+over the last one, $\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} =
+\delta_{\mu\nu}$; the others are left as an exercise.
 
-Firstly, consider the case where the creation and annihilation
-operators act on the same single-particle state $\mu$:
+First, consider creation/annihilation operators acting on the same
+single-particle state $\mu$:
 \begin{align}
   \begin{aligned}\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu \hat{c}_\mu^\dagger \big|\dots, n_\mu', \dots\big\rangle &= (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\mu'} \\ &\quad\times \big\langle n_1,\dots,n_{\mu-1}, 1, \dots\big| n_1',\dots,n_{\mu-1}', 1, \dots \big\rangle \\ &= \delta^0_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots\end{aligned}
 \end{align}
-And by a similar calculation,
+By a similar calculation,
 \begin{equation}
   \big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu^\dagger \hat{c}_\mu \big|\dots, n_\mu', \dots\big\rangle = \delta^1_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots
 \end{equation}
@@ -663,18 +723,18 @@ conjugation).  This is, once again, by taking matrix elements:
 \end{align*}
 The two equations differ by a factor of $-1$, so adding them gives
 zero.  Putting everything together, we conclude that
-$\big\{c_\mu,c_\nu^\dagger\big\} = \delta_{\mu\nu}$, as stated above.
+$\big\{c_\mu,c_\nu^\dagger\big\} = \delta_{\mu\nu}$, as stated in
+\eqref{anticommutation}.
 
 As you can see, the derivation of the fermionic anticommutation
-relations gets pretty hairy, in large part due to the
-$(-1)^{(\cdots)}$ factors in the definitions of the creation and
-annihilation operators.  But once these relations have been derived,
-we can deal entirely with the creation and annihilation operators,
-without worrying about the underlying occupation number representation
-and its $(-1)^{(\cdots)}$ factors.  By the way, if we had chosen to
-omit the $(-1)^{(\cdots)}$ factors in the definitions, the creation
-and annihilation operators would still satisfy the
-\textit{anticommutation} relation
+relations is quite hairy, in large part due to the $(-1)^{(\cdots)}$
+factors in the definitions of the creation and annihilation operators.
+But once these relations have been derived, we can deal entirely with
+the creation and annihilation operators, without worrying about the
+underlying occupation number representation and its $(-1)^{(\cdots)}$
+factors.  By the way, if we had chosen to omit the $(-1)^{(\cdots)}$
+factors in the definitions, the creation and annihilation operators
+would still satisfy the \textit{anticommutation} relation
 $\{\hat{c}_\mu,\hat{c}_\nu^\dagger\}=\delta_{\mu\nu}$, but two
 creation operators or two annihilation operators would
 \textit{commute} rather than \textit{anticommute}.  During subsequent
@@ -690,35 +750,34 @@ the creation and annihilation operators defined in
 Sections~\ref{sec:second_quantized_bosons}--\ref{sec:second_quantized_fermions}
 as ``building blocks''.
 
-We start by considering a system of \textit{non-interacting}
-particles.  When there is just one particle ($N=1$), let $\hat{H}_1$
-denote the single-particle Hamiltonian, which is a Hermitian operator
-acting on the single-particle Hilbert space $\mathscr{H}^{(1)}$.  For
-general $N$, the multi-particle Hamiltonian $\hat{H}$ is a Hermitian
-operator acting on the Fock space $\mathscr{H}^F$.  Given $\hat{H}_1$,
-what is $\hat{H}$?
+Consider a system of \textit{non-interacting} particles.  When there
+is just one particle ($N=1$), let $\hat{H}_1$ denote the
+single-particle Hamiltonian, which is a Hermitian operator acting on
+the single-particle Hilbert space $\mathscr{H}^{(1)}$.  For general
+$N$, the multi-particle Hamiltonian $\hat{H}$ is a Hermitian operator
+acting on the Fock space $\mathscr{H}^F$.  Given $\hat{H}_1$, what is
+$\hat{H}$?
 
 For bosons, the answer is:
 \begin{equation}
   \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\varphi_\mu|\hat{H}_1|\varphi_\nu\rangle,
+  \label{twobosonH}
 \end{equation}
 where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
-and annihilation operators defined in
-Section~\ref{sec:second_quantized_bosons}.  For fermions, the
-expression is exactly the same, but with the $\hat{a}_\mu$ and
-$\hat{a}_\mu^\dagger$ operators replaced by the fermion creation and
-annihilation operators, $\hat{c}_\mu$ and $\hat{c}_\mu^\dagger$,
-defined in Section~\ref{sec:second_quantized_fermions}.  In the
-remainder of this subsection, we will use the notation for bosonic
-operators, but the results apply equally well to fermions.
+and annihilation operators.  For fermions, the expression is exactly
+the same, but with the $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$
+operators replaced by the fermion creation and annihilation operators
+$\hat{c}_\mu$ and $\hat{c}_\mu^\dagger$.  In the remainder of this
+subsection, we will use the notation for bosonic operators, but the
+results apply equally well to fermions.
 
 To understand why this expression for $\hat{H}$ makes sense, consider
-its matrix elements with respect to various states.  Firstly, for the
+its matrix elements with respect to various states.  First, for the
 vacuum state $|\varnothing\rangle$,
 \begin{equation}
   \langle\varnothing|\hat{H}|\varnothing\rangle = 0.
 \end{equation}
-This makes sense. Secondly, single-particle states can be written as
+This makes sense. Second, single-particle states can be written as
 $|\varphi_\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$, so
 \begin{equation}
   \begin{aligned}\langle\varphi_\mu|\hat{H}|\varphi_\nu\rangle &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}
@@ -726,7 +785,7 @@ $|\varphi_\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$, so
 This exactly matches the definition of $H_{\mu\nu}$ in the original
 expression for $\hat{H}$.
 
-Thirdly, consider the case where
+Third, consider the case where
 $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ forms an eigenbasis of
 $\hat{H}_1$.  Then,
 \begin{equation}
@@ -739,10 +798,9 @@ total energy is the sum of the single-particle energies, which is
 exactly what we expect for a system of non-interacting particles.
 
 Another way to interpret $\hat{H}$ is to think of the Hamiltonian as
-the generator of time evolution.  Then $\hat{H} = \sum_{\mu\nu}
-\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$ says that each
-infinitesimal time step consists of a superposition of alternative
-evolution processes.  Each term in the superposition,
+the generator of time evolution.  Eq.~\eqref{twobosonH} describes an
+infinitesimal time step that consists of a superposition of
+alternative evolution processes.  Each term in the superposition,
 $\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$, describes a particle
 being annihilated in state $\nu$, and immediately re-created in state
 $\mu$, which is equivalent to ``transferring'' a particle from $\nu$
@@ -759,16 +817,16 @@ Hamiltonian commutes with the total particle number operator:
   [\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.
 \end{equation}
 The formal proof for this is left as an exercise (see
-\hyperref[ex:n_conserved]{Exercise 5}).  It follows from the creation
-and annihilation operators' commutation relations (for bosons) or
-anticommuattion relations (for fermions).
+\hyperref[ex:n_conserved]{Exercise 5}).  It follows directly from the
+creation and annihilation operators' commutation relations (for
+bosons) or anticommuattion relations (for fermions).
 
-Apart from the total energy, other kinds of observables---such as the
-total momentum, total angular momentum, etc.---can be expressed in a
-similar way.  Let $\hat{A}_1$ be a Hermitian operator acting on
+Apart from the total energy, other kinds of observables---the total
+momentum, total angular momentum, etc.---can be expressed in a similar
+way.  Let $\hat{A}_1$ be a Hermitian operator acting on
 single-particle states, corresponding to some physical observable $A$.
-Then, for a multi-particle system, the operator corresponding to the
-``total $A$'' is
+For a multi-particle system, the operator corresponding to the ``total
+$A$'' is
 \begin{equation}
   \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle.
 \end{equation}
@@ -785,10 +843,10 @@ constraint on the coefficents:
 \begin{equation}
   \hat{V}^\dagger = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\sigma \hat{a}^\dagger_\lambda \, V_{\mu\nu;\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V} \;\;\Leftarrow \;\; V_{\sigma\lambda;\nu\mu}^* = V_{\mu\nu;\lambda\sigma}.
 \end{equation}
-In the next section, we will show how to determine the
-$V_{\mu\nu;\lambda\sigma}$ coefficients for any given two-particle
-interaction, such as the electrostatic potential function.  The
-$\hat{V}$ operator can then be added to a Hamiltonian to describe a
+%% In the next section, we will show how to determine the
+%% $V_{\mu\nu;\lambda\sigma}$ coefficients for any given two-particle
+%% interaction, such as the electrostatic potential function.  
+An operator of this form can be added to a Hamiltonian to describe a
 system of interacting particles.  In terms of time evolution, the
 $\hat{V}$ operator ``transfers'' (annihilates and then re-creates) a
 \textit{pair} of particles during each infinitesimal time step.  Since
@@ -796,30 +854,29 @@ the number of annihilated particles is always equal to the number of
 created particles, the interaction conserves the total particle
 number.
 
-Another way to construct a Hermitian operator from creation and
+Another way to build a Hermitian operator from creation and
 annihilation operators is
 \begin{equation}
   \hat{A} = \sum_\mu \left(\alpha_\mu \hat{a}_\mu^\dagger + \alpha^*_\mu \hat{a}_\mu\right).
 \end{equation}
 If such a term is added to a Hamiltonian, it breaks the conservation
-of total particle number.  Each infinitesimal time step will contain a
-superposition of processes that decrease the particle number (due to
-$\hat{a}_\mu$), and processes that increase the particle number (due
-to $\hat{a}_\mu^\dagger$).  Even if we start out with a state with a
-fixed number of particles, such as the vacuum state
-$|\varnothing\rangle$, the system subsequently evolves into a
-superposition of states of different particle numbers.  In the
-theory of quantum electrodynamics, this type of operator is used to
-describe the emission and absorption of photons caused by moving
-charges.
+of total particle number.  Each infinitesimal time step will include
+processes that decrement the particle number (due to $\hat{a}_\mu$),
+as well as processes that increment the particle number (due to
+$\hat{a}_\mu^\dagger$).  Even if the system starts out with a fixed
+number of particles, such as the vacuum state $|\varnothing\rangle$,
+it subsequently evolves into a superposition of states with different
+particle numbers.  In the theory of quantum electrodynamics, this type
+of operator is used to describe the emission and absorption of photons
+caused by moving charges.
 
 Incidentally, the name ``second quantization'' comes from this process
 of using creation and annihilation operators to define Hamiltonians.
 The idea is that single-particle quantum mechanics is derived by
-``quantizing'' classical Hamiltonians, via the imposition of
-commutation relations like $[x,p] = i\hbar$.  Then, to extend the
-theory to multi-particle systems, we use the single-particle states to
-define creation/annihilation operators obeying a set of commutation or
+``quantizing'' classical Hamiltonians via the imposition of
+commutation relations like $[x,p] = i\hbar$.  Then, we extend the
+theory to multi-particle systems by using the single-particle states
+to define creation/annihilation operators obeying commutation or
 anticommutation relations.  This can be viewed as a ``second''
 quantization step.
 
@@ -1162,7 +1219,7 @@ These mode profiles are orthonormal:
   \int_0^L dx \, \varphi_m^*(x) \, \varphi_n(x) = \delta_{mn}.
 \end{equation}
 Each normal mode also carries energy.  We assume that the
-time-averaged energy density for normal mode $n$ has the form
+time-averaged energy density has the form
 \begin{equation}
   U(x) = \rho \, \overline{|f(x)|^2},
   \label{classical_energy_density}
