@@ -31,45 +31,46 @@
 {\large \textbf{Appendix E: Coherent States}}
 \end{center}
 
-Coherent states are special states of bosonic systems (like the
+Coherent states are special states of bosonic systems (including the
 quantum harmonic oscillator, whose excitation quanta can be regarded
-as bosonic ``particles''), whose dynamics are closely related to the
-oscillatory trajectories of a classical oscillator.  They provide an
-important link between the behaviors of quantum and classical
-oscillators.
+as bosonic particles) whose dynamics are highly similar to classical
+oscillator trajectories.  They provide an important link between
+quantum and classical harmonic oscillators.
 
 \section{Definition}
 
-The Hamiltonian of a simple harmonic oscillator is (taking $\hbar = m
-= \omega_0 = 1$ for simplicity)
+The Hamiltonian of a simple harmonic oscillator (with $\hbar = m =
+\omega_0 = 1$ for simplicity) is
 \begin{equation}
   \hat{H} = \frac{\hat{p}^2}{2} + \frac{\hat{x}^2}{2},
   \label{hsho}
 \end{equation}
-where $\hat{x}$ and $\hat{p}$ are the position and momentum operators
-respectively.  As we know, we can define ladder operators
+where $\hat{x}$ and $\hat{p}$ are the position and momentum operators.
+The ladder operators are
 \begin{align}
-  \hat{a} &= \frac{1}{\sqrt{2}} \left(\hat{x} + i\hat{p}\right) \\
+  \hat{a} &= \frac{1}{\sqrt{2}} \left(\hat{x} + i\hat{p}\right)
+  \label{a} \\
   \hat{a}^\dagger &= \frac{1}{\sqrt{2}} \left(\hat{x} - i\hat{p}\right).
+  \label{adagger}
 \end{align}
 These obey the commutation relation
 \begin{equation}
-  \left[\hat{a}, \hat{a}^\dagger\right] = 1,
+  \left[\hat{a}, \hat{a}^\dagger\right] = 1.
   \label{commutator}
 \end{equation}
-which is the same as the commutation relation obeyed by creation and
-annihilation operators of bosonic particles.
+As a result, we can also regard these as the creation and annihilation
+operators for a bosonic particle that has only one single-particle
+state.
 
 The Hamiltonian for the harmonic oscillator, Eq.~\eqref{hsho}, can be
-written as $\hat{H} = \hat{a}^\dagger\hat{a} + 1/2$.  Hence, it can be
-argued that the annihilation operator $\hat{a}$ kills off the ground
-state $|\varnothing\rangle$:
+written as $\hat{H} = \hat{a}^\dagger\hat{a} + 1/2$.  The annihilation
+operator $\hat{a}$ kills off the ground state $|\varnothing\rangle$:
 \begin{equation}
   \hat{a} |\varnothing\rangle = 0.
   \label{annihilation}
 \end{equation}
-This is, once again, generalizable to the case of bosonic particles,
-where the annihilation operator kills off the vacuum state.
+Thus, $|\varnothing\rangle$ is analogous to the ``vacuum state'' for a
+bosonic particle.
 
 Returning to the Hamiltonian \eqref{hsho}, suppose we add a term
 proportional to $\hat{x}$:
@@ -83,17 +84,12 @@ can show that this additional term corresponds to a
 \textit{displacement} of the center of the potential, plus an energy
 shift:
 \begin{equation}
-  \hat{H}' = \frac{\hat{p}^2}{2} + \frac{1}{2}\left(\hat{x}^2 - \sqrt{2}\alpha_1\right)^2 - \alpha_1^2.
+  \hat{H}' = \frac{\hat{p}^2}{2} + \frac{1}{2}\left(\hat{x} - \sqrt{2}\alpha_1\right)^2 - \alpha_1^2.
 \end{equation}
-Therefore, $\hat{H}'$ still describes a harmonic oscillator.  Let
-$|\alpha_1\rangle$ denote the ground state for this displaced and
-shifted oscillator.  We now want to study $|\alpha_1\rangle$ from the
-point of view of the excitations (bosons) of the \textit{original}
-Hamiltonian $\hat{H}$---i.e., the excitations created/annihilated by
-the $\hat{a}^\dagger$ and $\hat{a}$ operators.
-
-To derive $|\alpha_1\rangle$, we define a new annihilation operator
-with a displacement in $x$:
+Let $|\alpha_1\rangle$ denote the ground state for the displaced and
+shifted harmonic oscillator.  By analogy with how we solved the
+original harmonic oscillator problem, let us define a new annihilation
+operator with displaced $x$:
 \begin{align}
   \hat{a}' = \frac{1}{\sqrt{2}}\left(\hat{x} - \sqrt{2}\alpha_1 + i \hat{p}\right).
 \end{align}
@@ -107,28 +103,40 @@ $\hat{H}' = \hat{a}'^\dagger \hat{a}' + 1/2 - \alpha_1^2$.  Hence,
 \begin{equation}
   \hat{a}' \, |\alpha_1 \rangle = 0.
 \end{equation}
-But Eq.~\eqref{aprime} then implies that for the \textit{original}
+But Eq.~\eqref{aprime} implies that in terms of the \textit{original}
 annihilation operator,
 \begin{equation}
   \hat{a}\, |\alpha_1\rangle = \alpha_1 \,|\alpha_1\rangle.
   \label{aeigenv}
 \end{equation}
 In other words, $|\alpha_1\rangle$ is an eigenstate of the original
-harmonic oscillator's annihilation operator!  The corresponding
-eigenvalue is the displacement parameter $\alpha_1$.
+harmonic oscillator's annihilation operator, with the displacement
+parameter $\alpha_1$ as the corresponding eigenvalue!  For reasons
+that will become clear later, we call $|\alpha_1\rangle$ a
+\textbf{coherent state} of the harmonic oscillator $\hat{H}$.
 
-We call the state $|\alpha_1\rangle$, which satisfies
-Eq.~\eqref{aeigenv}, a \textbf{coherent state}.  To derive an explicit
-expression for it, we use the translation operator $T(\Delta x) =
-\exp(-i\hat{p}\Delta x)$.  Evidently, $|\alpha_1\rangle$ can be
-generated by displacing the original oscillator's ground state by
-$\Delta x = \sqrt{2}\alpha_1$.  Hence,
+\section{Explicit expression for the coherent state}
+
+Let us derive an explicit expression for the coherent state in terms
+of $\hat{a}$ and $\hat{a}^\dagger$, the creation and annihilation
+operators of the original harmonic oscillator.  Consider the
+translation operator
+\begin{equation}
+  \hat{T}(\Delta x) = \exp(-i\hat{p}\Delta x).
+\end{equation}
+Since $|\alpha_1\rangle$ is the ground state of a displaced harmonic
+oscillator, it can be generated by performing a displacement of the
+original oscillator's ground state $|\varnothing\rangle$.  The
+displacement is $\Delta x = \sqrt{2}\alpha_1$:
 \begin{align}
-  |\alpha_1\rangle &= \exp\left[-\sqrt{2}i\alpha_1\hat{p}\right] |\varnothing\rangle  \\
+  |\alpha_1\rangle &= \hat{T}\big(\sqrt{2}\alpha_1\big)\; |\varnothing\rangle  \\
   &= \exp\left[\alpha_1\left(\hat{a}^\dagger - \hat{a}\right)\right] |\varnothing\rangle.
 \end{align}
-This can be further simplified by using the Baker-Campbell-Hausdorff
-formula for operator exponentials:
+In deriving the second line, we have used
+Eqs.~\eqref{a}--\eqref{adagger} to express $\hat{p}$ in terms of
+$\hat{a}$ and $\hat{a}^\dagger$.  We can further simplify the result
+by using the Baker-Campbell-Hausdorff formula for operator
+exponentials:
 \begin{equation}
   \mathrm{If} \;\; [[\hat{A},\hat{B}],\hat{A}] = [[\hat{A},\hat{B}],\hat{B}] = 0
   \;\;\Rightarrow \;\; e^{\hat{A}+\hat{B}}
@@ -145,10 +153,10 @@ If we write the exponential in its series form,
  |\varnothing\rangle,
 \end{equation}
 then we see that from the point of view of the bosonic excitations of
-the original Hamiltonian $\hat{H}$, the state $|\alpha_1\,\rangle$
-contains an \textit{indeterminate number of bosons}.  It consists of a
-superposition of the zero-boson state (the vacuum), a one-boson state,
-a two-boson state, etc.
+the original Hamiltonian $\hat{H}$, the state $|\alpha_1\,\rangle$ has
+an \textit{indeterminate number of bosons}.  It is a superposition of
+the zero-boson (vacuum) state, a one-boson state, a two-boson state,
+etc.
 
 We can generalize the coherent state by performing a shift not just in
 space, but also in momentum.  Instead of Eq.~\eqref{hshift}, let us
@@ -167,6 +175,7 @@ It can then be shown that the ground state of $\hat{H}'$, which we
 denote by $|\alpha\rangle$, satisfies
 \begin{equation}
   \hat{a} \, |\alpha\rangle = \alpha \,|\alpha\rangle.
+  \label{aaction}
 \end{equation}
 (Note that $\hat{a}$ is not Hermitian, so its eigenvalue $\alpha$ need
 not be real.)  In explicit terms,
@@ -182,17 +191,21 @@ not be real.)  In explicit terms,
 There is one coherent state $|\alpha\rangle$ for each complex number
 $\alpha \in \mathbb{C}$.  They have the following properties:
 \begin{enumerate}
-\item They are normalized: $\langle\alpha|\alpha\rangle = 1$.  This is
-  obvious from the way they are defined (as ground states of displaced
-  harmonic oscillators).
+\item They are normalized:
+  \begin{equation}
+    \langle\alpha|\alpha\rangle = 1.
+    \label{normalization}
+  \end{equation}
+  This follows from the fact that they are ground states of displaced
+  harmonic oscillators.
 
-\item They form a complete set.  This means that the identity operator
-  can be resolved as
+\item They form a complete set, meaning that the identity operator can
+  be resolved as
   \begin{equation}
     \hat{I} = C \int d^2\alpha |\alpha\rangle\langle\alpha|,
   \end{equation}
-  where $C$ is some numerical constant, and $\int d^2\alpha$ denotes
-  an integral over the complex plane.  However, the coherent states do
+  where $C$ is some numerical constant and $\int d^2\alpha$ denotes an
+  integral over the complex plane.  However, the coherent states do
   \textit{not} form an orthonormal set, as they are over-complete:
   $\langle\alpha|\alpha'\rangle \ne 0$ for $\alpha \ne \alpha'$.
 
@@ -220,58 +233,62 @@ $\alpha \in \mathbb{C}$.  They have the following properties:
 
 \section{Dynamical properties}
 
-Consider the Hamiltonian
+Take the harmonic oscillator Hamiltonian with zero-point energy
+omitted for convenience:
 \begin{equation}
   \hat{H} = \hat{a}^\dagger \hat{a}.
 \end{equation}
-This is the harmonic oscillator Hamiltonian, with the zero-point
-energy omitted for convenience.  Suppose we initialize the system in a
-coherent state $|\alpha_0\rangle$, for some arbitrary $\alpha_0 \in
-\mathbb{C}$.  This is not an energy eigenstate of $\hat{H}$; how will
-it subsequently evolve?
+Suppose we initialize the system in a coherent state
+$|\alpha_0\rangle$ for some $\alpha_0 \in \mathbb{C}$.  This is not an
+energy eigenstate of $\hat{H}$, so how will it subsequently evolve?
 
-It turns out that the dynamical state will take the form
+It turns out that the dynamical state has the form
 \begin{equation}
   |\psi(t)\rangle = |\alpha(t)\rangle, \;\;\;\mathrm{where}\;\;\alpha(0) = \alpha_0.
 \end{equation}
-In other words, the system remains in a coherent state, but the
-complex $\alpha(t)$ will vary with time.  To determine $\alpha(t)$, we
+In other words, the system is always in a coherent state, but the
+complex parameter $\alpha(t)$ varies with time.  To find $\alpha(t)$,
 plug the ansatz into the time-dependent Schr\"odinger equation:
 \begin{align}
   i \frac{d}{dt} |\alpha(t)\rangle &= \hat{a}^\dagger \hat{a} |\alpha(t)\rangle\\
-  \Rightarrow \;\;\;
-  i \Big\langle\alpha(t)\Big| \frac{d}{dt} \Big|\alpha(t)\Big\rangle &=
+  i \,\Big\langle\alpha(t)\Big| \frac{d}{dt} \Big|\alpha(t)\Big\rangle &=
   |\alpha(t)|^2.
 \end{align}
-Using Eq.~\eqref{alphaexp}, it can be shown (after some algebra) that
-this reduces to
+We can calculate the left-hand side using Eqs.~\eqref{aaction},
+\eqref{alphaexp}, and \eqref{normalization}:
+\begin{align}
+  i \, \Big\langle\alpha(t)\Big| \frac{d}{dt} \Big|\alpha(t)\Big\rangle
+  &= i\, \langle \alpha(t) | \; \frac{d}{dt}
+  \exp\left[ e^{-|\alpha|^2/2} e^{\alpha\hat{a}^\dagger} \right]
+  |\varnothing\rangle \\
+  &= i\, \langle \alpha(t) | \left(-\frac{1}{2} \frac{d}{dt}(\alpha\alpha^*)
+  + \frac{d\alpha}{dt} \hat{a}^\dagger \right) |\alpha(t)\rangle \\
+  &= i \left(-\frac{1}{2} \dot{\alpha}\alpha^*
+  - \frac{1}{2}\alpha\dot{\alpha}^* + \dot{\alpha}\alpha^*\right).
+\end{align}
+Hence,
 \begin{equation}
   \frac{i}{2}\left(\dot{\alpha}\alpha^* - \alpha\dot{\alpha}^*\right) = |\alpha|^2.
   \label{eom}
 \end{equation}
-This complex differential equation looks complicated, but the solution
-is actually simple.  Let us define
+This looks complicated, but it's not.  Observe that if
 \begin{equation}
-  \alpha(t) = A(t) \, e^{i\phi(t)},
+  \frac{d\alpha}{dt} = -i \alpha(t)
+  \label{eom2}
 \end{equation}
-where $A(t)$ and $\phi(t)$ are real.  Substituting this into
-Eq.~\eqref{eom} gives just
+Then Eq.~\eqref{eom} is automatically satisfied.  The solution to
+Eq.~\eqref{eom2} that satisfies the initial condition $\alpha(t) =
+\alpha_0$ is simply
 \begin{equation}
-  \frac{d\phi}{dt} = -1.
-\end{equation}
-Thus, the solution to Eq.~\eqref{eom} for the intial condition
-$\alpha(t) = \alpha_0$ is
-\begin{equation}
-  \alpha(t) = \alpha_0 \, e^{-it} = |\alpha_0| e^{-i[t - \mathrm{arg}(\alpha_0)]}.
+  \alpha(t) = \alpha_0 \; e^{-it}.
 \end{equation}
 Referring back to Eqs.~\eqref{x}--\eqref{p}, this implies that the
-mean position and momentum satisfies
+mean position and momentum have the following time-dependence:
 \begin{align}
   \langle x\rangle &=\, \;\;\sqrt{2} |\alpha_0| \cos\left[t - \mathrm{arg}(\alpha_0)\right] \\
   \langle p\rangle &= -\sqrt{2} |\alpha_0| \sin\left[t - \mathrm{arg}(\alpha_0)\right].
 \end{align}
-Hence, we conclude that that dynamics of a coherent state reproduces
-the motion of a classical simple harmonic oscillator with $m =
-\omega_0 = 1$.
+The dynamics of a coherent state therefore reproduces the motion of a
+classical harmonic oscillator with $m = \omega_0 = 1$.
 
 \end{document}
