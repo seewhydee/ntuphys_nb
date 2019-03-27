@@ -63,8 +63,12 @@ operators for a bosonic particle that has only one single-particle
 state.
 
 The Hamiltonian for the harmonic oscillator, Eq.~\eqref{hsho}, can be
-written as $\hat{H} = \hat{a}^\dagger\hat{a} + 1/2$.  The annihilation
-operator $\hat{a}$ kills off the ground state $|\varnothing\rangle$:
+written as
+\begin{equation}
+  \hat{H} = \hat{a}^\dagger\hat{a} + 1/2.
+\end{equation}
+The annihilation operator $\hat{a}$ kills off the ground state
+$|\varnothing\rangle$:
 \begin{equation}
   \hat{a} |\varnothing\rangle = 0.
   \label{annihilation}
@@ -80,16 +84,20 @@ proportional to $\hat{x}$:
 \end{equation}
 The coefficient of $-\sqrt{2}\alpha_1$, where $\alpha_1 \in
 \mathbb{R}$, is for later convenience.  By completing the square, we
-can show that this additional term corresponds to a
-\textit{displacement} of the center of the potential, plus an energy
-shift:
+see that this additional term corresponds to a shift in the center of
+the potential, plus an energy shift:
 \begin{equation}
   \hat{H}' = \frac{\hat{p}^2}{2} + \frac{1}{2}\left(\hat{x} - \sqrt{2}\alpha_1\right)^2 - \alpha_1^2.
 \end{equation}
-Let $|\alpha_1\rangle$ denote the ground state for the displaced and
-shifted harmonic oscillator.  By analogy with how we solved the
-original harmonic oscillator problem, let us define a new annihilation
-operator with displaced $x$:
+Let $|\alpha_1\rangle$ denote the ground state for the shifted
+harmonic oscillator.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.6\textwidth]{coherent_state}
+\end{figure}
+
+By analogy with how we solved the original harmonic oscillator
+problem, let us define a new annihilation operator with displaced $x$:
 \begin{align}
   \hat{a}' = \frac{1}{\sqrt{2}}\left(\hat{x} - \sqrt{2}\alpha_1 + i \hat{p}\right).
 \end{align}
@@ -113,7 +121,7 @@ In other words, $|\alpha_1\rangle$ is an eigenstate of the original
 harmonic oscillator's annihilation operator, with the displacement
 parameter $\alpha_1$ as the corresponding eigenvalue!  For reasons
 that will become clear later, we call $|\alpha_1\rangle$ a
-\textbf{coherent state} of the harmonic oscillator $\hat{H}$.
+\textbf{coherent state} of the original harmonic oscillator $\hat{H}$.
 
 \section{Explicit expression for the coherent state}
 
