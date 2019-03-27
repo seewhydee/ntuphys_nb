@@ -1153,6 +1153,7 @@ are familiar with, for reasons that lie outside the scope of this
 course.)
 
 \subsection{Revisiting the harmonic oscillator}
+\label{sec:ho}
 
 Before delving into the links between classical fields and bosonic
 quantum fields, it is first necessary to revisit the harmonic
@@ -1255,69 +1256,61 @@ start with creation and annihilation operators satisfying
 Eq.~\eqref{create_annihilate_qho}, from which
 Eqs.~\eqref{heisenbergeq}--\eqref{at} follow.  Using the creation and
 annihilation operators, we would like to construct an observable that
-corresponds to a classical oscillator variable.  A natural ansatz is
+corresponds to a classical oscillator variable.  A natural Hermitian
+ansatz is
 \begin{equation}
   \hat{x}(t) = 
-  \mathcal{C}\, \hat{a} \,e^{-i\omega t} \,+\,
-  \mathcal{C}^*\, \hat{a}^\dagger\, e^{i\omega t},
+  \mathcal{C} \left(\hat{a} \,e^{-i\omega t} \,+\,
+  \hat{a}^\dagger\, e^{i\omega t}\right),
   \label{xtc}
 \end{equation}
-which is manifestly Hermitian.
+where $\mathcal{C}$ is a constant that is conventionally taken to be
+real.
 
-How might the constant $\mathcal{C}$ be chosen?  A convenient method
-is to identify how the oscillator variable relates to the oscillator
-energy \textit{in the classical limit}.  For a standard classical
-harmonic oscillator, the energy satisfies
-\begin{equation}
-  E = m\omega^2\, \overline{x^2},
-  \label{xavg2}
-\end{equation}
-where $\overline{x^2}$ denotes the mean squared displacement over an
-oscillation cycle.  This can be proven rigorously from
-Eqs.~\eqref{Hclass}--\eqref{xt0}; one way to remember it is that the
-average kinetic energy of a harmonic oscillator equals its average
-potential energy (this is an instance of the virial theorem of
-classical mechanics).
-
-The classical limit of a quantum harmonic oscillator is defined using
-a \textit{coherent state}, which is a quantum state $|\alpha\rangle$
-labelled by a complex number $\alpha$, such that
+How might $\mathcal{C}$ be chosen?  A convenient way is to study the
+behavior of the oscillator variable \textit{in the classical limit}.
+The classical limit of a quantum harmonic oscillator is described by a
+\textbf{coherent state}.  The details of how this state is defined
+need not concern us for now (see Appendix E).  The most important
+things to know are that (i) it can be denoted by $|\alpha\rangle$
+where $\alpha \in \mathbb{C}$, (ii) it is an eigenstate of the
+annihilation operator:
 \begin{equation}
   \hat{a}|\alpha\rangle = \alpha|\alpha\rangle.
   \label{coherent}
 \end{equation}
-How this state is defined need not concern us for now; for details,
-see Appendix E.  In this state, the expectation value of the energy is
+And (iii) its energy expectation value is
 \begin{equation}
-  \langle E\rangle =
-  \langle\alpha|\hat{H}|\alpha\rangle = \hbar \omega \left(|\alpha|^2 + \frac{1}{2}\right).
+  \langle E\rangle = \ \langle\alpha|\hat{H}|\alpha\rangle = \hbar
+  \omega \left(|\alpha|^2 + \frac{1}{2}\right)
+  \overset{|\alpha|^2\rightarrow\infty}{\longrightarrow} \hbar \omega
+  |\alpha|^2.
   \label{Havg1}
 \end{equation}
-We can use Eq.~\eqref{coherent} with Eq.~\eqref{xtc} to compute the
-expectated mean squared displacement in the coherent state.  We
-moreover assume that $\mathcal{C}$ is real (this is a matter of
-convention; the creation and annihilation operators can always be
-re-defined so that this holds), so
+When the system is in a coherent state, we can effectively substitute
+the $\hat{a}$ and $\hat{a}^\dagger$ operators in Eq.~\eqref{xtc} with
+the complex numbers $\alpha$ and $\alpha^*$, which gives a classical
+trajectory
 \begin{equation}
-  \langle\alpha|\hat{x}^2(t)|\alpha\rangle
-  = \mathcal{C}^2 \left(\alpha^2 \, e^{-2i\omega t} + 2|\alpha|^2
-  + \alpha^{*2} \,e^{2i\omega t} \right).
+  x_{\mathrm{classical}}(t) = \mathcal{C} \left(\alpha \,e^{-i\omega t} \,+\,
+  \alpha^*\, e^{i\omega t}\right).
+  \label{xtc2}
 \end{equation}
-Averaging over an oscillation cycle,
+This trajectory has amplitude $2\mathcal{C}|\alpha|$.  At maximum
+displacement, the classical momentum is zero, so the total energy of
+the classical oscillator must be
 \begin{equation}
-  \overline{\langle\alpha|\hat{x}^2(t)|\alpha\rangle}
-  = 2\, \mathcal{C}^2 |\alpha|^2.
-  \label{xavg1}
+  E_{\mathrm{classical}}
+  = \frac{1}{2} m\omega^2 \Big(2\mathcal{C}|\alpha|\Big)^2
+  = 2m\omega^2 \mathcal{C}^2 |\alpha|^2.
+  \label{Eclassical}
 \end{equation}
-Finally, the classical limit is reached by taking $|\alpha|\rightarrow
-\infty$ (so that the energy is much larger than the energy quantum
-$\hbar\omega$).  Combining Eqs.~\eqref{xavg2}, \eqref{Havg1}, and
-\eqref{xavg1} in this limit gives
-\begin{align}
-  \hbar \omega |\alpha|^2 &= m\omega^2 \cdot 2\mathcal{C}^2|\alpha|^2 \\
-  \Rightarrow\qquad\quad \mathcal{C} &= \sqrt{\frac{\hbar}{2m\omega}}.
-\end{align}
-This is precisely the scale factor found in Eq.~\eqref{xtquantum}.
+Equating the classical energy \eqref{Eclassical} to the coherent state
+energy \eqref{Havg1} gives
+\begin{equation}
+  \mathcal{C} = \sqrt{\frac{\hbar}{2m\omega}},
+\end{equation}
+which is precisely the scale factor found in Eq.~\eqref{xtquantum}.
 
 \subsection{A scalar boson field}
 
@@ -1353,8 +1346,8 @@ normalized according to some fixed convention, e.g.
   \int_0^L dx \, |\varphi_n(x)|^2 = 1.
 \end{equation}
 
-By substituting Eq.~\eqref{fnorm} into Eq.~\eqref{waveeqn}, and using
-the periodic boundary conditions, we find
+Substituting Eq.~\eqref{fnorm} into Eq.~\eqref{waveeqn}, and using
+the periodic boundary conditions, gives
 \begin{align}
   \varphi_n(x) = \frac{1}{\sqrt{L}}\, \exp\left(ik_n x\right), \;\;\;
   \omega_n = c k_n = \frac{2\pi c n}{L}, \;\;\; n \in \mathbb{Z}.
@@ -1364,27 +1357,25 @@ These mode profiles are orthonormal:
 \begin{equation}
   \int_0^L dx \, \varphi_m^*(x) \, \varphi_n(x) = \delta_{mn}.
 \end{equation}
-Each normal mode also carries energy.  We assume that the
-time-averaged energy density has the form
+Each normal mode carries energy.  By analogy with the classical
+harmonic oscillator---see Eqs.~\eqref{xtc2}--\eqref{Eclassical}---we
+assume that the energy density (i.e., energy per unit length) is
+proportional to the square of the field variable.  Let it have the
+form
 \begin{equation}
-  U(x) = \rho \, \overline{|f(x)|^2},
-  \label{classical_energy_density}
+  U(x) = 2 \rho \sum_n|A_n|^2 \, |\varphi_n(x)|^2,
+  \label{Edensity}
 \end{equation}
 where $\rho$ is some parameter that has to be derived from the
-underlying physical context, and $\overline{(\cdots)}$ denotes a
-time-average.  (For example, for acoustic modes, $\rho$ is the mass
-density of the underlying acoustic medium; in the next chapter, we
-will see a concrete example involving the energy density of an
-electromagnetic mode.)  Hence, using Eq.~\eqref{fnorm}, we find the
-time-averaged total energy
-\begin{align}
-  \begin{aligned}
-  \overline{E} &= \int_0^L dx \; U(x)\\
-  &= \int_0^L dx \; \rho \left(2 \sum_n|A_n|^2 \, |\varphi_n(x)|^2\right)\\
-  &= 2 \rho \sum_n |A_n|^2.
-  \end{aligned}
+underlying physical context.  For example, for acoustic modes, $\rho$
+is the mass density of the underlying acoustic medium; in the next
+chapter, we will see a concrete example involving the energy density
+of an electromagnetic mode.  From Eq.~\eqref{Edensity}, the total
+energy is
+\begin{equation}
+  E = \int_0^L dx \; U(x) = 2  \rho \sum_n |A_n|^2.
   \label{classical_energy}
-\end{align}
+\end{equation}
 
 To quantize the classical field, we treat each normal mode as an
 independent oscillator, with creation and annihilation operators
@@ -1405,8 +1396,7 @@ solving its Heisenberg equation yields
 \begin{equation}
   \hat{a}_n(t) = \hat{a}_n e^{-i\omega_n t}.
 \end{equation}
-We can then define a Schr\"odinger picture Hermitian operator of the
-form
+We then define a Schr\"odinger picture Hermitian operator of the form
 \begin{equation}
   \hat{f}(x) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x)
   + \hat{a}_n^\dagger \varphi_n^*(x) \Big),
@@ -1416,15 +1406,35 @@ The corresponding Heisenberg picture operator is
 \begin{equation}
   \hat{f}(x,t) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
   + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big),
+  \label{fxt}
 \end{equation}
-which we can identify as the quantum version of the classical solution
+which we is the quantum version of the classical solution
 \eqref{fnorm}.
 
-To determine the $\mathcal{C}_n$ scale factors, we again follow the
-procedure from the previous section, comparing the energy of the
-quantum system's classical limit to the energy of the classical field
-theory; the latter is described by Eq.~\eqref{classical_energy}.  The
-resulting field operator is
+To determine the $\mathcal{C}_n$ scale factors, we consider the
+classical limit.  The procedure is a straightfoward generalization of
+the harmonic oscillator case discussed in Section~\ref{sec:ho}.  We
+introduce a coherent state
+\begin{equation}
+  \hat{a}_n |\alpha_1, \alpha_2, \dots\rangle =
+  \alpha_n |\alpha_1, \alpha_2, \dots\rangle,
+\end{equation}
+whose energy expectation value is
+\begin{equation}
+  \langle E\rangle = \sum_n \hbar \omega_n |\alpha_n|^2.
+  \label{Ecoherent_field}
+\end{equation}
+In the coherent state, the $\hat{a}_n$ and $\hat{a}_n^\dagger$
+operators in Eq.~\eqref{fxt} can be replaced with $\alpha_n$ and
+$\alpha_n^*$ respectively.  Hence, we identify $\mathcal{C}_n
+\alpha_n$ as the classical mode amplitude $\mathcal{A}_n$ in
+Eq.~\eqref{fnorm}.  In order for the classical energy
+\eqref{classical_energy} to match the coherent state energy
+\eqref{Ecoherent_field}, we need
+\begin{equation}
+  \mathcal{C}_n = \sqrt{\frac{\hbar\omega_n}{2\rho}}.
+\end{equation}
+Hence, the appropriate field operator is
 \begin{equation}
   \hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho}}
   \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
