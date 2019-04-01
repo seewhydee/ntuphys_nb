@@ -6,6 +6,7 @@
 \usepackage{mathrsfs}
 \usepackage{enumerate}
 \usepackage{epigraph}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -35,21 +36,21 @@
 
 This chapter provides a survey of \textbf{quantum electrodynamics},
 the quantum theory of the electromagnetic field and its interaction
-with electrically charged particles, such as electrons.  We start by
+with electrically charged particles such as electrons.  We start by
 formulating Hamiltonians to describe how a quantum mechanical electron
-is affected by classical electric and magnetic fields.  Next, we
-describe the quantization of Maxwell's equations, which yields a
-quantum field theory in which the elementary excitations are
-photons---particles of light.  The last step is to formulate a theory
-in which both electrons and photons are treated on the same footing,
-as excitations of underlying quantum fields.  Along the way, we will
-see how relativity can be accomodated within quantum mechanics.
+is affected by classical electromagnetic fields.  Next, we describe
+the quantization of Maxwell's equations, which yields a quantum field
+theory in which the elementary excitations are photons---particles of
+light.  The last step is to formulate a theory in which both electrons
+and photons are treated on the same footing, as excitations of
+underlying quantum fields.  Along the way, we will see how relativity
+can be accomodated with quantum mechanics.
 
 Quantum electrodynamics is a rich and intricate theory, and we will
-not be able to cover a lot of important ground, such as the
-relationship with special relativity and diagrammatic methods for
-performing field theoretical calculations.  For further reading, the
-interested student may refer to Dyson's 1951 lecture notes
+not be able to cover many important areas, such as the detailed
+relationship with special relativity or diagrammatic methods for
+performing field theoretical calculations.  For further reading, two
+recommended texts are Dyson's 1951 lecture notes
 (\hyperref[cite:dyson]{Dyson 1951}) and Zee's introductory textbook
 \textit{Quantum Field Theory in a Nutshell} (\hyperref[cite:zee]{Zee
   2010}).
@@ -63,21 +64,21 @@ Consider a non-relativistic charged particle in an electromagnetic
 field.  As we are mainly interested in the physics of electrons
 interacting with electromagnetic fields, we will henceforth take the
 electric charge of the particle to be $-e$, where $e =
-1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  (To
+1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  To
 describe particles with an arbitrary electric charge $q$, simply
 perform the substitution $e \rightarrow -q$ in all formulas in the
-rest of this chapter.)
+rest of this chapter.
 
-We wish to formulate the Hamiltonian governing the quantum dynamics of
-such a particle, subject to two simplifying assumptions: (i) the
+We begin by formulating the Hamiltonian governing the quantum dynamics
+of such a particle, subject to two simplifying assumptions: (i) the
 particle has charge and mass but is otherwise ``featureless'' (i.e.,
 unlike a real electron, it has no spin angular momentum, and no
 magnetic dipole moment), and (ii) the electromagnetic field is treated
 as a classical field (i.e., the electric and magnetic fields are
-definite quantities).
+definite quantities).  We will show how to drop these simplifications
+in subsequent sections.
 
-Let us first derive the \textit{classical} equations of motion.  In
-the classical regime, the action of an electromagnetic field on a
+In the classical regime, the action of an electromagnetic field on a
 point charged particle is decribed by the Lorentz force law,
 \begin{equation}
   \mathbf{F}(\mathrm{r},t) = -e\Big(\mathbf{E}(\mathrm{r},t)
@@ -94,32 +95,40 @@ Newton's second law, the equation of motion is
   \label{eom}
 \end{equation}
 where $m$ is the particle's mass.  To quantize this, we must convert
-this equation of motion into the form of Hamilton's equations of
+the equation of motion into the form of Hamilton's equations of
 motion.
 
-First, we introduce the electromagnetic scalar and vector potentials
+Let us introduce the electromagnetic scalar and vector potentials
 $\Phi(\mathrm{r},t)$ and $\mathbf{A}(\mathrm{r},t)$, where
 \begin{align}
   \mathbf{E}(\mathbf{r},t) &= - \nabla \Phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t} \\
   \mathbf{B}(\mathbf{r},t) &= \nabla \times \mathbf{A}(\mathbf{r},t).
   \label{Bfield}
 \end{align}
-We now postulate that the above equation of motion can be described by
-the Lagrangian
+We now postulate that the equation of motion \eqref{eom} can be
+described by the Lagrangian
+\begin{framed}
 \begin{equation}
   L(\mathbf{r},\dot{\mathbf{r}},t) = \frac{1}{2}m\dot{\mathbf{r}}^2
   + e \Big[\Phi(\mathbf{r},t) - \dot{\mathbf{r}} \cdot \mathbf{A}(\mathbf{r},t)
     \Big].
+  \label{Lag}
 \end{equation}
+\end{framed}
+\vskip -0.15in
+\noindent
 This is very similar to the usual prescription for the Lagrangian as
 the kinetic energy minus the potential energy, with $-e\Phi$ serving
 as the potential energy function.  However, there is an extra
-$-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term; this will turn out to be
-responsible for the magnetic force.  Let us plug the Lagrangian into
-the Euler-Lagrange equations:
+$-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term, which will turn out to be
+responsible for the magnetic force.
+
+We want to plug the Lagrangian \eqref{Lag} into the Euler-Lagrange
+equations
 \begin{equation}
   \frac{\partial L}{\partial r_i} = \frac{d}{dt}
   \frac{\partial L}{\partial \dot{r}_i}.
+  \label{EulerLagrange}
 \end{equation}
 The partial derivatives of the Lagrangian are:
 \begin{align}
@@ -144,7 +153,7 @@ $t$-dependent position.  Thus,
 (In the above equations, $\partial_i \equiv \partial/\partial r_i$,
 where $r_i$ is the $i$-th component of the position vector, while
 $\partial_t \equiv \partial/\partial t$.)  Plugging these expressions
-into the Euler-Lagrange equations yields
+into the Euler-Lagrange equations \eqref{EulerLagrange} gives
 \begin{align}
   \begin{aligned}
     m\ddot{r}_i &=
@@ -164,11 +173,11 @@ We can now use the Lagrangian to derive the Hamiltonian.  The
 canonical momentum is
 \begin{equation}
   p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i.
+  \label{canonp}
 \end{equation}
-The Hamiltonian can be defined as $H(\mathbf{r},\mathbf{p}) =
-\mathbf{p} \cdot \dot{\mathbf{r}} - L$.  This has to be expressed
-using the $\mathbf{p}$ variables rather than $\dot{\mathbf{r}}$
-variables:
+The Hamiltonian is defined as $H(\mathbf{r},\mathbf{p}) = \mathbf{p}
+\cdot \dot{\mathbf{r}} - L$, and we use Eq.~\eqref{canonp} to be
+express it in terms of $\mathbf{p}$ rather than $\dot{\mathbf{r}}$:
 \begin{align}
   \begin{aligned}
     H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
@@ -181,30 +190,32 @@ variables:
   \end{aligned}
 \end{align}
 After cancelling various terms, we arrive at the result
-\begin{equation}
-H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
-\end{equation}
-
-This looks a lot like the familiar Hamiltonian for a non-relativistic
-particle that we have dealt with many times,
-\begin{equation}
+\begin{framed}
+  \begin{equation}
+    H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
+  \end{equation}
+\end{framed}
+\vskip -0.15in
+\noindent
+This looks much like the familiar Hamiltonian for a non-relativistic
+particle,
+\begin{equation*}
   H = \frac{|\mathbf{p}|^2}{2m} + V(\mathbf{r},t).
-\end{equation}
-The scalar potential $\Phi(\mathbf{r},t)$ enters into the potential
-energy term, as might be expected.  What may be more surprising is
-that the vector potential appears via the substitution
+\end{equation*}
+The electromagnetic scalar potential $\Phi(\mathbf{r},t)$ acts like a
+potential energy term, as might be expected.  More surprising is the
+fact that the vector potential appears via the substitution
 \begin{equation}
   \mathbf{p} \rightarrow \mathbf{p} + e\mathbf{A}(\mathbf{r},t).  
 \end{equation}
 What does this mean?
 
 To answer this, think about what ``momentum'' means in the context of
-a charged particle in an electromagnetic field.  The meaning of
-``momentum'' is rooted in Noether's theorem, which states that every
-symmetry of a system (whether classical or quantum) is associated with
-a conserved quantity.  Momentum is the quantity conserved when the
-system is symmetric under spatial translations.  We can see this from
-the Hamilton equation
+a charged particle in an electromagnetic field.  Noether's theorem
+states that every symmetry of a system (whether classical or quantum)
+is associated with a conserved quantity.  Momentum is the quantity
+conserved when the system is symmetric under spatial translations.  We
+can see this from the Hamilton equation
 \begin{equation*}
   \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
 \end{equation*}
@@ -234,19 +245,24 @@ conserved:
   \frac{d}{dt}(m\dot{\mathbf{r}} - e\mathbf{A}) =
   eC\hat{z} - eC\hat{z} = 0.
 \end{equation}
+Hence, this quantity serves as appropriate canonical momentum for a
+particle in an electromagnetic field.
 
-The last step is to go from classical to quantum mechanics.  For this,
-we merely need to replace $\mathbf{r}$ with the position operator
+The last step is to go from classical to quantum mechanics.  To do
+this, we simply replace $\mathbf{r}$ with the position operator
 $\hat{\mathbf{r}}$, and $\mathbf{p}$ with the momentum operator
-$\hat{\mathbf{p}}$.  Hence, the quantum Hamiltonian is
-\begin{equation}
-\boxed{\qquad
-  \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\Phi(\hat{\mathbf{r}},t).\qquad}
-  \label{quantumH}
-\end{equation}
-In the wavefunction representation, the momentum operator is
-$\hat{\mathbf{p}} = -i\hbar\nabla$, as usual.
+$\hat{\mathbf{p}}$.  The resulting quantum Hamiltonian is
+\begin{framed}
+  \begin{equation}
+    \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
+    - e\Phi(\hat{\mathbf{r}},t).
+    \label{quantumH}
+  \end{equation}
+\end{framed}
+\vskip -0.15in
+\noindent
+Note: the momentum operator is $\hat{\mathbf{p}} = -i\hbar\nabla$
+in the wavefunction representation, as usual.
 
 \subsection{Gauge symmetry}
 \label{sec:gauge}
@@ -317,7 +333,7 @@ in square brackets on the right-hand side of
   \Big|-i\hbar\nabla + e\mathbf{A} + e\nabla\Lambda\;\Big|^2
   \left[\psi \, \exp\left(-\frac{ie\Lambda}{\hbar}\right)\right]  
   =   \Big[\left|-i\hbar\nabla + e\mathbf{A}\right|^2\psi\Big]\;
-  \exp\left(-\frac{ie\Lambda}{\hbar}\right)
+  \exp\left(-\frac{ie\Lambda}{\hbar}\right).
 \end{equation}
 The remainder of the proof for Eq.~\eqref{gaugeschrod} can be carried
 out in a straightforward manner.
@@ -341,13 +357,13 @@ $\{\,\psi_m(\mathbf{r}) \exp[-ie\Lambda(\mathbf{r})/\hbar]\,\}$.
 
 \subsection{The Aharonov-Bohm effect}
 
-Unlike classical electrodynamics, quantum electrodynamics has the
-scalar and vector potentials entering directly into the theory, not
-the electric and magnetic fields.  This has many profound
-consequences.  For example, when a charged quantum particle resides in
-a region with zero magnetic field, it can still feel the effect of
-nonzero \textit{vector potentials} produced by magnetic fluxes
-elsewhere in space.  This is called the \textbf{Aharonov-Bohm effect}.
+In quantum electrodynamics, the fields that enter directly into the
+theory are the scalar and vector potentials, not the electric and
+magnetic fields.  This has many profound consequences.  For example,
+even if a charged quantum particle resides in a region with zero
+magnetic field, it can feel the effect of nonzero \textit{vector
+  potentials} produced by magnetic fluxes elsewhere in space.  This is
+called the \textbf{Aharonov-Bohm effect}.
 
 A simple setting for observing the Aharonov-Bohm effect is shown in
 the figure below.  A particle is trapped in a ring-shaped region (an
@@ -369,12 +385,13 @@ flux can be described via the vector potential
   \mathbf{A}(r,\phi) = \frac{\Phi_B}{2\pi r} \, \hat{e}_\phi.
   \label{Asolenoid}
 \end{equation}
-We can verify from Eq.~\eqref{Asolenoid} that the magnetic flux
+We can verify from Eq.~\eqref{Asolenoid} that the total magnetic flux
 through any loop of radius $r$ enclosing the origin is $(\Phi_B/2\pi
-r)(2\pi r) = \Phi_B$, independent of $r$.  Hence, the magnetic flux is
-confined to an infintesimal area surrounding the origin, with
-$\mathbf{B} = 0$ everywhere else. The vector potential $\mathbf{A}$,
-however, is nonzero everywhere.
+r)(2\pi r) = \Phi_B$.  The fact that this is independent of $r$
+implies that the magnetic flux density is concentrated in an
+infintesimal area surrounding the origin, and zero everywhere
+else. However, the vector potential $\mathbf{A}$ is nonzero
+everywhere.
 
 The time-independent Schr\"odinger equation is
 \begin{equation}
@@ -387,13 +404,18 @@ with the boundary conditions $\psi(R\pm d/2,0) = 0$.  For sufficiently
 large $R$, we can guess that the eigenfunctions have the form
 \begin{equation}
   \psi(r,\phi) \approx
+  \begin{cases}
   \psi_0 \, \cos\left(\frac{\pi}{d}(r-R)\right)\, e^{i k R \phi},
+  & r \in [R-d/2, R + d/2] \\
+  0 & \textrm{otherwise}.
+  \end{cases}
 \end{equation}
-where $\psi_0$ is a normalization constant.  This describes a waveform
-with a half-wavelength wave profile in the $r$ direction (so as to
-vanish at $r = R \pm d/2$), and traveling along the azimuthal
-direction with wavenumber $k$.  In order for the wavefunction to be
-single-valued,
+This has the form of a ``waveguide mode'', posessing a half-wavelength
+wave profile in the $r$ direction (so as to vanish at $r = R \pm d/2$)
+and traveling along the azimuthal direction with wavenumber $k$.  The
+normalization constant $\psi_0$ is unimportant.  We need the
+wavefunction to be single-valued under a $2\pi$ variation in the
+azimuthal coordinate, so
 \begin{equation}
   k \cdot 2\pi R = 2\pi n \;\;\;\Rightarrow \;\;\; k = \frac{n}{R},
   \;\;\;\mathrm{where}\;\; n \in \mathbb{Z}.
@@ -419,18 +441,18 @@ manifestation of the Aharonov-Bohm effect.
   \centering\includegraphics[width=0.65\textwidth]{abring}
 \end{figure}
 
-One very interesting feature of this energy spectrum is that it
-remains the same whenever the magnetic flux changes by an exact
-multiple of $h/e = 4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$.
-This fundamental unit of magnetic flux is called the \textbf{magnetic
-  flux quantum}.  Notably, it does not depend on the radius of the
-annulus, or any other geometrical parameters of the system.  This is
-because the invariance property arises from the gauge symmetry of the
-Hamiltonian.  When an extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is
-threaded through the annulus, Eq.~\eqref{Asolenoid} tells us that the
-change in vector potential is $\Delta \mathbf{A} = (n\hbar/ e r)
-\hat{e}_\phi$.  We can undo the effects of this additional vector
-potential using the gauge field
+One notable feature of this energy spectrum is that it remains the
+same whenever the magnetic flux changes by an exact multiple of $h/e =
+4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$.  This fundamental
+unit of magnetic flux is called the \textbf{magnetic flux quantum}.
+Notably, it does not depend on the radius of the annulus, or any other
+geometrical parameters of the system.  This is because the invariance
+property arises from the gauge symmetry of the Hamiltonian.  When an
+extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded through the
+annulus, Eq.~\eqref{Asolenoid} tells us that the change in vector
+potential is $\Delta \mathbf{A} = (n\hbar/ e r) \hat{e}_\phi$.  We can
+undo the effects of this additional vector potential using the gauge
+field
 \begin{equation}
   \Lambda(r,\phi) = - \frac{n\hbar}{e} \, \phi \;\;\;\Rightarrow
   \begin{cases}\nabla \Lambda &= \displaystyle (n\hbar/er) \hat{e}_\phi
@@ -440,8 +462,8 @@ potential using the gauge field
 Note that the gauge field $\Lambda$ is not single-valued---but that's
 not a problem, since both $\nabla\Lambda$ and the phase factor
 $\exp(-ie\Lambda/\hbar)$, which respectively enter into the vector
-potential and wavefunction (which are the ``actual'' physical
-quantities), \textit{are} single-valued!
+potential and wavefunction (the ``actual'' physical quantities),
+\textit{are} single-valued!
 
 \subsection{The Dirac Hamiltonian}
 \label{sec:DiracH}
