@@ -30,112 +30,174 @@
 {\large \textbf{Appendix C: Entropy}}
 \end{center}
 
-``Entropy'' is an important theoretical concept, used in multiple
-fields of science and mathematics, that provides a way to quantify
-one's lack of knowledge about a complex system.  In thermodynamics and
-statistical mechanics, the quantity called \textbf{thermodynamic
-  entropy} describes our uncertainty about the precise microscopic
-details, or ``microstate'', of a many-body system.  In the
-mathematical field of information theory, the quantity called
-\textbf{information entropy}, also called \textbf{Shannon entropy}
-after its inventor Claude Shannon, describes the uncertainty about the
-contents of a transmitted message.  One of the most profound
-developments in theoretical physics in the 20th century was the
-discovery, by E.~T.~Jaynes in 1957, that statistical mechanics can be
-formulated in terms of information theory.  In light of Jaynes' work,
-the thermodynamics-based and information-based concepts of entropy are
-one and the same.  For details about this fascinating topic, see
-\hyperref[cite:jaynes]{Jaynes (1957)} and
+``Entropy'' is an important theoretical concept that provides a way to
+quantify one's lack of knowledge about a complex system.  It is used
+in multiple fields of science and mathematics; in thermodynamics and
+statistical mechanics, \textbf{thermodynamic entropy} describes the
+uncertainty about the precise microscopic details, or ``microstate'',
+of a large physical system.  In the mathematical field of information
+theory, the quantity called \textbf{information entropy}, also called
+\textbf{Shannon entropy} after its inventor Claude Shannon, describes
+the uncertainty about the contents of a transmitted message.  One of
+the most profound developments in theoretical physics in the 20th
+century was the discovery by E.~T.~Jaynes in 1957 that statistical
+mechanics can be formulated in terms of information theory.  In light
+of Jaynes' work, the thermodynamics-based and information-based
+concepts of entropy are one and the same.  For details about this
+topic, see \hyperref[cite:jaynes]{Jaynes (1957)} and
 \hyperref[cite:jaynes2]{Jaynes (1957a)}.  In this appendix, we will
 summarize the definition of entropy in classical physics, and how it
-is related to other thermodynamic quantities.
+is related to other physical quantities.
 
-Suppose a system has discrete microstates labeled by integers
-$\{1,2,3,\dots\}$ , which have probabilities $\{p_1, p_2, p_3,
-\dots\}$.  Then the entropy of the system is defined as
-$$S_{\mathrm{cl.}} = - k_B \sum_{i} p_i \ln(p_i).$$
-The probabilities $p_i$ are \textit{conditional} probabilities.  They
-are conditioned on the set of known facts about the macroscopic
-features of the system (e.g., in some cases we might know the total
-energy $E$).
+\section{Definition}
 
-Consider the behavior of $S_{\mathrm{cl.}}$ under two extreme
+Suppose a system has $W$ discrete microstates labeled by integers
+$\{1,2,3,\dots, W\}$ , which have probabilities $\{p_1, p_2, p_3,
+\dots, p_W\}$.  Then the entropy of the system is defined as
+\begin{equation}
+  S = - k_b \, \sum_{i=1}^W p_i \ln(p_i),
+  \label{Sdef}
+\end{equation}
+where $k_b$ is Boltzmann's constant.  The probabilities $p_i$ are
+\textit{conditional} probabilities, conditioned on the set of known
+macroscopic features of the system.  For example, if we know the
+system's total energy, the set of microstates used in Eq.~\eqref{Sdef}
+can only include microstates which have precisely that energy.
+
+Consider the behavior of $S$ under two extreme
 scenarios:
 
-In the first scenario, we know the exact microstate of the system
-(i.e., $p_k = 1$ for some $k$).  In this case, the entropy formula
-gives $S_{\mathrm{cl.}} = 0$.
+\begin{itemize}
+\item If we know the exact microstate of the system (i.e., $p_k = 1$
+  for some $k$), the entropy is $S = 0$.  This scenario
+  describes a state of complete certainty.
 
-In the second scenario, we are in a state of ``complete uncertainty''.
-This can happen if the system is at equilibrium, with a fixed total
-energy $E$, and does not interact with the rest of the universe.  For
-such a system, which is called a \textbf{micro-canonical ensemble},
-the \textbf{ergodicity postulate} of statistical mechanics states that
-all possible microstates with energy $E$ are equally probable.  If
-there are $W$ possible microstates, the probabilities are
-$$p_i = \frac{1}{W} \;\;\forall i \in \{1,2,\dots,W\}.$$
-Therefore, the entropy formula gives
-$$S_{\mathrm{cl.}} \,=\, -k_B W \frac{1}{W} \ln(1/W) \;=\; k_B \ln W,$$
-the famous result carved into the gravestone of Ludwig Boltzmann.
-Note that this expression has an implicit energy dependence: changing
-$E$ varies $W$ and hence $S_{\mathrm{cl.}}$.
+
+\item If there are $W$ possible microstates, each with equal
+  probabilities
+  \begin{equation}
+    p_i = \frac{1}{W} \;\;\forall i \in \{1,2,\dots,W\}.
+  \end{equation}
+  This describes a state of complete uncertainty.  In statistical
+  mechanics, it occurs when a system is at equilibrium, with a fixed
+  total energy $E$, and does not interact with the rest of the
+  universe (a \textbf{micro-canonical ensemble}).  In such a
+  situation, the \textbf{ergodicity postulate} states that all
+  possible microstates with energy $E$ are equally probable.
+  Then the entropy is
+  \begin{equation}
+    S \,=\, -k_b W \frac{1}{W} \ln(1/W) \;=\; k_b \ln W.
+  \end{equation}
+  Note that the entropy is dependent on the macroscopic features of
+  the system, such as the total energy $E$.  Varying $E$ varies $W$,
+  and hence $S$.
+\end{itemize}
 
 The entropy formula is designed so that any other probability
-distribution (which necessarily refers to a situation of
-\textit{partial} uncertainty) yields an entropy $S_{\mathrm{cl.}}$
-lying between $0$ and $k_B \ln W$.  To see that zero is the lower
-bound, first note that for $0 \le p_i \le 1$, each term in the entropy
-formula satisfies $-k_B\, p_i\ln(p_i) \ge 0$, and the equality holds
-if and only if $p_i = 0$ or $p_i = 1$.  See the figure below:
+distribution, which refers to a situation of \textit{partial}
+uncertainty, yields an entropy $S$ lying between $0$
+and $k_b \ln W$.
+
+\section{Upper and lower bounds}
+
+To see that zero is the lower bound for the entropy, note that for $0
+\le p_i \le 1$, each term in the entropy formula \eqref{Sdef}
+satisfies $-k_b\, p_i\ln(p_i) \ge 0$, and the equality holds if and
+only if $p_i = 0$ or $p_i = 1$.  This is illustrated in the figure
+below:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.55\textwidth]{plogp}
+  \includegraphics[width=0.55\textwidth]{plogp}
 \end{figure}
 
-This implies that $S_{\mathrm{cl.}}\ge 0$, and moreover that
-$S_{\mathrm{cl.}} = 0$ if and only if $p_i = \delta_{ik}$ for some $k$
-(i.e., there is no uncertainty).  Next, it can be shown that
-$S_{\mathrm{cl.}}$ is bounded above by $k_B \ln W$.  This statement is
-equivalent to the \textbf{second law of thermodynamics}; we will not
-go over the details of the proof, but it follows from a mathematical
+\noindent
+This implies that $S\ge 0$.  Moreover, $S = 0$ if and only if $p_i =
+\delta_{ik}$ for some $k$ (i.e., there is no uncertainty about which
+microstate the system is in).
+
+Next, it can be shown that $S$ is bounded above by $k_b \ln W$, a
 relation known as
 \href{https://en.wikipedia.org/wiki/Gibbs\%27_inequality}{Gibbs'
-  inequality}.
+  inequality}.  This follows from the mathematical fact that $\ln x
+\le x - 1$ for all positive $x$, with the equality occurring if and
+only if $x = 1$.  In particular, consider $x = 1/(Wp_i)$ where $W$ is
+the number of microstates:
+\begin{align}
+  \begin{aligned}
+    \ln \left[\frac{1}{Wp_i}\right] &\le \frac{1}{Wp_i} - 1
+    \quad \textrm{for}\;\textrm{all}\; i = 1,\dots, W. \\
+    \sum_{i=1}^W p_i \ln \left[\frac{1}{Wp_i}\right]
+    &\le \sum_{i=1}^W \left(\frac{1}{W} - p_i\right) \\
+    - \sum_{i=1}^W p_i \ln W - \sum_{i=1}^W p_i \ln p_i
+    &\le 1 - 1 = 0 \\
+    - k_b \sum_{i=1}^W p_i \ln p_i &\le k_b \ln W.
+  \end{aligned}
+\end{align}
+Moreover, the equality holds if and only if $p_i = 1/W$ for all $i$.
+
+\section{Relation to system size}
 
 Another important feature of the entropy is that it is
-\textbf{extensive}, meaning that it scales (``extends'')
-proportionally with system size.  To see this, consider two
-independent systems A and B, which have microstate probabilities
-$\{p_i^A\}$ and $\{p_j^B\}$.  If we regard the combination of A and B
-as a single system, each microstate of the combined system is
-specified by the microstate of A and the microstate of B, and is thus
-indexed by integers $(i,j)$, with probability $p_{ij} = p^A_ip^B_j$.
-The entropy of the combined system is
-$$\begin{aligned}S_{\mathrm{cl.}} &= - k_B \sum_{ij} p_i^Ap^B_j \ln\left(p^A_ip^B_j\right) \\
-  &= - k_B \Big(\sum_{i} p^A_i \ln p^A_i\Big)\Big(\sum_j p^B_j\Big)
-  - k_B \Big(\sum_{i} p^A_i \Big) \Big(\sum_j p^B_j \ln p^B_j\Big) \\
-  &= S_{\mathrm{cl.}}^A + S_{\mathrm{cl.}}^B,
-\end{aligned}$$
-where $S_{\mathrm{cl.}}^A$ and $S_{\mathrm{cl.}}^B$ are the individual
-entropies of the A and B subsystems.
+\textbf{extensive}.  This means that it scales, or ``extends'',
+proportionally with the size of the system.
+
+Consider two independent systems $A$ and $B$, which have microstate
+probabilities $\{p_i^A\}$ and $\{p_j^B\}$.  If we regard the
+combination of $A$ and $B$ as a single system, each microstate of the
+combined system is specified by the microstate of $A$ and the
+microstate of $B$, and is thus indexed by integers $(i,j)$, with
+probability $p_{ij} = p^A_ip^B_j$.  The entropy of the combined system
+is
+\begin{align}
+  \begin{aligned}
+    S &= - k_b \sum_{ij} p_i^Ap^B_j \ln\left(p^A_ip^B_j\right) \\
+    &= - k_b \Big(\sum_{i} p^A_i \ln p^A_i\Big)\Big(\sum_j p^B_j\Big)
+    - k_b \Big(\sum_{i} p^A_i \Big) \Big(\sum_j p^B_j \ln p^B_j\Big) \\
+    &= S_A + S_B,
+  \end{aligned}
+\end{align}
+where $S_A$ and $S_B$ are the individual entropies of the $A$ and $B$
+subsystems.
 
 Extensivity has important consequences for the behavior of $W(E)$, the
-number of microstates at each energy $E$.  Suppose we extend a system
-by adding micro-canonical subsystems (which are insulated from each
-other).  In the process, both $E$ and $S_{\mathrm{cl.}}$ increase
-proportionally.  Since $S_{\mathrm{cl.}} \propto \ln[W(E)]$,
-$$E \propto \ln W \;\;\;\Rightarrow \;\;\;W(E) \propto e^{\beta_0 E} \;\;\; \mathrm{for\;some}\; \beta_0 > 0.$$
+number of microstates for any given energy $E$.  Suppose we extend a
+system by adding micro-canonical subsystems, which are insulated from
+each other.  In the process, both $E$ and $S$ increase proportionally.
+Since $S \propto \ln[W(E)]$,
+\begin{equation}
+  E \propto \ln W \;\;\;\Rightarrow \;\;\;W(E) \propto e^{\beta_0 E} \;\;\; \mathrm{for\;some}\;\, \beta_0 > 0.
+\end{equation}
 If we relax the restriction that the additional subsystems are
 micro-canonical, the number of microstates grows even faster with $E$,
 as energy can now be distributed in different ways between the
 subsystems.  It is reasonable to assume that the scaling is a
 faster-growing exponential,
-$$W(E) \propto e^{\beta E} \;\;\; \mathrm{for\;some}\; \beta \ge \beta_0.$$
+\begin{equation}
+  W(E) \propto e^{\beta E} \;\;\; \mathrm{for\;some}\;\, \beta \ge \beta_0.
+\end{equation}
 This implies that the constant of proportionality relating
-$S_{\mathrm{cl.}}$ and $E$ is
-$$\frac{\partial E}{\partial S_{\mathrm{cl.}}} = \frac{1}{k_B \beta} = T,$$
-where $\beta \equiv (k_BT)^{-1}$ \textit{defines} the temperature $T$.
-This is the \textbf{first law of thermodynamics}.
+$S$ and $E$ is
+\begin{equation}
+  \frac{\partial E}{\partial S} = \frac{1}{k_b \beta} = T,
+\end{equation}
+where $\beta \equiv (k_bT)^{-1}$ serves as the \textit{definition} of
+the temperature $T$.  This relation is called the \textbf{first law of
+  thermodynamics}.
+
+\section*{Further Reading}
+
+\begin{itemize}
+\item E.~T.~Jaynes, \textit{Information theory and statistical
+  mechanics}, Physical Review \textbf{106}, 620 (1957).
+\label{cite:jaynes}
+
+\item E.~T.~Jaynes, \textit{Information theory and statistical
+  mechanics. ii}, Physical Review \textbf{108}, 171 (1957).
+\label{cite:jaynes2}
+\end{itemize}
+
+\end{document}
+
 
 A \textbf{canonical ensemble} is a system held in equilibrium with a
 larger system, called a ``heat bath''.  We can model this as a
@@ -158,24 +220,10 @@ The probability distribution for a canonical ensemble represents a
 partial-uncertainty situation, since lower-energy microstates are
 more probable than higher-energy microstates.  Plugging the above
 expression for $p_i$ into the entropy formula gives:
-$$S_{\mathrm{cl.}} = \frac{1}{T} \frac{\sum_i E_i e^{-\beta E_i}}{\sum_i e^{-\beta E_i}} + k_B \ln Z \;=\; \frac{\langle E\rangle}{T} + k_B \ln Z,$$
+$$S = \frac{1}{T} \frac{\sum_i E_i e^{-\beta E_i}}{\sum_i e^{-\beta E_i}} + k_b \ln Z \;=\; \frac{\langle E\rangle}{T} + k_b \ln Z,$$
 where $\langle E\rangle = \sum_i E_i p_i$ denotes the average energy.
 We can then define
-$$F \,\equiv\, - k_B T \ln Z \,=\, \langle E \rangle - TS_{\mathrm{cl.}},$$
+$$F \,\equiv\, - k_b T \ln Z \,=\, \langle E \rangle - TS,$$
 and show that this satisfies $\partial F/\partial T = -
-S_{\mathrm{cl.}}$.  This quantity can be identified as the
+S$.  This quantity can be identified as the
 thermodynamic \textbf{free energy}.
-
-\section*{Further Reading}
-
-\begin{itemize}
-\item E.~T.~Jaynes, \textit{Information theory and statistical
-  mechanics}, Physical Review \textbf{106}, 620 (1957).
-\label{cite:jaynes}
-
-\item E.~T.~Jaynes, \textit{Information theory and statistical
-  mechanics. ii}, Physical Review \textbf{108}, 171 (1957).
-\label{cite:jaynes2}
-\end{itemize}
-
-\end{document}
