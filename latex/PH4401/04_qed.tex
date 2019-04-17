@@ -35,8 +35,8 @@
 \end{center}
 
 This chapter provides a survey of \textbf{quantum electrodynamics},
-the quantum theory of the electromagnetic field and its interaction
-with electrically charged particles such as electrons.  We start by
+the quantum theory of the electromagnetic field and its interactions
+with electrons and other electrically charged particles.  We start by
 formulating Hamiltonians to describe how a quantum mechanical electron
 is affected by classical electromagnetic fields.  Next, we describe
 the quantization of Maxwell's equations, which yields a quantum field
@@ -55,14 +55,14 @@ recommended texts are Dyson's 1951 lecture notes
 \textit{Quantum Field Theory in a Nutshell} (\hyperref[cite:zee]{Zee
   2010}).
 
-\section{Particles in a classical electromagnetic field}
+\section{Quantization of the Lorentz Force Law}
 
-\subsection{Non-relativistic spinless particles in an electromagnetic field}
+\subsection{Non-relativistic electrons in an electromagnetic field}
 \label{sec:nonrel}
 
 Consider a non-relativistic charged particle in an electromagnetic
 field.  As we are mainly interested in the physics of electrons
-interacting with electromagnetic fields, we will henceforth take the
+interacting with electromagnetic fields, we henceforth take the
 electric charge of the particle to be $-e$, where $e =
 1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  To
 describe particles with an arbitrary electric charge $q$, simply
@@ -465,29 +465,30 @@ $\exp(-ie\Lambda/\hbar)$, which respectively enter into the vector
 potential and wavefunction (the ``actual'' physical quantities),
 \textit{are} single-valued!
 
+\section{Dirac Theory}
+
 \subsection{The Dirac Hamiltonian}
 \label{sec:DiracH}
 
 The $p^2/2m$-type Hamiltonians we have been dealing with describe
-non-relativistic particles.  In 1928, Paul Dirac formulated a new type
-of Hamiltonian that can be used to describe particles moving close to
-the speed of light, thus successfully combining quantum mechanics with
-the special theory of relativity. Another triumph of Dirac's theory is
-that after including electromagnetic scalar and vector potentials
-(following the procedures discussed in Sec.~\ref{sec:nonrel}), it
-accurately predicts the magnetic moment of the electron.
+non-relativistic particles.  In 1928, Paul Dirac formulated a
+Hamiltonian that can describe particles moving close to the speed of
+light, thus successfully combining quantum mechanics with the special
+theory of relativity. Another triumph of Dirac's theory is that upon
+including electromagnetic scalar and vector potentials, the magnetic
+moment of the electron is accurately predicted.
 
-To formulate Dirac's Hamiltonian, we start from the time-dependent
-Schr\"odinger equation.  In the wavefunction representation, this has
-the form
+Dirac's theory begins from the time-dependent Schr\"odinger equation.
+In the wavefunction representation, this has the form
 \begin{equation}
   i\hbar\, \partial_t\, \psi(\mathbf{r},t)
   = \hat{H} \psi(\mathbf{r},t).
+  \label{schrod}
 \end{equation}
 Note that the left side has a first-order time derivative.  On the
-right side, the Hamiltonian $\hat{H}$ contains spatial derivatives.
-We know that time and space derivatives of wavefunctions are related
-to energy and momentum by
+right side, the Hamiltonian $\hat{H}$ contains spatial derivatives in
+the form of momentum operators.  We know that time and space
+derivatives of wavefunctions are related to energy and momentum by
 \begin{equation}
     i\hbar\, \partial_t\; \leftrightarrow \;
     E, \qquad
@@ -500,24 +501,22 @@ are related by
   E^2 = m^2c^4 + \sum_{j=1}^3 p_j^2c^2,
   \label{Erelativistic}
 \end{equation}
-where $m$ is the rest mass and $c$ is the speed of light.  (Following
-the usual practice in relativity theory, we use Roman indices $j \in
-\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$.)  In
-Eq.~\eqref{Erelativistic}, $E$ and $p$ appear to the same
-order---unlike the non-relativistic kinetic energy $E = p^2/2m$, where
-$E$ is first-order while $p$ is second-order.  Since the left side of
-the Schr\"odinger equation has a first-order time derivative, a
-relativistic Hamiltonian $\hat{H}$ ought to contain only first-order
-spatial derivatives.  So we make the guess
+where $m$ is the rest mass and $c$ is the speed of light.  Note that
+$E$ and $p$ appear to the same order in this equation.  (Following the
+usual practice in relativity theory, we use Roman indices $j \in
+\{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$.)
+
+Since the left side of the Schr\"odinger equation \eqref{schrod} has a
+first-order time derivative, a relativistic Hamiltonian should involve
+first-order spatial derivatives.  So we make the guess
 \begin{equation}
   \hat{H} = \alpha_0 mc^2 + \sum_{j=1}^3 \alpha_j \hat{p}_j c,
   \label{Dirac0}
 \end{equation}
-where $\hat{p}_j \equiv -i\hbar \partial/\partial x_j$ is the usual
-momentum operator.  We now need to determine the ``coefficients''
-$\alpha_0$, $\alpha_1$, $\alpha_2$, and $\alpha_3$.  The extra factors
-of $mc^2$ and $c$ are included in Eq.~\eqref{Dirac0} for later
-convenience.
+where $\hat{p}_j \equiv -i\hbar \partial/\partial x_j$.  The $mc^2$
+and $c$ factors are placed for later convenience.  We now need to
+determine the ``coefficients'' $\alpha_0$, $\alpha_1$, $\alpha_2$, and
+$\alpha_3$, which are dimensionless.
 
 For a wavefunction with definite momentum $\mathbf{p}$ and energy
 $E$,
@@ -526,14 +525,19 @@ $E$,
   \left(\alpha_0mc^2 + \sum_{j=1}^3\alpha_j p_jc\right) \psi = E\,\psi,
 \end{equation}
 where the $\hat{p}_j$ operators are replaced with definite numbers.
-If $\psi$ is a scalar, this would imply that $\alpha_0 mc^2 +
+If $\psi$ is a scalar, this would imply $\alpha_0 mc^2 +
 \sum_{j}\alpha_j p_j c = E$, which does not match the relativistic
 energy-mass-momentum relation \eqref{Erelativistic}.  However, we can
 get it to work if the $\alpha$'s are matrices rather than numbers:
-\begin{equation}
-\boxed{\qquad \hat{H} = \hat{\alpha}_0 mc^2 + \sum_{j=1}^3 \hat{\alpha}_j \hat{p}_j c, \;\; \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\, \partial_j.\qquad}
-\label{Dirac}
-\end{equation}
+\begin{framed}
+  \begin{equation}
+    \hat{H} = \hat{\alpha}_0 mc^2 + \sum_{j=1}^3 \hat{\alpha}_j \hat{p}_j c,
+    \;\; \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\, \partial_j.
+    \label{Dirac}
+  \end{equation}
+\end{framed}
+\vskip -0.15in
+\noindent
 In that case, applying the Hamiltonian twice gives
 \begin{equation}
   \left(\hat{\alpha}_0mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^{\!2}\;
@@ -563,10 +567,10 @@ matrices satisfy
     \;\;\; \textrm{for} \;\;\mu \ne \nu.
   \end{aligned}
 \end{align}
-(Here, we adopt the usual relativistic convention of using Greek
-symbols to label indices ranging over $\{0,1,2,3\}$.)  The above can
-be written more concisely using the anticommutator notation,
-$\{\hat{A},\hat{B}\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}$:
+(We use Greek symbols for indices ranging over the four spacetime
+coordinates $\{0,1,2,3\}$.)  The above can be written more concisely
+using the anticommutator $\{\hat{A},\hat{B}\} \equiv \hat{A}\hat{B} +
+\hat{B}\hat{A}$:
 \begin{equation}
   \{\hat{\alpha}_\mu, \hat{\alpha}_\nu\} = 2\delta_{\mu\nu},
   \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3,
@@ -577,7 +581,9 @@ $\hat{H}$ is Hermitian.
 
 It turns out that the smallest possible Hermitian matrices that can
 satisfy Eq.~\eqref{Dirac_anticomm} are $4\times4$ matrices.  The
-choice of matrices is not uniquely determined; a commonly used set is
+choice of matrices (or ``representation'') is not uniquely determined.
+One particularly useful choice is called the \textbf{Dirac
+  representation}:
 \begin{align}
   \begin{aligned}
     \hat{\alpha}_0 &= \begin{bmatrix}
@@ -596,9 +602,9 @@ choice of matrices is not uniquely determined; a commonly used set is
   \label{alpha_matrices}
 \end{align}
 where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
-denote the usual Pauli matrices.  It follows also that
-$\psi(\mathbf{r})$ cannot be a scalar field, but must be a
-four-component field.
+denote the usual Pauli matrices.  Since the $\hat{\alpha}_\mu$ are
+$4\times4$ matrices, it follows that $\psi(\mathbf{r})$ is a
+four-component field, not an ordinary scalar wavefunction.
 
 \subsection{Eigenstates of the Dirac Hamiltonian}
 
@@ -607,115 +613,100 @@ Dirac Hamiltonian are
 \begin{equation}
   E = \pm \sqrt{m^2c^4 + \sum_{j} p_j^2c^2}.
 \end{equation}
-
-As shown in the figure below, the energy spectrum forms two ``bands''.
-For any given momentum $\mathbf{p}$, there is a positive value of $E$,
-and a negative value.
+This is plotted below:
 
 \begin{center}
-  \includegraphics[width=0.3\textwidth]{diraccone}
+  \includegraphics[width=0.27\textwidth]{diraccone}
 \end{center}
 
-The upper band matches the dispersion relation for a massive
-relativistic particle, which is what we were originally after.
-However, there is also a band of negative-energy states---who ordered
-that?!  So long as we are considering a single isolated electron, we
-can simply declare that the positive-energy states are the ones we are
-interested in.  However, once we couple the electron to the
-electromagnetic field, the existence of the negative-energy states
-points to a nonsensical scenario.  The negative-energy band extends
-down to $E \rightarrow -\infty$, which means the system has no ground
-state.  This implies that the electron can keep losing energy by
-photon emission, forever hopping to ever-lower-energy states!
+\noindent
+The energy spectrum forms two ``bands''.  For each $\mathbf{p}$, there
+are two degenerate positive energy eigenvalues, and two degenerate
+negative energy eigenvalues (thus there are four eigenvalues in total,
+matching the number of wavefunction components).  The upper band
+matches the dispersion relation for a massive relativistic particle,
+as desired.  But what about the negative-energy states?  Who ordered
+that?
 
-The resolution of this problem is an interesting story, but one we
-will not be able to pursue in this course.  Basically, we now know
-that Dirac's original theory contains the seeds of its own
-destruction, since a consistent theory of \textit{single-particle}
-relativistic quantum mechanics is ultimately impossible.  The right
-way to marry relativity and quantum mechanics is to use the framework
-of quantum field theory, which is capable of describing states with
-arbitrary numbers of electrons and photons.  When the Dirac
-Hamiltonian is translated into this framework, and coupled to a
-quantized electromagnetic field, the resulting theory of quantum
-electrodynamics (QED) is more well-behaved, and constitutes the most
-fundamental and successful theory of electromagnetism known to date.
+It might be possible for us to ignore the existence of the
+negative-energy states, if we are only considering an isolated
+electron; we could just declare that the positive-energy states are
+the ones we are interested in, and study those.  However, the problem
+becomes severe once we let the electron interact with another system,
+such as the electromagnetic field.  Since the negative-energy states
+extend to $E\rightarrow -\infty$, the electron would be able to
+repeatedly transfer energy to the other system, such as by emitting
+photons.  Then it keeps hopping to states with ever more negative
+energies, shedding an infinite amount of energy in the process.  This
+is obviously problematic.  However, let us wait for a while (till
+Section~\ref{sec:positrons}) to discuss how the stability problem
+might be resolved.
 
-Let us put such issues aside for now, and do a bit more analysis on
-the eigenstates of the single-particle Dirac Hamiltonian.  Since the
-Hamiltonian supports two bands of solutions, there must be an even
-number of wavefunction components: one set for the quantum amplitudes
-of the upper band, and the other for the lower band.
+Let us first take some time to discuss the interpretation of the Dirac
+wavefunction.  Its four components represent a four-fold ``internal''
+degree of freedom, distinct from the electron's ordinary kinematic
+degrees of freedom.  Since there are two energy bands, the assignment
+of an electron to the upper or lower band (or some superposition
+thereof) consitutes two degrees of freedom.  Each individual band must
+then posssess two independent degrees of freedom (so that $2\times 2 =
+4$); these turn out to be associated with the electron's spin.
 
-Within each band, there is another two-fold degree of freedom.  This
-turns out to describe the particle's spin (we are already familiar
-with the use of two-component wavefunctions to describe spin-$1/2$
-non-relativistic particles).  Hence, the number of components is
-$2\times2 = 4$.  It is noteworthy that we did not set out to include
-spin in the theory, yet it has popped up, seemingly unavoidably, in
-the process of satisfying the relativistic energy-mass-momentum
-relation!  This is an indicator that relativistic quantum mechanics is
-more ``theoretically rigid'' than non-relativistic quantum mechanics.
-Features like spin are not optional parts of the theory, but have to
-be included at a fundamental level.
-
-Different choices of the $\hat{\alpha}_\mu$ matrices correspond to
-different wavefunction representations, similar to the choice of
-spin-$1/2$ basis in the non-relativistic theory.  The matrices in
-Eq.~\eqref{alpha_matrices} are designed so that they reduce to the
-non-relativistic limit in a nice way.  Upon plugging them into
-Eq.~\eqref{Dirac}, we find that for an eigenstate with energy $E$ and
-momentum $\mathbf{p}$,
+To see explicitly how this works, we must pick a representation for
+the $\hat{\alpha}_\mu$ matrices; the choice of representation
+determines how the four degrees of freedom are encoded in the
+individual wavefunction components.  We will use the Dirac
+representation \eqref{alpha_matrices}.  In this case, it is convenient
+to divide the components into upper and lower parts,
+\begin{equation}
+  \psi(\mathbf{r},t) = \begin{bmatrix}\psi_A(\mathbf{r},t)
+    \\ \psi_B(\mathbf{r},t)
+  \end{bmatrix},
+\end{equation}
+where $\psi_A$ and $\psi_B$ have two components each.  Then, for an
+eigenstate with energy $E$ and momentum $\mathbf{p}$, applying
+\eqref{alpha_matrices} to the Dirac equation \eqref{Dirac} gives
 \begin{align}
-  \psi = \begin{bmatrix}\psi_A \\ \psi_B
-  \end{bmatrix}, \;\;\;\mathrm{where}\;\;\; \left\{
-  \begin{aligned}
-    \psi_A &= \frac{1}{E - mc^2} \sum_j \hat{\sigma}_j p_j \psi_B, \\
-    \psi_B &= \frac{1}{E + mc^2} \sum_j \hat{\sigma}_j p_j \psi_A.
-  \end{aligned}\right.
-  \label{dirac_nonrelativistic}
+  \psi_A &= \frac{1}{E - mc^2} \sum_j \hat{\sigma}_j p_j \psi_B,
+  \label{dirac_nonrel1} \\
+  \psi_B &= \frac{1}{E + mc^2} \sum_j \hat{\sigma}_j p_j \psi_A.
+  \label{dirac_nonrel2}
 \end{align}
-Hence, in the non-relativistic limit, for the upper band ($E \gtrsim
-mc^2$) the wavefunction is dominated by the two upper components
-($|\psi_B| \rightarrow 0$); and for the lower band ($E \lesssim
--mc^2$) the wavefunction is dominated by the two lower components
-($|\psi_A| \rightarrow 0$).  The two non-negligible wavefunction
-components for each band then describe the spin-$1/2$ degree of
-freedom.  (However, please note that this clean grouping into ``upper
-band'' and ``lower band'' components only works in the
-non-relativistic limit!  In the relativistic case, upper band states
-acquire non-vanishing values in the lower two wavefunction components,
-and vice versa.)
+Consider the non-relativistic limit, $|\mathbf{p}| \rightarrow 0$, for
+which $E$ approaches either $mc^2$ or $-mc^2$.  For the upper band ($E
+\gtrsim mc^2$), the vanishing of the denominator in
+Eq.~\eqref{dirac_nonrel1} tells us that the wavefunction is dominated
+by the upper two components, $\psi_A$, with $\psi_B \rightarrow 0$.
+Conversely, for the lower band ($E \lesssim -mc^2$),
+Eq.~\eqref{dirac_nonrel2} tells us that the wavefunction is dominated
+by $\psi_B$, with $\psi_A \rightarrow 0$.  We can thus associate the
+upper ($A$) and lower ($B$) components with the two-fold band degree
+of freedom.  However, please note that this interpretation only holds
+in the non-relativistic limit!  In the relativistic case, upper band
+states do acquire non-vanishing values in the lower two wavefunction
+components, and vice versa.
 
-There is much more to be said about the structure and interpretation
-of the Dirac Hamiltonian and its wavefunction, especially the
-important issue of how they behave under rotations and Lorentzian
-transformations.  For these details, the reader is referred to
-\hyperref[cite:dyson]{Dyson (1951)}.
-
-\subsection{Electrons in an electromagnetic field}
+\subsection{Dirac electrons in an electromagnetic field}
 \label{sec:diracem}
 
-Having obtained a Hamiltonian that describes the relativistic dynamics
-of a electron, we are naturally interested in putting the electron in
-an electromagnetic field.  The non-relativistic theory from
-Section~\ref{sec:nonrel} allows us to guess how to do this.  There, we
-simply added $-e\Phi(\mathbf{r},t)$ as a scalar potential function,
-and inserted the vector potential via the substitution
+To continue pursuing our objective of interpreting the Dirac
+wavefunction, we must understand how the electron interacts with an
+electromagnetic field.  We introduce electromagnetism by following the
+same procedure as in the non-relativistic theory
+(Section~\ref{sec:nonrel}): add $-e\Phi(\mathbf{r},t)$ as a scalar
+potential function, and add the vector potential via the substitution
 \begin{equation}
   \hat{\mathbf{p}} \rightarrow \hat{\mathbf{p}}
   + e\mathbf{A}(\hat{\mathbf{r}},t).  
 \end{equation}
-If we apply the same procedure to the Dirac Hamiltonian (\ref{Dirac}),
-the result is
+Applying this recipe to the Dirac Hamiltonian (\ref{Dirac}) yields
 \begin{equation}
   i\hbar \, \partial_t \psi
   = \left\{\hat{\alpha}_0 mc^2 -e\Phi(\mathbf{r},t)
   + \sum_{j} \hat{\alpha}_j \Big[-i\hbar\,\partial_j
     +eA_j(\mathbf{r},t) \Big] c\right\}\psi(\mathbf{r},t).
 \end{equation}
-Using the $\hat{\alpha}_\mu$ matrices from Eq.~\eqref{alpha_matrices},
-this reduces to a pair of two-component equations:
+In the Dirac representation \eqref{alpha_matrices}, this reduces to a
+pair of two-component equations:
 \begin{align}
   i\hbar\, \partial_t \, \psi_A
   &= \big(+mc^2 -e\Phi \big)\,
@@ -727,24 +718,29 @@ this reduces to a pair of two-component equations:
   \psi_B \,+\, \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
     +eA_j \big)\, c\;\psi_A, \label{Dirac2b}
 \end{align}
-where $\psi_A(\mathrm{r},t)$ and $\psi_B(\mathrm{r},t)$ are upper and
-lower wavefunction components, like in
-Eq.~\eqref{dirac_nonrelativistic}.
+where $\psi_A$ and $\psi_B$ are the previously-introduced upper and
+lower wavefunction components.
 
-An extremely important result is obtained by taking the
-non-relativistic limit of the above equations.  In this limit, we look
-for solutions in the ``slowly-varying envelope approximation''
-\begin{equation}
-  \psi_{A/B}(\mathbf{r},t) = \Psi_{A/B}(\mathbf{r},t)\,
+In the non-relativistic limit, solutions to the above equations can be
+cast in the form
+\begin{align}
+  \begin{aligned}
+  \psi_{A}(\mathbf{r},t) &= \Psi_{A}(\mathbf{r},t)\,
+  \exp\left[-i\left(\frac{mc^2}{\hbar}\right)t\right] \\
+  \psi_{B}(\mathbf{r},t) &= \Psi_{B}(\mathbf{r},t)\,
   \exp\left[-i\left(\frac{mc^2}{\hbar}\right)t\right].
-\end{equation}
-The exponential on the right side is the $\exp(-i\omega t)$ factor
-corresponding to the rest energy $mc^2$, which is the dominant
-contribution to the electron's energy in the non-relativistic limit.
-The two-component ``envelope'' functions $\Psi_A$ and $\Psi_B$ vary
-slowly in $t$ compared to the exponential factor.  Note that by
-putting $mc^2$ rather than $-mc^2$ in the exponential factor, we are
-explicitly looking for positive-energy solutions.
+  \end{aligned}
+\end{align}
+The exponentials on the right side are the $\exp(-i\omega t)$ factor
+corresponding to the rest energy $mc^2$, which dominates the
+electron's energy in the non-relativistic limit.  (Note that by using
+$+mc^2$ rather than $-mc^2$, we are explicitly referencing the
+positive-energy band.)  If the electron is in an eigenstate with
+$\mathbf{p} = 0$ and there are no electromagnetic fields, $\Psi_A$ and
+$\Psi_B$ would just be constants.  Now suppose the electron is
+non-relativistic but not in a $\mathbf{p} = 0$ eigenstate, and the
+electromagnetic fields are weak but not necessarily vanishing; then
+$\Psi_A$ and $\Psi_B$ are envelope functions that vary slowly in $t$.
 
 Plugging this ansatz into Eqs.~\eqref{Dirac2a}--\eqref{Dirac2b} gives
 \begin{align}
@@ -791,9 +787,9 @@ square yields
   - i\hbar e \big[A_k\partial_j + A_j\partial_k \big]
   + e^2A_jA_k \Big).
 \end{equation*}
-Due to the $\varepsilon_{ijk}$, all terms that are symmetric under $j$
-and $k$ will cancel out after the sums are carried out.  The only
-surviving term is the second one, which yields
+Due to the antisymmetry of $\varepsilon_{ijk}$, all terms inside the
+parentheses that are symmetric under $j$ and $k$ cancel out when
+summed over.  The only survivor is the second term, which gives
 \begin{equation}
   \frac{\hbar e}{2m}\sum_{ijk}\varepsilon_{ijk}\hat{\sigma}_i
   \partial_jA_k = \frac{\hbar e}{2m} \hat{\boldsymbol{\sigma}}
@@ -826,9 +822,43 @@ mismatch between Eq.~\eqref{Diracmu} and the actual magnetic dipole
 moment of the electron is understood to arise from quantum
 fluctuations of the electronic and electromagnetic quantum fields;
 this ``anomalous magnetic moment'' can be calculated using the full
-QED theory, and matches experiment to around one part in $10^9$,
-making it one of the most precise theoretical predictions in physics.
-For details, see \hyperref[cite:zee]{Zee (2010)}.
+theory of quantum electrodynamics, and matches experiment to around
+one part in $10^9$, making it one of the most precise theoretical
+predictions in physics.  For details, see \hyperref[cite:zee]{Zee
+  (2010)}.
+
+\subsection{Positrons and Dirac Field Theory}
+\label{sec:positrons}
+
+Hence, the number of components
+is $2\times2 = 4$.  It is noteworthy that we did not set out to
+include spin in the theory, yet it has popped up, seemingly
+unavoidably, in the process of satisfying the relativistic
+energy-mass-momentum relation!  This is an indicator that relativistic
+quantum mechanics is more ``theoretically rigid'' than
+non-relativistic quantum mechanics.  Features like spin are not
+optional parts of the theory, but have to be included at a fundamental
+level.
+
+The resolution of this problem is an interesting story, but one we
+will not be able to pursue in this course.  Basically, we now know
+that Dirac's original theory contains the seeds of its own
+destruction, since a consistent theory of \textit{single-particle}
+relativistic quantum mechanics is ultimately impossible.  The right
+way to marry relativity and quantum mechanics is to use the framework
+of quantum field theory, which is capable of describing states with
+arbitrary numbers of electrons and photons.  When the Dirac
+Hamiltonian is translated into this framework, and coupled to a
+quantized electromagnetic field, the resulting theory of quantum
+electrodynamics (QED) is more well-behaved, and constitutes the most
+fundamental and successful theory of electromagnetism known to date.
+
+There is much more to be said about the structure and interpretation
+of the Dirac Hamiltonian and its wavefunction, especially the
+important issue of how they behave under Lorentz transformations and
+other coordinate transformations.  For these details, the reader is
+referred to \hyperref[cite:dyson]{Dyson (1951)}.
+
 
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
