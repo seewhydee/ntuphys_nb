@@ -470,7 +470,7 @@ potential and wavefunction (the ``actual'' physical quantities),
 \subsection{The Dirac Hamiltonian}
 \label{sec:DiracH}
 
-The $p^2/2m$-type Hamiltonians we have been dealing with describe
+The $p^2/2m$-type Hamiltonians we have been using describe
 non-relativistic particles.  In 1928, Paul Dirac formulated a
 Hamiltonian that can describe particles moving close to the speed of
 light, thus successfully combining quantum mechanics with the special
@@ -569,8 +569,7 @@ matrices satisfy
 \end{align}
 (We use Greek symbols for indices ranging over the four spacetime
 coordinates $\{0,1,2,3\}$.)  The above can be written more concisely
-using the anticommutator $\{\hat{A},\hat{B}\} \equiv \hat{A}\hat{B} +
-\hat{B}\hat{A}$:
+using the anticommutator:
 \begin{equation}
   \{\hat{\alpha}_\mu, \hat{\alpha}_\nu\} = 2\delta_{\mu\nu},
   \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3,
@@ -602,7 +601,7 @@ One particularly useful choice is called the \textbf{Dirac
   \label{alpha_matrices}
 \end{align}
 where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
-denote the usual Pauli matrices.  Since the $\hat{\alpha}_\mu$ are
+denote the usual Pauli matrices.  Since the $\hat{\alpha}_\mu$'s are
 $4\times4$ matrices, it follows that $\psi(\mathbf{r})$ is a
 four-component field, not an ordinary scalar wavefunction.
 
@@ -622,8 +621,8 @@ This is plotted below:
 \noindent
 The energy spectrum forms two ``bands''.  For each $\mathbf{p}$, there
 are two degenerate positive energy eigenvalues, and two degenerate
-negative energy eigenvalues (thus there are four eigenvalues in total,
-matching the number of wavefunction components).  The upper band
+negative energy eigenvalues; thus there are four eigenvalues in total,
+matching the number of wavefunction components.  The upper band
 matches the dispersion relation for a massive relativistic particle,
 as desired.  But what about the negative-energy states?  Who ordered
 that?
@@ -633,28 +632,28 @@ negative-energy states, if we are only considering an isolated
 electron; we could just declare that the positive-energy states are
 the ones we are interested in, and study those.  However, the problem
 becomes severe once we let the electron interact with another system,
-such as the electromagnetic field.  Since the negative-energy states
-extend to $E\rightarrow -\infty$, the electron would be able to
-repeatedly transfer energy to the other system, such as by emitting
-photons.  Then it keeps hopping to states with ever more negative
-energies, shedding an infinite amount of energy in the process.  This
-is obviously problematic.  However, let us wait for a while (till
-Section~\ref{sec:positrons}) to discuss how the stability problem
-might be resolved.
+such as the electromagnetic field.  The positive-energy electron
+states then become unstable: due to the availability of
+negative-energy states extending down to $E\rightarrow -\infty$, the
+electron can repeatedly hop to states with ever more negative energies
+by transferring energy to the other system, such as by emitting
+photons.  This is obviously problematic.  However, let us wait for a
+while (till Section~\ref{sec:positrons}) to discuss how the stability
+problem might be resolved.
 
-Let us first take some time to discuss the interpretation of the Dirac
-wavefunction.  Its four components represent a four-fold ``internal''
+We will first take some time to analyze the meaning of the Dirac
+wavefunction.  The four components represent a four-fold ``internal''
 degree of freedom, distinct from the electron's ordinary kinematic
 degrees of freedom.  Since there are two energy bands, the assignment
 of an electron to the upper or lower band (or some superposition
-thereof) consitutes two degrees of freedom.  Each individual band must
-then posssess two independent degrees of freedom (so that $2\times 2 =
-4$); these turn out to be associated with the electron's spin.
+thereof) consitutes two degrees of freedom.  Each band must then
+posssess a two-fold degree of freedom (so that $2\times 2 = 4$), which
+turns out to be associated with the electron's spin.
 
 To see explicitly how this works, we must pick a representation for
 the $\hat{\alpha}_\mu$ matrices; the choice of representation
 determines how the four degrees of freedom are encoded in the
-individual wavefunction components.  We will use the Dirac
+individual wavefunction components.  Let us use the Dirac
 representation \eqref{alpha_matrices}.  In this case, it is convenient
 to divide the components into upper and lower parts,
 \begin{equation}
@@ -675,21 +674,19 @@ Consider the non-relativistic limit, $|\mathbf{p}| \rightarrow 0$, for
 which $E$ approaches either $mc^2$ or $-mc^2$.  For the upper band ($E
 \gtrsim mc^2$), the vanishing of the denominator in
 Eq.~\eqref{dirac_nonrel1} tells us that the wavefunction is dominated
-by the upper two components, $\psi_A$, with $\psi_B \rightarrow 0$.
-Conversely, for the lower band ($E \lesssim -mc^2$),
+by $\psi_A$.  Conversely, for the lower band ($E \lesssim -mc^2$),
 Eq.~\eqref{dirac_nonrel2} tells us that the wavefunction is dominated
-by $\psi_B$, with $\psi_A \rightarrow 0$.  We can thus associate the
-upper ($A$) and lower ($B$) components with the two-fold band degree
-of freedom.  However, please note that this interpretation only holds
-in the non-relativistic limit!  In the relativistic case, upper band
-states do acquire non-vanishing values in the lower two wavefunction
-components, and vice versa.
+by $\psi_B$.  We can thus associate the upper ($A$) and lower ($B$)
+components with the band degree of freedom.  But note that this
+association holds only in the non-relativistic limit!  In the
+relativistic case, upper-band states can have non-vanishing values in
+the $B$ components, and vice versa.
 
 \subsection{Dirac electrons in an electromagnetic field}
 \label{sec:diracem}
 
 To continue pursuing our objective of interpreting the Dirac
-wavefunction, we must understand how the electron interacts with an
+wavefunction, we must determine how the electron interacts with an
 electromagnetic field.  We introduce electromagnetism by following the
 same procedure as in the non-relativistic theory
 (Section~\ref{sec:nonrel}): add $-e\Phi(\mathbf{r},t)$ as a scalar
@@ -704,9 +701,13 @@ Applying this recipe to the Dirac Hamiltonian (\ref{Dirac}) yields
   = \left\{\hat{\alpha}_0 mc^2 -e\Phi(\mathbf{r},t)
   + \sum_{j} \hat{\alpha}_j \Big[-i\hbar\,\partial_j
     +eA_j(\mathbf{r},t) \Big] c\right\}\psi(\mathbf{r},t).
+  \label{DiracEM}
 \end{equation}
-In the Dirac representation \eqref{alpha_matrices}, this reduces to a
-pair of two-component equations:
+You can check that this has the same gauge symmetry properties as the
+non-relativistic theory discussed in Section~\ref{sec:gauge}.
+
+In the Dirac representation \eqref{alpha_matrices},
+Eq.~\eqref{DiracEM} reduces to
 \begin{align}
   i\hbar\, \partial_t \, \psi_A
   &= \big(+mc^2 -e\Phi \big)\,
@@ -718,8 +719,9 @@ pair of two-component equations:
   \psi_B \,+\, \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
     +eA_j \big)\, c\;\psi_A, \label{Dirac2b}
 \end{align}
-where $\psi_A$ and $\psi_B$ are the previously-introduced upper and
-lower wavefunction components.
+where $\psi_A$ and $\psi_B$ are the previously-introduced
+two-component objects corresponding to the upper and lower halves of
+the Dirac wavefunction.
 
 In the non-relativistic limit, solutions to the above equations can be
 cast in the form
@@ -739,8 +741,9 @@ positive-energy band.)  If the electron is in an eigenstate with
 $\mathbf{p} = 0$ and there are no electromagnetic fields, $\Psi_A$ and
 $\Psi_B$ would just be constants.  Now suppose the electron is
 non-relativistic but not in a $\mathbf{p} = 0$ eigenstate, and the
-electromagnetic fields are weak but not necessarily vanishing; then
-$\Psi_A$ and $\Psi_B$ are envelope functions that vary slowly in $t$.
+electromagnetic fields are weak but not necessarily vanishing.  In
+that case, $\Psi_A$ and $\Psi_B$ are functions that vary with $t$, but
+slowly.
 
 Plugging this ansatz into Eqs.~\eqref{Dirac2a}--\eqref{Dirac2b} gives
 \begin{align}
@@ -809,56 +812,247 @@ Hamiltonian has an additional term of the form $-
 \hat{\boldsymbol{\mu}} \cdot \hat{\mathbf{B}}$.  This additional term
 corresponds to the potential energy of a magnetic dipole of moment
 $\boldsymbol{\mu}$ in a magnetic field $\mathbf{B}$.  The Dirac theory
-therefore predicts that the electron's magnetic dipole moment is
+therefore predicts the electron's magnetic dipole moment to be
 \begin{equation}
   |\boldsymbol{\mu}| = \frac{\hbar e}{2m}.
   \label{Diracmu}
 \end{equation}
-This remarkable result matches the experimentally-observed magnetic
-dipole moment to about one part in $10^3$.  We thus see that the
-electron's magnetic dipole moment is not an arbitrary quantity, but an
-outcome of combining quantum mechanics with relativity.  The residual
-mismatch between Eq.~\eqref{Diracmu} and the actual magnetic dipole
-moment of the electron is understood to arise from quantum
-fluctuations of the electronic and electromagnetic quantum fields;
-this ``anomalous magnetic moment'' can be calculated using the full
-theory of quantum electrodynamics, and matches experiment to around
-one part in $10^9$, making it one of the most precise theoretical
-predictions in physics.  For details, see \hyperref[cite:zee]{Zee
-  (2010)}.
+Remarkably, this matches the experimentally-observed magnetic dipole
+moment to about one part in $10^3$.  We thus see that the electron's
+magnetic dipole moment is not an arbitrary quantity, but an outcome of
+combining quantum mechanics with relativity.  The residual mismatch
+between Eq.~\eqref{Diracmu} and the actual magnetic dipole moment of
+the electron is understood to arise from quantum fluctuations of the
+electronic and electromagnetic quantum fields; this ``anomalous
+magnetic moment'' can be calculated using the full theory of quantum
+electrodynamics, and matches experiment to around one part in $10^9$,
+making it one of the most precise theoretical predictions in physics.
+For details, see \hyperref[cite:zee]{Zee (2010)}.
+
+It is also noteworthy that we did not set out to include spin in the
+theory, yet it arose, seemingly unavoidably, as a by-product of
+formulating a relativistic theory of the electron.  This is a
+manifestation of the fact that relativistic quantum theory is more
+constrained than non-relativistic quantum theory.  Relativistic
+symmetries demand that spin cannot be an optional part of the theory,
+but must be fully accounted for.
 
 \subsection{Positrons and Dirac Field Theory}
 \label{sec:positrons}
 
-Hence, the number of components
-is $2\times2 = 4$.  It is noteworthy that we did not set out to
-include spin in the theory, yet it has popped up, seemingly
-unavoidably, in the process of satisfying the relativistic
-energy-mass-momentum relation!  This is an indicator that relativistic
-quantum mechanics is more ``theoretically rigid'' than
-non-relativistic quantum mechanics.  Features like spin are not
-optional parts of the theory, but have to be included at a fundamental
-level.
+To stabilize the electron against decay into negative-energy states,
+Dirac suggested that what we regard as the ``vacuum'' may actually be
+a state, called the \textbf{Dirac sea}, in which all the
+negative-energy states are occupied.  Then the Pauli exclusion
+principle would prevent decay into the negative-energy states.
 
-The resolution of this problem is an interesting story, but one we
-will not be able to pursue in this course.  Basically, we now know
-that Dirac's original theory contains the seeds of its own
-destruction, since a consistent theory of \textit{single-particle}
-relativistic quantum mechanics is ultimately impossible.  The right
-way to marry relativity and quantum mechanics is to use the framework
-of quantum field theory, which is capable of describing states with
-arbitrary numbers of electrons and photons.  When the Dirac
-Hamiltonian is translated into this framework, and coupled to a
-quantized electromagnetic field, the resulting theory of quantum
-electrodynamics (QED) is more well-behaved, and constitutes the most
-fundamental and successful theory of electromagnetism known to date.
+At first blush, the idea seems ridiculous; how can the vacuum contain
+an infinite number of particles?  However, we shall see that the idea
+is more plausible if we re-interpret the Dirac theory as a
+single-particle \textit{construction} which arises from a more
+fundamental quantum field theory.  The Dirac sea idea is an inherently
+multi-particle concept, and we saw in Chapter 3 that quantum field
+theory is a natural framework for describing multi-particle quantum
+states.  Let us therefore develop this quantum field theory.
 
-There is much more to be said about the structure and interpretation
-of the Dirac Hamiltonian and its wavefunction, especially the
-important issue of how they behave under Lorentz transformations and
-other coordinate transformations.  For these details, the reader is
-referred to \hyperref[cite:dyson]{Dyson (1951)}.
+Consider again the eigenstates of the single-particle Dirac
+Hamiltonian with definite momenta and energies.  Denote the
+positive-energy wavefunctions by
+\begin{equation}
+  \frac{u_{\mathbf{k}\sigma} \, e^{i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}}
+  = \langle \mathbf{r} | \mathbf{k}, +, \sigma\rangle,
+  \quad\mathrm{where}\;\;
+  \hat{H} |\mathbf{k}, +, \sigma\rangle
+  = \epsilon_{\mathbf{k}\sigma} |\mathbf{k}, +, \sigma\rangle.
+  \label{Diraces1}
+\end{equation}
+The negative-energy wavefunctions are
+\begin{equation}
+  \frac{v_{\mathbf{k}\sigma} \, e^{-i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}}
+  = \langle \mathbf{r} | \mathbf{k}, -, \sigma\rangle,
+  \quad\mathrm{where}\;\;
+  \hat{H} |\mathbf{k}, -, \sigma\rangle
+  = - \epsilon_{\mathbf{k}\sigma} |\mathbf{k}, -, \sigma\rangle.
+  \label{Diraces2}
+\end{equation}
+Note that $|\mathbf{k}, -, \sigma\rangle$ denotes a negative-energy
+eigenstate with momentum $-\hbar\mathbf{k}$, not $\hbar\mathbf{k}$.
+The reason for this notation, which uses different symbols to label
+the positive-energy and negative-energy states, will become clear
+later.  Each of the $u_{\mathbf{k}\sigma}$ and $v_{\mathbf{k}\sigma}$
+terms are four-component objects (spinors), and for any given
+$\mathbf{k}$, the set
+\begin{equation*}
+  \{ u_{\mathbf{k}\sigma}, v_{\mathbf{k},\sigma}\;\;  | \;\; \sigma = 1,2  \}
+\end{equation*}
+forms an orthonormal basis for the four-dimensional spinor space.
+Thus,
+\begin{equation}
+  \sum_{n} \left(u^n_{\mathbf{k}\sigma}\right)^* u^n_{\mathbf{k}\sigma'} = \delta_{\sigma\sigma'}, \;\;
+  \sum_{n} \left(u^n_{\mathbf{k}\sigma}\right)^* v^n_{\mathbf{k}\sigma'} = 0, \;\;
+  \textrm{etc.}
+  \label{uvorthog}
+\end{equation}
+Here we use the notation where $u^n_{\mathbf{k}\sigma}$ is the $n$-th
+component of the $u_{\mathbf{k}\sigma}$ spinor, etc.
 
+We now follow the second quantization procedure from Chapter 3.  We
+introduce a (fermionic) Fock space $\mathscr{H}_F$, as well as a set
+of creation/annihilation operators:
+\begin{align*}
+  \hat{b}_{\mathbf{k}\sigma}^\dagger \;\; \mathrm{and} \;\; \hat{b}_{\mathbf{k}\sigma}
+  &\;\;\mathrm{create/annihilate} \;\; |\mathbf{k}, +, \sigma\rangle\\
+  \hat{d}_{\mathbf{k}\sigma}^\dagger \;\; \mathrm{and} \;\; \hat{d}_{\mathbf{k}\sigma}
+  &\;\;\mathrm{create/annihilate} \;\; |\mathbf{k}, -, \sigma\rangle.
+\end{align*}
+These obey the fermionic anticommutation relations
+\begin{align}
+  \begin{aligned}
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'}^\dagger \}
+    = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'}, \quad
+    \{\hat{d}_{\mathbf{k}\sigma}, \hat{d}_{\mathbf{k}'\sigma'}^\dagger \}
+    = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'} \\
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'} \} = 
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{d}_{\mathbf{k}'\sigma'} \} = 
+    \{\hat{d}_{\mathbf{k}\sigma}, \hat{d}_{\mathbf{k}'\sigma'} \} = 0, \;\;\textrm{etc.}
+  \end{aligned}
+  \label{Diracanticommutation0}
+\end{align}
+The Hamiltonian is
+\begin{equation}
+  \hat{H} = \int d^3k \sum_\sigma \epsilon_{\mathbf{k}\sigma} \left(
+  \hat{b}^\dagger_{\mathbf{k}\sigma} \hat{b}_{\mathbf{k}\sigma}
+  - \hat{d}^\dagger_{\mathbf{k}\sigma} \hat{d}_{\mathbf{k}\sigma}
+  \right),
+  \label{HDiracQFT0}
+\end{equation}
+and applying the annihilation operators to the vacuum state
+$|\varnothing\rangle$ gives zero:
+\begin{equation}
+  \hat{b}_{\mathbf{k}\sigma} |\varnothing\rangle =
+  \hat{d}_{\mathbf{k}\sigma} |\varnothing\rangle = 0.
+\end{equation}
+
+When formulating bosonic field theory, we defined a local field
+annihilation operator that annihilates a particle at a given point
+$\mathbf{r}$.  In the infinite-system limit, this took the form
+\begin{equation}
+  \hat{\psi}(\mathbf{r})
+  = \int d^3k \; \varphi_{\mathbf{k}}(\mathbf{r}) \, \hat{a}_{\mathbf{k}},
+\end{equation}
+and the orthonormality of the $\varphi_{\mathbf{k}}$ wavefunctions
+implied that $[\hat{\psi}(\mathbf{r}),
+  \hat{\psi}^\dagger(\mathbf{r}')] =
+\delta^3(\mathbf{r}-\mathbf{r}')$.  Similarly, we can use the Dirac
+Hamiltonian's eigenfunctions \eqref{Diraces1}--\eqref{Diraces2} to
+define
+\begin{equation}
+  \hat{\psi}_n(\mathbf{r})
+  = \int \frac{d^3k}{(2\pi)^{3/2}} \; \sum_\sigma
+  \left(
+  u^n_{\mathbf{k}\sigma} e^{i\mathbf{k}\cdot\mathbf{r}} \, \hat{b}_{\mathbf{k}\sigma}
+  + v^n_{\mathbf{k}\sigma} e^{-i\mathbf{k}\cdot\mathbf{r}} \, \hat{d}_{\mathbf{k}\sigma}\right).
+  \label{Diracpsi0}
+\end{equation}
+Note that the two terms in the parentheses arise simply because the
+positive-energy and negative-energy states are denoted by
+differently-labeled annihilation operators.  Moreover, since the
+wavefunctions are four-component spinors, the field operators have an
+explicit spinor index $n$.  Using the spinor orthonormality conditions
+\eqref{uvorthog} and the anticommutation relations
+\eqref{Diracanticommutation0}, we can show that
+\begin{equation}
+  \left\{\hat{\psi}_n(\mathbf{r}), \hat{\psi}_{n'}^{\dagger}(\mathbf{r}')\right\}
+  = \delta_{nn'}\, \delta^3(\mathbf{r}-\mathbf{r}'),
+\end{equation}
+with all other anticommutators vanishing.  Hence,
+$\hat{\psi}_n(\mathbf{r})$ can be regarded as an operator that
+annihilates a four-component fermion at point $\mathbf{r}$.
+
+Now let us \textit{define} the operators
+\begin{equation}
+  \hat{c}_{\mathbf{k}\sigma} = \hat{d}^\dagger_{\mathbf{k}\sigma}.
+\end{equation}
+Then the fermionic anticommutation relations can be re-written as
+\begin{align}
+  \begin{aligned}
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'}^\dagger \}
+    = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'}, \quad
+    \{\hat{c}_{\mathbf{k}\sigma}, \hat{c}_{\mathbf{k}'\sigma'}^\dagger \}
+    = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'} \\
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'} \} = 
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{c}_{\mathbf{k}'\sigma'} \} = 
+    \{\hat{c}_{\mathbf{k}\sigma}, \hat{c}_{\mathbf{k}'\sigma'} \} = 0, \;\;\textrm{etc.}
+  \end{aligned}
+  \label{Diracanticommutators}
+\end{align}
+This means that $\hat{c}^\dagger_{\mathbf{k}\sigma}$ and
+$\hat{c}_{\mathbf{k}\sigma}$ formally satisfy the criteria to be
+regarded as creation and annihilation operators.  The particle created
+by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ is called a \textbf{positron},
+and is equivalent to the \textit{absence} of a $d$-type particle
+(i.e., a negative-energy electron).
+
+The Hamiltonian \eqref{HDiracQFT0} can now be written as
+\begin{equation}
+  \hat{H} = \int d^3k \sum_\sigma \epsilon_{\mathbf{k}\sigma} \left(
+  \hat{b}^\dagger_{\mathbf{k}\sigma} \hat{b}_{\mathbf{k}\sigma}
+  + \hat{c}^\dagger_{\mathbf{k}\sigma} \hat{c}_{\mathbf{k}\sigma}
+  \right) \;\; + \;\; \textrm{constant},
+  \label{HDiracQFT}
+\end{equation}
+which explicitly shows that the positrons have positive energies
+(i.e., the absence of a negative-energy particle is equivalent to the
+presence of a positive-energy particle).  With further analysis, which
+we will skip, it can be shown that the positron created by
+$\hat{c}^\dagger_{\mathbf{k}\sigma}$ has positive charge $e$ and
+momentum $\hbar\mathbf{k}$.  The latter is thanks to the definition
+adopted in Eq.~\eqref{Diraces2}; the absence of a momentum $-\hbar
+\mathbf{k}$ particle is equivalent to the presence of a momentum
+$\hbar \mathbf{k}$ particle.  As for the field annihilation operator
+\eqref{Diracpsi0}, it can be written as
+\begin{equation}
+  \hat{\psi}_n(\mathbf{r})
+  = \int \frac{d^3k}{(2\pi)^{3/2}} \; \sum_\sigma
+  \left(
+  u^n_{\mathbf{k}\sigma} e^{i\mathbf{k}\cdot\mathbf{r}} \, \hat{b}_{\mathbf{k}\sigma}
+  + v^n_{\mathbf{k}\sigma} e^{-i\mathbf{k}\cdot\mathbf{r}} \,
+  \hat{c}^\dagger_{\mathbf{k}\sigma}\right).
+  \label{Diracpsi}
+\end{equation}
+
+The $c$-type annihilation operators do \textit{not} annihilate
+$|\varnothing\rangle$.  However, let us define
+\begin{equation}
+  |\varnothing'\rangle = \prod_{\mathbf{k}\sigma} \hat{d}_{\mathbf{k}\sigma}^\dagger
+  |\varnothing\rangle,
+\end{equation}
+which is evidently a formal description of the Dirac sea state.  Then
+\begin{equation}
+  \hat{c}_{\mathbf{k}\sigma} |\varnothing'\rangle = 
+  \hat{c}^\dagger_{\mathbf{k}\sigma} \prod_{\mathbf{k}'\sigma'}
+  \hat{d}_{\mathbf{k}'\sigma'}^\dagger |\varnothing\rangle = 0.
+\end{equation}
+
+Having done all this, we can regard the quantum field theory as being
+defined in terms of $b$-type and $c$-type operators, using the
+anticommutators \eqref{Diracanticommutators}, the Hamiltonian
+\eqref{HDiracQFT}, and the field operator \eqref{Diracpsi}, along with
+the vacuum state $|\varnothing'\rangle$.  The elementary particles are
+electrons and positrons, which have strictly positive energies.  Then
+the whole single-particle Dirac theory, with its quirky
+negative-energy states, can be interpreted as a special construct that
+allows us to map the quantum field theory into single-particle
+language.  It is the quantum field theory, however, that is more
+fundamental.
+
+There is much more to understand about the structure and
+interpretation of the Dirac single-particle theory and quantum field
+theory, which we will not pursue here.  One particularly important
+issue involves how the particles, and the underlying quantum field,
+transform under Lorentz boosts and other changes in coordinate system.
+For these details, the reader is referred to
+\hyperref[cite:dyson]{Dyson (1951)}.
 
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
