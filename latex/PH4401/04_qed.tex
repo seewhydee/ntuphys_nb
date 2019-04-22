@@ -34,17 +34,17 @@
 {\Large \textbf{Chapter 4: Quantum Electrodynamics}}
 \end{center}
 
-This chapter provides a survey of \textbf{quantum electrodynamics},
-the quantum theory of the electromagnetic field and its interactions
-with electrons and other electrically charged particles.  We start by
-formulating Hamiltonians to describe how a quantum mechanical electron
-is affected by classical electromagnetic fields.  Next, we describe
-the quantization of Maxwell's equations, which yields a quantum field
-theory in which the elementary excitations are photons---particles of
-light.  The last step is to formulate a theory in which both electrons
-and photons are treated on the same footing, as excitations of
-underlying quantum fields.  Along the way, we will see how relativity
-can be accomodated with quantum mechanics.
+This chapter provides an introduction to \textbf{quantum
+  electrodynamics}, the quantum theory of the electromagnetic field
+and its interactions with electrons and other electrically charged
+particles.  We start by formulating Hamiltonians to describe how a
+quantum mechanical electron is affected by classical electromagnetic
+fields.  Then we study how to quantize Maxwell's equations, which
+yields a quantum field theory where the elementary excitations are
+photons---particles of light.  The final step is to formulate a theory
+in which both electrons and photons are treated on the same footing,
+as excitations of underlying quantum fields.  Along the way, we will
+see how relativity can be accomodated with quantum mechanics.
 
 Quantum electrodynamics is a rich and intricate theory, and we will
 not be able to cover many important areas, such as the detailed
@@ -72,11 +72,11 @@ rest of this chapter.
 We begin by formulating the Hamiltonian governing the quantum dynamics
 of such a particle, subject to two simplifying assumptions: (i) the
 particle has charge and mass but is otherwise ``featureless'' (i.e.,
-unlike a real electron, it has no spin angular momentum, and no
-magnetic dipole moment), and (ii) the electromagnetic field is treated
-as a classical field (i.e., the electric and magnetic fields are
-definite quantities).  We will show how to drop these simplifications
-in subsequent sections.
+we ignore the spin angular momentum and magnetic dipole moment that
+real electrons possess), and (ii) the electromagnetic field is treated
+as a classical field, meaning that the electric and magnetic fields
+are definite quantities rather than operators.  These simplifications
+will be dropped in subsequent sections.
 
 In the classical regime, the action of an electromagnetic field on a
 point charged particle is decribed by the Lorentz force law,
@@ -117,11 +117,10 @@ described by the Lagrangian
 \end{framed}
 \vskip -0.15in
 \noindent
-This is very similar to the usual prescription for the Lagrangian as
-the kinetic energy minus the potential energy, with $-e\Phi$ serving
-as the potential energy function.  However, there is an extra
-$-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term, which will turn out to be
-responsible for the magnetic force.
+This is similar to the usual prescription for the Lagrangian as the
+kinetic energy minus the potential energy, with $-e\Phi$ serving as
+the potential energy function, except for the presence of the extra
+$-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term.
 
 We want to plug the Lagrangian \eqref{Lag} into the Euler-Lagrange
 equations
@@ -190,13 +189,9 @@ express it in terms of $\mathbf{p}$ rather than $\dot{\mathbf{r}}$:
   \end{aligned}
 \end{align}
 After cancelling various terms, we arrive at the result
-\begin{framed}
-  \begin{equation}
-    H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
-  \end{equation}
-\end{framed}
-\vskip -0.15in
-\noindent
+\begin{equation}
+  H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
+\end{equation}
 This looks much like the familiar Hamiltonian for a non-relativistic
 particle,
 \begin{equation*}
@@ -210,12 +205,12 @@ fact that the vector potential appears via the substitution
 \end{equation}
 What does this mean?
 
-To answer this, think about what ``momentum'' means in the context of
-a charged particle in an electromagnetic field.  Noether's theorem
-states that every symmetry of a system (whether classical or quantum)
-is associated with a conserved quantity.  Momentum is the quantity
-conserved when the system is symmetric under spatial translations.  We
-can see this from the Hamilton equation
+To answer this, think about what ``momentum'' means for a charged
+particle in an electromagnetic field.  Noether's theorem states that
+every symmetry of a system (whether classical or quantum) is
+associated with a conserved quantity.  Momentum is the quantity
+conserved when the system is symmetric under spatial translations.
+From the Hamilton equation,
 \begin{equation*}
   \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
 \end{equation*}
@@ -245,13 +240,13 @@ conserved:
   \frac{d}{dt}(m\dot{\mathbf{r}} - e\mathbf{A}) =
   eC\hat{z} - eC\hat{z} = 0.
 \end{equation}
-Hence, this quantity serves as appropriate canonical momentum for a
-particle in an electromagnetic field.
+Hence, this is the appropriate canonical momentum for a particle in an
+electromagnetic field.
 
-The last step is to go from classical to quantum mechanics.  To do
-this, we simply replace $\mathbf{r}$ with the position operator
-$\hat{\mathbf{r}}$, and $\mathbf{p}$ with the momentum operator
-$\hat{\mathbf{p}}$.  The resulting quantum Hamiltonian is
+Finally, to go from classical to quantum mechanics, we simply replace
+$\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
+$\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  The
+resulting quantum Hamiltonian is
 \begin{framed}
   \begin{equation}
     \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
@@ -375,7 +370,7 @@ two-dimensional.  We define polar coordinates $(r,\phi)$ with the
 origin at the ring's center.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.4\textwidth]{annulus}
+  \centering\includegraphics[width=0.32\textwidth]{annulus}
 \end{figure}
 
 Now, suppose we thread magnetic flux (e.g., using a solenoid) through
@@ -430,29 +425,31 @@ Plugging this into Eq.~\eqref{ABschrod} yields the energy levels
   \label{abcurves}
 \end{align}
 In the figure below, these energy levels are sketched versus the
-magnetic flux $\Phi_B$.  According to Eq.~\eqref{abcurves}, the
-energies are described by a set of quadratic curves, translated along
-the $\Phi_B$ axis by integer multiples of $h/e$.  Evidently, varying
-$\Phi_B$ will shift the eigen-energies in the annulus, despite the
-fact that the magnetic field vanishes in the annulus.  This is a
-manifestation of the Aharonov-Bohm effect.
+magnetic flux $\Phi_B$:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.65\textwidth]{abring}
+  \centering\includegraphics[width=0.55\textwidth]{abring}
 \end{figure}
 
-One notable feature of this energy spectrum is that it remains the
-same whenever the magnetic flux changes by an exact multiple of $h/e =
-4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$.  This fundamental
-unit of magnetic flux is called the \textbf{magnetic flux quantum}.
-Notably, it does not depend on the radius of the annulus, or any other
-geometrical parameters of the system.  This is because the invariance
-property arises from the gauge symmetry of the Hamiltonian.  When an
-extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded through the
-annulus, Eq.~\eqref{Asolenoid} tells us that the change in vector
-potential is $\Delta \mathbf{A} = (n\hbar/ e r) \hat{e}_\phi$.  We can
-undo the effects of this additional vector potential using the gauge
-field
+According to Eq.~\eqref{abcurves}, each energy level has a quadratic
+dependence on $\Phi_B$.  Variations in $\Phi_B$ affect the energy
+levels, even though the magnetic field vanishes in the annulus where
+the electron resides.  This is a manifestation of the Aharonov-Bohm
+effect.
+
+Moreover, curves of different $n$ are centered at different points
+along the $\Phi_B$ axis corresponding to multiples of $h/e =
+4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$.  The energy spectrum
+comes back to itself whenever $\Phi_B$ changes by an exact multiple of
+$h/e$, a fundamental unit of magnetic flux called the \textbf{magnetic
+  flux quantum}.  Notably, the value does not depend on the radius of
+the annulus, or any other geometrical parameters of the system!  This
+invariance property arises from the gauge symmetry of the Hamiltonian.
+When an extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded
+through the annulus, Eq.~\eqref{Asolenoid} tells us that the change in
+vector potential is $\Delta \mathbf{A} = (n\hbar/ e r) \hat{e}_\phi$.
+We can undo the effects of this additional vector potential using the
+gauge field
 \begin{equation}
   \Lambda(r,\phi) = - \frac{n\hbar}{e} \, \phi \;\;\;\Rightarrow
   \begin{cases}\nabla \Lambda &= \displaystyle (n\hbar/er) \hat{e}_\phi
@@ -463,7 +460,7 @@ Note that the gauge field $\Lambda$ is not single-valued---but that's
 not a problem, since both $\nabla\Lambda$ and the phase factor
 $\exp(-ie\Lambda/\hbar)$, which respectively enter into the vector
 potential and wavefunction (the ``actual'' physical quantities),
-\textit{are} single-valued!
+\textit{are} single-valued.
 
 \section{Dirac Theory}
 
@@ -474,21 +471,20 @@ The $p^2/2m$-type Hamiltonians we have been using describe
 non-relativistic particles.  In 1928, Paul Dirac formulated a
 Hamiltonian that can describe particles moving close to the speed of
 light, thus successfully combining quantum mechanics with the special
-theory of relativity. Another triumph of Dirac's theory is that upon
-including electromagnetic scalar and vector potentials, the magnetic
-moment of the electron is accurately predicted.
+theory of relativity. Another triumph of Dirac's theory is that it
+accurately predicts the magnetic moment of the electron.
 
-Dirac's theory begins from the time-dependent Schr\"odinger equation.
-In the wavefunction representation, this has the form
+Dirac's theory begins from the time-dependent Schr\"odinger wave
+equation,
 \begin{equation}
   i\hbar\, \partial_t\, \psi(\mathbf{r},t)
   = \hat{H} \psi(\mathbf{r},t).
   \label{schrod}
 \end{equation}
 Note that the left side has a first-order time derivative.  On the
-right side, the Hamiltonian $\hat{H}$ contains spatial derivatives in
-the form of momentum operators.  We know that time and space
-derivatives of wavefunctions are related to energy and momentum by
+right, the Hamiltonian $\hat{H}$ contains spatial derivatives in the
+form of momentum operators.  We know that time and space derivatives
+of wavefunctions are related to energy and momentum by
 \begin{equation}
     i\hbar\, \partial_t\; \leftrightarrow \;
     E, \qquad
@@ -515,8 +511,8 @@ first-order spatial derivatives.  So we make the guess
 \end{equation}
 where $\hat{p}_j \equiv -i\hbar \partial/\partial x_j$.  The $mc^2$
 and $c$ factors are placed for later convenience.  We now need to
-determine the ``coefficients'' $\alpha_0$, $\alpha_1$, $\alpha_2$, and
-$\alpha_3$, which are dimensionless.
+determine the dimensionless ``coefficients'' $\alpha_0$, $\alpha_1$,
+$\alpha_2$, and $\alpha_3$.
 
 For a wavefunction with definite momentum $\mathbf{p}$ and energy
 $E$,
@@ -527,8 +523,8 @@ $E$,
 where the $\hat{p}_j$ operators are replaced with definite numbers.
 If $\psi$ is a scalar, this would imply $\alpha_0 mc^2 +
 \sum_{j}\alpha_j p_j c = E$, which does not match the relativistic
-energy-mass-momentum relation \eqref{Erelativistic}.  However, we can
-get it to work if the $\alpha$'s are matrices rather than numbers:
+energy-mass-momentum relation \eqref{Erelativistic}.  But we can get
+it to work if the $\alpha$'s are matrices rather than numbers, i.e.
 \begin{framed}
   \begin{equation}
     \hat{H} = \hat{\alpha}_0 mc^2 + \sum_{j=1}^3 \hat{\alpha}_j \hat{p}_j c,
@@ -606,6 +602,7 @@ $4\times4$ matrices, it follows that $\psi(\mathbf{r})$ is a
 four-component field, not an ordinary scalar wavefunction.
 
 \subsection{Eigenstates of the Dirac Hamiltonian}
+\label{sec:deigenstates}
 
 According to Eq.~\eqref{Erelativistic}, the energy eigenvalues of the
 Dirac Hamiltonian are
@@ -619,27 +616,27 @@ This is plotted below:
 \end{center}
 
 \noindent
-The energy spectrum forms two ``bands''.  For each $\mathbf{p}$, there
-are two degenerate positive energy eigenvalues, and two degenerate
-negative energy eigenvalues; thus there are four eigenvalues in total,
-matching the number of wavefunction components.  The upper band
-matches the dispersion relation for a massive relativistic particle,
-as desired.  But what about the negative-energy states?  Who ordered
-that?
+The energy spectrum forms two hyperbolic bands.  For each
+$\mathbf{p}$, there are two degenerate positive energy eigenvalues,
+and two degenerate negative energy eigenvalues: a total of four
+eigenvalues, matching the number of wavefunction components.  The
+upper band matches the dispersion relation for a massive relativistic
+particle, as desired.  But what about the negative-energy states?  Who
+ordered that?
 
 It might be possible for us to ignore the existence of the
-negative-energy states, if we are only considering an isolated
-electron; we could just declare that the positive-energy states are
-the ones we are interested in, and study those.  However, the problem
-becomes severe once we let the electron interact with another system,
-such as the electromagnetic field.  The positive-energy electron
-states then become unstable: due to the availability of
-negative-energy states extending down to $E\rightarrow -\infty$, the
-electron can repeatedly hop to states with ever more negative energies
-by transferring energy to the other system, such as by emitting
-photons.  This is obviously problematic.  However, let us wait for a
-while (till Section~\ref{sec:positrons}) to discuss how the stability
-problem might be resolved.
+negative-energy states, if we only ever consider isolated electrons;
+we could just declare that the positive-energy states are the ones we
+are interested in, and ignore the other states.  However, the problem
+becomes hard to dismiss once we let the electron interact with another
+system, such as the electromagnetic field, because the positive-energy
+electron states should then become unstable.  Due to the availability
+of negative-energy states extending down to $E\rightarrow -\infty$,
+the electron can repeatedly hop to states with ever more negative
+energies by shedding energy, e.g.~through the emission of photons.
+This is obviously problematic.  However, let us wait for a while (till
+Section~\ref{sec:positrons}) to discuss how the stability problem
+might be resolved.
 
 We will first take some time to analyze the meaning of the Dirac
 wavefunction.  The four components represent a four-fold ``internal''
@@ -818,42 +815,44 @@ therefore predicts the electron's magnetic dipole moment to be
   \label{Diracmu}
 \end{equation}
 Remarkably, this matches the experimentally-observed magnetic dipole
-moment to about one part in $10^3$.  We thus see that the electron's
-magnetic dipole moment is not an arbitrary quantity, but an outcome of
-combining quantum mechanics with relativity.  The residual mismatch
-between Eq.~\eqref{Diracmu} and the actual magnetic dipole moment of
-the electron is understood to arise from quantum fluctuations of the
-electronic and electromagnetic quantum fields; this ``anomalous
-magnetic moment'' can be calculated using the full theory of quantum
-electrodynamics, and matches experiment to around one part in $10^9$,
-making it one of the most precise theoretical predictions in physics.
-For details, see \hyperref[cite:zee]{Zee (2010)}.
+moment to about one part in $10^3$.  The residual mismatch between
+Eq.~\eqref{Diracmu} and the actual magnetic dipole moment of the
+electron is understood to arise from quantum fluctuations of the
+electronic and electromagnetic quantum fields.  Using the full theory
+of quantum electrodynamics, that ``anomalous magnetic moment'' can
+also be calculated and matches experiment to around one part in
+$10^9$, making it one of the most precise theoretical predictions in
+physics.  For details, see \hyperref[cite:zee]{Zee (2010)}.
 
-It is also noteworthy that we did not set out to include spin in the
+It is noteworthy that we did not set out to include spin in the
 theory, yet it arose, seemingly unavoidably, as a by-product of
 formulating a relativistic theory of the electron.  This is a
 manifestation of the fact that relativistic quantum theory is more
 constrained than non-relativistic quantum theory.  Relativistic
-symmetries demand that spin cannot be an optional part of the theory,
-but must be fully accounted for.
+symmetries impose such strict demands that spin is not allowed to be
+an optional component of the theory, but has to be fully present and
+accounted for.
 
 \subsection{Positrons and Dirac Field Theory}
 \label{sec:positrons}
 
-To stabilize the electron against decay into negative-energy states,
+As noted in Section~\ref{sec:deigenstates}, the stability of the
+quantum states described by the Dirac equation is threatened by the
+presence of negative-energy solutions.  To get around this problem,
 Dirac suggested that what we regard as the ``vacuum'' may actually be
-a state, called the \textbf{Dirac sea}, in which all the
-negative-energy states are occupied.  Then the Pauli exclusion
-principle would prevent decay into the negative-energy states.
+a state, called the \textbf{Dirac sea}, in which all negative-energy
+states are occupied.  Since electrons are fermions, the Pauli
+exclusion principle would then forbid decay into the negative-energy
+states, stabilizing the positive-energy states.
 
 At first blush, the idea seems ridiculous; how can the vacuum contain
 an infinite number of particles?  However, we shall see that the idea
-is more plausible if we re-interpret the Dirac theory as a
+becomes more plausible if the Dirac equation is reinterpreted as a
 single-particle \textit{construction} which arises from a more
 fundamental quantum field theory.  The Dirac sea idea is an inherently
-multi-particle concept, and we saw in Chapter 3 that quantum field
+multi-particle concept, and we know from Chapter 3 that quantum field
 theory is a natural framework for describing multi-particle quantum
-states.  Let us therefore develop this quantum field theory.
+states.  Let us therefore develop this theory.
 
 Consider again the eigenstates of the single-particle Dirac
 Hamiltonian with definite momenta and energies.  Denote the
@@ -894,11 +893,12 @@ Thus,
   \label{uvorthog}
 \end{equation}
 Here we use the notation where $u^n_{\mathbf{k}\sigma}$ is the $n$-th
-component of the $u_{\mathbf{k}\sigma}$ spinor, etc.
+component of the $u_{\mathbf{k}\sigma}$ spinor, and likewise for the
+$v$'s.
 
-We now follow the second quantization procedure from Chapter 3.  We
-introduce a (fermionic) Fock space $\mathscr{H}_F$, as well as a set
-of creation/annihilation operators:
+Following the second quantization procedure from Chapter 3, let us
+introduce a fermionic Fock space $\mathscr{H}_F$, as well as a set of
+creation/annihilation operators:
 \begin{align*}
   \hat{b}_{\mathbf{k}\sigma}^\dagger \;\; \mathrm{and} \;\; \hat{b}_{\mathbf{k}\sigma}
   &\;\;\mathrm{create/annihilate} \;\; |\mathbf{k}, +, \sigma\rangle\\
@@ -973,7 +973,7 @@ Now let us \textit{define} the operators
 \begin{equation}
   \hat{c}_{\mathbf{k}\sigma} = \hat{d}^\dagger_{\mathbf{k}\sigma}.
 \end{equation}
-Then the fermionic anticommutation relations can be re-written as
+Using these, the fermionic anticommutation relations can be re-written as
 \begin{align}
   \begin{aligned}
     \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'}^\dagger \}
@@ -986,7 +986,7 @@ Then the fermionic anticommutation relations can be re-written as
   \end{aligned}
   \label{Diracanticommutators}
 \end{align}
-This means that $\hat{c}^\dagger_{\mathbf{k}\sigma}$ and
+Hence $\hat{c}^\dagger_{\mathbf{k}\sigma}$ and
 $\hat{c}_{\mathbf{k}\sigma}$ formally satisfy the criteria to be
 regarded as creation and annihilation operators.  The particle created
 by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ is called a \textbf{positron},
@@ -1034,25 +1034,25 @@ which is evidently a formal description of the Dirac sea state.  Then
   \hat{d}_{\mathbf{k}'\sigma'}^\dagger |\varnothing\rangle = 0.
 \end{equation}
 
-Having done all this, we can regard the quantum field theory as being
+At the end of the day, we can regard the quantum field theory as being
 defined in terms of $b$-type and $c$-type operators, using the
 anticommutators \eqref{Diracanticommutators}, the Hamiltonian
 \eqref{HDiracQFT}, and the field operator \eqref{Diracpsi}, along with
-the vacuum state $|\varnothing'\rangle$.  The elementary particles are
-electrons and positrons, which have strictly positive energies.  Then
-the whole single-particle Dirac theory, with its quirky
-negative-energy states, can be interpreted as a special construct that
-allows us to map the quantum field theory into single-particle
-language.  It is the quantum field theory, however, that is more
-fundamental.
+the vacuum state $|\varnothing'\rangle$.  The elementary particles in
+this theory are electrons and positrons with strictly positive
+energies.  The single-particle Dirac theory, with its quirky
+negative-energy states, can then be interpreted as a special construct
+that maps the quantum field theory into single-particle language.
+Even though we actually started from the single-particle description,
+it is the quantum field theory, and its vacuum state
+$|\varnothing'\rangle$, that is more fundamental.
 
 There is much more to understand about the structure and
-interpretation of the Dirac single-particle theory and quantum field
-theory, which we will not pursue here.  One particularly important
-issue involves how the particles, and the underlying quantum field,
-transform under Lorentz boosts and other changes in coordinate system.
-For these details, the reader is referred to
-\hyperref[cite:dyson]{Dyson (1951)}.
+interpretation of the Dirac theory, which we will not pursue here.
+One particularly important issue involves how the particles, and the
+underlying quantum field, transform under Lorentz boosts and other
+changes in coordinate system.  For these details, the reader is
+referred to \hyperref[cite:dyson]{Dyson (1951)}.
 
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
