@@ -1057,17 +1057,15 @@ referred to \hyperref[cite:dyson]{Dyson (1951)}.
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
 
-We have previously seen how to quantize a simple scalar boson field
-(Chapter 3, Sec.~V.C): the classical field is decomposed into normal
-modes, and each mode is quantized by treating it as an independent
-oscillator, with its own creation and annihilation operators.  By
-comparing the oscillator energies in the classical and quantum
-regimes, we derive the Hermitian operator corresponding to the
-classical field variable, expressed in terms of the creation and
-annihilation operators.
-
-We will use this approach, with minor adjustments, to quantize the
-electromagnetic field.
+Previously (Chapter 3, Sec.~IV.C), we have gone through the process of
+quantizing a scalar boson field.  The classical field is decomposed
+into normal modes, and each mode is quantized by assigning it an
+independent set of creation and annihilation operators.  By comparing
+the oscillator energies in the classical and quantum regimes, we can
+derive the Hermitian operator corresponding to the classical field
+variable, expressed using the creation and annihilation operators.  We
+will use the same approach, with only minor adjustments, to quantize
+the electromagnetic field.
 
 First, consider a ``source-free'' electromagnetic field---i.e., with
 no electric charges and currents.  Without sources, Maxwell's
@@ -1082,12 +1080,14 @@ equations (in SI units, and in a vacuum) reduce to:
 Once again, we introduce the scalar potential $\Phi$ and vector
 potential $\mathbf{A}$:
 \begin{align}
-  \mathbf{E} &= - \nabla \Phi - \frac{\partial\mathbf{A}}{\partial t} \\
+  \mathbf{E} &= - \nabla \Phi - \frac{\partial\mathbf{A}}{\partial t}
+  \label{Efield} \\
   \mathbf{B} &= \nabla \times \mathbf{A}.
+  \label{Bfield}
 \end{align}
-These relations cause Eqs.~\eqref{max2} and \eqref{max3} to be
-satisfied automatically, via vector identities.  The other two Maxwell
-equations, \eqref{max1} and \eqref{max4}, become:
+With these relations, Eqs.~\eqref{max2} and \eqref{max3} are satisfied
+automatically via vector identities.  The two remaining equations,
+\eqref{max1} and \eqref{max4}, become:
 \begin{align}
   \nabla^2 \Phi &= -\frac{\partial}{\partial t} \nabla \cdot \mathbf{A} \label{max5} \\
   \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)
@@ -1104,8 +1104,8 @@ In the next step, we choose a convenient gauge called the
 out with a scalar potential $\Phi_0$ and vector potential
 $\mathbf{A}_0$ not satisfying \eqref{coulomb}.  Perform a gauge
 transformation with a gauge field $\Lambda(\mathbf{r}, t) = - \int^t
-dt'\; \Phi_0(\mathbf{r}, t')$.  Then the new scalar potential is $\Phi
-= \Phi_0 + \dot{\Lambda} = 0$; moreover, the new vector potential
+dt'\; \Phi_0(\mathbf{r}, t')$.  The new scalar potential is $\Phi =
+\Phi_0 + \dot{\Lambda} = 0$; moreover, the new vector potential
 satisfies
 \begin{equation}
   \nabla\cdot\mathbf{A} = \nabla\cdot \mathbf{A}_0 - \nabla^2 \Lambda
@@ -1115,13 +1115,12 @@ Upon using Eq.~\eqref{max5}, we find that $\nabla\cdot\mathbf{A} =
 0$.)
 
 In the Coulomb gauge, Eq.~\eqref{max5} is automatically satisfied.
-The remaining equation, \eqref{max6}, simplifies to
+The sole remaining equation, \eqref{max6}, simplifies to
 \begin{equation}
   \left(\nabla^2 - \frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)
   \mathbf{A} = 0. \label{max8}
 \end{equation}
-Hence, we deduce that the normal modes are \textbf{light waves} that
-have the plane-wave form
+This has plane-wave solutions of the form
 \begin{equation}
   \mathbf{A}(\mathbf{r},t) = \Big(\mathcal{A}\,
   \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} + \mathrm{c.c.}\Big)\, \hat{e},
@@ -1132,30 +1131,28 @@ that specifies the magnitude and phase of the plane wave, $\hat{e}$ is
 a real unit vector (the \textbf{polarization vector}) that specifies
 which direction the vector potential points along, and
 ``c.c.''~denotes the complex conjugate of the first term.  Referring
-to Eq.~\eqref{max8}, we see that the frequency $\omega$ must satisfy
+to Eq.~\eqref{max8}, the angular frequency $\omega$ must satisfy
 \begin{equation}
   \omega = c|\mathbf{k}|.
 \end{equation}
-For convenience, suppose for now that we put the electromagnetic field
-in a box of volume $V = L^3$, with periodic boundary conditions, so
-that the $\mathbf{k}$ vectors form a discrete set:
-\begin{equation}
-  k_j = \frac{2\pi n_j}{L}, \;\; n_j \in \mathbf{Z}, \;\;\mathrm{for}
-  \;\; j = 1,2,3.
-\end{equation}
-We will take the $L \rightarrow \infty$ limit at the very end.
-
-Since $\nabla \cdot \mathbf{A} = 0$, it must also be the case that
+Moreover, since $\nabla \cdot \mathbf{A} = 0$, it must be the case
+that
 \begin{equation}
   \mathbf{k} \cdot \hat{e} = 0.
 \end{equation}
 In other words, the polarization vector is perpendicular to the
-propagation direction.  For each $\mathbf{k}$, there are two
-orthogonal polarization, which can be labelled by an index $\lambda =
-1,2$.
+propagation direction.  For any given $\mathbf{k}$, we can choose
+(arbitrarily) two orthogonal polarization vectors.
 
-Hence, the vector potential field can be generally decomposed into a
-discrete superposition of plane waves:
+Now suppose we put the electromagnetic field in a box of volume $V =
+L^3$, with periodic boundary conditions (we will take $L \rightarrow
+\infty$ at the end).  The $\mathbf{k}$ vectors form a discrete set:
+\begin{equation}
+  k_j = \frac{2\pi n_j}{L}, \;\; n_j \in \mathbf{Z}, \;\;\mathrm{for}
+  \;\; j = 1,2,3.
+\end{equation}
+Then the vector potential field can be decomposed as a superposition
+of plane waves,
 \begin{equation}
   \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
   \Big(\mathcal{A}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
@@ -1163,6 +1160,12 @@ discrete superposition of plane waves:
   \;\;\; \mathrm{where}
   \;\;\;\omega_{\mathbf{k}} = c|\mathbf{k}|.
 \end{equation}
+Here, $\lambda$ is a two-fold polarization degree of freedom indexing
+the two possible orthogonal polarization vectors for each
+$\mathbf{k}$.  (We won't need to specify how exactly these
+polarization vectors are defined, so long as the definition is used
+consistently.)
+
 To convert the classical field theory into a quantum field theory, for
 each $(\mathbf{k},\lambda)$ we define an independent set of creation
 and annihilation operators:
@@ -1180,63 +1183,80 @@ Then the Hamiltonian for the electromagnetic field is
   \;\;\; \mathrm{where}
   \;\;\;\omega_{\mathbf{k}} = c|\mathbf{k}|.
 \end{equation}
-And the vector potential is promoted into a Hermitian operator in the
+The vector potential is now promoted into a Hermitian operator in the
 Heisenberg picture:
 \begin{equation}
   \hat{\mathbf{A}}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
   \mathcal{C}_{\mathbf{k}\lambda}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
   + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}.
+  \label{Aquantum}
 \end{equation}
 Here, $\mathcal{C}_{\mathbf{k}\lambda}$ is a constant to be
 determined, and ``h.c.''~denotes the Hermitian conjugate.  The
 creation and annihilation operators in this equation are Schr\"odinger
-picture ($t = 0$) operators (see Chapter 3, Sec.~V.C).  The particles
-that they create/annihilate are called \textbf{photons}---elementary
-particles of light.
+picture ($t = 0$) operators.  The particles they create/annihilate are
+\textbf{photons}---elementary particles of light.
 
 To find $\mathcal{C}_{\mathbf{k}\lambda}$, we compare the quantum and
-classical energies.  Consider the quantum case first: suppose the
-electromagnetic field is in a coherent state
-$|\alpha_{\mathbf{k}\lambda}\rangle$ such that
+classical energies.  Suppose the electromagnetic field is in a
+coherent state $|\alpha\rangle$ such that for any $\mathbf{k}$ and
+$\lambda$,
 \begin{equation}
-  \hat{a}_{\mathbf{k}\lambda}|\alpha_{\mathbf{k}\lambda}\rangle
-  = \alpha_{\mathbf{k}\lambda}|\alpha_{\mathbf{k}\lambda}\rangle,
+  \hat{a}_{\mathbf{k}\lambda}|\alpha\rangle
+  = \alpha_{\mathbf{k}\lambda}|\alpha\rangle
   \label{coherent}
 \end{equation}
-for some $\alpha_{\mathbf{k}\lambda} \in \mathbb{C}$.  Then the mean
-squared expectation value of $A^2$, where $A$ is the vector potential
-component parallel to the polarization vector
-$\hat{e}_{\mathbf{k}\lambda}$, is
+for some $\alpha_{\mathbf{k}\lambda} \in \mathbb{C}$.  From this and
+Eq.~\eqref{Aquantum}, we identify the corresponding classical field
 \begin{equation}
-  \overline{\langle \alpha_{\mathbf{k}\lambda} | \hat{A}^2(\mathbf{r},t) | \alpha_{\mathbf{k}\lambda}\rangle}
-  = 2 \, |\mathcal{C}_{\mathbf{k}\lambda}|^2 \, |\alpha_{\mathbf{k}\lambda}|^2.
-  \label{quant_Asq}
+  \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
+    \Big(\mathcal{A}_{\mathbf{k}\lambda}\,
+    e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+    + \mathrm{c.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+    \quad \mathrm{where}\;\;\;
+    \mathcal{C}_{\mathbf{k}\lambda} \alpha_{\mathbf{k}\lambda}
+    = \mathcal{A}_{\mathbf{k}\lambda}.
 \end{equation}
-The energy is
+For each $\mathbf{k}$ and $\lambda$,
+Eqs.~\eqref{Efield}--\eqref{Bfield} give the electric and magnetic
+fields
+\begin{align}
+  \mathbf{E}_{\mathbf{k}\lambda}  &=
+  \Big(i\omega_{\mathbf{k}} \mathcal{A}_{\mathbf{k}\lambda}\,
+    e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+    + \mathrm{c.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
+    \mathbf{B}_{\mathbf{k}\lambda} &=
+    \Big(i \mathcal{A}_{\mathbf{k}\lambda}\,
+    e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+    + \mathrm{c.c.}\Big) \; \mathbf{k} \times \hat{e}_{\mathbf{k}\lambda}.
+\end{align}
+In the classical theory of electromagnetism, Poynting's theorem tells
+us that the total energy carried by a classical plane electromagnetic
+wave is
+\begin{align}
+  \begin{aligned}
+  E &= \int_V d^3\!r\; \frac{\epsilon_0}{2} \left(
+  \big|\mathbf{E}_{\mathbf{k}\lambda}\big|^2
+  + c^2 \big|\mathbf{B}_{\mathbf{k}\lambda}\big|^2 \right) \\
+  &= 2 \, \epsilon_0\, \omega_{\mathbf{k}}^2 \;
+  |\mathcal{A}_{\mathbf{k}\lambda}|^2 \,V.
+  \end{aligned}
+\end{align}
+Here, $V$ is the volume of the enclosing box, and we have used the
+fact that terms like $e^{2i\mathbf{k}\cdot\mathbf{r}}$ vanish when
+integrated over $\mathbf{r}$.  Hence, we make the correspondence
 \begin{equation}
-  E = \hbar\omega_{\mathbf{k}} |\alpha_{\mathbf{k}\lambda}|^2.
-  \label{quant_energy}
+  2\,\epsilon_0\, \omega_{\mathbf{k}}^2 \,
+  |\mathcal{C}_{\mathbf{k}\lambda}\alpha_{\mathbf{k}\lambda}|^2 \, V
+  = \hbar \omega_{\mathbf{k}} |\alpha_{\mathbf{k}\lambda}|^2 \quad
+  \Rightarrow\;\;\; \mathcal{C}_{\mathbf{k}\lambda} =
+  \sqrt{\frac{\hbar}{2\epsilon_0\omega_{\mathbf{k}}V}}.
 \end{equation}
 
-Now compare this to the classical case.  The energy density (energy
-per unit volume) of a classical source-free electromagnetic plane wave
-is
-\begin{equation}
-  \overline{u} = \varepsilon_0\, \omega^2 \, \overline{A^2},
-\end{equation}
-where $\varepsilon_0$ is the permittivity of free space.  Combining
-this with Eqs.~\eqref{quant_Asq} and \eqref{quant_energy}, and taking
-$E = \overline{u} V$, yields
-\begin{align}
-  \hbar\omega_{\mathbf{k}} |\alpha_{\mathbf{k}\lambda}|^2 &=
-  \left(\varepsilon_0\, \omega^2\right) \,
-  \left(2 \, |\mathcal{C}_{\mathbf{k}\lambda}|^2 \, |\alpha_{\mathbf{k}\lambda}|^2\right)\, V \\
-  \Rightarrow \quad \mathcal{C}_{\mathbf{k}\lambda} &= \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}.
-\end{align}
 We thus arrive at the result
-\begin{align}
-\boxed{\qquad
+\begin{framed}
+  \begin{align}
   \begin{aligned}
     \hat{H} &= \sum_{\mathbf{k}\lambda} \hbar \omega_{\mathbf{k}} \,
     \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
@@ -1250,9 +1270,9 @@ We thus arrive at the result
   \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}\big]
   = 0.
   \end{aligned}
-  \qquad}
   \label{qed1}
-\end{align}
+  \end{align}
+\end{framed}
 To describe infinite free space rather than a finite-volume box, we
 take the $L\rightarrow \infty$ limit and re-normalize the creation and
 annihilation operators by the replacement
@@ -1262,8 +1282,8 @@ annihilation operators by the replacement
 \end{equation}
 Then the sums over $\mathbf{k}$ become integrals over the infinite
 three-dimensional space:
+\begin{framed}
 \begin{align}
-\boxed{\qquad
   \begin{aligned}
     \hat{H} &= \int d^3k\sum_{\lambda} \hbar \omega_{\mathbf{k}} \,
     \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
@@ -1277,45 +1297,36 @@ three-dimensional space:
   \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}\big]
   = 0.
   \end{aligned}
-  \qquad}
   \label{qed2}
 \end{align}
+\end{framed}
 
 \section{The electron-photon interaction}
 
-Now that we have separate quantum theories for the electron and the
-electromagnetic field, we can put them together into a theory of
-\textbf{quantum electrodynamics}.  This theory will be able to
-describe processes involving electrons interacting with the
-electromagnetic field by absorbing and/or radiating photons.
+Having derived quantum theories for the electron and the
+electromagnetic field, we can put them together to describe how
+electrons interact with the electromagnetic field by absorbing and/or
+emitting photons.  Here, we present the simplest such calculation.
 
-In concrete terms, let $\mathscr{H}_{\mathrm{e}}$ denote the Hilbert
-space for one electron (for now, we'll use a single-particle rather
-than field-theoretical description for the electron).  Let
-$\mathscr{H}_{\mathrm{EM}}$ denote the Hilbert space for the
-electromagnetic field (i.e., a Fock space for photons).  The states of
-the combined system lie in the product space
-\begin{equation*}
-  \mathscr{H}_e \otimes \mathscr{H}_{\mathrm{EM}}.
-\end{equation*}
-We seek a Hamiltonian of the form
+Let $\mathscr{H}_{\mathrm{e}}$ be the Hilbert space for one electron,
+and $\mathscr{H}_{\mathrm{EM}}$ be the Hilbert space for the
+electromagnetic field.  The combined system is thus described by
+$\mathscr{H}_e \otimes \mathscr{H}_{\mathrm{EM}}$.  We seek a
+Hamiltonian of the form
 \begin{equation}
   H = H_e + H_{\mathrm{EM}} + H_{\mathrm{int}},
 \end{equation}
-where $H_e$ is the Hamiltonian for the ``bare'' electron (either an
-ordinary $p^2/2m$-type Hamiltonian, or the Dirac Hamiltonian described
-in Section~\ref{sec:DiracH}); $H_{\mathrm{EM}}$ is the Hamiltonian for
-the source-free electromagnetic field (derived in
-Section~\ref{sec:em_quantization}); and $H_{\mathrm{int}}$ is an
+where $H_e$ is the Hamiltonian for the ``bare'' electron,
+$H_{\mathrm{EM}}$ is the Hamiltonian for the source-free
+electromagnetic field, and $H_{\mathrm{int}}$ is an
 \textbf{interaction Hamiltonian} describing how the electron interacts
 with photons.
 
-We can use the discussion in the previous sections as a guide to
-finding $H_{\mathrm{int}}$.  Let us once again adopt the Coulomb
-gauge, so that the scalar potential is zero, and the electromagnetic
-field is solely described via the vector potential.  In
-Section~\ref{sec:nonrel}, we saw that the effect of the vector
-potential on a charged particle can be described via the substitution
+Let us once again adopt the Coulomb gauge, so that the scalar
+potential is zero, and the electromagnetic field is solely described
+via the vector potential.  In Section~\ref{sec:nonrel}, we saw that
+the effect of the vector potential on a charged particle can be
+described via the substitution
 \begin{equation}
   \hat{\mathbf{p}} \rightarrow \hat{\mathbf{p}} +
   e\mathbf{A}(\hat{\mathbf{r}},t).
@@ -1343,15 +1354,11 @@ Section~\ref{sec:em_quantization}:
   \end{cases}
   \label{Aoperator}
 \end{equation}
-
 Using this, together with either the electronic and electromagnetic
-Hamiltonians, we are finally able to describe the emission and
-absorption of photons by electrons.  We will illustrate with a
-calculation of the rate of spontaneous emission of an atom.
-
+Hamiltonians, we can finally describe the photon emission process.
 Suppose a non-relativistic electron is orbiting an atomic nucleus in
-the excited state $|1\rangle \in \mathscr{H}_e$.  Initially, the
-photon field is in its ground state, $|\varnothing\rangle \in
+an excited state $|1\rangle \in \mathscr{H}_e$.  Initially, the photon
+field is in its vacuum state $|\varnothing\rangle \in
 \mathscr{H}_{\mathrm{EM}}$.  Hence, the initial state of the combined
 system is
 \begin{equation}
@@ -1364,11 +1371,11 @@ state forever.
 
 In actuality, $H_{\mathrm{int}}$ is not zero, so $|\psi_i\rangle$ is
 not an energy eigenstate.  As the system evolves, the excited electron
-may decay into the ground state by emitting a photon with energy $E$,
-equal to the energy difference between the atom's excited state
-$|1\rangle$ and ground state $|0\rangle$.  For a non-relativistic
-electron, the Hamiltonian \eqref{quantumH} yields the interaction
-Hamiltonian
+may decay into its ground state $|0\rangle$ by emitting a photon with
+energy $E$, equal to the energy difference between the atom's excited
+state $|1\rangle$ and ground state $|0\rangle$.  For a
+non-relativistic electron, the Hamiltonian \eqref{quantumH} yields the
+interaction Hamiltonian
 \begin{equation}
   H_{\mathrm{int}} = \frac{e}{2m} \left( \hat{\mathbf{p}} \cdot \hat{\mathbf{A}} + \mathrm{h.c.}\right).
 \end{equation}
@@ -1394,8 +1401,7 @@ According to Fermi's Golden Rule (remember this?!?), the decay rate is
 \end{equation}
 where $\overline{(\cdots)}$ denotes the average over the possible
 decay states of energy $E$ (i.e., equal to the energy of the initial
-state), and $\mathcal{D}(E)$ is the density of states (which has units
-of inverse energy).
+state), and $\mathcal{D}(E)$ is the density of states.
 
 We therefore have to calculate the matrix element $\langle
 \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle$.
@@ -1477,11 +1483,12 @@ We can make this look nicer by defining the dimensionless
 \end{equation}
 and defining $\omega = E / \hbar$ as the frequency of the emitted
 photon.  The resulting decay rate is
-$$\boxed{\;\;\;
-  \kappa = \frac{4 \alpha \omega^3\, \overline{|\mathbf{d}|^2}}{3c^2}.
-  \;\;\;}
-$$
- 
+\begin{framed}
+  \begin{equation}
+    \kappa = \frac{4 \alpha \omega^3\, \overline{|\mathbf{d}|^2}}{3c^2}.
+  \end{equation}
+\end{framed}
+
 The figure below compares this prediction to experimentally-determined
 decay rates for the simplest excited states of hydrogen, lithium, and
 sodium atoms.  The experimental data are derived from atomic emission

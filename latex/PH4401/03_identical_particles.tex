@@ -1363,7 +1363,7 @@ assume that the energy density (i.e., energy per unit length) is
 proportional to the square of the field variable.  Let it have the
 form
 \begin{equation}
-  U(x) = 2 \rho \sum_n|A_n|^2 \, |\varphi_n(x)|^2,
+  U(x) = 2 \rho \sum_n|\mathcal{A}_n|^2 \, |\varphi_n(x)|^2,
   \label{Edensity}
 \end{equation}
 where $\rho$ is some parameter that has to be derived from the
@@ -1373,7 +1373,7 @@ chapter, we will see a concrete example involving the energy density
 of an electromagnetic mode.  From Eq.~\eqref{Edensity}, the total
 energy is
 \begin{equation}
-  E = \int_0^L dx \; U(x) = 2  \rho \sum_n |A_n|^2.
+  E = \int_0^L dx \; U(x) = 2  \rho \sum_n |\mathcal{A}_n|^2.
   \label{classical_energy}
 \end{equation}
 
@@ -1414,12 +1414,12 @@ which we is the quantum version of the classical solution
 To determine the $\mathcal{C}_n$ scale factors, we consider the
 classical limit.  The procedure is a straightfoward generalization of
 the harmonic oscillator case discussed in Section~\ref{sec:ho}.  We
-introduce a coherent state
+introduce a state $|\alpha\rangle$ that is a coherent state for all
+the normal modes; i.e., for any given $n$,
 \begin{equation}
-  \hat{a}_n |\alpha_1, \alpha_2, \dots\rangle =
-  \alpha_n |\alpha_1, \alpha_2, \dots\rangle,
+  \hat{a}_n |\alpha\rangle = \alpha_n |\alpha\rangle
 \end{equation}
-whose energy expectation value is
+for some $\alpha_n \in \mathbb{C}$.  The energy expectation value is
 \begin{equation}
   \langle E\rangle = \sum_n \hbar \omega_n |\alpha_n|^2.
   \label{Ecoherent_field}
@@ -1432,6 +1432,8 @@ Eq.~\eqref{fnorm}.  In order for the classical energy
 \eqref{classical_energy} to match the coherent state energy
 \eqref{Ecoherent_field}, we need
 \begin{equation}
+  2\rho |\mathcal{A}_n|^2 = 2 \rho |\mathcal{C}_n\alpha_n|^2
+  = \hbar \omega_n |\alpha_n|^2 \quad \Rightarrow \quad
   \mathcal{C}_n = \sqrt{\frac{\hbar\omega_n}{2\rho}}.
 \end{equation}
 Hence, the appropriate field operator is
