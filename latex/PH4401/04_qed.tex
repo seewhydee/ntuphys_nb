@@ -675,10 +675,14 @@ Eq.~\eqref{dirac_nonrel1} tells us that the wavefunction is dominated
 by $\psi_A$.  Conversely, for the lower band ($E \lesssim -mc^2$),
 Eq.~\eqref{dirac_nonrel2} tells us that the wavefunction is dominated
 by $\psi_B$.  We can thus associate the upper ($A$) and lower ($B$)
-components with the band degree of freedom.  But note that this
-association holds only in the non-relativistic limit!  In the
-relativistic case, upper-band states can have non-vanishing values in
-the $B$ components, and vice versa.
+components with the band degree of freedom.  Note, however, that this
+is only an approximate association that holds in the non-relativistic
+limit!  In the relativistic regime, upper-band states can have
+non-vanishing values in the $B$ components, and vice versa.  There
+does exist a way to make the upper/lower spinor components correspond
+rigorously to positive/negative energies, but this requires a more
+complicated representation than the Dirac representation; for details,
+see \hyperref[cite:foldy]{Foldy and Wouthuysen (1950)}.
 
 \subsection{Dirac electrons in an electromagnetic field}
 \label{sec:diracem}
@@ -955,11 +959,11 @@ define
   + v^n_{\mathbf{k}\sigma} e^{-i\mathbf{k}\cdot\mathbf{r}} \, \hat{d}_{\mathbf{k}\sigma}\right).
   \label{Diracpsi0}
 \end{equation}
-Note that the two terms in the parentheses arise simply because the
+Note that there are two terms in the parentheses because the
 positive-energy and negative-energy states are denoted by
 differently-labeled annihilation operators.  Moreover, since the
-wavefunctions are four-component spinors, the field operators have an
-explicit spinor index $n$.  Using the spinor orthonormality conditions
+wavefunctions are four-component spinors, the field operators have a
+spinor index $n$.  Using the spinor orthonormality conditions
 \eqref{uvorthog} and the anticommutation relations
 \eqref{Diracanticommutation0}, we can show that
 \begin{equation}
@@ -1048,12 +1052,11 @@ Even though we actually started from the single-particle description,
 it is the quantum field theory, and its vacuum state
 $|\varnothing'\rangle$, that is more fundamental.
 
-There is much more to understand about the structure and
-interpretation of the Dirac theory, which we will not pursue here.
-One particularly important issue involves how the particles, and the
-underlying quantum field, transform under Lorentz boosts and other
-changes in coordinate system.  For these details, the reader is
-referred to \hyperref[cite:dyson]{Dyson (1951)}.
+There are many more details about the Dirac theory that we will not
+discuss here.  One particularly important issue is how the particles
+transform under Lorentz boosts and other changes in coordinate system.
+For such details, the reader is referred to
+\hyperref[cite:dyson]{Dyson (1951)}.
 
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
@@ -1411,7 +1414,7 @@ To calculate the matrix element $\langle
 let us use the infinite-volume version of the vector field operator
 \eqref{Aoperator}.  (You can check that using the finite-volume
 version yields the same results; see
-\hyperref[ex:alpha_finite]{Exercise 1}.)  We will use the
+\hyperref[ex:alpha_finite]{Exercise 2}.)  We will use the
 Schr\"odinger picture operator, equivalent to setting $t = 0$ in
 Eq.~\eqref{Aoperator}.  Then
 \begin{align}
@@ -1478,7 +1481,7 @@ angular integration shows that
 
 The last thing we need is the density of photon states.  Using the
 dispersion relation $E = \hbar c |\mathbf{k}|$, we can show (see
-\hyperref[ex:DE]{Exercise 2}) that
+\hyperref[ex:DE]{Exercise 3}) that
 \begin{equation}
   \mathcal{D}(E) = \frac{8\pi E^2}{\hbar^3c^3}.
   \label{DE}
@@ -1535,6 +1538,22 @@ distance of the experimental values.
 \section*{Exercises}
 
 \begin{enumerate}
+\item
+  In Section \ref{sec:em_quantization}, we derived the vector
+  potential operator, in an infinite volume, to be
+  \begin{equation}
+    \hat{\mathbf{A}}(\mathbf{r},t) = \int d^3k \sum_{\lambda} 
+  \sqrt{\frac{\hbar}{16\pi^3\epsilon_0\omega_{\mathbf{k}}}}\,
+  \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
+  + \mathrm{h.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda}.
+  \end{equation}
+  Since $[\hat{a}_{\mathbf{k}\lambda},
+    \hat{a}^\dagger_{\mathbf{k}'\lambda'}] =
+  \delta^3(\mathbf{k}-\mathbf{k}') \delta_{\lambda\lambda'}$, the
+  creation and annihilation operators each have units of $[x^{3/2}]$.
+  Prove that $\hat{\mathbf{A}}$ has the same units as the classical
+  vector potential.
+
 \item Repeat the spontaneous decay rate calculation from
   Section~\ref{sec:decay} using the finite-volume versions of the
   creation/annihilation operators and the vector potential operator
