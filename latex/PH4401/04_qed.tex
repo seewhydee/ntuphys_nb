@@ -222,7 +222,7 @@ Consider the potentials
 \begin{equation}
   \Phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
 \end{equation}
-where $C$ is some constant.  These potentials are evidently
+where $C$ is some constant.  These potentials are
 $\mathbf{r}$-independent, but the vector potential is time-dependent,
 so the $-\dot{\mathbf{A}}$ term in Eq.~\eqref{Bfield} gives a
 non-vanishing electric field:
@@ -243,7 +243,7 @@ conserved:
 Hence, this is the appropriate canonical momentum for a particle in an
 electromagnetic field.
 
-Finally, to go from classical to quantum mechanics, we simply replace
+Finally, to go from classical to quantum mechanics, we replace
 $\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
 $\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  The
 resulting quantum Hamiltonian is
@@ -331,7 +331,7 @@ in square brackets on the right-hand side of
   \exp\left(-\frac{ie\Lambda}{\hbar}\right).
 \end{equation}
 The remainder of the proof for Eq.~\eqref{gaugeschrod} can be carried
-out in a straightforward manner.
+out straightforwardly.
 
 The above result can be stated in a simpler form if the
 electromagnetic fields are static.  For static fields, the
@@ -377,13 +377,14 @@ Now, suppose we thread magnetic flux (e.g., using a solenoid) through
 the origin, which lies in the region enclosed by the annulus.  This
 flux can be described via the vector potential
 \begin{equation}
-  \mathbf{A}(r,\phi) = \frac{\Phi_B}{2\pi r} \, \hat{e}_\phi.
+  \mathbf{A}(r,\phi) = \frac{\Phi_B}{2\pi r} \, \mathbf{e}_\phi,
   \label{Asolenoid}
 \end{equation}
-We can verify from Eq.~\eqref{Asolenoid} that the total magnetic flux
-through any loop of radius $r$ enclosing the origin is $(\Phi_B/2\pi
-r)(2\pi r) = \Phi_B$.  The fact that this is independent of $r$
-implies that the magnetic flux density is concentrated in an
+where $\mathbf{e}_\phi$ is the unit vector pointing in the azimuthal
+direction.  We can verify from Eq.~\eqref{Asolenoid} that the total
+magnetic flux through any loop of radius $r$ enclosing the origin is
+$(\Phi_B/2\pi r)(2\pi r) = \Phi_B$.  The fact that this is independent
+of $r$ implies that the magnetic flux density is concentrated in an
 infintesimal area surrounding the origin, and zero everywhere
 else. However, the vector potential $\mathbf{A}$ is nonzero
 everywhere.
@@ -391,7 +392,7 @@ everywhere.
 The time-independent Schr\"odinger equation is
 \begin{equation}
   \frac{1}{2m}\left|-i\hbar\nabla+
-  \frac{e\Phi_B}{2\pi r} \, \hat{e}_\phi\right|^2 \psi(r,\phi)
+  \frac{e\Phi_B}{2\pi r} \, \mathbf{e}_\phi\right|^2 \psi(r,\phi)
   = E\psi(r,\phi),
   \label{ABschrod}
 \end{equation}
@@ -447,12 +448,12 @@ the annulus, or any other geometrical parameters of the system!  This
 invariance property arises from the gauge symmetry of the Hamiltonian.
 When an extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded
 through the annulus, Eq.~\eqref{Asolenoid} tells us that the change in
-vector potential is $\Delta \mathbf{A} = (n\hbar/ e r) \hat{e}_\phi$.
-We can undo the effects of this additional vector potential using the
-gauge field
+vector potential is $\Delta \mathbf{A} = (n\hbar/ e r)
+\mathbf{e}_\phi$.  We can undo the effects of this additional vector
+potential using the gauge field
 \begin{equation}
   \Lambda(r,\phi) = - \frac{n\hbar}{e} \, \phi \;\;\;\Rightarrow
-  \begin{cases}\nabla \Lambda &= \displaystyle (n\hbar/er) \hat{e}_\phi
+  \begin{cases}\nabla \Lambda &= \displaystyle (n\hbar/er) \mathbf{e}_\phi
     \\ \displaystyle e^{-ie\Lambda/\hbar} &= \displaystyle e^{in\phi}.
   \end{cases}
 \end{equation}
@@ -1122,14 +1123,15 @@ The sole remaining equation, \eqref{max6}, simplifies to
 \end{equation}
 This has plane-wave solutions of the form
 \begin{equation}
-  \mathbf{A}(\mathbf{r},t) = \Big(\mathcal{A}\,
-  \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} + \mathrm{c.c.}\Big)\, \hat{e},
+  \mathbf{A}(\mathbf{r},t) = \Big(\mathcal{A}\, \,
+  e^{i(\mathbf{k}\cdot\mathbf{r} - \omega t)} + \mathrm{c.c.}\Big)\,
+  \mathbf{e},
   \label{lightplanewave}
 \end{equation}
 where $\mathcal{A}$ is a complex number (the \textbf{mode amplitude})
-that specifies the magnitude and phase of the plane wave, $\hat{e}$ is
-a real unit vector (the \textbf{polarization vector}) that specifies
-which direction the vector potential points along, and
+that specifies the magnitude and phase of the plane wave, $\mathbf{e}$
+is a real unit vector (the \textbf{polarization vector}) that
+specifies which direction the vector potential points along, and
 ``c.c.''~denotes the complex conjugate of the first term.  Referring
 to Eq.~\eqref{max8}, the angular frequency $\omega$ must satisfy
 \begin{equation}
@@ -1138,7 +1140,7 @@ to Eq.~\eqref{max8}, the angular frequency $\omega$ must satisfy
 Moreover, since $\nabla \cdot \mathbf{A} = 0$, it must be the case
 that
 \begin{equation}
-  \mathbf{k} \cdot \hat{e} = 0.
+  \mathbf{k} \cdot \mathbf{e} = 0.
 \end{equation}
 In other words, the polarization vector is perpendicular to the
 propagation direction.  For any given $\mathbf{k}$, we can choose
@@ -1156,7 +1158,7 @@ of plane waves,
 \begin{equation}
   \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
   \Big(\mathcal{A}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-  + \mathrm{c.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+  + \mathrm{c.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda},
   \;\;\; \mathrm{where}
   \;\;\;\omega_{\mathbf{k}} = c|\mathbf{k}|.
 \end{equation}
@@ -1189,7 +1191,7 @@ Heisenberg picture:
   \hat{\mathbf{A}}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
   \mathcal{C}_{\mathbf{k}\lambda}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}.
+  + \mathrm{h.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda}.
   \label{Aquantum}
 \end{equation}
 Here, $\mathcal{C}_{\mathbf{k}\lambda}$ is a constant to be
@@ -1213,7 +1215,7 @@ Eq.~\eqref{Aquantum}, we identify the corresponding classical field
   \mathbf{A}(\mathbf{r},t) = \sum_{\mathbf{k}\lambda} 
     \Big(\mathcal{A}_{\mathbf{k}\lambda}\,
     e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-    + \mathrm{c.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+    + \mathrm{c.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda},
     \quad \mathrm{where}\;\;\;
     \mathcal{C}_{\mathbf{k}\lambda} \alpha_{\mathbf{k}\lambda}
     = \mathcal{A}_{\mathbf{k}\lambda}.
@@ -1225,11 +1227,11 @@ fields
   \mathbf{E}_{\mathbf{k}\lambda}  &=
   \Big(i\omega_{\mathbf{k}} \mathcal{A}_{\mathbf{k}\lambda}\,
     e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-    + \mathrm{c.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
+    + \mathrm{c.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda} \\
     \mathbf{B}_{\mathbf{k}\lambda} &=
     \Big(i \mathcal{A}_{\mathbf{k}\lambda}\,
     e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-    + \mathrm{c.c.}\Big) \; \mathbf{k} \times \hat{e}_{\mathbf{k}\lambda}.
+    + \mathrm{c.c.}\Big) \; \mathbf{k} \times \mathbf{e}_{\mathbf{k}\lambda}.
 \end{align}
 In the classical theory of electromagnetism, Poynting's theorem tells
 us that the total energy carried by a classical plane electromagnetic
@@ -1261,9 +1263,9 @@ We thus arrive at the result
     \hat{H} &= \sum_{\mathbf{k}\lambda} \hbar \omega_{\mathbf{k}} \,
     \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
   \hat{\mathbf{A}}(\mathbf{r},t) &= \sum_{\mathbf{k}\lambda} 
-  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}\,
+  \sqrt{\frac{\hbar}{2\epsilon_0\omega_{\mathbf{k}}V}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
+  + \mathrm{h.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda} \\
   \omega_{\mathbf{k}} &= c|\mathbf{k}|,  \;\;\;
   \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}^\dagger\big]
   = \delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'}, \;\;\;
@@ -1288,9 +1290,9 @@ three-dimensional space:
     \hat{H} &= \int d^3k\sum_{\lambda} \hbar \omega_{\mathbf{k}} \,
     \hat{a}^\dagger_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}\lambda} \\
   \hat{\mathbf{A}}(\mathbf{r},t) &= \int d^3k \sum_{\lambda} 
-  \sqrt{\frac{\hbar}{16\pi^3\varepsilon_0\omega_{\mathbf{k}}}}\,
+  \sqrt{\frac{\hbar}{16\pi^3\epsilon_0\omega_{\mathbf{k}}}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda} \\
+  + \mathrm{h.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda} \\
   \omega_{\mathbf{k}} &= c|\mathbf{k}|,  \;\;\;
   \big[\hat{a}_{\mathbf{k}\lambda}, \hat{a}_{\mathbf{k}'\lambda'}^\dagger\big]
   = \delta^3(\mathbf{k}-\mathbf{k}') \delta_{\lambda\lambda'}, \;\;\;
@@ -1302,6 +1304,7 @@ three-dimensional space:
 \end{framed}
 
 \section{The electron-photon interaction}
+\label{sec:decay}
 
 Having derived quantum theories for the electron and the
 electromagnetic field, we can put them together to describe how
@@ -1343,13 +1346,13 @@ Section~\ref{sec:em_quantization}:
   \begin{cases}
     \displaystyle
     \sum_{\mathbf{k}\lambda} 
-  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}}V}}\,
+  \sqrt{\frac{\hbar}{2\epsilon_0\omega_{\mathbf{k}}V}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\mathbf{r} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda}, & (\mathrm{finite}\;\mathrm{volume}) \\
+  + \mathrm{h.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda}, & (\mathrm{finite}\;\mathrm{volume}) \\
   \displaystyle \int d^3k \sum_{\lambda} 
-  \sqrt{\frac{\hbar}{16\pi^3\varepsilon_0\omega_{\mathbf{k}}}}\,
+  \sqrt{\frac{\hbar}{16\pi^3\epsilon_0\omega_{\mathbf{k}}}}\,
   \Big(\hat{a}_{\mathbf{k}\lambda} \, e^{i(\mathbf{k}\cdot\hat{\mathbf{r}} - \omega_{\mathbf{k}} t)}
-  + \mathrm{h.c.}\Big)\, \hat{e}_{\mathbf{k}\lambda},
+  + \mathrm{h.c.}\Big)\, \mathbf{e}_{\mathbf{k}\lambda},
   & (\mathrm{infinite}\;\mathrm{space}).
   \end{cases}
   \label{Aoperator}
@@ -1377,13 +1380,13 @@ state $|1\rangle$ and ground state $|0\rangle$.  For a
 non-relativistic electron, the Hamiltonian \eqref{quantumH} yields the
 interaction Hamiltonian
 \begin{equation}
-  H_{\mathrm{int}} = \frac{e}{2m} \left( \hat{\mathbf{p}} \cdot \hat{\mathbf{A}} + \mathrm{h.c.}\right).
+  H_{\mathrm{int}} = \frac{e}{2m} \left( \hat{\mathbf{p}} \cdot \hat{\mathbf{A}} + \mathrm{h.c.}\right),
 \end{equation}
-We will have to treat $\hat{\mathbf{A}}$ not as a classical field, but
-as a field operator.
+where $\hat{\mathbf{A}}$ must now be treated as a field operator, not
+a classical field.
 
-Next, consider the states that $|\psi_i\rangle$ can decay into.  There
-is a continuum of possible final states, each having the form
+Consider the states that $|\psi_i\rangle$ can decay into.  There is a
+continuum of possible final states, each having the form
 \begin{equation}
   | \psi_{f}^{(\mathbf{k}\lambda)} \rangle = |0\rangle \otimes
   \left( \hat{a}_{\mathbf{k}\lambda}^\dagger |\varnothing\rangle\right),
@@ -1393,7 +1396,7 @@ which describes the electron being in its ground state and the
 electromagnetic field containing one photon, with wave-vector
 $\mathbf{k}$ and polarization $\lambda$.
 
-According to Fermi's Golden Rule (remember this?!?), the decay rate is
+According to Fermi's Golden Rule (see Chapter 1), the decay rate is
 \begin{equation}
   \kappa = \frac{2\pi}{\hbar} \;
   \overline{\Big| \langle \psi_{f}^{(\mathbf{k}\lambda)} | \hat{H}_{\mathrm{int}}|\psi_i\rangle\Big|^2} \;
@@ -1403,83 +1406,94 @@ where $\overline{(\cdots)}$ denotes the average over the possible
 decay states of energy $E$ (i.e., equal to the energy of the initial
 state), and $\mathcal{D}(E)$ is the density of states.
 
-We therefore have to calculate the matrix element $\langle
-\psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle$.
-We will use the finite-volume version of the vector field operator,
-Eq.~\eqref{Aoperator} (this is to avoid complications about how
-Eq.~\eqref{decaystate} is to be normalized---in the finite-volume
-case, we simply normalize to unity).  Moreover, in
-Eq.~\eqref{Aoperator}, the $t$ dependence turns out not to matter in
-this calculation, so we take $t = 0$; we also take $\hat{\mathbf{r}}
-\approx 0$, which is a good approximation since the size of a typical
-atomic orbital ($\sim 10^{-9}\,\textrm{m}$) is much smaller than the
-optical wavelength ($\sim 10^{-6}\,\textrm{m}$).  With these
-simplifications,
+To calculate the matrix element $\langle
+\psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle$,
+let us use the infinite-volume version of the vector field operator
+\eqref{Aoperator}.  (You can check that using the finite-volume
+version yields the same results; see
+\hyperref[ex:alpha_finite]{Exercise 1}.)  We will use the
+Schr\"odinger picture operator, equivalent to setting $t = 0$ in
+Eq.~\eqref{Aoperator}.  Then
+\begin{align}
+  \begin{aligned}
+    \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
+    &= \frac{e}{2m} \int d^3 k' \sum_{j\lambda}
+  \sqrt{\frac{\hbar}{16\pi^3\epsilon_0 \omega_{\mathbf{k}'}}} \\
+  &\qquad\quad\times
+  \Big(
+  \langle 0 |\hat{p}_j e^{-i\mathbf{k}\cdot\hat{\mathbf{r}}} | 1 \rangle
+  + \left\langle 0 |e^{-i\mathbf{k}\cdot\hat{\mathbf{r}}} \hat{p}_j| 1 \right\rangle
+  \Big) \; e_{\mathbf{k}'\lambda'}^j \;
+  \langle\varnothing|\hat{a}_{\mathbf{k}\lambda}
+  \hat{a}_{\mathbf{k}'\lambda'}^\dagger|\varnothing\rangle.
+  \end{aligned}
+\end{align}
+We can now use the fact that
+$\langle\varnothing|\hat{a}_{\mathbf{k}\lambda}
+\hat{a}_{\mathbf{k}'\lambda'}^\dagger|\varnothing\rangle =
+\delta^3(\mathbf{k}-\mathbf{k}') \delta_{\lambda\lambda'}$.  Moreover,
+we approximate the $\exp(-i\mathbf{k}\cdot\hat{\mathbf{r}})$ factors
+in the brakets with 1; this is a good approximation since the size of
+a typical atomic orbital ($\lesssim 10^{-9}\,\textrm{m}$) is much
+smaller than the optical wavelength ($\sim 10^{-6}\,\textrm{m}$),
+meaning that $\exp(-i\mathbf{k}\cdot\mathbf{r})$ does not vary
+appreciably over the range of positions $\mathbf{r}$ where the orbital
+wavefunctions are significant.  The above equation then simplifies to
 \begin{equation}
   \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
-  \approx \frac{e}{m} \sum_{j=1}^3 \langle 0 |\hat{p}_j|1\rangle
-  \langle \varnothing| \hat{a}_{\mathbf{k}\lambda}
-\left(\sum_{\mathbf{k}'\lambda'} 
-  \sqrt{\frac{\hbar}{2\varepsilon_0\omega_{\mathbf{k}'}V}}\,
-  \Big(\hat{a}_{\mathbf{k}'\lambda'} + \mathrm{h.c.}\Big)
-  \, \hat{e}_{\mathbf{k}\lambda'}^j\right)
-  |\varnothing \rangle.
-  \label{matrixelt}
+  \approx \frac{e}{m} \sum_{j}
+  \sqrt{\frac{\hbar}{16\pi^3\epsilon_0 \omega_{\mathbf{k}}}} \;\;
+  \langle 0 |\hat{p}_j|1 \rangle \; e_{\mathbf{k}\lambda}^j.
 \end{equation}
-The right side of Eq.~\eqref{matrixelt} contains two matrix elements,
-one involving the electron space, and the other involving the photon
-space.  The first matrix element can be simplified by observing that
-for $\hat{H}_e = |\hat{\mathbf{p}}|^2/2m + V(\mathbf{r})$,
+We can make a further simplification by observing that for $\hat{H}_e
+= |\hat{\mathbf{p}}|^2/2m + V(\mathbf{r})$,
 \begin{equation}
   [\hat{H}_e, \hat{\mathbf{r}}] = -i\hbar\mathbf{p}/m \;\;\;\Rightarrow \;\;\;
-  \langle 0|\hat{p}_j|1\rangle = - \frac{imE \mathbf{d}}{\hbar},
+  \langle 0|\hat{p}_j|1\rangle = - \frac{imE \mathbf{d}}{\hbar}.
 \end{equation}
-where $\mathbf{d} = \langle 0 |\mathbf{r} | 1\rangle$ is called the
-\textbf{transition dipole moment} (note that this is generally a
-complex number).  As for the photon matrix element in
-\eqref{matrixelt}, the only non-vanishing elements are those of the
-form
-\begin{equation*}
-  \langle\varnothing|\hat{a}_{\mathbf{k}\lambda} \hat{a}_{\mathbf{k}'\lambda'}^\dagger|\varnothing\rangle
-  = 
-  \langle\varnothing| \left[\delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'} - \hat{a}_{\mathbf{k}'\lambda'}^\dagger \hat{a}_{\mathbf{k}\lambda}\right]|\varnothing\rangle =
-  \delta_{\mathbf{k}\mathbf{k}'} \delta_{\lambda\lambda'}.
-\end{equation*}
-With that, Eq.~\eqref{matrixelt} simplifies to
-\begin{equation}
+The complex number $\mathbf{d} = \langle 0 |\mathbf{r} | 1\rangle$,
+called the \textbf{transition dipole moment}, is easily calculated
+from the orbital wavefunctions.  Thus,
+\begin{align}
   \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}|\psi_i\rangle
-  \approx - ie \sqrt{\frac{E}{2\varepsilon_0V}}\;
-  \mathbf{d}\cdot \hat{e}_{\mathbf{k}\lambda}.
-\end{equation}
-In applying Fermi's Golden Rule, we have to take the absolute square
-of this, and average over the possible photon states ($\mathbf{k}$ and
-$\lambda$).  In taking this average, the polarization vector runs over
-all possible directions, and a straightforward angular integration
-shows us that
+  &\approx - ie \sqrt{\frac{E}{16\pi^3\epsilon_0}}\;
+  \mathbf{d}\cdot \mathbf{e}_{\mathbf{k}\lambda}. \\
+  \big| \langle \psi_{f}^{(\mathbf{k}\lambda)}| \hat{H}_{\mathrm{int}}
+  |\psi_i\rangle\big|^2
+  &\approx \frac{e^2E}{16\pi^3\epsilon_0}\;
+  \big|\mathbf{d}\cdot \mathbf{e}_{\mathbf{k}\lambda}\big|^2.
+  \label{transsq}
+\end{align}
+(Check for yourself that Eq.~\eqref{transsq} should, and does, have
+units of $[E^2V]$.)  We now need the average over the possible photon
+states ($\mathbf{k}, \lambda$).  In taking this average, the
+polarization vector runs over all possible directions, and a standard
+angular integration shows that
 \begin{equation}
-  \overline{|\mathbf{d}\cdot \hat{e}_{\mathbf{k}\lambda}|^2}
+  \overline{|\mathbf{d}\cdot \mathbf{e}_{\mathbf{k}\lambda}|^2}
   \,=\, \sum_{j=1}^3 |d_j|^2 \;\overline{e_j^2}
   \,=\, \sum_{j=1}^3 |d_j|^2 \cdot \frac{1}{3}
   \,=\, \frac{|\mathbf{d}|^2}{3}.
 \end{equation}
 
-
-The only remaining thing we need for Fermi's Golden Rule is the
-density of photon states.  Using the dispersion relation $E = \hbar c
-|\mathbf{k}|$, we can show that
+The last thing we need is the density of photon states.  Using the
+dispersion relation $E = \hbar c |\mathbf{k}|$, we can show (see
+\hyperref[ex:DE]{Exercise 2}) that
 \begin{equation}
-  \mathcal{D}(E) = \frac{E^2 V}{\pi^2\hbar^3c^3}.
+  \mathcal{D}(E) = \frac{8\pi E^2}{\hbar^3c^3}.
+  \label{DE}
 \end{equation}
-(This includes a factor of 2 for the photons' two-fold polarization
-degree of freedom.)  Putting everything together, we arrive at the
-following rate of spontaneous decay:
+This includes a factor of 2 for the photons' two-fold polarization
+degree of freedom.  Putting everything together, we arrive at the
+following decay rate:
 \begin{equation}
-  \kappa = \frac{e^2\, E^3\, \overline{|\mathbf{d}|^2}}{3\pi\hbar^4c^3\varepsilon_0}
+  \kappa = \frac{e^2\, E^3\, \overline{|\mathbf{d}|^2}}{3\pi\hbar^4c^3\epsilon_0}
 \end{equation}
 We can make this look nicer by defining the dimensionless
 \textbf{fine-structure constant}
 \begin{equation}
-  \alpha = \frac{e^2}{4\pi\varepsilon_0\hbar c} \approx \frac{1}{137},
+  \alpha = \frac{e^2}{4\pi\epsilon_0\hbar c} \approx \frac{1}{137},
+  \label{alpha}
 \end{equation}
 and defining $\omega = E / \hbar$ as the frequency of the emitted
 photon.  The resulting decay rate is
@@ -1492,16 +1506,16 @@ photon.  The resulting decay rate is
 The figure below compares this prediction to experimentally-determined
 decay rates for the simplest excited states of hydrogen, lithium, and
 sodium atoms.  The experimental data are derived from atomic emission
-line-widths, and correspond to the rate of spontaneous emission (or
-``Einstein $A$ coefficient'') as the excited state decays to the
-ground state.  For the Fermi's Golden Rule curve, we simply
+line-widths, and correspond to the rate of spontaneous emission (also
+called the ``Einstein $A$ coefficient'') as the excited state decays
+to the ground state.  For the Fermi's Golden Rule curve, we simply
 approximated the transition dipole moment as $|\mathbf{d}| \approx
 10^{-10}\,\mathrm{m}$ (based on the fact that $|\mathbf{d}|$ has units
 of length, and the length scale of an atomic orbital is about an
 angstrom); to be more precise, $\mathbf{d}$ ought to be calculated
-using the actual orbital wavefunctions.  But even with this crude
-approximation, the prediction based on Fermi's Golden Rule is within
-striking distance of the experimental values.
+using the actual orbital wavefunctions.  Even with the crude
+approximations we have made, the predictions are within striking
+distance of the experimental values.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.53\textwidth]{emissionrates}
@@ -1518,11 +1532,31 @@ striking distance of the experimental values.
 %% Need to treat both electrons and photons on the same footing, with QFT
 %% language.  Renormalization.
 
-%% \section*{Exercises}
+\section*{Exercises}
 
-%% \begin{enumerate}
-%% \item Gauge transformations.
-%% \end{enumerate}
+\begin{enumerate}
+\item Repeat the spontaneous decay rate calculation from
+  Section~\ref{sec:decay} using the finite-volume versions of the
+  creation/annihilation operators and the vector potential operator
+  \eqref{Aoperator}.  Show that it yields the same result
+  \eqref{alpha}.
+  \label{ex:alpha_finite}
+
+\item
+  The density of photon states at energy $E$ is defined as
+  \begin{equation}
+    \mathcal{D}(E) = 2\int d^3k\; \delta(E-E_{\mathbf{k}}),
+  \end{equation}
+  where $E_{\mathbf{k}} = \hbar c |\mathbf{k}|$.  Note the prefactor
+  of 2, which accounts for the polarization degree of freedom.  Prove
+  that
+  \begin{equation}
+    \mathcal{D}(E) = \frac{8\pi E^2}{\hbar^3c^3},
+  \end{equation}
+  and show that $\mathcal{D}(E)$ has units of $[E^{-1}V^{-1}]$.
+  \label{ex:DE}
+
+\end{enumerate}
 
 \section*{Further Reading}
 
