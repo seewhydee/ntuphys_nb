@@ -78,25 +78,24 @@ as a classical field, meaning that the electric and magnetic fields
 are definite quantities rather than operators.  These simplifications
 will be dropped in subsequent sections.
 
-In the classical regime, the action of an electromagnetic field on a
-point charged particle is decribed by the Lorentz force law,
+In the classical regime, the electromagnetic field acts on the
+particle via the Lorentz force
 \begin{equation}
   \mathbf{F}(\mathrm{r},t) = -e\Big(\mathbf{E}(\mathrm{r},t)
   + \dot{\mathbf{r}}\times \mathbf{B}(\mathrm{r},t)\Big),
 \end{equation}
-where $\mathbf{r}$ and $\dot{\mathbf{r}}$ respectively denote the
-position and velocity of the particle, $t$ is the time, and
-$\mathbf{E}$ and $\mathbf{B}$ are the electric and magnetic fields.
-If there are no other forces acting on the particle, then according to
-Newton's second law, the equation of motion is
+where $\mathbf{r}$ and $\dot{\mathbf{r}}$ denote the position and
+velocity of the particle, $t$ is the time, and $\mathbf{E}$ and
+$\mathbf{B}$ are the electric and magnetic fields.  If no other forces
+are present, Newton's second law yields the equation of motion
 \begin{equation}
   m\ddot{\mathbf{r}} = -e\Big(\mathbf{E}(\mathrm{r},t)
   + \dot{\mathbf{r}} \times \mathbf{B}(\mathrm{r},t)\Big),
   \label{eom}
 \end{equation}
-where $m$ is the particle's mass.  To quantize this, we must convert
-the equation of motion into the form of Hamilton's equations of
-motion.
+where $m$ is the particle's mass.  To quantize this, we seek to
+convert the equation of motion into the form of Hamilton's equations
+of motion.
 
 Let us introduce the electromagnetic scalar and vector potentials
 $\Phi(\mathrm{r},t)$ and $\mathbf{A}(\mathrm{r},t)$, where
@@ -117,13 +116,11 @@ described by the Lagrangian
 \end{framed}
 \vskip -0.15in
 \noindent
-This is similar to the usual prescription for the Lagrangian as the
-kinetic energy minus the potential energy, with $-e\Phi$ serving as
-the potential energy function, except for the presence of the extra
-$-e\dot{\mathbf{r}} \cdot \mathbf{A}$ term.
-
-We want to plug the Lagrangian \eqref{Lag} into the Euler-Lagrange
-equations
+This follows the usual prescription for the Lagrangian as kinetic
+energy minus potential energy, with $-e\Phi$ serving as the potential
+energy function, except for the $-e\dot{\mathbf{r}} \cdot \mathbf{A}$
+term.  To see if this Lagrangian works, plug it into the
+Euler-Lagrange equations
 \begin{equation}
   \frac{\partial L}{\partial r_i} = \frac{d}{dt}
   \frac{\partial L}{\partial \dot{r}_i}.
@@ -165,18 +162,17 @@ into the Euler-Lagrange equations \eqref{EulerLagrange} gives
 (The last step can be derived by expressing the cross product using
 the Levi-Cevita symbol, and using the identity $\varepsilon_{ijk}
 \varepsilon_{lmk} = \delta_{il} \delta_{jm} - \delta_{im}
-\delta_{jl}$.)  As desired, this is the equation of motion
-corresponding to the Lorentz force.
+\delta_{jl}$.)  This exactly matches Eq.~\eqref{eom}, as desired.
 
-We can now use the Lagrangian to derive the Hamiltonian.  The
-canonical momentum is
+We now use the Lagrangian to derive the Hamiltonian.  The canonical
+momentum is
 \begin{equation}
   p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i.
   \label{canonp}
 \end{equation}
 The Hamiltonian is defined as $H(\mathbf{r},\mathbf{p}) = \mathbf{p}
-\cdot \dot{\mathbf{r}} - L$, and we use Eq.~\eqref{canonp} to be
-express it in terms of $\mathbf{p}$ rather than $\dot{\mathbf{r}}$:
+\cdot \dot{\mathbf{r}} - L$.  Using Eq.~\eqref{canonp}, we express it
+in terms of $\mathbf{p}$ rather than $\dot{\mathbf{r}}$:
 \begin{align}
   \begin{aligned}
     H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
@@ -188,37 +184,37 @@ express it in terms of $\mathbf{p}$ rather than $\dot{\mathbf{r}}$:
     + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right).
   \end{aligned}
 \end{align}
-After cancelling various terms, we arrive at the result
+After cancelling various terms, we obtain
 \begin{equation}
   H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
+  \label{H0}
 \end{equation}
-This looks much like the familiar Hamiltonian for a non-relativistic
-particle,
+This looks a lot like the Hamiltonian for a non-relativistic particle
+in a scalar potential,
 \begin{equation*}
   H = \frac{|\mathbf{p}|^2}{2m} + V(\mathbf{r},t).
 \end{equation*}
-The electromagnetic scalar potential $\Phi(\mathbf{r},t)$ acts like a
-potential energy term, as might be expected.  More surprising is the
-fact that the vector potential appears via the substitution
+In Eq.~\eqref{H0}, the $-e\Phi$ term acts like a potential energy,
+which is no surprise.  More interestingly, the vector potential
+appears via the substitution
 \begin{equation}
   \mathbf{p} \rightarrow \mathbf{p} + e\mathbf{A}(\mathbf{r},t).  
 \end{equation}
-What does this mean?
 
-To answer this, think about what ``momentum'' means for a charged
-particle in an electromagnetic field.  Noether's theorem states that
-every symmetry of a system (whether classical or quantum) is
-associated with a conserved quantity.  Momentum is the quantity
+What does this mean?  Let us consider what ``momentum'' means for a
+charged particle in an electromagnetic field.  Noether's theorem
+states that each symmetry of a system (whether classical or quantum)
+is associated with a conservation law.  Momentum is the quantity
 conserved when the system is symmetric under spatial translations.
-From the Hamilton equation,
+One of Hamilton's equations states that
 \begin{equation*}
   \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
 \end{equation*}
-which implies that if a Hamiltonian is $\mathbf{r}$-independent, then
+which implies that if $H$ is $\mathbf{r}$-independent, then
 $d\mathbf{p}/dt = 0$.  But when the electromagnetic potentials are
 $\mathbf{r}$-independent, the quantity $m\dot{\mathbf{r}}$ (which we
-usually call momentum) is \textit{not} necessarily conserved!
-Consider the potentials
+usually call momentum) is not necessarily conserved!  Take the
+potentials
 \begin{equation}
   \Phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
 \end{equation}
@@ -276,23 +272,23 @@ where $\Lambda(\mathbf{r},t)$ is an arbitrary scalar field called a
 \textbf{gauge field}.  This is the \textbf{gauge transformation} of
 classical electromagnetism, which as we know leaves the electric and
 magnetic fields unchanged.  When applied to the Hamiltonian
-\eqref{quantumH}, it generates a new Hamiltonian,
+\eqref{quantumH}, it generates a new Hamiltonian
 \begin{equation}
   \hat{H}_\Lambda(t)
   = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t) + e\nabla\Lambda(\hat{\mathbf{r}},t)|^2}{2m}
   - e\Phi(\hat{\mathbf{r}},t) + e\dot{\Lambda}(\hat{\mathbf{r}},t).
 \end{equation}
-If $\psi(\mathbf{r},t)$ is any wavefunction obeying the Schr\"odinger
-equation for the original Hamiltonian,
+Now suppose $\psi(\mathbf{r},t)$ is a wavefunction obeying the
+Schr\"odinger equation for the original Hamiltonian $\hat{H}$:
 \begin{equation}
   i\hbar\frac{\partial\psi}{\partial t} =
   \hat{H}(t) \psi(\mathbf{r},t)
   = \left[\frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\Phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t),
+  - e\Phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t).
 \end{equation}
-then it can be shown that the wavefunction $\psi(\mathbf{r},t)
+Then it can be shown that the wavefunction $\psi\,
 \exp(-ie\Lambda/\hbar)$ automatically satisfies the Schr\"odinger
-equation for the transformed Hamiltonian:
+equation for the transformed Hamiltonian $\hat{H}_\Lambda$:
 \begin{equation}
   i\hbar\frac{\partial}{\partial t} \left[\psi(\mathbf{r},t) \, \exp\left(-\frac{ie\Lambda(\mathbf{r},t)}{\hbar}\right)\right] =
   \hat{H}_\Lambda(t) \left[\psi(\mathbf{r},t) \, \exp\left(-\frac{ie\Lambda(\mathbf{r},t)}{\hbar}\right)\right].
@@ -334,13 +330,13 @@ The remainder of the proof for Eq.~\eqref{gaugeschrod} can be carried
 out straightforwardly.
 
 The above result can be stated in a simpler form if the
-electromagnetic fields are static.  For static fields, the
-time-independent electromagnetic Hamiltonian is
+electromagnetic fields are static.  In this case, the time-independent
+electromagnetic Hamiltonian is
 \begin{equation}
   \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}})|^2}{2m}
   - e\Phi(\hat{\mathbf{r}}).
 \end{equation}
-Suppose that $\hat{H}$ has eigenenergies $\{E_m \}$ and energy
+Suppose $\hat{H}$ has eigenenergies $\{E_m \}$ and energy
 eigenfunctions $\{\psi_m(\mathbf{r})\}$.  Then the gauge-transformed
 Hamiltonian
 \begin{equation}
@@ -352,13 +348,13 @@ $\{\,\psi_m(\mathbf{r}) \exp[-ie\Lambda(\mathbf{r})/\hbar]\,\}$.
 
 \subsection{The Aharonov-Bohm effect}
 
-In quantum electrodynamics, the fields that enter directly into the
-theory are the scalar and vector potentials, not the electric and
-magnetic fields.  This has many profound consequences.  For example,
-even if a charged quantum particle resides in a region with zero
-magnetic field, it can feel the effect of nonzero \textit{vector
-  potentials} produced by magnetic fluxes elsewhere in space.  This is
-called the \textbf{Aharonov-Bohm effect}.
+In quantum electrodynamics, it is the electromagnetic scalar and
+vector potentials that appear directly in the Hamiltonian, not the
+electric and magnetic fields.  This has profound consequences.  For
+example, even if a charged quantum particle resides in a region with
+zero magnetic field, it can feel the effect of nonzero \textit{vector
+  potentials} produced by magnetic fluxes elsewhere in space, a
+phenomenon called the \textbf{Aharonov-Bohm effect}.
 
 A simple setting for observing the Aharonov-Bohm effect is shown in
 the figure below.  A particle is trapped in a ring-shaped region (an
@@ -406,9 +402,9 @@ large $R$, we can guess that the eigenfunctions have the form
   0 & \textrm{otherwise}.
   \end{cases}
 \end{equation}
-This has the form of a ``waveguide mode'', posessing a half-wavelength
-wave profile in the $r$ direction (so as to vanish at $r = R \pm d/2$)
-and traveling along the azimuthal direction with wavenumber $k$.  The
+This describes a ``waveguide mode'' with a half-wavelength wave
+profile in the $r$ direction (so as to vanish at $r = R \pm d/2$),
+traveling in the azimuthal direction with wavenumber $k$.  The
 normalization constant $\psi_0$ is unimportant.  We need the
 wavefunction to be single-valued under a $2\pi$ variation in the
 azimuthal coordinate, so
@@ -425,55 +421,52 @@ Plugging this into Eq.~\eqref{ABschrod} yields the energy levels
   + \frac{\pi^2\hbar^2}{2md^2}.
   \label{abcurves}
 \end{align}
-In the figure below, these energy levels are sketched versus the
-magnetic flux $\Phi_B$:
+These energy levels are sketched versus the magnetic flux $\Phi_B$ in
+the figure below:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.55\textwidth]{abring}
 \end{figure}
 
-According to Eq.~\eqref{abcurves}, each energy level has a quadratic
-dependence on $\Phi_B$.  Variations in $\Phi_B$ affect the energy
-levels, even though the magnetic field vanishes in the annulus where
-the electron resides.  This is a manifestation of the Aharonov-Bohm
-effect.
+Each energy level has a quadratic dependence on $\Phi_B$.  Variations
+in $\Phi_B$ affect the energy levels despite the fact that $\mathbf{B}
+= 0$ in the annular region where the electron resides.  This is a
+manifestation of the Aharonov-Bohm effect.
 
-Moreover, curves of different $n$ are centered at different points
-along the $\Phi_B$ axis corresponding to multiples of $h/e =
-4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$.  The energy spectrum
-comes back to itself whenever $\Phi_B$ changes by an exact multiple of
-$h/e$, a fundamental unit of magnetic flux called the \textbf{magnetic
-  flux quantum}.  Notably, the value does not depend on the radius of
-the annulus, or any other geometrical parameters of the system!  This
-invariance property arises from the gauge symmetry of the Hamiltonian.
-When an extra flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded
-through the annulus, Eq.~\eqref{Asolenoid} tells us that the change in
-vector potential is $\Delta \mathbf{A} = (n\hbar/ e r)
-\mathbf{e}_\phi$.  We can undo the effects of this additional vector
-potential using the gauge field
+It is noteworthy that the curves of different $n$ are centered at
+different values of $\Phi_B$ corresponding to multiples of $h/e =
+4.13567\times10^{-5}\,\mathrm{T}\,\mathrm{m}^2$, a fundamental unit of
+magnetic flux called the \textbf{magnetic flux quantum}.  In other
+words, changing $\Phi_B$ by an exact multiple of $h/e$ leaves the
+energy spectrum unchanged!  This invariance property, which does not
+depend on the width of the annulus or any other geometrical parameters
+of the system, can be explained using gauge symmetry.  When an extra
+flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded through the
+annulus, Eq.~\eqref{Asolenoid} tells us that the change in vector
+potential is $\Delta \mathbf{A} = (n\hbar/ e r) \mathbf{e}_\phi$.  But
+we can undo the effects of this via the gauge field
 \begin{equation}
   \Lambda(r,\phi) = - \frac{n\hbar}{e} \, \phi \;\;\;\Rightarrow
   \begin{cases}\nabla \Lambda &= \displaystyle (n\hbar/er) \mathbf{e}_\phi
     \\ \displaystyle e^{-ie\Lambda/\hbar} &= \displaystyle e^{in\phi}.
   \end{cases}
 \end{equation}
-Note that the gauge field $\Lambda$ is not single-valued---but that's
-not a problem, since both $\nabla\Lambda$ and the phase factor
-$\exp(-ie\Lambda/\hbar)$, which respectively enter into the vector
-potential and wavefunction (the ``actual'' physical quantities),
-\textit{are} single-valued.
+Note that this $\Lambda$ is not single-valued, but that's not a
+problem!  Both $\nabla\Lambda$ and the phase factor
+$\exp(-ie\Lambda/\hbar)$ \textit{are} single-valued, and those are the
+quantities that enter into the gauge symmetry relations.
 
 \section{Dirac Theory}
 
 \subsection{The Dirac Hamiltonian}
 \label{sec:DiracH}
 
-The $p^2/2m$-type Hamiltonians we have been using describe
-non-relativistic particles.  In 1928, Paul Dirac formulated a
-Hamiltonian that can describe particles moving close to the speed of
-light, thus successfully combining quantum mechanics with the special
-theory of relativity. Another triumph of Dirac's theory is that it
-accurately predicts the magnetic moment of the electron.
+So far, we have been using $p^2/2m$-type Hamiltonians describing
+non-relativistic electrons.  In 1928, Paul Dirac formulated a
+Hamiltonian that can describe electrons moving close to the speed of
+light, thus successfully combining quantum theory with special
+relativity. Another triumph of Dirac's theory is that it accurately
+predicts the magnetic moment of the electron.
 
 Dirac's theory begins from the time-dependent Schr\"odinger wave
 equation,
@@ -1566,9 +1559,8 @@ distance of the experimental values.
   \begin{equation}
     \mathcal{D}(E) = 2\int d^3k\; \delta(E-E_{\mathbf{k}}),
   \end{equation}
-  where $E_{\mathbf{k}} = \hbar c |\mathbf{k}|$.  Note the prefactor
-  of 2, which accounts for the polarization degree of freedom.  Prove
-  that
+  where $E_{\mathbf{k}} = \hbar c |\mathbf{k}|$.  Note the factor of 2
+  accounting for the polarizations.  Prove that
   \begin{equation}
     \mathcal{D}(E) = \frac{8\pi E^2}{\hbar^3c^3},
   \end{equation}
