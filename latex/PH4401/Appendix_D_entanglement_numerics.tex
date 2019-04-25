@@ -4,6 +4,7 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{mathrsfs}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -31,99 +32,138 @@
 {\large \textbf{Appendix D: Numerical Tensor Products}}
 \end{center}
 
-As described in Chapter 2, multi-particle quantum states are described
-mathematically using tensor products.  This appendix discusses how
-tensor product states, and the operators acting upon them, are handled
-in numerical linear algebra software like
-\href{https://scipy.org/}{Scientific Python}, GNU Octave, or Matlab.
+\noindent
+This appendix discusses how tensor products are handled in numerical
+linear algebra software.  We will focus on Python with the
+\href{https://numpy.org/}{Numeric Python (numpy)} module.  The
+discussion is also applicable, with minor modifications, to GNU Octave
+or Matlab.  We assume the reader is familiar with the
+\href{https://docs.scipy.org/doc/numpy/user/quickstart.html}{basics of
+  Python/Numpy}, e.g.~how vectors can be represented by 1D arrays,
+linear operators (matrices) can be represented by 2D arrays, etc.
 
-Numerical linear algebra is always performed in an explicit basis, so
-that states are represented by 1D arrays of numbers (vectors), and
-linear operators are represented by 2D arrays (matrices).  Tensor
-products can be represented by an operation known as the ``Kronecker
-product'', which is implemented by the
+Tensor products are implemented by the
 \href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html}{\texttt{numpy.kron}}
-function in Python, and the \texttt{kron} function in GNU Octave and
-Matlab.
-
-The Kronecker product operation takes two array inputs, and returns a
-new array consisting of blocks of the second array scaled by the
-components of the first array.  What this means is best understood in
-terms of two distinct cases: (i) products of 1D arrays, and (ii)
-products of 2D arrays.
+function, which performs an operation called a \textbf{Kronecker
+  product}.  The function takes two inputs, which can be 1D arrays, 2D
+arrays, or even higher-dimensional arrays (which we won't discuss).
+It returns a new array representing the tensor product of the inputs,
+whose dimensionality depends on that of the inputs.  The function can
+be used to compute products of vectors ($|a\rangle\otimes|b\rangle$),
+products of operators ($\hat{O}_A\otimes \hat{O}_B$), etc.  It can
+even compute ``mixed'' products like $|a\rangle\otimes\hat{O}_B$,
+which is useful for calculating partial projections and partial
+traces.
 
 \section{Products of vectors}
 
-Suppose that $a$ and $b$ are both 1D arrays, of length $M$ and $N$
+Suppose $a$ and $b$ are both 1D arrays, of length $M$ and $N$
 respectively; let their components be $(a_0, a_1, \dots, a_{M-1})$ and
-$(b_0, b_1, \dots, b_{N-1})$.  Following the conventions of Scientific
-Python, we will not distinguish between ``row vectors'' and ``column
-vectors'', and components are indexed from 0.  The Kronecker product
-has the following effect:
-$$\texttt{kron}(a, b) = \Big(a_0b_0,\,\dots,\, a_0 b_{N-1},\, a_1 b_0,\, \dots,\, a_1 b_{N-1},\, \dots,\, a_{M-1}b_{N-1}\Big).$$
-This is a 1D array of length $MN$, and its first $N$ components are
-$a_0 (b_0, \dots,b_{N-1})$, the next $N$ components are $a_1 (b_0,
-\dots, b_{N-1})$, etc.  We can describe this compactly in index
-notation:
-$$\big[\, \texttt{kron}(a, b) \,\big]_{\mu} = a_m \, b_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.$$
-Note that the index $\mu$ sweeps through the values $\mu =
-0,1,\dots,MN-1$, without duplication, as we take $m = 0,\dots,M-1$ and
-$n = 0,\dots,N-1$.
+$(b_0, b_1, \dots, b_{N-1})$.  Following Numpy conventions, we do not
+distinguish between ``row vectors'' and ``column vectors'', and we
+index components from 0.  The Kronecker product between $a$ and $b$
+generates the following 1D array:
+\begin{equation}
+  \texttt{kron}(a, b) = \Big(a_0b_0,\,\dots,\, a_0 b_{N-1},\, a_1 b_0,\, \dots,\, a_1 b_{N-1},\, \dots,\, a_{M-1}b_{N-1}\Big).
+\end{equation}
+The array has $MN$ components, which can be described compactly in
+index notation by
+\begin{equation}
+  \big[\, \texttt{kron}(a, b) \,\big]_{\mu} = a_m \, b_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.
+  \label{kronab}
+\end{equation}
+Note that as we sweep through $m = 0,\dots,M-1$ and $n = 0,\dots,N-1$,
+the combined index $\mu$ runs through the values $0,1,\dots,MN-1$
+without duplication.
 
-This operation can be used to describe the tensor product of two
-quantum state vectors.  Suppose we have a state vector $|a\rangle$ in
-an $M$-dimensional Hilbert space $\mathscr{H}_A$, and a state vector
-$|b\rangle$ in an $N$-dimensional Hilbert space $\mathscr{H}_B$.  Let
-the two Hilbert spaces have bases $\{|m\rangle\}$ and $\{|n\rangle\}$
-respectively.  The state vectors can be written using the basis
-decompositions
-$$|a\rangle = \sum_{m=0}^{M-1} a_m |m\rangle, \quad |b\rangle = \sum_{n=0}^{N-1} b_n |n\rangle.$$
-The tensor product $|a\rangle\otimes|b\rangle$ is a vector in the
-space $\mathscr{H}_A\otimes \mathscr{H}_B$, which is $MN$-dimensional.
-We can adopt a natural basis for this product space,
-$$\Big\{|\mu\rangle \equiv |m\rangle\otimes |n\rangle\Big\} \;\;\;\mathrm{where} \;\begin{cases}\mu\!\!\!\! &= mN+n \\ m \!\!\!\!&= 0,1,\dots,M-1 \\ n \!\!\!\!&= 0,1, \dots, N-1.\end{cases}$$
-Then the components of $|A\rangle\otimes|B\rangle$ in this basis are
-given by the components of the Kronecker product:
-$$|a\rangle\otimes|b\rangle = \sum_{\mu=0}^{MN-1} \big[\texttt{kron}(a,b)\big]_\mu \; |\mu\rangle.$$
+In terms of abstract linear algebra (as used in quantum theory), let
+$\mathscr{H}_A$ be an $M$-dimensional space with basis
+$\{|m\rangle\}$, and $\mathscr{H}_B$ be an $N$-dimensional space with
+basis $\{|n\rangle\}$.  Any two vectors $|a\rangle \in \mathscr{H}_A$
+and $|b\rangle \in \mathscr{H}_B$ can be written as
+\begin{equation}
+  |a\rangle = \sum_{m=0}^{M-1} a_m |m\rangle, \quad |b\rangle = \sum_{n=0}^{N-1} b_n |n\rangle.
+\end{equation}
+A natural basis for the product space $\mathscr{H}_A\otimes
+\mathscr{H}_B$ is
+\begin{equation}
+  \Big\{|\mu\rangle \equiv |m\rangle\otimes |n\rangle\Big\} \;\;\;\mathrm{where} \;\begin{cases}\mu\!\!\!\! &= mN+n \\ m \!\!\!\!&= 0,1,\dots,M-1 \\ n \!\!\!\!&= 0,1, \dots, N-1.\end{cases}
+  \label{mubasis}
+\end{equation}
+Using Eq.~\eqref{kronab}, we can show that in terms of this basis,
+\begin{equation}
+  |a\rangle\otimes|b\rangle = \sum_{\mu=0}^{MN-1} \big[\texttt{kron}(a,b)\big]_\mu \; |\mu\rangle.
+\end{equation}
+Therefore, we can simply remember that the tensor product of two
+vectors is represented by
+\begin{framed}
+  \begin{equation}
+    |a\rangle\otimes|b\rangle \;\;\leftrightarrow\;\;
+    \texttt{kron}(a,b).
+    \label{result1}
+  \end{equation}
+\end{framed}
+\vskip -0.15in
+\noindent
+Note, by the way, that the order is important: $\texttt{kron}(a,b)$ is
+not the same as $\texttt{kron}(b,a)$.  This is because of the indexing
+convention assumed in Eq.~\eqref{mubasis}: we take $\mu = mN+n$, which
+is not the same as $\mu = nM+m$.
 
 \section{Products of matrices}
 
-Consider the case where $A$ and $B$ are 2D arrays (matrices), whose
-sizes are $M\times M$ and $N\times N$ respectively:
-$$A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\; B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.$$
-In this case, the Kronecker product of $A$ and $B$ is an $MN\times MN$
-array of the form
-$$\texttt{kron}(A,B) = \begin{bmatrix} A_{00}B & \cdots & A_{0,M-1}B \\ \vdots & \ddots & \vdots \\ A_{M-1,0}B & \cdots & A_{M-1,M-1}B\end{bmatrix}.$$
-In component terms,
-$$\big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} = A_{mm'} B_{nn'}\;\;\;\mathrm{where}\;\;\;\mu = mN+n, \; \mu' = m'N+n'.$$
-The index $\mu$ sweeps through the values $\mu = 0,1,\dots,MN-1$,
-without duplication, as we take $m = 0,\dots,M-1$ and $n =
-0,\dots,N-1$; and likewise for the primed indices.
+Let $A$ and $B$ be 2D arrays of size $M\times M$ and $N\times N$
+respectively:
+\begin{equation}
+  A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\;
+  B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.
+\end{equation}
+Then the Kronecker product of $A$ and $B$ is an $MN\times MN$ array of
+the form
+\begin{equation}
+  \texttt{kron}(A,B) = \begin{bmatrix} A_{00}B & \cdots & A_{0,M-1}B \\ \vdots & \ddots & \vdots \\ A_{M-1,0}B & \cdots & A_{M-1,M-1}B\end{bmatrix}.
+    \label{kronAB_explicit}
+\end{equation}
+This can be written in terms of explicit components as
+\begin{equation}
+  \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} = A_{mm'} B_{nn'}\;\;\;\mathrm{where}\;\;\;\mu = mN+n, \; \mu' = m'N+n'.
+  \label{kronAB}
+\end{equation}
 
-This Kronecker product can be used to describe the tensor product of
-two quantum operators.  Let $\hat{A}$ be a quantum operator acting on
-the $M$-dimensional Hilbert space $\mathscr{H}_A$, and $\hat{B}$ a
-quantum operator acting on the $N$-dimensional Hilbert space
-$\mathscr{H}_B$.  As before, let the bases for the two spaces be
-$\{|m\rangle\}$ and $\{|n\rangle\}$ respectively, so that
-$$\hat{A} = \sum_{m,m'=0}^{M-1}  |m\rangle A_{mm'} \langle m'|, \quad \hat{B} = \sum_{n,n'=0}^{N-1} |n\rangle B_{nn'}\langle n'|.$$
-The tensor product $\hat{A}\otimes\hat{B}$ acts on the
-$MN$-dimensional Hilbert space $\mathscr{H}_A\otimes \mathscr{H}_B$.
-Again, we adopt the basis $\big\{|\mu\rangle \equiv |m\rangle\otimes
-|n\rangle \big\}$ where $\mu = mN+n$.  Then the matrix elements in
-this basis are given by the components of the Kronecker product:
-$$\hat{A}\otimes\hat{B} = \sum_{\mu,\mu'=0}^{MN-1} |\mu\rangle \; \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} \; \langle\mu'|.$$
+In the language of abstract linear algebra, let $\mathscr{H}_A$ and
+$\mathscr{H}_B$ again be spaces with bases $\{|m\rangle\}$ and
+$\{|n\rangle\}$.  Consider two linear operators $\hat{A}$ and
+$\hat{B}$ acting respectively on these spaces:
+\begin{equation}
+  \hat{A} = \sum_{m,m'=0}^{M-1}  |m\rangle A_{mm'} \langle m'|, \quad \hat{B} = \sum_{n,n'=0}^{N-1} |n\rangle B_{nn'}\langle n'|.
+\end{equation}
+Then we can show using Eq.~\eqref{kronAB} that
+\begin{equation}
+  \hat{A}\otimes\hat{B} = \sum_{\mu,\mu'=0}^{MN-1} |\mu\rangle \; \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} \; \langle\mu'|,
+\end{equation}
+where $\big\{|\mu\rangle\big\}$ is the ``natural'' basis for
+$\mathscr{H}_A\otimes\mathscr{H}_B$ previously defined in
+Eq.~\eqref{mubasis}.  Thus,
+\begin{framed}
+  \begin{equation}
+    \hat{A}\otimes\hat{B} \;\;\leftrightarrow\;\;
+    \texttt{kron}(A,B).
+    \label{result2}
+  \end{equation}
+\end{framed}
 
-Thus, we see that the Kronecker product takes pairs of vectors, or
-pairs of matrices, and returns the tensor product corresponding to a
-particular straightforward basis choice for the product space.  Note
-that the order of inputs matters: $\texttt{kron}(A,B)$ is not the same
-as $\texttt{kron}(B,A)$, since the inputs determine the ordering of
-the basis vectors for the product space (e.g., in the former case, we
-define $\mu = mN+n$ rather than $\mu = nM+m$).  We have to be careful
-to stick to one choice throughout a program (e.g., vectors and
-matrices for $\mathscr{H}_A$ always go in the first slot, and those
-for $\mathscr{H}_B$ in the second slot).
+Eqs.~\eqref{result1} and \eqref{result2} are nice because they allow
+us to ignore the complexities of tensor product components and how
+they are indexed.  So long as we make a particular basis choice for
+the spaces $\mathscr{H}_A$ and $\mathscr{H}_B$ (and keep to that
+choice), the \texttt{kron} function returns vector products and
+operator products that are expressed in terms of an appropriate basis
+for $\mathscr{H}_A\otimes\mathscr{H}_B$ [i.e., the basis defined in
+  Eq.~\eqref{mubasis}].  In the next section, we will see that this
+works even for ``mixed'' products of operators with vectors.
+
+\section{Mixed products}
+
 
 \section{Projections}
 
