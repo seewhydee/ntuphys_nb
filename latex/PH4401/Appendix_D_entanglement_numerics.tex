@@ -87,17 +87,29 @@ explicitly distinguish between ``row vectors'' and ``column vectors'',
 and component indices start from 0.  The Kronecker product between $a$
 and $b$ generates the following 1D array:
 \begin{equation}
-  \texttt{kron}(a, b) = \Big(a_0b,\, a_1 b,\, \dots,\, a_{M-1}b\Big).
+  \texttt{kron}(a, b) = \Big(a_0b_0,\,\dots,\, a_0 b_{N-1},\, a_1 b_0,\, \dots,\, a_1 b_{N-1},\, \dots,\, a_{M-1}b_{N-1}\Big).\label{kronabdef1}
 \end{equation}
-This is a 1D array of $MN$ components, described compactly in index
-notation by
+We can think of this as \textit{taking each component of $a$, and
+  multiplying it by the entire $b$ array}:
+\begin{equation}
+  \texttt{kron}(a, b) = \Big(a_0b,\, a_1 b,\, \dots,\, a_{M-1}b\Big).
+  \label{kronabdef2}
+\end{equation}
+As we shall see, this description of the Kronecker product extends to
+higher-dimensional arrays as well.  In the present case, $a$ and $b$
+are both 1D, and the result is a 1D array of $MN$ components, which
+can be described compactly in index notation by
 \begin{equation}
   \big[\, \texttt{kron}(a, b) \,\big]_{\mu} = a_m \, b_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.
   \label{kronab}
 \end{equation}
 The index $\mu$ is defined so that as we sweep through $m =
 0,\dots,M-1$ and $n = 0,\dots,N-1$, $\mu$ runs through the values
-$0,1,\dots,MN-1$ without duplication.
+$0,1,\dots,MN-1$ without duplication.  Note, by the way, that the
+order of inputs into $\texttt{kron}$ is important:
+$\texttt{kron}(a,b)$ is not the same as $\texttt{kron}(b,a)$!  The
+asymmetry between $a$ and $b$ is apparent in the definitions
+\eqref{kronabdef1} and \eqref{kronabdef2}.
 
 In terms of abstract linear algebra (as used in quantum theory), let
 $\mathscr{H}_A$ be an $M$-dimensional space with basis
@@ -138,11 +150,6 @@ Likewise, for bras,
   \texttt{kron}(a^*,b^*).
   \label{result1a}
 \end{equation}
-Note, by the way, that the order of inputs into $\texttt{kron}$ is
-important: $\texttt{kron}(a,b)$ is not the same as
-$\texttt{kron}(b,a)$.  This is because the indexing convention in
-Eq.~\eqref{mubasis} is $\mu = mN+n$, which is not the same as $\mu =
-nM+m$.
 
 \section{Products of matrices}
 
@@ -158,7 +165,9 @@ the form
   \texttt{kron}(A,B) = \begin{bmatrix} A_{00}B & \cdots & A_{0,M-1}B \\ \vdots & \ddots & \vdots \\ A_{M-1,0}B & \cdots & A_{M-1,M-1}B\end{bmatrix}.
     \label{kronAB_explicit}
 \end{equation}
-This can be written in terms of explicit components as
+As before, this can be interpreted as taking each component of $A$,
+and multiplying it by $B$.  The result can be written using index
+notation as
 \begin{equation}
   \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} = A_{mm'} B_{nn'}\;\;\;\mathrm{where}\;\;\;\mu = mN+n, \; \mu' = m'N+n'.
   \label{kronAB}
@@ -172,10 +181,13 @@ $\hat{B}$ acting respectively on these spaces:
   \hat{A} = \sum_{m,m'=0}^{M-1}  |m\rangle A_{mm'} \langle m'|, \quad \hat{B} = \sum_{n,n'=0}^{N-1} |n\rangle B_{nn'}\langle n'|.
 \end{equation}
 Then we can show using Eq.~\eqref{kronAB} that
-\begin{equation}
-  \hat{A}\otimes\hat{B} = \sum_{\mu,\mu'=0}^{MN-1} |\mu\rangle \; \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} \; \langle\mu'|,
-\end{equation}
-where $\big\{|\mu\rangle\big\}$ is the ``natural'' basis for
+\begin{align}
+  \hat{A}\otimes\hat{B} &=
+  \sum_{mm'nn'} |m\rangle|n\rangle\,A_{mm'} B_{nn'}\,\langle m'| \langle n'| \\
+  &= \sum_{\mu,\mu'} |\mu\rangle \;
+  \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} \; \langle\mu'|,
+\end{align}
+where $\big\{|\mu\rangle\big\}$ is the basis for
 $\mathscr{H}_A\otimes\mathscr{H}_B$ previously defined in
 Eq.~\eqref{mubasis}.  Thus,
 \begin{equation}
@@ -183,10 +195,9 @@ Eq.~\eqref{mubasis}.  Thus,
   \texttt{kron}(A,B).
   \label{result2}
 \end{equation}
-
 This result, like Eq.~\eqref{result1}, is nice because it means that
-we can relegate the calculation of tensor product components entirely
-to the \texttt{kron} function.  So long as we make a particular basis
+we can relegate the handling of tensor product components entirely to
+the \texttt{kron} function.  So long as we make a particular basis
 choice for the spaces $\mathscr{H}_A$ and $\mathscr{H}_B$, and keep to
 that choice, \texttt{kron} will return the vector products and
 operator products expressed using an appropriate and natural basis for
@@ -226,7 +237,7 @@ Then
 \end{align}
 This does not quite match Eq.~\eqref{kronaB}!  The basic problem is
 that the Kronecker product treats $a$ a row vector.  However, we can
-match thing up by massaging Eq.~\eqref{kronaB} a bit:
+patch things up by massaging Eq.~\eqref{kronaB} a bit:
 \begin{align}
   \begin{aligned}
     \left.[\right.\texttt{kron}(a, B^T)^T]_{\mu n'} &=
@@ -235,8 +246,8 @@ match thing up by massaging Eq.~\eqref{kronaB} a bit:
     &= a_{m} B_{nn'}.
   \end{aligned}
 \end{align}
-This is an appropriate match for Eq.~\eqref{aBprod}, so we can
-conclude that
+This is an appropriate match for Eq.~\eqref{aBprod}, so we conclude
+that
 \begin{equation}
   |a\rangle \otimes \hat{B} \;\;\leftrightarrow\;\;
   \texttt{kron}(a, B^T)^T.
