@@ -55,26 +55,49 @@ even compute ``mixed'' products like $|a\rangle\otimes\hat{O}_B$,
 which is useful for calculating partial projections and partial
 traces.
 
+In the next few sections, we will prove that the various tensor
+products of bras, kets, and operators can be represented using the
+following Numpy expressions involving
+\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html}{\texttt{numpy.kron}}:
+\begin{framed}
+  \begin{align*}
+    |a\rangle\otimes|b\rangle &\;\;\leftrightarrow\;
+    \texttt{kron(a, b)} &
+    \langle a | \otimes \langle b| &\;\;\leftrightarrow\;
+    \texttt{kron(a.conj(), b.conj())} \\
+    \hat{A}\otimes\hat{B} &\;\;\leftrightarrow\;
+    \texttt{kron(A, B)} \\
+    |a\rangle \otimes \hat{B} &\;\;\leftrightarrow\;
+    \texttt{kron(a, B.T).T} &
+    \langle a| \otimes \hat{B} &\;\;\leftrightarrow\;
+    \texttt{kron(a.conj(), B)} \\
+    \hat{A} \otimes | b\rangle &\;\;\leftrightarrow\;
+    \texttt{kron(A.T, b).T} &
+    \hat{A} \otimes \langle b| &\;\;\leftrightarrow\;
+    \texttt{kron(A, b.conj())}
+  \end{align*}
+\end{framed}
+
 \section{Products of vectors}
 
 Suppose $a$ and $b$ are both 1D arrays, of length $M$ and $N$
 respectively; let their components be $(a_0, a_1, \dots, a_{M-1})$ and
 $(b_0, b_1, \dots, b_{N-1})$.  Following Numpy conventions, we do not
-distinguish between ``row vectors'' and ``column vectors'', and we
-index components from 0.  The Kronecker product between $a$ and $b$
-generates the following 1D array:
+explicitly distinguish between ``row vectors'' and ``column vectors'',
+and component indices start from 0.  The Kronecker product between $a$
+and $b$ generates the following 1D array:
 \begin{equation}
-  \texttt{kron}(a, b) = \Big(a_0b_0,\,\dots,\, a_0 b_{N-1},\, a_1 b_0,\, \dots,\, a_1 b_{N-1},\, \dots,\, a_{M-1}b_{N-1}\Big).
+  \texttt{kron}(a, b) = \Big(a_0b,\, a_1 b,\, \dots,\, a_{M-1}b\Big).
 \end{equation}
-The array has $MN$ components, which can be described compactly in
-index notation by
+This is a 1D array of $MN$ components, described compactly in index
+notation by
 \begin{equation}
   \big[\, \texttt{kron}(a, b) \,\big]_{\mu} = a_m \, b_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.
   \label{kronab}
 \end{equation}
-Note that as we sweep through $m = 0,\dots,M-1$ and $n = 0,\dots,N-1$,
-the combined index $\mu$ runs through the values $0,1,\dots,MN-1$
-without duplication.
+The index $\mu$ is defined so that as we sweep through $m =
+0,\dots,M-1$ and $n = 0,\dots,N-1$, $\mu$ runs through the values
+$0,1,\dots,MN-1$ without duplication.
 
 In terms of abstract linear algebra (as used in quantum theory), let
 $\mathscr{H}_A$ be an $M$-dimensional space with basis
@@ -87,28 +110,39 @@ and $|b\rangle \in \mathscr{H}_B$ can be written as
 A natural basis for the product space $\mathscr{H}_A\otimes
 \mathscr{H}_B$ is
 \begin{equation}
-  \Big\{|\mu\rangle \equiv |m\rangle\otimes |n\rangle\Big\} \;\;\;\mathrm{where} \;\begin{cases}\mu\!\!\!\! &= mN+n \\ m \!\!\!\!&= 0,1,\dots,M-1 \\ n \!\!\!\!&= 0,1, \dots, N-1.\end{cases}
+  \Big\{|\mu\rangle \equiv |m\rangle |n\rangle\Big\}
+  \;\;\;\mathrm{where} \;
+  \begin{cases}
+    \mu\!\!\!\! &= mN+n \\
+    m \!\!\!\!&= 0,1,\dots,M-1 \\
+    n \!\!\!\!&= 0,1, \dots, N-1.
+  \end{cases}
   \label{mubasis}
 \end{equation}
-Using Eq.~\eqref{kronab}, we can show that in terms of this basis,
+Using Eq.~\eqref{kronab}, we can show that
 \begin{equation}
-  |a\rangle\otimes|b\rangle = \sum_{\mu=0}^{MN-1} \big[\texttt{kron}(a,b)\big]_\mu \; |\mu\rangle.
+  |a\rangle\otimes|b\rangle
+  = \sum_{mn} a_m b_n |m\rangle |n\rangle
+  = \sum_{\mu=0}^{MN-1} \big[\texttt{kron}(a,b)\big]_\mu \; |\mu\rangle.
 \end{equation}
-Therefore, we can simply remember that the tensor product of two
-vectors is represented by
-\begin{framed}
-  \begin{equation}
-    |a\rangle\otimes|b\rangle \;\;\leftrightarrow\;\;
-    \texttt{kron}(a,b).
-    \label{result1}
-  \end{equation}
-\end{framed}
-\vskip -0.15in
-\noindent
-Note, by the way, that the order is important: $\texttt{kron}(a,b)$ is
-not the same as $\texttt{kron}(b,a)$.  This is because of the indexing
-convention assumed in Eq.~\eqref{mubasis}: we take $\mu = mN+n$, which
-is not the same as $\mu = nM+m$.
+Therefore, we need only remember that the tensor product of two
+kets is represented by
+\begin{equation}
+  |a\rangle\otimes|b\rangle \;\;\leftrightarrow\;\;
+  \texttt{kron}(a,b).
+  \label{result1}
+\end{equation}
+Likewise, for bras,
+\begin{equation}
+  \;\;\,\langle a| \otimes \langle b| \;\;\leftrightarrow\;\;
+  \texttt{kron}(a^*,b^*).
+  \label{result1a}
+\end{equation}
+Note, by the way, that the order of inputs into $\texttt{kron}$ is
+important: $\texttt{kron}(a,b)$ is not the same as
+$\texttt{kron}(b,a)$.  This is because the indexing convention in
+Eq.~\eqref{mubasis} is $\mu = mN+n$, which is not the same as $\mu =
+nM+m$.
 
 \section{Products of matrices}
 
@@ -144,108 +178,109 @@ Then we can show using Eq.~\eqref{kronAB} that
 where $\big\{|\mu\rangle\big\}$ is the ``natural'' basis for
 $\mathscr{H}_A\otimes\mathscr{H}_B$ previously defined in
 Eq.~\eqref{mubasis}.  Thus,
-\begin{framed}
-  \begin{equation}
-    \hat{A}\otimes\hat{B} \;\;\leftrightarrow\;\;
-    \texttt{kron}(A,B).
-    \label{result2}
-  \end{equation}
-\end{framed}
+\begin{equation}
+  \hat{A}\otimes\hat{B} \;\;\leftrightarrow\;\;
+  \texttt{kron}(A,B).
+  \label{result2}
+\end{equation}
 
-Eqs.~\eqref{result1} and \eqref{result2} are nice because they allow
-us to ignore the complexities of tensor product components and how
-they are indexed.  So long as we make a particular basis choice for
-the spaces $\mathscr{H}_A$ and $\mathscr{H}_B$ (and keep to that
-choice), the \texttt{kron} function returns vector products and
-operator products that are expressed in terms of an appropriate basis
-for $\mathscr{H}_A\otimes\mathscr{H}_B$ [i.e., the basis defined in
-  Eq.~\eqref{mubasis}].  In the next section, we will see that this
-works even for ``mixed'' products of operators with vectors.
+This result, like Eq.~\eqref{result1}, is nice because it means that
+we can relegate the calculation of tensor product components entirely
+to the \texttt{kron} function.  So long as we make a particular basis
+choice for the spaces $\mathscr{H}_A$ and $\mathscr{H}_B$, and keep to
+that choice, \texttt{kron} will return the vector products and
+operator products expressed using an appropriate and natural basis for
+$\mathscr{H}_A\otimes\mathscr{H}_B$ [i.e., the basis defined in
+  Eq.~\eqref{mubasis}].
 
 \section{Mixed products}
 
+For ``mixed'' products of operators with bras or kets, the
+representation using \texttt{kron} is more complicated, but only
+slightly.  First, consider the 1D array $a$ and 2D array $B$:
+\begin{equation}
+  a = (a_0, \dots, a_{M-1}), \;\;\;
+  B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.
+\end{equation}
+Then the Kronecker product between the two is
+\begin{equation}
+  \texttt{kron}(a, B) = (a_0 B, a_1 B, \dots, a_{M-1} B).
+\end{equation}
+Note that $a$ is explicitly treated as a row vector.  In component
+terms,
+\begin{equation}
+  [\texttt{kron}(a, B)]_{n\mu'} = a_{m'} B_{nn'}, \;\;\;\mathrm{where}\;\;\;
+  \mu' = m'N+n'.
+  \label{kronaB}
+\end{equation}
+In linear algebraic terms, let
+\begin{equation}
+  |a\rangle = \sum_m a_m |m\rangle, \;\;\; \hat{B} = \sum_{nn'}
+  |n\rangle B_{nn'} \langle n'|.
+\end{equation}
+Then
+\begin{align}
+  |a\rangle \otimes \hat{B} = \sum_{\mu n'} |\mu\rangle \,
+  a_m B_{nn'} \, \langle n'|, \qquad \mu = mN + n.
+  \label{aBprod}
+\end{align}
+This does not quite match Eq.~\eqref{kronaB}!  The basic problem is
+that the Kronecker product treats $a$ a row vector.  However, we can
+match thing up by massaging Eq.~\eqref{kronaB} a bit:
+\begin{align}
+  \begin{aligned}
+    \left.[\right.\texttt{kron}(a, B^T)^T]_{\mu n'} &=
+    [\texttt{kron}(a, B^T)]_{n' \mu} \\
+    &= a_{m} (B^T)_{n'n} \quad\;\;\mathrm{where}\;\; \mu' = m'N + n' \\
+    &= a_{m} B_{nn'}.
+  \end{aligned}
+\end{align}
+This is an appropriate match for Eq.~\eqref{aBprod}, so we can
+conclude that
+\begin{equation}
+  |a\rangle \otimes \hat{B} \;\;\leftrightarrow\;\;
+  \texttt{kron}(a, B^T)^T.
+\end{equation}
+To take the product using the bra $\langle a|$, we replace
+Eq.~\eqref{aBprod} by
+\begin{align}
+  \langle a| \otimes \hat{B} = \sum_{n\mu'} |n\rangle \,
+  a_{m'}^* B_{nn'} \, \langle \mu'|, \qquad \mu' = m'N + n'.
+\end{align}
+Comparing this to Eq.~\eqref{kronaB} yields
+\begin{equation}
+  \langle a| \otimes \hat{B} \;\;\leftrightarrow\;\;
+  \texttt{kron}(a^*, B).
+\end{equation}
 
-\section{Projections}
-
-Let $|\psi\rangle \in \mathscr{H}_A\otimes \mathscr{H}_B$ be the quantum state
-of a two-particle system.  Let its vector components, in the basis
-used by the Kronecker product, be $\{\psi_0, \dots, \psi_{MN-1}\}$:
-$$|\psi\rangle = \sum_{\mu} \psi_\mu |\mu\rangle = \sum_{mn} \psi_{\mu(m,n)} |m\rangle\otimes|n\rangle, \;\;\;\mathrm{where}\;\;\mu(m,n) = mN+n.$$
-To keep the notation from getting too crowded, we will stop explicitly
-indicating the summation limits; each sum is assumed to run over the
-full range of the index concerned.
-
-Suppose we perform a measurement on subsystem $A$, and collapse that
-subsystem into the state $|a\rangle = \sum_m a_m |m\rangle \in
-\mathscr{H}_A$.  According to the discussion in Chapter 2, the
-probability of achieving this result is
-$$P = \big|\langle b|b\rangle\big|^2 \;\;\; \mathrm{where} \;\; |b\rangle = \langle a | \psi\rangle \in \mathscr{H}_B.$$
-Hence, we need to compute the \textit{projection} of $|\psi\rangle$
-onto the Hilbert space $\mathscr{H}_B$ (which is a vector in
-$\mathscr{H}_B$).  In index notation,
-$$\begin{aligned}|b\rangle = \langle a | \psi\rangle &= \left(\sum_{m'} \langle m'| a_{m'}^* \right) \left(\sum_{mn}\psi_{\mu(m,n)} |m\rangle\otimes|n\rangle \right) \\ &= \sum_{n} \left(\sum_m a_{m}^*\, \psi_{\mu(m,n)}\right) |n\rangle\end{aligned}$$
-The components of the projected vector are
-$$b_n = \sum_m a_{m}^*\, \psi_{mN+n}.$$
-To calculate this, it is convenient to first re-arrange $\psi$ from a
-1D array to a 2D array, using the
-\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.resize.html}{\texttt{numpy.resize}}
-function in Python (or the equivalent \texttt{resize} function in GNU
-Octave or Matlab).  If \texttt{psi} is a 1D array of length $MN$ whose
-components are $\psi_{\mu(m,n)}$, then \texttt{resize(psi, (M,N))}
-returns an $M\times N$ matrix whose components are
-$\psi_{mn}^{(\mathrm{resized})} = \psi_{\mu(m,n)}$.  Therefore,
-$$b_n = \sum_m a_{m}^*\, \psi_{mn}^{(\mathrm{resized})}.$$
-The $b$ array can thus be computed with the code
-\begin{verbatim}
-    b = dot(conj(a), resize(psi, (M,N)))     # Projecting out space A
-\end{verbatim}
-Here, \texttt{conj} returns the complex conjugate, and the
-\href{https://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html}{\texttt{dot}}
-function performs a sum product over the last index of the first input
-and the next-to-last index of the second input (in this case, this
-means summing over the index $m$).
-
-For projections onto the other Hilbert space, the procedure is very
-slightly different.  Suppose we perform a measurement on subsystem
-$B$, and collapse that subsystem into the state $|b\rangle = \sum_n
-b_n |n\rangle \in \mathscr{H}_B$.  In that case, we would need to
-calculate the projection
-$$\begin{aligned}|a\rangle &= \langle b | \psi\rangle  \;\; \in \;\; \mathscr{H}_A \\ &= 
-\left(\sum_{n'} \langle n'| b_{n'}^* \right) \left(\sum_{mn}\psi_{\mu(m,n)} |m\rangle\otimes|n\rangle \right) \\ &= \sum_{m} \left(\sum_n b_{n}^*\, \psi_{\mu(m,n)}\right) |m\rangle
-\end{aligned}$$
-The components of the projected vector are
-$$a_n = \sum_n b_n^* \, \psi_{mN+n} = \sum_n \psi_{mn}^{(\mathrm{resized})}\, b_{n}^*.$$
-To compute this, we supply the arrays to the \texttt{dot} function
-in the opposite order:
-\begin{verbatim}
-    a = dot(resize(psi, (M,N)), conj(b))     # Projecting out space B
-\end{verbatim}
-
-\section{Partial traces}
-
-Another common computation that we need to perform is the partial
-trace, which is used to in constructing density matrices, computing
-the entanglement entropy, etc.  Consider an operator $\hat{C}$ acting
-on the space $\mathscr{H}_A\otimes\mathscr{H}_B$, such that
-$$\hat{C} = \sum_{\mu,\mu'} |\mu\rangle \, C_{\mu\mu'} \, \langle\mu'|.$$
-As before, we take $|\mu\rangle \equiv |m\rangle\otimes|n\rangle$
-where $\mu = mN+n$, which is the basis corresponding to the Kronecker
-product.  Suppose we wish to trace over subsystem $A$:
-$$\begin{aligned}\mathrm{Tr}_A \big[\hat{C}\big] &= \sum_m \langle m| \,\hat{C} \,|m\rangle \\ &= \sum_{nn'} |n\rangle \left(\sum_m C_{mN+n, mN+n'}\right) \langle n'| \end{aligned}$$
-Such a matrix can be computed by array slicing:
-\begin{verbatim}
-    Ctrace = zeros((N,N))                    # Tracing out space A
-    for m in range(M):
-        Ctrace += C[m*N:(m+1)*N, m*N:(m+1)*N]
-\end{verbatim}
-
-If we instead perform a partial trace over subsystem $B$, then
-$$\mathrm{Tr}_B \big[\hat{C}\big] = \sum_{mm'} |m\rangle \left(\sum_n C_{mN+n, m'N+n}\right) \langle m'|.$$
-This can be computed as follows:
-\begin{verbatim}
-    Ctrace = zeros((M,M))                    # Tracing out space B
-    for n in range(N):
-        Ctrace += C[n:M*N+n:N, n:M*N+n:N]
-\end{verbatim}
+Likewise, consider the 2D array $A$ and 1D array $b$:
+\begin{equation}
+  A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\;\;
+  b = (b_0, \dots, b_{N-1}).
+\end{equation}
+Then the Kronecker product is
+\begin{equation}
+  \texttt{kron}(A, b) =
+  \begin{bmatrix}
+    A_{00} b & \cdots & A_{0,M-1} b \\
+    \vdots & \ddots & \vdots \\
+    A_{M-1,0} b & \cdots & A_{M-1,M-1} b
+  \end{bmatrix}.
+\end{equation}
+Similar to before, $b$ is treated as a row vector.  In component
+terms,
+\begin{equation}
+  [\texttt{kron}(A, b)]_{m\mu'} = A_{mm'} b_{n'}, \;\;\;\mathrm{where}\;\;\;
+  \mu' = m'N+n'.
+\end{equation}
+Using the same procedure as before, we can straightforwardly show that
+\begin{align}
+  \hat{A} \otimes | b\rangle &=
+  \sum_{\mu m'} |\mu\rangle \, [\texttt{kron}(A^T, b)^T]_{\mu m'}
+  \, \langle m'| && \leftrightarrow \;\; \texttt{kron}(A^T, b)^T\\
+  \hat{A} \otimes \langle b| &=
+  \sum_{m\mu'} |m\rangle \, [\texttt{kron}(A, b^*)]_{m\mu'}
+  \,  \langle \mu'| && \leftrightarrow \;\; \texttt{kron}(A, b^*).
+\end{align}
 
 \end{document}
