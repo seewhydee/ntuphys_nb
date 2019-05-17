@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -50,6 +51,7 @@ summarize the definition of entropy in classical physics, and how it
 is related to other physical quantities.
 
 \section{Definition}
+\label{sec:entrodef}
 
 Suppose a system has $W$ discrete microstates labeled by integers
 $\{1,2,3,\dots, W\}$ , which have probabilities $\{p_1, p_2, p_3,
@@ -64,39 +66,31 @@ macroscopic features of the system.  For example, if we know the
 system's total energy, the set of microstates used in Eq.~\eqref{Sdef}
 can only include microstates which have precisely that energy.
 
-Consider the behavior of $S$ under two extreme
-scenarios:
+Consider the behavior of $S$ under two extreme scenarios:
 
 \begin{itemize}
-\item If we know the exact microstate of the system (i.e., $p_k = 1$
-  for some $k$), the entropy is $S = 0$.  This scenario
-  describes a state of complete certainty.
+\item Suppose the microstate is completely certain, i.e., $p_k = 1$
+  for some $k$.  Then $S = 0$.
 
-
-\item If there are $W$ possible microstates, each with equal
+\item Suppose there are $W$ possible microstates, each with equal
   probabilities
   \begin{equation}
     p_i = \frac{1}{W} \;\;\forall i \in \{1,2,\dots,W\}.
   \end{equation}
-  This describes a state of complete uncertainty.  In statistical
-  mechanics, it occurs when a system is at equilibrium, with a fixed
-  total energy $E$, and does not interact with the rest of the
-  universe (a \textbf{micro-canonical ensemble}).  In such a
-  situation, the \textbf{ergodicity postulate} states that all
-  possible microstates with energy $E$ are equally probable.
-  Then the entropy is
+  This describes a scenario of complete uncertainty between the
+  possible choices.  Then
   \begin{equation}
     S \,=\, -k_b W \frac{1}{W} \ln(1/W) \;=\; k_b \ln W.
   \end{equation}
-  Note that the entropy is dependent on the macroscopic features of
-  the system, such as the total energy $E$.  Varying $E$ varies $W$,
-  and hence $S$.
 \end{itemize}
 
+\noindent
 The entropy formula is designed so that any other probability
 distribution, which refers to a situation of \textit{partial}
 uncertainty, yields an entropy $S$ lying between $0$
 and $k_b \ln W$.
+
+\pagebreak
 
 \section{Upper and lower bounds}
 
@@ -106,7 +100,7 @@ satisfies $-k_b\, p_i\ln(p_i) \ge 0$, and the equality holds if and
 only if $p_i = 0$ or $p_i = 1$.  This is illustrated in the figure
 below:
 
-\begin{figure}[h]
+\begin{figure}[h!]
   \includegraphics[width=0.55\textwidth]{plogp}
 \end{figure}
 
@@ -135,11 +129,11 @@ the number of microstates:
 \end{align}
 Moreover, the equality holds if and only if $p_i = 1/W$ for all $i$.
 
-\section{Relation to system size}
+\section{Extensivity}
 
-Another important feature of the entropy is that it is
-\textbf{extensive}.  This means that it scales, or ``extends'',
-proportionally with the size of the system.
+An important feature of the entropy is that it is \textbf{extensive}.
+This means that it scales, or ``extends'', proportionally with the
+size of the system.
 
 Consider two independent systems $A$ and $B$, which have microstate
 probabilities $\{p_i^A\}$ and $\{p_j^B\}$.  If we regard the
@@ -159,30 +153,60 @@ is
 where $S_A$ and $S_B$ are the individual entropies of the $A$ and $B$
 subsystems.
 
-Extensivity has important consequences for the behavior of $W(E)$, the
-number of microstates for any given energy $E$.  Suppose we extend a
-system by adding micro-canonical subsystems, which are insulated from
-each other.  In the process, both $E$ and $S$ increase proportionally.
-Since $S \propto \ln[W(E)]$,
+\section{Entropy and Thermodynamics}
+
+Given a macroscopic physical system with a known set of possible
+micro-states, the theory of statistical mechanics seeks to assign
+microstate probabilities $\{p_1, \dots, p_W\}$ so as to describe the
+system's behavior.  This is accomplished using the following
+postulate:
+\begin{framed}
+  \begin{center}
+  Choose $\{p_1, \dots, p_W\}$ so as to maximize $S$, subject to
+  constraints \\imposed by known facts about the state of the
+  system.
+  \end{center}
+\end{framed}
+\vskip -0.15in
+\noindent
+This captures the idea that the probability distribution best
+describing the system is one that is as ``neutral'' as possible, given
+the information currently available.
+
+For instance, suppose the only information we have about the system is
+that its energy is precisely $E$.  In this scenario, called a
+\textbf{micro-canonical ensemble}, we maximize $S$ by assigning equal
+probability to every microstate of energy $E$ (and zero probability to
+all other microstates), as discussed in Section~\ref{sec:entrodef}.
+This equal-probability assumption is called the \textbf{ergodic
+  hypothesis}.
+
+On the other hand, suppose we only know that the system's
+\textit{mean} energy is $\langle E \rangle$, and nothing else.  In
+this case, we can maximize $S$ using the method of Lagrange
+multipliers.  The relevant constraints are the given value of $\langle
+E \rangle$ and conservation of probability:
 \begin{equation}
-  E \propto \ln W \;\;\;\Rightarrow \;\;\;W(E) \propto e^{\beta_0 E} \;\;\; \mathrm{for\;some}\;\, \beta_0 > 0.
+  \langle E \rangle = \sum_i E_i p_i, \quad
+  \sum_i p_i = 1.
 \end{equation}
-If we relax the restriction that the additional subsystems are
-micro-canonical, the number of microstates grows even faster with $E$,
-as energy can now be distributed in different ways between the
-subsystems.  It is reasonable to assume that the scaling is a
-faster-growing exponential,
+We thus introduce two Lagrange multiplers, $\lambda_1$ and
+$\lambda_2$.  For every micro-state $i$, we require
+\begin{align}
+  \frac{\partial S}{\partial p_i} + \lambda_1 \frac{\partial}{\partial
+    p_i} \left(\sum_j E_j p_j\right)
+  + \lambda_2 \frac{\partial}{\partial
+    p_i} \left(\sum_j p_j\right) &= 0 \\ \Rightarrow \quad
+  - k_b \left(\ln p_i + 1\right) + \lambda_1 E_i + \lambda_2 &= 0.
+\end{align}
+Upon taking $\lambda_1 = - 1/T$ as the \textit{definition} of the
+temperature $T$, we obtain
 \begin{equation}
-  W(E) \propto e^{\beta E} \;\;\; \mathrm{for\;some}\;\, \beta \ge \beta_0.
+  p_i = \frac{e^{-E/k_bT}}{Z}, \;\;\;\mathrm{where}\;\;
+  Z = \sum_i e^{-E/k_b T}.
 \end{equation}
-This implies that the constant of proportionality relating
-$S$ and $E$ is
-\begin{equation}
-  \frac{\partial E}{\partial S} = \frac{1}{k_b \beta} = T,
-\end{equation}
-where $\beta \equiv (k_bT)^{-1}$ serves as the \textit{definition} of
-the temperature $T$.  This relation is called the \textbf{first law of
-  thermodynamics}.
+This probability distribution is the celebrated \textbf{Boltzmann
+  distribution}.
 
 \section*{Further Reading}
 
