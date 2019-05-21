@@ -31,46 +31,53 @@
 {\large \textbf{Appendix C: Entropy}}
 \end{center}
 
-``Entropy'' is an important theoretical concept that provides a way to
-quantify one's lack of knowledge about a complex system.  It is used
-in multiple fields of science and mathematics; in thermodynamics and
-statistical mechanics, \textbf{thermodynamic entropy} describes the
-uncertainty about the precise microscopic details, or ``microstate'',
-of a large physical system.  In information theory, the quantity
-called \textbf{information entropy}, also called \textbf{Shannon
-  entropy} after its inventor Claude Shannon, describes the
-uncertainty about the contents of a transmitted message.  One of the
-most profound developments in theoretical physics in the 20th century
-was the discovery by E.~T.~Jaynes that statistical mechanics can be
-formulated in terms of information theory; hence, the
-thermodynamics-based and information-based concepts of entropy are one
-and the same.  For details about this topic, see
-\hyperref[cite:jaynes]{Jaynes (1957)} and
-\hyperref[cite:jaynes2]{Jaynes (1957a)}.  In this appendix, we will
-summarize the definition of entropy in classical physics, and how it
+``Entropy'' is a concept used in multiple fields of science and
+mathematics to quantify one's lack of knowledge about a complex
+system.  In physics, its most commonly-encountered form is
+\textbf{thermodynamic entropy}, which describes the uncertainty about
+the microscopic configuration, or ``microstate'', of a large physical
+system.  In the field of mathematics known as information theory,
+\textbf{information entropy} (also called \textbf{Shannon entropy}
+after its inventor C.~Shannon) describes the uncertainty about the
+contents of a transmitted message.  One of the most profound
+developments in theoretical physics in the 20th century was the
+discovery by E.~T.~Jaynes that statistical mechanics can be formulated
+in terms of information theory; hence, the thermodynamics-based and
+information-based concepts of entropy are one and the same.  For
+details about this connection, see \hyperref[cite:jaynes]{Jaynes
+  (1957)} and \hyperref[cite:jaynes2]{Jaynes (1957a)}.  This appendix
+summarizes the definition of entropy in classical physics, and how it
 is related to other physical quantities.
 
 \section{Definition}
 \label{sec:entrodef}
 
 Suppose a system has $W$ discrete microstates labeled by integers
-$\{1,2,3,\dots, W\}$ , which have probabilities $\{p_1, p_2, p_3,
-\dots, p_W\}$.  Then the entropy of the system is defined as
+$\{1,2,3,\dots, W\}$.  These microstates are associated with
+probabilities $\{p_1, p_2, p_3, \dots, p_W\}$, subject to the
+conservation of total probability
 \begin{equation}
-  S = - k_b \, \sum_{i=1}^W p_i \ln(p_i),
+  \sum_{i=1}^W p_i = 1.
+\end{equation}
+We will discuss how these microstate probabilities are chosen later
+(see Section~\ref{sec:thermo}).  Given a set of these probabilities,
+the entropy is defined as
+\begin{equation}
+  S = - k_b \, \sum_{i=1}^W p_i \ln(p_i).
   \label{Sdef}
 \end{equation}
-where $k_b$ is Boltzmann's constant.  The probabilities $p_i$ are
-\textit{conditional} probabilities, conditioned on the set of known
-macroscopic features of the system.  For example, if we know the
-system's total energy, the set of microstates used in Eq.~\eqref{Sdef}
-can only include microstates which have precisely that energy.
+Here, $k_b$ is Boltzmann's constant, which gives the entropy units of
+$[E/T]$ (energy per unit temperature); this is a remnant of entropy's
+origins in 19th century thermodynamics, and is omitted by
+mathematicians.
 
-Consider the behavior of $S$ under two extreme scenarios:
+It is probably not immediately obvious why Eq.~\eqref{Sdef} is useful.
+To understand it better, let us consider its behavior under two
+extreme scenarios:
 
 \begin{itemize}
-\item Suppose the microstate is completely certain, i.e., $p_k = 1$
-  for some $k$.  Then $S = 0$.
+\item Suppose the microstate is definitely known, i.e., $p_k = 1$ for
+  some $k$.  Then $S = 0$.
 
 \item Suppose there are $W$ possible microstates, each with equal
   probabilities
@@ -86,13 +93,10 @@ Consider the behavior of $S$ under two extreme scenarios:
 
 \noindent
 The entropy formula is designed so that any other probability
-distribution, which refers to a situation of \textit{partial}
-uncertainty, yields an entropy $S$ lying between $0$
-and $k_b \ln W$.
+distribution---i.e., any situation of \textit{partial}
+uncertainty---yields an entropy $S$ between $0$ and $k_b \ln W$.
 
 \pagebreak
-
-\section{Upper and lower bounds}
 
 To see that zero is the lower bound for the entropy, note that for $0
 \le p_i \le 1$, each term in the entropy formula \eqref{Sdef}
@@ -101,7 +105,7 @@ only if $p_i = 0$ or $p_i = 1$.  This is illustrated in the figure
 below:
 
 \begin{figure}[h!]
-  \includegraphics[width=0.55\textwidth]{plogp}
+  \includegraphics[width=0.5\textwidth]{plogp}
 \end{figure}
 
 \noindent
@@ -112,10 +116,9 @@ microstate the system is in).
 Next, it can be shown that $S$ is bounded above by $k_b \ln W$, a
 relation known as
 \href{https://en.wikipedia.org/wiki/Gibbs\%27_inequality}{Gibbs'
-  inequality}.  This follows from the mathematical fact that $\ln x
-\le x - 1$ for all positive $x$, with the equality occurring if and
-only if $x = 1$.  In particular, consider $x = 1/(Wp_i)$ where $W$ is
-the number of microstates:
+  inequality}.  This follows from the fact that $\ln x \le x - 1$ for
+all positive $x$, with the equality occurring if and only if $x = 1$.
+Take $x = 1/(Wp_i)$ where $W$ is the number of microstates:
 \begin{align}
   \begin{aligned}
     \ln \left[\frac{1}{Wp_i}\right] &\le \frac{1}{Wp_i} - 1
@@ -131,17 +134,14 @@ Moreover, the equality holds if and only if $p_i = 1/W$ for all $i$.
 
 \section{Extensivity}
 
-An important feature of the entropy is that it is \textbf{extensive}.
-This means that it scales, or ``extends'', proportionally with the
-size of the system.
-
-Consider two independent systems $A$ and $B$, which have microstate
-probabilities $\{p_i^A\}$ and $\{p_j^B\}$.  If we regard the
-combination of $A$ and $B$ as a single system, each microstate of the
-combined system is specified by the microstate of $A$ and the
-microstate of $B$, and is thus indexed by integers $(i,j)$, with
-probability $p_{ij} = p^A_ip^B_j$.  The entropy of the combined system
-is
+Another important feature of the entropy is that it is
+\textbf{extensive}, meaning that it scales proportionally with the
+size of the system.  Consider two independent systems $A$ and $B$,
+which have microstate probabilities $\{p_i^A\}$ and $\{p_j^B\}$.  If
+we treat the combination of $A$ and $B$ as a single system, each
+microstate of the combined system is specified by one microstate of
+$A$ and one of $B$, with probability $p_{ij} = p^A_ip^B_j$.  The
+entropy of the combined system is
 \begin{align}
   \begin{aligned}
     S &= - k_b \sum_{ij} p_i^Ap^B_j \ln\left(p^A_ip^B_j\right) \\
@@ -154,44 +154,46 @@ where $S_A$ and $S_B$ are the individual entropies of the $A$ and $B$
 subsystems.
 
 \section{Entropy and Thermodynamics}
+\label{sec:thermo}
 
-Given a macroscopic physical system with a known set of possible
-micro-states, the theory of statistical mechanics seeks to assign
-microstate probabilities $\{p_1, \dots, p_W\}$ so as to describe the
-system's behavior.  This is accomplished using the following
+The theory of statistical mechanics seeks to describe the macroscopic
+behavior of a large physical system by assigning some set of
+probabilities $\{p_1, p_2, \dots, p_W\}$ to its microstates.  How are
+these probabilities chosen?  One elegant way is to use the following
 postulate:
 \begin{framed}
   \begin{center}
   Choose $\{p_1, \dots, p_W\}$ so as to maximize $S$, subject to
-  constraints \\imposed by known facts about the state of the
-  system.
+  constraints \\imposed by known facts about the macroscopic state of
+  the system.
   \end{center}
 \end{framed}
 \vskip -0.15in
 \noindent
-This captures the idea that the probability distribution best
-describing the system is one that is as ``neutral'' as possible, given
-the information currently available.
+The idea is that we want a probability distribution that is as
+``neutral'' as possible, while being consistent with the available
+macroscopic information about the system.
 
-For instance, suppose the only information we have about the system is
-that its energy is precisely $E$.  In this scenario, called a
-\textbf{micro-canonical ensemble}, we maximize $S$ by assigning equal
-probability to every microstate of energy $E$ (and zero probability to
-all other microstates), as discussed in Section~\ref{sec:entrodef}.
-This equal-probability assumption is called the \textbf{ergodic
-  hypothesis}.
+For instance, suppose the only information we have about the
+macroscopic state of the system is that its energy is precisely $E$.
+In this scenario, called a \textbf{micro-canonical ensemble}, we
+maximize $S$ by assigning equal probability to every microstate of
+energy $E$, and zero probability to all other microstates, for reasons
+discussed in Section~\ref{sec:entrodef}.  (In some other formulations
+of statistical mechanics, this assignment of equal probabilities is
+treated as a postulate, called the \textbf{ergodic hypothesis}.)
 
-On the other hand, suppose we only know that the system's
-\textit{mean} energy is $\langle E \rangle$, and nothing else.  In
-this case, we can maximize $S$ using the method of Lagrange
-multipliers.  The relevant constraints are the given value of $\langle
-E \rangle$ and conservation of probability:
+Or suppose that only the system's \textit{mean} energy $\langle E
+\rangle$ is known, and nothing else.  In this case, we can maximize
+$S$ using the method of Lagrange multipliers.  The relevant
+constraints are the given value of $\langle E \rangle$ and
+conservation of probability:
 \begin{equation}
-  \langle E \rangle = \sum_i E_i p_i, \quad
+  \langle E \rangle = \sum_i E_i \,p_i, \quad
   \sum_i p_i = 1.
 \end{equation}
 We thus introduce two Lagrange multiplers, $\lambda_1$ and
-$\lambda_2$.  For every micro-state $i$, we require
+$\lambda_2$.  For every microstate $i$, we require
 \begin{align}
   \frac{\partial S}{\partial p_i} + \lambda_1 \frac{\partial}{\partial
     p_i} \left(\sum_j E_j p_j\right)
@@ -200,13 +202,12 @@ $\lambda_2$.  For every micro-state $i$, we require
   - k_b \left(\ln p_i + 1\right) + \lambda_1 E_i + \lambda_2 &= 0.
 \end{align}
 Upon taking $\lambda_1 = - 1/T$ as the \textit{definition} of the
-temperature $T$, we obtain
+temperature $T$, we obtain the celebrated \textbf{Boltzmann
+  distribution}:
 \begin{equation}
   p_i = \frac{e^{-E/k_bT}}{Z}, \;\;\;\mathrm{where}\;\;
   Z = \sum_i e^{-E/k_b T}.
 \end{equation}
-This probability distribution is the celebrated \textbf{Boltzmann
-  distribution}.
 
 \section*{Further Reading}
 
