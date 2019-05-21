@@ -279,14 +279,18 @@ Hence,
   \frac{i}{2}\left(\dot{\alpha}\alpha^* - \alpha\dot{\alpha}^*\right) = |\alpha|^2.
   \label{eom}
 \end{equation}
-This looks complicated, but it's not.  Observe that if
+This looks more complicated than it actually is.  Dividing both sides by
+$\alpha \alpha^*$ gives
 \begin{equation}
-  \frac{d\alpha}{dt} = -i \alpha(t)
-  \label{eom2}
+  \frac{1}{2}\, \left(\frac{i\dot{\alpha}}{\alpha} + \left[\frac{i\dot{\alpha}}{\alpha}\right]^*\right) = \mathrm{Re}\left[\frac{i\dot{\alpha}}{\alpha}\right] = 1.
 \end{equation}
-Then Eq.~\eqref{eom} is automatically satisfied.  The solution to
-Eq.~\eqref{eom2} that satisfies the initial condition $\alpha(t) =
-\alpha_0$ is simply
+This reduces to
+\begin{equation}
+  \dot{\alpha} = \big[-i + \gamma(t)\big] \alpha(t), \;\;\; \mathrm{\gamma}\in\mathbb{R}.
+\end{equation}
+This is the equation for a complex harmonic oscillator with an
+arbitrary damping or amplification factor $\gamma$.  For $\gamma = 0$,
+the oscillator is energy-conserving and the solutions are
 \begin{equation}
   \alpha(t) = \alpha_0 \; e^{-it}.
 \end{equation}
