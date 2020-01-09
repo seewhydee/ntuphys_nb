@@ -37,36 +37,37 @@
 A curious feature of wavefunctions in infinite space is that they can
 have two distinct forms: (i) \textbf{bound states} that are localized
 to one region, and (ii) \textbf{free states} that extend over the
-entire space.  Both types can co-exist in a single system.  A simple
-model exhibiting both bound states and free states is the \textbf{1D
-  finite square well}.  Consider the Hamiltonian
+whole space.  Both kinds of states can co-exist in a single system.  A
+simple model exhibiting this is the \textbf{1D finite square well}.
+Consider the Hamiltonian
 \begin{equation}
   \hat{H} = \frac{\hat{p}^2}{2m} - U \,\Theta(a -|\hat{x}|),
 \end{equation}
-where $\hat{x}$ and $\hat{p}$ are the 1D position and momentum
-operators, $m$ is the particle mass, $U$ and $a$ are positive real
-parameters governing the potential function, and $\Theta(\cdots)$
-denotes the Heaviside step function (1 if the input is positive, and 0
-otherwise).  As shown below, the potential forms a well of depth $U$
-and width $2a$.  Outside the well, the potential is zero.
+where $\hat{x}$ and $\hat{p}$ are 1D position and momentum operators,
+$m$ is the particle mass, $U$ and $a$ are positive real parameters
+governing the potential function, and $\Theta$ denotes the Heaviside
+step function (1 if the input is positive, and 0 otherwise).  As shown
+below, the potential forms a well of depth $U$ and width $2a$.
+Outside the well, the potential is zero.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.65\textwidth]{squarewell}
+  \centering\includegraphics[width=0.55\textwidth]{squarewell}
 \end{figure}
 
-We wish to solve the time-independent Schr\"odinger equation for this
-Hamiltonian.  A numerical procedure called the \textbf{transfer matrix
-  method} can generate solutions for this potential and other similar
-1D potentials.  This method is described in Appendix B.  Here, we will
-bypass the details of the calculation, and instead zoom in on certain
-key aspects.
+For such a Hamiltonian, the time-independent Schr\"odinger wave
+equation can be solved efficiently using a technique called the
+\textbf{transfer matrix method}.  Here, we will describe a few key
+aspects of the calculation, bypassing most of the details.  For a
+fuller discussion of the transfer matrix method, refer to Appendix B.
 
-The first thing to note is that when solving the Schr\"odinger wave
-equation, we must specify the boundary conditions at infinity.  This
-choice determines whether we get a bound state or free state.  The
-wavefunction of a bound state diminishes exponentially as $x
-\rightarrow \pm\infty$; thus, in the exterior region (i.e., $x < -a$
-or $x > a$), it satisfies
+We begin by noting that in order to find solutions to the
+Schr\"odinger wave equation, we first need to specify the boundary
+conditions at infinity.  The choice of boundary conditions determines
+whether the solution we get is a bound state or free state.
+
+For a bound state, we require the wavefunction to diminish
+exponentially as $x \rightarrow \pm\infty$.  In the exterior region
+($|x| > a$), the Schr\"odinger wave equation reduces to
 \begin{equation}
   -\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x),
 \end{equation}
@@ -74,19 +75,18 @@ subject to the boundary conditions
 \begin{equation}
   \psi(x) \;\overset{x\rightarrow\pm\infty}{\sim} \; e^{\mp\kappa x}, \;\;\;\mathrm{Re}(\kappa) > 0.
 \end{equation}
-The bound state solutions in the exterior region therefore take the
+Therefore, in the exterior region the bound state solutions take the
 form
 \begin{equation}
   \psi(x) = c_\pm\, e^{\mp\kappa x}, \;\;\mathrm{where}\;\, -\frac{\hbar^2\kappa^2}{2m} = E, \;\; c_\pm \in \mathbb{C}.
 \end{equation}
-Since $E$ is real, it follows that $\kappa$ is real, and hence $E <
-0$.  Moreover, the variational principle implies that $E \ge -U$.
-Hence, bound state energies are restricted to the range $-U \le E <
-0$.
+Given that $E$ is real, it follows that $\kappa$ is real, so $E < 0$.
+Moreover, the variational principle implies that $E \ge -U$, so bound
+state energies are restricted to the range $-U \le E < 0$.
 
-It is possible to show that the bound state energies are
+It is also possible to show that the bound state energies are
 \textit{discrete}: the energy spacing decreases with $a$, but so long
-as $a$ is finite, the spacing is non-vanishing.  Moreover, the
+as $a$ is finite, the spacing is non-vanishing.  Furthermore, the
 wavefunction for a bound state can always be normalized:
 \begin{equation}
   \int_{-\infty}^\infty |\psi(x)|^2\, dx\; =\; 1.
@@ -102,20 +102,20 @@ does not vanish exponentially at infinity, but takes the form
 \begin{equation}
   \psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a.\end{cases}
 \end{equation}
-Inside the potential well, $\psi(x)$ varies in some complicated way,
-but outside it simply consists of superpositions of left-moving and
-right-moving plane waves, with real wavenumber $k$.  (The coefficients
+Inside the potential well, $\psi(x)$ varies in some complicated way;
+on the outside, it consists of superpositions of left-moving and
+right-moving plane waves with real wavenumber $k$.  The coefficients
 $\alpha_\pm$ and $\beta_\pm$ are not independent quantities, but are
-linked by a linear relation; see Appendix B.)  To satisfy
+linked by a linear relation (see Appendix B).  To satisfy
 Schr\"odinger's equation, we must have
 \begin{equation}
   \frac{\hbar^2k^2}{2m} = E,
 \end{equation}
-so free states can only occur for $E \ge 0$.  In fact, the solutions
-form a continuum: there are free states for \textit{every} $E \ge 0$.
-Since $|\psi(x)|^2$ does not diminish exponentially at infinity, the
-integral $\int_{-\infty}^\infty |\psi(x)|^2\, dx$ is divergent, so
-such wavefunctions have no finite normalization.
+which implies that free states only occur for $E \ge 0$.  These
+solutions form a continuum: there are free states for \textit{every}
+$E \ge 0$.  Since $|\psi(x)|^2$ does not diminish at infinity, the
+integral $\int_{-\infty}^\infty |\psi(x)|^2\, dx$ is divergent, so the
+wavefunctions have no finite normalization.
 
 The following figure shows numerically-obtained results for a square
 well with $U = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
@@ -128,56 +128,57 @@ described in Appendix B.
   \centering\includegraphics[width=0.8\textwidth]{boundvsextended}
 \end{figure}
 
-Many of the lessons drawn from this square well model can be
-generalized to more complicated potential wells.  In cases where the
+Many of the lessons drawn from the square well model can be
+generalized to more complicated potentials.  In cases where the
 potential at infinity is $V_{\textrm{ext}}$ rather than zero, free
 states occur for $E \ge V_{\textrm{ext}}$ and bound states occur for
 $\textrm{min}(V) < E < V_{\textrm{ext}}$.
 
-There is an important a proviso to bear in mind.  If we vary the
+There is an important proviso to bear in mind.  If we vary the
 potential, the number of bound states can change: i.e., bound state
 solutions can either appear or disappear.  A numerical example is
 given below, showing the bound state energies for the square well
 model with fixed $a = 1$, as we vary the potential minimum $-U$:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.65\textwidth]{boundstate1d}
+  \centering\includegraphics[width=0.75\textwidth]{boundstate1d}
 \end{figure}
 
+\noindent
 For $U = 30$, there are five bound states, which disappear one by one
-as we make the potential well shallower.  Note, however, that one
-bound state survives in the limit $U \rightarrow 0$.  There is a
-theorem which states that any 1D attractive potential, no matter how
-weak, always supports at least one bound state.  For details, see
+as we make the potential well shallower.  Note that one bound state
+survives in the limit $U \rightarrow 0$.  There is a theorem stating
+that any 1D attractive potential, no matter how weak, always supports
+at least one bound state.  For details, see
 \hyperref[ex:boundstate]{Exercise 1}.
 
 In 3D, it is possible for an attractive potential to be too weak to
 support a bound state.  Intuitively, this happens when the zero-point
 energy of a prospective ground state exceeds the well depth.  The
 figure below shows a numerical example, calculated for a uniform 3D
-spherically symmetric well; the $l$'s labeling the various curves are
-angular momentum quantum numbers.  For details about this phenomenon,
-see \hyperref[ex:boundstate3d]{Exercise 2}.
+spherically symmetric well (the $l$'s labeling the various curves are
+angular momentum quantum numbers).  To learn more about this
+phenomenon, refer to \hyperref[ex:boundstate3d]{Exercise 2}.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.65\textwidth]{boundstate3d}
+  \centering\includegraphics[width=0.75\textwidth]{boundstate3d}
 \end{figure}
 
 \section{Quasi-bound states and resonances}
 \label{sec:resonances}
 
-In the 1D finite square well model, there is a clear distinction
-between bound states and free states.  In certain situations, however,
-there can appear a special class of so-called ``\textbf{quasi-bound
-  states}''.  Like a bound state, a quasi-bound state is localized in
-one region of space.  However, it is an \textit{approximate}
-eigenstate of the Hamiltonian and lies within the energy range of the
-free state continuum.  As we shall see, quasi-bound states have
-extremely important effects on scattering experiments.
+For the 1D finite square well, there is a clear distinction between
+bound and free states.  Certain potentials, however, can host a
+special class of states called ``\textbf{quasi-bound states}''.  Like
+a bound state, a quasi-bound state is localized in one region of
+space.  However, it is an \textit{approximate} eigenstate of the
+Hamiltonian that lies in the energy range of the free state continuum.
+As we shall see, quasi-bound states play an important important role
+in scattering experiments.
 
-The figure below shows an example of a potential function that can
-give rise to quasi-bound states.  In the exterior region, $|x| > b$,
-the potential is zero.  Between $x = -b$ and $x = b$, there is a
+The figure below shows an example of a potential function that gives
+rise to quasi-bound states.  In the exterior region, $|x| > b$, the
+potential is zero.  Between $x = -b$ and $x = b$, there is a
 ``barrier'' of positive potential $V_b$.  Embedded in the middle of
 this barrier, for $|x| < a$, is a central well of depth $U$, where $0
 < V_b - U < V_b$.
@@ -204,21 +205,18 @@ exponentially away from the well, and are thus close to zero for $|x|
 > b$.  Since $V(x)$ and $V_{\mathrm{alt}}(x)$ differ only in the
 region $|x| > b$, these wavefunctions ought to be \textit{approximate}
 solutions to the Schr\"odinger wave equation for the original
-potential $V(x)$, which does not support bound states!  These
-approximate solutions are the quasi-bound states.
+potential $V(x)$, which does not support bound states!  Such
+approximate solutions are called quasi-bound states.
 
 Let us analyze the potential $V(x)$ using the \textbf{scattering
-  experiment} framework from the previous chapter.  Consider a
-particle incident from the left, with energy $E > 0$, described by the
-incident wavefunction
+  experiment} framework from the previous chapter.  Consider an
+incident particle of energy $E > 0$ whose wavefunction is
 \begin{equation}
   \psi_i(x) = \Psi_i \, e^{ik_i x}.
 \end{equation}
-This generates a scattered wavefunction $\psi_s(x)$ such that the
-total wavefunction $\psi_i(x) + \psi_s(x)$ satisfies the Schr\"odinger
-wave equation with energy $E$.  The scattered wavefunction is outgoing
-(as discussed in the previous chapter), so in the exterior region it
-takes the form
+This produces a scattered wavefunction $\psi_s(x)$ that is outgoing
+(as discussed in the previous chapter).  In the exterior region, the
+scattered wavefunction takes the form
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}
 \end{equation}
@@ -238,16 +236,16 @@ The vertical axis shows $|1+f_+|^2$, which is called the
 particle to pass through the potential.  The horizontal axis is the
 particle energy $E$.  For $E < V_b-U$, the transmittance approaches
 zero, and for $E \gtrsim V_b$, the transmittance approaches unity, as
-expected.  Within the energy range $V_b-U < E \lesssim V_b$, the
-transmittance forms a series of narrow peaks.  For larger values of
-$b$ (i.e., when the central well is more isolated from the exterior
-space), the peaks are narrower.  At the top of the figure, we have
-also plotted the bound state energies for the square well potential
-$V_{\mathrm{alt}}(x)$, which closely match the centers of the
-transmittance peaks (at least, the first four peaks).
+expected.  In the energy range $V_b-U < E \lesssim V_b$, the
+transmittance forms a series of narrow peaks.  For larger $b$ (i.e.,
+when the central well is more isolated from the exterior space), the
+peaks are narrower.  At the top of the figure, we have also plotted
+the bound state energies for the square well potential
+$V_{\mathrm{alt}}(x)$.  These energies closely match the locations of
+the transmittance peaks!
 
 Upon examining the total wavefunction $\psi(x)$ at these special
-energies, we find something else interesting.  The figure below plots
+energies, we find other interesting features.  The figure below plots
 $|\psi(x)|^2$ versus $x$ at the energies of the first three
 transmittance peaks, along with the corresponding bound state
 wavefunctions for the square well $V_{\mathrm{alt}}$.  At each
@@ -269,30 +267,30 @@ eventually escaping back to infinity.
 
 This is closely analogous to the phenomenon of resonance in a
 classical harmonic oscillator.  When a damped harmonic oscillator is
-subjected to an oscillatory driving force, it will settle into a
-steady-state oscillatory motion at the driving frequency.  When the
+subjected to an oscillatory driving force, it settles into a
+steady-state oscillatory motion at the driving frequency.  If the
 driving frequency matches the oscillator's natural frequency, the
 amplitude of the steady-state oscillation becomes extremely large, and
 the system is said to be ``resonant''.  In the quantum mechanical
 context, the incident wavefunction plays the role of a driving force,
-the incident particle energy plays the role of the driving frequency,
-and the energy of each quasi-bound state is like a natural frequency
-of oscillation.
+the incident particle energy is like the driving frequency, and the
+energy of a quasi-bound state is like a natural frequency of
+oscillation.
 
 Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
-and studying resonances.  When a resonance-induced scattering peak is
-found, the location and shape of the peak can be used to deduce
-various features of the quasi-bound state, which supplies important
-information about the underlying system.
+and studying resonances.  When a resonance peak is found, its location
+and shape can be used to deduce various features of the quasi-bound
+state, which in turn supplies important information about the
+underlying system.
 
 \section{Green's function analysis of scattering resonances}
 \label{sec:green_resonances}
 
 Quasi-bound states and resonances are not limited to 1D, but are
-equally important, if not more so, in 2D and 3D systems.  A useful
-tool for studying them in general contexts is the quantum Green's
-function from the previous chapter.
+equally (or more) important in 2D and 3D.  A useful and general way to
+study them is the quantum Green's function formalism developed in the
+previous chapter.
 
 Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
@@ -338,8 +336,8 @@ function for the full system is
   \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.
 \end{equation}
 We want the matrix elements of $\hat{G}(E)$, which can then be used to
-compute the scattering amplitudes.  We will calculate them by using
-the states $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a basis---but
+find scattering amplitudes.  We will calculate them by using the
+states $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a basis---but
 note that this basis does \textit{not} consist of energy
 eigenfunctions of the full Hamiltonian $\hat{H}$.  In particular,
 $|\varphi\rangle$ is not an exact eigenstate of $\hat{H}$.
@@ -352,7 +350,7 @@ identity:
   \begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}
 \end{align}
 We now compute the matrix element
-$\langle\varphi|\cdots|\varphi\rangle$ for both sides of this equation:
+$\langle\varphi|\cdots|\varphi\rangle$ for both sides of the equation:
 \begin{align}
     \langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
     \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
