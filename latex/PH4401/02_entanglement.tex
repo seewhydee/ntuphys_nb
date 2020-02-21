@@ -6,6 +6,7 @@
 \usepackage{mathrsfs}
 \usepackage{enumerate}
 \usepackage{epigraph}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -162,9 +163,8 @@ position eigenstate is really a tensor product:
 Also, if the subsystems really \textit{are} particles, we are going to
 assume for now that the particles are distinguishable.  There are
 other complications that arise if the particles are ``identical'',
-which will be the subject of the next chapter.  (If you're unsure what
-this means, just read on.)
-
+which will be the subject of the next chapter.  (If you're not sure
+what this means, just read on.)
 
 \section{Partial measurements}
 \label{sec:partialmeasurements}
@@ -561,14 +561,13 @@ choice is $S_2$, the expectation value is
 If $P_+$ and $P_-$ respectively denote the probability of measuring
 $+\hbar/2$ and $-\hbar/2$ in this measurement, the above equation
 implies that $P_+ - P_- = + 1/2$.  Moreover, $P_+ + P_- = 1$ by
-probability conservation.  It follows that the probability of
-obtaining a negative value (the opposite sign from the Alpha Centauri
-measurement) is $P_- = 1/4$.  All the other possible scenarios are
-worked out in a similar way.
-
-The result is that if the two experimentalists choose different
-measurement axis, they obtain results of opposite signs with
-probability $1/4$.  Therefore, Bell's inequality is violated.
+probability conservation.  Hence, the probability of obtaining a
+negative value (the opposite sign from the Alpha Centauri measurement)
+is $P_- = 1/4$.  All the other possible scenarios are worked out
+similarly.  The result is that the overall probability of the two
+experimentalists obtaining opposite results (in the cases where they
+choose different measurement axis) is $1/4$.  Bell's inequality is
+violated!
 
 Last of all, we must consult Nature itself.  Is it possible to
 observe, in an actual experiment, probabilities that violate Bell's
@@ -585,205 +584,219 @@ found in \hyperref[cite:aspect]{Aspect (1999)}.
 
 \section{Density operators}
 
-We will now introduce a theoretical construct called the
-\textbf{density operator}, which helps to streamline many calculations
-in multi-particle quantum mechanics.
+We now introduce the \textbf{density operator}, which helps to
+streamline many calculations in multi-particle quantum mechanics.
 
 Consider a quantum system with a $d$-dimensional Hilbert space
 $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
-\mathscr{H}$, we can define an operator
+\mathscr{H}$, define
 \begin{equation}
   \hat{\rho} = |\psi\rangle\, \langle\psi|.
+  \label{rho_pure}
 \end{equation}
-This is simply the projection operator associated with $|\psi\rangle$,
-but in this context we call it a density operator.  (Some authors call
-it a \textbf{density matrix}, based on the understanding that
-quantum operators can be represented as matrices).
-
-In the language of linear algebra, $\hat{\rho}$ is formed by the
-``matrix outer product'' of $|\psi\rangle$ with its Hermitian
-conjugate.  It has the following noteworthy features:
+This is just the projection operator for $|\psi\rangle$, but in this
+context we call it a ``density operator''.  Some other authors call it
+a \textbf{density matrix}, based on the fact that linear operators can
+be represented as matrices.  It has the following noteworthy features:
 
 \begin{enumerate}
-\item It is a Hermitian operator.  Moreover, one eigenvalue is 1 (with
-  eigenvector $|\psi\rangle$), and the other $d-1$ eigenvalues are all
-  $0$ (the corresponding eigenvectors consist of $d-1$ vectors
-  spanning the subspace orthogonal to $|\psi\rangle$).  Thus,
-\begin{align}
-  \begin{aligned}
-    \textrm{All eigenvalues of $\hat{\rho}$ are real numbers in $[0,1]$.} \\
-    \textrm{Sum of eigenvalues of $\hat{\rho}$} = \mathrm{Tr}\big[\,\hat{\rho} \,\big] = 1.
-  \end{aligned}
-  \label{trrho}
-\end{align}
+\item It is Hermitian.  
 
-\item With the system in state $|\psi\rangle$, suppose we perform a
-  measurement corresponding to the Hermitian operator $\hat{Q}$, which
-  has eigenvalues $\{q_1,q_2,\dots\}$ and eigenvectors
-  $\{|q_1\rangle,|q_2\rangle,\dots\}$.  The probability for outcome
-  $q_i$ is $|\langle q_i| \psi\rangle|^2 \;=\; \langle q_i
-  |\psi\rangle \langle \psi|q_i\rangle$; thus,
+\item If $\hat{Q}$ is an observable with eigenvalues
+  $\{q_1,q_2,\dots\}$ and eigenvectors
+  $\{|q_1\rangle,|q_2\rangle,\dots\}$, for a given state
+  $|\psi\rangle$ the probability of obtaining $q_i$ during a $\hat{Q}$
+  measurement is
   \begin{equation}
-    P(q_i) = \langle q_i |\, \hat{\rho}\, |q_i \rangle.
+    P(q_i) = \big|\langle q_i | \psi\rangle\big|^2 =
+    \langle q_i |\, \hat{\rho}\, |q_i \rangle.
     \label{Pi_rho}
   \end{equation}
 
-\item The expectation value of the $\hat{Q}$ observable is $\langle
-  Q\rangle = \sum_i q_i P(q_i)$, and after a few lines of algebra we
-  can show that
+\item Moreover, the expectation value of the observable is
   \begin{equation}
-    \langle Q\rangle = \mathrm{Tr}\big[\,\hat{Q} \; \hat{\rho}\,\big].
+    \langle Q\rangle = \sum_i q_i P(q_i) =
+    \sum_i q_i \langle q_i | \hat{\rho}|q_i\rangle =
+    \mathrm{Tr}\big[\,\hat{Q} \, \hat{\rho}\,\big].
     \label{Qexpt}
   \end{equation}
-This is a nice expression, because the trace is a basis-independent
-operation, so $\langle Q\rangle$ is explicitly shown to be
-basis-independent.
+  In the last equality, $\mathrm{Tr}[\cdots]$ denotes the trace, which
+  is the sum of the diagonal elements of the matrix representation of
+  the operator.  The value of the trace is basis-independent.
 \end{enumerate}
 
-Now, suppose again that the quantum system consists of two particles
-(subsystems) $A$ and $B$, with Hilbert spaces $\mathscr{H}_A$ and
-$\mathscr{H}_B$, where $\mathscr{H} = \mathscr{H}_A \otimes
-\mathscr{H}_B$.  Suppose we are interested in the physical behavior of
-$A$---specifically, the expectation values of partial measurements
-performed on $A$, the corresponding outcome probabilities, etc.  These
-quantities can, of course, be calculated from the overall system state
-$|\psi\rangle$, but this might be inconvenient to deal with (e.g., if
-$A$ is a relatively simple subsystem but $B$ is large and
-complicated).
+Now consider, once again, a composite system consisting of two
+subsystems $A$ and $B$, with Hilbert spaces $\mathscr{H}_A$ and
+$\mathscr{H}_B$.  Let's say we are interested in the physical behavior
+of $A$, that is to say the outcome probabilities and expectation
+values of any measurements performed on $A$.  These can be calculated
+from $|\psi\rangle$, the state of the combined system; however,
+$|\psi\rangle$ also carries information about $B$, which is not
+relevant to us as we only care about $A$.
 
-However, it turns out that there is a way to describe the behavior of
-$A$ in its own terms.  This is done by defining a \textbf{reduced
-  density operator} for $A$:
+There is a more economical way to encode just the information about
+$A$.  We can define the density operator for subsystem $A$ (sometimes
+called the \textbf{reduced density operator}):
 \begin{equation}
   \hat{\rho}_A = \mathrm{Tr}_B \,\big[\,\hat{\rho}\,\big].
   \label{rhoa_def}
 \end{equation}
-Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace},
-which means tracing over the $\mathscr{H}_B$ part of the Hilbert space
-$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$.  The partial
-trace yields an operator acting on $\mathscr{H}_A$.
+Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace}.
+This means tracing over the $\mathscr{H}_B$ part of the Hilbert space
+$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$, which yields an
+operator acting on $\mathscr{H}_A$.
 
-To better understand Eq.~\eqref{rhoa_def}, let us work in an explicit
-basis.  Let $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$ be a basis for
-$\mathscr{H}_A$, and $\{|\nu_1\rangle, |\nu_2\rangle,\cdots\}$ be a
-basis for $\mathscr{H}_B$.  Any given state of the combined system can
-be written in the tensor product basis:
+To better understand Eq.~\eqref{rhoa_def}, let us go to an explicit
+basis.  Let $\hat{M}$ be an observable for $\mathscr{H}_A$ with
+eigenbasis $\{|\mu_1\rangle, |\mu_2\rangle,\cdots\}$, and let
+$\hat{N}$ be an observable for $\mathscr{H}_B$ with eigenbasis
+$\{|\nu_1\rangle, |\nu_2\rangle,\cdots\}$.  If the density operator of
+the combined system is $\hat{\rho} = |\psi\rangle\langle \psi|$, then
 \begin{equation}
-  |\psi\rangle = \sum_{ij} \psi_{ij} \, |\mu_i\rangle  |\nu_j\rangle,
+  \hat{\rho}_A =
+    \sum_j
+    \Big( \hat{I}\otimes \langle \nu_j| \Big)
+    \; |\psi\rangle \langle \psi | \;
+    \Big( \hat{I}\otimes | \nu_j\rangle \Big).
+    \label{rhoa_explicit}
 \end{equation}
-for some complex coefficients $\psi_{ij}$.  We require $\sum_{ij}
-|\psi_{ij}|^2 = 1$ so that $|\psi\rangle$ is normalized to unity.  The
-density operator of the combined system is
-\begin{equation}
-  \hat{\rho} = |\psi\rangle \langle\psi| = \sum_{ii'jj'} \Big( |\mu_i\rangle  |\nu_j\rangle\Big) \psi_{ij} \psi_{i'j'}^* \, \Big(\langle \mu_{i'}|  \langle \nu_{j'}|\Big).
-\end{equation}
-The reduced density operator for subsystem $A$ is
-\begin{align}
-  \begin{aligned}\hat{\rho}_A &= \sum_j \langle \nu_j | \hat{\rho} | \nu_j \rangle \\ &= \sum_{ii'} |\mu_i\rangle \,\rho_{ii'}^A \, \langle \mu_{i'}| \;\;\;\mathrm{where} \;\; \rho_{ii'}^A \equiv \sum_j \psi_{ij} \psi_{i'j}^*.\end{aligned}
-  \label{rhoa_explicit}
-\end{align}
-From this, we see that $\hat{\rho}_A$ is Hermitian.  Moreover, if we
-happen to take the $\{|\mu_i\rangle\}$ basis to be the eigenbasis for
-$\hat{\rho}_A$, the eigenvalues are $\rho_{ii}^A = \sum_j
-|\psi_{ij}|^2$.  We can thus prove that:
+This is a Hermitian operator acting on the $\mathscr{H}_A$ space.  In
+the $\{|\mu_i\rangle\}$ basis, its diagonal matrix elements are
 \begin{align}
   \begin{aligned}
-    \textrm{All eigenvalues of $\hat{\rho}_A$ are real numbers in $[0,1]$.} \\
-    \textrm{Sum of eigenvalues of $\hat{\rho}_A$} = \mathrm{Tr}\big[\,\hat{\rho}_A \,\big] = 1.
-  \end{aligned}
-  \label{trrho_reduced}
-\end{align}
-
-The reduced density operator contains all the information required to
-calculate outcome probabilities for any \textit{partial} measurement
-performed on $A$.  Suppose we perform a measurement on $A$
-corresponding to a Hermitian operator $\hat{\mu}$.  Without loss of
-generality, we can choose the basis
-$\{|\mu_1\rangle,|\mu_2\rangle,\dots\}$ to be the eigenvectors of
-$\hat{\mu}$.  We claim that the probability of obtaining outcome
-$\mu_i$ is
-\begin{align}
-  P(\mu_i) &= \langle \mu_i | \hat{\rho}_A |\mu_i \rangle \label{Pmui} \\
-  &=\, \rho_{ii}^A \,=\, \sum_{j} |\psi_{ij}|^2.
-\end{align}
-To prove this, recall the rules for partial measurements from
-Section~\ref{sec:partialmeasurements}.  The projection operator for
-measurement outcome $\mu_i$ is
-\begin{equation}
-  \hat{\Pi}(\mu_i) = |\mu_i\rangle\langle \mu_i| \otimes \hat{I}.
-\end{equation}
-Therefore,
-\begin{align}
-  \begin{aligned}
-    P(\mu_i) &= \langle \psi | \hat{\Pi}(\mu_i) \hat{\Pi}(\mu_i) |\psi\rangle \\
-    &= \langle \psi | \hat{\Pi}(\mu_i) |\psi\rangle \\
-    &= \langle \psi | \Big(|\mu_i\rangle\langle \mu_i| \otimes \hat{I}\Big)
+    \langle \mu_i | \hat{\rho}_A | \mu_i \rangle
+    &=
+    \sum_j
+    \Big( \langle \mu_i| \langle \nu_j| \Big)
+    \, |\psi\rangle \langle \psi | \,
+    \Big( |\mu_i\rangle | \nu_j\rangle \Big) \\
+    &=
+    \langle \psi | \,
+    \left[ |\mu_i\rangle \langle \mu_i| \otimes
+      \left(\sum_j | \nu_j\rangle \langle \nu_j|\right) \right]
     |\psi\rangle \\
-    &= \sum_j \langle \psi | \Big(|\mu_i\rangle\langle \mu_i| \otimes
-    |\nu_j\rangle\langle \nu_j|\Big) |\psi\rangle \\
-    &= \sum_j \Big(\langle\mu_i|\langle\nu_j|\Big) |\psi\rangle\langle\psi|
-    \Big(|\mu_i\rangle |\nu_j\rangle\Big) \\
-    &= \langle \mu_i| \;\mathrm{Tr}_B[ \hat{\rho}]\; |\mu_i\rangle \qquad\qquad
-    (\textrm{Q.E.D.})
+    &=
+    \langle \psi | \,
+    \Big( |\mu_i\rangle \langle \mu_i| \otimes \hat{I}_B\Big) |\psi\rangle.
   \end{aligned}
 \end{align}
-It also follows that the expectation value for this measurement is
+According to the rules of partial measurements discussed in
+Section~\ref{sec:partialmeasurements}, this is precisely the
+probability of obtaining $\mu_i$ when measuring $\hat{M}$ on subsystem
+$A$:
 \begin{equation}
-  \langle \mu \rangle =
-  \mathrm{Tr}_A \big[\, \hat{\mu} \; \hat{\rho}_A\,\big].
-  \label{exptrho_reduced}
+  P(\mu_i) = \langle \mu_i | \hat{\rho}_A | \mu_i \rangle.
+  \label{rho_prob}
 \end{equation}
+It follows that the expectation value for observable $\hat{M}$ is
+\begin{equation}
+  \langle M \rangle = \sum_i \mu_i
+  \langle \mu_i | \hat{\rho}_A | \mu_i \rangle
+  = \mathrm{Tr}\Big[\hat{M}\, \hat{\rho}_A \Big].
+  \label{rho_expect}
+\end{equation}
+These results hold for any choice of basis.  Hence, knowing the
+density operator for $A$, we can determine the outcome probabilities
+of \textit{any} partial measurement performed on $A$.
 
-The reduced density operator's properties \eqref{trrho_reduced},
-\eqref{Pmui}, and \eqref{exptrho_reduced} are precisely the same as
-the original density operator's properties \eqref{trrho},
-\eqref{Pi_rho}, \eqref{Qexpt}.  Hence, we deduce that these are the
-general properties of any density operator, reduced or not.  The
-special class of density operators that can be written in the form
-$\hat{\rho} = |\psi\rangle\, \langle\psi|$ (i.e., in terms of an
-explicit quantum state, like the one we started this discussion with)
-are said to describe \textbf{pure states}.  Density operators that
-cannot be written in such a form are said to describe \textbf{mixed
-  states}.
-
-A mixed state can also be interpreted as a \textit{probability
-  distribution of quantum states}.  To see this, let us return to
-Eq.~\eqref{rhoa_explicit}:
+To further understand the properties of $\hat{\rho}_A$, let us write
+$|\psi\rangle$ explicitly as
+\begin{equation}
+  |\psi\rangle = \sum_{ij} \psi_{ij} |\mu_i\rangle |\nu_j\rangle,
+\end{equation}
+where $\sum_{ij} |\psi_{ij}|^2 = 1$.  Then
 \begin{align}
-  \begin{aligned}\hat{\rho}_A
-    &= \sum_{ii'j} |\mu_i\rangle \, \psi_{ij} \psi_{i'j}^*
-    \langle \mu_{i'}| \\
-    &= \sum_j |\psi'_j\rangle\langle\psi'_j| \;\;\;\mathrm{where}
-    \;\;\; |\psi'_j\rangle \equiv \sum_i \psi_{ij} |\mu_i\rangle.
+  \begin{aligned}
+    \hat{\rho} &= \sum_{ii'jj'} \psi_{ij}\psi_{i'j'}^* |\mu_i\rangle |\nu_j\rangle
+    \langle\mu_{i'}|\langle \nu_{j'}| \\
+    \hat{\rho}_A &= \sum_{ii'j} \psi_{ij}\psi_{i'j}^* |\mu_i\rangle
+    \langle\mu_{i'}| \\
+    &= \sum_j \left(\sum_i \psi_{ij} |\mu_i\rangle\right)\left(\sum_j
+    \psi_{i'j}^*\langle\mu_{i'}|\right) \\
+    &= \sum_j |\varphi_j\rangle \langle \varphi_j|, \;\;\;\mathrm{where}
+    \;\; |\varphi_j\rangle = \sum_i \psi_{ij} |\mu_i\rangle.
   \end{aligned}
 \end{align}
-However, the $|\psi'\rangle$ vectors inside the sum are not
-normalized.  Re-normalizing them yields the expression
+But $|\varphi_j\rangle$ is not necessarily normalized to unity:
+$\langle \varphi_j | \varphi_j\rangle = \sum_{i}|\psi_{ij}|^2 \le 1$.
+Let us take
 \begin{equation}
-  \hat{\rho}_A = \sum_j p_j\, |\Psi_j\rangle \langle \Psi_j|
+  |\tilde{\varphi}_j\rangle = \frac{1}{\sqrt{P_j}} |\varphi_j\rangle,
+  \;\;\;\mathrm{where} \;\; P_j = \sum_{i}|\psi_{ij}|^2.
+\end{equation}
+Note that each $P_j$ is a non-negative real number in the range
+$[0,1]$.  Then
+\begin{framed}
+\begin{equation}
+  \hat{\rho}_A = \sum_j P_j\, |\tilde{\varphi}_j\rangle
+  \langle \tilde{\varphi}_j|,
   \;\;\;\mathrm{where}\;\;
   \begin{cases}
-    p_j &= \displaystyle \; \langle \psi_j' | \psi_j' \rangle
-    \,=\, \sum_i |\psi_{ij}|^2 \\
-    |\Psi_j \rangle &= \displaystyle \; \frac{1}{\sqrt{p_j}} |\psi_j'\rangle,
-    \;\;\textrm{so}\;\; \langle \Psi_j|\Psi_j \rangle = 1.
+    \;\;\textrm{each $P_j$ is a real number in $[0,1]$, and} \\
+    \;\;\textrm{each}\; |\tilde{\varphi}_j\rangle \in \mathscr{H}_A,
+    \;\;\mathrm{with}
+    \;\;\langle\tilde{\varphi}_j|\tilde{\varphi}_j\rangle = 1.
   \end{cases}
+  \label{rhoform}
 \end{equation}
-This is a weighted sum, where each term involves a pure state
-$|\Psi_j\rangle \langle \Psi_j|$ and a weight $p_j$.  The $p_j$'s are
-real numbers between 0 and 1, and sum to unity, so they can be
-regarded as probabilities.  We can therefore interpret $\hat{\rho}_A$
-as describing an ``ensemble'' of different quantum systems, weighted
-by a set of probabilities $p_j$.
+\end{framed}
 
-Although this interpretation is highly suggestive, one should not take
-it too seriously.  For one thing, the decomposition is not unique: it
-is possible to express a given density operator using different
-weighted sums, each having a different set of probabilities.  For an
-example, see \hyperref[ex:rho_decomp]{Exercise 3}.  Ultimately, the
-information about the mixed state is encoded in the mathematical
-object $\hat{\rho}_A$ itself, which cannot really be simplified any
-further.
+Eq.~\eqref{rhoform} is the general form for a density operator.  It is
+a weighted sum of projection operators associated with normalized
+state vectors $|\tilde{\varphi}_j\rangle$, which are \textit{not}
+necessarily orthogonal to each other.  Since the weighting
+coefficients $P_j$ are real numbers in the range $[0,1]$ and summing
+to 1, we can interpret them as probabilities, meaning that
+$\hat{\rho}_A$ describes an ensemble of quantum states weighted by a
+set of classical probabilities.
+
+A density operator that can be written in the form of
+Eq.~\eqref{rho_pure} can be regarded as a special case with only one
+quantum state in the ensemble.  Such density operators are said to
+represent \textbf{pure states}, describing quantum systems that are
+not entangled with any outside system.  Density matrices not
+representing pure states are said to represent \textbf{mixed states},
+describing systems that are entangled with something else.
+
+Any linear operator of the form given by Eq.~\eqref{rhoform} has the
+following properties:
+\begin{enumerate}
+\item $\hat{\rho}_A$ is Hermitian.
+
+\item $\langle\varphi|\hat{\rho}_A|\varphi\rangle \ge 0$ for any
+  $|\varphi\rangle \in \mathscr{H}_A$ (i.e., the operator is positive
+  semidefinite).
+
+\item For any observable $\hat{Q}$ acting on $\mathscr{H}_A$,
+  \begin{align}
+    \begin{aligned}
+      \langle Q \rangle &\equiv \sum_j p_j
+      \langle \tilde{\varphi}_j|\hat{Q}|\tilde{\varphi}_j\rangle \\
+      &= \sum_{ij} p_j
+      \langle \tilde{\varphi}_j|\mu_i\rangle\langle\mu_i|\hat{Q}|\tilde{\varphi}_j\rangle \;\;\;\textrm{for any basis} \;\{|\mu_i\rangle\} \\
+      &= \sum_i
+      \langle\mu_i|\hat{Q} \left(\sum_j |\tilde{\varphi}_j\rangle
+      \langle \tilde{\varphi}_j|\right) |\mu_i\rangle \\
+      &= \mathrm{Tr}\left[\,\hat{Q} \,\hat{\rho}_A\,\right].
+    \end{aligned}
+    \label{prop3}
+  \end{align}
+  
+\item The eigenvalues of $\hat{\rho}_A$ are all real numbers in the
+  range $[0,1]$, and sum to 1 (i.e., they can be interpreted as
+  probabilities).  This implies that $\mathrm{Tr}[\hat\rho_A] = 1$.
+\end{enumerate}
+
+\noindent
+Property 3 can be used to deduce the probability of obtaining any
+measurement outcome: if $|\mu_i\rangle$ is the eigenstate associated
+with the outcome, the outcome probability is
+$\langle\mu_i|\hat\rho_A|\mu_i\rangle$, consistent with
+Eq.~\eqref{rho_prob}; to show this, take $\hat{Q} = |\mu_i\rangle
+\langle \mu_i|$ in Eq.~\eqref{prop3}.  Property 4 follows from
+Property 3 by (i) taking $\hat{Q} = |\varphi\rangle\langle\varphi|$,
+where $|\varphi\rangle$ is any eigenvector of $\hat\rho_A$, and (ii)
+taking $\hat{Q} = \hat{I}_A$.
 
 \section{Entanglement entropy}
 \label{sec:entropy}
