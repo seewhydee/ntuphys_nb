@@ -237,12 +237,14 @@ is the same with or without the exchange, so we still end up with
 $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  Therefore, the multi-particle
 state is symmetric under every possible exchange operation.
 
-As an example, consider a three-boson system with two particles in
-state $|\varphi_1\rangle$, and one particle in state
-$|\varphi_2\rangle$.  To express the three-particle state, we define
-$\{|\phi_1\rangle, |\phi_2\rangle, |\phi_3\rangle\}$ such that
-$|\phi_1\rangle = |\phi_2\rangle = |\varphi_1\rangle$ and
-$|\phi_3\rangle = |\varphi_2\rangle$.  Then
+\begin{framed}
+\noindent
+\textit{Example}---A three-boson system has two particles in state
+$|\varphi_1\rangle$, and one particle in state $|\varphi_2\rangle$.
+To express the three-particle state, define $\{|\phi_1\rangle,
+|\phi_2\rangle, |\phi_3\rangle\}$ where $|\phi_1\rangle =
+|\phi_2\rangle = |\varphi_1\rangle$ and $|\phi_3\rangle =
+|\varphi_2\rangle$.  Then
 \begin{align}
   \begin{aligned}
     |\phi_1,\phi_2,\phi_3\rangle &= \frac{1}{\sqrt{12}} \Big( \;
@@ -259,7 +261,7 @@ $|\phi_3\rangle = |\varphi_2\rangle$.  Then
     |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big).
   \end{aligned}
 \end{align}
-The exchange symmetry operators have the following effects:
+The exchange symmetry operators then have the following effects:
 \begin{align}
   \begin{aligned}
     \hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle
@@ -282,6 +284,7 @@ The exchange symmetry operators have the following effects:
     = |\phi_1,\phi_2,\phi_3\rangle.
   \end{aligned}
 \end{align}
+\end{framed}
 
 \subsection{Fermions}
 \label{sec:fermions}
@@ -335,16 +338,22 @@ zero vector, since the terms in the sum over $p$ cancel out pairwise
 (you can check this).  This is once again consistent with the Pauli
 exclusion principle.
 
-It is helpful to look at a couple of concrete examples.  First,
-consider $N=2$.  The sequence $\{1,2\}$ has two permutations:
+It is helpful to look at a couple of concrete examples.
+
+\begin{framed}
+\noindent
+\textit{Example}---For $N=2$, the sequence $\{1,2\}$ has two permutations:
 \begin{align}
   \begin{aligned}
     p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}
 \end{align}
 Plugging these into Eq.~\eqref{Nfermions} yields the
 previously-discussed two-fermion state \eqref{two_fermions}.
+\end{framed}
 
-Next, consider $N=3$.  The sequence $\{1,2,3\}$ has $3!=6$ permutations:
+\begin{framed}
+\noindent
+\textit{Example}---For $N=3$, the sequence $\{1,2,3\}$ has $3!=6$ permutations:
 \begin{align}
   \begin{aligned}
   p_1 : \{1,2,3\} &\rightarrow \{1,2,3\}, \;\;\;s(p_1) = +1 \\
@@ -369,6 +378,7 @@ reversed.  Hence, the three-fermion state is
     - |\varphi_1\rangle |\varphi_3\rangle |\varphi_2\rangle \Big).
   \end{aligned}
 \end{align}
+\end{framed}
 
 We now see why Eq.~\eqref{Nfermions} describes the $N$-fermion state.
 Let us apply $\hat{P}_{ij}$ to it:
@@ -565,20 +575,25 @@ dealing with bosons (Section~\ref{sec:bosons}), or using
 Eq.~\eqref{Nfermions} if we're dealing with fermions
 (Section~\ref{sec:fermions}).
 
-Let us run through a couple of examples.  First, consider
-$|0,2,0,0,\dots\rangle$, a two-particle state with both particles in
-state $|\varphi_2\rangle$.  (This only makes sense if the particles
-are bosons, as fermions cannot share the same state.)  The symmetric
-tensor product state is
+Let us run through a couple of examples:
+
+\begin{framed}
+\noindent
+\textit{Example}---The two-particle state $|0,2,0,0,\dots\rangle$ has
+both particles in state $|\varphi_2\rangle$.  This is only possible if
+the particles are bosons, since fermions cannot share the same state.
+Written out in tensor product form, the symmetric state is
 \begin{equation}
   |0,2,0,0,\dots\rangle \equiv |\varphi_2\rangle|\varphi_2\rangle.
 \end{equation}
+\end{framed}
 
-As our second example, consider $|1,1,1,0,0,\dots\rangle$.  This
-specifies a three-particle state where there is one particle each
-occupying $|\varphi_1\rangle$, $|\varphi_2\rangle$, and
-$|\varphi_3\rangle$.  If the particles are bosons, this corresponds to
-the symmetric state
+\begin{framed}
+\noindent
+\textit{Example}---The three-particle state $|1,1,1,0,0,\dots\rangle$
+has one particle each occupying $|\varphi_1\rangle$,
+$|\varphi_2\rangle$, and $|\varphi_3\rangle$.  If the particles are
+bosons, this corresponds to the symmetric state
 \begin{align}
   \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad+ |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle \Big).
   \end{aligned}
@@ -589,6 +604,7 @@ is
   \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad - |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle - |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle\Big).
   \end{aligned}
 \end{align}
+\end{framed}
 
 \subsection{Fock space}
 
