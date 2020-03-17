@@ -163,8 +163,8 @@ position eigenstate is really a tensor product:
 Also, if the subsystems really \textit{are} particles, we are going to
 assume for now that the particles are distinguishable.  There are
 other complications that arise if the particles are ``identical'',
-which will be the subject of the next chapter.  (If you're not sure
-what this means, just read on.)
+which will be the subject of the next chapter (if you're unsure
+what this means, just read on).
 
 \section{Partial measurements}
 \label{sec:partialmeasurements}
@@ -193,18 +193,19 @@ operator
 \begin{equation}
   \hat{\Pi}(q_i) = |q_i\rangle\langle q_i|.
 \end{equation}
-Applying this operator to $|\psi\rangle$ gives
+Applying this operator to $|\psi\rangle$ gives the non-normalized
+state vector
 \begin{equation}
-  |\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle,
+  |\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle.
 \end{equation}
-which is not normalized to unity.  Then:
-\begin{enumerate}
+From this, we glean two pieces of information:
+\begin{itemize}
 \item The probability of obtaining this outcome is
   $\langle\psi'|\psi'\rangle = |\langle q_i|\psi\rangle|^2$.
 
 \item The post-collapse state is obtained by the re-normalization
   $|\psi'\rangle \rightarrow |q_i\rangle$.
-\end{enumerate}
+\end{itemize}
 
 For multi-particle systems, there is a new complication: what if a
 measurement is performed on just one particle?
@@ -219,25 +220,28 @@ arbitrary basis $\{|\nu_1\rangle, |\nu_2\rangle,\dots\}$ for the
 $\mathscr{H}_B$ part:
 \begin{align}
   \begin{aligned}|\psi\rangle &= \sum_{ij} \psi_{ij}\, |\mu_i\rangle |\nu_j\rangle \\&= \sum_i |\mu_i\rangle |\varphi_i\rangle, \;\;\mathrm{where}\;\;|\varphi_i\rangle\equiv \sum_j \psi_{ij}\,|\nu_j\rangle.\end{aligned}
+  \label{psi_twop}
 \end{align}
 Unlike the single-particle case, the ``coefficient'' of
 $|\mu_i\rangle$ in this basis expansion is not a complex number, but a
-vector $|\varphi_i\rangle \in \mathscr{H}_B$.  Proceeding by analogy,
-the probability of obtaining the outcome $\mu_i$ ought to be the
-``absolute square'' of this ``coefficient'',
-$\langle\varphi_i|\varphi_i\rangle$.  To make the analogy a bit more
-rigorous, let us define the partial projector
+vector $|\varphi_i\rangle \in \mathscr{H}_B$.
+
+Proceeding by analogy, the probability of obtaining the outcome
+$\mu_i$ should be the ``absolute square'' of this ``coefficient'',
+$\langle\varphi_i|\varphi_i\rangle$.  Let us define the partial
+projector
 \begin{equation}
   \hat{\Pi}(\mu_i) \,=\, |\mu_i\rangle\langle \mu_i| \otimes  \hat{I}.
 \end{equation}
-This contains a projector, $|\mu_i\rangle\langle \mu_i|$, which only
-acts upon the $\mathscr{H}_A$ part of the two-particle space.
-Applying this to the above multi-particle state gives
+The $A$ slot of this operator contains a projector,
+$|\mu_i\rangle\langle \mu_i|$, while the $B$ slot leaves the
+$\mathscr{H}_B$ part of the two-particle space unchanged.  Applying
+the partial projector to the state given in Eq.~\eqref{psi_twop} gives
 \begin{equation}
   |\psi'\rangle = \hat{\Pi}(\mu_i)\, |\psi\rangle
   = |\mu_i\rangle |\varphi_i\rangle.
 \end{equation}
-Now we can follow the same measurement rules as before.  The outcome
+Now we follow the same measurement rules as before.  The outcome
 probability is
 \begin{equation}
   P_i = \langle\psi'|\psi'\rangle = \langle \mu_i|\mu_i\rangle\, \langle \varphi_i|\varphi_i\rangle = \sum_j |\psi_{ij}|^2,
@@ -251,34 +255,48 @@ re-normalization
  \sum_{j} \psi_{ij} |\mu_i\rangle |\nu_j\rangle.
 \end{equation}
 
-Let's work through an example.  Consider a system of two spin-$1/2$
-particles, with state
+\begin{framed}
+\noindent
+\textit{Example}---A system of two spin-$1/2$ particles is in
+the state
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
 \end{equation}
 For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
 eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
 and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
-There are two possible outcomes:
-\begin{itemize}
-\item \textbf{First outcome: $+\hbar/2$}.  The projection operator is
-  $|\!+\!z\rangle\langle+z| \otimes \hat{I}$, and applying this to
-  $|\psi\rangle$ yields $|\psi'\rangle =
-  (1/\sqrt{2})\,|\!+\!z\rangle|\!-\!z\rangle$.  Hence, the outcome
-  probability is $P_+ = \langle \psi'|\psi;\rangle = \frac{1}{2}$ and
-  the post-collapse state is $|\!+\!z\rangle |\!-\!z\rangle$.
+What are the probabilities of the possible outcomes, and the
+associated post-collapse states?
 
-\item \textbf{Second outcome: $-\hbar/2$}.  The projection operator is
-  $|\!-\!z\rangle\langle-z| \otimes \hat{I}$, and applying this to
-  $|\psi\rangle$ yields $|\psi'\rangle =
-  (1/\sqrt{2})\,|\!-\!z\rangle|\!+\!z\rangle$.  Hence, the outcome
-  probability is $P_- = \langle \psi'|\psi'\rangle = \frac{1}{2}$ and
-  the post-collapse state is $|\!-\!z\rangle |\!+\!z\rangle$.
+\begin{itemize}
+\item \textbf{First outcome: $+\hbar/2$}.
+  \begin{itemize}
+  \item The partial projector is $|\!+\!z\rangle\langle+z| \otimes \hat{I}$.
+  \item Applying the projection to $|\psi\rangle$ yields
+    $|\psi'\rangle = (1/\sqrt{2})\,|\!+\!z\rangle|\!-\!z\rangle$.
+  \item The outcome probability is $\displaystyle
+    P_+ = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
+  \item The post-collapse state is $\displaystyle
+    \frac{1}{\sqrt{P_+}} |\psi'\rangle = |\!+\!z\rangle |\!-\!z\rangle$
+  \end{itemize}
+
+\item \textbf{Second outcome: $-\hbar/2$}.
+  \begin{itemize}
+  \item The partial projector is $|\!-\!z\rangle\langle-z| \otimes
+    \hat{I}$.
+  \item Applying the projection to $|\psi\rangle$ yields
+    $|\psi'\rangle = (1/\sqrt{2})\,|\!-\!z\rangle|\!+\!z\rangle$.
+  \item The outcome probability is $\displaystyle P_- = \langle \psi'|\psi'\rangle =
+    \frac{1}{2}$.
+  \item The post-collapse state is $\displaystyle = \frac{1}{\sqrt{P_-}} |\psi'\rangle
+    = |\!-\!z\rangle |\!+\!z\rangle$.
+  \end{itemize}
 \end{itemize}
 The two possible outcomes, $+\hbar/2$ and $-\hbar/2$, occur with equal
 probability.  In either case, the two-particle state collapses so that
 $A$ is in the observed spin eigenstate, and $B$ has the opposite spin.
 After the collapse, the two-particle state is no longer entangled.
+\end{framed}
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
@@ -699,7 +717,7 @@ These results hold for any choice of basis.  Hence, knowing the
 density operator for $A$, we can determine the outcome probabilities
 of \textit{any} partial measurement performed on $A$.
 
-To further understand the properties of $\hat{\rho}_A$, let us write
+To better understand the properties of $\hat{\rho}_A$, let us write
 $|\psi\rangle$ explicitly as
 \begin{equation}
   |\psi\rangle = \sum_{ij} \psi_{ij} |\mu_i\rangle |\nu_j\rangle,
@@ -741,25 +759,27 @@ $[0,1]$.  Then
 \end{equation}
 \end{framed}
 
-Eq.~\eqref{rhoform} is the general form for a density operator.  It is
-a weighted sum of projection operators associated with normalized
-state vectors $|\tilde{\varphi}_j\rangle$, which are \textit{not}
-necessarily orthogonal to each other.  Since the weighting
-coefficients $P_j$ are real numbers in the range $[0,1]$ and summing
-to 1, we can interpret them as probabilities, meaning that
-$\hat{\rho}_A$ describes an ensemble of quantum states weighted by a
-set of classical probabilities.
+In general, we can define a density operator as any operator that has
+the form of Eq.~\eqref{rhoform}, regardless of whether or not it was
+formally derived via a partial trace.  We can interpret it as
+describing a ensemble of quantum states weighted by a set of classical
+probabilities.  Each term in the sum consists of (i) a weighting
+coefficient $P_j$ which can be regarded as a probability (the
+coefficients are all real numbers in the range $[0,1]$, and sum to 1),
+and (ii) a projection operator associated with some normalized state
+vector $|\tilde{\varphi}_j\rangle$.  Note that the states in the
+ensemble do not have to be orthogonal to each other.
 
-A density operator that can be written in the form of
-Eq.~\eqref{rho_pure} can be regarded as a special case with only one
-quantum state in the ensemble.  Such density operators are said to
-represent \textbf{pure states}, describing quantum systems that are
-not entangled with any outside system.  Density matrices not
-representing pure states are said to represent \textbf{mixed states},
-describing systems that are entangled with something else.
+From this point of view, a density operator of the form
+$|\psi\rangle\langle\psi|$ corresponds to the special case of an
+ensemble containing only one quantum state $|\psi\rangle$.  Such an
+ensemble is called a \textbf{pure state}, and describes a quantum
+system that is not entangled with any other system.  If an ensemble is
+not a pure state, we call it a \textbf{mixed state}; it describes a
+system that is entangled with some other system.
 
-Any linear operator of the form given by Eq.~\eqref{rhoform} has the
-following properties:
+We can show that any linear operator $\hat{\rho}_A$ obeying
+Eq.~\eqref{rhoform} has the following properties:
 \begin{enumerate}
 \item $\hat{\rho}_A$ is Hermitian.
 
@@ -781,22 +801,28 @@ following properties:
     \end{aligned}
     \label{prop3}
   \end{align}
+  This property can be used to deduce the probability of obtaining any
+  measurement outcome: if $|\mu_i\rangle$ is the eigenstate associated
+  with the outcome, the outcome probability is
+  $\langle\mu_i|\hat\rho_A|\mu_i\rangle$, consistent with
+  Eq.~\eqref{rho_prob}.  To see this, take $\hat{Q} = |\mu_i\rangle
+  \langle \mu_i|$ in Eq.~\eqref{prop3}.
   
-\item The eigenvalues of $\hat{\rho}_A$ are all real numbers in the
-  range $[0,1]$, and sum to 1 (i.e., they can be interpreted as
-  probabilities).  This implies that $\mathrm{Tr}[\hat\rho_A] = 1$.
-\end{enumerate}
+\item The eigenvalues of $\hat{\rho}_A$, denoted by $\{p_1, p_2,
+  \dots, p_{d_A}\}$, satisfy
+  \begin{equation}
+    p_j \in \mathbb{R} \;\;\;\mathrm{and}\;\; 0 \le p_j \le 1 \;\;
+    \mathrm{for}\;\; j = 1,\dots,d_A,
+    \quad\mathrm{with}\;\; \sum_{j=1}^{d_A} p_j = 1.
+    \label{trrho_reduced}    
+  \end{equation}
+  In other words, the eigenvalues can be interpreted as probabilities.
+  This also implies that $\mathrm{Tr}[\hat\rho_A] = 1$.
 
-\noindent
-Property 3 can be used to deduce the probability of obtaining any
-measurement outcome: if $|\mu_i\rangle$ is the eigenstate associated
-with the outcome, the outcome probability is
-$\langle\mu_i|\hat\rho_A|\mu_i\rangle$, consistent with
-Eq.~\eqref{rho_prob}; to show this, take $\hat{Q} = |\mu_i\rangle
-\langle \mu_i|$ in Eq.~\eqref{prop3}.  Property 4 follows from
-Property 3 by (i) taking $\hat{Q} = |\varphi\rangle\langle\varphi|$,
-where $|\varphi\rangle$ is any eigenvector of $\hat\rho_A$, and (ii)
-taking $\hat{Q} = \hat{I}_A$.
+  This property follows from Property 3 by taking $\hat{Q} =
+  |\varphi\rangle\langle\varphi|$, where $|\varphi\rangle$ is any
+  eigenvector of $\hat\rho_A$, and then taking $\hat{Q} = \hat{I}_A$.
+\end{enumerate}
 
 \section{Entanglement entropy}
 \label{sec:entropy}
@@ -884,22 +910,28 @@ entanglement entropy has the following bounds:
 \end{equation}
 where $d_A$ is the dimension of $\mathscr{H}_A$.
 
-For an unentangled system---i.e., a pure state---we can write
-$\hat{\rho} = |\psi\rangle\langle\psi|$ for some state $|\psi\rangle$.
-In this case, $|\psi\rangle$ is itself an eigenstate of $\hat{\rho}$
-with eigenvalue 1, so $S_{A} = 0$.  This corresponds to the lower
-bound of \eqref{Sabounds}.  Conversely, if we find that a system has
-$S_{A} \ne 0$, that implies that $\hat{\rho}_A$ cannot be written as a
-pure state $|\psi\rangle\langle\psi|$ for \textit{any} $|\psi\rangle$;
-hence, it must be entangled---i.e., $\hat{\rho}_A$ must describe a
-mixed state.
+The lower bound $S_A = 0$ holds if and only if system $A$ is in a pure
+state (i.e., it is not entangled with any other system).  This is
+because the bound corresponds to a situation where $\hat{\rho}_A$ has
+one eigenvalue that is 1, and all the other eigenvalues are 0 (see
+Appendix C).  If we denote the eigenvector associated with the
+non-vanishing eigenvalue by $|\psi\rangle$, then the density matrix
+can be written as $\hat{\rho}_A = |\varphi\rangle\langle\varphi|$, which
+has the form of a pure state.
+
+As a corollary, if we find that $S_{A} \ne 0$, then $\hat{\rho}_A$
+cannot be written as a pure state $|\psi\rangle\langle\psi|$ for
+\textit{any} $|\psi\rangle$, and hence it must describe a mixed state.
 
 A system is said to be \textbf{maximally entangled} if it saturates
 the upper bound of \eqref{Sabounds}, $S_A = k_b \ln(d_A)$.  This
 occurs if and only if the eigenvalues of the density operator are all
 equal: i.e., $p_i = 1/d_A$ for all $i = 1, \dots, d_A$.
 
-As an example, consider the following state of two spin-$1/2$ particles:
+\begin{framed}
+\noindent
+\textit{Example}---Consider the following state of two spin-$1/2$
+particles:
 \begin{align}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
 \end{align}
@@ -907,7 +939,7 @@ The density operator for the two-particle system is
 \begin{equation}
   \hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).
 \end{equation}
-Tracing over subsystem $B$ gives the reduced density operator
+Tracing over system $B$ (the second slot) yields the reduced density operator
 \begin{equation}
   \hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).
 \end{equation}
@@ -916,11 +948,12 @@ $\{|\!+z\rangle,|\!-z\rangle\}$ basis:
 \begin{equation}
   \hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.
 \end{equation}
-Next, we can use $\hat{\rho}_A$ to compute the entropy of subsystem $A$:
+Now we can use $\hat{\rho}_A$ to compute the entanglement entropy
 \begin{equation}
   S_A = -k_b\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_b\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_b\ln(2).
 \end{equation}
-Hence, subsystems $A$ and $B$ are maximally entangled.
+Hence, the particles are maximally entangled.
+\end{framed}
 
 \section{The Many Worlds Interpretation}
 
