@@ -8,6 +8,7 @@
 \usepackage[margin=3.5cm]{geometry}
 \usepackage{framed}
 \usepackage{enumerate}
+\usepackage{float}
 \usepackage{textcomp}
 \def\ket#1{\left|#1\right\rangle}
 \def\bra#1{\left\langle#1\right|}
@@ -30,187 +31,206 @@
 \begin{document}
 
 \setcounter{page}{59}
-\section{Contour Integration}\label{contour-integration}
+
+\section{Contour Integration}
+\label{contour-integration}
 
 \textbf{Contour integration} is a powerful technique, based on complex
 analysis, that allows us to solve certain integrals that are otherwise
-difficult or impossible. Contour integrals have important applications
-in many areas of physics, particularly in the study of waves and
+hard or impossible to solve. Contour integrals also have important
+applications in physics, particularly in the study of waves and
 oscillations.
 
-\hypertarget{contour-integrals}{%
-\subsection{Contour integrals}\label{contour-integrals}}
+\subsection{Contour integrals}
+\label{contour-integrals}
 
-We have previously studied what it means to take the integral of a
-real function. To recap: if $f(x)$ is a real function, the integral
-from $x=a$ to $x=b$ is defined by dividing the interval into $N$
-segments, and evaluating the sum of $f(x)\Delta x$ on each segment, in
-the limit where $N$ goes to infinity:
+Recall that for a real function $f(x)$, the definite integral from
+$x=a$ to $x=b$ is the area under the curve between those two points.
+As discussed in Chapter 2, the integral can be expressed as a limit
+expression: we divide the interval into $N$ segments of width $\Delta
+x$, take the sum of $\Delta x\, f(x_n)$, and go to the $N \rightarrow
+\infty$ limit:
 \begin{equation}
 \int_a^b dx\; f(x) \;=\; \lim_{N \rightarrow 0} \, \sum_{n=0}^{N} \Delta x\; f(x_n), \;\;\;\mathrm{where}\;\;\;x_n = a + n\Delta x, \;\;\Delta x = \frac{b-a}{N}.
 \end{equation}
-Now consider the case where $f$ is a complex function of a complex
-variable. The straightfoward way to define the integral of $f(z)$ is
-by an analogous expression like this:
+Now suppose $f$ is a complex function of a complex variable. A
+straightfoward way to define the integral of $f(z)$ is to adopt an
+analogous expression:
 \begin{equation}
 \lim_{N \rightarrow 0} \, \sum_{n=0}^{N} \Delta z\; f(z_n)
 \end{equation}
-However, since $f$ takes complex inputs, the values of $z_n$ need not
-lie along the real line. In general, the complex numbers $z_n$ form a
-set of points in the two-dimensional complex plane. We can imagine
-chaining together a sequence of points $z_1, z_2, \dots, z_N$, which
-are separated by displacements $\Delta z_1, \Delta z_2, \Delta z_3,
-\dots, \Delta z_{N-1}$, such that
-\begin{equation}
-\begin{aligned}z_2 &= z_1 + \Delta z_1, \\ z_3 &= z_2 + \Delta z_2, \\ z_4 &= z_3 + \Delta z_3, \\ \vdots &= \vdots\\ z_N &= z_{N-1} + \Delta z_{N-1}.\end{aligned}
-\end{equation}
+But there's a conceptual snag: since $f$ takes complex inputs, the
+values of $z_n$ need not lie along the real line. In general, the
+complex numbers $z_n$ form a set of points in the complex plane. To
+accomodate this, we can imagine chaining together a sequence of points
+$z_1, z_2, \dots, z_N$, separated by displacements $\Delta z_1, \Delta
+z_2, \Delta z_3, \dots, \Delta z_{N-1}$:
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.37\textwidth]{complex_integral}
+\begin{figure}[ht]
+  \centering\includegraphics[width=0.7\textwidth]{complex_integral}
 \end{figure}
 
+\noindent
 Then the sum we are interested in is
 \begin{equation}
 \sum_{n=1}^{N-1} \Delta z_n\; f(z_n) \;=\; \Delta z_1\, f(z_1) + \Delta z_2\, f(z_2) + \cdots + \Delta z_{N-1}\, f(z_{N-1}).
 \end{equation}
-Now suppose we take the limit $N \rightarrow \infty$, so that each
-displacement $\Delta z_{n}$ becomes infinitesimal. Then the sequence
-of points $\{z_1, z_2, \dots, z_N\}$ turns into a continuous
-trajectory in the complex plane. Such a trajectory is called a
-\textbf{contour}, and can be denoted by an abstract symbol, such as
-$\Gamma$. Now we can define a \textbf{contour integral} over
-$\Gamma$, like this:
+In the limit $N \rightarrow \infty$, each displacement $\Delta z_{n}$
+becomes infinitesimal, and the sequence of points $\{z_1, z_2, \dots,
+z_N\}$ becomes a continuous trajectory in the complex plane (see
+Section 3.6). Such a trajectory is called a \textbf{contour}. Let us
+denote a given contour by an abstract symbol, such as $\Gamma$.  Then
+the \textbf{contour integral} over $\Gamma$ is defined as
 \begin{equation}
 \int_\Gamma \, f(z)\, dz = \lim_{N \rightarrow \infty} \sum_{n=1}^{N-1} \Delta z_n\; f(z_n).
 \end{equation}
 The symbol $\Gamma$ in the subscript of the integral sign indicates
-that the integral is to take place over the contour $\Gamma$. It is
-always necessary, when defining a contour integral, to specify the
-contour to integrate over. This is roughly analogous to how we need to
-specify the ends of the integration range, in order to properly define
-a real definite integral. In the complex case, we must specify an
-entire trajectory.
+that the integral takes place over the contour $\Gamma$. When defining
+a contour integral, it is always necessary to specify which contour we
+are integrating over. This is analogous to specifying the end-points
+of the interval over which to perform a definite real integral. In the
+complex case, the integration variable $z$ lies in a two-dimensional
+plane (the complex plane), not a line; therefore we cannot just
+specify two end-points, and must specify an entire contour.
 
-It is important to note that the contour $\Gamma$ specifies a
-direction. In fact, if we integrate along the same curve in the opposite
-direction, the value of the contour integral switches sign.
+Also, note that in defining a contour $\Gamma$ we must specify not
+just a curve in the complex plane, but also the direction along which to
+traverse the curve. If we integrate along the same curve in the opposite
+direction, the value of the contour integral switches sign (this is
+similar to swapping the end-points of a definite real integral).
+
+\vskip 0.1in
+\begin{framed}\noindent
+  \textit{Additional Notes}---A contour integral generally cannot be
+  interpreted as the area under a curve, the way a definite real
+  integral can. In particular, the contour should not be mistakenly
+  interpreted the graph of the integrand! Always remember that in a
+  contour integral, the integrand $f(z)$ and the integration variable
+  $z$ are both complex numbers.
+
+  \vskip 0.05in
+  Moreover, the concept of an indefinite integral cannot be usefully
+  generalized to the complex case.
+\end{framed}
+\vskip 0.15in
 
 \subsubsection{Contour integral along a parametric curve}
 \label{contour-integral-along-a-parametric-curve}
 
-Simple contour integrals can be calculated by \textbf{parameterizing
-  the contour}. Suppose we have a contour integral
+Simple contour integrals can be calculated by \textbf{parameterizing the
+contour}. Consider a contour integral
 \begin{equation}
 \int_\Gamma \, dz \; f(z),
 \end{equation}
 where $f$ is a complex function of a complex variable and $\Gamma$ is
-a given contour. As discussed in Chapter 3, we can describe a
+a given contour.  As discussed in Section 3.6, we can describe a
 trajectory in the complex plane by a complex function of a \emph{real}
 variable, $z(t)$:
 \begin{equation}
 \Gamma \equiv \Big\{z(t) \;\Big|\; t_1 < t < t_2\Big\}, \quad \mathrm{where}\;\; t \in \mathbb{R}, \,z(t) \in \mathbb{C}.
 \end{equation}
 The real numbers $t_1$ and $t_2$ specify two complex numbers,
-$z(t_1)$ and $z(t_2)$, which correspond to the end-points of the
-contour. The rest of the contour is given by the values of $z(t)$
-between these two end-points. Assuming we are able to parameterize
-$\Gamma$ in this way, we can express the complex displacement $dz$
-in the contour integral by
+$z(t_1)$ and $z(t_2)$, which are the end-points of the contour. The
+rest of the contour consists of the values of $z(t)$ between those
+end-points. Provided we can parameterize $\Gamma$ in such a manner,
+the complex displacement $dz$ in the contour integral can be written
+as
 \begin{equation}
 dz \rightarrow dt\, \frac{dz}{dt}.
 \end{equation}
-This allows us to express the contour integral over $\Gamma$ as a
-definite integral over $t$:
+Then we can express the contour integral over $\Gamma$ as a definite
+integral over $t$:
 \begin{equation}
-\int_\Gamma dz\; f(z) = \int_{t_1}^{t_2} \; dt\; \frac{dz}{dt}\, f\Big(z(t)\Big).
+\int_\Gamma dz\; f(z) = \int_{t_1}^{t_2} \; dt\; \frac{dz}{dt}\, f\big(z(t)\big).
 \end{equation}
-The resulting definite integral can then be evaluated using standard
-integration techniques. A simple example is given in the following
-section.
+This can then be calculated using standard integration techniques. A
+simple example is given in the next section.
 
 \subsubsection{A contour integral over a circular arc}
-\label{a-contour-integral-over-a-circular-arc}
+\label{arc-contour}
 
-Let's use the method of parameterizing the contour to calculate the
-following contour integral:
+Let us use the method of parameterizing the contour to calculate the
+contour integral
 \begin{equation}
- \int_{\Gamma[\theta_1,\theta_2]} dz\; z^n,\; n\in\mathbb{Z}.
+ \int_{\Gamma[R, \theta_1,\theta_2]} dz\; z^n,\; n\in\mathbb{Z},
 \end{equation}
-The trajectory $\Gamma[\theta_1,\theta_2]$ consists of a
-counter-clockwise arc of radius $R > 0$, from a starting point $z_1 =
-R e^{i\theta_1}$ to endpoint $z_2 = R e^{i\theta_2}$, as shown in the
-figure below.
+where the trajectory $\Gamma[R, \theta_1,\theta_2]$ consists of a
+counter-clockwise arc of radius $R > 0$, from the point $z_1 = R
+e^{i\theta_1}$ to the point $z_2 = R e^{i\theta_2}$, as shown in the
+figure below:
 
-\begin{figure}[h]
+\begin{figure}[H]
   \centering\includegraphics[width=0.34\textwidth]{complex_integral_example}
 \end{figure}
 
-We can parameterize the contour by defining a complex function of a
-real variable, $z(\theta)$, as follows:
+\noindent
+We can parameterize the contour as follows:
 \begin{equation}
-\Gamma[\theta_1,\theta_2] = \big\{z(\theta) \;\big|\; \theta_1 \le \theta \le \theta_2\big\}, \quad \mathrm{where}\;\; z(\theta) = R e^{i\theta}.
+\Gamma[R, \theta_1,\theta_2] = \big\{z(\theta) \;\big|\; \theta_1 \le \theta \le \theta_2\big\}, \quad \mathrm{where}\;\, z(\theta) = R e^{i\theta}.
 \end{equation}
 Then the contour integral can be converted into an integral over the
 real parameter $\theta$:
 \begin{align}
-  \int_{\Gamma[\theta_1,\theta_2]} dz\; z^n &= \int_{\theta_1}^{\theta_2}  d\theta \; z^n \; \frac{dz}{d\theta} \\ &= \int_{\theta_1}^{\theta_2}  d\theta \; \left( R^ne^{in\theta}\right)\, \left(iR\, e^{i\theta}\right) \\ &= i R^{n+1} \, \int_{\theta_1}^{\theta_2}  d\theta \; e^{i(n+1)\theta}
+  \int_{\Gamma[R, \theta_1,\theta_2]} dz\; z^n &= \int_{\theta_1}^{\theta_2}  d\theta \; z^n \; \frac{dz}{d\theta} \\
+  &= \int_{\theta_1}^{\theta_2}  d\theta \; \left( Re^{i\theta}\right)^n\, \left(iR\, e^{i\theta}\right) \\
+  &= i R^{n+1} \, \int_{\theta_1}^{\theta_2}  d\theta \; e^{i(n+1)\theta}.
 \end{align}
-To proceed, there are two distinct cases that we need to handle
-separately. Firstly, if $n \ne -1$, then we can evaluate the integral
-on the last line as follows:
+To proceed, there are two cases that we must treat separately. First,
+for $n \ne -1$,
 \begin{equation}
 \int_{\theta_1}^{\theta_2} d\theta \; e^{i(n+1)\theta} = \left[\frac{e^{i(n+1)\theta}}{i(n+1)}\right]_{\theta_1}^{\theta_2} = \frac{e^{i(n+1)\theta_2} - e^{i(n+1)\theta_1}}{i(n+1)}.
 \end{equation}
-However, this doesn't apply if $n = -1$, since the factor of $n + 1$
-in the denominator would vanish. Instead, in this case, the integrand is
-identically one, so we do the integral in a different way:
+Second, we have the case $n = -1$. This cannot be handled by the above
+equations, since the factor of $n + 1$ in the denominator would
+vanish. Instead,
 \begin{equation}
-\int_{\theta_1}^{\theta_2} d\theta \; e^{i(n+1)\theta} \; = \int_{\theta_1}^{\theta_2} d\theta \;=\; \theta_2 - \theta_1.
+\int_{\theta_1}^{\theta_2} d\theta \; \left[e^{i(n+1)\theta} \right]_{n=-1} \; = \int_{\theta_1}^{\theta_2} d\theta \;=\; \theta_2 - \theta_1.
 \end{equation}
-Putting these two cases together, we arrive at the result
+Putting the two cases together, we arrive at the result
 \begin{equation}
 \int_{\Gamma[\theta_1,\theta_2]} dz\; z^n = \left\{\begin{array}{ll}i(\theta_2 - \theta_1), & \mathrm{if}\;n = -1 \\ \displaystyle R^{n+1}\frac{e^{i(n+1)\theta_2} - e^{i(n+1)\theta_1}}{n+1},&\mathrm{if}\;n\ne -1.\end{array}\right.
+\label{arcresult}
 \end{equation}
 The case where $\theta_2 = \theta_1 + 2\pi$ is of particular interest.
-Here, $\Gamma$ forms a complete loop, and the above results simplify
-to
+Here, $\Gamma$ forms a complete loop, and the result simplifies to
 \begin{equation}
-\oint_{\Gamma} dz\; z^n = \left\{\begin{array}{ll}2\pi i, & \mathrm{if}\;n = -1 \\ \displaystyle 0,&\mathrm{if}\;n\ne -1.\end{array}\right.
+  \oint_{\Gamma} dz\; z^n = \left\{\begin{array}{ll}2\pi i, & \mathrm{if}\;n = -1 \\ \displaystyle 0,&\mathrm{if}\;n\ne -1,\end{array}\right.
+  \label{simpleloop}
 \end{equation}
-Here, the special integration symbol $\oint$ is used to indicate that
-the contour integral is taken over a loop. The value of this particular
-contour integral is independent of $R$ (so long as $R > 0$). It is
-zero for all values of $n$ except $n = -1$. For the special case
-$n = - 1$, the contour integral takes the value $2\pi i$. This is an
-important result that we'll use again later.
+which is independent of $R$ as well as the choice of $\theta_1$ and
+$\theta_2$. (Here, the special integration symbol $\oint$ is used to
+indicate that the contour integral is taken over a loop.)
+Eq.~\eqref{simpleloop} is a very important result that we will make
+ample use of later.
 
-In this example, we have assumed that $n \in \mathbb{Z}$. How about
-non-integer values of $n$?  As we discussed in Chapter 7, the
-integrand $z^n$ is a multi-valued operation if $n
-\notin\mathbb{Z}$. The concept of a contour integral only makes sense
-if the integrand is a well-defined function, which means that we need
-to specify a branch cut and only take values of $z^n$ along a given
-branch. So long as the branch cut avoids intersecting with the contour
-$\Gamma$, the results obtained above remain mathematically
-valid. However, we cannot take $\Gamma$ to be a complete loop, because
-then there would be no way to avoid crossing a branch cut. Such an
-integral would not be well-defined.
+By the way, what if $n$ is not an integer? In that case, the integrand
+$z^n$ is a multi-valued operation (see Chapter 7), whereas the
+definition of a contour integral assumes the integrand is a
+well-defined function. To get around this problem, we can specify a
+branch cut and perform the contour integral with any of the branches
+of $z^n$ (this is fine since the branches are well-defined
+functions). So long as the branch cut avoids intersecting with the
+contour $\Gamma$, the result \eqref{arcresult} remains valid.
+However, $\Gamma$ cannot properly be taken along a complete loop, as
+that would entail crossing the branch cut.
 
-\subsection{Cauchy's integral theorem}\label{cauchys-integral-theorem}
+\subsection{Cauchy's integral theorem}
+\label{cauchys-integral-theorem}
 
 A \textbf{loop integral} is a contour integral taken over a loop in
-the complex plane; i.e., with the same starting and ending point. We
-saw a simple example of a loop integral in
-Section~\ref{a-contour-integral-over-a-circular-arc}, for a circular
-loops. More generally, loop contours need not take place over circular
-loops; the loops could have oval or irregular shapes.
+the complex plane; i.e., with the same starting and ending point.  In
+Section~\ref{arc-contour}, we encountered the case of a circular loop
+integral. More generally, however, loop contours do not be circular
+but can have other shapes.
 
 Loop integrals play an important role in complex analysis. This
 importance stems from the following property, known as \textbf{Cauchy's
 integral theorem}:
 
-\begin{framed} \noindent
-If $f(z)$ is analytic everywhere inside the loop $\Gamma$, then
+\begin{framed}
+\centering
+\noindent
+If $f(z)$ is analytic everywhere inside a loop $\Gamma$, then
 $\displaystyle\oint_\Gamma dz\; f(z) = 0.$
 \end{framed}
 
@@ -230,125 +250,122 @@ where $S(\Gamma)$ denotes a two-dimensional surface enclosed by the
 loop $\Gamma$, and $\hat{n}$ denotes a normal vector sticking out of
 the surface at each integration point.
 
-We will only need the 2D version of Stokes' theorem, in which the loop
-$\Gamma$, as well as the surface $S(\Gamma)$, are restricted to the
-$x\mathrm{-}y$ plane. We also assume that $\vec{A}(x,y)$ has no
-$z$ component, so that it too lies in the $x\mathrm{-}y$ plane. In
-that case, Stokes' theorem reduces to the simplified form
+We only need the 2D version of Stokes' theorem, in which both the loop
+$\Gamma$ and the enclosed surface $S(\Gamma)$ are restricted to the
+$x\mathrm{-}y$ plane, and $\vec{A}(x,y)$ likewise has no $z$
+component. Then Stokes' theorem simplifies to
 \begin{equation}
-\oint_\Gamma \vec{d\ell} \cdot \vec{A} = \int\!\!\int_{S(\Gamma)}\, dx \,dy \; \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right).
+\oint_\Gamma \vec{d\ell} \cdot \vec{A} = \int\!\!\!\int_{S(\Gamma)}\! dx \,dy \; \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right).
 \end{equation}
-To prove Cauchy's integral theorem, consider the contour integral
+
+Now consider a loop integral
 \begin{equation}
 \oint_\Gamma dz \; f(z),
 \end{equation}
 where $\Gamma$ is a loop trajectory and $f(z)$ is some analytic
-function that is analytic in the domain $S(\Gamma)$. We can decompose
+function that is analytic in the domain $S(\Gamma)$. Let us decompose
 $f$ into its real and imaginary parts,
 \begin{equation}
-f(x+iy) = u(x,y) + iv(x,y),
+f(x+iy) = u(x,y) + iv(x,y).
 \end{equation}
-where $u$ and $v$ are real functions of $x$ and $y$. The analyticity
-of $f$ implies that the functions $u$ and $v$ are real-differentiable
-and obey the Cauchy-Riemann equations:
-\begin{equation}
-\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y},\;\; \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
-\end{equation}
-With this in mind, we can manipulate the contour integral as follows:
-\begin{align}\oint_\Gamma dz \, f(z) &= \oint_\Gamma \left(dx + i dy\right) \; \left(u + i v\right) \\
-&= \oint_\Gamma \Bigg(dx\, (u+iv) + dy\, (iu - v) \Bigg)  \\
-&= \oint_\Gamma \begin{bmatrix}dx\\dy\end{bmatrix} \cdot \begin{bmatrix}u + i v \\ iu - v\end{bmatrix}\\
+The analyticity of $f$ implies that the real functions $u$ and $v$ are
+differentiable and obey the Cauchy-Riemann equations. Now we can
+manipulate the loop integral as follows:
+\begin{align}
+  \oint_\Gamma dz \, f(z) &= \oint_\Gamma \left(dx + i dy\right) \; \left(u + i v\right) \\
+  &= \oint_\Gamma \Bigg(dx\, (u+iv) + dy\, (iu - v) \Bigg)  \\
+  &= \oint_\Gamma \begin{bmatrix}dx\\dy\end{bmatrix} \cdot \begin{bmatrix}u + i v \\ iu - v\end{bmatrix} \\
       &= \oint_\Gamma \vec{d\ell} \cdot \vec{A}.
 \end{align}
-
 The last expression is a line integral involving the complex vector
 field
 \begin{equation}
-\vec{A}(x,y) = \begin{bmatrix}u(x,y) + i v(x,y) \\ iu(x,y) - v(x,y)\end{bmatrix}.
+  \vec{A}(x,y) = \begin{bmatrix}u(x,y) + i v(x,y) \\
+    iu(x,y) - v(x,y)\end{bmatrix}.
 \end{equation}
-Using Stokes' theorem in 2D, we can convert this into an area integral:
+Using Stokes' theorem in 2D, we convert this into the area integral
 \begin{align}
-  \int\!\!\int_{S(\Gamma)}\, dx \,dy \; \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right) &= \int\!\!\int_{S(\Gamma)}\, dx \,dy \; \left[\left(i\frac{\partial u}{\partial x} - \frac{\partial v}{\partial x}\right) - \left(\frac{\partial u}{\partial y} + i \frac{\partial v}{\partial y}\right)\right] \\ &= \int\!\!\int_{S(\Gamma)}\, dx \,dy \; \left[- \left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right) + i\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)\right].
+  \int\!\!\!\int_{S(\Gamma)} dx \,dy \; \left(\frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y}\right) &= \int\!\!\!\int_{S(\Gamma)} dx \,dy \; \left[\left(i\frac{\partial u}{\partial x} - \frac{\partial v}{\partial x}\right) - \left(\frac{\partial u}{\partial y} + i \frac{\partial v}{\partial y}\right)\right] \\
+  &= \int\!\!\!\int_{S(\Gamma)} dx \,dy \; \left[- \left(\frac{\partial v}{\partial x} + \frac{\partial u}{\partial y} \right) + i\left(\frac{\partial u}{\partial x} - \frac{\partial v}{\partial y}\right)\right].
 \end{align}
-Applying the Cauchy-Riemann equations, we find that the integrand
-vanishes. Hence, the loop integral of $f(z)$ is zero; QED.
+On the last line, the two terms in parenthesis are both zero because,
+according to the Cauchy-Riemann equations,
+\begin{equation}
+\frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}\;\;\mathrm{and}\;\; \frac{\partial u}{\partial y} = -\frac{\partial v}{\partial x}.
+\end{equation}
+Hence, the loop integral is zero. Q.E.D.
 
 \subsubsection{Consequences of Cauchy's integral theorem}
 \label{consequences-of-cauchys-integral-theorem}
 
 If the integrand $f(z)$ is non-analytic somewhere inside the loop,
 Cauchy's integral theorem does not apply, and the loop integral need not
-vanish. It is particularly important to consider the case where $f(z)$
-vanishes at one or more discrete points inside the loop,
-$\{z_1, z_2, \dots\}$. Then, one can show that
+vanish. In particular, suppose $f(z)$ vanishes at one or more discrete
+points inside the loop, $\{z_1, z_2, \dots\}$. Then we can show that
 \begin{equation}
 \oint_\Gamma dz\; f(z) \,=\, \sum_{n} \oint_{z_n} dz\; f(z),
 \end{equation}
-where $\oint_{z_n}$ denotes an integral over an loop of infinitesimal
+where $\oint_{z_n}$ denotes an integral over a loop of infinitesimal
 radius around the $n$-th point of non-analyticity, in the \emph{same
-direction} (i.e., clockwise or counter-clockwise) as the loop
-$\Gamma$.
+direction} (i.e., clockwise or counter-clockwise) as $\Gamma$.
 
-The situation is illustrated in the figure below:
+The proof of this result is based on the figure below. The red loop,
+$\Gamma$, is the contour we want to integrate over. The integrand is
+analytic throughout the enclosed area except at several discrete points,
+say $\{z_1, z_2, z_3\}$.
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.9\textwidth]{contour_deformation}
+\begin{figure}[H]
+  \centering\includegraphics[width=0.95\textwidth]{contour_deformation}
 \end{figure}
 
-The red loop, $\Gamma$, is the contour we want to integrate over. The
-integrand is non-analytic at several points inside $\Gamma$, indicated
-by orange dots. We can define a new loop contour, $\Gamma'$, which
-mostly follows the same path as $\Gamma$ except for the following
-features: (i) it circles in the \emph{opposite} direction from
-$\Gamma$, and (ii) it has ``tendrils'' that snake in towards each
-point of non-analyticity, and (iii) each tendril is attached to an
-infinitesimal loop that encircles the point of non-analyticity.
+\noindent
+Let us define a new loop contour, $\Gamma'$, shown by the blue
+loop. It follows the same curve as $\Gamma$ but with the following
+differences: (i) it circles in the \emph{opposite} direction from
+$\Gamma$, (ii) it contains tendrils that extend from the outer curve
+to each point of non-analyticity, and (iii) each tendril is attached
+to an infinitesimal loop encircling a point of non-analyticity.
 
-The loop contour integral over $\Gamma'$ encloses no points of
-non-analyticity, so Cauchy's integral theorem says that its total
-value is zero. But we can also break up this loop contour integral
-into three distinct pieces: (i) the part that follows the loop
-$\Gamma$, but going in the opposite direction, (ii) the ``tendrils''
-that connect the big loop to the inner loops, and (iii) the
-infinitesimal inner loops encircling each point of non-analyticity:
+The loop $\Gamma'$ encloses no points of non-analyticity, so Cauchy's
+integral theorem says that the integral over it is zero. But the
+contour integral over $\Gamma'$ can be broken up into three pieces:
+(i) the part that follows $\Gamma$ but in the opposite direction, (ii)
+the tendrils, and (iii) the infinitesimal inner loops:
 \begin{align}
   \oint_{\Gamma'}& dz\; f(z)
-\;\;= \;\; 0 \quad (\mathrm{by}\;\mathrm{Cauchy's}\;\mathrm{Integral}\;\mathrm{Theorem}) \\
-&= \int_{\mathrm{big}\,\mathrm{loop}} dz\; f(z) + \int_{\mathrm{tendrils}} dz\; f(z) +\; \sum_n \oint_{z_n} dz\; f(z)
+  \;\;= \;\; 0 \quad (\mathrm{by}\;\mathrm{Cauchy's}\;\mathrm{Integral}\;\mathrm{Theorem}) \\
+  &= \int_{\mathrm{big}\,\mathrm{loop}} dz\; f(z) + \int_{\mathrm{tendrils}} dz\; f(z) +\; \;\sum_{\mathrm{small~loop}~n}\;\; \oint_{z_n} dz\; f(z)
 \end{align}
 The first term is equal to the negative of $\oint_\Gamma dz \, f(z)$,
 since it follows a contour that is just like $\Gamma$ except going the
-other way. The second term is zero, because each tendril consists of
-two contours taken in opposite directions, which cancel out. Thus, the
-above equation reduces to
+other way. The second term is zero, because each tendril consists of two
+contours taken in opposite directions, which cancel. Thus, the above
+equation reduces to
 \begin{equation}
 \oint_\Gamma dz\; f(z) \,=\, \sum_n \oint_{z_n} dz\; f(z).
 \end{equation}
-This says that the loop contour integral over $\Gamma$ is equal to the
-sum of infinitesimal loop contour integrals encircling each point of
-non-analyticity. Moreover, each of these infinitesimal loops circles in
-the \emph{same} direction as the loop contour $\Gamma$ (e.g.,
-counter-clockwise in the above figure).
+The loop contour integral over $\Gamma$ is equal to the sum of
+infinitesimal loop contour integrals encircling each point of
+non-analyticity. Notably, each of the infinitesimal loops circles in the
+\emph{same} direction as $\Gamma$ (e.g., counter-clockwise in the
+above figure).
 
 Another way of thinking about this is that Cauchy's integral theorem
-says regions of analyticity ``don't count'' towards the value of a
-loop integral. Hence, we can ``shrink'' a loop down across any region
-of the complex plane where $f(z)$ is analytic, until the contour
-becomes as small as it can get. This replaces $\Gamma$ with a discrete
-set of infinitesimal loops enclosing the points of
-non-analyticity. Similarly, if $f(z)$ doesn't just have isolated
-points of non-analyticity but also possesses branch cuts, then the
-loop integral can be ``shrunk down'' into infinitesimal loops
-surrounding each branch cut.
+says regions of analyticity don't count towards the value of a loop
+integral. Hence, we can contract a loop across any domain in which
+$f(z)$ is analytic, until the contour becomes as small as possible.
+This contraction replaces $\Gamma$ with a discrete set of
+infinitesimal loops enclosing the points of non-analyticity.
 
-\subsection{Poles}\label{poles}
+\subsection{Poles}
+\label{poles}
 
-In the previous section, we referred to situations where $f(z)$
-becomes non-analytic at discrete points. ``Discrete'', in this context,
-means that each point is isolated from other points of non-analyticity.
-In other words, the point is surrounded by a domain in which $f(z)$ is
-analytic. The most common situation in which this occurs is with a
-function like
+In the previous section, we referred to situations where $f(z)$ is
+non-analytic at discrete points. ``Discrete'', in this context, means
+that each point of non-analyticity is surrounded by a finite region over
+which $f(z)$ is analytic, isolating it from other points of
+non-analyticity. Such situations commonly arise from functions of the
+form
 \begin{equation}
 f(z) \approx \frac{A}{(z-z_0)^n}, \quad \mathrm{where}\;\; n\in\{1,2,3,\dots\}.
 \end{equation}
@@ -356,7 +373,8 @@ For $z = z_0$, the function is non-analytic because its value is
 singular. Such a function is said to have a \textbf{pole} at $z_0$.
 The integer $n$ is called the \textbf{order} of the pole.
 
-\subsubsection{Residue of a simple pole}\label{residue-of-a-simple-pole}
+\subsubsection{Residue of a simple pole}
+\label{residue-of-a-simple-pole}
 
 Poles of order 1 are called \textbf{simple poles}, and they are of
 special interest. Near a simple pole, the function has the form
@@ -369,49 +387,70 @@ singular factor corresponding to the pole.) The residue of a function at
 a point $z_0$ is commonly denoted $\mathrm{Res}[f(z_0)]$. Note that
 if a function is analytic at $z_0$, then $\mathrm{Res}[f(z_0)] = 0$.
 
-\begin{framed} \noindent
-  \textit{Example}---The function \[f(z) = \frac{5}{i-3z}\] has a
-  simple pole at $z = i/3$.  The residue at that point is $-5/3$ (and
-  \emph{not} $5$, which is a common mistake). To extract the residue,
-  we need to separate out the pre-factor of $z$ in the denominator:
-  \begin{align}f(z) = \frac{5}{i-3z} &= \frac{-(5/3)}{z - i/3} \\ \Rightarrow\quad \mathrm{Res}\big[\,f(z)\,\big]_{z = -i/3} &= - 5/3.
-  \end{align}
+\begin{framed}\noindent
+  \textit{Example}---Consider the function
+  \begin{equation}
+    f(z) = \frac{5}{i-3z}.
+  \end{equation}
+  To find the pole and residue, divide the numerator and denominator
+  by $-3$:
+  \begin{equation}
+    f(z) = \frac{-5/3}{z-i/3}.
+  \end{equation}
+  Thus, there is a simple pole at $z = i/3$ with residue $-5/3$.
 \end{framed}
 
-\begin{framed} \noindent
-  \textit{Example}---The function \[f(z) = \frac{z}{z^2 + 1} =
-  \frac{z}{(z+i)(z-i)}\] has two simple poles, at $z = \pm
-  i$. Consider the pole at $z = i$. To calculate its residue, we
-  separate the divergent part from the rest of the expression:
-  \begin{align}f(z) &= \frac{\left(\frac{z}{z+i}\right)}{z-i} \\ \Rightarrow\quad \mathrm{Res}\big[\,f(z)\,\big]_{z=i} &= \left[\frac{z}{z+i}\right]_{z=i} = 1/2.\end{align}
+\begin{framed}\noindent
+  \textit{Example}---Consider the function
+  \begin{equation}
+    f(z) = \frac{z}{z^2 + 1}.
+  \end{equation}
+  To find the poles and residues, we factorize the denominator:
+  \begin{equation}
+    f(z) = \frac{z}{(z+i)(z-i)}.
+  \end{equation}
+  Hence, there are two simple poles, at $z = \pm i$.
+
+  To find the residue at $z = i$, we separate the divergent part to obtain
+  \begin{align}
+    f(z) &= \frac{\left(\frac{z}{z+i}\right)}{z-i} \\
+    \Rightarrow\quad \mathrm{Res}\big[\,f(z)\,\big]_{z=i} &= \left[\frac{z}{z+i}\right]_{z=i} = 1/2.
+  \end{align}
+  Similarly, for the other pole,
+  \begin{equation}
+    \mathrm{Res}\big[\,f(z)\,\big]_{z=-i} = \left[\frac{z}{z-i}\right]_{z=-i} = 1/2.
+  \end{equation}
 \end{framed}
 
 \subsubsection{The residue theorem}
 \label{the-residue-theorem}
 
-In Section~\ref{a-contour-integral-over-a-circular-arc}, we used the
-method of contour parameterization to calculate
+In Section~\ref{arc-contour}, we used contour parameterization to
+calculate
 \begin{equation}
 \oint_{\Gamma} \frac{dz}{z} = 2\pi i,
 \end{equation}
 where $\Gamma$ is a counter-clockwise circular loop centered on the
 origin. This holds for any (non-zero) loop radius. By combining this
-result with the implications of Cauchy's integral theorem discussed in
-Section~\ref{consequences-of-cauchys-integral-theorem}, we can deduce
+with the results of
+Section~\ref{consequences-of-cauchys-integral-theorem}, we can obtain
 the \textbf{residue theorem}:
 
-\begin{framed} \noindent
-For any analytic function $f(z)$ with a simple pole at $z_0$,
-\[\oint_{\Gamma[z_0]} dz \; f(z) = \pm 2\pi i \, \mathrm{Res}\big[\,f(z)\,\big]_{z = z_0},\]
-where $\Gamma[z_0]$ denotes an infinitesimal loop around $z_0$. The
-$+$ sign holds for a counter-clockwise loop, and the $-$ sign for a
-clockwise loop.
+\begin{framed}
+  \noindent
+  For any analytic function $f(z)$ with a simple pole at $z_0$,
+  \begin{equation}
+    \oint_{\Gamma[z_0]} dz \; f(z) = \pm 2\pi i \, \mathrm{Res}\big[\,f(z)\,\big]_{z = z_0},
+  \end{equation}
+  where $\Gamma[z_0]$ denotes an infinitesimal loop around $z_0$. The
+  $+$ sign holds for a counter-clockwise loop, and the $-$ sign for a
+  clockwise loop.
 \end{framed}
 
+\noindent
 By combining the residue theorem with the results of the last few
-sections, we arrive at a technique known as the \textbf{calculus of
-residues}, which prescribes the following method for integrating a
-function $f(z)$ over a loop $\Gamma$:
+sections, we arrive at a technique for integrating a function $f(z)$
+over a loop $\Gamma$, called the \textbf{calculus of residues}:
 
 \begin{enumerate}
 \item
@@ -423,16 +462,17 @@ function $f(z)$ over a loop $\Gamma$:
   Calculate the residue, $\mathrm{Res}[f(z_n)]$, at each pole $z_n$.
 \item
   The value of the loop integral is
-  \[\oint_\Gamma dz\; f(z) = \pm 2\pi i \sum_n \mathrm{Res}\big[\,f(z)\,\big]_{z = z_n}.\]The
+  \begin{equation}
+\oint_\Gamma dz\; f(z) = \pm 2\pi i \sum_n \mathrm{Res}\big[\,f(z)\,\big]_{z = z_n}.
+\end{equation}The
   plus sign holds if $\Gamma$ is counter-clockwise, and the minus sign
   if it is clockwise.
 \end{enumerate}
 
-\subsubsection{Example of a loop integral}
-\label{example-of-a-loop-integral}
+\subsubsection{Example of the calculus of residues}
+\label{residues-example}
 
-As a simple example of the calculus of residues in action, consider the
-function
+Consider
 \begin{equation}
 f(z) = \frac{1}{z^2 + 1}.
 \end{equation}
@@ -441,152 +481,166 @@ This can be re-written as
 f(z) = \frac{1}{(z + i)\,(z-i)}.
 \end{equation}
 By inspection, we can identify two poles: one at $+i$, with residue
-$1/2i$, and the other at $-i$, with residue $-1/2i$; these are the
-only two points where $f(z)$ is non-analytic. In the figure below,
-these poles are shown as orange dots.
-
-\begin{figure}[h]
-  \centering\includegraphics[width=0.33\textwidth]{contour_example1}
-\end{figure}
+$1/2i$, and the other at $-i$, with residue $-1/2i$. The function
+is analytic everywhere else.
 
 Suppose we integrate $f(z)$ around a counter-clockwise contour
-$\Gamma_1$ which encloses only the pole at $+i$. Then, according to
-the residue theorem, the result is
+$\Gamma_1$ that encloses only the pole at $+i$, as indicated by the
+blue curve in the figure below:
+
+\begin{figure}[ht]
+  \centering\includegraphics[width=0.47\textwidth]{contour_example1}
+\end{figure}
+
+\noindent
+According to the residue theorem, the result is
 \begin{align}
-  \oint_{\Gamma_1}dz \; f(z) &= 2\pi i\, \mathrm{Res}\big[\,f(z)\,\big]_{z = i} \\ &= 2\pi i \cdot \frac{1}{2i} \\& = \pi.
+  \oint_{\Gamma_1}dz \; f(z) &= 2\pi i\, \mathrm{Res}\big[\,f(z)\,\big]_{z = i} \\
+  &= 2\pi i \cdot \frac{1}{2i} \\& = \pi.
 \end{align}
 On the other hand, suppose we integrate around a contour $\Gamma_2$
-that encloses \emph{both} poles. Then the result is
+that encloses \emph{both} poles, as shown by the purple curve. Then
+the result is
 \begin{equation}
 \oint_{\Gamma_2}dz \; f(z) = 2\pi i \cdot \left[\frac{1}{2i} - \frac{1}{2i}\right] = 0.
 \end{equation}
-   
-\subsection{Using contours to solve integrals}
+
+\subsection{Using contour integration to solve definite integrals}
 \label{using-contours-to-solve-integrals}
 
-The calculus of residues allows us to employ contour integration as a
-mathematical ``technology'' for performing certain difficult definite
-integrals \emph{over the real domain}. The method is to convert the
-definite integral into a contour integral, and then solve the contour
-integral using the residue theorem.
+The calculus of residues allows us to employ contour integration for
+solving definite integrals \emph{over the real domain}. The trick is
+to convert the definite integral into a contour integral, and then
+solve the contour integral using the residue theorem.
 
 As an example, consider the definite integral
 \begin{equation}
 \int_{-\infty}^\infty \frac{dx}{x^2 + 1}.
 \end{equation}
-This integral is taken over real values of $x$, and can be solved
-using a change of variables (see Chapter 2). Now let's solve it using
-contour integration. The first step is to generalize the integrand
-from a function of $x$ to an analytic function of $z$. This procedure
-is called \textbf{analytic continuation}. Usually, we choose the new
-(complex) integrand so that it reduces to the old integrand for $z \in
-\mathbb{R}$, and is analytic over a broad domain. In this specific
-example, we let
+This integral is taken over real values of $x$, and in Chapter 2 we
+solved it using a change of variables. Now let's see how to solve it
+using contour integration.
+
+First, generalize the integrand from a function of $x$ to an analytic
+function of $z$. (This procedure is called \textbf{analytic
+  continuation}.) Usually, we choose the new (complex) integrand so
+that it reduces to the old integrand for $z \in \mathbb{R}$, and is
+analytic over a broad domain. In this case, let
 \begin{equation}
-\frac{1}{x^2 + 1} \rightarrow \frac{1}{z^2 + 1},
+\frac{1}{x^2 + 1} \rightarrow \frac{1}{z^2 + 1}.
 \end{equation}
-which is the integrand we just dealt with in
-Section~\ref{example-of-a-loop-integral}. Hence, we will be interested
-in the contour integral
-\begin{equation}
-\int \frac{dz}{z^2 + 1}.
-\end{equation}
-We now have to determine the contour to take this integral over. The
-usual procedure is to define a closed (loop) contour, such that one
-segment of the loop is the real line (from $-\infty$ to $+\infty$),
-and the other segment of the loop ``doubles back'' in the complex plane
-to close the loop. This is called \textbf{closing the contour}.
+This is just the integrand we dealt with in
+Section~\ref{residues-example}.
+
+We now have to choose the contour. The usual procedure is to define a
+closed (loop) contour, such that one segment of the loop is the real
+line (from $-\infty$ to $+\infty$), and the other segment of the loop
+``doubles back'' in the complex plane to close the loop. This is
+called \textbf{closing the contour}.
 
 Here, we choose to close the contour along an anticlockwise semicircular
-arc in the upper half of the complex plane, as shown in the figure
-below:
+arc in the upper half of the complex plane, as shown below:
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.35\textwidth]{contour_example2}
+\begin{figure}[ht]
+  \centering\includegraphics[width=0.47\textwidth]{closing_contour}
 \end{figure}
 
 The resulting loop contour encloses the pole at $z = +i$, so
 \begin{equation}
 \oint \frac{dz}{z^2+1} = 2\pi i \; \mathrm{Res}\left[\frac{1}{z^2 + 1}\right]_{z = +i} = \pi.
 \end{equation}
-(Note that the loop is counterclockwise, so we take the positive sign
-for the residue theorem.) On the other hand, the loop integral can be
-written as a sum of two integrals:
+Note that the loop is counterclockwise, so we take the positive sign for
+the residue theorem. The loop integral can also be written as a sum of
+two integrals:
 \begin{equation}
 \oint \frac{dz}{z^2 + 1} = \int_{-\infty}^\infty \frac{dx}{x^2 + 1} \;+\; \int_{\mathrm{arc}} \frac{dz}{z^2 + 1}.
 \end{equation}
 The first term is the integral we're interested in. The second term,
 the contour integral along the arc, goes to zero. To see why, observe
-that along an arc of radius $R$, the magnitude of the integrand is
-approximately $1/R^{2}$, while the $dz$ gives another factor of
-$R$. Hence, the integral over the arc goes as $1/R$, which vanishes as
-$R \rightarrow \infty$.
+that along an arc of radius $R$, the magnitude of the integrand goes
+as $1/R^{2}$, while the $dz$ gives another factor of $R$ (see Section
+\ref{arc-contour}), so the overall integral goes as $1/R$, which
+vanishes as $R \rightarrow \infty$.
 
 We thus obtain the result
 \begin{equation}
-\int_{-\infty}^\infty \frac{dx}{x^2 + 1} = \pi
+\int_{-\infty}^\infty \frac{dx}{x^2 + 1} = \pi.
 \end{equation}
-As an exercise, you should show for yourself that we could also have
-closed the contour in the lower half-plane, and that this leads to
-exactly the same result.
+As an exercise, you can verify that closing the contour in the lower
+half-plane leads to exactly the same result.
 
-\subsubsection{Jordan's lemma}\label{jordans-lemma}
+\subsubsection{Jordan's lemma}
+\label{jordans-lemma}
 
-Before moving on to a more complicated example of contour integration,
-we need to discuss an important result, called \textbf{Jordan's
-  lemma}:
+Before proceeding to more complicated uses of contour integration, we
+must discuss an important result called \textbf{Jordan's lemma}:
 
-\begin{framed} \noindent
-  Let $I = \int_C dz \; e^{iqz} \,g(z)$, where $q$ is any positive
-  real constant, and the contour $C$ which is a semi-circular arc of
-  radius $R$ in the upper half-plane, centered at the origin.  Then
-  \begin{equation}
-    \text{If}\;\; \big|\,g(z)\,\big| < g_{\mathrm{max}} \;\;\;\text{for all}\;\;z \in C \;\;\;\Rightarrow \;\;\; I \rightarrow 0 \;\;\mathrm{as}\;\; g_{\mathrm{max}} \rightarrow 0.
-  \end{equation}
+\begin{framed}
+\noindent
+Let
+\begin{equation}
+  I = \int_C dz \; e^{iqz} \,g(z),
+\end{equation}
+where $q$ is any positive real constant, and the contour $C$ which is
+a semi-circular arc of radius $R$ in the upper half-plane, centered at
+the origin. Then
+\begin{equation}
+\text{If}\;\; \big|\,g(z)\,\big| < g_{\mathrm{max}} \;\;\;\text{for all}\;\;z \in C \;\;\;\Rightarrow \;\;\; I \rightarrow 0 \;\;\mathrm{as}\;\; g_{\mathrm{max}} \rightarrow 0.
+\end{equation}
 \end{framed}
 
 In other words, if the factor of $g(z)$ in the integrand does not blow
 up along the arc contour (i.e., its value is bounded), then in the
 limit where the bounding value goes to zero, the value of the entire
-integral vanishes. Usually, the limiting case of interest is when $R$,
-the radius of the arc contour, goes to infinity. In this situation,
-the fact that $I$ vanishes is not an obvious result, since we're
-integrating along an arc of infinite circumference. Jordan's lemma is
-useful because it tells us that when the above preconditions are
-satisfied, the integrand vanishes faster than the arc length goes to
-infinity, so that the overall value of the integral goes to zero.
+integral vanishes.
 
-The proof for Jordan's lemma is straightforward but tedious, and we
-will not go into its details (see
-\href{http://en.wikipedia.org/wiki/Jordan\%27s_lemma}{the Wikipedia
-  page} if you're interested).
+Usually, the limiting case of interest is when the radius of the arc
+goes to infinity. Even if the integrand vanishes in that limit, it may
+not be obvious that the integral $I$ vanishes, because the integration
+is taken along an arc of infinite length (so we have a $0\times\infty$
+sort of situation). Jordan's lemma then proves useful, as it provides
+a set of criteria that can let us instantly conclude that $I$ should
+vanish.
+
+The proof for Jordan's lemma is tedious, and we will not go into its
+details.
 
 For integrands containing a prefactor of $e^{-iqz}$ rather than
 $e^{iqz}$ (again, where $q \in \mathbb{R}^+$), a different version of
-Jordan's lemma holds, which refers to an arc contour $C'$ in the
-\emph{lower} half-plane:
+Jordan's lemma holds, referring to a contour $C'$ in the \emph{lower}
+half-plane:
 
-\begin{framed} \noindent
-Let $I = \int_C dz \; e^{-iqz} \,g(z)$, where $q$ is any positive real
-constant, and the contour $C$ which is a semi-circular arc of radius
-$R$ in the lower half-plane, centered at the origin.  Then
+\begin{framed}
+\noindent
+Let
 \begin{equation}
-  \text{If}\;\; \big|\,g(z)\,\big| < g_{\mathrm{max}} \;\;\;\text{for all}\;\;z \in C \;\;\;\Rightarrow \;\;\; I \rightarrow 0 \;\;\mathrm{as}\;\; g_{\mathrm{max}} \rightarrow 0.
+I = \int_C dz \; e^{-iqz} \,g(z),
+\end{equation}
+where $q$ is any positive real constant, and the contour $C$ which is
+a semi-circular arc of radius $R$ in the lower half-plane, centered at
+the origin. Then
+\begin{equation}
+\text{If}\;\; \big|\,g(z)\,\big| < g_{\mathrm{max}} \;\;\;\text{for all}\;\;z \in C \;\;\;\Rightarrow \;\;\; I \rightarrow 0 \;\;\mathrm{as}\;\; g_{\mathrm{max}} \rightarrow 0.
 \end{equation}
 \end{framed}
 
+\noindent
 This is easily seen by doing the change of variable $z \rightarrow -z$
-on the original form of Jordan's lemma. A convenient mnemonic for the
-two variants of Jordan's lemma is to look at what happens along the
-imaginary axis, at $\pm i\infty$:
+on the original form of Jordan's lemma.
+
+As a convenient way to remember which variant of Jordan's lemma to
+use, think about which end of imaginary axis causes the exponential
+factor to vanish:
 \begin{align*}
-\begin{aligned} e^{iqz}\big|_{z = i\infty}\;\; = e^{-\infty} = 0\quad &\Rightarrow \;\; e^{ikz} \;\;\;\,\text{vanishes deep in upper half-plane}. \\ e^{-iqz}\big|_{z = -i\infty} = e^{-\infty} = 0\quad &\Rightarrow \;\; e^{-ikz} \;\;\textrm{vanishes deep in lower half-plane}.\end{aligned}
+  e^{iqz}\big|_{z = i\infty}\;\; = e^{-\infty} = 0\quad &
+  \Rightarrow \;\; e^{iqz} \;\;\;\,\text{vanishes far above the origin}. \\
+  e^{-iqz}\big|_{z = -i\infty} = e^{-\infty} = 0\quad &
+  \Rightarrow \;\; e^{-iqz} \;\;\textrm{vanishes far below the origin}.
 \end{align*}
-Jordan's lemma kicks in when the exponential prefactor in the integrand
-helps to suppress the value of the integral. For a $e^{iqz}$
-prefactor, this suppression happens along an upper-half-plane arc; for a
-$e^{-iqz}$ prefactor, this suppression happens along a
-lower-half-plane arc.
+Hence, for $e^{iqz}$ (where $q$ is any positive real number), the
+suppression occurs in the upper-half-plane. For $e^{-iqz}$, the
+suppression occurs in the lower-half-plane.
+
 
 \subsubsection{A contour integral using Jordan's lemma}
 \label{a-contour-integral-using-jordans-lemma}
@@ -601,156 +655,171 @@ separately. Another approach, which saves a bit of effort, is to write
 \begin{equation}
 I = \mathrm{Re} \; \int_{-\infty}^\infty dx\; \frac{e^{ix}}{4x^2 + 1}.
 \end{equation}
-To do the integral, we close the contour in the upper half-plane, as
-shown in the figure below.  Thus,
-\begin{equation}
-  \oint dz \; \frac{e^{iz}}{4z^2 + 1} = \int_{-\infty}^\infty dx\; \frac{e^{ix}}{4x^2 + 1} + \int_{\mathrm{arc}} dz \; \frac{e^{iz}}{4z^2 + 1}.
-  \label{contourparts}
-\end{equation}
+To do the integral, close the contour in the upper half-plane:
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.31\textwidth]{contour_example3}
+\begin{figure}[ht]
+  \centering\includegraphics[width=0.47\textwidth]{contour_example3}
 \end{figure}
 
-On the right-hand side of Eq.~\eqref{contourparts}, the first term is
-what we want. The second term is a counter-clockwise arc in the upper
-half-plane. According to Jordan's lemma, this term vanishes as the arc
-radius goes to infinity, since the rest of the integrand goes to zero
-for large $|z|$:
+\noindent
+Then
+\begin{equation}
+\oint dz \; \frac{e^{iz}}{4z^2 + 1} = \int_{-\infty}^\infty dx\; \frac{e^{ix}}{4x^2 + 1} + \int_{\mathrm{arc}} dz \; \frac{e^{iz}}{4z^2 + 1}.
+\end{equation}
+On the right-hand side, the first term is what we want. The second
+term is a counter-clockwise arc in the upper half-plane. According to
+Jordan's Lemma, this term goes to zero as the arc radius goes to
+infinity, since the rest of the integrand goes to zero for large
+$|z|$:
 \begin{equation}
 \left|\frac{1}{4z^2 + 1}\right| \sim \frac{1}{4|z|^2} \rightarrow 0 \quad \mathrm{as} \;|z| \rightarrow \infty.
 \end{equation}
-As for the loop contour, it can be evaluated using the residue theorem
-(Section~\ref{the-residue-theorem}):
+As for the loop contour, it can be evaluated using the residue
+theorem:
 \begin{align}
   \oint dz \; \frac{e^{iz}}{4z^2 + 1}
-  &= \mathrm{Res}\left[\frac{e^{iz}}{4z^2 + 1}\right]_{\mathrm{enclosed}\;\mathrm{poles}}\\ &= 2\pi i \; \mathrm{Res}\left[\frac{1}{4}\, \frac{e^{iz}}{(z+i/2)(z-i/2)}\right]_{z = i/2} \\ &= 2\pi i \; \frac{e^{-1/2}}{4i}.
+  &= \mathrm{Res}\left[\frac{e^{iz}}{4z^2 + 1}\right]_{\mathrm{enclosed}\;\mathrm{poles}}\\
+  &= 2\pi i \; \mathrm{Res}\left[\frac{1}{4}\, \frac{e^{iz}}{(z+i/2)(z-i/2)}\right]_{z = i/2} \\
+  &= 2\pi i \; \frac{e^{-1/2}}{4i}.
 \end{align}
 Hence,
 \begin{equation}
 I = \mathrm{Re}\;\left[\frac{\pi}{2\sqrt{e}}\right]= \frac{\pi}{2\sqrt{e}}.
 \end{equation}
-In solving the integral this way, we chose to close the contour in the
-upper half-plane because our choice of complex integrand was bounded in
-the upper half-plane. However, there is more than one way to write the
-complex integrand. We could equally well have chosen to write
+In solving the integral this way, we must close the contour in the upper
+half-plane because our choice of complex integrand was bounded in the
+upper half-plane. Alternatively, we could have chosen to write
 \begin{equation}
 I = \mathrm{Re} \; \int_{-\infty}^\infty dx\; \frac{e^{-ix}}{4x^2 + 1},
 \end{equation}
-i.e., putting $e^{-ix}$ rather than $e^{ix}$ in the numerator. In
-that case, Jordan's lemma tells us to close the contour in the lower
+i.e., with $e^{-ix}$ rather than $e^{ix}$ in the numerator. In that
+case, Jordan's lemma tells us to close the contour in the lower
 half-plane. The arc in the lower half-plane vanishes, as before, while
-the loop contour is clockwise (which contributes an extra minus sign),
-and encloses the lower pole:
+the loop contour is clockwise (contributing an extra minus sign) and
+encloses the lower pole:
 \begin{align}
-  \oint dz \frac{e^{-iz}}{4z^2 + 1} &= -2\pi i \, \mathrm{Res}\left[ \frac{e^{-iz}}{4z^2 + 1} \right]_{z = -i/2} \\ &= - 2\pi i \frac{e^{-1/2}}{-4i} \\ &= \frac{\pi}{2\sqrt{e}}.
+  \oint dz \frac{e^{-iz}}{4z^2 + 1}
+  &= -2\pi i \, \mathrm{Res}\left[ \frac{e^{-iz}}{4z^2 + 1} \right]_{z = -i/2} \\
+  &= - 2\pi i \frac{e^{-1/2}}{-4i} \\
+  &= \frac{\pi}{2\sqrt{e}}.
 \end{align}
-Taking the real part of this, we obtain exactly the same result as
-before.
+Taking the real part, we obtain the same result as before.
 
 \subsubsection{Principal-value integrals}
 \label{principal-value-integrals}
 
-Sometimes, we come across integrals where there are poles lying on the
-integration contour. As an example, consider
+Sometimes, we come across integrals that have poles lying on the
+desired integration contour.
+
+As an example, consider
 \begin{equation}
 I = \int_{-\infty}^\infty dx\; \frac{\sin(x)}{x}.
 \end{equation}
 Because of the series expansion of the sine function, the integrand
 does not diverge at $x = 0$, and the integral is in fact
-convergent. The integral can be solved without using complex numbers,
-via the arcane trick of differentiating under the integral sign (see
-Chapter 2). As we'll now see, it's much more straightforward to solve
-it by using contour integration.
+convergent. The integral can be solved without using complex numbers
+by using the arcane trick of differentiating under the integral sign
+(see Section 2.6). But it can also be solved straightforwardly via
+contour integration, with just a few extra steps.
 
 We start by writing
 \begin{equation}
 I = \mathrm{Im}(I'), \quad \mathrm{where}\;\;\; I' = \int_{-\infty}^\infty dx\; \frac{e^{ix}}{x}.
 \end{equation}
-Our goal is to calculate $I'$ using contour integral techniques. But
-there's something strange about $I'$: its complex integrand has a pole
-at $z = 0$, right on the contour! To handle it, we need to tweak the
-definition of $I'$ so that it is the sum of two integrals, where one
-goes over $-\infty < x < -\epsilon$ (where $\epsilon$ is some
-positive infinitesimal), and the other goes over
-$\epsilon < x < \infty$:
+We want to calculate $I'$ with the help of contour integration. But
+there's something strange about $I'$: the complex integrand has a pole
+at $z = 0$, right on the real line!
+
+To handle this, we split $I'$ into two integrals, one going over
+$-\infty < x < -\epsilon$ (where $\epsilon$ is some positive
+infinitesimal), and the other over $\epsilon < x < \infty$:
 \begin{align}
-  I' &= \lim_{\epsilon \rightarrow 0} \left[ \int_{-\infty}^{-\epsilon} dx\; \frac{e^{ix}}{x} + \int_{\epsilon}^\infty dx\; \frac{e^{ix}}{x}\right] \\ &\equiv \mathcal{P} \int_{-\infty}^\infty dx\; \frac{e^{ix}}{x}.
+  I' &= \lim_{\epsilon \rightarrow 0} \left[ \int_{-\infty}^{-\epsilon} dx\; \frac{e^{ix}}{x} + \int_{\epsilon}^\infty dx\; \frac{e^{ix}}{x}\right] \\
+  &\equiv \mathcal{P} \int_{-\infty}^\infty dx\; \frac{e^{ix}}{x}.
 \end{align}
 In the last line, the notation $\mathcal{P}[\cdots]$ is short-hand for
-this procedure of ``chopping away'' an infinitesimal contour segment
-surrounding the pole. This is called ``taking the \textbf{principal
-  value}'' of the integral. (Note: even though this bears the same
-name as the ``principal values'' for multi-valued complex operations,
-there is no conceptual connection, so don't get confused.)
+this procedure of ``chopping away'' an infinitesimal segment
+surrounding the pole. This is called taking the \textbf{principal
+  value} of the integral.
 
-Now, we can evaluate $I'$ via the loop contour shown in the figure
-below:
+(Note: even though this bears the same name as the ``principal
+values'' for multi-valued complex operations discussed in Chapter 7,
+there is no connection between the two concepts.)
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.99\textwidth]{contour_example4}
+Now we can evaluate $I'$ via the loop contour shown in the figure
+below. The loop follows the principal-value contour along the real
+axis, skips over the pole at $z = 0$ and arcs back along the upper
+half-plane. Because it encloses no poles, the loop integral vanishes
+by Cauchy's integral theorem.  The loop can be decomposed into several
+pieces: (i) the segments along the real axis, which correspond to the
+principal-value contour, (ii) the large counter-clockwise
+semi-circular arc, and (iii) the infinitesimal clockwise semi-circular
+arc that skips around $z = 0$.
+
+\begin{figure}[ht]
+  \centering\includegraphics[width=0.47\textwidth]{principal_value_integral}
 \end{figure}
 
-The loop follows the principal-value contour along the real axis,
-skipping over the pole at $z = 0$ and arcing back along the upper
-half-plane. Because it encloses no poles, the loop integral vanishes
-by Cauchy's theorem (Section~\ref{cauchys-integral-theorem}).
-
-Moreover, the loop can be decomposed into several pieces: (i) the
-segments along the real axis, which correspond to the principal-value
-contour, (ii) the large counter-clockwise semi-circular arc, and (iii)
-the infinitesimal clockwise semi-circular arc that skips around $z =
-0$.
-
-The large arc vanishes by Jordan's lemma. Thus, we only need to find
+The large arc (ii) vanishes by Jordan's Lemma. Thus, we only need to find
 piece (iii), the infinitesimal semi-circular arc skipping over the
 pole. This can be done by parameterization:
 \begin{align}
-  \int_{(\mathrm{small}\,\mathrm{arc})} \frac{e^{iz}}{z} &= \lim_{\epsilon \rightarrow 0} \int_{\pi}^{0} \frac{e^{i\epsilon \exp(i\theta)}}{\epsilon e^{i\theta}} \left(i\epsilon e^{i\theta}\right) d\theta \\ &= \lim_{\epsilon \rightarrow 0} i \int_{\pi}^0 d\theta \\ &= - i\pi.
+  \int_{(\mathrm{small}\,\mathrm{arc})} \frac{e^{iz}}{z}
+  &= \lim_{\epsilon \rightarrow 0} \int_{\pi}^{0} \frac{e^{i\epsilon \exp(i\theta)}}{\epsilon e^{i\theta}} \left(i\epsilon e^{i\theta}\right) d\theta \\
+  &= \lim_{\epsilon \rightarrow 0} i \int_{\pi}^0 d\theta \\
+  &= - i\pi.
 \end{align}
-(This is basically the same integral we worked out in
-Section~\ref{a-contour-integral-over-a-circular-arc}.)  Intuitively,
-since encircling a pole anticlockwise gives a factor of $2\pi i$ times
-the residue (which is 1 in this case), a semi-circular clockwise arc
-should give a factor of $- i \pi$.
-
-Finally, putting everything together,
+Intutively, since encircling a pole anticlockwise gives a factor of
+$2\pi i$ times the residue (which is 1 in this case), a clockwise
+semi-circle is associated with a factor of $- i \pi$. Finally, putting
+everything together,
 \begin{equation}
 0 = I' - i \pi + 0 \quad \Rightarrow \;\; I' = i \pi \quad\Rightarrow \;\; I = \mathrm{Im}(I') = \pi.
 \end{equation}
 This agrees with the result obtained by the method of differentiating
-under the integral sign from Chapter 2.
+under the integral sign from Section 2.6.
 
 Alternatively, we could have chosen the loop contour so that it skips
 \emph{below} the pole at $z = 0$. In that case, the loop integral
 would be non-zero, and can be evaluated using the residue theorem. The
-final outcome is the same.
+final result is the same.
 
-\subsection{Exercises}\label{exercises}
+\subsection{Exercises}
+\label{exercises}
 
 \begin{enumerate}
 \item
-Is the concept of a contour integral well-defined if the integrand
-$f(z)$ is non-differentiable along the contour? Why or why not?
+  Is the concept of a contour integral well-defined if the integrand
+  $f(z)$ is non-differentiable along the contour? Why or why not?
 
 \item
-  Re-do the solution from
-  Section~\ref{using-contours-to-solve-integrals} for the integral
-\begin{equation*}
-  \int_{-\infty}^\infty \frac{dx}{x^2 + 1}.  
-\end{equation*}
-This time, close the contour in the lower half-plane, and show that
-the result is the same.
-
-\item Calculate $\displaystyle \int_{-\infty}^\infty dx\; \frac{1}{x^4 + 1}$.
-
-\item Calculate
-$\displaystyle \int_{-\infty}^\infty dx\; \left[\frac{\sin(x)}{x}\right]^2$.
+  In Section~\ref{using-contours-to-solve-integrals}, we dealt with
+  the integral
+  \begin{equation}
+    \int_{-\infty}^\infty \frac{dx}{x^2 + 1}.
+  \end{equation}
+  Redo this calculation, but this time close the contour in the lower
+  half-plane.  Show that the result is the same.
 
 \item
   Calculate
-$\displaystyle\int_0^\infty dx \frac{x^{\lambda}}{x+1}, \;\;\mathrm{where}\; -1 < \lambda < 0$. \\
-Hint: place the integrand's branch cut along the positive real axis.
+  \begin{equation}
+    \int_{-\infty}^\infty dx\; \frac{1}{x^4 + 1}.
+  \end{equation}
 
+\item
+  Calculate
+  \begin{equation}
+    \int_{-\infty}^\infty dx\; \left[\frac{\sin(x)}{x}\right]^2.
+  \end{equation}
+
+\item
+  Calculate
+  \begin{equation}
+    \int_0^\infty dx \frac{x^{\lambda}}{x+1}, \;\;\mathrm{where}\; -1 < \lambda < 0.
+  \end{equation}
+  Hint: place the integrand's branch cut along the positive real axis.
 \end{enumerate}
+
+
 \end{document}
