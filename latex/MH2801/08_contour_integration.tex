@@ -746,25 +746,34 @@ surrounding the pole. This is called taking the \textbf{principal
 values'' for multi-valued complex operations discussed in Chapter 7,
 there is no connection between the two concepts.)
 
-Now we can evaluate $I'$ via the loop contour shown in the figure
-below. The loop follows the principal-value contour along the real
-axis, skips over the pole at $z = 0$ and arcs back along the upper
-half-plane. Because it encloses no poles, the loop integral vanishes
-by Cauchy's integral theorem.  The loop can be decomposed into several
-pieces: (i) the segments along the real axis, which correspond to the
-principal-value contour, (ii) the large counter-clockwise
-semi-circular arc, and (iii) the infinitesimal clockwise semi-circular
-arc that skips around $z = 0$.
+Now consider the loop contour shown in the figure below. The loop
+follows the principal-value contour along the real axis, skips over
+the pole at $z = 0$ and arcs back along the upper half-plane.  Since
+it encloses no poles, the loop integral vanishes by Cauchy's integral
+theorem.  However, the loop can also be decomposed into several
+sub-contours:
 
 \begin{figure}[ht]
   \centering\includegraphics[width=0.47\textwidth]{principal_value_integral}
 \end{figure}
 
-The large arc (ii) vanishes by Jordan's lemma. Thus, we only need to find
-piece (iii), the infinitesimal semi-circular arc skipping over the
-pole. This can be done by parameterization:
+\begin{enumerate}
+\item
+  $\Gamma_1$, consisting of the segments along the real axis.
+
+\item
+  $\Gamma_2$, the large counter-clockwise semi-circular arc.
+
+\item
+  $\Gamma_3$, the infinitesimal clockwise semi-circular arc that skips around $z = 0$.
+\end{enumerate}
+
+The integral over $\Gamma_1$ is the principal-value integral we are
+interested in.  The integral over $\Gamma_2$ vanishes by Jordan's
+lemma. The integral over $\Gamma_3$ can be calculated by
+parameterization:
 \begin{align}
-  \int_{(\mathrm{small}\,\mathrm{arc})} \frac{e^{iz}}{z}
+  \int_{\Gamma_3} \frac{e^{iz}}{z}
   &= \lim_{\epsilon \rightarrow 0} \int_{\pi}^{0} \frac{e^{i\epsilon \exp(i\theta)}}{\epsilon e^{i\theta}} \left(i\epsilon e^{i\theta}\right) d\theta \\
   &= \lim_{\epsilon \rightarrow 0} i \int_{\pi}^0 d\theta \\
   &= - i\pi.
@@ -774,7 +783,14 @@ $2\pi i$ times the residue (which is 1 in this case), a clockwise
 semi-circle is associated with a factor of $- i \pi$. Finally, putting
 everything together,
 \begin{equation}
-0 = I' - i \pi + 0 \quad \Rightarrow \;\; I' = i \pi \quad\Rightarrow \;\; I = \mathrm{Im}(I') = \pi.
+  \underbrace{\int_{\Gamma_1 + \Gamma_2 + \Gamma_3} f(z) dz}_{ =~0~(\text{Cauchy's integral theorem})}
+  = \underbrace{\int_{\Gamma_1} f(z) dz}_{=~I'}
+  + \underbrace{\int_{\Gamma_2} f(z) dz}_{=~0~(\text{Jordan's lemma})}
+  + \underbrace{\int_{\Gamma_3} f(z) dz.}_{=~-i \pi}
+\end{equation}
+Hence,
+\begin{equation}
+  I = \mathrm{Im}(I') = \mathrm{Im}(i\pi) = \pi.
 \end{equation}
 This agrees with the result obtained by the method of differentiating
 under the integral sign from Section 2.6.
