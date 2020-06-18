@@ -32,7 +32,7 @@
 
 \setcounter{page}{86}
 
-\section{Green's functions}
+\section{Green's Functions}
 \label{greens-functions}
 
 A \textbf{Green's function} is a solution to an inhomogenous
@@ -543,28 +543,22 @@ quantum mechanical operators.
 \begin{enumerate}
 \item
   Find the time-domain Green's function of the critically-damped
-  harmonic oscillator, for which $\gamma = \omega_0$.
+  harmonic oscillator ($\gamma = \omega_0$).
 \item
   Consider an overdamped harmonic oscillator ($\gamma > \omega_0$)
   subjected to a \emph{random} driving force $f(t)$, which fluctuates
   between random values, which can be either positive or negative, at
   each time $t$. The random force satisfies
   \begin{equation}
-    \left\langle f(t)\right\rangle = 0 \quad\mathrm{and}\;\;\;\left\langle f(t) f(t')\right\rangle = A \delta(t-t'),
+    \left\langle f(t)\right\rangle = 0 \quad\mathrm{and}\;\;\;\left\langle f(t) f(t')\right\rangle = A \, \delta(t-t'),
   \end{equation}
   where $\left\langle\cdots\right\rangle$ denotes an average taken
-  over many realizations of the random force and $A$ is some constant
-  which characterizes the overall magnitude of the random force. Using
-  the causal Green's function, compute the ``correlation function''
-  $\left\langle x(t_1)\, x(t_2) \right\rangle$. Hence, show that for
-  small time displacements $\Delta t$, the motion obeys
-  \begin{equation}
-    \left\langle [x(t+\Delta t) - x(t)]^2 \right\rangle \propto D \Delta t.
-  \end{equation}
-  Compute the ``diffusion constant'' $D$. This result is called the
-  \textbf{fluctuation-dissipation theorem}, which relates the strength
-  of the fluctuations in a mechanical motion to the ``diffusiveness''
-  of its motion.
+  over many realizations of the random force and $A$ is some constant.
+  Using the causal Green's function, find the correlation function
+  $\left\langle x(t_1)\, x(t_2) \right\rangle$ and the mean squared
+  deviation $\left\langle [x(t+\Delta t) - x(t)]^2 \right\rangle.$
+  \vskip -0.05in
+  \hfill{\scriptsize [solution~available]}
 \end{enumerate}
 
 \end{document}
