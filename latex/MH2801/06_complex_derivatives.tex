@@ -237,39 +237,38 @@ special operations until Chapter 7.
 
 The \textbf{Cauchy-Riemann equations} are a pair of real partial
 differential equations that provide an alternative way to understand
-complex derivatives. Their importance comes from the following
-theorem:
+complex derivatives. Their importance comes from the following two
+theorems.
+
 \begin{framed}
 \noindent
-Let $f$ be a complex function that can be written as the sum of real
-and imaginary parts, 
+Let $f$ be a complex function that can be written as $f(z = x + iy) =
+u(x,y) + i v(x,y)$, where $u(x,y)$ and $v(x,y)$ are real functions of
+two real inputs. If $f$ is complex-differentiable at a given $z = x +
+i y$, then $u(x,y)$ and $v(x,y)$ have valid first-order partial
+derivatives (i.e., they are real-differentiable in both the $x$ and
+$y$ directions), and these derivatives satisfy
 \begin{equation}
-  f(z = x + iy) \;=\; u(x,y) + i v(x,y),
-\end{equation} where
-$u(x,y)$ and $v(x,y)$ are real functions of two real inputs. Then
-$f$ is complex-differentiable at a given $z$ if and only if the
-following equations are both well-defined and true:
-\begin{align}
-  \frac{\partial u}{\partial x} &= \;\;\, \frac{\partial v}{\partial y}
-  \label{cr1} \\
-  \frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}.
-  \label{cr2}
-\end{align}
+  \left\{\begin{aligned} \frac{\partial u}{\partial x} &= \;\;\, \frac{\partial v}{\partial y} \\ \frac{\partial u}{\partial y} &= -\frac{\partial v}{\partial x}.\end{aligned}\right. \;\;\;(\text{Cauchy-Riemann equations})
+  \label{cr}
+\end{equation}
 \end{framed}
 
+Conversely,
+
+\begin{framed}
 \noindent
-Eqs.~\eqref{cr1}--\eqref{cr2} are the Cauchy-Riemann
-equations. ``Well-defined'', in the context of this theorem, means
-that the functions $u(x,y)$ and $v(x,y)$ must have valid partial
-derivatives, i.e.~they must be differentiable (in the real sense) at
-that point in both the $x$ and $y$ directions.
+Let $u(x,y)$ and $v(x,y)$ be real functions whose first-order partial
+derivatives exist and are continuous at $(x,y)$, and satisfy the
+Cauchy-Riemann equations. Then the function $f(z = x+iy) = u(x,y) +
+iv(x,y)$ is complex-differentiable at $z = x + i y$.
+\end{framed}
 
 \subsubsection{Proof}\label{proof}
 
-We will now prove the first part of the above ``if and only if''
-statement, which states that $f$ being complex-differentiable implies
-Eqs.~\eqref{cr1}--\eqref{cr2}. The proof of the converse is left as an
-exercise.
+We will now prove the theorem, which states that $f$ being
+complex-differentiable implies the Cauchy-Riemann equations. The proof
+of the converse is left as an exercise.
 
 Suppose the function $f$ is complex-differentiable at some point
 $z$. Following from the definition of complex differentiability, there
