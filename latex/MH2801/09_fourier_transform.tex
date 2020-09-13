@@ -216,7 +216,7 @@ get an approximation to $f(x)$. As shown in the figure below, the
 approximation becomes better and better as more terms are included.
 
 \begin{center}
-  \includegraphics[width=0.65\textwidth]{square_fourier}
+  \includegraphics[width=0.6\textwidth]{square_fourier}
 \end{center}
 
 One amusing consequence of the above result is that we can use it to
@@ -358,7 +358,7 @@ spectrum} of $f(x)$. In this case,
 \end{equation}
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.7\textwidth]{fourier_example1}
+  \centering\includegraphics[width=0.69\textwidth]{fourier_example1}
 \end{figure}
 
 The Fourier spectrum is shown in the right subplot above. It consists
@@ -622,9 +622,11 @@ $x$. We complete the square:
   \exp\left\{-\gamma\left(x + \frac{i(k-q)}{2\gamma}\right)^2 + \gamma\left(\frac{i(k-q)}{2\gamma}\right)^2\right\} \\
   &= \exp\left\{ - \frac{(k-q)^2}{4\gamma}\right\}\; \int_{-\infty}^\infty dx \, \exp\left\{-\gamma\left(x + \frac{i(k-q)}{2\gamma}\right)^2\right\}.
 \end{align}
-The remaining integral is simply the Gaussian integral, with a
-constant shift in $x$ which can be eliminated by a change of
-variables. This yields the result stated above.
+The remaining integral is the Gaussian integral with a constant
+imaginary shift in $x$. By shifting the integration variable, one can
+show that this is equal the standard Gaussian integral,
+$\sqrt{\pi/\gamma}$; the details are left as an exercise.  We thus
+arrive at the result stated above.
 
 The Fourier spectrum, $|F(k)|^2$, is a Gaussian function with standard
 deviation
@@ -848,6 +850,29 @@ to the one-dimensional delta function. For any $f(x_1,\dots,x_d)$,
   where $a$ is a real number.
   \hfill{\scriptsize [solution~available]}
   
+\item
+  Consider the integral $$I = \int_{-\infty}^\infty e^{-\gamma\left(x
+    + i\lambda\right)^2} \; dx,$$ where $\gamma \in \mathbb{R}^+$ and
+  $\lambda \in \mathbb{R}.$ (This is the Gaussian integral with an
+  imaginary displacement in the integration variable, which we
+  encountered while discussing Gaussian wave-packets
+  (Section~\ref{gaussian-wave-packets}).  To solve this integral,
+  consult the contour shown in the figure below (for the case $\lambda
+  > 0$):
+
+  \begin{figure}[ht]
+    \centering\includegraphics[width=0.6\textwidth]{rectangular_contour}
+  \end{figure}
+
+  Show, by parameterization, that
+  \begin{enumerate}[(i)]
+  \item $\displaystyle I = - \lim_{L\rightarrow \infty} \int_{\Gamma_3} e^{-\gamma
+    z^2} dz$, and
+  \item $\displaystyle \lim_{L\rightarrow \infty} \int_{\Gamma_2~\text{or}~\Gamma_4}
+  e^{-\gamma z^2}\, dz = 0.$
+  \end{enumerate}
+  Hence, explain why $I = \sqrt{\pi/\gamma}.$
+
 \end{enumerate}
     
 
