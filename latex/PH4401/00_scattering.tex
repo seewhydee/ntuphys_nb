@@ -126,10 +126,13 @@ where $|\psi_i\rangle$ is called the \textbf{incident state} and
 $|\psi_s\rangle$ is called the \textbf{scattered state}.
 
 \item
-The incident state is a plane wave eigenstate of $\hat{H}_0$ with
-energy $E$:
+The incident state is described by a plane wave---a simultaneous
+eigenstate of $\hat{H}_0$ (with energy $E$) and $\hat{\mathbf{p}}$
+(with momentum $\mathbf{p}_i$):
 \begin{equation}
-  \hat{H}_0 |\psi_i\rangle = E |\psi_i\rangle.
+  \hat{H}_0 |\psi_i\rangle = E |\psi_i\rangle \;\; \mathrm{and}\;\;
+  \hat{\mathbf{p}} |\psi_i\rangle = \mathbf{p}_i |\psi_i\rangle,
+  \;\; \mathrm{where}\;\; E = \frac{|\mathbf{p}_i|^2}{2m}.
 \end{equation}
 
 \item
@@ -140,21 +143,20 @@ later.
 The first condition says that the scattering process is elastic.
 Since the scatterer takes the form of a potential $V(\mathbf{r})$, its
 interaction with the particle is conservative (i.e., the total energy
-$E$ is fixed).  The second condition, viewed in the position basis,
-says that the particle's wavefunction $\psi(\mathbf{r}) = \langle
-\mathbf{r} |\psi\rangle$ can be taken as a superposition of an
-incoming wave and a scattered wave.  The third condition says that the
-incoming wave is a plane wave with wavelength corresponding to the
-energy $E$.  The final condition says that the scattered wave must be
-a wave that moves out toward infinity.
+$E$ is fixed).  The second condition says that the particle's
+wavefunction, $\psi(\mathbf{r}) = \langle \mathbf{r} |\psi\rangle$,
+consists of a superposition of an incoming wave and a scattered wave.
+The third condition defines the incoming wave as a plane wave whose
+wavelength is determined by the chosen energy $E$.  The final
+condition says that the scattered wave moves out toward infinity.
 
-Given $|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, we must solve for
-$|\psi_s\rangle$.  Note that \textit{this is not an eigenproblem}!
-Usually, when dealing with the time-independent Schr\"odinger
-equation, we treat it as an eigenproblem and solve for the energy
-eigenvalues and eigenstates.  But here $E$ is an input to the
-calculation, not an output---it describes the energy that we give to
-the incoming quantum particles.
+Note that \textit{this is not an eigenproblem}!  Usually, when we use
+the time-independent Schr\"odinger equation, we treat it as an
+eigenproblem and solve for the energy eigenvalues and eigenstates.
+But in this case, $E$ is an input to the calculation, describing the
+energy assigned to the incoming quantum particle.  Given
+$|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, we want to find
+$|\psi_s\rangle$.
 
 \section{Recap: position and momentum states}
 
@@ -162,14 +164,14 @@ Before proceeding, let us review the properties of quantum particles
 in free space.  In a $d$-dimensional space, a coordinate vector
 $\mathbf{r}$ is a real vector of $d$ components.  A quantum particle
 can be described by the position basis---a set of quantum states
-$\{|\mathbf{r}\rangle\}$, one for each possible $\mathbf{r}$.  The
-$\mathbf{r}$'s form a continuum, so this set of quantum states is
-uncountably infinite.  If we are studying a particle trapped in a
-finite region (e.g., a particle in a box), $\mathbf{r}$ is restricted
-to that region; otherwise, $\mathbf{r}$ is any real $d$-dimensional
-vector.
+$\{|\mathbf{r}\rangle\}$, one for each possible $\mathbf{r}$.  If we
+are studying a particle trapped in a finite region (e.g., a particle
+in a box), $\mathbf{r}$ is restricted to that region; otherwise,
+$\mathbf{r}$ is any real $d$-dimensional vector.  In either case, the
+$\mathbf{r}$'s are continuous, so the position eigenstates form an
+uncountably infinite set.
 
-In either case, $\{|\mathbf{r}\rangle\}$ spans the state space, so the
+The position eigenstates are assumed to span the state space, so the
 identity operator can be resolved as
 \begin{equation}
   \hat{I} = \int d^dr \, |\mathbf{r}\rangle \,\langle\mathbf{r}|,
@@ -292,8 +294,7 @@ Schr\"odinger wave equation over an infinitesimal range around $x =
   \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0
   \end{aligned}
 \end{align}
-Hence, we find that wavefunction's first derivative has the following
-discontinuity:
+Hence,
 \begin{equation}
   \lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right\} =  \gamma \,\psi(0).
   \label{delta_discontinuity}
@@ -596,7 +597,9 @@ cross-sectional area.  We hence call
 the \textbf{total scattering cross section}.  Moreover, the integrand
 $|f|^2$ is called the \textbf{differential scattering cross section},
 for it represents the rate, per unit of solid angle, at which
-particles are scattered in a given direction.
+particles are scattered in a given direction.  The total and
+differential scattering cross sections are the principal observable
+quantities that can be obtained from scattering experiments.
 
 \section{The Green's function}
 \label{sec:greensfun}
@@ -680,15 +683,14 @@ Or, equivalently,
 \end{equation}
 This is called the \textbf{Born series}.
 
-To understand the meaning of the Born series, let us go to the
-position basis:
+To understand its meaning, let us go to the position basis:
 \begin{align}
   \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}
 \end{align}
 This formula can be regarded as a description of \textbf{multiple
   scattering}.  Due to the presence of the scatterer, the particle
 wavefunction is a quantum superposition of terms describing zero, one,
-two, or more scattering events, as illustrated in the figure below:
+two, or more scattering events, as illustrated below:
 
 \begin{figure}[h!]
   \centering\includegraphics[width=0.98\textwidth]{bornseries}
@@ -714,10 +716,10 @@ contribute the most.
 For a sufficiently weak scatterer, it can be a good approximation to
 retain just the first few terms in the Born series.  For the rest of
 this discussion, let us assume that such an approximation is valid.
-(The question of what it means for $\hat{V}$ to be ``sufficiently
+The question of what it means for $\hat{V}$ to be ``sufficiently
 weak''---i.e., the exact requirements for the Born series to
-converge---is a complex and interesting topic, but one that is beyond
-the scope of our present discussion.)
+converge---is a complex topic beyond the scope of our present
+discussion.
 
 \section{The Green's function for a free particle}
 \label{sec:freegreen}
@@ -764,13 +766,13 @@ written, is singular.
 
 To make the integral non-singular, we must ``regularize'' it by
 tweaking its definition.  One way is to displace the poles
-infinitesimally in the complex-$k'$ plane, shifting them off the
+infinitesimally in the complex $k'$ plane, shifting them off the
 contour.  We have a choice of whether to move each pole upwards or
-downwards, and this choice turns out to be linked to whether the
-Green's function describes waves that are incoming or out-going (or
-behave some other way) at infinity.  It turns out that the right
-choice for us is to move the pole at $-k$ infinitesimally downwards,
-and move the pole at $+k$ infinitesimally upwards:
+downwards; this choice turns out to be linked to whether the waves
+described by $\hat{G}_0$ are incoming, outgoing, or behave some other
+way at infinity.  It turns out that the right choice for us is to move
+the pole at $-k$ infinitesimally downwards, and the pole at $+k$
+infinitesimally upwards:
 
 \begin{figure}[h!]
   \centering\includegraphics[width=0.37\textwidth]{greencontour}
@@ -933,8 +935,7 @@ called the ``first Born approximation''; if we use two terms, the
 result is called the ``second Born approximation''.  Higher-order Born
 approximations can be derived in a similar fashion.
 
-The most expedient way to calculate these integrals is to use the
-numerical method known as
+The most expedient way to calculate these integrals is to use
 \href{https://en.wikipedia.org/wiki/Monte_Carlo_integration}{Monte
   Carlo integration}.  To find an integral of the form
 \begin{equation}
@@ -977,25 +978,25 @@ computed using $3\times10^4$ samples.
 \end{figure}
 
 The first thing to notice in these results in that $|f|^2$ diminishes
-to zero for large $E$.  This makes sense.  The scattering potential
-has some energy scale ($U$), and if the incident particle is highly
-energetic ($E \gg U$), it will just zoom through, with little chance
+to zero for large $E$.  This makes sense, since the scattering
+potential has some energy scale ($U$), so a incident particle that is
+too energetic ($E \gg U$) will just zoom through, with little chance
 of being deflected.
 
 Looking more closely at the plots, we see that for the shallower well
-($U = 0.1$), the first Born approximation is in good agreement with
-the exact results; the second Born approximation is even better,
-particularly for small $E$.  But for the deeper well ($U = 1$), the
-Born approximations do not match the exact results at all.  One way to
-interpret this is that as a scattering potential gets stronger, an
-incident particle has a higher chance to undergo multiple-scattering
-(i.e., bouncing around the potential multiple times before escaping),
-which means that higher terms in the Born series become more
-important.  In fact, if the potential is too strong, even taking the
-Born approximation to higher orders might not work, because the Born
-series can become non-convergent.  In those cases, different methods
-must be brought to bear.  We will see an example in the next chapter,
-in the form of phenomena known as ``scattering resonances''.
+($U = 0.1$), the first Born approximation agrees well with the exact
+results, and the second Born approximation is even better,
+particularly for small $E$.  For the deeper well ($U = 1$), the Born
+approximations do not match the exact results.  Roughly speaking, for
+the stronger scattering potential, an incident particle has a higher
+chance to undergo multiple-scattering (i.e., bouncing around the
+potential multiple times before escaping), which means that higher
+terms in the Born series become more important.  In fact, if the
+potential is too strong, taking the Born approximation to higher
+orders might not even work, as the Born series itself can become
+non-convergent.  In those cases, different methods must be brought to
+bear.  We will see an example in the next chapter, in the form of
+phenomena known as ``scattering resonances''.
 
 \section*{Exercises}
 
@@ -1020,6 +1021,8 @@ in the form of phenomena known as ``scattering resonances''.
   was derived using the Born series.  Derive the corresponding
   expressions for 1D and 2D.
 \end{enumerate}
+
+%% Choice of periodic boundary conditions doesn't matter
 
 
 \section*{Further Reading}
