@@ -60,10 +60,10 @@ equation can be solved efficiently using a technique called the
 aspects of the calculation, bypassing most of the details.  For a
 fuller discussion of the transfer matrix method, refer to Appendix B.
 
-We begin by noting that in order to find solutions to the
-Schr\"odinger wave equation, we first need to specify the boundary
-conditions at infinity.  The choice of boundary conditions determines
-whether the solution we get is a bound state or free state.
+We begin by noting that obtaining solutions to the Schr\"odinger wave
+equation first requires specifying the boundary conditions at
+infinity.  The choice of boundary conditions determines whether the
+solution we get is a bound state or free state.
 
 For a bound state, we require the wavefunction to diminish
 exponentially as $x \rightarrow \pm\infty$.  In the exterior region
@@ -140,8 +140,9 @@ solutions can either appear or disappear.  A numerical example is
 given below, showing the bound state energies for the square well
 model with fixed $a = 1$, as we vary the potential minimum $-U$:
 
+\vskip 0.15in
 \begin{figure}[h]
-  \centering\includegraphics[width=0.75\textwidth]{boundstate1d}
+  \centering\includegraphics[width=0.71\textwidth]{boundstate1d}
 \end{figure}
 
 \noindent
@@ -160,9 +161,12 @@ spherically symmetric well (the $l$'s labeling the various curves are
 angular momentum quantum numbers).  To learn more about this
 phenomenon, refer to \hyperref[ex:boundstate3d]{Exercise 2}.
 
+\vskip 0.15in
 \begin{figure}[h]
-  \centering\includegraphics[width=0.75\textwidth]{boundstate3d}
+  \centering\includegraphics[width=0.71\textwidth]{boundstate3d}
 \end{figure}
+
+\clearpage
 
 \section{Quasi-bound states and resonances}
 \label{sec:resonances}
@@ -253,29 +257,27 @@ transmittance peak, $|\psi(x)|^2$ is much larger within the potential
 region, and its shape is very similar to a square well bound state.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.8\textwidth]{resonancewavefunctions}
+  \centering\includegraphics[width=0.85\textwidth]{resonancewavefunctions}
 \end{figure}
 
 \noindent
 The enhancement of $|\psi(x)|^2$ is called a \textbf{resonance}.  It
 happens because of the existence of a quasi-bound state---an
-approximate energy eigenstate that is localized within the scattering
-region.  When an incident particle enters the scattering region with
-the right energy, it gets temporarily ``trapped'' in the quasi-bound
-state, and spends a long time oscillating inside the scatterer before
+approximate energy eigenstate localized in the scattering region.
+When an incident particle enters the scattering region with the right
+energy, it spends a long time trapped in the quasi-bound state, before
 eventually escaping back to infinity.
 
-This is closely analogous to the phenomenon of resonance in a
-classical harmonic oscillator.  When a damped harmonic oscillator is
-subjected to an oscillatory driving force, it settles into a
-steady-state oscillatory motion at the driving frequency.  If the
-driving frequency matches the oscillator's natural frequency, the
-amplitude of the steady-state oscillation becomes extremely large, and
-the system is said to be ``resonant''.  In the quantum mechanical
-context, the incident wavefunction plays the role of a driving force,
-the incident particle energy is like the driving frequency, and the
-energy of a quasi-bound state is like a natural frequency of
-oscillation.
+This is analogous to the phenomenon of resonance in a classical
+harmonic oscillator.  When a damped harmonic oscillator is subjected
+to an oscillatory driving force, it settles into a steady-state
+oscillatory motion at the driving frequency.  If the driving frequency
+matches the oscillator's natural frequency, the amplitude of the
+oscillation becomes large, and the system is said to be ``resonant''.
+In the quantum mechanical context, the incident wavefunction plays the
+role of a driving force, the incident particle energy is like the
+driving frequency, and the energy of a quasi-bound state is like a
+natural frequency of oscillation.
 
 Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
@@ -377,9 +379,9 @@ With this, we obtain
   \langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.
 \end{equation}
 Combining this with Eq.~\eqref{psiGphi} gives
-\begin{equation}
+\begin{equation*}
   \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int d^dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
-\end{equation}
+\end{equation*}
 Hence,
 \begin{framed}
   \begin{equation}
