@@ -258,7 +258,7 @@ re-normalization
 \begin{framed}
 \noindent
 \textit{Example}---A system of two spin-$1/2$ particles is in
-the state
+the ``singlet state''
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
 \end{equation}
@@ -309,8 +309,8 @@ was shown that the EPR paradox is not an actual paradox; physical
 systems \textit{really do} have the strange behavior that the thought
 experiment highlighted.
 
-The EPR paradox begins with an entangled state like this state of two
-spin-$1/2$ particles:
+Consider an entangled state, like the following ``singlet state'' of
+two spin-$1/2$ particles:
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
 \end{equation}
@@ -324,24 +324,25 @@ is $|\!-\!z\rangle|\!+\!z\rangle$.
 The postulates of quantum theory seem to indicate that the state
 collapse happens instantaneously, regardless of the distance
 separating the particles.  Imagine that we prepare the two-particle
-state in a laboratory, transport particle $A$ to the Alpha Centauri
-star system, and transport particle $B$ to the Betelgeuse system,
-separated by $\sim 640$ light years.  In principle, this can be done
-carefully enough to avoid disturbing the two-particle quantum state.
+state in a laboratory on Earth.  Particle $A$ is then transported to
+the laboratory of Alice, in the Alpha Centauri star system, and
+particle $B$ is transported to the laboratory of Bob, in the
+Betelgeuse system, separated by $\sim 640$ light years.  In principle,
+this can be done carefully enough to avoid disturbing the two-particle
+quantum state.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.75\textwidth]{epr}
 \end{figure}
 
-Once ready, an experimentalist at Alpha Centauri measures $\hat{S}_z$
-on particle $A$, which induces an instantaneous collapse of the
-two-particle state.  Immediately afterwards, an experimentalist at
-Betelgeuse measures $\hat{S}_z$ on particle $B$, and obtains---with
-100\% certainty---the opposite spin.  During the time interval between
-these two measurements, no classical signal could have traveled
-between the two star systems, not even at the speed of light.  Yet
-the state collapse induced by the measurement at Alpha Centauri has a
-definite effect on the result of the measurement at Betelgeuse.
+Once ready, Alice measures $\hat{S}_z$ on particle $A$, which induces
+an instantaneous collapse of the two-particle state.  Immediately
+afterwards, Bob measures $\hat{S}_z$ on particle $B$, and
+obtains---with 100\% certainty---the opposite spin.  During the time
+interval between these two measurements, no classical signal could
+have traveled between the two star systems, not even at the speed of
+light.  Yet the state collapse induced by Alice's measurement has a
+definite effect on the result of Bob's measurement.
 
 There are three noteworthy aspects of this phenomenon:
 
@@ -355,13 +356,12 @@ capture the full weirdness of quantum state collapse, for we can
 collapse the state of a particle by doing a measurement on
 \textit{another} particle far away!
 
-Second, the experimentalist has a certain amount of control over the
+Second, our experimentalists have a certain amount of control over the
 state collapse, due to the choice of what measurement to perform.  So
-far, we have considered $S_z$ measurements performed on particle $A$.
-But the experimentalist at Alpha Centauri can choose to measure the
-spin of $A$ along another axis, say $S_x$.  In the basis of spin-up
-and spin-down states, the operator $\hat{S}_x$ has matrix
-representation
+far, we have considered $S_z$ measurements performed by Alice on
+particle $A$.  But Alice can choose to measure the spin of $A$ along
+another axis, say $S_x$.  In the basis of spin-up and spin-down
+states, the operator $\hat{S}_x$ has matrix representation
 \begin{equation}
   \hat{S}_x = \frac{\hbar}{2}\, \begin{pmatrix}0&1\\1&0\end{pmatrix}.
   \end{equation}
@@ -378,33 +378,31 @@ $\hat{S}_x$ basis:
 \begin{equation}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!-\!x\rangle|\!+\!x\rangle \,-\, |\!+\!x\rangle|\!-\!x\rangle\Big).
 \end{equation}
-The Alpha Centauri measurement still collapses the particles into
-definite spin states with opposite spins---but now spin states of
-${S}_x$ rather than ${S}_z$.
+Alice's measurement still collapses the particles into definite spin
+states with opposite spins---but now spin states of ${S}_x$ rather
+than ${S}_z$.
 
 Third, this ability to choose the measurement axis \textit{does not}
-allow for superluminal communication.  The experimentalist at Alpha
-Centauri can choose whether to (i) measure $S_z$ or (ii) measure
-$S_x$, and this choice instantaneously affects the quantum state of
-particle $B$.  If the Betelgeuse experimentalist can find a way to
+allow for superluminal communication.  Alice can choose whether to (i)
+measure $S_z$ or (ii) measure $S_x$, and this choice instantaneously
+affects the quantum state of particle $B$.  If Bob can find a way to
 distinguish between the cases (i) and (ii), even statistically, this
 would serve as a method for instantaneous communication, violating the
 theory of relativity!  Yet this turns out to be impossible.  The key
 problem is that quantum states themselves cannot be measured; only
-observables can be measured.  Suppose the Alpha Centauri measurement
-is $\hat{S}_z$, which collapses $B$ to either $|\!+\!z\rangle$ or
-$|\!-\!z\rangle$, each with probability $1/2$.  The Betelgeuse
-experimentalist must now choose which measurement to perform.  If
-$S_z$ is measured, the outcome is $+\hbar/2$ or $-\hbar/2$ with equal
-probabilities.  If $S_x$ is measured, the probabilities are:
+observables can be measured.  Suppose Alice's measurement is
+$\hat{S}_z$, which collapses $B$ to either $|\!+\!z\rangle$ or
+$|\!-\!z\rangle$, each with probability $1/2$.  Bob must now choose
+which measurement to perform.  If he measures $S_z$, the outcome is
+$+\hbar/2$ or $-\hbar/2$ with equal probabilities.  If he measures
+$S_x$, the probabilities are:
 \begin{align}
   \begin{aligned}P(S_x = +\hbar/2) &= \frac{1}{2}\, \Big|\langle\!+x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!+x|\!-\!z\rangle\Big|^2 = \frac{1}{2}\\P(S_x = -\hbar/2) &= \frac{1}{2}\, \Big|\langle\!-x|\!+\!z\rangle\Big|^2 \;+\;\, \frac{1}{2}\, \Big|\langle\!-x|\!-\!z\rangle\Big|^2 = \frac{1}{2}.\end{aligned}
 \end{align}
 The probabilities are still equal!  Repeating this analysis for any
 other choice of spin axis, we find that the two possible outcomes
-always have equal probability.  Thus, the Betelgeuse measurement does
-not yield any information about the choice of measurement axis at
-Alpha Centauri.
+always have equal probability.  Thus, Bob's measurement does not yield
+any information about Alice's choice of measurement axis.
 
 Since quantum state collapse does not allow for superluminal
 communication, it is consistent \textit{in practice} with the theory
@@ -431,13 +429,12 @@ denoted by $[+;-]$ (i.e., $S_z = +\hbar/2$ for particle $A$ and $S_z =
   \centering\includegraphics[width=0.75\textwidth]{hiddenvariables}
 \end{figure}
 
-When the Alpha Centauri experimentalist measures $S_z$, the value of
-the hidden variable is revealed.  A result of $+z$ implies $[+;-]$,
-whereas $-z$ implies $[-;+]$.  When the Betelgeuse experimentalist
-subsequently measures $S_z$, the result obtained is the opposite of
-the Alpha Centauri result.  But those were simply the values all
-along---there is no instantaneous physical influence traveling from
-Alpha Centauri to Betelguese.
+When Alice measures $S_z$, the value of the hidden variable is
+revealed.  A result of $+z$ implies $[+;-]$, whereas $-z$ implies
+$[-;+]$.  When bob subsequently measures $S_z$, the result obtained is
+the opposite of Alice's result.  But those were simply the values all
+along---there is no instantaneous physical influence traveling between
+their two laboratories.
 
 Clearly, there are many missing details in this hypothetical
 description.  Any actual hidden variable theory would also need to
@@ -447,6 +444,7 @@ difficult, but with enough hard work, one might imagine that it is
 doable.
 
 \section{Bell's theorem}
+\label{sec:bell}
 
 In 1964, however, John S.~Bell published a
 \hyperref[cite:bell]{bombshell paper} showing that the predictions of
@@ -458,28 +456,26 @@ and local.  Here, we present a simplified version of Bell's theorem,
 based on \hyperref[cite:mermin]{Mermin (1981)}.
 
 We again consider spin-1/2 particle pairs, with particle $A$ sent to
-Alpha Centauri and particle $B$ sent to Betelgeuse.  At each location,
-an experimentalist can measure the particle's spin along three
-distinct choices of spin axis.  These spin observables are denoted by
-$S_1$, $S_2$, and $S_3$.  We will not specify the actual directions of
-these spin axes until later in the proof.  For now, just note that the
-axes need not correspond to orthogonal spatial directions.
+Alice at Alpha Centauri, and particle $B$ to Bob at Betelgeuse.  Each
+experimentalist can measure the particle's spin along three distinct
+choices of spin axis.  These spin observables are denoted by $S_1$,
+$S_2$, and $S_3$.  We will not specify the actual directions of these
+spin axes until later in the proof.  For now, just note that the axes
+need not correspond to orthogonal spatial directions.
 
-We now repeatedly prepare two-particle systems, and send the particles
-to Alpha Centauri and Betelgeuse.  Each time, the prepared
-two-particle state is
+We repeatedly prepare the particle pairs in the singlet state
 \begin{equation}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big),
 \end{equation}
-During each round of the experiment, each experimentalist randomly
-chooses one of the three spin axes $S_1$, $S_2$, or $S_3$, and
-performs that spin measurement.  It doesn't matter which
-experimentalist performs the measurement first; the experimentalists
-can't influence each other, as there is not enough time for a
-light-speed signal to travel between the two locations.  Many rounds
-of the experiment are conducted; for each round, both
-experimentalists' choices of spin axis are recorded, along with their
-measurement results.
+and send the respective particles to Alice and Bob.  During each round
+of the experiment, each experimentalist randomly chooses one of the
+three spin axes $S_1$, $S_2$, or $S_3$, and performs that spin
+measurement.  It doesn't matter which experimentalist performs the
+measurement first; the experimentalists can't influence each other, as
+there is not enough time for a light-speed signal to travel between
+the two locations.  Many rounds of the experiment are conducted; for
+each round, both experimentalists' choices of spin axis are recorded,
+along with their measurement results.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.67\textwidth]{bell}
@@ -512,10 +508,10 @@ probabilities of these 8 cases.
 
 Let's now focus on the subset of experiments in which the two
 experimentalists happened to choose \textit{different} spin axes
-(e.g., Alpha Centauri chose $S_1$ and Betelgeuse chose $S_2$).  Within
-this subset, what is the probability \textit{for the two measurement
-  results to have opposite signs} (i.e., one $+$ and one $-$)?  To
-answer this question, we first look at the following 6 cases:
+(e.g., Alice chose $S_1$ and Bob chose $S_2$).  Within this subset,
+what is the probability \textit{for the two measurement results to
+  have opposite signs} (i.e., one $+$ and one $-$)?  To answer this
+question, we first look at the following 6 cases:
 \begin{align*}
   \begin{aligned}{[}{++-};{--+}], \;\;\; [{+-+};{-+-}], \;\;\; [{+--};{-++}],\\ [{-++};{+--}], \;\;\; [{-+-};{+-+}], \;\;\; [{--+};{++-}].\end{aligned}
 \end{align*}
@@ -535,9 +531,9 @@ Now look at the remaining 2 cases:
 \begin{equation*}
   {[}{+++};{---}], \;\;\; [{---};{+++}].
 \end{equation*}
-For these, the experimentalists always obtain results that have
-opposite signs.  Combining this with the findings from the previous
-paragraph, we obtain the following statement:
+For these, Alice and Bob always obtain results with opposite signs.
+Combining this with the findings from the previous paragraph, we
+obtain the following statement:
 
 \textit{Given that the two experimentalists choose different spin
   axes, the probability that their results have opposite signs is $P
@@ -568,11 +564,10 @@ $\hat{S}_z$:
   \begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \sigma_3 \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 + \sin(2\pi/3)\sigma_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 - \sin(2\pi/3)\sigma_1\right].\end{aligned}
 \end{align}
 
-Suppose the Alpha Centauri experimentalist chooses $S_1$, and obtains
-$+\hbar/2$.  Particle $A$ collapses to state $|\!+\!z\rangle$, and
-particle $B$ collapses to state $|\!-\!z\rangle$.  The Betelgeuse
-experimentalist is assumed to choose a different spin axis.  If the
-choice is $S_2$, the expectation value is
+Suppose Alice chooses $S_1$, and obtains $+\hbar/2$.  Particle $A$
+collapses to state $|\!+\!z\rangle$, and particle $B$ collapses to
+state $|\!-\!z\rangle$.  Bob is assumed to choose a different spin
+axis.  If the choice is $S_2$, the expectation value is
 \begin{align}
   \begin{aligned}\langle\, - z \, | \, S_2 \,|-\!z\,\rangle &= \frac{\hbar}{2} \Big[\cos(2\pi/3) \langle\,- z\,|\sigma_3| - \!z\,\rangle + \sin(2\pi/3)\langle\,- z\,|\sigma_1|-\!z\,\rangle\Big]\\ &= \frac{\hbar}{2} \cdot \frac{1}{2} \end{aligned}
 \end{align}
@@ -580,12 +575,11 @@ If $P_+$ and $P_-$ respectively denote the probability of measuring
 $+\hbar/2$ and $-\hbar/2$ in this measurement, the above equation
 implies that $P_+ - P_- = + 1/2$.  Moreover, $P_+ + P_- = 1$ by
 probability conservation.  Hence, the probability of obtaining a
-negative value (the opposite sign from the Alpha Centauri measurement)
-is $P_- = 1/4$.  All the other possible scenarios are worked out
-similarly.  The result is that the overall probability of the two
-experimentalists obtaining opposite results (in the cases where they
-choose different measurement axis) is $1/4$.  Bell's inequality is
-violated!
+negative value (the opposite sign from Alice's measurement) is $P_- =
+1/4$.  All the other possible scenarios are worked out similarly.  The
+result is that the overall probability of the two experimentalists
+obtaining opposite results (in the cases where they choose different
+measurement axis) is $1/4$.  Bell's inequality is violated!
 
 Last of all, we must consult Nature itself.  Is it possible to
 observe, in an actual experiment, probabilities that violate Bell's
@@ -600,6 +594,116 @@ mechanics, and in a manner that cannot be replicated by deterministic
 local hidden variables!  A summary of the experimental evidence can be
 found in \hyperref[cite:aspect]{Aspect (1999)}.
 
+\section{Quantum cryptography}
+
+One of the most remarkable consequences of Bell's thought experiment
+is that it provides a way to perform cryptography that is more secure,
+in certain respects, than conventional cryptography.  This possibility
+was first raised by \hyperref[cite:ekert]{Ekert (1991)}, and it has
+led to a huge amount of research into \textbf{quantum cryptography},
+which is poised to be one of the most important technological
+applications of quantum mechanics.
+
+Ekert's quantum cryptography scheme allows two participants, Alice and
+Bob, to share with each other a string of random binary digits (0 or
+1), called a ``key'', such that it is impossible for anyone to
+secretly learn the key by eavesdropping on their communications.  Once
+Alice and Bob have established a secret shared key, it can be used to
+encrypt subsequent messages between them, which nobody else can
+decipher (e.g., by using
+\href{https://en.wikipedia.org/wiki/One-time_pad}{one-time pads}).
+
+The scheme follows almost immediately from the Bell thought experiment
+of Section \ref{sec:bell}.  In each round, a pair of spin-$1/2$
+particles is prepared in the singlet state, with particle $A$ sent to
+Alice and $B$ sent to Bob.  Alice and Bob each randomly choose a
+measurement axis ($S_1$, $S_2$, or $S_3$), and measure the spin along
+that axis.
+
+After an appropriate number of rounds, Alice and Bob publicly announce
+their choices of measurement axes.  These announcements are assumed to
+take place over a classical communication channel that cannot be
+jammed or manipulated by any hostile party (though it can be
+eavesdropped upon).  From the announcements, Alice and Bob determine
+the rounds in which they happened to pick the same axes.  Their
+measurement results during these rounds are guaranteed to be exact
+opposites of each other, and hence they have established a random
+string that is known to each other but no one else.
+
+How might an eavesdropper, Eve, attempt to foil this scheme?  Suppose
+Eve intercepts the particle $B$ destined for Bob.  She might try to
+substitute her own measurements, in some manner that could let her
+work out the secret key.  However, Eve is hampered by the fact that
+she is unable to predict or influence Bob's choices of measurement
+axes (i.e., the choices are truly random), nor is she able to
+impersonate Bob during the announcements of those axis choices (i.e.,
+the classical communication channel is unjammable).  Under these
+assumptions, it can be shown that any attempt by Eve to substitute her
+own measurements can be detected by Alice and Bob, by performing a
+statistical analysis of their measurement results in the rounds with
+different different axis choices (this analysis is essentially the
+detection of a Bell's inequality violation).  For details, refer to
+\hyperref[cite:ekert]{Ekert (1991)}.
+
+Another possibility for Eve is to ``clone'' the quantum state of
+particle $B$ before passing it along to Bob.  If this can be done, Eve
+could retain the cloned quantum state, wait for Bob to announce his
+choice of measurement axis for that round, and then perform the
+corresponding measurement to learn Bob's result.  Though plausible at
+first glance, this turns out to be fundamentally unworkable, for it is
+incompatible with the laws of quantum mechanics.
+
+The proof of the \textbf{no-cloning theorem} is as follows.  Eve
+desires to clone an arbitrary state of a spin-half particle $B$ onto
+another spin-half particle $C$.  The two-particle Hilbert space is
+$\mathscr{H}\otimes\mathscr{H}$.  With particle $C$ initially prepared
+in some state $|0\rangle$, Eve must devise a unitary operation
+$\hat{U}$ such that
+\begin{equation}
+  \hat{U} |\psi\rangle | 0\rangle = e^{i\phi} |\psi\rangle |\psi\rangle
+  \label{clone}
+\end{equation}
+for all $|\psi\rangle \in \mathscr{H}$.  Note that the arbitrary phase
+factor $\phi$ might depend on $|\psi\rangle$, and its presence does
+not affect the outcomes of measurements.  Now replace $|\psi\rangle$
+in the above equation with two arbitrary states denoted by
+$|\psi_1\rangle$ and $|\psi_2\rangle$, and take their inner product.
+According to Eq.~\eqref{clone},
+\begin{align}
+  \Big(\langle \psi_1 | \langle 0 | \hat{U}^\dagger \Big)
+  \Big(\hat{U} | \psi_2 \rangle |0\rangle \Big)
+  &=  \Big(\langle \psi_1| \langle \psi_1| e^{-i\phi_1} \Big) \Big( e^{i\phi_2} |\psi_2\rangle|\psi_2\rangle\Big) \\
+  &= e^{-i(\phi_1-\phi_2)} \Big( \langle\psi_1 | \psi_2\rangle \Big)^2. \label{clone1}
+\end{align}
+Here, $\phi_1$ and $\phi_2$ are the phase factors from
+Eq.~\eqref{clone} for the two chosen states.  On the other hand, since
+$\hat{U}$ is unitary,
+\begin{align}
+  \langle \psi_1 | \langle 0 | \hat{U}^\dagger \hat{U} | \psi_2 \rangle |0\rangle
+  &= \Big(\langle \psi_1 | \langle 0| \Big) \Big(| \psi_2 \rangle |0\rangle\Big)
+  \\ &= \langle\psi_1 | \psi_2\rangle. \label{clone2}
+\end{align}
+Note that $\langle 0 | 0\rangle = 1$ by normalization.  Comparing the
+magnitudes of \eqref{clone1} and \eqref{clone2},
+\begin{equation}
+  \big|\langle \psi_1 | \psi_2\rangle \big|^2
+  = \big| \langle\psi_1 | \psi_2\rangle \big|
+  \;\;\Rightarrow \;\;
+  \big|\langle\psi_1 | \psi_2\rangle\big| = 0 \;\mathrm{or}\; 1.
+\end{equation}
+But aside from the trivial case of a one-dimensional Hilbert space,
+this cannot be true for \textit{any} choice of $|\psi_1\rangle$ and
+$|\psi_2\rangle$.  For instance, for a two-dimensional space spanned
+by the orthonormal basis $\{|0\rangle, |1\rangle\}$, we can pick
+\begin{equation}
+  |\psi_1\rangle = |0\rangle, \;
+  |\psi_2\rangle = \frac{1}{\sqrt{2}}\big(|0\rangle +
+  |1\rangle\big)
+  \;\;\Rightarrow\;\;
+  \big|\langle\psi_1|\psi_2\rangle\big| = \frac{1}{\sqrt{2}}.
+\end{equation}
+
+\clearpage
 \section{Density operators}
 
 We now introduce the \textbf{density operator}, which helps to
@@ -1247,6 +1351,10 @@ Find the entanglement entropy.
 \item A.~Aspect, \textit{Bell's inequality test: more ideal than ever},
   Nature (News and Views) \textbf{398}, 189 (1999). [\href{https://www.nature.com/articles/18296}{link}] \label{cite:aspect}
 
+\item A.~K.~Ekert, \textit{Quantum Cryptography Based on Bell's Theorem},
+  Physical Review Letters \textbf{67}, 661 (1991). [\href{https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.67.661}{link}] \label{cite:ekert}
+
+  
 \item H.~Everett, III, \textit{The Theory of the Universal Wave
   Function} (PhD thesis), Princeton University (1956)
   [\href{http://ucispace.lib.uci.edu/handle/10575/1302}{link}]
