@@ -300,14 +300,14 @@ After the collapse, the two-particle state is no longer entangled.
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
-In 1935, \hyperref[cite:epr]{Einstein, Podolsky, and Rosen (EPR)} used
-the counter-intuitive features of quantum entanglement to formulate a
-thought experiment known as the \textbf{EPR paradox}.  They tried to
-use this thought experiment to argue that quantum theory cannot serve
-as a fundamental description of reality.  Subsequently, however, it
-was shown that the EPR paradox is not an actual paradox; physical
-systems \textit{really do} have the strange behavior that the thought
-experiment highlighted.
+In 1935, Einstein, Podolsky, and Rosen (EPR) formulated a thought
+experiment, now known as the \textbf{EPR paradox}, that highlights the
+counter-intuitive features of quantum entanglement [\ref{cite:epr}].
+They tried to use this thought experiment to argue that quantum theory
+cannot serve as a fundamental description of reality.  Subsequently,
+however, it was shown that the EPR paradox is not an actual paradox;
+physical systems \textit{really do} have the strange behavior that the
+thought experiment highlighted.
 
 Consider an entangled state, like the following ``singlet state'' of
 two spin-$1/2$ particles:
@@ -446,14 +446,14 @@ doable.
 \section{Bell's theorem}
 \label{sec:bell}
 
-In 1964, however, John S.~Bell published a
-\hyperref[cite:bell]{bombshell paper} showing that the predictions of
-quantum theory are \textit{inherently inconsistent} with hidden
-variable theories.  The amazing thing about this result, known as
-\textbf{Bell's theorem}, is that it requires no knowledge about the
-details of the hidden variable theory, just that it is deterministic
-and local.  Here, we present a simplified version of Bell's theorem,
-based on \hyperref[cite:mermin]{Mermin (1981)}.
+In 1964, John S.~Bell published a bombshell paper showing that the
+predictions of quantum theory are \textit{inherently inconsistent}
+with hidden variable theories [\ref{cite:bell}].  The amazing thing
+about this result, known as \textbf{Bell's theorem}, is that it
+requires no knowledge about the details of the hidden variable theory,
+just that it is deterministic and local.  Here, we present a
+simplified version of Bell's theorem due to Mermin
+[\ref{cite:mermin}].
 
 We again consider spin-1/2 particle pairs, with particle $A$ sent to
 Alice at Alpha Centauri, and particle $B$ to Bob at Betelgeuse.  Each
@@ -591,34 +591,33 @@ uncertainties and ``loopholes'' that are beyond the scope of our
 discussion.  But in the end, the experimental consensus appears to be
 a clear \textit{yes}: Nature really does behave according to quantum
 mechanics, and in a manner that cannot be replicated by deterministic
-local hidden variables!  A summary of the experimental evidence can be
-found in \hyperref[cite:aspect]{Aspect (1999)}.
+local hidden variables!  A summary of the experimental evidence is
+given in a review paper by Aspect [\ref{cite:aspect}].
 
 \section{Quantum cryptography}
 
 One of the most remarkable consequences of Bell's thought experiment
 is that it provides a way to perform cryptography that is more secure,
 in certain respects, than conventional cryptography.  This possibility
-was first raised by \hyperref[cite:ekert]{Ekert (1991)}, and it has
-led to a huge amount of research into \textbf{quantum cryptography},
-which is poised to be one of the most important technological
-applications of quantum mechanics.
+was first raised by Ekert [\ref{cite:ekert}], and it has led to a huge
+amount of research into \textbf{quantum cryptography}, which is poised
+to be one of the most important technological applications of quantum
+mechanics.
 
 Ekert's quantum cryptography scheme allows two participants, Alice and
 Bob, to share with each other a string of random binary digits (0 or
-1), called a ``key'', such that it is impossible for anyone to
-secretly learn the key by eavesdropping on their communications.  Once
-Alice and Bob have established a secret shared key, it can be used to
-encrypt subsequent messages between them, which nobody else can
-decipher (e.g., by using
+1), called a ``key'', in such a manner that no one else can learn the
+key by eavesdropping on their communications.  Once Alice and Bob have
+established a secret shared key, it can be used to encrypt subsequent
+messages between them, which nobody else can decipher (e.g., by using
 \href{https://en.wikipedia.org/wiki/One-time_pad}{one-time pads}).
 
 The scheme follows almost immediately from the Bell thought experiment
 of Section \ref{sec:bell}.  In each round, a pair of spin-$1/2$
 particles is prepared in the singlet state, with particle $A$ sent to
 Alice and $B$ sent to Bob.  Alice and Bob each randomly choose a
-measurement axis ($S_1$, $S_2$, or $S_3$), and measure the spin along
-that axis.
+measurement axis ($S_1$, $S_2$, or $S_3$), and measure the spin of
+their particle along that axis.
 
 After an appropriate number of rounds, Alice and Bob publicly announce
 their choices of measurement axes.  These announcements are assumed to
@@ -626,49 +625,50 @@ take place over a classical communication channel that cannot be
 jammed or manipulated by any hostile party (though it can be
 eavesdropped upon).  From the announcements, Alice and Bob determine
 the rounds in which they happened to pick the same axes.  Their
-measurement results during these rounds are guaranteed to be exact
-opposites of each other, and hence they have established a random
-string that is known to each other but no one else.
+measurement results during these rounds are guaranteed to be the
+opposites of each other.  Hence, they have established a random binary
+string known to each other but to no one else.
 
 How might an eavesdropper, Eve, attempt to foil this scheme?  Suppose
-Eve intercepts the particle $B$ destined for Bob.  She might try to
-substitute her own measurements, in some manner that could let her
-work out the secret key.  However, Eve is hampered by the fact that
-she is unable to predict or influence Bob's choices of measurement
-axes (i.e., the choices are truly random), nor is she able to
-impersonate Bob during the announcements of those axis choices (i.e.,
-the classical communication channel is unjammable).  Under these
-assumptions, it can be shown that any attempt by Eve to substitute her
-own measurements can be detected by Alice and Bob, by performing a
-statistical analysis of their measurement results in the rounds with
-different different axis choices (this analysis is essentially the
-detection of a Bell's inequality violation).  For details, refer to
-\hyperref[cite:ekert]{Ekert (1991)}.
+Eve can intercept some or all of the particles $B$ destined for Bob.
+She might try to substitute her own measurements, in a manner that
+could let her work out the secret key.  However, Eve is hampered by
+the fact that she is unable to predict or influence Bob's choices of
+measurement axes (i.e., Bob's choices are truly random), nor is she
+able to impersonate Bob during the announcements of the axis choices
+(i.e., the classical communication channel is unjammable).  Under
+these assumptions, it can be shown that any attempt by Eve to
+substitute her own measurements can be detected by Alice and Bob, by
+performing a statistical analysis of their measurement results in the
+rounds with different different axis choices.  The detection of the
+eavesdropper turns out to be essentially the same as checking for
+Bell's inequality.  For details, refer to Ref.~[\ref{cite:ekert}].
 
-Another possibility for Eve is to ``clone'' the quantum state of
+Alternatively, Eve might try to ``clone'' the quantum state of
 particle $B$ before passing it along to Bob.  If this can be done, Eve
-could retain the cloned quantum state, wait for Bob to announce his
+can retain the cloned quantum state, wait for Bob to announce his
 choice of measurement axis for that round, and then perform the
-corresponding measurement to learn Bob's result.  Though plausible at
-first glance, this turns out to be fundamentally unworkable, for it is
-incompatible with the laws of quantum mechanics.
+corresponding measurement to reproduce Bob's result.  Though plausible
+at first glance, this turns out to be fundamentally unworkable, as it
+is incompatible with the laws of quantum mechanics.
 
-The proof of the \textbf{no-cloning theorem} is as follows.  Eve
-desires to clone an arbitrary state of a spin-half particle $B$ onto
-another spin-half particle $C$.  The two-particle Hilbert space is
-$\mathscr{H}\otimes\mathscr{H}$.  With particle $C$ initially prepared
-in some state $|0\rangle$, Eve must devise a unitary operation
-$\hat{U}$ such that
+The so-called \textbf{no-cloning theorem} can be proven as follows.
+Eve desires to clone an arbitrary state of a spin-half particle $B$
+onto another spin-half particle $C$.  The two-particle Hilbert space
+is $\mathscr{H}\otimes\mathscr{H}$.  With particle $C$ initially
+prepared in some state $|0\rangle$, Eve must devise a unitary
+operation $\hat{U}$, representing the cloning process, such that
 \begin{equation}
   \hat{U} |\psi\rangle | 0\rangle = e^{i\phi} |\psi\rangle |\psi\rangle
   \label{clone}
 \end{equation}
-for all $|\psi\rangle \in \mathscr{H}$.  Note that the arbitrary phase
-factor $\phi$ might depend on $|\psi\rangle$, and its presence does
-not affect the outcomes of measurements.  Now replace $|\psi\rangle$
-in the above equation with two arbitrary states denoted by
-$|\psi_1\rangle$ and $|\psi_2\rangle$, and take their inner product.
-According to Eq.~\eqref{clone},
+for all $|\psi\rangle \in \mathscr{H}$, and for some phase factor
+$\phi$ that could depend on $|\psi\rangle$.  Note that the value of
+$\phi$ does not affect the outcomes of measurements.
+
+Now replace $|\psi\rangle$ in the above equation with two arbitrary
+states denoted by $|\psi_1\rangle$ and $|\psi_2\rangle$, and take
+their inner product.  According to Eq.~\eqref{clone},
 \begin{align}
   \Big(\langle \psi_1 | \langle 0 | \hat{U}^\dagger \Big)
   \Big(\hat{U} | \psi_2 \rangle |0\rangle \Big)
@@ -683,8 +683,8 @@ $\hat{U}$ is unitary,
   &= \Big(\langle \psi_1 | \langle 0| \Big) \Big(| \psi_2 \rangle |0\rangle\Big)
   \\ &= \langle\psi_1 | \psi_2\rangle. \label{clone2}
 \end{align}
-Note that $\langle 0 | 0\rangle = 1$ by normalization.  Comparing the
-magnitudes of \eqref{clone1} and \eqref{clone2},
+Here we have used the fact that $\langle 0 | 0\rangle = 1$.  Comparing
+the magnitudes of \eqref{clone1} and \eqref{clone2},
 \begin{equation}
   \big|\langle \psi_1 | \psi_2\rangle \big|^2
   = \big| \langle\psi_1 | \psi_2\rangle \big|
@@ -692,9 +692,9 @@ magnitudes of \eqref{clone1} and \eqref{clone2},
   \big|\langle\psi_1 | \psi_2\rangle\big| = 0 \;\mathrm{or}\; 1.
 \end{equation}
 But aside from the trivial case of a one-dimensional Hilbert space,
-this cannot be true for \textit{any} choice of $|\psi_1\rangle$ and
+this cannot be true for arbitrary $|\psi_1\rangle$ and
 $|\psi_2\rangle$.  For instance, for a two-dimensional space spanned
-by the orthonormal basis $\{|0\rangle, |1\rangle\}$, we can pick
+by an orthonormal basis $\{|0\rangle, |1\rangle\}$, we can pick
 \begin{equation}
   |\psi_1\rangle = |0\rangle, \;
   |\psi_2\rangle = \frac{1}{\sqrt{2}}\big(|0\rangle +
@@ -1064,7 +1064,7 @@ Hence, the particles are maximally entangled.
 We conclude this chapter by discussing a set of compelling but
 controversial ideas arising from the phenomenon of quantum
 entanglement: the \textbf{Many Worlds Interpretation} as formulated by
-\hyperref[cite:everett]{Hugh Everett (1956)}.
+Hugh Everett [\ref{cite:everett}].
 
 So far, when describing the phenomenon of state collapse, we have
 relied on the measurement postulate (see
@@ -1112,14 +1112,14 @@ can be described by applying the Schr\"odinger equation to a quantum
 system containing both the thing being measured \textit{and} the
 measurement apparatus itself.
 
-We can study this using a toy model formulated by
-\hyperref[cite:albrecht]{Albrecht (1993)}.  Consider a spin-$1/2$
-particle, and an apparatus designed to measure $S_z$.  Let
-$\mathscr{H}_S$ be the spin-$1/2$ Hilbert space (which is 2D), and
-$\mathscr{H}_A$ be the Hilbert space of the apparatus (which has
-dimension $d$).  We will assume that $d$ is very large, as actual
-experimental apparatuses are macroscopic objects containing $10^{23}$
-or more atoms!  The Hilbert space of the combined system is
+We can study this using a toy model formulated by Albrecht
+[\ref{cite:albrecht}].  Consider a spin-$1/2$ particle, and an
+apparatus designed to measure $S_z$.  Let $\mathscr{H}_S$ be the
+spin-$1/2$ Hilbert space (which is 2D), and $\mathscr{H}_A$ be the
+Hilbert space of the apparatus (which has dimension $d$).  We will
+assume that $d$ is very large, as actual experimental apparatuses are
+macroscopic objects containing $10^{23}$ or more atoms!  The Hilbert
+space of the combined system is
 \begin{equation}
   \mathscr{H} = \mathscr{H}_S \otimes \mathscr{H}_A,
 \end{equation}
@@ -1207,11 +1207,9 @@ the following random scheme:
 \end{align}
 This scheme produces a $d\times d$ matrix with random components,
 subject to the requirement that the overall matrix be Hermitian.  The
-normalization factor $1/2\sqrt{d}$ is relatively unimportant; it
-ensures that the eigenvalues of $\hat{V}$ lie in a fixed range,
-$[-2,2]$, instead of scaling with $d$.  If you are interested in
-learning more about the properties of such ``random matrices'', see
-\hyperref[cite:edelman]{Edelman and Rao (2005)}.
+factor of $1/2\sqrt{d}$ is relatively unimportant; it ensures that the
+eigenvalues of $\hat{V}$ lie in the range $[-2,2]$, instead of scaling
+with $d$ [\ref{cite:edelman}].
 
 The Schr\"odinger equation can now be solved numerically.  The results
 are shown below:
