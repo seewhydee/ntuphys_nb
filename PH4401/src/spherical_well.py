@@ -1,4 +1,4 @@
-from scipy import *
+import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import root
 from scipy.special import spherical_jn, spherical_kn, spherical_yn, lpmv
@@ -8,14 +8,14 @@ import sys
 ## Compute scattering amplitude versus scattering angle.
 ## thetavec is an array of scattering angles.
 def scattering_amplitude_theta(E, U, R, thetavec, lmax=30):
-    lvec = arange(lmax)
+    lvec = np.arange(lmax)
 
-    P = zeros((len(lvec), len(thetavec))) # Legendre polynomials
+    P = np.zeros((len(lvec), len(thetavec))) # Legendre polynomials
     for jj in range(len(lvec)):
-        P[jj,:] = lpmv(0, lvec[jj], cos(thetavec))
+        P[jj,:] = lpmv(0, lvec[jj], np.cos(thetavec))
 
-    kR = sqrt(2*E)*R
-    qR = sqrt(2*(E+U))*R
+    kR = np.sqrt(2*E)*R
+    qR = np.sqrt(2*(E+U))*R
 
     ## Spherical bessels/hankels, and their derivatives
     jl  = spherical_jn(lvec, qR)
@@ -24,19 +24,19 @@ def scattering_amplitude_theta(E, U, R, thetavec, lmax=30):
     hlp = spherical_jn(lvec, kR, True) + 1j*spherical_yn(lvec, kR, True)
 
     ## Phase shifts for each l component
-    delt = 0.5*pi - angle((kR*hlp*jl - qR*hl*jlp)/R)
-    coef = (exp(2j*delt)-1) * (2*lvec+1)
-    return (-0.5j*R/kR) * dot(coef, P)
+    delt = 0.5*np.pi - np.angle((kR*hlp*jl - qR*hl*jlp)/R)
+    coef = (np.exp(2j*delt)-1) * (2*lvec+1)
+    return (-0.5j*R/kR) * np.dot(coef, P)
 
 ## Compute scattering amplitude versus E.
 ## Evec is the energy range, and theta is the scattering angle.
 def scattering_amplitude_energy(Evec, U, R, theta, lmax=30):
-    costheta = cos(theta)
-    P = lpmv(0, arange(lmax), costheta) # Legendre polynomial
-    f = zeros(len(Evec), dtype=complex)
+    costheta = np.cos(theta)
+    P = lpmv(0, np.arange(lmax), costheta) # Legendre polynomial
+    f = np.zeros(len(Evec), dtype=complex)
     for ll in range(lmax):
-        kR = sqrt(2*Evec)*R
-        qR = sqrt(2*(Evec+U))*R
+        kR = np.sqrt(2*Evec)*R
+        qR = np.sqrt(2*(Evec+U))*R
 
         ## Spherical bessels/hankels, and their derivatives
         jl  = spherical_jn(ll, qR)
@@ -44,45 +44,45 @@ def scattering_amplitude_energy(Evec, U, R, theta, lmax=30):
         hl  = spherical_jn(ll, kR) + 1j*spherical_yn(ll, kR)
         hlp = spherical_jn(ll, kR, True) + 1j*spherical_yn(ll, kR, True)
 
-        delt = 0.5*pi - angle((kR*hlp*jl - qR*hl*jlp)/R)
-        f += (-0.5j*R/kR) * (exp(2j*delt)-1) * (2*ll+1) * P[ll]
+        delt = 0.5*np.pi - np.angle((kR*hlp*jl - qR*hl*jlp)/R)
+        f += (-0.5j*R/kR) * (np.exp(2j*delt)-1) * (2*ll+1) * P[ll]
     return f
 
 ## Monte Carlo calculation of scattering amplitude versus E.
 ## Evec is the energy range, and theta is the scattering angle.
-def scattering_amplitude_energy_mc(Evec, U, R, theta, nmc=30000):
+def scattering_amplitude_energy_mc(Evec, U, R, theta, nmc=10000):
     rdist = uniform(loc=-R, scale=(2*R))
     Rsq   = R*R
-    f1    = zeros(len(Evec), dtype=complex)
-    f2    = zeros(len(Evec), dtype=complex)
+    f1    = np.zeros(len(Evec), dtype=complex)
+    f2    = np.zeros(len(Evec), dtype=complex)
 
     ## Pre-factors for the scattering amplitude calculation, including
     ## (i) the 1/(2*pi) constant, (ii) multiples of the potential
     ## (where V = -U), (iii) volume of the integration domain, (iv)
     ## the inverse of the number of samples (for finding the mean),
     ## and (v) the constant prefactor in the propagator.
-    coef1 = -(-U) * (2*R)**3 / (2*pi) / nmc
-    coef2 = -(-U)**2 * (2*R)**6 / (2*pi) / nmc * (-1/(2*pi))
+    coef1 = -(-U) * (2*R)**3 / (2*np.pi) / nmc
+    coef2 = -(-U)**2 * (2*R)**6 / (2*np.pi) / nmc * (-1/(2*np.pi))
     for n in range(len(Evec)):
-        k   = sqrt(2*Evec[n])
+        k   = np.sqrt(2*Evec[n])
         ## Making use of the spherical symmetry, we define axes so
         ## k_i = [0, 0, k] and k_f = [k*sin(theta), 0, k_cos(theta)].
-        kfx = k*sin(theta)
-        kfz = k*cos(theta)
+        kfx = k*np.sin(theta)
+        kfz = k*np.cos(theta)
         ## First Born approximation
         for jj in range(nmc):
             r = rdist.rvs(3)
-            if dot(r,r) < Rsq:
-                f1[n] += exp(1j*(k*r[2] - kfx*r[0] - kfz*r[2]))
+            if np.dot(r,r) < Rsq:
+                f1[n] += np.exp(1j*(k*r[2] - kfx*r[0] - kfz*r[2]))
         ## Second Born approximation
         for jj in range(nmc):
             r1, r2 = rdist.rvs(3), rdist.rvs(3)
-            if dot(r1,r1) < Rsq and dot(r2,r2) < Rsq:
+            if np.dot(r1,r1) < Rsq and np.dot(r2,r2) < Rsq:
                 dr = r1 - r2
-                dr = sqrt(dot(dr,dr))
+                dr = np.sqrt(np.dot(dr,dr))
                 ## Constant factors in G are absorbed into coef2
-                G = exp(1j*k*dr)/dr
-                f2[n] += exp(1j*(k*r2[2] - kfx*r1[0] - kfz*r1[2])) * G
+                G = np.exp(1j*k*dr)/dr
+                f2[n] += np.exp(1j*(k*r2[2] - kfx*r1[0] - kfz*r1[2])) * G
         sys.stdout.write('\r' + str(n+1) + '/' + str(len(Evec)))
     sys.stdout.flush()
     f1 *= coef1
@@ -93,11 +93,11 @@ def scattering_amplitude_energy_mc(Evec, U, R, theta, nmc=30000):
 ## If do_mc is True, compute and plot the Born approximation as well
 ## (this is slow, due to MC integration).
 def spherical_well_E_demo(U=1.0, R=1.0, theta=1.570796, Emax=10, do_mc=True):
-    Evec  = linspace(1e-6, Emax, 2000)
+    Evec  = np.linspace(1e-6, Emax, 2000)
     f = scattering_amplitude_energy(Evec, U, R, theta)
     plt.plot(Evec, abs(f)**2)
     if do_mc:
-        Evec2 = linspace(1e-6, Emax, 25)
+        Evec2 = np.linspace(1e-6, Emax, 25)
         f1, f2 = scattering_amplitude_energy_mc(Evec2, U, R, theta)
         plt.plot(Evec2, abs(f1)**2, 'o-')
         plt.plot(Evec2, abs(f1 + f2)**2, 'x-')
@@ -107,22 +107,22 @@ def spherical_well_E_demo(U=1.0, R=1.0, theta=1.570796, Emax=10, do_mc=True):
 
 ## Find and report the energies of a spherical well
 def bound_state_energies(a, V0, l):
-    E = linspace(-0.9999*V0, -0.00001*V0, 300)
+    E = np.linspace(-0.9999*V0, -0.00001*V0, 300)
     f = empty(len(E))
 
     ## Helper function returning 0 when E matches a bound state.
     def fun(Ecomplex):
         E = Ecomplex[0] + 1j*Ecomplex[1]
-        q = sqrt(2*(E+V0))
-        g = sqrt(-2*E)
+        q = np.sqrt(2*(E+V0))
+        g = np.sqrt(-2*E)
         y = q*spherical_jn(l, q*a, True)*spherical_kn(l,g*a) \
           - g*spherical_kn(l, g*a, True)*spherical_jn(l,q*a)
-        return array([real(y), imag(y)])
+        return np.array([real(y), imag(y)])
 
     ## Look for minima of log|f|
     for n in range(len(E)):
-        q = sqrt(2*(E[n]+V0))
-        g = sqrt(-2*E[n])
+        q = np.sqrt(2*(E[n]+V0))
+        g = np.sqrt(-2*E[n])
         y = fun([E[n],0.0])
         f[n] = log(y[0]**2+y[1]**2)
     idx = nonzero((f[:-2]>f[1:-1]) * (f[1:-1] < f[2:]))[0]
@@ -146,8 +146,8 @@ def spherical_well_demo():
 
     for ll in range(len(lvec)):
         l = lvec[ll]
-        V0vec = linspace(0.05, 20.0, 200)
-        E = zeros((nb, len(V0vec)))
+        V0vec = np.linspace(0.05, 20.0, 200)
+        E = np.zeros((nb, len(V0vec)))
         for jj in range(len(V0vec)):
             Eb = sort(bound_state_energies(a, V0vec[jj], l))
             if len(Eb) > 0:
@@ -160,5 +160,5 @@ def spherical_well_demo():
     plt.ylim(-20, 0)
     plt.show()
 
-spherical_well_E_demo(U=0.2, do_mc=False)
+spherical_well_E_demo(U=0.2, do_mc=True)
 
