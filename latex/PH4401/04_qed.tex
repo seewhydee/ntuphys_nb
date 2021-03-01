@@ -34,25 +34,28 @@
 {\Large \textbf{Chapter 4: Quantum Electrodynamics}}
 \end{center}
 
-This chapter provides an introduction to \textbf{quantum
-  electrodynamics}, the quantum theory of the electromagnetic field
-and its interactions with electrons and other electrically charged
-particles.  We start by formulating Hamiltonians to describe how a
-quantum mechanical electron is affected by classical electromagnetic
-fields.  Then we study how to quantize Maxwell's equations, which
-yields a quantum field theory where the elementary excitations are
-photons---particles of light.  The final step is to formulate a theory
-in which both electrons and photons are treated on the same footing,
-as excitations of underlying quantum fields.  Along the way, we will
-see how relativity can be accomodated with quantum mechanics.
+%% \epigraph{From so simple a beginning
+%%  endless forms most beautiful and most wonderful
+%%  have been, and are being, evolved.}{Charles Darwin,
+%%   \textit{The Origin of Species}}
 
-Quantum electrodynamics is a rich and intricate theory, and we will
-not be able to cover many important areas, such as the detailed
-relationship with special relativity or diagrammatic methods for
-performing field theoretical calculations.  For further reading, two
-recommended texts are Dyson's 1951 lecture notes [\ref{cite:dyson}]
-and Zee's introductory textbook \textit{Quantum Field Theory in a
-  Nutshell} [\ref{cite:zee}].
+This chapter gives an introduction to \textbf{quantum
+  electrodynamics}, the quantum theory of the electromagnetic field
+and its interactions with electrons and other charged particles.  We
+begin by formulating a quantum Hamiltonian for an electron in a
+classical electromagnetic field.  Then we study how to quantize
+Maxwell's equations, arriving at a quantum field theory in which the
+elementary excitations are photons---particles of light.  The final
+step is to formulate a theory in which electrons and photons are
+treated on the same quantum mechanical footing, as excitations of
+underlying quantum fields.  Along the way, we will see how relativity
+can be accomodated with quantum theory.
+
+Quantum electrodynamics is an extremely rich and intricate theory, and
+we will leave out many important topics.  Interested readers are
+referred to are Dyson's 1951 lecture notes on quantum electrodynamics
+[\ref{cite:dyson}], and Zee's textbook \textit{Quantum Field Theory in
+  a Nutshell} [\ref{cite:zee}].
 
 \section{Quantization of the Lorentz Force Law}
 
@@ -65,41 +68,41 @@ interacting with electromagnetic fields, we henceforth take the
 electric charge of the particle to be $-e$, where $e =
 1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  To
 describe particles with an arbitrary electric charge $q$, simply
-perform the substitution $e \rightarrow -q$ in all formulas in the
-rest of this chapter.
+perform the substitution $e \rightarrow -q$ in the formulas you will
+subsequently encounter.
 
-We begin by formulating the Hamiltonian governing the quantum dynamics
-of such a particle, subject to two simplifying assumptions: (i) the
+We wish to formulate the Hamiltonian governing the quantum dynamics of
+such a particle, subject to two simplifying assumptions: (i) the
 particle has charge and mass but is otherwise ``featureless'' (i.e.,
 we ignore the spin angular momentum and magnetic dipole moment that
 real electrons possess), and (ii) the electromagnetic field is treated
 as a classical field, meaning that the electric and magnetic fields
-are definite quantities rather than operators.  These simplifications
-will be dropped in subsequent sections.
+are definite quantities rather than operators.  (We will see how to go
+beyond these simplifications later.)
 
-In the classical regime, the electromagnetic field acts on the
-particle via the Lorentz force
+Classically, the electromagnetic field acts on the particle via the
+Lorentz force law,
 \begin{equation}
-  \mathbf{F}(\mathrm{r},t) = -e\Big(\mathbf{E}(\mathrm{r},t)
-  + \dot{\mathbf{r}}\times \mathbf{B}(\mathrm{r},t)\Big),
+  \mathbf{F}(\mathbf{r},t) = -e\Big(\mathbf{E}(\mathbf{r},t)
+  + \dot{\mathbf{r}}\times \mathbf{B}(\mathbf{r},t)\Big),
 \end{equation}
 where $\mathbf{r}$ and $\dot{\mathbf{r}}$ denote the position and
 velocity of the particle, $t$ is the time, and $\mathbf{E}$ and
 $\mathbf{B}$ are the electric and magnetic fields.  If no other forces
 are present, Newton's second law yields the equation of motion
 \begin{equation}
-  m\ddot{\mathbf{r}} = -e\Big(\mathbf{E}(\mathrm{r},t)
-  + \dot{\mathbf{r}} \times \mathbf{B}(\mathrm{r},t)\Big),
+  m\ddot{\mathbf{r}} = -e\Big(\mathbf{E}(\mathbf{r},t)
+  + \dot{\mathbf{r}} \times \mathbf{B}(\mathbf{r},t)\Big),
   \label{eom}
 \end{equation}
-where $m$ is the particle's mass.  To quantize this, we seek to
+where $m$ is the particle's mass.  To quantize this, we must first
 convert the equation of motion into the form of Hamilton's equations
 of motion.
 
 Let us introduce the electromagnetic scalar and vector potentials
-$\Phi(\mathrm{r},t)$ and $\mathbf{A}(\mathrm{r},t)$, where
+$\Phi(\mathbf{r},t)$ and $\mathbf{A}(\mathbf{r},t)$:
 \begin{align}
-  \mathbf{E}(\mathbf{r},t) &= - \nabla \Phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t} \\
+  \mathbf{E}(\mathbf{r},t) &= - \nabla \Phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t}, \\
   \mathbf{B}(\mathbf{r},t) &= \nabla \times \mathbf{A}(\mathbf{r},t).
   \label{Bfield}
 \end{align}
@@ -200,7 +203,7 @@ appears via the substitution
   \mathbf{p} \rightarrow \mathbf{p} + e\mathbf{A}(\mathbf{r},t).  
 \end{equation}
 
-What does this mean?  Let us consider what ``momentum'' means for a
+What does this mean?  Think about what ``momentum'' means for a
 charged particle in an electromagnetic field.  Noether's theorem
 states that each symmetry of a system (whether classical or quantum)
 is associated with a conservation law.  Momentum is the quantity
@@ -238,7 +241,7 @@ conserved:
 Hence, this is the appropriate canonical momentum for a particle in an
 electromagnetic field.
 
-Finally, to go from classical to quantum mechanics, we replace
+We are now ready to go from classical to quantum mechanics.  Replace
 $\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
 $\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  The
 resulting quantum Hamiltonian is
@@ -261,11 +264,10 @@ The Hamiltonian \eqref{quantumH} possesses a subtle property known as
 \textbf{gauge symmetry}.  Suppose we modify the scalar and vector
 potentials via the substitutions
 \begin{align}
-  \begin{aligned}
-    \Phi(\mathbf{r},t) &\rightarrow \Phi(\mathbf{r},t) - \dot{\Lambda}(\mathbf{r},t)\\
-    \mathbf{A}(\mathbf{r},t) &\rightarrow
-    \mathbf{A}(\mathbf{r},t) + \nabla{\Lambda}(\mathbf{r},t),
-  \end{aligned}
+  \Phi(\mathbf{r},t) &\rightarrow \Phi(\mathbf{r},t) - \dot{\Lambda}(\mathbf{r},t) \label{gauge-subst-1} \\
+  \mathbf{A}(\mathbf{r},t) &\rightarrow
+  \mathbf{A}(\mathbf{r},t) + \nabla{\Lambda}(\mathbf{r},t),
+  \label{gauge-subst-2}
 \end{align}
 where $\Lambda(\mathbf{r},t)$ is an arbitrary scalar field called a
 \textbf{gauge field}.  This is the \textbf{gauge transformation} of
@@ -453,19 +455,20 @@ we can undo the effects of this via the gauge field
 Note that this $\Lambda$ is not single-valued, but that's not a
 problem!  Both $\nabla\Lambda$ and the phase factor
 $\exp(-ie\Lambda/\hbar)$ \textit{are} single-valued, and those are the
-quantities that enter into the gauge symmetry relations.
+quantities that enter into the gauge symmetry relations
+\eqref{gauge-subst-1}--\eqref{gauge-subst-2}.
 
-\section{Dirac Theory}
+\section{Dirac's Theory of the Electron}
 
 \subsection{The Dirac Hamiltonian}
 \label{sec:DiracH}
 
-So far, we have been using $p^2/2m$-type Hamiltonians describing
-non-relativistic electrons.  In 1928, Paul Dirac formulated a
-Hamiltonian that can describe electrons moving close to the speed of
-light, thus successfully combining quantum theory with special
-relativity. Another triumph of Dirac's theory is that it accurately
-predicts the magnetic moment of the electron.
+So far, we have been using $p^2/2m$-type Hamiltonians, which are
+limited to describing non-relativistic particles.  In 1928, Paul Dirac
+formulated a Hamiltonian that can describe electrons moving close to
+the speed of light, thus successfully combining quantum theory with
+special relativity. Another triumph of Dirac's theory is that it
+accurately predicts the magnetic moment of the electron.
 
 Dirac's theory begins from the time-dependent Schr\"odinger wave
 equation,
@@ -511,23 +514,29 @@ For a wavefunction with definite momentum $\mathbf{p}$ and energy
 $E$,
 \begin{equation}
   \hat{H}\psi = E \psi \;\;\;\Rightarrow \;\;\;
-  \left(\alpha_0mc^2 + \sum_{j=1}^3\alpha_j p_jc\right) \psi = E\,\psi,
+  \left(\alpha_0mc^2 + \sum_{j=1}^3\alpha_j p_jc\right) \psi = E\,\psi.
 \end{equation}
-where the $\hat{p}_j$ operators are replaced with definite numbers.
-If $\psi$ is a scalar, this would imply $\alpha_0 mc^2 +
-\sum_{j}\alpha_j p_j c = E$, which does not match the relativistic
-energy-mass-momentum relation \eqref{Erelativistic}.  But we can get
-it to work if the $\alpha$'s are matrices rather than numbers, i.e.
+This is obtained by replacing the $\hat{p}_j$ operators with definite
+numbers.  If $\psi$ is a scalar, this would imply that $\alpha_0 mc^2
++ \sum_{j}\alpha_j p_j c = E$ for certain scalar coefficients
+$\{\alpha_0, \dots, \alpha_3\}$, which does not match the relativistic
+energy-mass-momentum relation \eqref{Erelativistic}.
+
+But we can get things to work if $\psi(\mathbf{r},t)$ is a
+multi-component wavefunction, rather than a scalar wavefunction, and
+the $\alpha$'s are matrices acting on those components via the
+matrix-vector product operation.  In that case,
 \begin{framed}
   \begin{equation}
     \hat{H} = \hat{\alpha}_0 mc^2 + \sum_{j=1}^3 \hat{\alpha}_j \hat{p}_j c,
-    \;\; \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\, \partial_j.
+    \;\; \mathrm{where}\;\; \hat{p}_j \equiv -i\hbar\, \partial_j,
     \label{Dirac}
   \end{equation}
 \end{framed}
 \vskip -0.15in
 \noindent
-In that case, applying the Hamiltonian twice gives
+where the hats on $\{\hat{\alpha}_0, \dots, \hat{\alpha}_3\}$ indicate
+that they are matrix-valued.  Applying the Hamiltonian twice gives
 \begin{equation}
   \left(\hat{\alpha}_0mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^{\!2}\;
   \psi = E^2\,\psi.
@@ -561,7 +570,7 @@ coordinates $\{0,1,2,3\}$.)  The above can be written more concisely
 using the anticommutator:
 \begin{equation}
   \{\hat{\alpha}_\mu, \hat{\alpha}_\nu\} = 2\delta_{\mu\nu},
-  \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3,
+  \;\;\; \textrm{for} \;\;\mu,\nu=0,1,2,3.
   \label{Dirac_anticomm}
 \end{equation}
 Also, we need the $\hat{\alpha}_\mu$ matrices to be Hermitian, so that
@@ -592,7 +601,7 @@ One particularly useful choice is called the \textbf{Dirac
 where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
 denote the usual Pauli matrices.  Since the $\hat{\alpha}_\mu$'s are
 $4\times4$ matrices, it follows that $\psi(\mathbf{r})$ is a
-four-component field, not an ordinary scalar wavefunction.
+four-component field.
 
 \subsection{Eigenstates of the Dirac Hamiltonian}
 \label{sec:deigenstates}
@@ -611,28 +620,28 @@ This is plotted below:
 \noindent
 The energy spectrum forms two hyperbolic bands.  For each
 $\mathbf{p}$, there are two degenerate positive energy eigenvalues,
-and two degenerate negative energy eigenvalues: a total of four
-eigenvalues, matching the number of wavefunction components.  The
+and two degenerate negative energy eigenvalues, for a total of four
+eigenvalues (matching the number of wavefunction components).  The
 upper band matches the dispersion relation for a massive relativistic
-particle, as desired.  But what about the negative-energy states?  Who
+particle, as desired.  But what about the negative-energy band?  Who
 ordered that?
 
 It might be possible for us to ignore the existence of the
-negative-energy states, if we only ever consider isolated electrons;
-we could just declare that the positive-energy states are the ones we
-are interested in, and ignore the other states.  However, the problem
-becomes hard to dismiss once we let the electron interact with another
-system, such as the electromagnetic field, because the positive-energy
-electron states should then become unstable.  Due to the availability
-of negative-energy states extending down to $E\rightarrow -\infty$,
+negative-energy states, if we only ever consider an isolated electron;
+we could just declare the positive-energy states to be the ones we are
+interested in, and ignore the others.  However, the problem becomes
+hard to dismiss once we let the electron interact with another system,
+such as the electromagnetic field.  Under such circumstances, the
+availability of negative-energy states extending down to $E\rightarrow
+-\infty$ would destabilize the positive-energy electron states, since
 the electron can repeatedly hop to states with ever more negative
-energies by shedding energy, e.g.~through the emission of photons.
-This is obviously problematic.  However, let us wait for a while (till
+energies by shedding energy (e.g., by emitting photons).  This is
+obviously problematic.  However, let us wait for a while (till
 Section~\ref{sec:positrons}) to discuss how the stability problem
 might be resolved.
 
-We will first take some time to analyze the meaning of the Dirac
-wavefunction.  The four components represent a four-fold ``internal''
+For now, let us take a closer look at the meaning of the Dirac
+wavefunction.  Its four components represent a four-fold ``internal''
 degree of freedom, distinct from the electron's ordinary kinematic
 degrees of freedom.  Since there are two energy bands, the assignment
 of an electron to the upper or lower band (or some superposition
@@ -640,12 +649,12 @@ thereof) consitutes two degrees of freedom.  Each band must then
 posssess a two-fold degree of freedom (so that $2\times 2 = 4$), which
 turns out to be associated with the electron's spin.
 
-To see explicitly how this works, we must pick a representation for
-the $\hat{\alpha}_\mu$ matrices; the choice of representation
-determines how the four degrees of freedom are encoded in the
-individual wavefunction components.  Let us use the Dirac
-representation \eqref{alpha_matrices}.  In this case, it is convenient
-to divide the components into upper and lower parts,
+To see explicitly how this works, let us pick a representation for the
+$\hat{\alpha}_\mu$ matrices.  The choice of representation determines
+how the four degrees of freedom are encoded in the individual
+wavefunction components.  We will use the Dirac representation
+\eqref{alpha_matrices}.  In this case, it is convenient to divide the
+components into upper and lower parts,
 \begin{equation}
   \psi(\mathbf{r},t) = \begin{bmatrix}\psi_A(\mathbf{r},t)
     \\ \psi_B(\mathbf{r},t)
@@ -670,11 +679,11 @@ by $\psi_B$.  We can thus associate the upper ($A$) and lower ($B$)
 components with the band degree of freedom.  Note, however, that this
 is only an approximate association that holds in the non-relativistic
 limit!  In the relativistic regime, upper-band states can have
-non-vanishing values in the $B$ components, and vice versa.  There
+non-vanishing values in the $B$ components, and vice versa.  (There
 does exist a way to make the upper/lower spinor components correspond
 rigorously to positive/negative energies, but this requires a more
 complicated representation than the Dirac representation
-[\ref{cite:foldy}].
+[\ref{cite:foldy}].)
 
 \subsection{Dirac electrons in an electromagnetic field}
 \label{sec:diracem}
@@ -819,16 +828,17 @@ electronic and electromagnetic quantum fields.  Using the full theory
 of quantum electrodynamics, that ``anomalous magnetic moment'' can
 also be calculated and matches experiment to around one part in
 $10^9$, making it one of the most precise theoretical predictions in
-physics.  For details, see Ref.~[\ref{cite:zee}].
+physics!  For details, see Ref.~[\ref{cite:zee}].
 
 It is noteworthy that we did not set out to include spin in the
 theory, yet it arose, seemingly unavoidably, as a by-product of
 formulating a relativistic theory of the electron.  This is a
-manifestation of the fact that relativistic quantum theory is more
-constrained than non-relativistic quantum theory.  Relativistic
-symmetries impose such strict demands that spin is not allowed to be
-an optional component of the theory, but has to be fully present and
-accounted for.
+manifestation of the general principle that relativistic quantum
+theory is more constrained than non-relativistic quantum
+theory~[\ref{cite:dyson}].  Due to the demands imposed by relativistic
+symmetries, spin is not allowed to be an optional part of the theory
+of the relativistic electron---it has to be built into the theory at a
+fundamental level.
 
 \subsection{Positrons and Dirac Field Theory}
 \label{sec:positrons}
