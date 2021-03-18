@@ -947,66 +947,67 @@ as ``building blocks''.
 \subsubsection{Non-interacting particles}
 
 Consider a system of \textit{non-interacting} particles.  When there
-is just one particle ($N=1$), let $\hat{H}_1$ denote the
-single-particle Hamiltonian, which is a Hermitian operator acting on
-the single-particle Hilbert space $\mathscr{H}^{(1)}$.  For general
-$N$, the multi-particle Hamiltonian $\hat{H}$ is a Hermitian operator
-acting on the Fock space $\mathscr{H}^F$.  Given $\hat{H}_1$, what is
-$\hat{H}$?
+is just one particle ($N=1$), let the single-particle Hamiltonian be
+$\hat{H}^{(1)}$, which is a Hermitian operator acting on the
+single-particle Hilbert space $\mathscr{H}^{(1)}$.  For general $N$,
+the multi-particle Hamiltonian $\hat{H}$ is a Hermitian operator
+acting on the Fock space $\mathscr{H}^F$.  How is $\hat{H}$ related to
+$\hat{H}^{(1)}$?
 
 For bosons, the answer is:
 \begin{equation}
-  \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\mu|\hat{H}_1|\nu\rangle,
+  \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu,
+  \;\;\; \mathrm{where}\;\;\;
+  H_{\mu\nu} = \langle\mu|\hat{H}^{(1)}|\nu\rangle,
   \label{twobosonH}
 \end{equation}
 where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
 and annihilation operators, and $|\mu\rangle$, $|\nu\rangle$ refer to
 vectors in the single-particle Hilbert space.  For fermions, the
-expression is exactly the same, but with the $\hat{a}_\mu$ and
-$\hat{a}_\mu^\dagger$ operators replaced by the fermion creation and
-annihilation operators $\hat{c}_\mu$ and $\hat{c}_\mu^\dagger$.  In
-the remainder of this subsection, we will use the notation for bosonic
-operators, but the results apply equally well to fermions.
+expression is exactly the same, but with the $a$ operators replaced by
+fermionic $c$ operators.
 
-To understand why this expression for $\hat{H}$ makes sense, consider
-its matrix elements with respect to various states.  First, for the
-vacuum state $|\varnothing\rangle$,
+To understand why Eq.~\eqref{twobosonH} is right, consider its matrix
+elements with respect to various states.  First, for the vacuum state
+$|\varnothing\rangle$,
 \begin{equation}
   \langle\varnothing|\hat{H}|\varnothing\rangle = 0.
 \end{equation}
-This makes sense. Second, we can write the single-particle states as
-as $|\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$ (with some
-abuse of notation), so
+This makes sense. Second, consider the matrix elements between
+single-particle states:
 \begin{equation}
-  \begin{aligned}\langle\mu|\hat{H}|\nu\rangle
+  \begin{aligned}
+    \langle n_\mu = 1 |\hat{H}|n_\nu = 1\rangle
     &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}
 \end{equation}
-This exactly matches the definition of $H_{\mu\nu}$ in
+This exactly matches the matrix element defined in
 Eq.~\eqref{twobosonH}.
 
-Third, consider the case where
-$\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ forms an eigenbasis of
-$\hat{H}_1$.  Then,
+Finally, consider the case where $\{|\mu\rangle\}$ forms an eigenbasis
+of $\hat{H}_1$.  Then
 \begin{equation}
-  \hat{H}_1|\varphi_\mu\rangle = E_\mu |\varphi_\mu\rangle \;\;\;\Rightarrow\;\;\; H_{\mu\nu} = E_\mu\,\delta_{\mu\nu}. \;\;\;\Rightarrow \;\; \hat{H} = \sum_{\mu} E_\mu \,\hat{n}_\mu.
+  \hat{H}^{(1)}|\mu\rangle = E_\mu |\mu\rangle
+  \;\;\;\Rightarrow\;\;\;
+  H_{\mu\nu} = E_\mu\,\delta_{\mu\nu} \;\;\;\Rightarrow \;\;
+  \hat{H} = \sum_{\mu} E_\mu \,\hat{n}_\mu.
 \end{equation}
 As previously noted, $\hat{n}_\mu = \hat{a}^\dagger_\mu \hat{a}_\mu$
-is the number operator, a Hermitian operator which corresponds to the
-occupation number of single-particle state $\mu$.  Thus, the total
-energy is the sum of the single-particle energies, as expected for a
-system of non-interacting particles.
+is the number operator, an observable corresponding to the occupation
+number of single-particle state $\mu$.  Thus, the total energy is the
+sum of the single-particle energies, as expected for a system of
+non-interacting particles.
 
-Another way to interpret $\hat{H}$ is to think of the Hamiltonian as
-the generator of time evolution.  Eq.~\eqref{twobosonH} describes an
-infinitesimal time step that consists of a superposition of
-alternative evolution processes.  Each term in the superposition,
-$\hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu$, describes a particle
-being annihilated in state $\nu$, and immediately re-created in state
-$\mu$, which is equivalent to ``transferring'' a particle from $\nu$
-to $\mu$.  The quantum amplitude for this process is described by the
-matrix element $H_{\mu\nu}$.  This description of time evolution is
-applicable not just to single-particle states, but also to
-multi-particle states containing any number of particles.
+We can also think of the Hamiltonian $\hat{H}$ as the generator of
+time evolution.  Eq.~\eqref{twobosonH} describes an infinitesimal time
+step that consists of a superposition of alternative evolution
+processes.  Each term in the superposition, $\hat{a}^\dagger_\mu
+H_{\mu\nu} \hat{a}_\nu$, describes a particle being annihilated in
+state $\nu$, and immediately re-created in state $\mu$, which is
+equivalent to ``transferring'' a particle from $\nu$ to $\mu$.  The
+quantum amplitude for this process is described by the matrix element
+$H_{\mu\nu}$.  This description of time evolution is applicable not
+just to single-particle states, but also to multi-particle states
+containing any number of particles.
 
 Note also that the number of particles does not change during time
 evolution.  Whenever a particle is annihilated in a state $\nu$, it is
@@ -1020,6 +1021,15 @@ The formal proof for this is left as an exercise (see
 \hyperref[ex:n_conserved]{Exercise 6}).  It follows directly from the
 creation and annihilation operators' commutation relations (for
 bosons) or anticommuattion relations (for fermions).
+
+Apart from the total energy, other kinds of observables---the total
+momentum, total angular momentum, etc.---can be expressed in a similar
+way.  Let $\hat{A}^{(1)}$ be a single-particle observable.  For a
+multi-particle system, the operator corresponding to the ``total $A$''
+is
+\begin{equation}
+  \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\mu|\hat{A}^{(1)}|\nu\rangle.
+\end{equation}
 
 \subsubsection{Change of basis}
 
@@ -1041,18 +1051,18 @@ the creation operators,
   = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger |\varnothing\rangle,
 \end{align}
 We therefore deduce that
-\begin{align}
-  \hat{a}_\alpha^\dagger &= \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger,
-  \label{atrans1}\\
-  \hat{a}_\alpha &= \sum_\mu U_{\alpha\mu}^* \hat{a}_\mu.
-  \label{atrans2}
-\end{align}
+\begin{equation}
+  \hat{a}_\alpha^\dagger = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger,
+  \;\;\;
+  \hat{a}_\alpha = \sum_\mu U_{\alpha\mu}^* \hat{a}_\mu.
+  \label{atrans}
+\end{equation}
 Using the unitarity of $U_{\alpha\mu}$, we can verify that
 $\hat{a}_\alpha$ and $\hat{a}_\alpha^\dagger$ satisfy bosonic
 commutation relations if and only if $\hat{a}_\mu$ and
-$\hat{a}_\mu^\dagger$ do so.  For fermions, Eqs.~\eqref{atrans1} and
-\eqref{atrans2} hold using $c$ operators in place of $a$ operators,
-and with anticommutation rather than commutation relations.
+$\hat{a}_\mu^\dagger$ do so.  For fermions, we put $c$ operators in
+place of $a$ operators in Eq.~\eqref{atrans}, and use anticommutation
+rather than commutation relations.
 
 To illustrate how a basis change affects a second quantized
 Hamiltonian, consider a system of non-interacting bosons in which the
@@ -1061,22 +1071,21 @@ second quantized Hamiltonian is
 \begin{equation}
   \hat{H} = \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha,
 \end{equation}
-consistent with Eq.~\eqref{Hdiag}.  Applying Eqs.~\eqref{atrans1} and
-\eqref{atrans2},
+consistent with Eq.~\eqref{Hdiag}.  Applying Eq.~\eqref{atrans},
 \begin{equation}
   \hat{H} = \sum_{\mu\nu} \hat{a}_\mu^\dagger
   \left(\sum_\alpha E_\alpha U_{\alpha\mu} U_{\alpha\nu}^*\right)
   \hat{a}_\nu
   \label{Htransformed}
 \end{equation}
-Now consider the single-particle bra-ket
+Compare this to single-particle bra-ket
 \begin{align}
-  \langle\mu | \hat{H}_1 | \nu\rangle \equiv H_{\mu\nu}
-  &= \sum_{\alpha\beta} \langle \alpha | U_{\alpha\mu} \hat{H}_1 U_{\beta\nu}^* |\beta\rangle \\
+  H_{\mu\nu} \equiv \langle\mu | \hat{H}^{(1)} | \nu\rangle
+  &= \sum_{\alpha\beta} \langle \alpha | U_{\alpha\mu} \hat{H}^{(1)} U_{\beta\nu}^* |\beta\rangle \\
   &= \sum_{\alpha\beta} U_{\alpha\mu} U_{\beta\nu}^* \, E_\beta \, \delta_{\alpha\beta} \\
-  &= \sum_{\alpha} E_\alpha\, U_{\alpha\mu} U_{\alpha\nu}^*,
+  &= \sum_{\alpha} E_\alpha\, U_{\alpha\mu} U_{\alpha\nu}^*.
 \end{align}
-which precisely matches the term in parentheses in
+This precisely matches the term in parentheses in
 Eq.~\eqref{Htransformed}.  This is consistent with the general form of
 the second-quantized Hamiltonian for non-interacting bosons,
 Eq.~\eqref{twobosonH}.
@@ -1084,38 +1093,94 @@ Eq.~\eqref{twobosonH}.
 
 \subsubsection{Particle interactions}
 
-Apart from the total energy, other kinds of observables---the total
-momentum, total angular momentum, etc.---can be expressed in a similar
-way.  Let $\hat{A}_1$ be a Hermitian operator acting on
-single-particle states, corresponding to some physical observable $A$.
-For a multi-particle system, the operator corresponding to the ``total
-$A$'' is
-\begin{equation}
-  \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle.
-\end{equation}
-
 Hermitian operators can also be constructed out of other kinds of
 groupings of creation and annihilation operators.  For example, a
 pairwise (two-particle) potential can be described with a
 superposition of creation and annihilation operator pairs, of the form
 \begin{equation}
-  \hat{V} = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \, V_{\mu\nu;\lambda\sigma}\, \hat{a}_\lambda \hat{a}_\sigma.
+  \hat{V} = \frac{1}{2}
+  \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \,
+  V_{\mu\nu\lambda\sigma}\, \hat{a}_\sigma \hat{a}_\lambda.
+  \label{Vop}
 \end{equation}
-We can ensure that $\hat{V}$ is Hermitian by imposing a
-constraint on the coefficents:
-\begin{equation}
-  \hat{V}^\dagger = \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\sigma \hat{a}^\dagger_\lambda \, V_{\mu\nu;\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V} \;\;\Leftarrow \;\; V_{\sigma\lambda;\nu\mu}^* = V_{\mu\nu;\lambda\sigma}.
-\end{equation}
-%% In the next section, we will show how to determine the
-%% $V_{\mu\nu;\lambda\sigma}$ coefficients for any given two-particle
-%% interaction, such as the electrostatic potential function.  
-An operator of this form can be added to a Hamiltonian to describe a
-system of interacting particles.  In terms of time evolution, the
-$\hat{V}$ operator ``transfers'' (annihilates and then re-creates) a
+The prefactor of $1/2$ is conventional.  In terms of time evolution,
+$\hat{V}$ ``transfers'' (annihilates and then re-creates) a
 \textit{pair} of particles during each infinitesimal time step.  Since
 the number of annihilated particles is always equal to the number of
 created particles, the interaction conserves the total particle
-number.
+number.  We can ensure that $\hat{V}$ is Hermitian by imposing a
+constraint on the coefficents:
+\begin{equation}
+  \hat{V}^\dagger = \frac{1}{2}
+  \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\lambda \hat{a}^\dagger_\sigma
+  \, V_{\mu\nu\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V}
+  \;\;\Leftarrow \;\;
+  V_{\lambda\sigma\mu \nu}^* = V_{\mu\nu\lambda\sigma}.
+\end{equation}
+
+Suppose we are given the two-particle potential as an operator
+$\hat{V}^{(2)}$ acting on the two-particle Hilbert space
+$\mathscr{H}^{(2)}$.  We should be able to express the
+second-quantized operator $\hat{V}$ in terms of $\hat{V}^{(2)}$, by
+comparing their matrix elements.  For example, consider the
+two-boson states
+\begin{align}
+  \begin{aligned}
+    |n_\mu = 1, n_\nu = 1\rangle &= \frac{1}{\sqrt{2}}
+      \Big(|\mu\rangle|\nu\rangle + |\nu\rangle|\mu\rangle \Big), \\
+    |n_\lambda = 1, n_\sigma = 1\rangle &= \frac{1}{\sqrt{2}}
+      \Big(|\lambda\rangle|\sigma\rangle + |\sigma\rangle|\lambda\rangle \Big),
+  \end{aligned}
+\end{align}
+where $\mu \ne \nu$ and $\lambda \ne \sigma$.  The matrix elements of
+$\hat{V}^{(2)}$ are
+\begin{multline}
+  \langle n_\mu = 1, n_\nu = 1 | \hat{V}^{(2)} |n_\lambda = 1, n_\sigma = 1\rangle \\
+  = \frac{1}{2} \Big(
+  \langle\mu|\langle\nu|\hat{V}^{(2)}|\lambda\rangle\sigma\rangle
+  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\lambda\rangle\sigma\rangle
+  + \langle\mu|\langle\nu|\hat{V}^{(2)}|\sigma\rangle\lambda\rangle
+  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\sigma\rangle\lambda\rangle
+  \Big).
+  \label{mat0}
+\end{multline}
+On the other hand, the matrix elements of the second-quantized
+operator $\hat{V}$ are
+\begin{align}
+  \langle n_\mu = 1, n_\nu = 1 | \hat{V} |n_\lambda = 1, n_\sigma = 1\rangle
+  &= \sum_{\mu'\nu'\lambda'\sigma'} V_{\mu'\nu'\lambda'\sigma'}
+  \langle \varnothing | \hat{a}_\nu \hat{a}_\mu \hat{a}_{\mu'}^\dagger
+  \hat{a}_{\nu'}^\dagger \hat{a}_{\sigma'} \hat{a}_{\lambda'}
+  \hat{a}_\lambda^\dagger \hat{a}_\sigma^\dagger |\varnothing\rangle \label{mat1}\\
+  &= \frac{1}{2} \left(V_{\mu\nu\lambda\sigma}
+  + V_{\mu\nu\sigma\lambda}
+  + V_{\nu\mu\lambda\sigma}
+  + V_{\nu\mu\sigma\lambda} \label{mat2}
+  \right).
+\end{align}
+In going from Eq.~\eqref{mat1} to \eqref{mat2}, we use the bosonic
+commutation relations repeatedly to ``pushing'' the annihilation
+operators to the right (so that they can act upon
+$|\varnothing\rangle$) and the creation operators to the left (so that
+they can act upon $\langle\varnothing|$).  Comparing Eq.~\eqref{mat0}
+to Eq.~\eqref{mat2}, we see that the matrix elements match if we take
+\begin{align}
+  V_{\mu\nu\lambda\sigma} = \langle\mu|\langle\nu|\hat{V}^{(2)}
+  |\lambda\rangle|\sigma\rangle.
+\end{align}
+For instance, if the bosons have a position representation, we would
+have something like
+\begin{align}
+  V_{\mu\nu\lambda\sigma} =
+  \int d^d r_1 \int d^d r_2\;
+  \varphi_\mu^*(r_1) \,\varphi_\nu^*(r_2) \, V(r_1, r_2) \,
+  \varphi_\lambda(r_1) \, \varphi_\sigma(r_2).
+\end{align}
+The appropriate coefficients for $\mu = \nu$ and/or $\lambda =
+\sigma$, as well as for the fermionic case, are left for the reader to
+work out.
+
+\subsubsection{Other observables?}
 
 Another way to build a Hermitian operator from creation and
 annihilation operators is
