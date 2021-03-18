@@ -81,12 +81,16 @@ operators acting on the two electrons (i.e., $\hat{\mathbf{p}}_1
 of symmetry, called \textbf{exchange symmetry}.  As we know,
 symmetries of quantum systems can be represented by unitary operators
 that commute with the Hamiltonian.  Exchange symmetry is represented
-by an operator $\hat{P}$, defined as follows: let $\{|\mu_i\rangle\}$
+by an operator $\hat{P}$, defined as follows: let $\{|\mu\rangle\}$
 be a basis for the single-electron Hilbert space $\mathscr{H}^{(1)}$;
 then $\hat{P}$ interchanges the basis vectors for the two electrons:
 \begin{align}
-  \begin{aligned}\hat{P} \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
-    \;&\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle \\&= \sum_{ij} \psi_{ji} |\mu_i\rangle|\mu_j\rangle \;\;\;\textrm{(interchanging $i\leftrightarrow j$ in the double sum)}\end{aligned}
+  \begin{aligned}\hat{P} \Big (\sum_{\mu\nu}
+    \psi_{\mu\nu} |\mu\rangle|\nu\rangle \Big)
+    \;&\equiv\;  \sum_{\mu\nu} \psi_{\mu\nu} |\nu\rangle|\mu\rangle \\
+    &= \sum_{\mu\nu} \psi_{\nu\mu} |\nu\rangle|\mu\rangle
+    \;\;\;\textrm{(interchanging $\mu\leftrightarrow \nu$
+      in the double sum)}\end{aligned}
 \end{align}
 The exchange operator has the following properties:
 \begin{enumerate}
@@ -166,21 +170,21 @@ By the way, one might question whether particle indistinguishability
 invalidates the concept of assigning single-particle states to (say)
 the ``first slot'' or ``second slot'' in a tensor product.  It seems
 unsatisfactory that our mathematical framework allows us to write down
-states like $|\mu_1\rangle|\mu_2\rangle$ that are physically
-impossible (as it is not symmetric or antisymmetric), and uses such
-states to define a ``particle exchange'' operation that has no
-physical meaning.  To get around this, Leinaas and Myrheim (1977) have
-developed an interesting formulation of particle indistinguishability
-that avoids the concept of particle exchange.  In this view, in a
-multi-particle wavefunction the coordinates $(\mathbf{r}_1, \dots,
-\mathbf{r}_N)$ are not to be regarded as an ordinary vector, but as a
-mathematical object in which interchanging entries leaves the object
-invariant.  Bosonic or fermionic states can then be constructed by
-carefully analyzing the topological structure of wavefunctions defined
-on such configuration spaces.  For more details, the interested reader
-is referred to the paper by Leinaas and Myrheim [\ref{cite:leinaas}].
-In this course, however, we will adopt the usual formulation based on
-particle exchange.
+a state like $|\mu\rangle|\nu\rangle$ (where $\mu\ne\nu$), which is
+physically impossible since it is not symmetric or antisymmetric, and
+then uses such states to define a ``particle exchange'' operation that
+has no physical meaning.  To get around this, Leinaas and Myrheim
+(1977) have developed an interesting formulation of particle
+indistinguishability that avoids the concept of particle exchange.  In
+this view, in a multi-particle wavefunction the coordinates
+$(\mathbf{r}_1, \dots, \mathbf{r}_N)$ are not to be regarded as an
+ordinary vector, but as a mathematical object in which interchanging
+entries leaves the object invariant.  Bosonic or fermionic states can
+then be constructed by carefully analyzing the topological structure
+of wavefunctions defined on such configuration spaces.  For more
+details, the interested reader is referred to the paper by Leinaas and
+Myrheim [\ref{cite:leinaas}].  In this course, however, we will adopt
+the usual formulation based on particle exchange.
 
 \section{Symmetric and antisymmetric states}
 
@@ -191,29 +195,33 @@ A state of $N$ bosons must be symmetric under every possible exchange
 operator:
 \begin{equation}
   \hat{P}_{ij}\; |\psi\rangle = |\psi\rangle \;\;\; \forall\, i, j \in\{1,\dots,N\},\;\; i\ne j.
+  \label{sym}
 \end{equation}
 
 There is a standard way to construct multi-particle states obeying
 this symmetry condition.  First, consider a two-boson system ($N =
 2$).  If both bosons occupy the same single-particle state,
-$|\varphi\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
+$|\mu\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
 \begin{equation}
-  |\varphi,\varphi\rangle = |\varphi\rangle  |\varphi\rangle.
+  |\mu,\mu\rangle = |\mu\rangle  |\mu\rangle.
 \end{equation}
-This evidently satisfies the required symmetry condition $\hat{P}_{12}
-|\varphi,\varphi\rangle = |\varphi,\varphi\rangle$.  Next, suppose the
-two bosons occupy \textit{different} single-particle states,
-$|\varphi_1\rangle$ and $|\varphi_2\rangle$.  It would be wrong to
-write the two-boson state as $|\varphi_1\rangle |\varphi_2\rangle$,
-because the particles would not be symmetric under exchange.  Instead,
-we construct the multi-particle state
+This evidently satisfies the required symmetry condition \eqref{sym}.
+Next, suppose the two bosons occupy \textit{different} single-particle
+states, $|\mu\rangle$ and $|\nu\rangle$ (which are both vectors in
+$\mathscr{H}^{(1)}$).  It would be wrong to write the two-boson state
+as $|\mu\rangle |\nu\rangle$, because the particles would not be
+symmetric under exchange.  Instead, we construct the multi-particle
+state
 \begin{equation}
-  |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big( |\varphi_1\rangle  |\varphi_2\rangle + |\varphi_2\rangle  |\varphi_1\rangle\Big).
+  |\mu,\nu\rangle = \frac{1}{\sqrt{2}} \Big( |\mu\rangle |\nu\rangle +
+  |\nu\rangle |\mu\rangle\Big).
 \end{equation}
 The $1/\sqrt{2}$ factor ensures normalization.  This has the
 appropriate exchange symmetry:
 \begin{equation}
-  \hat{P}_{12}\,|\varphi_1,\varphi_2\rangle \;=\; \frac{1}{\sqrt{2}} \Big( |\varphi_2\rangle  |\varphi_1\rangle + |\varphi_1\rangle  |\varphi_2\rangle\Big) \;=\; |\varphi_1,\varphi_2\rangle.
+  \hat{P}_{12}\,|\mu,\nu\rangle \;=\; \frac{1}{\sqrt{2}}
+  \Big( |\nu\rangle  |\mu\rangle + |\mu\rangle  |\nu\rangle\Big)
+  \,=\, |\mu, \nu\rangle.
 \end{equation}
 
 The above construction can be generalized to arbitrary numbers of
@@ -224,13 +232,15 @@ enumerated by
 \end{equation}
 Here, we use the symbol $\phi$, rather than $\varphi$, to indicate
 that the states in this list need not be unique.  For example, we
-could have $|\phi_1\rangle = |\phi_2\rangle = |\varphi_1\rangle$,
-meaning there is a certain single-particle state $|\varphi_1\rangle$
-occupied by two particles.
+could have $|\phi_1\rangle = |\phi_2\rangle = |\mu\rangle$, meaning
+there is a certain single-particle state $|\mu\rangle$ occupied by two
+particles.
 
 The $N$-boson state can now be written as
 \begin{equation}
-  |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).
+  |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p
+  \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots
+  |\phi_{p(N)}\rangle\Big).
   \label{nbosons}
 \end{equation}
 The sum is taken over each of the $N!$ permutations acting on
@@ -259,12 +269,12 @@ state is symmetric under every possible exchange operation.
 
 \begin{framed}
 \noindent
-\textit{Example}---A three-boson system has two particles in state
-$|\varphi_1\rangle$, and one particle in state $|\varphi_2\rangle$.
+\textit{Example}---A three-boson system has two particles in a state
+$|\mu\rangle$, and one particle in a different state $|\nu\rangle$.
 To express the three-particle state, define $\{|\phi_1\rangle,
 |\phi_2\rangle, |\phi_3\rangle\}$ where $|\phi_1\rangle =
-|\phi_2\rangle = |\varphi_1\rangle$ and $|\phi_3\rangle =
-|\varphi_2\rangle$.  Then
+|\phi_2\rangle = |\mu\rangle$ and $|\phi_3\rangle = |\nu\rangle$.
+Then
 \begin{align}
   \begin{aligned}
     |\phi_1,\phi_2,\phi_3\rangle &= \frac{1}{\sqrt{12}} \Big( \;
@@ -276,31 +286,31 @@ To express the three-particle state, define $\{|\phi_1\rangle,
     |\phi_3\rangle|\phi_2\rangle|\phi_1\rangle +
     |\phi_2\rangle|\phi_1\rangle|\phi_3\rangle\Big) \\
     &= \frac{1}{\sqrt{3}} \;\, \Big(\;
-    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
-    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
-    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big).
+    |\mu\rangle|\mu\rangle|\nu\rangle +
+    |\mu\rangle|\nu\rangle|\mu\rangle +
+    |\nu\rangle|\mu\rangle|\mu\rangle\Big).
   \end{aligned}
 \end{align}
-The exchange symmetry operators then have the following effects:
+The exchange symmetry operators have the expected effects:
 \begin{align}
   \begin{aligned}
     \hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle
     &= \frac{1}{\sqrt{3}} \Big(
-    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
-    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
-    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle\Big)
+    |\mu\rangle|\mu\rangle|\nu\rangle +
+    |\nu\rangle|\mu\rangle|\mu\rangle +
+    |\mu\rangle|\nu\rangle|\mu\rangle\Big)
     = |\phi_1,\phi_2,\phi_3\rangle \\
     \hat{P}_{23}|\phi_1,\phi_2,\phi_3\rangle
     &= \frac{1}{\sqrt{3}} \Big(
-    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
-    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle +
-    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle\Big)
+    |\mu\rangle|\nu\rangle|\mu\rangle +
+    |\mu\rangle|\mu\rangle|\nu\rangle +
+    |\nu\rangle|\mu\rangle|\mu\rangle\Big)
     = |\phi_1,\phi_2,\phi_3\rangle\\
     \hat{P}_{13}|\phi_1,\phi_2,\phi_3\rangle
     &= \frac{1}{\sqrt{3}} \Big(
-    |\varphi_2\rangle|\varphi_1\rangle|\varphi_1\rangle +
-    |\varphi_1\rangle|\varphi_2\rangle|\varphi_1\rangle +
-    |\varphi_1\rangle|\varphi_1\rangle|\varphi_2\rangle\Big)
+    |\nu\rangle|\mu\rangle|\mu\rangle +
+    |\mu\rangle|\nu\rangle|\mu\rangle +
+    |\mu\rangle|\mu\rangle|\nu\rangle\Big)
     = |\phi_1,\phi_2,\phi_3\rangle.
   \end{aligned}
 \end{align}
@@ -318,29 +328,32 @@ Similar to the bosonic case, we can explicitly construct multi-fermion
 states based on the occupancy of single-particle state.
 
 First consider $N=2$, with the fermions occupying the single-particle
-states $|\varphi_1\rangle$ and $|\varphi_2\rangle$.  The appropriate
-two-particle state is
+states $|\mu\rangle$ and $|\nu\rangle$.  The appropriate two-particle
+state is
 \begin{equation}
-  |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_1\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle\Big).
+  |\mu,\nu\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\mu\rangle|\nu\rangle - |\nu\rangle|\mu\rangle\Big).
   \label{two_fermions}
 \end{equation}
 We can easily check that this is antisymmetric:
 \begin{equation}
-  \hat{P}_{12} |\varphi_1,\varphi_2\rangle = \frac{1}{\sqrt{2}} \Big(|\varphi_2\rangle|\varphi_1\rangle - |\varphi_1\rangle|\varphi_2\rangle\Big) = - |\varphi_1,\varphi_2\rangle.
+  \hat{P}_{12} |\mu,\nu\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\nu\rangle|\mu\rangle - |\mu\rangle|\nu\rangle\Big)
+  = - |\mu,\nu\rangle.
 \end{equation}
-Eq.~\eqref{two_fermions} doesn't work if $|\varphi_1\rangle$ and
-$|\varphi_2\rangle$ are the same; the two terms would cancel to give
-the zero vector, which is not a valid quantum state.  This is a
-manifestation of the \textbf{Pauli exclusion principle}, which states
-that two fermions cannot occupy the same state.  In other words, each
-single-particle state is either unoccupied, or occupied by exactly one
-fermion.
+Note that if $|\mu\rangle$ and $|\nu\rangle$ are the same
+single-particle state, Eq.~\eqref{two_fermions} doesn't work, since
+the two terms would cancel to give the zero vector, which is not a
+valid quantum state.  This is a manifestation of the \textbf{Pauli
+  exclusion principle}, which states that two fermions cannot occupy
+the same single-particle state.  Thus, each single-particle state is
+either unoccupied or occupied by one fermion.
 
 For general $N$, let the occupied single-particle states be
-$\{|\varphi_1\rangle, |\varphi_2\rangle,\dots,|\varphi_N\rangle\}$.
-Then the appropriate $N$-fermion state is
+$|\phi_1\rangle$, $|\phi_2\rangle$, $\dots, |\phi_N\rangle$.  Then the
+appropriate $N$-fermion state is
 \begin{equation}
-  |\varphi_1,\dots,\varphi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\varphi_{p(1)}\rangle |\varphi_{p(2)}\rangle \cdots |\varphi_{p(N)}\rangle.
+  |\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.
   \label{Nfermions}
 \end{equation}
 It is up to you to verify that the $1/\sqrt{N!}$ prefactor is the
@@ -352,7 +365,7 @@ constructed from an even number of transpositions (i.e., exchanges of
 adjacent elements) starting from the sequence $\{1,2,\dots,N\}$, and
 $-1$ if $p$ involves an odd number of transpositions.
 
-If $\{|\varphi_1\rangle, \dots, |\varphi_N\rangle\}$ are not all
+If $\{|\phi_1\rangle, \dots, |\phi_N\rangle\}$ are not all
 distinct single-particle states, Eq.~\eqref{Nfermions} would yield the
 zero vector, since the terms in the sum over $p$ cancel out pairwise
 (you can check this).  This is once again consistent with the Pauli
@@ -388,14 +401,14 @@ elements.  Each time we perform a transposition, the sign of $s(p)$ is
 reversed.  Hence, the three-fermion state is
 \begin{align}
   \begin{aligned}
-    |\varphi_1, \varphi_2, \varphi_3\rangle
+    |\phi_1, \phi_2, \phi_3\rangle
     &= \frac{1}{\sqrt{6}} \Big(
-    |\varphi_1\rangle |\varphi_2\rangle |\varphi_3\rangle
-    - |\varphi_2\rangle |\varphi_1\rangle |\varphi_3\rangle \\
-    & \qquad\; + |\varphi_2\rangle |\varphi_3\rangle |\varphi_1\rangle
-    - |\varphi_3\rangle |\varphi_2\rangle |\varphi_1\rangle \\
-    & \qquad\; + |\varphi_2\rangle |\varphi_3\rangle |\varphi_1\rangle
-    - |\varphi_1\rangle |\varphi_3\rangle |\varphi_2\rangle \Big).
+    |\phi_1\rangle |\phi_2\rangle |\phi_3\rangle
+    - |\phi_2\rangle |\phi_1\rangle |\phi_3\rangle \\
+    & \qquad\; + |\phi_2\rangle |\phi_3\rangle |\phi_1\rangle
+    - |\phi_3\rangle |\phi_2\rangle |\phi_1\rangle \\
+    & \qquad\; + |\phi_2\rangle |\phi_3\rangle |\phi_1\rangle
+    - |\phi_1\rangle |\phi_3\rangle |\phi_2\rangle \Big).
   \end{aligned}
 \end{align}
 \end{framed}
@@ -404,23 +417,23 @@ We now see why Eq.~\eqref{Nfermions} describes the $N$-fermion state.
 Let us apply $\hat{P}_{ij}$ to it:
 \begin{align}
   \begin{aligned}
-    \hat{P}_{ij}|\varphi_1,\dots,\varphi_N\rangle
+    \hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle
     &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \hat{P}_{ij}
-    \big[\cdots |\varphi_{p(i)}\rangle \cdots
-      |\varphi_{p(j)}\rangle \cdots\big] \\
-    &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\varphi_{p(j)}\rangle
-      \cdots |\varphi_{p(i)}\rangle \cdots\big].
+    \big[\cdots |\phi_{p(i)}\rangle \cdots
+      |\phi_{p(j)}\rangle \cdots\big] \\
+    &= \frac{1}{\sqrt{N!}} \sum_p s(p)\, \big[\cdots |\phi_{p(j)}\rangle
+      \cdots |\phi_{p(i)}\rangle \cdots\big].
   \end{aligned}
 \end{align}
 Within each term in the above sum, the single-particle states for
 $p(i)$ and $p(j)$ have exchanged places.  The resulting term must be
 an exact match for another term in the original expression for
-$|\varphi_1,\dots,\varphi_N\rangle$, since the sum runs over all
+$|\phi_1,\dots,\phi_N\rangle$, since the sum runs over all
 possible permutations, except for one difference: the coefficient
 $s(p)$ must have an \textit{opposite} sign, since the two permutations
 are related by an exchange.  It follows that
-$\hat{P}_{ij}|\varphi_1,\dots,\varphi_N\rangle = -
-|\varphi_1,\dots,\varphi_N\rangle$ for any choice of $i \ne j$.
+$\hat{P}_{ij}|\phi_1,\dots,\phi_N\rangle = -
+|\phi_1,\dots,\phi_N\rangle$ for any choice of $i \ne j$.
 
 \subsection{Distinguishing particles}
 
@@ -433,91 +446,90 @@ two-particle state
   - |\!-\!z\rangle |\!+\!z\rangle \Big),
   \label{EPR}
 \end{equation}
-and discussed performing a partial measurement of $\hat{S}_z$ on
-particle $A$.  If the measurement result is $+\hbar/2$, the
-two-particle state collapses to $|\!+\!z\rangle |\!-\!z\rangle$.  Is
-that previous discussion invalidated if the particles are identical?
+which appears to be antisymmetric.  Does this mean that we cannot
+prepare $|\psi_{\mathrm{EPR}}\rangle$ using photons (which are
+bosons)?  More disturbingly, we discussed how measuring $\hat{S}_z$ on
+particle $A$, and obtaining the result $+\hbar/2$, causes the
+two-particle state to collapse into $|\!+\!z\rangle |\!-\!z\rangle$,
+which is neither symmetric nor antisymmetric.  Is this result
+invalidated if the particles are identical?
 
-The answer is no, because the particle exchange symmetry refers to an
-exchange of \textit{all} the degrees of freedom of each particle.  If
-we divide the particle degrees of freedom into subsets (e.g., position
-and spin) and ``fix'' one of the subsets, that serves as an effective
-means of distinguishing the particles.
+The answer to each question is no.  The confusion arises because the
+particle exchange symmetry has to involve an exchange of \textit{all}
+the degrees of freedom of each particle, and Eq.~\eqref{EPR} only
+shows the spin degree of freedom.
 
-To understand this, let us re-consider the EPR thought experiment in
-detail, assuming that the two particles are identical fermions (the
-discussion for bosons is similar).  We previously focused on each
+To unpack the above statement, let us suppose the two particles in the
+EPR experiment are identical bosons.  We have focused on each
 particle's spin degree of freedom, but they must also have a position
 degree of freedom---that's how we can have a particle at Alpha
-Centauri ($A$) and a particle at Betelgeuse ($B$).  We previously did
-not explicitly account for this position degree of freedom, but we
-shall now do so.  Let the single-particle Hilbert space be
+Centauri ($A$) and another at Betelgeuse ($B$).  If we explicitly
+account for this position degree of freedom, the single-particle
+Hilbert space should be
 \begin{equation}
   \mathscr{H}^{(1)} = \mathscr{H}_{\mathrm{spin}} \otimes \mathscr{H}_{\mathrm{position}}.
 \end{equation}
 For simplicity, let us treat position as a twofold degree of freedom,
-so that $\mathscr{H}_{\mathrm{position}}$ is a 2D space spanned by the
-basis $\{|A\rangle, |B\rangle\}$.
+treating $\mathscr{H}_{\mathrm{position}}$ as a 2D space spanned by
+the basis $\{|A\rangle, |B\rangle\}$.
 
 Now consider the state we previously denoted by $|\!+\!z\rangle
 |\!-\!z\rangle$, which refers to a spin-up particle at $A$ and a
 spin-down particle at $B$.  In our previous notation, it was
 implicitly assumed that $A$ refers to the left-hand slot of the tensor
-product, and $B$ refers to the right-hand slot.  If we want to account
-for the particles' fermionic nature and the fact that $A$ and $B$ are
-quantum degrees of freedom, here is how we write the same state:
+product, and $B$ refers to the right-hand slot.  If we account for the
+position degrees of freedom, the state is written as
 \begin{equation}
   |+\!z, A;\; -z, B\rangle = \frac{1}{\sqrt{2}}
   \Big(|\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
-  - |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big).
+  + |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big),
   \label{asym1}
 \end{equation}
-Here, the kets are written in the following order:
+where the kets are written in the following order:
 \begin{equation}
   \Big[
     (\textrm{spin 1}) \otimes (\textrm{position 1}) \Big]
   \otimes
   \Big[
-    (\textrm{spin 2}) \otimes (\textrm{position 2}) \Big]
+    (\textrm{spin 2}) \otimes (\textrm{position 2}) \Big].
   \label{order1}
 \end{equation}
 The exchange operator $\hat{P}_{12}$ swaps the two particles' Hilbert
 spaces---which includes both the position \textit{and} the spin part.
-Hence, Eq.~\eqref{asym1} is explicitly antisymmetric:
+Hence, Eq.~\eqref{asym1} is explicitly symmetric:
 \begin{align}
   \begin{aligned}
-  \hat{P}_{12} |+\!z, A;\; -z, B\rangle &= \frac{1}{\sqrt{2}}
+  \hat{P}_{12} \, |+\!z, A\,;\, -z, B\rangle &= \frac{1}{\sqrt{2}}
   \Big(|\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle
-  - |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle \Big) \\
-  &= - |+\!z, A;\; -z, B\rangle.
+  + |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle \Big) \\
+  &= |+\!z, A\,;\, -z, B\rangle.
   \end{aligned}
 \end{align}
-
 Likewise, if there is a spin-down particle at $A$ and a spin-up
-particle at $B$, the fermionic two-particle state is
+particle at $B$, the bosonic two-particle state is
 \begin{equation}
-  |-\!z, A;\; +z, B\rangle = \frac{1}{\sqrt{2}}
+  |-\!z, A\,;\, +z, B\rangle = \frac{1}{\sqrt{2}}
   \Big(|\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
-  - |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
+  + |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
   \label{asym2}
 \end{equation}
 Using Eqs.~\eqref{asym1} and \eqref{asym2}, we can rewrite the EPR
-state \eqref{EPR} as
+singlet state \eqref{EPR} as
 \begin{align}
   \begin{aligned}
     |\psi_{\mathrm{EPR}}\rangle &= \frac{1}{\sqrt{2}} \Big(
-    |\!+\!z, A;\; -\!z, B\rangle - |-\!z, A;\; +\!z, B\rangle \Big)\\
-    &= \frac{1}{2} \Big(
+    |\!+\!z, A\,;\, -z, B\rangle - |-\!z, A\,;\, +z, B\rangle \Big)\\
+    &= \frac{1}{2} \Big(\,
     |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
-    - |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \\
-    &\qquad\;\;- |\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
-    + |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
+    + |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \\
+    &\quad\;\;- |\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
+    - |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
     \label{epr1}
   \end{aligned}
 \end{align}
-This looks like a mess, but we can clarify it with some careful
-re-ordering.  Instead of using the ordering \eqref{order1}, suppose we
-separate the spin and position:
+This state looks like a mess, but it turns out that we can clarify it
+with some careful re-ordering.  Instead of the ordering
+\eqref{order1}, order by spins and then positions:
 \begin{equation}
   \Big[
     (\textrm{spin 1}) \otimes (\textrm{spin 2}) \Big]
@@ -531,13 +543,14 @@ Then Eq.~\eqref{epr1} can be rewritten as
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(
   |\!+\!z\rangle |\!-\!z\rangle - |\!-\!z\rangle |\!+\!z\rangle \Big)  
   \otimes \frac{1}{\sqrt{2}} \Big(
-  |A\rangle |B\rangle + |B\rangle |A\rangle \Big).
+  |A\rangle |B\rangle - |B\rangle |A\rangle \Big).
+  \label{eprsplit}
 \end{equation}
-In other words, the spin degrees of freedom are exactly as described
-by our old notation, Eq.~\eqref{EPR}.  The position degrees of
-freedom, which we previously did not monitor, form a symmetric
-combination, and this makes the overall two-particle state
-antisymmetric.
+Evidently, even though the spin degrees of freedom form an
+antisymmetric combination, as described by Eq.~\eqref{EPR}, the
+position degrees of freedom in Eq.~\eqref{eprsplit} also have an
+antisymmetric form, and this allows the two-particle state to meet the
+bosonic symmetry condition.
 
 Suppose we perform a measurement on $|\psi_{\mathrm{EPR}}\rangle$, and
 find that the particle at position $A$ has spin $+z$.  As usual, a
@@ -557,15 +570,14 @@ the EPR state \eqref{epr1} yields
   |\psi'\rangle \;=\;
   \frac{1}{2} \Big(
     |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
-    - |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big).
+    + |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big).
 \end{equation}
 Apart from a change in normalization, this is precisely the fermionic
-state $|+z,A;-z,B\rangle$ defined in Eq.~\eqref{asym1}.  In our
+state $|+\!z,A;-z,B\rangle$ defined in Eq.~\eqref{asym1}.  In our
 earlier notation, this state was simply written as
-$|+\!z\rangle|-\!z\rangle$.  This goes to show that particle exchange
-symmetry is fully compatible with the concepts of partial
-measurements, entanglement, etc., that we discussed in the previous
-chapter.
+$|\!+\!z\rangle|-\!z\rangle$.  This goes to show that particle
+exchange symmetry is fully compatible with the concepts of partial
+measurements, entanglement, etc., discussed in the previous chapter.
 
 \section{Second quantization}
 
@@ -580,12 +592,11 @@ one we are stuck with for historical reasons.)
 We start by defining a convenient way to specify states of multiple
 identical particles, called the \textbf{occupation number
   representation}.  Let us enumerate a set of single-particle states,
-$\{|\varphi_1\rangle, |\varphi_2\rangle, |\varphi_3\rangle, \cdots\}$,
-that form a complete orthonormal basis for the single-particle Hilbert
-space $\mathscr{H}^{(1)}$.  Then, we build multi-particle states by
-specifying how many particles are in state $|\varphi_1\rangle$,
-denoted $n_1$; how many are in state $|\varphi_2\rangle$, denoted
-$n_2$; and so on.  Thus,
+$\{|1\rangle, |2\rangle, |3\rangle, \cdots\}$, that form a complete
+orthonormal basis for the single-particle Hilbert space
+$\mathscr{H}^{(1)}$.  Then, we build multi-particle states by
+specifying how many particles are in state $|1\rangle$, denoted $n_1$;
+how many are in state $|2\rangle$, denoted $n_2$; and so on.  Thus,
 \begin{equation*}
   |n_1,n_2,n_3,\dots\rangle
 \end{equation*}
@@ -600,28 +611,29 @@ Let us run through a couple of examples:
 \begin{framed}
 \noindent
 \textit{Example}---The two-particle state $|0,2,0,0,\dots\rangle$ has
-both particles in state $|\varphi_2\rangle$.  This is only possible if
-the particles are bosons, since fermions cannot share the same state.
-Written out in tensor product form, the symmetric state is
+both particles in the single-particle state $|2\rangle$.  This is only
+possible if the particles are bosons, since fermions cannot share the
+same state.  Written out in tensor product form, the symmetric state
+is
 \begin{equation}
-  |0,2,0,0,\dots\rangle \equiv |\varphi_2\rangle|\varphi_2\rangle.
+  |0,2,0,0,\dots\rangle \equiv |2\rangle|2\rangle.
 \end{equation}
 \end{framed}
 
 \begin{framed}
 \noindent
 \textit{Example}---The three-particle state $|1,1,1,0,0,\dots\rangle$
-has one particle each occupying $|\varphi_1\rangle$,
-$|\varphi_2\rangle$, and $|\varphi_3\rangle$.  If the particles are
-bosons, this corresponds to the symmetric state
+has one particle each occupying $|1\rangle$, $|2\rangle$, and
+$|3\rangle$.  If the particles are bosons, this corresponds to the
+symmetric state
 \begin{align}
-  \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad+ |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle \Big).
+  \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|1\rangle|2\rangle|3\rangle + |3\rangle|1\rangle|2\rangle + |2\rangle|3\rangle|1\rangle \\&\;\qquad+ |1\rangle|3\rangle|2\rangle + |2\rangle|1\rangle|3\rangle + |3\rangle|2\rangle|1\rangle \Big).
   \end{aligned}
 \end{align}
 And if the particles are fermions, the appropriate antisymmetric state
 is
 \begin{align}
-  \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|\varphi_1\rangle|\varphi_2\rangle|\varphi_3\rangle + |\varphi_3\rangle|\varphi_1\rangle|\varphi_2\rangle + |\varphi_2\rangle|\varphi_3\rangle|\varphi_1\rangle \\&\;\qquad - |\varphi_1\rangle|\varphi_3\rangle|\varphi_2\rangle - |\varphi_2\rangle|\varphi_1\rangle|\varphi_3\rangle - |\varphi_3\rangle|\varphi_2\rangle|\varphi_1\rangle\Big).
+  \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|1\rangle|2\rangle|3\rangle + |3\rangle|1\rangle|2\rangle + |2\rangle|3\rangle|1\rangle \\&\;\qquad - |1\rangle|3\rangle|2\rangle - |2\rangle|1\rangle|3\rangle - |3\rangle|2\rangle|1\rangle\Big).
   \end{aligned}
 \end{align}
 \end{framed}
@@ -760,7 +772,7 @@ commutation relations:
 These can be derived by taking the matrix elements with respect to the
 occupation number basis.  We will go through the derivation of the
 last commutation relation; the others are left as an exercise
-(\hyperref[ex:boson_commutators]{Exercise 4}).
+(\hyperref[ex:boson_commutators]{Exercise 5}).
 
 To prove that $[\hat{a}_\mu,\hat{a}_\nu^\dagger] = \delta_{\mu\nu}$,
 first consider the case where the creation/annihilation operators act
@@ -872,7 +884,7 @@ Similar to the bosonic commutation relations \eqref{commutations}, the
 anticommutation relations \eqref{anticommutation} can be derived by
 taking matrix elements with occupation number states.  We will only go
 over the last one, $\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} =
-\delta_{\mu\nu}$; the others are left as an exercise.
+\delta_{\mu\nu}$; the others are left for the reader to verify.
 
 First, consider creation/annihilation operators acting on the same
 single-particle state $\mu$:
@@ -932,6 +944,8 @@ the creation and annihilation operators defined in
 Sections~\ref{sec:second_quantized_bosons}--\ref{sec:second_quantized_fermions}
 as ``building blocks''.
 
+\subsubsection{Non-interacting particles}
+
 Consider a system of \textit{non-interacting} particles.  When there
 is just one particle ($N=1$), let $\hat{H}_1$ denote the
 single-particle Hamiltonian, which is a Hermitian operator acting on
@@ -942,16 +956,17 @@ $\hat{H}$?
 
 For bosons, the answer is:
 \begin{equation}
-  \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\varphi_\mu|\hat{H}_1|\varphi_\nu\rangle,
+  \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; H_{\mu\nu} = \langle\mu|\hat{H}_1|\nu\rangle,
   \label{twobosonH}
 \end{equation}
 where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
-and annihilation operators.  For fermions, the expression is exactly
-the same, but with the $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$
-operators replaced by the fermion creation and annihilation operators
-$\hat{c}_\mu$ and $\hat{c}_\mu^\dagger$.  In the remainder of this
-subsection, we will use the notation for bosonic operators, but the
-results apply equally well to fermions.
+and annihilation operators, and $|\mu\rangle$, $|\nu\rangle$ refer to
+vectors in the single-particle Hilbert space.  For fermions, the
+expression is exactly the same, but with the $\hat{a}_\mu$ and
+$\hat{a}_\mu^\dagger$ operators replaced by the fermion creation and
+annihilation operators $\hat{c}_\mu$ and $\hat{c}_\mu^\dagger$.  In
+the remainder of this subsection, we will use the notation for bosonic
+operators, but the results apply equally well to fermions.
 
 To understand why this expression for $\hat{H}$ makes sense, consider
 its matrix elements with respect to various states.  First, for the
@@ -959,13 +974,15 @@ vacuum state $|\varnothing\rangle$,
 \begin{equation}
   \langle\varnothing|\hat{H}|\varnothing\rangle = 0.
 \end{equation}
-This makes sense. Second, single-particle states can be written as
-$|\varphi_\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$, so
+This makes sense. Second, we can write the single-particle states as
+as $|\mu\rangle = \hat{a}^\dagger_\mu|\varnothing\rangle$ (with some
+abuse of notation), so
 \begin{equation}
-  \begin{aligned}\langle\varphi_\mu|\hat{H}|\varphi_\nu\rangle &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}
+  \begin{aligned}\langle\mu|\hat{H}|\nu\rangle
+    &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}
 \end{equation}
-This exactly matches the definition of $H_{\mu\nu}$ in the original
-expression for $\hat{H}$.
+This exactly matches the definition of $H_{\mu\nu}$ in
+Eq.~\eqref{twobosonH}.
 
 Third, consider the case where
 $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$ forms an eigenbasis of
@@ -975,9 +992,9 @@ $\hat{H}_1$.  Then,
 \end{equation}
 As previously noted, $\hat{n}_\mu = \hat{a}^\dagger_\mu \hat{a}_\mu$
 is the number operator, a Hermitian operator which corresponds to the
-occupation number of single-particle state $\mu$.  Therefore, the
-total energy is the sum of the single-particle energies, which is
-exactly what we expect for a system of non-interacting particles.
+occupation number of single-particle state $\mu$.  Thus, the total
+energy is the sum of the single-particle energies, as expected for a
+system of non-interacting particles.
 
 Another way to interpret $\hat{H}$ is to think of the Hamiltonian as
 the generator of time evolution.  Eq.~\eqref{twobosonH} describes an
@@ -997,11 +1014,75 @@ immediately re-created in some state $\mu$.  This implies that the
 Hamiltonian commutes with the total particle number operator:
 \begin{equation}
   [\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.
+  \label{Hdiag}
 \end{equation}
 The formal proof for this is left as an exercise (see
-\hyperref[ex:n_conserved]{Exercise 5}).  It follows directly from the
+\hyperref[ex:n_conserved]{Exercise 6}).  It follows directly from the
 creation and annihilation operators' commutation relations (for
 bosons) or anticommuattion relations (for fermions).
+
+\subsubsection{Change of basis}
+
+A given set of creation and annihilation operators is defined using a
+basis of single-particle states $\{|\mu\rangle\}$, but such a choice
+is obviously not unique.  Suppose we have a different single-particle
+basis $\{|\alpha\rangle\}$, such that
+\begin{equation}
+  |\alpha\rangle = \sum_\mu U_{\alpha\mu} |\mu\rangle,
+  \label{alphabasis}
+\end{equation}
+where $U_{\alpha\mu}$ are the elements of a unitary matrix.  Let the
+particles be bosons, with $\hat{a}_\alpha^\dagger$ and
+$\hat{a}_\mu^\dagger$ denoting the creation operators defined using
+the two different basis.  Writing Eq.~\eqref{alphabasis} in terms of
+the creation operators,
+\begin{align}
+  \hat{a}_\alpha^\dagger|\varnothing\rangle
+  = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger |\varnothing\rangle,
+\end{align}
+We therefore deduce that
+\begin{align}
+  \hat{a}_\alpha^\dagger &= \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger,
+  \label{atrans1}\\
+  \hat{a}_\alpha &= \sum_\mu U_{\alpha\mu}^* \hat{a}_\mu.
+  \label{atrans2}
+\end{align}
+Using the unitarity of $U_{\alpha\mu}$, we can verify that
+$\hat{a}_\alpha$ and $\hat{a}_\alpha^\dagger$ satisfy bosonic
+commutation relations if and only if $\hat{a}_\mu$ and
+$\hat{a}_\mu^\dagger$ do so.  For fermions, Eqs.~\eqref{atrans1} and
+\eqref{atrans2} hold using $c$ operators in place of $a$ operators,
+and with anticommutation rather than commutation relations.
+
+To illustrate how a basis change affects a second quantized
+Hamiltonian, consider a system of non-interacting bosons in which the
+single-particle Hamiltonian is diagonal in the $\alpha$ basis.  The
+second quantized Hamiltonian is
+\begin{equation}
+  \hat{H} = \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha,
+\end{equation}
+consistent with Eq.~\eqref{Hdiag}.  Applying Eqs.~\eqref{atrans1} and
+\eqref{atrans2},
+\begin{equation}
+  \hat{H} = \sum_{\mu\nu} \hat{a}_\mu^\dagger
+  \left(\sum_\alpha E_\alpha U_{\alpha\mu} U_{\alpha\nu}^*\right)
+  \hat{a}_\nu
+  \label{Htransformed}
+\end{equation}
+Now consider the single-particle bra-ket
+\begin{align}
+  \langle\mu | \hat{H}_1 | \nu\rangle \equiv H_{\mu\nu}
+  &= \sum_{\alpha\beta} \langle \alpha | U_{\alpha\mu} \hat{H}_1 U_{\beta\nu}^* |\beta\rangle \\
+  &= \sum_{\alpha\beta} U_{\alpha\mu} U_{\beta\nu}^* \, E_\beta \, \delta_{\alpha\beta} \\
+  &= \sum_{\alpha} E_\alpha\, U_{\alpha\mu} U_{\alpha\nu}^*,
+\end{align}
+which precisely matches the term in parentheses in
+Eq.~\eqref{Htransformed}.  This is consistent with the general form of
+the second-quantized Hamiltonian for non-interacting bosons,
+Eq.~\eqref{twobosonH}.
+
+
+\subsubsection{Particle interactions}
 
 Apart from the total energy, other kinds of observables---the total
 momentum, total angular momentum, etc.---can be expressed in a similar
