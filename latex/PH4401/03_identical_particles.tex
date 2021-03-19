@@ -207,22 +207,25 @@ $|\mu\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
 \end{equation}
 This evidently satisfies the required symmetry condition \eqref{sym}.
 Next, suppose the two bosons occupy \textit{different} single-particle
-states, $|\mu\rangle$ and $|\nu\rangle$ (which are both vectors in
-$\mathscr{H}^{(1)}$).  It would be wrong to write the two-boson state
-as $|\mu\rangle |\nu\rangle$, because the particles would not be
+states, $|\mu\rangle$ and $|\nu\rangle$, which are orthonormal vectors
+in $\mathscr{H}^{(1)}$.  It would be wrong to write the two-boson
+state as $|\mu\rangle |\nu\rangle$, because the particles would not be
 symmetric under exchange.  Instead, we construct the multi-particle
 state
 \begin{equation}
   |\mu,\nu\rangle = \frac{1}{\sqrt{2}} \Big( |\mu\rangle |\nu\rangle +
   |\nu\rangle |\mu\rangle\Big).
+  \label{bosonmunu}
 \end{equation}
-The $1/\sqrt{2}$ factor ensures normalization.  This has the
-appropriate exchange symmetry:
+This has the appropriate exchange symmetry:
 \begin{equation}
   \hat{P}_{12}\,|\mu,\nu\rangle \;=\; \frac{1}{\sqrt{2}}
   \Big( |\nu\rangle  |\mu\rangle + |\mu\rangle  |\nu\rangle\Big)
   \,=\, |\mu, \nu\rangle.
 \end{equation}
+The $1/\sqrt{2}$ factor in Eq.~\eqref{bosonmunu} ensures that the
+state is normalization (check this; it requires $|\mu\rangle$ and
+$|\nu\rangle$ to be orthonormal to work out).
 
 The above construction can be generalized to arbitrary numbers of
 bosons.  Suppose we have $N$ bosons occupying single-particle states
@@ -230,10 +233,11 @@ enumerated by
 \begin{equation}
   |\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.
 \end{equation}
-Here, we use the symbol $\phi$, rather than $\varphi$, to indicate
-that the states in this list need not be unique.  For example, we
-could have $|\phi_1\rangle = |\phi_2\rangle = |\mu\rangle$, meaning
-there is a certain single-particle state $|\mu\rangle$ occupied by two
+Each of the states $|\phi_j\rangle$ is drawn from an orthonormal basis
+set $\{|\mu\rangle\}$ for $\mathscr{H}^{(1)}$.  We use the $\phi$
+labels to indicate that the listed states can overlap.  For example,
+we could have $|\phi_1\rangle = |\phi_2\rangle = |\mu\rangle$, meaning
+that the single-particle state $|\mu\rangle$ is occupied by two
 particles.
 
 The $N$-boson state can now be written as
@@ -267,6 +271,7 @@ is the same with or without the exchange, so we still end up with
 $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  Therefore, the multi-particle
 state is symmetric under every possible exchange operation.
 
+\clearpage
 \begin{framed}
 \noindent
 \textit{Example}---A three-boson system has two particles in a state
@@ -328,8 +333,8 @@ Similar to the bosonic case, we can explicitly construct multi-fermion
 states based on the occupancy of single-particle state.
 
 First consider $N=2$, with the fermions occupying the single-particle
-states $|\mu\rangle$ and $|\nu\rangle$.  The appropriate two-particle
-state is
+states $|\mu\rangle$ and $|\nu\rangle$ (which, once again, we assume
+to be orthonormal).  The appropriate two-particle state is
 \begin{equation}
   |\mu,\nu\rangle = \frac{1}{\sqrt{2}}
   \Big(|\mu\rangle|\nu\rangle - |\nu\rangle|\mu\rangle\Big).
@@ -350,8 +355,10 @@ the same single-particle state.  Thus, each single-particle state is
 either unoccupied or occupied by one fermion.
 
 For general $N$, let the occupied single-particle states be
-$|\phi_1\rangle$, $|\phi_2\rangle$, $\dots, |\phi_N\rangle$.  Then the
-appropriate $N$-fermion state is
+$|\phi_1\rangle$, $|\phi_2\rangle$, $\dots, |\phi_N\rangle$, each of
+which is drawn from some orthonormal basis $\{|\mu\rangle\}$ for
+$\mathscr{H}^{(1)}$, and each distinct.  Then the appropriate
+$N$-fermion state is
 \begin{equation}
   |\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.
   \label{Nfermions}
@@ -365,13 +372,13 @@ constructed from an even number of transpositions (i.e., exchanges of
 adjacent elements) starting from the sequence $\{1,2,\dots,N\}$, and
 $-1$ if $p$ involves an odd number of transpositions.
 
-If $\{|\phi_1\rangle, \dots, |\phi_N\rangle\}$ are not all
+Note that if $|\phi_1\rangle, \dots, |\phi_N\rangle$ are not all
 distinct single-particle states, Eq.~\eqref{Nfermions} would yield the
 zero vector, since the terms in the sum over $p$ cancel out pairwise
 (you can check this).  This is once again consistent with the Pauli
 exclusion principle.
 
-It is helpful to look at a couple of concrete examples.
+Let's look at a couple of concrete examples.
 
 \begin{framed}
 \noindent
@@ -954,7 +961,8 @@ the multi-particle Hamiltonian $\hat{H}$ is a Hermitian operator
 acting on the Fock space $\mathscr{H}^F$.  How is $\hat{H}$ related to
 $\hat{H}^{(1)}$?
 
-For bosons, the answer is:
+Let us take the bosonic case.  Then the multi-particle Hamiltonian
+should be
 \begin{equation}
   \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu,
   \;\;\; \mathrm{where}\;\;\;
@@ -963,9 +971,8 @@ For bosons, the answer is:
 \end{equation}
 where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
 and annihilation operators, and $|\mu\rangle$, $|\nu\rangle$ refer to
-vectors in the single-particle Hilbert space.  For fermions, the
-expression is exactly the same, but with the $a$ operators replaced by
-fermionic $c$ operators.
+single-particle state vectors drawn from some orthonormal basis for
+$\mathscr{H}^{(1)}$.
 
 To understand why Eq.~\eqref{twobosonH} is right, consider its matrix
 elements with respect to various states.  First, for the vacuum state
@@ -1029,7 +1036,11 @@ multi-particle system, the operator corresponding to the ``total $A$''
 is
 \begin{equation}
   \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\mu|\hat{A}^{(1)}|\nu\rangle.
+  \label{Aop}
 \end{equation}
+
+For fermions, everything from Eq.~\eqref{twobosonH}--\eqref{Aop} also
+holds, but with the $a$ operators replaced by fermionic $c$ operators.
 
 \subsubsection{Change of basis}
 
@@ -1041,10 +1052,11 @@ basis $\{|\alpha\rangle\}$, such that
   |\alpha\rangle = \sum_\mu U_{\alpha\mu} |\mu\rangle,
   \label{alphabasis}
 \end{equation}
-where $U_{\alpha\mu}$ are the elements of a unitary matrix.  Let the
-particles be bosons, with $\hat{a}_\alpha^\dagger$ and
-$\hat{a}_\mu^\dagger$ denoting the creation operators defined using
-the two different basis.  Writing Eq.~\eqref{alphabasis} in terms of
+where $U_{\alpha\mu}$ are the elements of a unitary matrix.  Let
+$\hat{a}_\alpha^\dagger$ and $\hat{a}_\mu^\dagger$ denote the creation
+operators defined using the two different basis (once again, we will
+use the notation for bosons, but the equations in this section are
+valid for fermions too).  Writing Eq.~\eqref{alphabasis} in terms of
 the creation operators,
 \begin{align}
   \hat{a}_\alpha^\dagger|\varnothing\rangle
@@ -1065,9 +1077,9 @@ place of $a$ operators in Eq.~\eqref{atrans}, and use anticommutation
 rather than commutation relations.
 
 To illustrate how a basis change affects a second quantized
-Hamiltonian, consider a system of non-interacting bosons in which the
+Hamiltonian, consider a system of non-interacting particles whose
 single-particle Hamiltonian is diagonal in the $\alpha$ basis.  The
-second quantized Hamiltonian is
+multi-particle Hamiltonian is
 \begin{equation}
   \hat{H} = \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha,
 \end{equation}
@@ -1087,8 +1099,7 @@ Compare this to single-particle bra-ket
 \end{align}
 This precisely matches the term in parentheses in
 Eq.~\eqref{Htransformed}.  This is consistent with the general form of
-the second-quantized Hamiltonian for non-interacting bosons,
-Eq.~\eqref{twobosonH}.
+$\hat{H}$ for non-interacting particles, Eq.~\eqref{twobosonH}.
 
 
 \subsubsection{Particle interactions}
@@ -1270,10 +1281,10 @@ $\hat{\psi}^\dagger(\mathbf{r})$ operators to write second quantized
 observables in a way that is independent of the choice of
 single-particle basis wavefunctions.  As discussed in the
 \hyperref[sec:second_quant_op]{previous section}, given a Hermitian
-single-particle operator $\hat{A}_1$ we can define a many-particle
+single-particle operator $\hat{A}_1$ we can define a multi-particle
 observable $\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu}
 \hat{a}_\nu$, where $A_{\mu\nu} =
-\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  This many-particle
+\langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle$.  This multi-particle
 observable can be re-written as
 \begin{equation}
   \hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r})
