@@ -69,7 +69,7 @@ upon by the vector potentials from all the other particles, which
 appear in the Hamiltonian according to the prescription
 \begin{equation}
   \hat{\mathbf{p}}_m \rightarrow \hat{\mathbf{p}}_m
-  + \sum_{n \ne m} \mathbf{A}^{(n)}(\hat{\mathbf{r}}_m),
+  + e \sum_{n \ne m} \mathbf{A}^{(n)}(\hat{\mathbf{r}}_m),
 \end{equation}
 where $\hat{\mathbf{p}}_m$ is the momentum operator for particle $m$.
 Note that each particle's flux tube does not act upon itself (just as,
@@ -79,16 +79,17 @@ other potentials present in the system, the non-relativistic
 Hamiltonian for the system of particles is
 \begin{equation}
   \hat{H} = \frac{1}{2m} \sum_m \left| \,\hat{\mathbf{p}}_m
-  + \sum_{n \ne m} \mathbf{A}^{(n)}(\hat{\mathbf{r}}_m)\,\right|^2.
+  + e \sum_{n \ne m} \mathbf{A}^{(n)}(\hat{\mathbf{r}}_m)\,\right|^2.
 \end{equation}
 
 Let us consider the case of two particles, and adopt the wavefunction
 representation.  The Hamiltonian is
 \begin{equation}
   \hat{H} = \frac{1}{2m} \left[ \left| \, -i\hbar \nabla_1
-  + \mathbf{A}^{(2)}(\mathbf{r}_1)\,\right|^2
+  + e\mathbf{A}^{(2)}(\mathbf{r}_1)\,\right|^2
   + \left| \, -i\hbar \nabla_2
-  + \mathbf{A}^{(1)}(\mathbf{r}_2)\,\right|^2\right],
+  + e\mathbf{A}^{(1)}(\mathbf{r}_2)\,\right|^2\right],
+  \label{HamA}
 \end{equation}
 where $\nabla_m$ is the gradient operator constructed from partial
 derivatives on $\mathbf{r}_m$, with the other particle position fixed.
@@ -103,6 +104,49 @@ where $\sigma$ is the eigenvalue of the exchange operator (i.e.,
 $\sigma = 1$ for bosons, and $\sigma = -1$ for fermions).
 
 \section{Gauge transformation}
+
+In Chapter 4, we discussed the gauge symmetry of a charged particle in
+an electromagnetic field.  For simplicity, consider just the
+time-independent Schr\"odinger equation, with the scalar potential set
+to zero.  Given a single-particle wavefunction $\psi(\mathbf{r})$
+describing a particle of charge $-e$ subject to the vector potential
+$\mathbf{A}$, the gauge transformed wavefunction
+\begin{equation}
+  \psi(\mathbf{r}) \rightarrow \psi(\mathbf{r}) \, \exp\left(-\frac{ie\Lambda(\mathbf{r})}{\hbar}\right)
+\end{equation}
+solves the Schr\"odinger equation for the gauge transformed vector
+potential given by
+\begin{align}
+  \mathbf{A}(\mathbf{r}) \rightarrow \mathbf{A}(\mathbf{r}) + \nabla \Lambda(\mathbf{r}).
+\end{align}
+
+This can be generalized to the multi-particle case.  Consider
+two-particle Hamiltonians of the form \eqref{HamA}.  Then the gauge
+transformed two-particle wavefunction
+\begin{equation}
+  \psi(\mathbf{r}_1, \mathbf{r}_2) \rightarrow \psi(\mathbf{r}_1, \mathbf{r}_2)
+  \, \exp\left(-\frac{ie\Lambda(\mathbf{r}_1, \mathbf{r}_2)}{\hbar}\right)
+\end{equation}
+solves the Schr\"odinger equaton for the Hamiltonian
+\begin{equation}
+  \hat{H}' = \frac{1}{2m} \left[ \left| \, -i\hbar \nabla_1
+  + e\mathbf{A}^{(2)}(\mathbf{r}_1) + e \nabla_1 \Lambda\,\right|^2
+  + \left| \, -i\hbar \nabla_2
+  + e\mathbf{A}^{(1)}(\mathbf{r}_2) + e \nabla_2\Lambda\,\right|^2\right].
+\end{equation}
+The derivation is almost exactly the same as for the single-particle
+case from Chapter 4, and is left for the reader to verify.  It is
+important to note that $\Lambda$ can be any function of both
+$\mathbf{r}_1$ and $\mathbf{r}_2$; we just have to be careful that
+when calculating $\nabla_1\Lambda$, the partial derivatives with
+respect to $\mathbf{r}_1$ are taken with $\mathbf{r}_2$ fixed, and
+likewise for $\nabla_2\Lambda$.
+
+It turns out that there is a choice of $\Lambda(\mathbf{r}_1,
+\mathbf{r}_2)$...
+
+
+
 
 The two particle coordinates can be written out in Cartesian form as
 $(x_1, y_1, x_2, y_2)$.  It will be convenient to re-express these in
@@ -142,6 +186,12 @@ Eq.~\eqref{exchange} can be written as
   \sigma \, \psi(R, \theta, \mathcalligra{r}, \phi).
 \end{equation}
 where $\sigma = 1$ for bosons and $\sigma = -1$ for fermions.
+
+
+Now consider the gauge field
+\begin{equation}
+  \Lambda = \frac{\hbar}{e}\; \phi.
+\end{equation}
 
 
 \end{document}
