@@ -275,17 +275,16 @@ controls the strength of the scattering potential.
 
 If you are disturbed by the idea of a delta function potential, just
 regard it as the limiting case of a family of increasingly tall and
-narrow gaussian functions centered at $x=0$.  For each non-singular
-potential, the applicability of the Schr\"odinger wave equation
-implies that the wavefunction $\psi(x)$ is continuous and has
-well-defined first and second derivatives.  In the delta function
-limit, however, these conditions are relaxed: $\psi(x)$ remains
-continuous, but at $x=0$ the first derivative becomes discontinuous
-and the second derivative blows up.  To see this, we integrate the
-Schr\"odinger wave equation over an infinitesimal range around $x =
-0$:
+narrow gaussian functions centered at $x=0$.  For non-singular
+potentials, the validity of the Schr\"odinger wave equation relies on
+$\psi(x)$ being continuous with well-defined first and second
+derivatives.  In the delta function limit, however, these conditions
+are relaxed: $\psi(x)$ must still be continuous, but at $x=0$ its
+first derivative is allowed to become discontinuous and the second
+derivative can diverge.  To see this, integrate the Schr\"odinger wave
+equation over an infinitesimal range around $x = 0$:
 \begin{align}
-  \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0
+  \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0.
   \end{aligned}
 \end{align}
 Hence,
@@ -300,47 +299,47 @@ momentum eigenstate $|k\rangle$, where $k = \sqrt{2mE/\hbar^2} > 0$.
 We said ``proportional'', not ``equal'', for it is conventional to
 adopt the normalization
 \begin{equation}
-  |\psi_i\rangle = \sqrt{2\pi}\Psi_i |k\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik x}.
+  |\psi_i\rangle = \sqrt{2\pi}\Psi_i |k\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik x},
 \end{equation}
-The complex constant $\Psi_i$ is called the ``incident amplitude.''
-Plugging this into the Schr\"odinger wave equation gives
+where the complex constant $\Psi_i$ is called the \textbf{incident
+  amplitude}.  Plugging this back into the Schr\"odinger wave equation
+yields
 \begin{equation}
   \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \left(\Psi_i \, e^{ikx} + \psi_s(x) \right) = E \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).
 \end{equation}
 Taking $E = \hbar^2k^2/2m$, and doing a bit of algebra, simplifies this to
 \begin{equation}
   \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right),
+  \label{deltaschrod}
 \end{equation}
 which is an inhomogenous ordinary differential equation for
 $\psi_s(x)$, with the potential on the right hand side acting as a
 ``driving term''.
 
-To find the solution, consider the two regions $x < 0$ and $x > 0$.
-Since $\delta(x) \rightarrow 0$ for $x \ne 0$, the equation in each
-half-space reduces to
+We construct the solution by separately considering the regions $x <
+0$ and $x > 0$.  Within each half-space, $\delta(x)$ vanishes so
+Eq.~\eqref{deltaschrod} reduces to
 \begin{equation}
   \left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0.
 \end{equation}
-This is the \textbf{Helmholtz equation}, whose general solution may be
-written as
+This called the \textbf{Helmholtz equation}.  It has a general
+solution of the form
 \begin{equation}
-  \psi_s(x) = \Psi_i \left(f_1 \, e^{ik x} + f_2 \, e^{-ik x}\right).
+  \psi_s(x) = \Psi_i \left(f_1 \, e^{ik x} + f_2 \, e^{-ik x}\right),
 \end{equation}
-Here, $f_1$ and $f_2$ are complex numbers that can take on different
-values in the two different regions $x < 0$ and $x > 0$.
+where $f_1$ and $f_2$ can take on different values in each region ($x
+< 0$ or $x > 0$).
 
-We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, moving away
-from the scatterer towards infinity.  So it should be purely
-left-moving for $x < 0$, and purely right-moving for $x > 0$.  To
-achieve this, let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for $x > 0$, so
-that $\psi_s(x)$ has the form
+Now, remember that we want $\psi_s(x)$ to describe an \textbf{outgoing
+  wave}.  This means it ought to be purely left-moving for $x < 0$,
+and purely right-moving for $x > 0$.  Therefore, let $f_1 = 0$ for $x
+< 0$, and $f_2 = 0$ for $x > 0$, so that
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ikx}, & x < 0 \\ f_+ \,e^{ikx}, & x > 0.\end{cases}
 \end{equation}
 The complex numbers $f_-$ and $f_+$ are called \textbf{scattering
-  amplitudes}.  They describe the magnitude and phase of the
-wavefunction scattered backwards into the $x<0$ region, and scattered
-forward into the $x > 0$ region, respectively.
+  amplitudes}.  They parameterize the magnitude and phase of the
+scattered wavefunction moving outward from the scatterer.
 
 Recall from the discussion at the beginning of this section that
 $\psi(x)$ must be continuous everywhere, including at $x = 0$.  Since
@@ -383,10 +382,10 @@ at scattering the particle.
 \section{Scattering in 2D and 3D}
 \label{sec:2d3d_scattering}
 
-We now wish to consider scattering experiments in spatial dimension $d
-\ge 2$, which have a new and important feature.  For $d = 1$, the
-particle can only scatter forward or backward, but for $d \ge 2$ it
-can be scattered to the side.
+We now consider scattering experiments in spatial dimension $d \ge 2$.
+These have a new and important feature: for $d = 1$, the particle can
+only scatter forward or backward, but for $d \ge 2$ it can be
+scattered to the side.
 
 Far from the scatterer, where $V(\mathbf{r})\rightarrow 0$, the
 scattered wavefunction $\psi_s(\mathbf{r})$ satisfies
@@ -398,23 +397,24 @@ where $\nabla^2$ denotes the $d$-dimensional Laplacian.  Let $E =
 free space.  Then the above equation can be written as
 \begin{equation}
   \left[\nabla^2 + k^2\right] \psi_s(\mathbf{r}) = 0,
+  \label{helmholtzeq}
 \end{equation}
 which is the \textbf{Helmholtz equation} in $d$-dimensional space.
 
-One set of elementary solutions to the Helmholtz equation are the
-plane waves
+We already know of one set of elementary solutions to
+Eq.~\eqref{helmholtzeq}, the plane waves
 \begin{equation*}
   \big\{\exp(i\mathbf{k}\cdot\mathbf{r}),\;\;\mathrm{where}\;\;
   |\mathbf{k}| = k \big\}.
 \end{equation*}
-But we're looking for an outgoing solution, and a plane wave can't be
-said to be ``outgoing''.
+However, we're looking for scattered wavefunctions that are outgoing
+waves, and a plane wave can't be said to be ``outgoing''.  The
+solution, as we shall see, is to construct solutions expressed in
+curvilinear coordinates.
 
-Therefore, we turn to curvilinear coordinates.  In 2D, we use the
-polar coordinates $(r,\phi)$.  We will skip the mathematical details
-of how to solve the 2D Helmholtz equation in these coordinates; the
-result is that the general solution can be written as a linear
-combination
+Take the 2D case first.  Skipping the mathematical details, one finds
+that the general solution to Eq.~\eqref{helmholtzeq} in 2D can be
+written, using polar coordinates $(r,\phi)$, as
 \begin{equation}
   \psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,\Psi_m^\pm(r,\phi), \;\;\;\mathrm{where}\;\;\,\Psi_m^\pm(r,\phi) = H_m^\pm(kr)\,e^{im\phi}.
 \end{equation}
@@ -427,7 +427,7 @@ called a \textbf{Hankel function} of the ``first kind'' ($+$) or
 plotted below:
 
 \begin{figure}[h!]
-  \centering\includegraphics[width=0.65\textwidth]{besselh}
+  \centering\includegraphics[width=0.95\textwidth]{besselh}
 \end{figure}
 
 The $H^-_m$ functions are the complex conjugates of $H^+_m$.  For
@@ -458,52 +458,54 @@ outgoing ($+$) or incoming ($-$).  More discussion about these
 spherical waves can be found in Appendix A.
 
 It is now clear what we need to do to get a scattered wavefunction
-$\psi_s(\mathbf{r})$ that is outgoing at infinity.  We take a
-superposition with only outgoing ($+$) wave components:
+$\psi_s(\mathbf{r})$ that is outgoing at infinity.  We simply write it
+as a superposition of only outgoing ($+$) waves:
 \begin{equation}
   \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^+(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
 \end{equation}
-For large $r$, the outgoing wavefunction has the $r$-dependence
+At large distances, the $r$-dependence reduces to
 \begin{equation}
   \psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} \,\exp\left(ikr\right).
 \end{equation}
-
-For $d > 1$, the magnitude of the wavefunction decreases with distance
-from the origin.  This is as expected, because with increasing $r$
-each outgoing wave spreads out over a wider area.  The probability
-current density is $\mathbf{J} = (\hbar/m)
-\mathrm{Im}\left[\psi_s^*\nabla\psi_s\right]$, and its $r$-component
-is
+For $d > 1$, the magnitude decreases with $r$, which is to be expected
+since the outgoing wave spreads out over a wider area.  More
+precisely, if we look at the probability current density
+\begin{equation*}
+  \mathbf{J} = (\hbar/m) \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right],  
+\end{equation*}
+its $r$-component scales as
 \begin{equation}
   \begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; k \,r^{1-d}.\end{aligned}
+  \label{Jr}
 \end{equation}
 In $d$ dimensions, the area of a wave-front scales as $r^{d-1}$, so
 the probability flux goes as $J_r \,r^{d-1} \sim k$, which is positive
-and independent of $r$.  This describes a constant probability flux
-flowing outward from the origin.  Note that if we plug $d=1$ into the
-above formula, we find that $J_r$ scales as $r^0$ (i.e., a constant),
-consistent with the results of the previous section: waves in 1D do
-not spread out with distance as there is no transverse dimension.
+and independent of $r$.  Hence, there is a constant probability flux
+flowing outward from the origin.  Note that for $d=1$, Eq.~\eqref{Jr}
+states that $J_r \sim r^0$, consistent with the results of the
+previous section: in 1D, waves do not spread with distance since there
+is no transverse dimension.
 
 \section{The scattering amplitude and scattering cross section}
 \label{sec:scattering_amplitude}
 
-We can use the results of the previous section to systematically
-characterize the outcomes of a scattering experiment.  Let the
-incident wavefunction be a plane wave,
+We can use the results of the previous section to express the outcomes
+of a scattering experiment in a cleaner and more systematic way.
+Consider an incident plane wave,
 \begin{equation}
   \psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}},
 \end{equation}
 in $d$-dimensional space.  Here, $\Psi_i \in \mathbb{C}$ is the
 \textbf{incident wave amplitude}, and $\mathbf{k}_i$ is the incident
-momentum.  Let $k = |\mathbf{k}_i|$ denote its magnitude, so that the
-particle energy is $E = \hbar^2k^2/2m$.  We adopt coordinates
-$(r,\Omega)$, where $r$ is the distance from the origin.  For 1D,
-$\Omega \in \pm$ which specifies the choice of ``forward'' or
-``backward'' scattering; for 2D polar coordinates, $\Omega = \phi$;
-and for 3D spherical coordinates, $\Omega = (\theta,\phi)$.
+momentum whose magnitude is $k = |\mathbf{k}_i|$, so that the particle
+energy is $E = \hbar^2k^2/2m$.  We adopt coordinates $(r,\Omega)$,
+where $r$ is the distance from the origin and $\Omega$ denotes the
+other coordinates.  For 1D, $\Omega \in \pm$ specifies the choice of
+``forward'' or ``backward'' scattering; for 2D polar coordinates,
+$\Omega = \phi$; and for 3D spherical coordinates, $\Omega =
+(\theta,\phi)$.
 
-Far from the origin, the scattered wavefunction reduces to the form
+Far from the origin, the scattered wavefunction reduces to
 \begin{equation}
   \psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\Omega).
 \end{equation}
@@ -529,14 +531,14 @@ From the scattering amplitude, we define two other important
 quantities of interest:
 \begin{framed}
   \begin{align}
-    \frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\quad \text{(the \textbf{differential scattering cross section})} \\ \sigma &= \int d\Omega\; \big|f(\Omega)\big|^2 \quad\; \text{(the \textbf{total scattering cross section}).}
+    \frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\quad \text{(the \textbf{differential scattering cross section})} \\ \sigma &= \int d\Omega\; \big|f(\Omega)\big|^2 \quad\; \text{(the \textbf{total scattering cross section}).} \label{sigma}
   \end{align}
 \end{framed}
-\vskip -0.15in
+\vskip -0.05in
 \noindent
-In the second equation, $\int d\Omega$ denotes the integral(s) over
-all the angle coordinates; for 1D, this is instead a discrete sum over
-the two possible directions, forward and backward.
+In Eq.~\eqref{sigma}, $\int d\Omega$ denotes the integral(s) over all
+the angle coordinates; for 1D, this is instead a discrete sum over the
+two possible directions, forward and backward.
 
 The term ``cross section'' comes from an analogy with the scattering
 of classical particles.  Consider the probablity current density
@@ -565,14 +567,15 @@ wave, which has units of $[x^{-d}]$ (i.e., inverse $d$-dimensional
 \begin{equation}
   J_{i} = \frac{\hbar k}{m} \;|\Psi_i|^2.
 \end{equation}
-This has units of $[x^{1-d}t^{-1}]$ (i.e., rate per unit ``area'').
+This has units of $[x^{1-d}t^{-1}]$ (i.e., rate per unit ``area'' in
+$d$-dimensional space).
 
 Let us re-imagine this incident flux $J_i$ as a stream of classical
 particles, and the scatterer as a ``hard-body'' scatterer that only
 interacts with those particles striking it directly:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.42\textwidth]{crosssection}
+  \centering\includegraphics[width=0.44\textwidth]{crosssection}
 \end{figure}
 
 \noindent
@@ -663,10 +666,10 @@ than $\hat{G}$.  The downside is that the equation is still implicit:
 the right-hand side involves the unknown total state $|\psi\rangle$,
 rather than the known incident state $|\psi_i\rangle$.
 
-We can try to solve this implicit equation by using
+We can try to solve the implicit equation by using
 Eq.~\eqref{psis_implicity} to get an expression for $|\psi\rangle$,
 then repeatedly plugging the result back into the right-hand side of
-Eq.~\eqref{psis_implicity}.  This yields an infinite series formula:
+Eq.~\eqref{psis_implicity}:
 \begin{align}
   \begin{aligned}|\psi_s\rangle &= \hat{G}_0 \hat{V} \left(|\psi_i\rangle + \hat{G}_0 \hat{V}|\psi\rangle\right) \\ &= \quad \vdots \\ &= \left[\hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.\end{aligned}
 \end{align}
@@ -677,7 +680,7 @@ Or, equivalently,
 \end{equation}
 This is called the \textbf{Born series}.
 
-To understand its meaning, let us go to the position basis:
+To interpret this result, let us go to the position basis:
 \begin{align}
   \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}
 \end{align}
@@ -697,20 +700,17 @@ second-order term is
 \begin{equation*}
   \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'').
 \end{equation*}
-This describes the particle undergoing the following process: (i)
-scattering of the incident particle at point $\mathbf{r}''$, (ii)
-propagation from $\mathbf{r}''$ to $\mathbf{r}'$, (iii) scattering
-again at point $\mathbf{r}'$, and (iv) propagation from $\mathbf{r}'$
-to $\mathbf{r}$.  The scattering points $\mathbf{r}'$ and
-$\mathbf{r}''$ are integrated over, with all possible positions
-contributing to the result; since the integrals are weighted by $V$,
-those positions where the scattering potential are strongest will
-contribute the most.
+This describes the particle undergoing (i) scattering of the incident
+particle at point $\mathbf{r}''$, (ii) propagation from $\mathbf{r}''$
+to $\mathbf{r}'$, (iii) scattering again at point $\mathbf{r}'$, and
+(iv) propagation from $\mathbf{r}'$ to $\mathbf{r}$.  Note that
+$\mathbf{r}'$ and $\mathbf{r}''$ are integrated over all possible
+positions; since the integrals are weighted by $V$, the positions with
+the strongest scattering potential contribute the most.
 
-For a sufficiently weak scatterer, it can be a good approximation to
-retain just the first few terms in the Born series.  For the rest of
-this discussion, let us assume that such an approximation is valid.
-The question of what it means for $\hat{V}$ to be ``sufficiently
+For a sufficiently weak scatterer, it is often a good approximation to
+retain just the first few terms in the Born series.  However, the
+question of what it means for $\hat{V}$ to be ``sufficiently
 weak''---i.e., the exact requirements for the Born series to
 converge---is a complex topic beyond the scope of our present
 discussion.
@@ -866,7 +866,7 @@ This can be compared to the earlier definition of the scattering amplitude,
 \begin{equation}
   \psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\longrightarrow} \; \Psi_i \frac{e^{ikr}}{r} f(\mathbf{k}_i\rightarrow \mathbf{k}_f ).
 \end{equation}
-Hence, we find that
+Hence,
 \begin{framed}
   \begin{align}
     \begin{aligned}
