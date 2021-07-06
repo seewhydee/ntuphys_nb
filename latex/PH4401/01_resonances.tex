@@ -241,49 +241,46 @@ Appendix B).  The figure below shows numerical results obtained for $U
 \end{figure}
 
 \noindent
-The vertical axis shows $|1+f_+|^2$, which is called the
-``transmittance'' and corresponds to the probability for the incident
-particle to pass through the potential.  The horizontal axis is the
-particle energy $E$.  For $E < V_b-U$, the transmittance approaches
-zero, and for $E \gtrsim V_b$, the transmittance approaches unity, as
-expected.  In the energy range $V_b-U < E \lesssim V_b$, the
-transmittance forms a series of narrow peaks.  For larger $b$ (i.e.,
-when the central well is more isolated from the exterior space), the
-peaks are narrower.  At the top of the figure, we have also plotted
-the bound state energies for the square well potential
-$V_{\mathrm{alt}}(x)$.  These energies closely match the locations of
-the transmittance peaks!
+The vertical axis shows the \textbf{transmittance} $|1+f_+|^2$, which
+is the probability for the particle to pass through the scatterer.
+The horizontal axis is the particle energy $E$.  Unsurprisingly, for
+$E < V_b-U$ the transmittance approaches zero, and for $E \gtrsim V_b$
+it approaches unity.  For $V_b-U < E \lesssim V_b$, the transmittance
+forms a series of narrow peaks; for larger $b$ (i.e., when the central
+well is more isolated from the exterior space), the peaks are
+narrower.  At the top of the figure, we have also plotted the bound
+state energies for the square well potential $V_{\mathrm{alt}}(x)$.
+These energies closely match the locations of the transmittance peaks!
 
-Upon examining the total wavefunction $\psi(x)$ at these special
-energies, we find other interesting features.  The figure below plots
-$|\psi(x)|^2$ versus $x$ at the energies of the first three
-transmittance peaks, along with the corresponding bound state
-wavefunctions for the square well $V_{\mathrm{alt}}$.  At each
-transmittance peak, $|\psi(x)|^2$ is much larger within the potential
-region, and its shape is very similar to a square well bound state.
+If we look at the total wavefunction $\psi(x)$, we find other
+interesting features.  Below, we plot $|\psi(x)|^2$ versus $x$ at the
+energies of the first three transmittance peaks, along with the
+corresponding bound state wavefunctions for $V_{\mathrm{alt}}$.  At
+each transmittance peak, $|\psi(x)|^2$ is very large in the potential
+region, and its shape is very similar to a bound state of
+$V_{\mathrm{alt}}$.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.85\textwidth]{resonancewavefunctions}
 \end{figure}
 
 \noindent
-The enhancement of $|\psi(x)|^2$ is called a \textbf{resonance}, and
-is due to the presence of a quasi-bound state.  Roughly speaking, the
-incident particle enters the scattering region, and spends a long time
-trapped in the quasi-bound state, before eventually leaking out and
-escaping to infinity.
+The enhancement of $|\psi(x)|^2$ is called a \textbf{resonance}.
+Roughly speaking, the incident particle enters the scatterer, and
+spends a long time trapped in the quasi-bound state, before eventually
+leaking out and escaping to infinity.
 
 This is analogous to the phenomenon of resonance in a classical
 harmonic oscillator.  When a damped harmonic oscillator is subjected
-to an oscillatory driving force, it settles into a steady-state
+to a periodic driving force, it settles into a steady-state
 oscillatory motion at the driving frequency.  If the driving frequency
 matches the oscillator's natural frequency (i.e., the frequency of
-free oscillation in the absence of a drive), then the oscillation
-amplitude becomes large, and the system is said to be ``resonant''.
-In the quantum mechanical context, the incident wavefunction plays the
-role of a driving force, the incident particle energy is like the
-driving frequency, and the energy of a quasi-bound state is like the
-natural frequency of oscillation.
+free oscillation in the absence of a drive), the oscillation amplitude
+becomes large, and the system is said to be ``resonant''.  In our
+case, the incident wavefunction plays the role of a driving force, the
+energy of the incident particle is like the driving frequency, and the
+energy of the quasi-bound state is like the ocillator's natural
+frequency.
 
 Resonances play a critical role throughout experimental physics.
 Experiments are often conducted for the express purpose of locating
@@ -295,10 +292,10 @@ underlying system.
 \section{Green's function analysis of scattering resonances}
 \label{sec:green_resonances}
 
-Quasi-bound states and resonances are not limited to 1D, but are
-equally (or more) important in 2D and 3D.  A useful and general way to
-study them is the quantum Green's function formalism developed in the
-previous chapter.
+Quasi-bound states and resonances are not limited to 1D, but are also
+important in 2D and 3D.  A convenient way to analyze them, in a
+general context, is to use the quantum Green's function formalism from
+the previous chapter.
 
 Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
@@ -337,22 +334,20 @@ Green's function is
 \end{equation}
 
 Now introduce the deconfining potential $\hat{V}_1$.  According to
-Dyson's equations (Section~VI of the previous chapter), the Green's
-function for the full system is
+Dyson's equations (from Section~VI of the previous chapter), the
+Green's function for the full system is
 \begin{equation}
   \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.
 \end{equation}
-We want the matrix elements of $\hat{G}(E)$, which can then be used to
-find scattering amplitudes.  We will calculate them by using the
-states $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a basis---but
-note that this basis does \textit{not} consist of energy
-eigenfunctions of the full Hamiltonian $\hat{H}$.  In particular,
-$|\varphi\rangle$ is not an exact eigenstate of $\hat{H}$.
+Note that this is exact, not an approximation.  From $\hat{G}(E)$, the
+scattering amplitudes can be determined.  We will calculate the matrix
+elements of $\hat{G}(E)$ by using $|\varphi\rangle$ and
+$\{|\psi_k\rangle\}$ as a convenient basis (note, however, that this
+is \textit{not} the energy eigenbasis of $\hat{H}$).
 
-As usual when dealing with Dyson's equations, we must watch out for
-the fact that $\hat{G}$ appears on both the left and right hand sides.
-This can be dealt with by judiciously inserting a resolution of the
-identity:
+As usual when dealing with Dyson's equations, we must note that
+$\hat{G}$ appears on both the left and right hand sides.  Let us
+judiciously insert a resolution of the identity, as follows:
 \begin{align}
   \begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}
 \end{align}
@@ -372,16 +367,16 @@ $\langle\varphi|\cdots|\psi_k\rangle$ gives:
 \langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \int d^dk'\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
 &= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int d^dk'\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1|\psi_k\rangle\right).\end{aligned}
 \end{align*}
-The equations thus far have been exact (we have \textit{not} used
-perturbation theory).  Now we apply an approximation: in the last line
-of the above equation, let the factor of
-$\langle\varphi|G|\varphi\rangle$ be large, so that the first term in
-the sum becomes dominant.  It will be shown below that
+So far, the equations have been exact, but now we apply an
+approximation: in the last line of the above equation, let the factor
+of $\langle\varphi|G|\varphi\rangle$ be large, so that the first term
+in the sum becomes dominant.  It will be shown below that
 $\langle\varphi|G|\varphi\rangle$ being large is precisely the
 resonance condition, so this approximation will be self-consistent.
 With this, we obtain
 \begin{equation}
   \langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.
+  \label{phiGpsi}
 \end{equation}
 Combining this with Eq.~\eqref{psiGphi} gives
 \begin{equation*}
@@ -389,40 +384,37 @@ Combining this with Eq.~\eqref{psiGphi} gives
 \end{equation*}
 Hence,
 \begin{framed}
-  \begin{equation}
-    \begin{aligned}
-      \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \\
-      \mathrm{where}\;\;\Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}.
-    \end{aligned}
-    \label{phiGphi_result}
-  \end{equation}
+  \begin{align}
+    \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle
+    &\approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)}
+    \label{phiGphi_result} \\
+    \mathrm{where}\quad
+    \Sigma(E) &\equiv \lim_{\varepsilon\rightarrow0^+}
+    \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}.
+    \label{sigma}
+  \end{align}
 \end{framed}
 \vskip -0.12in
-The quantity $\Sigma(E)$ is called the \textbf{self-energy}, and we
-will have more to say about it shortly.  It depends on $E$, but let us
-assume for now that the dependence is weak, so that $\Sigma$ can be
-effectively treated as a constant.  It is complex-valued, and both its
-real and imaginary parts are important; we will shortly show that
-$\mathrm{Im}(\Sigma) < 0$.
+The complex quantity $\Sigma(E)$ defined in Eq.~\eqref{sigma} is
+called the \textbf{self-energy}.  We will show later that
+$\mathrm{Im}[\Sigma] < 0$, and discuss its physical meaning.  Although
+$\Sigma$ is $E$-dependent, we assume for now that the dependence is
+weak, so that it can be treated like a constant.
 
-From Eq.~\eqref{phiGphi_result}, we can see that
+From Eq.~\eqref{phiGphi_result}, we see that
 $\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
-denominator is as close to zero as possible.  This is called the
-\textbf{resonance condition}, and is self-consistent with the
-approximation that we made in the above derivation.  As we vary the
-incident energy $E$ over the range of real values, the resonance
-condition is satisfied when
+denominator is close to zero, which is consistent with the earlier
+approximation that led to Eq.~\eqref{phiGpsi}.  This
+``\textbf{resonance condition}'' is satisfied when
 \begin{equation}
-  E \;\approx\; E_{\mathrm{res}} \,\equiv\, E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big].
+  E \;\approx\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big]  \,\equiv \, E_{\mathrm{res}}.
 \end{equation}
-We call $E_{\mathrm{res}}$ the \textbf{resonance energy}.  Its first
-term is the energy of the original bound state, in the absence of the
-deconfining potential $\hat{V}_1$.  The second term is the energy
-shift induced by $\hat{V}_1$.  The third term is equal to the real
-part of the self-energy $\Sigma$, and has a more subtle meaning.
-Since the definition of $\Sigma$ involves $\{|\psi_k\rangle\}$, we can
-think of this term as an energy shift induced by the continuum of free
-states.
+The real quantity $E_{\mathrm{res}}$ is called the \textbf{resonance
+  energy}.  It is the sum of three terms: the energy of the original
+bound state (in the absence of $\hat{V}_1$), the energy shift induced
+by $\hat{V}_1$, and the real part of the self-energy $\Sigma$.  Based
+on Eq.~\eqref{sigma}, we can interpret this last term as being induced
+by the presence of the free states $\{|\psi_k\rangle\}$.
 
 In Section VIII of the previous chapter, we derived the following
 relationship between the Green's function and the scattering amplitude
@@ -431,7 +423,7 @@ $f$:
   f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.
 \end{equation}
 Here, $|\mathbf{k}\rangle$ and $|\mathbf{k}'\rangle$ are incident and
-scattered plane-wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
+scattered plane wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
 The first term describes the lowest-order scattering process (the
 first Born approximation).  The second term contains all second- and
 higher-order scattering processes.  By inserting resolutions of the
@@ -441,32 +433,31 @@ term, we find that $f$ contains a contribution of the form
   \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]}.
   \label{deltaf}
 \end{equation}
-At resonance, the denominator becomes small and hence $\Delta f$
-should be the dominant contribution to $f$.  It is worth emphasizing
-that $\Delta f$ is extracted from a combination of \textit{all} terms
-in the Born series, not just low-order terms.  Intuitively, we can
-think of a resonant scattering scenario as one where the particle
-bounces around inside the potential many times before it finally
-escapes---i.e., high orders in the Born series are significant.
+At resonance, the denominator is small and hence $\Delta f$ is the
+dominant contribution to $f$.  It is worth emphasizing that $\Delta f$
+has contributions from \textit{all} terms in the Born series, not just
+low-order terms.  The particle bounces around inside the scatterer
+many times before it escapes, so high orders in the Born series
+contribute to the outcome.
 
 The figure below shows the energy dependence of $\Delta f$, according
 to Eq.~\eqref{deltaf}:
 
 \begin{center}
-  \includegraphics[width=0.67\textwidth]{resonance}  
+  \includegraphics[width=0.7\textwidth]{resonance}  
 \end{center}
 
 \noindent
-The graph of $|\Delta f|^2$ versus $E$ has a shape known as a
-\textbf{Lorentzian}.  It has a peak centered at the resonance energy
-$E_{\mathrm{res}}$.  The peak width is characterized by the
-\textbf{full-width at half-maximum} (FWHM), the spacing between the
-two energies where $|\Delta f|^2$ is at half its maximum value:
+The shape of the graph of $|\Delta f|^2$ versus $E$ is called a
+\textbf{Lorentzian}.  It forms a peak centered at $E_{\mathrm{res}}$.
+The width of the peak can be characterized by the \textbf{full-width
+  at half-maximum} (FWHM), the spacing between the two energies where
+$|\Delta f|^2$ has half its maximum value.  It can be shown that
 \begin{equation}
   \delta E^{(\mathrm{FWHM})} = 2\, \Big|\mathrm{Im}[\Sigma]\Big|.
 \end{equation}
-Thus, the closer the self-energy gets to being a real quantity, the
-sharper the peak.
+Thus, the closer $\Sigma$ gets to being a real quantity, the sharper
+the peak.
 
 The phase $\mathrm{arg}[\Delta f]$ also contains useful information.
 As $E$ crosses $E_{\mathrm{res}}$ from below, the phase increases by
@@ -476,41 +467,39 @@ $\pi$.  The energy range over which this phase shift occurs is $\sim
 These two signatures---peaks and phase shifts---are sought after in
 numerous real-world scattering experiments.  In actual experiments,
 the peaks and phase shifts are often overlaid on a ``background''
-caused by non-resonant effects.  For example, the plot below was
+caused by non-resonant processes.  For example, the plot below was
 released by the CMS experiment at the Large Hadron Collider (LHC),
 showing a resonance peak on a large background.  This was part of the
-evidence for the LHC's discovery of a new particle, the Higgs boson,
-in 2012.
+evidence for the discovery of a new particle, the Higgs boson, in
+2012.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.4\textwidth]{higgs}
+  \centering\includegraphics[width=0.46\textwidth]{higgs}
 \end{figure}
 
 \section{Fermi's Golden Rule}
 \label{sec:goldenrule}
 
-We have seen that the width of a resonance is determined by the
-imaginary part of the self-energy, $\mathrm{Im}[\Sigma]$.  In this
-section, we will show that $\mathrm{Im}[\Sigma]$ has a physical
-meaning: it represents the \textbf{decay rate} of a quasi-bound state.
-Moreover, it can be approximated using a simple but important formula
-known as \textbf{Fermi's Golden Rule}.
+We have seen that the width of a resonance is determined by
+$\mathrm{Im}[\Sigma]$, the imaginary part of the self-energy.  In this
+section, we will show that $\mathrm{Im}[\Sigma]$ represents the decay
+rate of a quasi-bound state, and that it can often be approximated
+using a simple formula called \textbf{Fermi's Golden Rule}.
 
-Suppose we set the quantum state of a particle to a quasi-bound state
-$|\varphi\rangle$ at some initial time $t = 0$.  Since
-$|\varphi\rangle$ is not an exact eigenstate of the Hamiltonian, the
-particle will not remain in that state under time evolution.  For $t >
-0$, its wavefunction should become less and less localized, which can
-be interpreted as the escape of the particle to infinity or the
-``decay'' of the quasi-bound state into the free state continuum.
+Suppose we set the state of a particle to a quasi-bound state
+$|\varphi\rangle$ at time $t = 0$.  Since $|\varphi\rangle$ is not an
+exact eigenstate of the Hamiltonian, the particle will not remain in
+that state for $t > 0$.  Over time, the wavefunction will leak out of
+the potential well, corresponding to the ``decay'' of the quasi-bound
+state into the free state continuum.
 
 The decay process can be described by
 \begin{equation}
   P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,
 \end{equation}
 which is the probability for the system to continue occupying state
-$|\varphi\rangle$ after time $t$.  In order to calculate $P(t)$, let
-us define the function
+$|\varphi\rangle$ after time $t$.  To calculate $P(t)$, let us define
+the function
 \begin{equation}
   f(t) = \begin{cases} \langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle \,e^{-\varepsilon t}, & t \ge 0 \\ 0, & t < 0,\end{cases}
 \end{equation}
@@ -522,7 +511,7 @@ function is designed so that firstly, it vanishes at negative times
 prior to start of our thought experiment; and secondly, it vanishes as
 $t\rightarrow\infty$ due to the ``regulator'' $\varepsilon$.  The
 latter enforces the idea that the bound state decays permanently into
-the continuum of free states, and is never re-populated by waves
+the continuum of free states, and is never repopulated by waves
 ``bouncing back'' from infinity.
 
 We can determine $f(t)$ by first studying its Fourier transform,
@@ -536,16 +525,15 @@ in the usual way):
 \begin{align}
   \begin{aligned}F(\omega) &= \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \sum_n \langle\varphi|e^{-i\hat{H}t/\hbar}|n\rangle\langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \left( \int_0^\infty dt \; \exp\left[i\left(\omega - \frac{E_n}{\hbar} + i\varepsilon\right) t\right] \right) \langle n|\varphi\rangle \\ &= \sum_n \langle\varphi|n\rangle \frac{i}{\omega - \frac{E_n}{\hbar} + i \varepsilon} \langle n|\varphi\rangle \\ &= i \hbar\; \langle \varphi | \left(\hbar\omega - \hat{H} + i\hbar\varepsilon \right)^{\!-1} | \varphi\rangle. \end{aligned}
 \end{align}
-In the third line, the regulator $\varepsilon$ removes any
-contribution from the $t \rightarrow\infty$ limit of the integral, in
-accordance with our requirement that the decay of the bound state is
-permanent.  Hence, we obtain
+In the third line, the regulator $\varepsilon$ removes the
+contribution from the $t \rightarrow\infty$ limit, as desired.  Hence,
+we obtain
 \begin{equation}
   \lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,
 \end{equation}
 where $\hat{G}$ is our old friend the causal Green's function.  The
 fact that the \textit{causal} Green's function shows up is due to our
-definition of $f(t)$, which vanishes for $t < 0$.
+definition of $f(t)$, which is non-vanishing only for $t \ge 0$.
 
 As discussed in the previous section, when the resonance condition is
 satisfied,
@@ -576,9 +564,9 @@ the energy of the $k$-th free state.  The imaginary part is
 \begin{align}
   \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
 \end{align}
-The quantity inside the square brackets is a Lorentzian function,
-which is always positive; hence, $\mathrm{Im}(\Sigma) < 0$, as
-previously asserted.  The Lorentzian function has the limiting form
+The quantity in the square brackets is a Lorentzian function, which is
+always positive.  Hence, $\mathrm{Im}(\Sigma) < 0$, as previously
+asserted.  The Lorentzian function has the limiting form
 \begin{equation}
   \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
 \end{equation}
@@ -629,8 +617,7 @@ It goes to zero when $\hat{V}_1 = 0$, which is the case where
 $|\varphi\rangle$ is a true bound state that does not decay.  The
 second factor is the density of free states, and describes how many
 free states are available for $|\varphi\rangle$ to decay into.  Both
-factors depend on energy, and must be evaluated at the resonance
-energy $E_{\mathrm{res}}$.
+factors depend on energy, and must be evaluated at $E_{\mathrm{res}}$.
 
 \section{Fermi's golden rule in a 1D resonance model}
 
