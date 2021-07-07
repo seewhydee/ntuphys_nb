@@ -317,16 +317,24 @@ previous section:
 When the potential is just $\hat{V}_0$, let there be a bound state
 $|\varphi\rangle$ with energy $E_0$.  Furthermore, let us assume that
 the potential supports a continuum of free states $\{|\psi_k\rangle\}$
-with energies $\{E_k\}$, where $k$ is some continuous index (analogous
-to the wave-vector for plane wave states).  The bound state and free
-states satisfy the Schr\"odinger equation
+with energies $\{E_k\}$, where $k$ is some continuous index for
+labelling the free states (we will discuss what this index might
+represent later).  The states satisfy the Schr\"odinger equation
 \begin{align}
   \big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
 \end{align}
 along with the orthogonality and completeness relations
 \begin{equation}
-  \langle\varphi|\psi_k\rangle = 0, \quad |\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k| = \hat{I}.
+  \langle\varphi|\psi_k\rangle = 0, \;\;\quad |\varphi\rangle\langle\varphi|
+  + \sum_k \, |\psi_k\rangle\langle\psi_k| = \hat{I}.
 \end{equation}
+Here, $\sum_k$ represents a sum over all free states.  Since the free
+states form a continuum, this sum will have to be expressed as an
+integral by re-normalizing the free states (e.g., delta
+normalization), as discussed in Section II of the previous chapter.
+For the moment, however, we will leave it as a discrete sum, with the
+free states normalized to unity.
+
 As described in Section~VII of the previous chapter, the causal
 Green's function is
 \begin{equation}
@@ -349,23 +357,23 @@ As usual when dealing with Dyson's equations, we must note that
 $\hat{G}$ appears on both the left and right hand sides.  Let us
 judiciously insert a resolution of the identity, as follows:
 \begin{align}
-  \begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \int d^dk\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}
+  \begin{aligned}\hat{G} &= \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \\ &= \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| + \sum_k\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}
 \end{align}
 We now compute the matrix element
 $\langle\varphi|\cdots|\varphi\rangle$ for both sides of the equation:
 \begin{align}
-    \langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
-    \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
+    \langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
+    \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
     \lim_{\varepsilon\rightarrow0^+}
-    \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E - E_0 + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E  - E_0 + i\varepsilon} \left(1+ \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \nonumber\\
-    \lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \int d^dk\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1. \label{psiGphi}
+    \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E - E_0 + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E  - E_0 + i\varepsilon} \left(1+ \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \nonumber\\
+    \lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1. \label{psiGphi}
 \end{align}
 Similarly, computing the matrix element
 $\langle\varphi|\cdots|\psi_k\rangle$ gives:
 \begin{align*}
   \begin{aligned}
-\langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \int d^dk'\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
-&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \int d^dk'\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1|\psi_k\rangle\right).\end{aligned}
+\langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
+&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1|\psi_k\rangle\right).\end{aligned}
 \end{align*}
 So far, the equations have been exact, but now we apply an
 approximation: in the last line of the above equation, let the factor
@@ -380,7 +388,7 @@ With this, we obtain
 \end{equation}
 Combining this with Eq.~\eqref{psiGphi} gives
 \begin{equation*}
-  \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \int d^dk\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
+  \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \sum_k\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
 \end{equation*}
 Hence,
 \begin{framed}
@@ -390,7 +398,7 @@ Hence,
     \label{phiGphi_result} \\
     \mathrm{where}\quad
     \Sigma(E) &\equiv \lim_{\varepsilon\rightarrow0^+}
-    \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}.
+    \sum_k \, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}.
     \label{sigma}
   \end{align}
 \end{framed}
@@ -553,16 +561,17 @@ shortly.  The final result is
   P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = \frac{2|\mathrm{Im}[\Sigma]|}{\hbar}.
 \end{equation}
 
-Let us now take a closer look at the self-energy.  From our earlier
-definition,
+Let us now take a closer look at the self-energy $\Sigma$, which was defined in
+Eq.~\eqref{sigma}:
 \begin{equation}
-  \Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon},
+  \Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \sum_k\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon},
 \end{equation}
 where $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ are the bound and
 free states of the model in the absence of $\hat{V}_1$, and $E_k$ is
-the energy of the $k$-th free state.  The imaginary part is
+the energy of the $k$-th free state.  We can calculate the imaginary
+part as follows:
 \begin{align}
-  \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
+  \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
 \end{align}
 The quantity in the square brackets is a Lorentzian function, which is
 always positive.  Hence, $\mathrm{Im}(\Sigma) < 0$, as previously
@@ -570,75 +579,119 @@ asserted.  The Lorentzian function has the limiting form
 \begin{equation}
   \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
 \end{equation}
-This comes from the fact that as $\varepsilon\rightarrow0^+$, the
-Lorentzian curve describes a sharper and sharper peak, but the area
-under the curve is fixed as $\pi$.  Hence,
+This is because the Lorentzian gets sharper as $\varepsilon\rightarrow0^+$,
+but the area under it is $\pi$.  Hence,
 \begin{equation}
-  \mathrm{Im}\big[\Sigma(E)\big] = - \pi \int d^dk\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \delta(E-E_k).
+  \mathrm{Im}\big[\Sigma(E)\big]
+  = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
+  \; \delta(E-E_k).
+  \label{fermigr1}
 \end{equation}
-Because of the delta function, we see that the only non-vanishing
-contributions to the integral come from the parts of $k$-space where
-$E = E_k$.
-
-We can further simplify the result by defining the \textbf{density of
-  states},
+Due to the delta function, non-vanishing contributions come only from
+values of $k$ such that $E = E_k$.  We can use this fact to further
+simplify the result.  Consider the first term in the sum in
+Eq.~\eqref{fermigr1}, $\big| \langle\psi_k|
+\hat{V}_1|\varphi\rangle\big|^2$.  It is $k$-dependent, but we can let
+\begin{equation*}
+  \overline{\big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\big|^2}
+\end{equation*}
+denote its average value over the values of $k$ for which $E = E_k$.
+Then we can approximate Eq.~\eqref{fermigr1} by pulling that term out
+of the sum:
 \begin{equation}
-  \mathcal{D}(E) = \int d^d k\; \delta(E - E_k).
-\end{equation}
-Roughly speaking, this measures the number of free states that exist
-at energy $E$.  The $k$-space volume $d^dk$ is proportional to the
-number of free states at each $k$, while the delta function restricts
-the contributions to only those free states with energy $E$.  (In
-the next section, we'll see an explicit example of how to calculate
-$\mathcal{D}(E)$.)  Now, for any function $f(k)$,
-\begin{equation}
-  \int d^d k\; f(k) \, \delta(E - E_k) = \overline{f(k(E))} \;\mathcal{D}(E),
-\end{equation}
-where $\overline{f(k(E))}$ denotes the mean value of $f(k)$ for the
-free states satisfying $E_k = E$.  Applying this to the imaginary part
-of the self-energy gives
-\begin{equation}
-  \mathrm{Im}\big[\Sigma(E)\big] = - \pi \; \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E).
+  \mathrm{Im}\big[\Sigma(E)\big]
+  \approx - \pi \;
+  \overline{\big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\big|^2}
+  \; \left( \sum_k \; \delta(E-E_k) \right).
+  \label{fermigr2}
 \end{equation}
 Hence, the quasi-bound state's decay rate is
 \begin{framed}
   \begin{equation}
-    \kappa \,=\, -\frac{2}{\hbar}\mathrm{Im}\big[\Sigma(E_{\mathrm{res}})\big] \,=\, \frac{2\pi}{\hbar} \; \overline{\Big| \langle\psi_{k(E_{\mathrm{res}})}| \hat{V}_1|\varphi\rangle\Big|^2} \; \mathcal{D}(E_{\mathrm{res}}).
+    \kappa
+    \,\approx\, \frac{2\pi}{\hbar} \;
+    \big|W(E_\mathrm{res})\big|^2 \; \rho(E_{\mathrm{res}}),
+    \quad \mathrm{where} \quad \left\{
+    \begin{aligned}
+      \big|W(E)\big|^2
+      &= \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \\
+      \rho(E) &= \sum_k \; \delta(E-E_k).
+    \end{aligned}\right.
+    \label{FGR}
   \end{equation}
 \end{framed}
-\vskip -0.15in
-This extremely important result is called \textbf{Fermi's golden
-  rule}.  It says that the decay rate of a quasi-bound mode is
-directly proportional to two factors.  The first factor describes how
-strongly $\hat{V}_1$ couples the quasi-bound state and the free
-states, as determined by the quantity $\langle\psi_{k}|
-\hat{V}_1|\varphi\rangle$, called the \textbf{transition amplitude}.
-It goes to zero when $\hat{V}_1 = 0$, which is the case where
-$|\varphi\rangle$ is a true bound state that does not decay.  The
-second factor is the density of free states, and describes how many
-free states are available for $|\varphi\rangle$ to decay into.  Both
-factors depend on energy, and must be evaluated at $E_{\mathrm{res}}$.
+\vskip -0.12in
+This result is called \textbf{Fermi's golden rule}.  It states that
+the decay rate of a quasi-bound state is directly proportional to two
+factors.  The first factor, $|W(E_\mathrm{res})|^2$, describes the
+strength of the coupling between the quasi-bound state and the free
+states it decays into; it is calculated using the quantity
+$\langle\psi_{k}| \hat{V}_1|\varphi\rangle$, which called the
+\textbf{transition amplitude}, using free states that meet the
+resonance condition $E_k = E_{\mathrm{res}}$.  The stronger the
+coupling, the faster the decay.  The second factor,
+$\rho(E_{\mathrm{res}})$, is the number of free states per unit energy
+at energy $E_{\mathrm{res}}$.  The more free states are available for
+the quasi-bound state to decay into, the faster the decay.
+
+The two factors that go into Fermi's golden rule are typically
+calculated using further approximations.  Often, they can be estimated
+using the free states of empty space, which are plane waves.
+
+When plane waves are used to approximate the free states
+$\{|\psi_k\rangle\}$, the $k$ labels are simply $d$-dimensional
+wave-vectors.  It is then convenient to amend Eq.~\eqref{FGR} to treat
+$k$-space as a continuum.  This follows the same procedure discussed
+in Section II of the previous chapter.  We introduce a $k$-space
+discretization $dk = 2\pi/L$, where $L$ is the system size in each
+direction.  As $L\rightarrow \infty$, the discrete sum $\sum_k$
+appearing in Eq.~\eqref{FGR}, in the definition $\rho(E)$, can be
+turned into an integral.  In place of $\rho(E)$, we define
+\begin{equation}
+  \mathcal{D}(E) = \int \frac{d^d k}{(2\pi)^d} \; \delta(E - E_k).
+\end{equation}
+This is called the \textbf{density of states}, and it counts the
+number of free states with energy $E$ per unit energy and per unit
+volume (check the units!).
+
+After converting the sum to an integral, there is an inverse factor
+$\left[d^dk/(2\pi)^d\right]^{-1} = L^{d}$ left over, which has to be
+grouped with the $|W|^2$ term in Eq.~\eqref{FGR}.  At the same time,
+we re-normalize the free states used in the definition of $|W|^2$.  If
+we follow the delta normalization convention discussed in Section II
+of the previous chapter,
+\begin{equation}
+  |\psi_k\rangle^{(\textrm{new})}
+  = \left(\frac{L}{2\pi}\right)^{d/2} |\psi_{k}\rangle^{(\textrm{old})},
+\end{equation}
+then Fermi's golden rule is re-expressed as
+\begin{framed}
+  \begin{equation}
+    \kappa
+    \,\approx\, \frac{2\pi}{\hbar} \;
+    \big|\mathcal{W}(E_\mathrm{res})\big|^2 \; \mathcal{D}(E_{\mathrm{res}}),
+    \quad \mathrm{where} \quad \left\{
+    \begin{aligned}
+      \big|\mathcal{W}(E)\big|^2
+      &= (2\pi)^d \;
+      \overline{\Big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\Big|^2} \\
+      \mathcal{D}(E) &= \int \frac{d^dk}{(2\pi)^d} \; \delta(E-E_k).
+    \end{aligned}\right.
+    \label{FGR2}
+  \end{equation}
+\end{framed}
 
 \section{Fermi's golden rule in a 1D resonance model}
 
-Fermi's golden rule can be used to study a wide variety of quantum
-systems, and we will see examples of its usefulness in subsequent
-chapters.  In this section, we will apply it to the simple 1D model
-from Section~\ref{sec:resonances}, and evaluate how well it works.
-The model potential is
+Let us apply Fermi's golden rule to the simple 1D model from
+Section~\ref{sec:resonances}, and see how well it works.  The model
+potential is
 \begin{equation}
   \begin{aligned}&V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|), \;\;\; 0<U<V_b.\end{aligned}
 \end{equation}
 The potential well $V_0$ supports one or more bound states.  For
-simplicity, we focus on the ground state, whose energy $E_0$ lies in
-the range $[-U,0]$.  Once $V_1$ is introduced, this will turn into the
-lowest quasi-bound state, with resonance energy $E_{\mathrm{res}}
-\approx E_0 + V_b > 0$.
-
-When the potential consists only of $V_0$, the ground state
-wavefunction can be obtained by solving the Schr\"odinger wave
-equation for the boundary condition $\varphi(x) \rightarrow 0$ as
-$|x|\rightarrow\infty$.  It has the form
+simplicity, we focus on the ground state.  Let $E_0$ be the energy of
+the ground state.  Its wavefunction has the form
 \begin{equation}
   \varphi(x) = \begin{cases}\mathcal{A}\,\cos(qx), & |x| < a \\
     \mathcal{B} \, \exp\left(-\eta|x|\right), & |x| \ge a,\end{cases}
@@ -648,32 +701,32 @@ and
 \begin{equation}
   q = \sqrt{\frac{2m}{\hbar^2}(E_0+U)}, \;\; \eta = \sqrt{\frac{2m}{\hbar^2}|E_0|}.
 \end{equation}
-By matching both $\varphi(x)$ and $d\varphi/dx$ across the $x=a$
-interface, we can derive a transcendental equation for $E_0$, which
-can be solved numerically.  Once we know $E_0$, we also know $q$ and
-$\eta$.  We can then relate $\mathcal{A}$ and $\mathcal{B}$ by
-matching $\varphi(x)$ across the $x=a$ interface:
+By matching $\varphi(x)$ and $d\varphi/dx$ across the $x=a$ interface,
+we can derive a transcendental equation for $E_0$.  Knowing $E_0$, we
+can derive $q$ and $\eta$.  By matching $\varphi(x)$ across the
+interface at $x=a$, we get
 \begin{equation}
-  \mathcal{A} = \mathcal{B}\; \frac{\exp(-\eta a)}{\cos(qa)}.
+  \frac{\mathcal{A}}{\mathcal{B}} = \frac{\exp(-\eta a)}{\cos(qa)}.
 \end{equation}
-Moreover, the wavefunction must be normalized to unity:
-\begin{align}
-  \begin{aligned}1 &= \mathcal{A}^2 \int_{-a}^a \cos^2(qx) + 2\mathcal{B}^2 \int_a^\infty dx\; \exp(-2\eta x) \\ &= \mathcal{A}^2 \left(a+\frac{\sin(2qa)}{2q}\right) + \mathcal{B}^2\, \frac{\exp(-2\eta a)}{\eta}.\end{aligned}
-\end{align}
-Putting the last two equations together yields
+Moreover, the wavefunction must be normalized to unity, so
+\begin{equation}
+  1 = \mathcal{A}^2 \int_{-a}^a \cos^2(qx) + 2\mathcal{B}^2 \int_a^\infty dx\; \exp(-2\eta x)
+  %\\ &= \mathcal{A}^2 \left(a+\frac{\sin(2qa)}{2q}\right) + \mathcal{B}^2\, \frac{\exp(-2\eta a)}{\eta}.
+\end{equation}
+Solving the integrals, we obtain
 \begin{equation}
   \mathcal{B}^2 = \frac{\exp\big(2\eta a\big)}{a} \left[\frac{1+\sin(2qa)/2qa}{\cos^2(qa)}+\frac{1}{\eta a}\right]^{-1}.
 \end{equation}
+
 We now wish to compute the transition amplitude
 \begin{equation}
   \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x),
 \end{equation}
-where $\psi_k(x)$ is the wavefunction of a free state for the system
-with potential $V_0(x)$, which is labelled by some continuous index
-$k$.  We can use a trick to avoid calculating the exact form of
-$\psi_k(x)$.  Because $\psi_k(x)$ and $\varphi(x)$ must be orthogonal,
+where $\psi_k(x)$ is a free eigenstate for $V_0(x)$.  We can use a
+trick to avoid calculating $\psi_k(x)$ explicitly.  Since $\psi_k(x)$
+and $\varphi(x)$ must be orthogonal,
 \begin{equation}
-  \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x) = - \int_{|x| > a} dx \; \psi_k^*(x) \,\varphi(x).
+  \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x) = - \int_{|x| > b} dx \; \psi_k^*(x) \,\varphi(x).
 \end{equation}
 When evaluating the free states outside the potential well, we can
 approximate them as the free states of the particle without the
