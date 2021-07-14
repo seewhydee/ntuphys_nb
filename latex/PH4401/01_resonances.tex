@@ -625,41 +625,39 @@ This result is called \textbf{Fermi's golden rule}.  It states that
 the decay rate of a quasi-bound state is directly proportional to two
 factors.  The first factor, $|W(E_\mathrm{res})|^2$, describes the
 strength of the coupling between the quasi-bound state and the free
-states it decays into; it is calculated using the quantity
-$\langle\psi_{k}| \hat{V}_1|\varphi\rangle$, which called the
-\textbf{transition amplitude}, using free states that meet the
-resonance condition $E_k = E_{\mathrm{res}}$.  The stronger the
-coupling, the faster the decay.  The second factor,
-$\rho(E_{\mathrm{res}})$, is the number of free states per unit energy
-at energy $E_{\mathrm{res}}$.  The more free states are available for
-the quasi-bound state to decay into, the faster the decay.
+states.  It is computed from $\langle\psi_{k}|
+\hat{V}_1|\varphi\rangle$, which called the \textbf{transition
+  amplitude}, using free states meeting the resonance condition $E_k =
+E_{\mathrm{res}}$; the stronger the coupling, the faster the decay.
+The second factor, $\rho(E_{\mathrm{res}})$, is the number of free
+states per unit energy at energy $E_{\mathrm{res}}$; the more free
+states available, the faster the decay.
 
-The two factors that go into Fermi's golden rule are typically
-calculated using further approximations.  Often, they can be estimated
-using the free states of empty space, which are plane waves.
+Often, these two factors are estimated using further approximations.
+One common trick is to treat the free states as plane waves (we will
+see an example in the next section).
 
-When plane waves are used to approximate the free states
-$\{|\psi_k\rangle\}$, the $k$ labels are simply $d$-dimensional
-wave-vectors.  It is then convenient to amend Eq.~\eqref{FGR} to treat
-$k$-space as a continuum.  This follows the same procedure discussed
-in Section II of the previous chapter.  We introduce a $k$-space
-discretization $dk = 2\pi/L$, where $L$ is the system size in each
-direction.  As $L\rightarrow \infty$, the discrete sum $\sum_k$
-appearing in Eq.~\eqref{FGR}, in the definition $\rho(E)$, can be
-turned into an integral.  In place of $\rho(E)$, we define
+When using plane waves to approximate $\{|\psi_k\rangle\}$, the $k$
+labels are $d$-dimensional wave-vectors.  In this case, it is
+convenient to amend Eq.~\eqref{FGR} to treat $k$-space as a continuum,
+following the procedure discussed in Section II of the previous
+chapter: we introduce a $k$-space discretization $dk = 2\pi/L$, where
+$L$ is the system size in each direction; then, as $L\rightarrow
+\infty$, the discrete sum $\sum_k$ appearing in the definition
+$\rho(E)$ in Eq.~\eqref{FGR} can be turned into an integral.  In place
+of $\rho(E)$, we can define the \textbf{density of states}
 \begin{equation}
-  \mathcal{D}(E) = \int \frac{d^d k}{(2\pi)^d} \; \delta(E - E_k).
+  \mathcal{D}(E) = \int \frac{d^d k}{(2\pi)^d} \; \delta(E - E_k),
 \end{equation}
-This is called the \textbf{density of states}, and it counts the
-number of free states with energy $E$ per unit energy and per unit
-volume (check the units!).
+which counts the number of free states with energy $E$ per unit energy
+and per unit volume.
 
 After converting the sum to an integral, there is an inverse factor
 $\left[d^dk/(2\pi)^d\right]^{-1} = L^{d}$ left over, which has to be
 grouped with the $|W|^2$ term in Eq.~\eqref{FGR}.  At the same time,
-we re-normalize the free states used in the definition of $|W|^2$.  If
-we follow the delta normalization convention discussed in Section II
-of the previous chapter,
+we have to re-normalize the free states in the definition of $|W|^2$.
+If we follow the delta normalization convention discussed in Section
+II of the previous chapter,
 \begin{equation}
   |\psi_k\rangle^{(\textrm{new})}
   = \left(\frac{L}{2\pi}\right)^{d/2} |\psi_{k}\rangle^{(\textrm{old})},
@@ -681,20 +679,27 @@ then Fermi's golden rule is re-expressed as
   \end{equation}
 \end{framed}
 
-\section{Fermi's golden rule in a 1D resonance model}
+\section{Fermi's golden rule in a 1D model}
+\label{sec:fgr1d}
 
-Let us apply Fermi's golden rule to the simple 1D model from
-Section~\ref{sec:resonances}, and see how well it works.  The model
-potential is
+Let us apply Fermi's golden rule to the simple 1D model of
+Section~\ref{sec:resonances}.  The potential is
 \begin{equation}
-  \begin{aligned}&V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where} \\ &V_0(x) = -U \, \Theta(a-|x|), \;\; V_1(x) = V_b\, \Theta(b-|x|), \;\;\; 0<U<V_b.\end{aligned}
+  V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where}\;\;
+  \left\{\;\;
+  \begin{aligned}
+    V_0(x) &= -U \, \Theta(a-|x|) \\
+    V_1(x) &= \;\;V_b\; \Theta(b-|x|) \\
+    0 &<U<V_b.
+  \end{aligned}\right.
 \end{equation}
-The potential well $V_0$ supports one or more bound states.  For
-simplicity, we focus on the ground state.  Let $E_0$ be the energy of
-the ground state.  Its wavefunction has the form
+The finite square well $V_0(x)$ supports one or more bound states; for
+simplicity, we focus on the ground state, whose energy is denoted by
+$E_0$ (where $-U < E_0 < 0$).  Its wavefunction is
 \begin{equation}
   \varphi(x) = \begin{cases}\mathcal{A}\,\cos(qx), & |x| < a \\
     \mathcal{B} \, \exp\left(-\eta|x|\right), & |x| \ge a,\end{cases}
+  \label{varphiansatz0}
 \end{equation}
 where $\mathcal{A}$ and $\mathcal{B}$ are constants to be determined,
 and
@@ -702,90 +707,101 @@ and
   q = \sqrt{\frac{2m}{\hbar^2}(E_0+U)}, \;\; \eta = \sqrt{\frac{2m}{\hbar^2}|E_0|}.
 \end{equation}
 By matching $\varphi(x)$ and $d\varphi/dx$ across the $x=a$ interface,
-we can derive a transcendental equation for $E_0$.  Knowing $E_0$, we
-can derive $q$ and $\eta$.  By matching $\varphi(x)$ across the
-interface at $x=a$, we get
-\begin{equation}
-  \frac{\mathcal{A}}{\mathcal{B}} = \frac{\exp(-\eta a)}{\cos(qa)}.
-\end{equation}
-Moreover, the wavefunction must be normalized to unity, so
-\begin{equation}
-  1 = \mathcal{A}^2 \int_{-a}^a \cos^2(qx) + 2\mathcal{B}^2 \int_a^\infty dx\; \exp(-2\eta x)
-  %\\ &= \mathcal{A}^2 \left(a+\frac{\sin(2qa)}{2q}\right) + \mathcal{B}^2\, \frac{\exp(-2\eta a)}{\eta}.
-\end{equation}
-Solving the integrals, we obtain
-\begin{equation}
-  \mathcal{B}^2 = \frac{\exp\big(2\eta a\big)}{a} \left[\frac{1+\sin(2qa)/2qa}{\cos^2(qa)}+\frac{1}{\eta a}\right]^{-1}.
-\end{equation}
+we can derive $E_0$, $\mathcal{A}$, and $\mathcal{B}$.  The details
+are left as an \hyperref[ex:1dfgr]{exercise}.
 
-We now wish to compute the transition amplitude
+Once we have obtained $\varphi(x)$, we want to use it to find the
+transition amplitude $\langle\psi_k|\hat{V}_1|\varphi\rangle$, where
+$\psi_k(x)$ is a ``representative'' free eigenstate of $V_0(x)$ that
+the quasi-bound state decays to.  We can estimate this with a series
+of tricks.  First,
 \begin{equation}
-  \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x),
+  \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x).
 \end{equation}
-where $\psi_k(x)$ is a free eigenstate for $V_0(x)$.  We can use a
-trick to avoid calculating $\psi_k(x)$ explicitly.  Since $\psi_k(x)$
-and $\varphi(x)$ must be orthogonal,
+Next, because $\psi_k(x)$ and $\varphi(x)$ are orthogonal,
 \begin{equation}
+  \int_{-\infty}^\infty dx \; \psi_k^*(x) \,\varphi(x) = 0
+  \;\;\;\Rightarrow \;\;\;  
   \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x) = - \int_{|x| > b} dx \; \psi_k^*(x) \,\varphi(x).
 \end{equation}
-When evaluating the free states outside the potential well, we can
-approximate them as the free states of the particle without the
-potential well, i.e., simple plane waves:
+The integral breaks into two pieces, which can be interpreted as the
+contribution from the quasi-bound state escaping to the left or to the
+right.  We assume these contribute equally to the escape probability,
+so that
 \begin{equation}
-  \psi_k(x) = \frac{1}{\sqrt{2\pi}}\, e^{ikx}, \;\;\;k\in\mathbb{R}, \;\;|x|>a.
+  \big| \langle\psi_k|\hat{V}_1|\varphi\rangle \big|^2
+  \;\approx\; 2 V_b^2 \;
+  \left| \int_{b}^\infty dx \, \psi_k^*(x)\, \varphi(x)\right|^2.
+  \label{overlapintegral}
 \end{equation}
-We likewise approximate their energies by $E_k \approx \hbar^2k^2/2m$.
-Plugging $\psi_k(x)$ into the formula for the transition amplitude,
-and performing the necessary integrals, yields
+Outside the scatterer ($x > b$), the escaping free state can be
+approximated as an outgoing plane wave, with the delta-normalized form
 \begin{equation}
-  \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, - \mathcal{B} \, \sqrt{\frac{2}{\pi}} \, \frac{\hbar^2}{2m} \; \big[\eta\cos(kb) - k\sin(kb)\big] \, \exp(-\eta b).
+  \psi_k(x) \,\approx\, \frac{e^{ikx}}{\sqrt{2\pi}},
+  \label{psikx}
 \end{equation}
-Within Fermi's golden rule, we must use a value of $k$ such that
+where $k$ is chosen such that
 \begin{equation}
   E_k = E_{\mathrm{res}} \approx E_0 + V_b \;\;\;\Rightarrow \;\;\; k \approx \sqrt{\frac{2m}{\hbar^2}(E_0+V_b)}.
 \end{equation}
+Plugging Eqs.~\eqref{varphiansatz0} and \eqref{psikx} into
+Eq.~\eqref{overlapintegral}, and solving the integral, gives
+\begin{equation}
+  \big| \langle\psi_k|\hat{V}_1|\varphi\rangle \big|^2
+  \;\approx \; \frac{1}{\pi}\, V_b^2 \, \mathcal{B}^2\,
+  \frac{e^{-2\eta b}}{k^2 + \eta^2}.
+  \label{overlap1d}
+\end{equation}
 
-The next thing that we need to calculate is the density of free
-states.  This can be done by once again taking $E_k \approx
-\hbar^2k^2/2m$, and performing a change of variables:
+The other quantity we need for Fermi's golden rule is the density of
+free states.  This can be found by taking $E_k \approx \hbar^2k^2/2m$,
+and performing a change of variables:
 \begin{align}
-  \begin{aligned}\mathcal{D}(E) &= \int_{-\infty}^\infty dk \; \delta\left(E-\frac{\hbar^2k^2}{2m}\right) \\ &= 2 \cdot \int_0^\infty dE' \, \frac{dk}{dE'} \, \delta(E-E') \\ &= \sqrt{\frac{2m}{\hbar^2 E}}.
-  \end{aligned}
+  \mathcal{D}(E)
+  &= \int_{-\infty}^\infty \frac{dk}{2\pi} \; \delta\left(E-\frac{\hbar^2k^2}{2m}\right) \\
+  &= 2 \cdot \frac{1}{2\pi} \int_0^\infty dE' \, \frac{dk}{dE'} \, \delta(E-E') \label{dos1d_0} \\
+  &= \sqrt{\frac{m}{2\pi^2\hbar^2 E}}.
+  \label{dos1d}
 \end{align}
-Note the factor of 2 on the second line; it is there because there is
-both a positive and a negative value of $k$ for each $E$.
+In Eq.~\eqref{dos1d_0}, the factor of 2 accounts for the fact that for
+each $E$, both positive and negative $k$ contribute to the density of
+states.
 
-Having obtained expressions for the transition amplitude and the
-density of states, we just have to plug them into Fermi's golden rule
-to obtain the decay rate $\kappa$.  The figure below shows how
-$\kappa$ varies with the barrier thickness $b-a$, with all other model
-parameters fixed ($U = 20, V_b = 30, a = 1$):
+We can now plug Eqs.~\eqref{overlap1d} and \eqref{dos1d} into Fermi's
+golden rule, Eq.~\eqref{FGR2}.  In the figure below, the orange curve
+shows how the resulting decay rate, $\kappa$, varies with the barrier
+thickness $b-a$, with the other model parameters fixed at $U = 6$,
+$V_b = 30$, and $a = 1$:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.85\textwidth]{goldenrule}
+  \centering\includegraphics[width=0.8\textwidth]{goldenrule}
 \end{figure}
 
-For comparison, the figure also plots the width of the resonant
-scattering peak, which according to our preceding discussion is
-supposed to be equal to $\kappa$.  To obtain these values, we use the
+\noindent
+For comparison, the blue dots show the values of $\kappa$ taken from
+the width of the resonant scattering peak (see
+Section~\ref{sec:green_resonances}).  For this calculation, we use the
 transfer matrix method to compute the $E$-dependent transmittance for
-particles incident on one side of the potential (see Appendix B).  The
-transmittance is peaked near $E_{\mathrm{res}}$, and the full-width at
-half-maximum (see Section~\ref{sec:green_resonances}) is estimated
-numerically.  The results are shown as blue dots in the figure.
+particles incident on one side of the scatterer (see Appendix B), and
+numerically extract the full-width at half-maximum (FWHM) for the peak
+near $E_{\mathrm{res}}$.
 
-We see that Fermi's golden rule generally agrees well with the results
-from the transfer matrix method.  There is some discrepancy, notably
-when the barrier is thin.  Remember that Fermi's golden rule relies on
-the approximation that the quasi-bound state is strongly confined
-(i.e., having $\langle \varphi|G|\varphi\rangle$ be large in the
-derivations of Sections~\ref{sec:green_resonances} and
-\ref{sec:goldenrule}).  Moreover, we have approximated the free states
-$|\psi_k\rangle$ using the plane wave states in the absence of any
-potential, which is an assumption commonly employed when using Fermi's
-golden rule.
+Evidently, Fermi's golden rule (the orange curve) gives a very good
+estimate for the true decay rate based on the scattering peak width
+(the blue dots).  The agreement is not exact, but after all the
+Fermi's golden rule result is based on a series of approximations,
+including the various assumptions in the derivation of Fermi's golden
+rule (discussed in Sections~\ref{sec:green_resonances} and
+\ref{sec:goldenrule}), as well as the approximations used in applying
+Fermi's golden rule (e.g., using plane waves to calculate the
+transition amplitude and density of states).
 
-
+In this simple 1D example, it takes more or less the same amount of
+effort to estimate the decay rate from Fermi's golden rule or
+calculate it exactly.  However, in other situations, such as
+higher-dimensional systems, the true decay rate may be very hard to
+compute, and Fermi's golden rule becomes valuable since it is both
+accurate and easy to calculate.
 
 \section*{Exercises}
 
@@ -889,6 +905,80 @@ golden rule.
   conditions under which the potential does not support bound
   states.
 \label{ex:boundstate3d}
+
+\item
+  \label{ex:1dfgr}
+  In this problem, we will find the quasi-bound and free states for
+  the model discussed in Section~\ref{sec:fgr1d}, and use it to
+  calculate the decay rate according to Fermi's golden rule.
+
+  Let $\varphi(x)$ be the bound state of a square well of width $2a$
+  and depth $U$, and let $E_0$ be the energy.  This state satisfies
+  the 1D time-independent Schr\"odinger wave equation,
+  \begin{equation}
+    \left[- \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x)\right] \varphi(x)
+    = E_0\, \varphi(x),
+    \label{tise1d}
+  \end{equation}
+  where
+  \begin{equation}
+    V(x) = V_0(x) + V_1(x), \;\;\;\mathrm{where}\;\;
+    \left\{\;\;
+    \begin{aligned}
+      V_0(x) &= -U \, \Theta(a-|x|) \\
+      V_1(x) &= \;\;V_b\; \Theta(b-|x|) \\
+      0 &<U<V_b.
+    \end{aligned}\right.
+    \label{vx}
+  \end{equation}
+  Take the ansatz
+  \begin{equation}
+    \varphi(x) = \begin{cases}\mathcal{A}\,\cos(qx), & |x| < a \\
+      \mathcal{B} \, \exp\left(-\eta|x|\right), & |x| \ge a.\end{cases}
+    \label{varphiansatz}
+  \end{equation}
+
+  \begin{enumerate}[(a)]
+  \item Using Eqs.~\eqref{tise1d}--\eqref{varphiansatz}, and the fact
+    that both $\varphi(x)$ and $d\varphi/dx$ are continuous at $x =
+    \pm a$, prove that $E_0$ can be obtained by solving the
+    transcendental equation
+    \begin{align}
+      q \tan(qa) = \eta, \;\;\;\mathrm{where}\;\;
+      \left\{\;
+      \begin{aligned}
+        q &= \sqrt{\frac{2m}{\hbar^2}(E_0+U)} \\
+        \eta &= \sqrt{\frac{2m}{\hbar^2}|E_0|}.
+      \end{aligned}\right.
+      \label{qtanqa}
+    \end{align}
+  
+  \item By using the fact that $\varphi(x)$ is normalized to unity,
+    prove that
+  \begin{equation}
+  \mathcal{B}^2 = \frac{\exp\big(2\eta a\big)}{a} \left[\frac{1+\sin(2qa)/2qa}{\cos^2(qa)}+\frac{1}{\eta a}\right]^{-1}.
+  \label{Bresult}
+  \end{equation}
+
+\item Write a program to compute the decay rate based on Fermi's
+  golden rule, by combining Eqs.~\eqref{FGR2}, \eqref{overlap1d},
+  \eqref{dos1d}, \eqref{qtanqa}, and \eqref{Bresult}.  Hence,
+  reproduce the plot shown in Section~\ref{sec:fgr1d}.
+
+\item Write a program to extract the decay rate from the width of the
+  transmission peak, using the transfer matrix method (see Appendix
+  B).  Hence, investigate the accuracy of the Fermi's golden rule
+  result for different values of $U$, $V_b$, and the other model
+  parameters.
+
+  \end{enumerate}
+
+  
+
+
+
+
+
 \end{enumerate}
 
 
