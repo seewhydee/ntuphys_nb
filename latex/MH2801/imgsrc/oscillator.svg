@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="94.386108mm"
    height="39.481895mm"
    viewBox="0 0 334.43896 139.89648"
    id="svg2"
    version="1.1"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
    sodipodi:docname="oscillator.svg"
    inkscape:export-filename="/home/cyd/jupyter/MH2801/img/oscillator.png"
    inkscape:export-xdpi="110.06493"
-   inkscape:export-ydpi="110.06493">
+   inkscape:export-ydpi="110.06493"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="150.66312"
-     inkscape:cy="57.550354"
+     inkscape:cx="39.5"
+     inkscape:cy="60.5"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -39,7 +39,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:document-rotation="0" />
+     inkscape:document-rotation="0"
+     inkscape:pagecheckerboard="0" />
   <defs
      id="defs4">
     <marker
@@ -84,10 +85,11 @@
        style="opacity:1;fill:#bdbdbd;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
     <path
        style="fill:#a27f37;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 435.09027,312.84166 -14.64998,0 2.4082,-7.32767 -18.463,12.54891 18.463,12.80084 -2.4082,-7.32766 15.65339,0 z"
+       d="m 435.09027,312.84166 h -14.64998 l 2.4082,-7.32767 -18.463,12.54891 18.463,12.80084 -2.4082,-7.32766 h 15.65339 z"
        id="path4766"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccc" />
+       sodipodi:nodetypes="cccccccc"
+       transform="translate(13.950079)" />
     <rect
        y="284.28351"
        x="318.70853"
@@ -102,11 +104,12 @@
        d="m 335.40848,341.45432 209.60868,0"
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.27499998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
-       style="fill:#37a24e;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 509.10451,332.17484 9.67904,0 -1.59107,-5.89688 12.19825,10.25568 -12.19825,10.14432 1.59107,-5.89687 -10.34199,0 z"
+       style="fill:#37a24e;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0.84182px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 509.10451,332.17484 h 9.67904 l -1.59107,-5.89688 12.19825,10.25568 -12.19825,10.14432 1.59107,-5.89687 h -10.34199 z"
        id="path4766-2"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccc" />
+       sodipodi:nodetypes="cccccccc"
+       transform="matrix(1.4111135,0,0,1,-219.18729,0)" />
     <path
        inkscape:connector-curvature="0"
        id="path4144"
@@ -116,15 +119,17 @@
        sodipodi:nodetypes="cccccccccscccccscccc"
        inkscape:connector-curvature="0"
        id="path4148"
-       d="m 336.51297,318.23294 12.76522,-1.9e-4 2.19554,-7.45812 2.6584,14.50313 3.22734,-14.50313 2.98828,14.50313 3.10781,-14.50313 3.1875,14.50313 3.1875,-14.50313 c 0,0 3.42657,14.90157 3.50625,14.50313 0.0797,-0.39844 3.58594,-14.50313 3.58594,-14.50313 l 3.86485,14.50313 3.02812,-14.50313 3.23818,14.50313 3.38106,-14.50313 c 0,0 3.58994,14.90157 3.35088,14.50313 -0.23906,-0.39844 3.3042,-14.50313 3.3042,-14.50313 l 3.52393,14.50313 2.22725,-7.04501 31.97882,0"
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.27499998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+       d="m 336.51297,318.23294 12.76522,-1.9e-4 2.19554,-7.45812 2.6584,14.50313 3.22734,-14.50313 2.98828,14.50313 3.10781,-14.50313 3.1875,14.50313 3.1875,-14.50313 c 0,0 3.42657,14.90157 3.50625,14.50313 0.0797,-0.39844 3.58594,-14.50313 3.58594,-14.50313 l 3.86485,14.50313 3.02812,-14.50313 3.23818,14.50313 3.38106,-14.50313 c 0,0 3.58994,14.90157 3.35088,14.50313 -0.23906,-0.39844 3.3042,-14.50313 3.3042,-14.50313 l 3.52393,14.50313 2.22725,-7.04501 40.93933,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.24257;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.0507248,0,0,1.0020462,-17.054262,-0.65074131)" />
     <rect
        y="293.0965"
-       x="435.82196"
-       height="46.78706"
-       width="73.78212"
+       x="447.50308"
+       height="47.205994"
+       width="49.298069"
        id="rect4136"
-       style="opacity:1;fill:#d2eaec;fill-opacity:1;stroke:#26484f;stroke-width:1.73496091;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+       style="opacity:1;fill:#d2eaec;fill-opacity:1;stroke:#26484f;stroke-width:1.73496;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       transform="translate(1.5021541)" />
     <g
        id="g4352"
        transform="matrix(0.34425,0,0,0.34425,362.52769,198.44656)"
@@ -204,7 +209,7 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cc" />
     <g
-       transform="matrix(0.3014295,0,0,0.3014295,453.73866,216.44255)"
+       transform="matrix(0.3014295,0,0,0.3014295,443.17978,224.72149)"
        id="g5070"
        style="fill:#215f2e;fill-opacity:1;stroke-width:1.40351">
       <g
@@ -263,7 +268,7 @@
     </g>
     <g
        id="g5186"
-       transform="matrix(0.3014295,0,0,0.3014295,289.92923,167.1486)"
+       transform="matrix(0.3014295,0,0,0.3014295,259.62705,175.57239)"
        style="fill:#5f4a20;fill-opacity:1;stroke-width:1.40351">
       <g
          word-spacing="normal"
@@ -324,7 +329,8 @@
        style="font-style:normal;font-weight:normal;font-size:9.6px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="382.64481"
        y="256.41705"
-       id="text4186"><tspan
+       id="text4186"
+       transform="translate(-30.302181,8.4237884)"><tspan
          sodipodi:role="line"
          id="tspan4188"
          x="382.64481"
@@ -332,14 +338,15 @@
          style="font-weight:bold;font-size:12px;line-height:1.25;font-family:sans-serif;fill:#7b602a;fill-opacity:1;stroke-width:1px">Spring force</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:9.6px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#277237;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       style="font-style:normal;font-weight:normal;font-size:9.6px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#277237;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        x="541.18512"
        y="304.74664"
-       id="text4186-3"><tspan
+       id="text4186-3"
+       transform="translate(-10.558876,8.278942)"><tspan
          sodipodi:role="line"
          id="tspan4188-6"
          x="541.18512"
          y="304.74664"
-         style="font-weight:bold;font-size:12px;line-height:1.25;font-family:sans-serif;fill:#277237;fill-opacity:1;stroke-width:1px;">Damping force</tspan></text>
+         style="font-weight:bold;font-size:12px;line-height:1.25;font-family:sans-serif;fill:#277237;fill-opacity:1;stroke-width:1px">Damping force</tspan></text>
   </g>
 </svg>
