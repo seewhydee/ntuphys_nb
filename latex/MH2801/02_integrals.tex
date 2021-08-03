@@ -34,114 +34,114 @@
 \label{integrals}
 
 If we have a function $f(x)$ which is well-defined for some $a \le x
-\le b$, its integral over those two values is defined as
-\begin{equation}
-  \int_a^b dx\; f(x) \;=\; \lim_{N \rightarrow \infty} \, \sum_{n=0}^{N} \Delta x\; f(x_n) \;\;\;\mathrm{where}\;\; x_n = a + n\Delta x, \;\; \Delta x \equiv \left(\frac{b-a}{N}\right).
-\end{equation}
+\le b $, its integral over those two values is defined as
+\begin{align}
+  \int_a^b dx\; f(x) \;\equiv\; \lim_{N \rightarrow \infty} \, \sum_{n=0}^{N} \Delta x\; f(x_n) \;\;\;\mathrm{where}\;\; x_n = a + n\Delta x, \;\; \Delta x \equiv \left(\frac{b-a}{N}\right).
+\end{align}
 This is called a \textbf{definite integral}, and represents the area
-under the graph of $f(x)$ in the region between $x=a$ and $x=b$,
-as shown in the figure below. The function $f(x)$ is called the
-\textbf{integrand}, and the two points $a$ and $b$ are called the
-\textbf{bounds} of the integral. The interval between the two bounds is
-divided into $N$ segments, of length $(b-a)/N$ each. Each term in
-the sum represents the area of a rectangle, and as
-$N\rightarrow \infty$, the sum converges to the area under the curve.
+under the graph of $f(x)$ in the region between $x=a$ and $x=b$, as
+shown in the figure below:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.9\textwidth]{definite_integral}
 \end{figure}
 
-A \textbf{multiple integral} involves integration over more than one
-variable. For instance, when we have a function $f(x_1,x_2)$ that
-depends on two independent variables, $x_1$ and $x_2$, we can
-perform a double integral by integrating over one variable first, then
-the other variable:
-\begin{equation}
-\int_{a_1}^{b_1} dx_1 \int_{a_2}^{b_2} dx_2 \; f(x_1, x_2) \equiv \int_{a_1}^{b_1} dx_1 F(x_1)\quad\text{where}\;\;F(x_1) \equiv \int_{a_2}^{b_2} dx_2 \; f(x_1, x_2).
-\end{equation}
+\noindent
+The function $f(x)$ is called the \textbf{integrand}, and the points
+$a$ and $b$ are the \textbf{bounds} of the integral.  The interval
+between the two bounds is divided into $N$ segments, of length
+$(b-a)/N$ each. Each term in the sum represents the area of a
+rectangle. As $N\rightarrow \infty$, the sum converges to the area
+under the curve.
 
+A \textbf{multiple integral} involves integration over more than one
+variable.  For instance, when we have a function $f(x_1,x_2)$ that
+depends on two independent variables, $x_1$ and $x_2$, we can perform
+a double integral by integrating over one variable first, then the
+other variable:
+\begin{align}
+  \int_{a_1}^{b_1} dx_1 \int_{a_2}^{b_2} dx_2 \; f(x_1, x_2) \equiv \int_{a_1}^{b_1} dx_1 F(x_1)\quad\text{where}\;\;F(x_1) \equiv \int_{a_2}^{b_2} dx_2 \; f(x_1, x_2).
+\end{align}
 
 \subsection{Basic properties of definite integrals}
 \label{basic-properties-of-definite-integrals}
 
-The value of a definite integral depends only on the integrand, and the
-two integration bounds. The variable which is integrated over is a
+The value of a definite integral depends only on the integrand, and
+the two integration bounds. The variable which is integrated over is a
 \textbf{dummy variable}, which means that changing the symbol does not
 affect the value of the overall expression:
-\begin{equation}
-\int_a^b dx\; f(x) = \int_a^b dy\; f(y).
-\end{equation}
+\begin{align}
+  \int_a^b dx\; f(x) = \int_a^b dy\; f(y).
+\end{align}
 Since the value of the integral does not depend on the dummy variable,
 it is nonsensical to write something like
-\begin{equation*}
-\frac{d}{dx}\; \left[\int_a^b dx\; f(x)\right]. \;\;\;(\text{Nonsense expression}!)
-\end{equation*}
-
+\begin{align*}
+  \frac{d}{dx}\; \left[\int_a^b dx\; f(x)\right]. \;\;\;(\text{Nonsense expression}!)
+\end{align*}
 Since an integral is defined as the limiting form of a sum, it can be
-algebraically manipulated in the same way as a summation expression. For
-instance, an integral of a linear combination is equal to a linear
-combination of two integrals \emph{with the same bounds}:
-\begin{equation}
-\int_a^b dx \;\Big[c_1 \,f_1(x) + c_2\, f_2(x)\Big] = c_1 \int_{a}^{b} dx \; f_1(x)\;\, +\;\, c_2 \int_{a}^{b} dx\; f_2(x).
-\end{equation}
-This is analogous to how the summation of a linear combination is equal
-to the linear combination of separate summations:
-\begin{equation}
-\sum_{n = p}^{q} \Big[ c_1  A_n \, + \, c_2 B_n\Big] = c_1 \sum_{n = p}^{q} A_n \, + \, c_2 \sum_{n = p}^{q} B_n.
-\end{equation}
+algebraically manipulated in the same way as a summation expression.
+For instance, an integral of a linear combination is equal to a linear
+combination of two integrals \textit{with the same bounds}:
+\begin{align}
+  \int_a^b dx \;\Big[c_1 \,f_1(x) + c_2\, f_2(x)\Big] = c_1 \int_{a}^{b} dx \; f_1(x)\;\, +\;\, c_2 \int_{a}^{b} dx\; f_2(x).
+\end{align}
+This is analogous to how the summation of a linear combination is
+equal to the linear combination of separate summations:
+\begin{align*}
+  \sum_{n = p}^{q} \Big[ c_1  A_n \, + \, c_2 B_n\Big] = c_1 \sum_{n = p}^{q} A_n \, + \, c_2 \sum_{n = p}^{q} B_n.
+\end{align*}
 For a similar reason, multiple integrals can be manipulated like
-multiple summations. If we have a double integral where the integrals
-have \emph{independent} bounds, we can swap the order of the integrals:
-\begin{equation}
-  \int_{a_1}^{b_1} dx_1 \int_{a_2}^{b_2} dx_2 \;\; f(x_1, x_2)
-  = \int_{a_2}^{b_2} dx_2 \int_{a_1}^{b_1} dx_1 \;\; f(x_1, x_2).
-\end{equation}
+multiple summations.  If we have a double integral where the integrals
+have \textit{independent} bounds, we can swap the order of the
+integrals:
+\begin{align}
+  \int_{a_1}^{b_1} dx_1 \left[ \int_{a_2}^{b_2} dx_2 \; f(x_1, x_2) \right] = \int_{a_2}^{b_2} dx_2 \left[\int_{a_1}^{b_1} dx_1 \; f(x_1, x_2) \right].
+\end{align}
 This is analogous to how we can swap the order of two independent
-summations. Note, however, that this manipulation is invalid if the
-integration bounds are not independent. For instance, if the upper or
-lower bound of the inner integral depends on the integration variable of
-the outer integral, we can't swap the two integrals:
-\begin{equation*}
-\int_{a_1}^{b_1} dx_1 \int_{a_1}^{x_1} dx_2 \;\; f(x_1, x_2) \ne \int_{a_1}^{x_1} dx_2 \int_{a_1}^{b_1} dx_1 \;\; f(x_1, x_2).\;\; (\text{Nonsense expression}!)
-\end{equation*}
-(Note that the expression on the right is nonsensical: $x_1$ is meant
-to be a dummy variable, yet it exists outside of any integration sign.)
+summations.  Note, however, that this manipulation is invalid if the
+integration bounds are not independent.  For instance, if the upper or
+lower bound of the inner integral depends on the integration variable
+of the outer integral, we can't swap the two integrals:
+\begin{align*}
+  \int_{a_1}^{b_1} dx_1 \left[\int_{a_1}^{x_1} dx_2 \; f(x_1, x_2) \right] \ne \left[\int_{a_1}^{x_1} dx_2 \int_{a_1}^{b_1} dx_1 \; f(x_1, x_2)\right].\;\; (\text{Nonsense expression}!)
+\end{align*}
 
 \subsection{Integrals as antiderivatives}
 \label{integrals-as-antiderivatives}
 
 Since the value of a definite integral depends on the values of the
-upper and lower bounds, we can ask what happens to the value of the
-definite integral when either bound is varied. Using the defintion of
-the derivative from the previous chapter, we can show that
+upper and lower bounds, we can ask how it varies as either bound is
+changed. Using the defintion of the derivative from Chapter 1, we can
+show that
 \begin{align}
   \frac{d}{db} \left[\int_a^b dx\; f(x)\right] &= f(b), \\
   \frac{d}{da} \left[\int_a^b dx\; f(x)\right] &= -f(a).
 \end{align}
 To prove the first equation, observe that increasing the upper bound
 from $b$ to $b + \delta b$ increases the area under the curve by $f(b)
-\delta b$ (to lowest order in $\delta b$). Hence, the definite
-integral's rate of change with $b$ is $f(b)$. Likewise, increasing the
-lower bound from $a$ to $\delta a$ \emph{decreases} the area under the
-curve, leading to a rate of change of $-f(a)$.
+\, \delta b$ (to lowest order in $\delta b$).  Hence, the definite
+integral's rate of change with $b$ is $f(b)$.  Likewise, increasing
+the lower bound from $a$ to $\delta a$ \textit{decreases} the area
+under the curve by $f(a) \, \delta a$, leading to a rate of change of
+$-f(a)$.
 
-From the above result, we define the concept of an \textbf{indefinite
-integral}, or \textbf{antiderivative}, as the inverse of a derivative
-operation:
-\begin{equation}
-\int^x dx' f(x') \equiv F(x) \;\;\mathrm{such}\;\mathrm{that}\;\; \frac{d}{dx}F(x) = f(x).
-\end{equation}
-Since derivatives are not one-to-one (i.e., two different functions can
-have the same derivative), an antiderivative does not have a unique,
-well-specified value. Rather, its value is only defined up to an
-additive constant, called an \textbf{integration constant}. A definite
-integral, by contrast, always has a well-defined value.
+Using this result, we define the concept of an \textbf{indefinite
+  integral}, or \textbf{antiderivative}, as the inverse of a
+derivative operation:
+\begin{align}
+  \int^x dx' f(x') \equiv F(x) \;\;\mathrm{such}\;\mathrm{that}\;\; \frac{dF}{dx} = f(x).
+\end{align}
+This inverse is not unique, because two functions differing by a
+constant have the same derivative. Hence, an antiderivative is only
+defined up to an additive constant, called an \textbf{integration
+  constant}. A definite integral, by contrast, always has a
+well-defined value.
 
-Finding antiderivatives is much harder than differentiation. Once you
+Finding antiderivatives is much harder than differentiation.  Once you
 know how to differentiate a few special functions, differentiating
 some combination of those functions usually involves a straightforward
-(if tedious) application of composition rules. By contrast, there is
-no general systematic procedure for symbolic integration. Integration
+(if tedious) application of composition rules.  By contrast, there is
+no general systematic procedure for symbolic integration.  Integration
 often requires creative steps, like guessing a solution and checking
 if its derivative yields the desired integrand.
 
@@ -149,59 +149,53 @@ Some common techniques are summarized in the following sections;
 others will be introduced later in this course.
 
 \subsection{Integration by parts}
-
 If the integrand consists of two factors, and you know the
 antiderivative of one of the factors, you can \textbf{integrate by
   parts} by shifting the derivative onto the other factor:
-\begin{equation}
-\int_a^b dx \; f(x) \, \frac{dg}{dx} \;=\; \Big[\,f(x)\, g(x)\,\Big]_a^b - \int_a^b \frac{df}{dx}\, g(x). 
-\end{equation}
+\begin{align}
+  \int_a^b dx \; f(x) \, \frac{dg}{dx} \;=\; \Big[\,f(x)\, g(x)\,\Big]_a^b - \int_a^b \frac{df}{dx}\, g(x).
+\end{align}
 The first term on the right hand side is a constant denoting
-$[f(a)g(a) - f(b)g(b)]$. Hopefully, the integral in the second term is
-easier to solve than the original integral.
+$[f(a)g(a) - f(b)g(b)]$.  Hopefully, the integral in the second term
+is easier to solve than the original integral.
 
 Judicious use of integration by parts is a key step for solving many
-integrals. For example, consider
-\begin{equation}
-\int_a^b dx\; x \, e^{\gamma x}.
-\end{equation}
+integrals.  For example, consider
+\begin{align}
+  \int_a^b dx\; x \, e^{\gamma x}.
+\end{align}
 The integrand consists of two factors, $x$ and $e^{\gamma x}$; we
-happen to know the antiderivative of both factors. Integrating by parts
-lets us replace one of these factors with its antiderivative, while
-applying an additional derivative on the other factor. The smart thing
-to do is to apply the derivative on the $x$ factor, and the
-antiderivative on the $e^{\gamma x}$:
+happen to know the antiderivative of both.  Integrating by parts lets
+us replace one of these factors with its antiderivative, and the other
+factor with its derivative.  The smart thing to do is to apply the
+derivative on the $x$ factor, and the antiderivative on the $e^{\gamma
+  x}$:
 \begin{align}
   \int_a^b dx\; x\, e^{\gamma x} \;&=\; \left[\;x\, \frac{e^{\gamma x}}{\gamma}\, \right]_a^b - \int_a^b dx\; \frac{e^{\gamma x}}{\gamma} \\
   &=\; \left[\;x\, \frac{e^{\gamma x}}{\gamma} - \frac{e^{\gamma x}}{\gamma^2} \,\right]_a^b.
 \end{align}
-Whenever we finish doing an integral, it is good practice to
-double-check the result by making sure the dimensions match up. Note
-that $\gamma$ has units of inverse $x$, so the integral on the
-left-hand side has units of $x^2$. The solution on the right hand side
-has two terms, with units $x/\gamma$ and $1/\gamma^2$; both of these
-are equivalent to units of $x^2$, which is what we need!
 
 \subsection{Change of variables}
 \label{change-of-variables}
 
 Another useful technique for solving integrals is to change variables.
 Consider the integral
-\begin{equation}
-\int_0^\infty \frac{dx}{x^2 + 1}.
-\end{equation}
-We can solve this by making a change of variables $x = \tan(u)$. This
-involves (i) replacing all occurences of $x$ in the integrand with
-$\tan(u)$, (ii) replacing the integral limits, and (iii) replacing
-$dx$ with $(dx/du) \, du = 1/[\cos(u)]^2 du$:
 \begin{align}
-  \int_0^\infty \frac{dx}{x^2 + 1} &= \int_0^{\pi/2} \frac{1}{[\tan(u)]^2 + 1} \cdot \frac{1}{[\cos(u)]^2} \; du \\
+  \int_0^\infty \frac{dx}{x^2 + 1}.
+\end{align}
+We can solve this by making a change of variables $x = \tan(u)$.  This
+involves (i) replacing all occurrences of $x$ in the integrand with
+$\tan(u)$, (ii) replacing the integral limits, and (iii) replacing
+$dx$ with $(dx/du) \, du$:
+\begin{align}
+  \int_0^\infty \frac{dx}{x^2 + 1} &= \int_{\tan^{-1}(0)}^{\tan^{-1}(\infty)} \frac{1}{[\tan(u)]^2 + 1} \cdot \frac{dx}{du} \; du \\
+  &= \int_0^{\pi/2} \frac{1}{[\tan(u)]^2 + 1} \cdot \frac{1}{[\cos(u)]^2} \; du \\
   &= \int_0^{\pi/2} \frac{1}{[\sin(u)]^2 + [\cos(u)]^2} \; du.
 \end{align}
 Due to the Pythagorean theorem, the integrand reduces to 1, so
-\begin{equation}
-\int_0^\infty \frac{dx}{x^2 + 1} = \int_0^{\pi/2} du = \frac{\pi}{2}.
-\end{equation}
+\begin{align}
+  \int_0^\infty \frac{dx}{x^2 + 1} = \int_0^{\pi/2} du = \frac{\pi}{2}.
+\end{align}
 Clearly, this technique often requires some cleverness and/or
 trial-and-error in choosing the right change of variables.
 
@@ -209,9 +203,9 @@ trial-and-error in choosing the right change of variables.
 \label{the-gaussian-integral}
 
 Here's a famous integral:
-\begin{equation}
-\int_{-\infty}^\infty \; e^{-\gamma x^2} \; dx.
-\end{equation}
+\begin{align}
+  \int_{-\infty}^\infty \; e^{-\gamma x^2} \; dx.
+\end{align}
 The integrand is called a \textbf{Gaussian}, or \textbf{bell curve},
 and is plotted below. The larger the value of $\gamma$, the more
 narrowly-peaked the curve.
@@ -219,61 +213,54 @@ narrowly-peaked the curve.
 \begin{figure}[h]
   \centering\includegraphics[width=0.6\textwidth]{gaussian}
 \end{figure}
-    
+
 The integral was solved by
 \href{http://en.wikipedia.org/wiki/Carl_Friedrich_Gauss}{Gauss} in a
-brilliant way. Let $I(\gamma)$ denote the value of the integral. Then
-$I^2$ is just two independent copies of the integral, multiplied
+brilliant way.  Let $I(\gamma)$ denote the value of the integral.
+Then $I^2$ is just two independent copies of the integral, multiplied
 together:
-\begin{equation}
-I^2(\gamma) = \left[\int_{-\infty}^\infty dx\; e^{-\gamma x^2}\right] \times \left[\int_{-\infty}^\infty dy\; e^{-\gamma y^2}\right].
-\end{equation}
+\begin{align}
+  I^2(\gamma) = \left[\int_{-\infty}^\infty dx\; e^{-\gamma x^2}\right] \times \left[\int_{-\infty}^\infty dy\; e^{-\gamma y^2}\right].
+\end{align}
 Note that in the second copy of the integral, we have changed the
-``dummy'' label $x$ (the integration variable) into $y$, to avoid
-ambiguity. Now, this becomes a two-dimensional integral, taken over the
-entire 2D plane:
-\begin{equation}
-I^2(\gamma) = \int_{-\infty}^\infty dx\, \int_{-\infty}^\infty dy \; e^{-\gamma (x^2+y^2)}.
-\end{equation}
+dummy label $x$ (the integration variable) into $y$, to avoid
+ambiguity.  Now, this becomes a two-dimensional integral, taken over
+the entire 2D plane:
+\begin{align}
+  I^2(\gamma) = \int_{-\infty}^\infty dx\, \int_{-\infty}^\infty dy \; e^{-\gamma (x^2+y^2)}.
+\end{align}
 Next, change from Cartesian to polar coordinates:
-\begin{equation}
-I^2(\gamma) = \int_{0}^\infty dr\, r \int_{0}^{2\pi} d\phi \; e^{-\gamma r^2} = \left[ \int_{0}^\infty dr\, r \, e^{-\gamma r^2}\right] \times \left[\int_{0}^{2\pi} d\phi \right] = \frac{1}{2\gamma} \cdot 2\pi.
-\end{equation}
+\begin{align}
+  I^2(\gamma) &= \int_{0}^\infty dr\, r \int_{0}^{2\pi} d\phi \; e^{-\gamma r^2} \\
+  &= \left[ \int_{0}^\infty dr\, r \, e^{-\gamma r^2}\right] \times \left[\int_{0}^{2\pi} d\phi \right] \\&
+  = \frac{1}{2\gamma} \cdot 2\pi.
+\end{align}
 By taking the square root, we arrive at the result
-\begin{equation}
-I(\gamma) = \int_{-\infty}^\infty dx \; e^{-\gamma x^2} = \sqrt{\frac{\pi}{\gamma}}.
-\end{equation}
+\begin{align}
+  I(\gamma) = \int_{-\infty}^\infty dx \; e^{-\gamma x^2} = \sqrt{\frac{\pi}{\gamma}}.
+\end{align}
 
-\subsection{Differentiating under the integral sign*}
+\subsection{Differentiating under the integral sign (optional topic)}
 \label{differentiating-under-the-integral-sign}
 
 In the previous section, we noted that if an integrand contains a
 parameter (denoted $\gamma$) which is independent of the integration
-variable (denoted $x$), then the definite integral can itself be
-regarded as a function of $\gamma$. It can then be shown that taking
-the derivative of the definite integral with respect to $\gamma$ is
-equivalent to taking the \emph{partial derivative} of the integrand:
-\begin{equation}
-\frac{d}{d\gamma} \, \left[\int_a^b dx\; f(x,\gamma)\right] = \int_a^b dx \; \frac{\partial f}{\partial \gamma}(x,\gamma).
-\end{equation}
+variable (denoted $x$), then the definite integral can be regarded as
+a function of $\gamma$.  It can then be shown that taking the
+derivative of the definite integral with respect to $\gamma$ is
+equivalent to taking the \textit{partial derivative} of the integrand:
+\begin{align}
+  \frac{d}{d\gamma} \, \left[\int_a^b dx\; f(x,\gamma)\right] = \int_a^b dx \; \frac{\partial f}{\partial \gamma}(x,\gamma).
+\end{align}
 
-This operation, called \textbf{differentiating under the integral sign},
-was first used by
-\href{https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Leibniz},
-one of the inventors of calculus. It can be applied as a technique for
-solving integrals, popularized by
-\href{https://en.wikipedia.org/wiki/Richard_Feynman}{Richard Feynman}
-in his book
-\href{https://en.wikipedia.org/wiki/Surely_You\%27re_Joking,_Mr._Feynman!}{\emph{Surely You're Joking, Mr.~Feynman!}}.
+This operation, called \textbf{differentiating under the integral sign}, was first used by \href{https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz}{Leibniz}, one of the inventors of calculus.  It can be applied as a technique for solving integrals, popularized by \href{https://en.wikipedia.org/wiki/Richard_Feynman}{Richard Feynman} in his book \textit{Surely You're Joking, Mr. Feynman!}
 
-Here is the method.  Given a definite integral $I_0$:
+Here is the method. Given a definite integral $I_0$,
+
 \begin{enumerate}
-\item Come up with a way to generalize the integrand, by introducing a
-  parameter $\gamma$, such that the generalized integral becomes a
-  function $I(\gamma)$ which reduces to the original integral $I_0$
-  for a particular parameter value, say $\gamma = \gamma_0$.
+\item Come up with a way to generalize the integrand, by introducing a parameter $\gamma$, such that the generalized integral becomes a function $I(\gamma)$ which reduces to the original integral $I_0$ for a particular parameter value, say $\gamma = \gamma_0$.
 
-\item Differentiate under the integral sign. If you have chosen the
+\item Differentiate under the integral sign.  If you have chosen the
   generalization right, the resulting integral will be easier to
   solve, so...
 
@@ -284,23 +271,22 @@ Here is the method.  Given a definite integral $I_0$:
   integral $I_0$.
 \end{enumerate}
 
-An example is helpful for demonstrating this procedure. Consider the
-integral
-\begin{equation}
+An example is helpful for demonstrating this procedure.  Consider the integral
+\begin{align}
   \int_{0}^\infty dx \; \frac{\sin(x)}{x}.
-\end{equation}
+\end{align}
 First, (i) we generalize the integral as follows (we'll soon see why):
-\begin{equation}
+\begin{align}
   I(\gamma) = \int_{0}^\infty dx \; \frac{\sin(x)}{x}\, e^{-\gamma x}.
-\end{equation}
-The desired integral is $I(0)$. Next, (ii) differentiating under the
+\end{align}
+The desired integral is $I(0)$.  Next, (ii) differentiating under the
 integral gives
-\begin{equation}
+\begin{align}
   I'(\gamma) = - \int_{0}^\infty dx \; \sin(x)\, e^{-\gamma x}.
-\end{equation}
+\end{align}
 Taking the partial derivative of the integrand with respect to
 $\gamma$ brought down a factor of $-x$, cancelling out the troublesome
-denominator. Now, (iii) we solve the new integral, which can be done
+denominator.  Now, (iii) we solve the new integral, which can be done
 by integrating by parts twice:
 \begin{align}
   I'(\gamma) &= \left[\cos(x)\,e^{-\gamma x}\right]_0^\infty + \gamma \int_{0}^\infty dx \; \cos(x)\, e^{-\gamma x} \\
@@ -308,23 +294,22 @@ by integrating by parts twice:
   &= -1 - \gamma^2 I'(\gamma).
 \end{align}
 Hence,
-\begin{equation}
+\begin{align}
   I'(\gamma) = - \frac{1}{1+\gamma^2}.
-\end{equation}
+\end{align}
 Finally, (iv) we need to integrate this over $\gamma$. But we already
 saw how to do this particular integral in
 Section~\ref{change-of-variables}, and the result is
-\begin{equation}
+\begin{align}
   I(\gamma) = A - \tan^{-1}(\gamma),
-\end{equation}
-where $A$ is a constant of integration. When
-$\gamma \rightarrow \infty$, the integral must vanish, which implies
-that $A = \tan^{-1}(+\infty) = \pi/2$. Finally, we arrive at the
-result
-\begin{equation}
+\end{align}
+where $A$ is a constant of integration. When $\gamma \rightarrow
+\infty$, the integral must vanish, which implies that $A =
+\tan^{-1}(+\infty) = \pi/2$.  Finally, we arrive at the result
+\begin{align}
   \int_{0}^\infty dx \; \frac{\sin(x)}{x} = I(0) = \frac{\pi}{2}.
-\end{equation}
-When we discuss contour integration in Chapter 8, we will see a more
+\end{align}
+When we discuss contour integration (Chapter 8), we will see a more
 straightforward way to do this integral.
 
 \subsection{Exercises}

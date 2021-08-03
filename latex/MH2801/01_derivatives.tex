@@ -34,28 +34,30 @@
 
 The \textbf{derivative} of a function $f$ is another function, $f'$,
 defined as
-\begin{equation}
+\begin{align}
   f'(x) \;\equiv\; \frac{df}{dx} \;\equiv\; \lim_{\delta x \rightarrow 0} \, \frac{f(x + \delta x) - f(x)}{\delta x}.
-\end{equation}
-This kind of expression is called a \textbf{limit expression} because it
-involves a limit (in this case, the limit where $\delta x$ goes to
-zero).
+\end{align}
+This kind of expression is called a \textbf{limit expression} because
+it involves a limit (in this case, the limit $\delta x \rightarrow
+0$).
 
-If the derivative exists within some domain of $x$ (i.e., the above
-limit expression is mathematically well-defined), then we say $f$ is
-\textbf{differentiable} in that domain. It can be shown that a
+If the derivative exists (i.e., the above limit expression is
+well-defined) over some domain of $x$, we say that $f$ is
+\textbf{differentiable} in that domain.  It can be shown that a
 differentiable function is automatically continuous.
-
-Graphically, the derivative represents the slope of the graph of
-$f(x)$, as shown below:
-
-\begin{figure}[h]
-  \centering\includegraphics[width=0.32\textwidth]{derivative}
-\end{figure}
 
 If $f$ is differentiable, we can define its second-order derivative
 $f''$ as the derivative of $f'$. Third-order and higher-order
 derivatives are defined similarly.
+
+Graphically, the derivative represents the slope of the graph of
+$f(x)$, as shown in the figure below.  The second derivative
+represents the curvature; in this figure, the curve is upward-curving
+so the second derivative is positive.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.32\textwidth]{derivative}
+\end{figure}
 
 \subsection{Properties of derivatives}
 \label{properties-of-derivatives}
@@ -63,68 +65,63 @@ derivatives are defined similarly.
 \subsubsection{Rules for limit expressions}
 \label{rules-for-limit-expressions}
 
-Since derivatives are defined using limit expressions, let us review the
-rules governing limits.
+Let us briefly review the mathematical rules governing limit expressions.
 
 First, the limit of a linear superposition is equal to the linear
 superposition of limits. Given two constants $a_1$ and $a_2$ and two
 functions $f_1$ and $f_2$,
-
-\begin{equation}
-\lim_{x \rightarrow c} \big[a_1 \,f_1(x) \;+\; a_2\, f_2(x)\big] = a_1 \lim_{x \rightarrow c} f_1(x) \;+\; a_2 \lim_{x \rightarrow c} f_2(x).
-\end{equation}
-
+\begin{align}
+  \lim_{x \rightarrow c} \big[a_1 \,f_1(x) \;+\; a_2\, f_2(x)\big] = a_1 \lim_{x \rightarrow c} f_1(x) \;+\; a_2 \lim_{x \rightarrow c} f_2(x).
+\end{align}
 Second, limits obey a product rule and a quotient rule:
-\begin{equation}
-\begin{aligned}\lim_{x \rightarrow c} \big[\;f_1(x) \; f_2(x)\;\big] &= \Big[\lim_{x \rightarrow c} f_1(x)\Big]\;\Big[\lim_{x \rightarrow c} f_2(x)\Big]  \\ \lim_{x \rightarrow c} \left[\;\frac{f_1(x)}{f_2(x)}\;\right] &= \frac{\lim_{x \rightarrow c} f_1(x)}{\lim_{x \rightarrow c} f_2(x)}. \end{aligned}
-\end{equation}
+\begin{align}
+  \lim_{x \rightarrow c} \big[\;f_1(x) \; f_2(x)\;\big] &= \Big[\lim_{x \rightarrow c} f_1(x)\Big]\;\Big[\lim_{x \rightarrow c} f_2(x)\Big]
+  \\ \lim_{x \rightarrow c} \left[\;\frac{f_1(x)}{f_2(x)}\;\right] &= \frac{\lim_{x \rightarrow c} f_1(x)}{\lim_{x \rightarrow c} f_2(x)}.
+\end{align}
 As a special exception, the product rule and quotient rule are
 inapplicable if they result in $0 \times \infty$, $\infty/\infty$, or
 $0/0$, which are undefined. As an example of why such combinations are
 problematic, consider this:
-\begin{equation}
-\lim_{x \rightarrow 0} \;x = \lim_{x \rightarrow 0}\Big[\,x^2\;\frac{1}{x}\;\Big] \overset{?}{=} \lim_{x \rightarrow 0}\Big[\,x^2\,\Big]\; \lim_{x \rightarrow 0}\Big[\,\frac{1}{x}\,\Big] = 0 \, \times \, \infty \;\;(??)
-\end{equation}
-In fact, the limit expression has the value of 0; it was not correct
-to apply the product rule in the second step.
+\begin{align*}
+  \lim_{x \rightarrow 0} \;x = \lim_{x \rightarrow 0}\Big[\,x^2\;\frac{1}{x}\;\Big] \overset{?}{=} \lim_{x \rightarrow 0}\Big[\,x^2\,\Big]\; \lim_{x \rightarrow 0}\Big[\,\frac{1}{x}\,\Big] = 0 \, \times \, \infty \;\;(??)
+\end{align*}
+In fact, the true value of the limit expression is 0; the second step
+was incorrect, since it involved an attempt to apply the product rule
+where it is inapplicable.
 
 \subsubsection{Composition rules for derivatives}
 \label{composition-rules-for-derivatives}
 
-Using the rules for limit expressions, we can derive the elementary
-composition rules for derivatives:
+Using the rules for limit expressions, we can derive the following
+elementary composition rules for derivatives:
 \begin{align}
-  \frac{d}{dx}\big[\,\alpha\, f(x) + \beta\, g(x)\,\big] &= \alpha\, f'(x) + \beta\, g'(x) \quad &\textrm{(linearity)}& \\
-  \frac{d}{dx}\big[\,f(x) \, g(x)\,\big] &= f(x) \, g'(x) + f'(x) \, g(x) &\textrm{(product}\;\textrm{rule)}& \\
-  \frac{d}{dx}\big[\,f(g(x))\,\big] &= f'(g(x)) \, g'(x) &\textrm{(chain}\;\textrm{rule)}&
+  \frac{d}{dx}\big[\,\alpha\, f(x) + \beta\, g(x)\,\big] &= \alpha\, f'(x) + \beta\, g'(x) \quad &\textrm{(linearity)}& \\   \frac{d}{dx}\big[\,f(x) \, g(x)\,\big] &= f(x) \, g'(x) + f'(x) \, g(x) &\textrm{(product}\;\textrm{rule)}& \\   \frac{d}{dx}\big[\,f(g(x))\,\big] &= f'(g(x)) \, g'(x) &\textrm{(chain}\;\textrm{rule)}&
 \end{align}
 These can all be proven by direct substitution into the definition of
-the derivative, and taking appropriate orders of limits. With the aid of
-these rules, we can prove various standard results, such as the ``power
-rule'' for derivatives:
-\begin{equation}
-\frac{d}{dx} \big[x^n\big] = n x^{n-1}, \;\;n \in \mathbb{N}.
-\end{equation}
-
-The linearity of the derivative operation implies that derivatives
-``commute'' with sums, i.e.~you can move them to the left or right of
-summation signs. This is a very useful feature. For example, we can
-use it to prove that the exponential is its own derivative, as
-follows:
+the derivative, and taking appropriate orders of limits.  With the aid
+of these rules, we can prove various standard results, such as the
+``power rule'' for derivatives:
 \begin{align}
-  \frac{d}{dx} \left[\exp(x)\right]
-  &= \frac{d}{dx} \sum_{n=0}^\infty\frac{x^n}{n!} \\
+  \frac{d}{dx} \big[x^n\big] = n x^{n-1}, \;\;n \in \mathbb{N}.
+\end{align}
+Moreover, the linearity of the derivative operation implies that
+derivatives ``commute'' with sums, i.e. you can move them to the left
+or right of summation signs. This is a very useful feature. For
+example, we can use it to prove that the exponential is its own
+derivative, as follows:
+\begin{align}
+  \frac{d}{dx} \left[\exp(x)\right] &= \frac{d}{dx} \sum_{n=0}^\infty\frac{x^n}{n!} \\
   &= \sum_{n=0}^\infty\frac{d}{dx} \, \frac{x^n}{n!} \\
   &= \sum_{n=1}^\infty \frac{x^{n-1}}{(n-1)!} \\
   &=\exp(x).
 \end{align}
 
-Derivatives also commute with limits. For example, we can use this on
-the alternative definition of the exponential function from Exercise 1
-of Chapter 0:
+Derivatives also commute with limits.  For example, we can use this to
+prove that the exponential is its own derivative, using the
+alternative definition of the exponential function discussed in
+Exercise 1 of Chapter 0:
 \begin{align}
-  \frac{d}{dx} \left[\exp(x)\right]
-  &= \frac{d}{dx} \lim_{n\rightarrow\infty} \left(1+\frac{x}{n}\right)^n \\
+  \frac{d}{dx} \left[\exp(x)\right] &= \frac{d}{dx} \lim_{n\rightarrow\infty} \left(1+\frac{x}{n}\right)^n \\
   &= \lim_{n\rightarrow\infty} \frac{d}{dx} \left(1+\frac{x}{n}\right)^n \\
   &= \lim_{n\rightarrow\infty} \left(1+\frac{x}{n}\right)^{n-1} \\
   &= \exp(x).
@@ -147,15 +144,7 @@ a general polynomial involving terms of the form $(x-x_0)^n$, and then
 using the definition of the derivative to find the series
 coefficients.
 
-Many common encountered functions have Taylor series that are exact
-(i.e., the series is convergent and equal to the value of the function
-itself) over some portion of their domain. But beware: it is possible
-for a function to have a divergent Taylor series, or a Taylor series
-that converges to a different value than the function itself! The
-conditions under which this happens is a complicated topic that we
-will not delve into.
-
-Here are some useful Taylor series:
+Here are some common Taylor series:
 \begin{align}
   \frac{1}{1-x} &= 1 + x + x^2 + x^3 + \cdots
   \qquad\quad \mathrm{for} \; |x| < 1  \\
@@ -164,103 +153,118 @@ Here are some useful Taylor series:
   \label{sin_taylor} \\
   \cos(x) &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \cdots
   \label{cos_taylor} \\
+  \exp(x) &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots
+  \label{exp_taylor} \\
   \sinh(x) &= x + \frac{x^3}{3!} + \frac{x^5}{5!} + \frac{x^7}{7!} + \cdots \\
   \cosh(x) &= 1 + \frac{x^2}{2!} + \frac{x^4}{4!} + \frac{x^6}{6!} + \cdots
   \label{cosh_taylor}
 \end{align}
-The last four Taylor series, \eqref{sin_taylor}--\eqref{cosh_taylor},
-converge to the value of the function for all $x\in\mathbb{R}$.
+Note that it is possible for a function to have a divergent Taylor
+series, or a Taylor series that converges to a different value than
+the function itself. The conditions under which such breakdowns occur
+is a complicated topic that we will not delve into.
+
+For certain functions, however, the Taylor series are exact. The
+Taylor series for the exponential, Eq.~\eqref{exp_taylor}, is exactly
+the same as the definition of the exponential itself. Likewise, for
+Eqs.~\eqref{sin_taylor}--\eqref{cosh_taylor}, the Taylor series can be
+shown to converge to the value of the function for all
+$x\in\mathbb{R}$, which means that the series form is \textit{exactly
+  equivalent} to the function itself. (Thanks to this, it is common
+for math textbooks to start out by \textit{defining} the trigonometic
+functions in series form, and then deriving their geometric meanings,
+rather than vice versa.)
 
 \subsection{Ordinary differential equations}
 \label{ordinary-differential-equations}
 
-A differential equation is an equation that involves derivatives of a
-function. For example, here is a differential equation involving $f$
-and its first derivative:
-\begin{equation}
+Differential equations are equations that contain derivatives.  For
+example, the equation
+\begin{align}
   \frac{df}{dx} = f(x)
-\end{equation}
-This is called an \textbf{ordinary differential equation} because it
-involves a derivative with respect to a single variable $x$, rather
-than multiple variables.
+\end{align}
+involves both $f$ and its first derivative. It is called an
+\textbf{ordinary differential equation}, meaning that it contains a
+derivative with respect to a single variable $x$, rather than multiple
+variables.
 
-Finding a solution for the differential equation means finding a
-function that satisfies the equation. There is no single method for
-solving differential equations. In some cases, we can guess the
-solution; for example, by trying different elementary functions, we
-can discover that the above differential equation can be solved by
-\begin{equation}
+Solving a differential equation means finding a function that
+satisfies the equation. There is no single method for solving
+differential equations.  Sometimes, we can guess the solution; for
+example, by trying different elementary functions, we can discover
+that the above differential equation is solved by
+\begin{align}
   f(x) = A \exp(x).
-\end{equation}
-Certain classes of differential equation can be solved using techniques
-like Fourier transforms, Green's functions, etc., some of which will be
-taught in this course. On the other hand, many differential equations
-simply have no known exact analytic solution.
+\end{align}
+Certain classes of differential equation can be solved using
+techniques like Fourier transforms, Green's functions, etc., some of
+which will be taught in this course. On the other hand, many
+differential equations have no known exact analytic solution.
+
+\clearpage
 
 \begin{framed}\noindent
-  \textit{Example}---The following differential equation describes a
-  damped harmonic oscillator:
-  \begin{equation}
+  \textit{Example}---The following ordinary differential equation
+  describes a damped harmonic oscillator:
+  \begin{align}
     \frac{d^2 x}{dt^2} + 2\gamma\frac{dx}{dt} + \omega_0^2 x(t) = 0.
-  \end{equation}
-  In this case, note that $x(t)$ is the function, and $t$ is the input
+    \label{eq:dho}
+  \end{align}
+  In this case, $x(t)$ is the function, and $t$ is the input
   variable. This is unlike our previous notation where $x$ was the
   input variable, so don't get confused! This equation is obtained by
-  applying Newton's second law to an object moving in one dimension
+  applying Newton's second law to an object moving in one dimension,
   subject to both a damping force and a restoring force, with $x(t)$
-  representing the position as a function of time.
+  denoting the position as a function of time $t$.  We will study
+  Eq.~\eqref{eq:dho} in detail later in the course.
 \end{framed}
 
 \subsubsection{Specific solutions and general solutions}
 \label{specific-solutions-and-general-solutions}
 
 When confronted with an ordinary differential equation, the first
-thing you should check for is the highest derivative appearing in the
-equation. This is called the \textbf{order} of the differential
-equation. If the equation has order $N$, then its \textbf{general
+thing you should check is the highest derivative appearing in the
+equation.  This is called the \textbf{order} of the differential
+equation.  If the equation has order $N$, its \textbf{general
   solution} contains $N$ \textbf{free parameters} that can be assigned
-any value (this is similar to the concept of integration constants,
-which we'll discuss in the next chapter). Therefore, if you happen to
-guess a solution, but that solution does not contain $N$ free
-parameters, then you know the solution isn't the most general one.
+any value. Therefore, if you happen to guess a solution, but that
+solution does not contain $N$ free parameters, then you know the
+solution isn't the most general one.
 
 For example, the ordinary differential equation
-\begin{equation}
-\frac{df}{dx} = f(x)
-\end{equation}
+\begin{align}
+  \frac{df}{dx} = f(x)
+\end{align}
 has order one. We have previously guessed the solution $f(x) = A
-\exp(x)$, which has one free parameter, $A$. So we know our work is
+\exp(x)$, which has one free parameter, $A$.  So we know our work is
 done: there is no solution more general than the one we found.
 
 A \textbf{specific solution} to a differential equation is a solution
-containing no free parameters. One way to get a specific solution is
-to start from a general solution, and assign actual values to each of
-the free parameters. In physics problems, the assigned values are
-commonly determined by \textbf{boundary conditions}. For example, you
-may be asked to solve a second-order differential equation given the
-boundary conditions $f(0) = a$ and $f(1) = b$; alternatively, you
-might be given the boundary conditions $f(0) = c$ and $f'(0) = d$, or
-any other combination of two conditions. For an ordinary differential
-equation of order $N$, we need $N$ conditions to define a specific
-solution.
+containing no free parameters.  One way to get a specific solution is
+to start from a general solution, and assign a value to every free
+parameter. In physics problems, the assigned values are commonly
+determined by \textbf{boundary conditions}. For an ordinary
+differential equation of order $N$, we need independent boundary $N$
+conditions to define a specific solution.
 
 \subsection{Partial derivatives}
 \label{partial-derivatives}
 
-So far, we have focused on functions which take a single input.
-Functions can also take multiple inputs; for instance, a function
-$f(x,y)$ maps two input numbers, $x$ and $y$, and outputs a number. In
-general, the inputs are allowed to vary independently of one
-another. The \textbf{partial derivative} of such a function is its
-derivative with respect to one of its inputs, keeping the others
-fixed.  For example,
-\begin{equation}
-f(x,y) = \sin(2x - 3 y^2)
-\end{equation}
-has partial derivatives
+So far, we have focused on functions which take a single
+input. Functions can also take multiple inputs; for instance, we can
+have a function $f$ that takes two input numbers, $x$ and $y$, and
+outputs a number $f(x,y)$. We can define a \textbf{partial derivative}
+as a derivative of a function with respect to one of the inputs,
+keeping all other inputs fixed.
+
+For example, the function
 \begin{align}
-  \frac{\partial f}{\partial x} &= 2\cos(2x-3y^2), \\
-  \frac{\partial f}{\partial y} &= - 6\cos(2x-3y^2).
+  f(x,y) = \sin(2x - 3 y^2)
+\end{align}
+has the following partial derivatives:
+\begin{align}
+  \frac{\partial f}{\partial x} = 2\cos(2x-3y^2), \quad
+  \frac{\partial f}{\partial y} = - 6\cos(2x-3y^2).
 \end{align}
 
 \subsubsection{Change of variables}
@@ -268,63 +272,57 @@ has partial derivatives
 
 We saw in Section~\ref{composition-rules-for-derivatives} that
 single-variable functions obey a derivative composition rule,
-\begin{equation}
+\begin{align}
   \frac{d}{dx}\, f\big(g(x)\big) = g'(x) \, f'\big(g(x)\big).
-\end{equation}
-This composition rule has a important generalization for partial
-derivatives, which is related to the physical concept of a
-\textbf{change of coordinates}. Suppose a function $f(x,y)$ takes two
-inputs $x$ and $y$, and we wish to express them using a different
-coordinate system denoted by $u$ and $v$. In general, each coordinate
-in the old system depends on \emph{both} coordinates in the new
-system:
-\begin{equation}
+\end{align}
+This composition rule can be generalized to partial derivatives, which
+is often required when performing a \textbf{change of
+  coordinates}. Suppose we have a function $f(x,y)$, and we want to
+re-express $(x, y)$ in a different coordinate system $(u, v)$. Each
+coordinate in the old system may depend on \textit{both} coordinates
+in the new system:
+\begin{align}
   x = x(u,v), \quad y = y(u,v).
-\end{equation}
+\end{align}
 Expressed in the new coordinates, the function is
-\begin{equation}
+\begin{align}
   F(u,v) \equiv f\big(x(u,v), y(u,v)\big).
-\end{equation}
-It can be shown that the transformed function's partial derivatives obey
-the composition rule
+\end{align}
+It can be shown that the transformed function's partial derivatives
+obey the composition rule
 \begin{align}
   \frac{\partial F}{\partial u} &= \frac{\partial f}{\partial x} \frac{\partial x}{\partial u} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial u}\\
   \frac{\partial F}{\partial v} &= \frac{\partial f}{\partial x} \frac{\partial x}{\partial v} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial v}.
 \end{align}
 On the right-hand side of these equations, the partial derivatives are
-to be expressed in terms of the new coordiantes $(u,v)$. For example,
-\begin{equation}
-  \frac{\partial f}{\partial x} = \left.\frac{\partial f}{\partial x}\right|_{x = x(u,v), \;y= y(u,v)}
-\end{equation}
+meant to be expressed in terms of the new coordinates $(u,v)$.  For
+example,
+\begin{align*}
+  \frac{\partial f}{\partial x} \equiv \left.\frac{\partial f}{\partial x}\right|_{x = x(u,v), \;y= y(u,v)}
+\end{align*}
 
 The generalization of this rule to more than two inputs is
-straightforward. For a function $f(x_1, \dots, x_N)$, a change of
+straightforward.  For a function $f(x_1, \dots, x_N)$, a change of
 coordinates $x_i = x_i(u_1, \dots, u_N)$ involves the composition
-\begin{equation}
-F(u_1, \dots, u_N) = f\big(x_1(u_1,\dots,u_N\big), \dots), \quad \frac{\partial F}{\partial u_i} = \sum_{j=1}^N \frac{\partial x_j}{\partial u_i} \frac{\partial f}{\partial x_j}.
-\end{equation}
+\begin{align}
+  F(u_1, \dots, u_N) &= f\big(x_1(u_1,\dots,u_N\big), \dots\big), \\
+  \frac{\partial F}{\partial u_i} &= \sum_{j=1}^N \frac{\partial f}{\partial x_j}\, \frac{\partial x_j}{\partial u_i}.
+\end{align}
 
 \begin{framed}\noindent
-  \textit{Example}---In two dimensions, Cartesian and polar
-  coordinates are related by
-  \begin{equation}
-    x = r\cos\theta, \quad y = r\sin\theta.
-  \end{equation}
-  Given a function $f(x,y)$, we can re-write it in polar coordinates
-  as $F(r,\theta)$.  The partial derivatives are related by
+  \textit{Example}---In two dimensions, Cartesian and polar coordinates are related by
   \begin{align}
-    \frac{\partial F}{\partial r} &= \frac{\partial f}{\partial x}
-    \frac{\partial x}{\partial r} + \frac{\partial f}{\partial y}
-    \frac{\partial y}{\partial r} = \frac{\partial f}{\partial x}
-    \cos\theta + \frac{\partial f}{\partial y}
-    \sin\theta. \\
-    \frac{\partial F}{\partial \theta} &= \frac{\partial f}{\partial
-      x} \frac{\partial x}{\partial \theta} + \frac{\partial
-      f}{\partial y} \frac{\partial y}{\partial \theta} =
-    -\frac{\partial f}{\partial x} r\,\sin\theta + \frac{\partial
-      f}{\partial y} r\cos\theta.
+    x = r\cos\theta, \quad y = r\sin\theta.
+  \end{align}
+  Given a function $f(x,y)$, we can re-write it in polar coordinates
+  as $F(r,\theta)$. The partial derivatives in polar coordinates are
+  then given by
+  \begin{align}
+    \frac{\partial F}{\partial r} &= \frac{\partial f}{\partial x} \frac{\partial x}{\partial r} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial r} = \frac{\partial f}{\partial x} \cos\theta + \frac{\partial f}{\partial y} \sin\theta. \\
+    \frac{\partial F}{\partial \theta} &= \frac{\partial f}{\partial x} \frac{\partial x}{\partial \theta} + \frac{\partial f}{\partial y} \frac{\partial y}{\partial \theta} = -\frac{\partial f}{\partial x} r\,\sin\theta + \frac{\partial f}{\partial y} r\cos\theta.
   \end{align}
 \end{framed}
+
 
 \subsubsection{Partial differential equations}
 \label{partial-differential-equations}
@@ -332,21 +330,23 @@ F(u_1, \dots, u_N) = f\big(x_1(u_1,\dots,u_N\big), \dots), \quad \frac{\partial 
 A \textbf{partial differential equation} is a differential equation
 involving multiple partial derivatives (as opposed to an ordinary
 differential equation, which involves derivatives with respect to a
-single variable). An example of a partial differential equation
-encountered in physics is Laplace's equation,
-\begin{equation}
+single variable).
+
+An example of a partial differential equation encountered in physics
+is Laplace's equation,
+\begin{align}
   \frac{\partial^2 \Phi}{\partial x^2} + \frac{\partial^2 \Phi}{\partial y^2} + \frac{\partial^2 \Phi}{\partial z^2}= 0,
-\end{equation}
+\end{align}
 which describes the electrostatic potential $\Phi(x,y,z)$ at position
 $(x,y,z)$, in the absence of any electric charges.
 
 Partial differential equations are considerably harder to solve than
-ordinary differential equations. In particular, their boundary
+ordinary differential equations.  In particular, their boundary
 conditions are more complicated to specify: whereas each boundary
 condition for an ordinary differential equation consists of a single
 number (e.g., the value of $f(x)$ at some point $x = x_0$), each
 boundary condition for a partial differential equation consists of a
-\emph{function} (e.g., the values of $\Phi(x,y,z)$ along some curve
+\textit{function} (e.g., the values of $\Phi(x,y,z)$ along some curve
 $g(x,y,z) = 0$).
 
 \subsection{Exercises}\label{exercises}
