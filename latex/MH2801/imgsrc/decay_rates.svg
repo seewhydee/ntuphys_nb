@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="209.0239pt"
+   height="162.76492pt"
    version="1.1"
-   viewBox="0 0 363.33033 209.02389"
-   width="363.33032pt"
+   viewBox="0 0 342.57841 162.76492"
+   width="342.5784pt"
    id="svg1527"
    sodipodi:docname="decay_rates.svg"
-   inkscape:version="1.0 (4035a4fb49, 2020-05-01)">
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata1531">
     <rdf:RDF>
@@ -23,7 +23,6 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,8 +36,8 @@
      inkscape:window-maximized="1"
      inkscape:window-y="0"
      inkscape:window-x="0"
-     inkscape:cy="251.74804"
-     inkscape:cx="247.1591"
+     inkscape:cy="145.5"
+     inkscape:cx="284.5"
      inkscape:zoom="1"
      showgrid="false"
      id="namedview1529"
@@ -51,9 +50,39 @@
      objecttolerance="10"
      borderopacity="1"
      bordercolor="#666666"
-     pagecolor="#ffffff" />
+     pagecolor="#ffffff"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="pt" />
   <defs
      id="defs1211">
+    <marker
+       style="overflow:visible"
+       id="marker2908"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path2906" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Arrow2Mend"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:isstock="true">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         id="path2347" />
+    </marker>
     <style
        id="style1209"
        type="text/css">
@@ -196,7 +225,7 @@
   </defs>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-110.67568)"
      id="line2d_1">
     <defs
        id="defs1220">
@@ -220,7 +249,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-50.587357,-163.97975)"
+     transform="matrix(1.1,0,0,1.1,-50.587357,-191.79217)"
      id="text_1">
     <!-- 1.0 -->
     <defs
@@ -267,7 +296,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-110.67568)"
      id="line2d_2">
     <g
        style="stroke-width:1.09002"
@@ -284,7 +313,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-55.987798,-163.98631)"
+     transform="matrix(1.1,0,0,1.1,-55.987798,-191.79873)"
      id="text_2">
     <!-- 1.5 -->
     <defs
@@ -325,7 +354,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-110.67568)"
      id="line2d_3">
     <g
        style="stroke-width:1.09002"
@@ -342,7 +371,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-61.390894,-163.97975)"
+     transform="matrix(1.1,0,0,1.1,-61.390894,-191.79217)"
      id="text_3">
     <!-- 2.0 -->
     <defs
@@ -383,7 +412,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-110.67568)"
      id="line2d_4">
     <g
        style="stroke-width:1.09002"
@@ -400,7 +429,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-66.791335,-163.97975)"
+     transform="matrix(1.1,0,0,1.1,-66.791335,-191.79217)"
      id="text_4">
     <!-- 2.5 -->
     <g
@@ -435,7 +464,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-110.67568)"
      id="line2d_5">
     <g
        style="stroke-width:1.09002"
@@ -452,7 +481,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-72.214197,-163.97975)"
+     transform="matrix(1.1,0,0,1.1,-72.214197,-191.79217)"
      id="text_5">
     <!-- 3.0 -->
     <defs
@@ -493,7 +522,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-110.67568)"
      id="line2d_6">
     <g
        style="stroke-width:1.09002"
@@ -510,7 +539,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-77.614637,-163.97975)"
+     transform="matrix(1.1,0,0,1.1,-77.614637,-191.79217)"
      id="text_6">
     <!-- 3.5 -->
     <g
@@ -545,65 +574,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
-     id="line2d_7">
-    <g
-       style="stroke-width:1.09002"
-       id="g1328">
-      <use
-         height="100%"
-         width="100%"
-         id="use1326"
-         y="307.58401"
-         xlink:href="#mc63259d9d2"
-         x="398.48727"
-         style="stroke:#000000;stroke-width:0.872019" />
-    </g>
-  </g>
-  <g
-     style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-83.022343,-163.97975)"
-     id="text_7">
-    <!-- 4.0 -->
-    <defs
-       id="defs1332">
-      <path
-         id="DejaVuSans-52"
-         d="M 37.796875,64.3125 12.890625,25.390625 h 24.90625 z m -2.59375,8.59375 h 12.40625 V 25.390625 h 10.40625 V 17.1875 H 47.609375 V 0 h -9.8125 V 17.1875 H 4.890625 v 9.515625 z" />
-    </defs>
-    <g
-       style="stroke-width:0.909091"
-       id="g1340"
-       transform="matrix(0.1,0,0,-0.1,390.53571,322.18244)">
-      <use
-         style="stroke-width:0.909091"
-         height="100%"
-         width="100%"
-         y="0"
-         x="0"
-         id="use1334"
-         xlink:href="#DejaVuSans-52" />
-      <use
-         style="stroke-width:0.909091"
-         height="100%"
-         width="100%"
-         y="0"
-         id="use1336"
-         xlink:href="#DejaVuSans-46"
-         x="63.623047" />
-      <use
-         style="stroke-width:0.909091"
-         height="100%"
-         width="100%"
-         y="0"
-         id="use1338"
-         xlink:href="#DejaVuSans-48"
-         x="95.410156" />
-    </g>
-  </g>
-  <g
-     style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      id="line2d_8">
     <defs
        id="defs1354">
@@ -627,7 +598,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.202578,-160.76112)"
+     transform="matrix(1.1,0,0,1.1,-49.202578,-181.7535)"
      id="text_9">
     <!-- 0 -->
     <g
@@ -646,7 +617,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      id="line2d_9">
     <g
        style="stroke-width:1.09002"
@@ -663,7 +634,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.211562,-153.39915)"
+     transform="matrix(1.1,0,0,1.1,-49.211562,-174.39153)"
      id="text_10">
     <!-- 1 -->
     <g
@@ -682,7 +653,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      id="line2d_10">
     <g
        style="stroke-width:1.09002"
@@ -699,7 +670,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.189375,-144.99538)"
+     transform="matrix(1.1,0,0,1.1,-49.189375,-165.98776)"
      id="text_11">
     <!-- 2 -->
     <g
@@ -718,7 +689,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      id="line2d_11">
     <g
        style="stroke-width:1.09002"
@@ -735,7 +706,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.200859,-136.71144)"
+     transform="matrix(1.1,0,0,1.1,-49.200859,-157.70382)"
      id="text_12">
     <!-- 3 -->
     <g
@@ -754,7 +725,7 @@
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      id="line2d_12">
     <g
        style="stroke-width:1.09002"
@@ -771,26 +742,22 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.199219,-129.60373)"
+     transform="matrix(1.1,0,0,1.1,-49.199219,-150.59611)"
      id="text_13">
     <!-- 4 -->
     <g
        style="stroke-width:0.909091"
        id="g1407"
        transform="matrix(0.1,0,0,-0.1,44.2375,178.32722)">
-      <use
-         style="stroke-width:0.909091"
-         height="100%"
-         width="100%"
-         y="0"
-         x="0"
+      <path
          id="use1405"
-         xlink:href="#DejaVuSans-52" />
+         d="M 37.796875,64.3125 12.890625,25.390625 h 24.90625 z m -2.59375,8.59375 h 12.40625 V 25.390625 h 10.40625 V 17.1875 H 47.609375 V 0 h -9.8125 V 17.1875 H 4.890625 v 9.515625 z"
+         style="stroke-width:0.909091" />
     </g>
   </g>
   <g
      style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      id="line2d_13">
     <g
        style="stroke-width:1.09002"
@@ -807,7 +774,7 @@
   </g>
   <g
      style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.197734,-120.13641)"
+     transform="matrix(1.1,0,0,1.1,-49.197734,-141.12879)"
      id="text_14">
     <!-- 5 -->
     <g
@@ -824,81 +791,32 @@
          xlink:href="#DejaVuSans-53" />
     </g>
   </g>
-  <g
-     style="stroke-width:1.09002"
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
-     id="line2d_14">
-    <g
-       style="stroke-width:1.09002"
-       id="g1424">
-      <use
-         height="100%"
-         width="100%"
-         id="use1422"
-         y="112.06452"
-         xlink:href="#m56036d930f"
-         x="57.599998"
-         style="stroke:#000000;stroke-width:0.872019" />
-    </g>
-  </g>
-  <g
-     style="stroke-width:0.909091"
-     transform="matrix(1.1,0,0,1.1,-49.20625,-111.83387)"
-     id="text_15">
-    <!-- 6 -->
-    <defs
-       id="defs1428">
-      <path
-         id="DejaVuSans-54"
-         d="m 33.015625,40.375 q -6.640625,0 -10.53125,-4.546875 -3.875,-4.53125 -3.875,-12.4375 0,-7.859375 3.875,-12.4375 3.890625,-4.5625 10.53125,-4.5625 6.640625,0 10.515625,4.5625 3.875,4.578125 3.875,12.4375 0,7.90625 -3.875,12.4375 Q 39.65625,40.375 33.015625,40.375 Z M 52.59375,71.296875 V 62.3125 q -3.71875,1.75 -7.5,2.671875 -3.78125,0.9375 -7.5,0.9375 -9.765625,0 -14.921875,-6.59375 -5.140625,-6.59375 -5.875,-19.921875 2.875,4.25 7.21875,6.515625 4.359375,2.265625 9.578125,2.265625 10.984375,0 17.359375,-6.671875 6.375,-6.65625 6.375,-18.125 0,-11.234375 -6.640625,-18.03125 -6.640625,-6.78125 -17.671875,-6.78125 -12.65625,0 -19.34375,9.6875 -6.6875,9.703125 -6.6875,28.109375 0,17.28125 8.203125,27.5625 8.203125,10.28125 22.015625,10.28125 3.71875,0 7.5,-0.734375 3.78125,-0.734375 7.890625,-2.1875 z" />
-    </defs>
-    <g
-       style="stroke-width:0.909091"
-       id="g1432"
-       transform="matrix(0.1,0,0,-0.1,44.2375,115.86374)">
-      <use
-         style="stroke-width:0.909091"
-         height="100%"
-         width="100%"
-         y="0"
-         x="0"
-         id="use1430"
-         xlink:href="#DejaVuSans-54" />
-    </g>
-  </g>
   <path
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
      clip-path="url(#p9f75ec3cb8)"
-     d="m 73.832727,268.22321 0.650611,3.24207 0.65061,1.24018 1.301221,1.65713 1.30122,1.19809 1.951831,1.38477 1.951831,1.10013 2.602441,1.19771 3.253052,1.21852 3.903662,1.19501 4.554272,1.14721 5.204882,1.08698 6.5061,1.12426 7.80733,1.10804 9.10854,1.05954 11.06038,1.04959 13.0122,1.00098 15.61465,0.96782 18.8677,0.9333 22.77136,0.88951 27.32563,0.83453 33.18113,0.78366 40.98845,0.7378 51.39821,0.69225 39.68723,0.41571 v 0"
+     d="m 73.832727,268.22321 0.650611,3.24207 0.65061,1.24018 1.301221,1.65713 1.30122,1.19809 1.951831,1.38477 1.951831,1.10013 2.602441,1.19771 3.253052,1.21852 3.903662,1.19501 4.554272,1.14721 5.204882,1.08698 6.5061,1.12426 7.80733,1.10804 9.10854,1.05954 11.06038,1.04959 13.0122,1.00098 15.61465,0.96782 18.8677,0.9333 22.77136,0.88951 27.32563,0.83453 33.18113,0.78366 40.98845,0.7378 51.39821,0.69225"
      style="fill:none;stroke:#1f77b4;stroke-width:1.63504;stroke-linecap:square"
-     id="path1465" />
+     id="path1465"
+     sodipodi:nodetypes="cccccccccccccccccccccccc" />
   <path
-     transform="matrix(1,0,0,0.84164335,-43.182346,-82.863266)"
-     sodipodi:nodetypes="cccccccccccccccccccccc"
+     transform="matrix(1,0,0,0.84164335,-43.182346,-103.85564)"
+     sodipodi:nodetypes="cccccccccccccccccccc"
      clip-path="url(#p9f75ec3cb8)"
-     d="m 73.832727,268.22321 0.650611,-3.6176 0.65061,-1.61571 1.301221,-2.40819 1.30122,-1.94915 1.951831,-2.51137 2.602441,-2.92579 3.253052,-3.26962 3.903662,-3.58111 4.554272,-3.87873 5.855493,-4.67825 7.15671,-5.40564 8.45794,-6.09297 10.40976,-7.20341 12.3616,-8.2671 14.96403,-9.72531 18.21709,-11.55759 22.12075,-13.75505 26.67503,-16.31605 33.18112,-20.02407 40.98845,-24.46698 26.02441,-15.399491"
+     d="m 73.832727,268.22321 0.650611,-3.6176 0.65061,-1.61571 1.301221,-2.40819 1.30122,-1.94915 1.951831,-2.51137 2.602441,-2.92579 3.253052,-3.26962 3.903662,-3.58111 4.554272,-3.87873 5.855493,-4.67825 7.15671,-5.40564 8.45794,-6.09297 10.40976,-7.20341 12.3616,-8.2671 14.96403,-9.72531 18.21709,-11.55759 22.12075,-13.75505 26.67503,-16.31605 33.18112,-20.02407"
      style="fill:none;stroke:#ff3e0e;stroke-width:1.63504;stroke-linecap:square;stroke-opacity:1"
      id="path1468" />
   <path
      sodipodi:nodetypes="cc"
-     d="M 14.417654,176.01276 V 0.61812614"
-     style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
-     id="path1471" />
+     d="M 14.417654,176.01276 V 22.051874"
+     style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker2908)"
+     id="path1471"
+     transform="translate(2.4999999e-7,-20.992375)" />
   <path
      sodipodi:nodetypes="cc"
-     d="M 355.29538,176.01276 V 0.61812614"
-     style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
-     id="path1474" />
-  <path
-     sodipodi:nodetypes="cc"
-     d="M 14.417654,176.01276 H 355.29538"
-     style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
-     id="path1477" />
-  <path
-     sodipodi:nodetypes="cc"
-     d="M 14.417654,0.61812614 H 355.29538"
-     style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter"
-     id="path1480" />
+     d="M 14.417654,176.01276 H 328.26232"
+     style="fill:none;stroke:#000000;stroke-width:0.8;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#Arrow2Mend)"
+     id="path1477"
+     transform="translate(2.4999999e-7,-27.812414)" />
   <defs
      id="defs1525">
     <clipPath
@@ -912,18 +830,18 @@
     </clipPath>
   </defs>
   <g
-     style="stroke-width:0.502049"
+     style="stroke-width:0.590646"
      inkscape:label=""
-     transform="matrix(2.0853548,0,0,1.9025099,-6.1996924,49.015927)"
+     transform="matrix(1.7725516,0,0,1.6171334,170.05372,23.002642)"
      id="g2449">
     <g
-       style="stroke-width:0.502049"
+       style="stroke-width:0.590646"
        id="g1439">
       <g
          id="g8996"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use9418"
@@ -934,18 +852,18 @@
     </g>
   </g>
   <g
-     style="stroke-width:0.502049"
+     style="stroke-width:0.590646"
      inkscape:label=""
-     transform="matrix(2.0853548,0,0,1.9025099,2.706503,-2.3462139)"
+     transform="matrix(1.7725516,0,0,1.6171334,35.192174,-0.61043902)"
      id="g2655">
     <g
-       style="stroke-width:0.502049"
+       style="stroke-width:0.590646"
        id="g6799">
       <g
          id="g9689"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use7730"
@@ -955,9 +873,9 @@
       </g>
       <g
          id="g309"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use4659"
@@ -967,9 +885,9 @@
       </g>
       <g
          id="g7684"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use1865"
@@ -980,18 +898,18 @@
     </g>
   </g>
   <g
-     style="stroke-width:0.502049"
+     style="stroke-width:0.590646"
      inkscape:label=""
-     transform="matrix(2.0853548,0,0,1.9025099,2.706163,-96.0989)"
+     transform="matrix(1.7725516,0,0,1.6171334,35.191616,-94.363126)"
      id="g2893">
     <g
-       style="stroke-width:0.502049"
+       style="stroke-width:0.590646"
        id="g7052">
       <g
          id="g2886"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use8579"
@@ -1001,9 +919,9 @@
       </g>
       <g
          id="g3063"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use5385"
@@ -1013,9 +931,9 @@
       </g>
       <g
          id="g9984"
-         style="fill:#000000;fill-opacity:1;stroke-width:0.502049">
+         style="fill:#000000;fill-opacity:1;stroke-width:0.590646">
         <use
-           style="stroke-width:0.502049"
+           style="stroke-width:0.590646"
            height="100%"
            width="100%"
            id="use6726"
