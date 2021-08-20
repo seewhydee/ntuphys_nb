@@ -16,7 +16,9 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{0}
+\renewcommand{\theequation}{2.\arabic{equation}}
+
+\setcounter{section}{2}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -30,7 +32,10 @@
 \begin{document}
 \setcounter{page}{7}
 
-\section{Derivatives}\label{derivatives}
+\noindent
+{\Large \textbf{2. Derivatives}}
+\vskip 0.2in
+\label{derivatives}
 
 The \textbf{derivative} of a function $f$ is another function, $f'$,
 defined as
@@ -119,7 +124,7 @@ derivative, as follows:
 Derivatives also commute with limits.  For example, we can use this to
 prove that the exponential is its own derivative, using the
 alternative definition of the exponential function discussed in
-Exercise 1 of Chapter 0:
+Exercise 1 of Chapter 1:
 \begin{align}
   \frac{d}{dx} \left[\exp(x)\right] &= \frac{d}{dx} \lim_{n\rightarrow\infty} \left(1+\frac{x}{n}\right)^n \\
   &= \lim_{n\rightarrow\infty} \frac{d}{dx} \left(1+\frac{x}{n}\right)^n \\

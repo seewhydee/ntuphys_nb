@@ -16,7 +16,8 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{8}
+\renewcommand{\theequation}{10.\arabic{equation}}
+\setcounter{section}{10}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -30,7 +31,10 @@
 \begin{document}
 \setcounter{page}{75}
 
-\section{Fourier Series and Fourier Transforms}
+\noindent
+{\Large \textbf{10. Fourier Series and Fourier Transforms}}
+\vskip 0.2in
+
 \label{fourier-series-and-fourier-transforms}
 
 The \textbf{Fourier transform} is one of the most important
@@ -305,7 +309,7 @@ the exponent is to interpret the inverse Fourier transform equation
 (which has the form of an integral over $k$) as the continuum limit of
 a sum over complex waves. In this sum, $F(k)$ plays the role of the
 series coefficients, and the complex waves have the form $\exp(ikx)$
-in accordance with our usual convention (see Chapter 5).
+in accordance with our usual convention (see Chapter 6).
 
 As noted in Section~\ref{square-integrable-functions}, all the
 functions we deal with are assumed to be square integrable. This
@@ -398,7 +402,7 @@ t$ exponents are flipped.
 
 There's a good reason for this difference in sign convention: it
 arises from the need to describe propagating waves, which vary with
-both space \textit{and} time.  As discussed in Chapter 5, a
+both space \textit{and} time.  As discussed in Chapter 6, a
 propagating plane wave can be described by a wavefunction of the form
 \begin{align}
   f(x,t) = A e^{i(kx - \omega t)},
@@ -478,7 +482,7 @@ are left as exercises.
 
 The Fourier transform is a useful tool for solving many differential
 equations.  As an example, consider a damped harmonic oscillator
-(previously studied in Chapter 4) that is subjected to an additional
+(previously studied in Chapter 5) that is subjected to an additional
 driving force $f(t)$.  This force has an arbitrary time dependence,
 and is not necessarily harmonic.  The equation of motion is
 \begin{align}

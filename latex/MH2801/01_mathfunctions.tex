@@ -16,7 +16,9 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{-1}
+\renewcommand{\theequation}{1.\arabic{equation}}
+
+\setcounter{section}{1}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -28,8 +30,11 @@
 \pagestyle{fancy}
 
 \begin{document}
-    
-\section{Mathematical Functions}
+
+\noindent
+{\Large \textbf{1. Mathematical Functions}}
+\vskip 0.2in
+
 \label{mathematical-functions}
 
 This is a course on complex methods in the physical sciences. But

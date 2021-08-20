@@ -16,7 +16,8 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{5}
+\renewcommand{\theequation}{7.\arabic{equation}}
+\setcounter{section}{7}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -30,7 +31,11 @@
 \begin{document}
 \setcounter{page}{45}
 
-\section{Complex Derivatives}\label{complex-derivatives}
+\noindent
+{\Large \textbf{7. Complex Derivatives}}
+\vskip 0.2in
+
+\label{complex-derivatives}
 
 We have previously come across functions that take real inputs and
 give complex outputs (e.g., solutions to the damped harmonic
@@ -78,7 +83,7 @@ If a function is continuous at a point $z$, we can define its
   f'(z) \equiv \frac{df}{dz} \equiv \lim_{\delta z\rightarrow 0} \frac{f(z+\delta z) - f(z)}{\delta z}.
 \end{align}
 This is very similar to the definition of the derivative for a
-function of a real variable, from Chapter 1.  However, there's a
+function of a real variable, from Chapter 2.  However, there's a
 complication which doesn't appear in the real case: the infinitesimal
 $\delta z$ is complex, yet the above limit expression does not specify
 its argument (see Section 3.4.1); it simply states the limit as
@@ -223,7 +228,7 @@ One proviso should be kept in mind. For non-integer powers, $z^a$
 where $a\notin \mathbb{Z}$, the situation is more complicated because
 the operation is multi-valued. We'll postpone the discussion of these
 special operations until the discussion on branch points and branch
-cuts in Chapter 7.
+cuts in Chapter 8.
 
 \subsection{The Cauchy-Riemann equations}
 \label{the-cauchy-riemann-equations}
@@ -336,7 +341,7 @@ There are two complementary ways to think about this:
 These constraints have profound implications for the mathematical
 discipline of complex analysis, one of the most important being
 Cauchy's integral theorem, which we will encounter when studying
-contour integration in Chapter 8.
+contour integration in Chapter 9.
 
 \subsubsection{Consequences of the Cauchy-Rieman equations}
 \label{consequences-of-the-cauchy-riemann-equations}

@@ -16,7 +16,9 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{1}
+\renewcommand{\theequation}{3.\arabic{equation}}
+
+\setcounter{section}{3}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -30,7 +32,9 @@
 \begin{document}
 \setcounter{page}{14}
 
-\section{Integrals}
+\noindent
+{\Large \textbf{3. Integrals}}
+\vskip 0.2in
 \label{integrals}
 
 If we have a function $f(x)$ which is well-defined for some $a \le x
@@ -111,7 +115,7 @@ of the outer integral, we can't swap the two integrals:
 
 Since the value of a definite integral depends on the values of the
 upper and lower bounds, we can ask how it varies as either bound is
-changed. Using the defintion of the derivative from Chapter 1, we can
+changed. Using the defintion of the derivative from Chapter 2, we can
 show that
 \begin{align}
   \frac{d}{db} \left[\int_a^b dx\; f(x)\right] &= f(b), \\
@@ -309,7 +313,7 @@ where $A$ is a constant of integration. When $\gamma \rightarrow
 \begin{align}
   \int_{0}^\infty dx \; \frac{\sin(x)}{x} = I(0) = \frac{\pi}{2}.
 \end{align}
-When we discuss contour integration (Chapter 8), we will see a more
+When we discuss contour integration (Chapter 9), we will see a more
 straightforward way to do this integral.
 
 \subsection{Exercises}

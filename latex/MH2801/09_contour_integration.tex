@@ -17,7 +17,8 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{7}
+\renewcommand{\theequation}{9.\arabic{equation}}
+\setcounter{section}{9}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -32,7 +33,10 @@
 
 \setcounter{page}{61}
 
-\section{Contour Integration}
+\noindent
+{\Large \textbf{9. Contour Integration}}
+\vskip 0.2in
+
 \label{contour-integration}
 
 \textbf{Contour integration} is a powerful technique, based on complex
@@ -46,7 +50,7 @@ oscillations.
 
 Recall that for a real function $f(x)$, the definite integral from
 $x=a$ to $x=b$ is the area under the curve between those two
-points. As discussed in Chapter 2, the integral can be expressed as a
+points. As discussed in Chapter 3, the integral can be expressed as a
 limit expression: we divide the interval into $N$ segments of width
 $\Delta x$, and find the sum of $\Delta x\, f(x_n)$ in the $N
 \rightarrow \infty$ limit:
@@ -145,7 +149,7 @@ integral over $t$:
   \int_\Gamma dz\; f(z) = \int_{t_1}^{t_2} \; dt\; \frac{dz}{dt}\, f\big(z(t)\big).
 \end{align}
 This can then be calculated using standard integration techniques such
-as those discussed in Chapter 2. A simple example is given in the next
+as those discussed in Chapter 3. A simple example is given in the next
 section.
 
 \subsubsection{A contour integral over a circular arc}
@@ -202,7 +206,7 @@ indicate that the contour integral is taken over a loop.)  This is a
 very important result that we will make ample use of later.
 
 By the way, what if $n$ is not an integer? In that case, the integrand
-$z^n$ is multi-valued (as we saw in Chapter 7). This is problematic,
+$z^n$ is multi-valued (as we saw in Chapter 8). This is problematic,
 since the definition of a contour integral assumes the integrand is a
 well-defined function. To get around this, we can specify a branch cut
 and perform the contour integral with any of the branch functions of
@@ -733,7 +737,7 @@ this procedure of ``chopping away'' an infinitesimal segment
 surrounding the pole.  This is called \textbf{taking the principal
   value} of the integral.  (Note: even though this bears the same name
 as the previously-discussed ``principal values'' for multi-valued
-complex operations from Chapter 7, the two concepts are unrelated.)
+complex operations from Chapter 8, the two concepts are unrelated.)
 
 Now consider the loop contour shown in the figure below.  The loop
 follows the principal-value contour along the real axis, skips over

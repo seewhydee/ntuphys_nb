@@ -16,7 +16,8 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{2}
+\renewcommand{\theequation}{4.\arabic{equation}}
+\setcounter{section}{4}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -30,7 +31,9 @@
 \begin{document}
 \setcounter{page}{21}
 
-\section{Complex Numbers}
+\noindent
+{\Large \textbf{4. Complex Numbers}}
+\vskip 0.2in
 \label{complex-numbers}
 
 The \textbf{imaginary unit}, denoted $i$, is defined as a solution to
@@ -85,7 +88,7 @@ caveat: for now, we'll only consider \textit{integer} powers like
 $z^2$ or $z^{-1} = 1/z$.  Non-integer powers, such as $z^{1/3}$,
 introduce vexatious complications which are best avoided for now
 (we'll figure out how to deal with them when studying branch points
-and branch cuts in Chapter 7).
+and branch cuts in Chapter 8).
 
 Another useful fact: real coefficients (and \textit{only} real
 coefficients) can be freely moved into or out of $\textrm{Re}(\cdots)$
@@ -99,7 +102,7 @@ derivatives of the real and imaginary parts:
 \begin{align}
   \frac{dz}{dt} = \left(\frac{d}{dt} \mathrm{Re}\left[z(t)\right] \right) + i \left(\frac{d}{dt} \mathrm{Im}\left[z(t)\right]\right).
 \end{align}
-This can be proven using the definition of the derivative (Chapter 1):
+This can be proven using the definition of the derivative (Chapter 2):
 \begin{align}
   \mathrm{Re}\left[\frac{dz}{dt}\right] &= \;\; \mathrm{Re}\left[\lim_{\delta t \rightarrow 0} \frac{z(t+\delta t) - z(t)}{\delta t}\right] \\
     &= \lim_{\delta t \rightarrow 0} \left[\frac{\mathrm{Re}[z(t+\delta t)] - \mathrm{Re}[z(t)]}{\delta t}\right] \\
@@ -174,7 +177,7 @@ Euler's formula is an extremely important result which states that
   \label{eq:euler}
 \end{align}
 To prove this, recall the definition of the exponential from Chapter
-0.  For real $x$,
+1.  For real $x$,
 \begin{align}
   \exp(x) \equiv 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \frac{x^5}{5!} + \frac{x^6}{6!} + \cdots
 \end{align}
@@ -549,7 +552,7 @@ complex version of calculus. The concepts of derivatives and
 integrals, which are defined using algebraic limit expressions, can be
 more-or-less directly applied to complex functions, leading to the
 subject of \textbf{complex analysis}.  We shall see later, in Chapter
-6, that complex analysis has important implications for \textit{real}
+7, that complex analysis has important implications for \textit{real}
 calculus; for instance, many real integrals can be easily solved by
 first generalizing them into complex integrals.  By contrast, since
 quaternions and octonions are not commutative, the very concept of a

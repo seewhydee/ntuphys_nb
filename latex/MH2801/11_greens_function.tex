@@ -17,7 +17,8 @@
 \definecolor{linkcol}{rgb}{0.0, 0.0, 0.7}
 \usepackage[colorlinks=true,urlcolor=linkcol,citecolor=black,linkcolor=linkcol]{hyperref}
 
-\setcounter{section}{9}
+\renewcommand{\theequation}{11.\arabic{equation}}
+\setcounter{section}{11}
 \renewcommand\thesection{\arabic{section}}
 \renewcommand\thesubsection{\thesection.\arabic{subsection}}
 
@@ -32,7 +33,10 @@
 
 \setcounter{page}{88}
 
-\section{Green's Functions}
+\noindent
+{\Large \textbf{11. Green's Functions}}
+\vskip 0.2in
+
 \label{greens-functions}
 
 A \textbf{Green's function} is a solution to an inhomogenous
@@ -56,7 +60,7 @@ equation of motion is
 Here, $m$ is the mass of the particle, $\gamma$ is the damping
 coefficient, and $\omega_0$ is the natural frequency of the
 oscillator. The left side of the qquation is the same as in the damped
-harmonic oscillator equation (see Chapter 4). On the right side, we
+harmonic oscillator equation (see Chapter 5). On the right side, we
 introduce a time-dependent driving force $f(t)$, which acts alongside
 the pre-existing spring and damping forces. Given an arbitrarily
 complicated $f(t)$, our goal is to determine $x(t)$.
@@ -115,7 +119,7 @@ produced by the individual pulses.
 \label{finding-the-greens-function}
 
 To find the Green's function, we can use the Fourier transform
-(Chapter 9).  Let us assume that the Fourier transform of $G(t,t')$
+(Chapter 10).  Let us assume that the Fourier transform of $G(t,t')$
 with respect to $t$ is convergent, and that the oscillator is not
 critically damped (i.e., $\omega_0 \ne \gamma$; see Section
 4.3.3). The Fourier transformation of the Green's function (also
@@ -274,7 +278,7 @@ simplicity, we restrict the following discussion to waves propagating
 through a uniform medium. Also, we will just consider 1D space; the
 generalization to higher spatial dimensions is straightforward.
 
-As discussed in Chapter 5, wave propagation can be modelled by the
+As discussed in Chapter 6, wave propagation can be modelled by the
 wave equation
 \begin{align}
   \left[\frac{\partial^2}{\partial x^2} - \frac{1}{c^2} \frac{\partial^2}{\partial t^2} \right] \psi(x,t) = 0,
