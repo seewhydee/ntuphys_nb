@@ -292,6 +292,107 @@ along its direction of propagation, which corresponds to
 amplification, or decrease exponentially along its direction of
 propagation, which corresponds to damping.
 
+\subsubsection{Wave refraction (optional topic)}
+
+The time-independent wave equation can be used to describe the
+\textbf{refraction} of waves passing between media of different
+refractive indices.  As shown in the figure, let us suppose that space
+is filled with two different media, with refractive index $n_1$ for $y
+> 0$, and refractive index $n_2$ for $y < 0$.  Assume for simplicity
+that both $n_1$ and $n_2$ are positive real numbers.  We will consider
+waves propagating in the $x$-$y$ plane, ignoring the $z$ direction.
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{refraction}
+\end{figure}
+
+We look for a solution $\psi(x,y)$ with $x$-dependence of the form
+\begin{equation}
+  \psi(x,y) = e^{ikx} \, \Phi(y),
+  \label{psisep}
+\end{equation}
+for some wavenumber $k$ and function $\Phi(y)$, which are to be
+determined.  (Why do we look for such a solution?  Because the system
+is translationally symmetric along $x$, so it ought to support
+solutions with a simple wave-like dependence along $x$.  This is an
+instance of the physics principle known as Noether's Theorem.)
+
+Substituting Eq.~\eqref{psisep} into the time-independent wave
+equation reduces it to
+\begin{equation}
+  \left[\frac{d^2}{dy^2} - k^2 + \frac{n(y)^2 \omega^2}{c^2} \right]
+  \Phi(y) = 0.
+  \label{wave1dode}
+\end{equation}
+In the upper medium ($y > 0$), we have $n = n_1$, so there are
+solutions $\exp(\pm i\kappa_1 y)$, where
+\begin{equation}
+  k^2 + \kappa_1^2 = \frac{n_1^2 \omega^2}{c^2}.
+  \label{kk}
+\end{equation}
+We will suppose that $k \le n_1 \omega / c$, so $\kappa_1$ is real.
+Take a superposition of the two solutions,
+\begin{equation}
+  \Phi(y) = e^{-i\kappa_1 y} + r e^{i\kappa_1 y}, \;\;\; \mathrm{where}\;\;
+  r \in \mathbb{C}.
+\end{equation}
+Putting the $x$-dependence back in yields the wavefunction
+\begin{equation}
+  \psi(x,y) = e^{i\vec{k}_{\mathrm{in}}\cdot r}
+  + r e^{i\vec{k}_{\textrm{refl}}\cdot r}, \quad(\textrm{for} \; y > 0),
+\end{equation}
+where
+\begin{equation}
+  \vec{k}_{\textrm{in}} = \begin{bmatrix}k \\ -\kappa_1 \end{bmatrix}, \;\;\;
+  \vec{k}_{\textrm{refl}} = \begin{bmatrix}k \\ \kappa_1 \end{bmatrix}.
+\end{equation}
+This is a superposition of an \textbf{incident wave} of wave-vector
+$\vec{k}_{\textrm{in}}$ and a \textbf{reflected wave} of wave-vector
+$\vec{k}_{\textrm{refl}}$.  The complex number $r$, called the
+\textbf{reflection coefficient}, describes the reflected wave's
+amplitude and phase relative to the incident wave.  The incident and
+reflected waves' wave-vectors have the same $x$-component ($k$) and
+opposite $y$-components ($\pm \kappa_1$), consistent with the
+\textbf{law of reflection}, which says that the angle of incidence
+equals the angle of reflection.  Referring to Eq.~\eqref{kk}, the
+angle of incidence $\theta_1$ is defined by
+\begin{equation}
+  \sin(\theta_1) = \frac{k}{\sqrt{k^2+\kappa_1^2}} = \frac{ck}{n_1\omega}.
+  \label{sintheta1}
+\end{equation}
+
+Apart from being reflected, part of the incident wave may get
+transmitted into the lower medium ($y < 0$).  Returning to
+Eq.~\eqref{wave1dode}, we let $\Phi(y) = t \exp(-i\kappa_2y)$, so that
+the transmitted wavefunction has the form
+\begin{equation}
+  \psi(x,y) = t e^{i\vec{k}_{\mathrm{trans}}\cdot \vec{r}}, \quad(\textrm{for} \; y > 0),
+  \label{psilower}
+\end{equation}
+where
+\begin{equation}
+  \vec{k}_{\mathrm{trans}} =
+  \begin{bmatrix}k \\ -\kappa_2 \end{bmatrix}, \quad
+  k^2 + \kappa_2^2 = \frac{n_2^2\omega^2}{c^2}.
+\end{equation}
+The complex constant $t$ is called the \textbf{transmission
+  coefficient}.  Note that we do not include any wave traveling in the
+$+y$ direction in Eq.~\eqref{psilower}, because we are interested in
+the physical situation where the incident wave originates in the upper
+medium.  If $k \le n_2 \omega / c$, so that $\kappa_2$ is real, we can
+define the angle of transmission $\theta_2$ by
+\begin{equation}
+  \sin(\theta_2) = \frac{k}{\sqrt{k^2 + \kappa_2^2}} =
+  \frac{ck}{n_2\omega}.
+  \label{sintheta2}
+\end{equation}
+Combining Eq.~\eqref{sintheta1} and \eqref{sintheta2}, we find that
+\begin{equation}
+  \frac{\sin(\theta_1)}{\sin(\theta_2)} = \frac{n_2}{n_1}.
+\end{equation}
+We have thus derived \textbf{Snell's law}, also known as the
+\textbf{law of refraction}.
+
 \subsection{Exercises}
 \label{exercises}
 

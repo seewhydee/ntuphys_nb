@@ -627,6 +627,7 @@ Plugging the Fourier transform into the inverse Fourier transform,
 Let us denote the term in brackets in the last line as
 \begin{align}
   \delta(x-x') = \int_{-\infty}^\infty \frac{dk}{2\pi} \, e^{ik(x-x')}.
+  \label{deltaxxp}
 \end{align}
 This is called the \textbf{delta function}. The delta function acts as
 a kind of filter. When we multiply it by any function $f(x')$ and
@@ -635,10 +636,10 @@ particular point $x$:
 \begin{align}
   \int_{-\infty}^\infty dx'\; \delta(x-x')\, f(x') = f(x).
 \end{align}
-But here's a problem: the integral that we used to define the delta
-function is non-convergent. In particular, the integrand does not
-vanish at $\pm \infty$.  We can get around this by defining the delta
-function as a limiting case of a convergent integral:
+But here's a problem: in Eq.~\eqref{deltaxxp}, the integrand does not
+vanish at $\pm \infty$, so the integral is non-convergent!  We can get
+around this by defining the delta function as a limiting case of a
+convergent integral:
 \begin{align}
   \delta(x-x') \equiv \lim_{\gamma \rightarrow 0} \, \int_{-\infty}^\infty \frac{dk}{2\pi} \, e^{ik(x-x')} \, e^{-\gamma k^2}.
 \end{align}
