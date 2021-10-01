@@ -819,6 +819,39 @@ the one-dimensional delta function. For any $f(x_1,\dots,x_d)$,
   \end{enumerate}
   Hence, explain why $I = \sqrt{\pi/\gamma}.$
 
+\item A \textbf{dispersive wave medium} is one in which the frequency
+  of a plane wave is not proportional to its wave-vector.  For 1D
+  space, consider a wavefunction $f(x,t)$, which at time $t = 0$ has
+  the form
+  \begin{equation}
+    f(x, 0) = \int_{-\infty}^\infty dk \; e^{-\alpha(k-k_0)^2} \, e^{ikx},
+    \label{fx0}
+  \end{equation}
+  for some $\alpha \in \mathbb{R}^+$ and $k_0 \in \mathbb{R}$.  Based
+  on the discussion in Section~\ref{gaussian-wave-packets}, $f(x,0)$
+  can be shown to be a Gaussian wave-packet.  But we can also intepret
+  the integral in Eq.~\eqref{fx0} as a superposition of plane waves
+  $\exp(ikx)$, for various $k$.  Away from $t = 0$, each plane wave
+  naturally generalizes to $\exp[i(kx - \omega t)]$, so
+  \begin{equation}
+    f(x, t) = \int_{-\infty}^\infty dk \; e^{-\alpha(k-k_0)^2} \, e^{i[kx-\omega t]}. \label{fxt_wavepacket}
+  \end{equation}
+  Now suppose $\omega$ is some arbitrarily complicated function of
+  $k$.  For $k \approx k_0$, take the Taylor expansion
+  \begin{equation}
+    \omega \approx \omega_0 + v_g (k-k_0) + \cdots,
+    \;\;\; \mathrm{where}\;\;
+    v_g \equiv \left[\frac{d\omega}{dk}\right]_{k=k_0}.
+    \label{dispersion}
+  \end{equation}
+  By solving the integral \eqref{fxt_wavepacket}, prove that $f(x, t)$
+  has the form of a Gaussian wave-packet whose center moves with
+  velocity $v_g$ (called the \textbf{group velocity}).
+
+  Next, show that if the Taylor expansion in Eq.~\eqref{dispersion}
+  has a non-vanishing second-order term, then the wave-packet spreads
+  (or ``disperses'') with increasing $t$.
+  
 \end{enumerate}
     
 
