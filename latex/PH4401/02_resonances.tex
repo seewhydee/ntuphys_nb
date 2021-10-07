@@ -5,6 +5,7 @@
 \usepackage{color}
 \usepackage{mathrsfs}
 \usepackage{enumerate}
+\usepackage{epigraph}
 \usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
@@ -29,6 +30,12 @@
 \begin{document}
 \setcounter{page}{20}
 
+\setlength{\epigraphwidth}{0.7\textwidth}
+
+\epigraph{
+\textit{Sagredo}---Even as a boy, I observed that one man alone by giving these impulses at the right instant was able to ring a bell so large that when four, or even six, men seized the rope and tried to stop it they were lifted from the ground, all of them together being unable to counterbalance the momentum which a single man, by properly-timed pulls, had given it. \\ \vskip0.1in
+\textit{Salviati}---Your illustration makes my meaning clear and is quite as well fitted... to explain the wonderful phenomenon of the strings of the cittern or of the spinet, namely, the fact that a vibrating string will set another string in motion and cause it to sound... A string which has been struck begins to vibrate and continues the motion as long as one hears the sound; these vibrations cause the immediately surrounding air to vibrate and quiver; then these ripples in the air expand far into space and strike not only all the strings of the same instrument but even those of neighboring instruments.}{Galileo Galilei, \textit{Two New Sciences}}
+
 \begin{center}
 {\Large \textbf{Chapter 2: Resonances}}
 \end{center}
@@ -51,11 +58,11 @@ where $\hat{x}$ and $\hat{p}$ are 1D position and momentum operators,
 $m$ is the particle mass, $U$ and $a$ are positive real parameters
 governing the potential function, and $\Theta$ denotes the Heaviside
 step function (i.e., 1 if the input is positive, and 0 otherwise).  As
-shown below, the potential forms a well of depth $U$ and width $2a$,
-and vanishes elsewhere.
+shown in the figure below, the potential forms a well of depth $U$ and
+width $2a$, and vanishes elsewhere.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.55\textwidth]{squarewell}
+  \centering\includegraphics[width=0.57\textwidth]{squarewell}
 \end{figure}
 
 For such a Hamiltonian, the time-independent Schr\"odinger wave
@@ -175,8 +182,6 @@ phenomenon, refer to \hyperref[ex:boundstate3d]{Exercise 2}.
   \centering\includegraphics[width=0.71\textwidth]{boundstate3d}
 \end{figure}
 
-\clearpage
-
 \section{Quasi-bound states and resonances}
 \label{sec:resonances}
 
@@ -261,6 +266,7 @@ each transmittance peak, $|\psi(x)|^2$ is very large in the potential
 region, and its shape is very similar to a bound state of
 $V_{\mathrm{alt}}$.
 
+\clearpage
 \begin{figure}[h]
   \centering\includegraphics[width=0.85\textwidth]{resonancewavefunctions}
 \end{figure}
