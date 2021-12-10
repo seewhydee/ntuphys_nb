@@ -27,33 +27,113 @@
 \begin{document}
 
 \begin{center}
-{\large \textbf{Appendix A: Partial Wave Analysis}}
+{\large \textbf{Appendix A: Circular and Spherical Waves}}
 \end{center}
 
-This Appendix describes the method of \textbf{partial wave analysis},
-which can be used to solve 3D scattering problems with
-\textit{spherically symmetric} scattering potentials.  Such a
-potential, $V(r)$, depends only on the radial distance $r = \sqrt{x^2
-  + y^2 + z^2}$ and not on direction.  This typically describes a
-situation where a point particle or spherically-symmetric object sits
-at the coordinate origin, $\mathbf{r} = 0$, and is bombarded by
-incident particles.
+This Appendix describes the mathematics of circular waves and
+spherical waves, and how their relevance for scattering problems in 2D
+and 3D respectively.
 
-\section{Spherical waves}
+\section{The Helmholtz equation}
+
+Consider a non-relativistic particle in the absence of a potential ($V
+= 0$).  This describes, for example, the ``exterior region'' of a
+scattering problem, as discussed in Chapter 1.  The time-independent
+Schr\"odinger equation is
+\begin{equation}
+  -\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),
+  \label{tise}
+\end{equation}
+where $\mathbf{r}$ runs over some $d$-dimensional domain; for example,
+in a 3D scattering problem, these are three-component coordinate
+vectors for points outside the scatterer.  In this Appendix, we will
+focus on the cases of $d = 2$ and $d = 3$.  (Note, by the way, that if
+the potential $V$ is nonzero but spatially uniform, we can just
+replace all instances of $E$ with $E - V$.)
+
+It is convenient to rewrite Eq.~\eqref{tise} as
+\begin{equation}
+  \Big(\nabla^2 + k^2\Big) \psi(\mathbf{r}) = 0,
+  \label{helmholtz}
+\end{equation}
+where
+\begin{equation}
+  k = \sqrt{\frac{2mE}{\hbar^2}}.
+\end{equation}
+The partial differential equation \eqref{helmholtz} is called the
+\textbf{Helmholtz equation}.  We are interested in finding its
+solutions for 2D and 3D, and for different choices of boundary
+conditions.
+
+One class of elementary solutions is, of course, the plane waves:
+\begin{equation}
+  \psi(\mathbf{r}) = \psi_0 \, \exp\left(i\mathbf{k}\cdot\mathbf{r}\right),
+\end{equation}
+where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is any $d$-component
+vector satisfying $|\mathbf{k}| = k$ (where $k$ is the scalar
+parameter appearing in the Helmholtz equation).
+
+For scattering problems, we are interested in a different class of
+solutions related to waves that travel outward (or inward) from a
+single point.  Such solutions can be obtained by going to polar
+coordinates $(r, \phi)$ for 2D, and spherical coordinates
+$(r,\theta,\phi)$ for 3D.
+
+\section{Circular Waves in 2D}
+
+In 2D polar coordinates $(r, \phi)$, the wavefunction has the form
+\begin{equation}
+  \psi(\mathbf{r}) = \psi(r,\phi).
+\end{equation}
+Since $\phi$ is an angular variable---i.e., $\psi(r,\phi + 2\pi) =
+\psi(r, \phi)$---we can simplify the $\phi$-dependence by focusing on
+solutions with the harmonic form
+\begin{equation}
+  \psi(r,\phi) = A_m(r)\, e^{im\phi}, \;\;\;m \in\mathbb{Z}.
+  \label{psi_circular}
+\end{equation}
+If we can obtain these, then more general solutions can be constructed
+by taking superpositions of different $m$.
+
+We now plug Eq.~\eqref{psi_circular} into the 2D Helmholtz equation,
+and make use of the polar form 2D Laplacian:
+\begin{equation}
+  \nabla^2 = \frac{\partial^2}{\partial r^2} + \frac{1}{r} \,
+  \frac{\partial}{\partial r} +
+  \frac{1}{r^2}\frac{\partial^2}{\partial\phi^2}.
+\end{equation}
+We find that $A_m(r)$ obeys
+\begin{equation}
+  \left[r^2 \frac{\partial^2}{\partial r^2} + r \frac{\partial}{\partial r}
+    + k^2 r^2 - m^2 \right] A_m(r) = 0.
+\end{equation}
+This is Bessel's equation, which supports the following solutions:
+\begin{equation}
+  A_m(r) \propto \begin{cases}
+    J_m(kr) &\text{(Bessel function of the first kind)} \\
+    Y_m(kr) &\text{(Bessel function of the second kind)} \\
+    H_m^+(kr) \equiv J_m(kr) + i Y_m(kr) &\text{(Hankel function of the first kind)} \\
+    H_m^-(kr) \equiv J_m(kr) - i Y_m(kr) &\text{(Hankel function of the second kind)}.
+  \end{cases}
+\end{equation}
+The real functions $\{J_m, Y_m, H_m^\pm\}$ differ in how they behave
+(i) for $r\rightarrow 0$, and (ii) for $r \rightarrow \infty$.  For $r
+\rightarrow 0$, $J_m$ is finite but the others are divergent.  For $r
+\rightarrow \infty$,
+
+
+
+
+
+\section{Spherical Waves in 3D}
 \label{sec:spherical}
 
-We begin by considering ``exterior'' solutions to the Schr\"odinger
-wave equation.  Far from the scatterer, where $V(r) \rightarrow 0$,
-the Schr\"odinger wave equation can be rearranged into
-\begin{equation}
-  \Big(\nabla^2 + k^2\Big) \psi(\mathbf{r}) =
-  0,\;\;\;\mathrm{where}\;\;k = \sqrt{2mE/\hbar^2}.  
-\end{equation}
-This partial differential equation is called the \textbf{Helmholtz
-  equation}.  We emphasize that $E$ plays the role of a tunable
-parameter, and is not an eigenvalue in an eigenproblem.  For the
-moment, we will not specify the boundary conditions, and look instead
-for a general set of solutions for a given $E$ (and hence $k$).
+
+
+For
+the moment, we will not specify the boundary conditions, and look
+instead for a general set of solutions for a given $E$ (and hence
+$k$).
 
 In spherical coordinates $(r,\theta,\phi)$, the Helmholtz equation has
 the explicit form
@@ -243,7 +323,7 @@ The scattering amplitude then simplifies to
 
 Our task is now to obtain the $s_{\ell m}$'s.  The procedure is very
 similar to what we already went through in
-Section~\ref{sec:spherical}.  The total wavefunction satisfies the
+\textcolor{red}{Section~\ref{sec:spherical}}.  The total wavefunction satisfies the
 Schr\"odinger wave equation, which can be written in spherical
 coordinates as
 \begin{equation}
