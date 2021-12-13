@@ -27,6 +27,9 @@
 \renewcommand{\baselinestretch}{1.0}
 \setlength{\parskip}{0.07in}
 
+\def\thesection{2.\arabic{section}}
+\def\thesubsection{2.\arabic{section}.\arabic{subsection}}
+
 \begin{document}
 \setcounter{page}{20}
 
@@ -202,8 +205,8 @@ the fact that $V(x)$ does not support true bound states!  We call such
 an approximate solution a quasi-bound state.
 
 We can also analyze the situation using the scattering framework from
-the previous chapter.  Consider an incident particle of energy $E > 0$
-whose wavefunction is
+Chapter 1.  Consider an incident particle of energy $E > 0$ whose
+wavefunction is
 \begin{equation}
   \psi_i(x) = \Psi_i \, e^{ik_i x}.
 \end{equation}
@@ -271,10 +274,10 @@ underlying system.
 \section{Green's function analysis of scattering resonances}
 \label{sec:green_resonances}
 
-Quasi-bound states and resonances are not limited to 1D, but are also
-important in 2D and 3D.  A convenient way to analyze them, in a
-general context, is to use the quantum Green's function formalism from
-the previous chapter.
+The quantum Green's function formalism, developed in Chapter 1,
+provides a powerful and general way to understand quasi-bound states
+and resonances.  Notably, this framework applies not only to 1D
+models, but works for higher dimensions as well.
 
 Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
 supporting resonances, where $\hat{T}$ is the kinetic energy operator
@@ -282,16 +285,20 @@ and $\hat{V}$ is the potential operator.  We decompose the potential
 into
 \begin{equation}
   \hat{V} = \hat{V}_0 + \hat{V}_1,
+  \label{Vdecomp}
 \end{equation}
 where $\hat{V}_0$ is a ``confining potential'' that supports a bound
 state, and $\hat{V}_1$ is a ``deconfining potential'' that turns the
-bound state into a quasi-bound state.  For example, the figure below
-shows the potential functions for the 1D model discussed in the
-previous section:
+bound state into a quasi-bound state.  For example, the potential
+functions for the 1D model of the previous section are shown below:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.99\textwidth]{resonancewell_decomp}
+  \centering\includegraphics[width=0.95\textwidth]{resonancewell_decomp}
 \end{figure}
+
+\noindent
+(Note that this 1D case is just an illustration; Eq.~\eqref{Vdecomp}
+applies to higher dimensions too.)
 
 When the potential is just $\hat{V}_0$, let there be a bound state
 $|\varphi\rangle$ with energy $E_0$.  Furthermore, let us assume that
@@ -310,31 +317,34 @@ along with the orthogonality and completeness relations
 Here, $\sum_k$ represents a sum over all free states.  Since the free
 states form a continuum, this sum will have to be expressed as an
 integral by re-normalizing the free states (e.g., delta
-normalization), as discussed in Section II of the previous chapter.
-For the moment, however, we will leave it as a discrete sum, with the
-free states normalized to unity.
+normalization), as discussed in Section 1.2.  For the moment, however,
+we will leave it as a discrete sum, with the free states normalized to
+unity.
 
-As described in Section~VII of the previous chapter, the causal
-Green's function is
-\begin{equation}
-  \hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.
-\end{equation}
-
-Now introduce the deconfining potential $\hat{V}_1$.  According to
-Dyson's equations (from Section~VI of the previous chapter), the
+We can now treat $\hat{V}$ as a scattering potential, and compute the
+Green's function.  According to Dyson's equations (Section~1.6), the
 Green's function for the full system is
 \begin{equation}
-  \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0.
+  \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0,
+  \label{Gdyson}
 \end{equation}
-Note that this is exact, not an approximation.  From $\hat{G}(E)$, the
-scattering amplitudes can be determined.  We will calculate the matrix
-elements of $\hat{G}(E)$ by using $|\varphi\rangle$ and
-$\{|\psi_k\rangle\}$ as a convenient basis (note, however, that this
-is \textit{not} the energy eigenbasis of $\hat{H}$).
+where the causal Green's function (Section 1.7) is
+\begin{equation}
+  \hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+}
+  \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.
+\end{equation}
+Note that Eq.~\eqref{Gdyson} is exact, not an approximation.  If we
+are able to obtain $\hat{G}(E)$, we will be able to determine the
+scattering amplitudes.
 
-As usual when dealing with Dyson's equations, we must note that
-$\hat{G}$ appears on both the left and right hand sides.  Let us
-judiciously insert a resolution of the identity, as follows:
+Let us find the matrix elements of $\hat{G}(E)$ by using
+$|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a convenient basis.
+Note, however, that this is \textit{not} the energy eigenbasis of
+$\hat{H}$.
+
+As usual when dealing with Dyson's equations, we must beware of the
+fact that $\hat{G}$ appears on both the left- and right-hand sides.
+We judiciously insert a resolution of the identity as follows:
 \begin{align}
   \begin{aligned}
     \hat{G} \;=\; \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0
@@ -342,8 +352,8 @@ judiciously insert a resolution of the identity, as follows:
     + \sum_k\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0.
   \end{aligned}
 \end{align}
-We now compute the matrix element
-$\langle\varphi|\cdots|\varphi\rangle$ for both sides of the equation:
+We then compute the matrix element
+$\langle\varphi|\cdots|\varphi\rangle$ for both sides:
 \begin{align}
     \langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
     \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\
@@ -352,18 +362,20 @@ $\langle\varphi|\cdots|\varphi\rangle$ for both sides of the equation:
     \lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1. \label{psiGphi}
 \end{align}
 Similarly, computing the matrix element
-$\langle\varphi|\cdots|\psi_k\rangle$ gives:
+$\langle\varphi|\cdots|\psi_k\rangle$ gives
 \begin{align*}
   \begin{aligned}
 \langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
 &= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1|\psi_k\rangle\right).\end{aligned}
 \end{align*}
+
 So far, the equations have been exact, but now we apply an
 approximation: in the last line of the above equation, let the factor
 of $\langle\varphi|G|\varphi\rangle$ be large, so that the first term
 in the sum becomes dominant.  It will be shown below that
 $\langle\varphi|G|\varphi\rangle$ being large is precisely the
 resonance condition, so this approximation will be self-consistent.
+
 With this, we obtain
 \begin{equation}
   \langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.
@@ -373,7 +385,8 @@ Combining this with Eq.~\eqref{psiGphi} gives
 \begin{equation*}
   \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \sum_k\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
 \end{equation*}
-Hence,
+
+Hence, we arrive at the result
 \begin{framed}
   \begin{align}
     \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle
@@ -385,31 +398,81 @@ Hence,
     \label{sigma}
   \end{align}
 \end{framed}
-\vskip -0.12in
-The complex quantity $\Sigma(E)$ defined in Eq.~\eqref{sigma} is
-called the \textbf{self-energy}.  We will show later that
-$\mathrm{Im}[\Sigma] < 0$, and discuss its physical meaning.  Although
-$\Sigma$ is $E$-dependent, we assume for now that the dependence is
-weak, so that it can be treated like a constant.
 
-From Eq.~\eqref{phiGphi_result}, we see that
+\section{The self energy}
+\label{sec:self_energy}
+
+The enigmatic quantity $\Sigma(E)$ defined in Eq.~\eqref{sigma} is
+called the \textbf{self energy}.  If we put aside its dependence on
+$E$, treating it as a constant, Eq.~\eqref{phiGphi_result} looks a lot
+like the Green's function of a system with an energy eigenstate of
+energy $E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \Sigma$.  We
+can think of this as the energy of the quasi-bound state, but such an
+interpretation is complicated by the fact that $\Sigma$ is not real
+but complex, as we will see below.
+
+First, however, let us examine the real part of $\Sigma$.  According
+to Eq.~\eqref{phiGphi_result},
 $\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
-denominator is close to zero, which is consistent with the earlier
-approximation that led to Eq.~\eqref{phiGpsi}.  This
-``\textbf{resonance condition}'' is satisfied when
+denominator is close to zero---which, by the way, is consistent with
+the assumption made in obtaining Eq.~\eqref{phiGpsi}.  Since $E$ is
+real, this happens at the energy
 \begin{equation}
   E \;\approx\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big]  \,\equiv \, E_{\mathrm{res}}.
+  \label{Eres}
 \end{equation}
-The real quantity $E_{\mathrm{res}}$ is called the \textbf{resonance
-  energy}.  It is the sum of three terms: the energy of the original
-bound state (in the absence of $\hat{V}_1$), the energy shift induced
-by $\hat{V}_1$, and the real part of the self-energy $\Sigma$.  Based
-on Eq.~\eqref{sigma}, we can interpret this last term as being induced
-by the presence of the free states $\{|\psi_k\rangle\}$.
+This resonance energy consists of the energy of the original bound
+state, plus two energy shifts: one coming directly from the
+deconfining potential $\hat{V}_1$ (as expected), and the other being
+$\mathrm{Re}[\Sigma]$.  According to Eq.~\eqref{sigma}, the latter
+energy shift arises from the interplay between $|\varphi\rangle$ and
+the free states $\{|\psi_k\rangle\}$.  We can thus interpret this part
+of the quasi-bound state's energy as arising from the disturbance of
+the free state continuum by the quasi-bound state itself---hence the
+term ``self energy''.
 
-In Section VIII of the previous chapter, we derived the following
-relationship between the Green's function and the scattering amplitude
-$f$:
+Next, we look at $\mathrm{Im}[\Sigma]$, which will turn out to be
+nonzero.  What does it mean for an energy to have an imaginary part?
+If an energy eigenstate has energy $\Sigma$, its time dependence goes
+as $\exp(-i\Sigma t/\hbar)$.  Writing $\Sigma = \mathrm{Re}[\Sigma] +
+i \mathrm{Im}[\Sigma]$, the exponential factor decomposes into
+\begin{equation*}
+  \exp(-i\mathrm{Re}[\Sigma] t/\hbar) \,\exp(\mathrm{Im}[\Sigma] t/\hbar).
+\end{equation*}
+Hence, the imaginary part of the energy corresponds to a rate of
+amplification ($\mathrm{Im}[\Sigma] > 0$) or decay
+($\mathrm{Im}[\Sigma] < 0$).
+
+With this in mind, let us take the imaginary part of
+Eq.~\eqref{sigma}:
+\begin{align}
+  \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
+\end{align}
+The quantity in the square brackets is a Lorentzian function of
+width $\varepsilon$.  The area under the curve is $\pi$, independent
+of $\varepsilon$, so it has the limiting form
+\begin{equation}
+  \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
+\end{equation}
+We conclude that
+\begin{equation}
+  \mathrm{Im}\big[\Sigma(E)\big]
+  = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
+  \; \delta(E-E_k).
+  \label{fermigr1}
+\end{equation}
+Clearly, $\mathrm{Im}[\Sigma] < 0$, so this describes a decay rate.
+Every free state with energy equal to $E$ contributes to
+$\mathrm{Im}[\Sigma(E)]$, weighted by the overlap factor $|
+\langle\psi_k| \hat{V}_1|\varphi\rangle|^2$.  In
+Section~\ref{sec:goldenrule}, we will discuss this decay rate in more
+detail.
+
+\section{Scattering resonances}
+\label{sec:scattering_resonances}
+
+In Section 1.8, we derived the following relationship between the
+Green's function and the scattering amplitude $f$:
 \begin{equation}
   f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.
 \end{equation}
@@ -421,15 +484,18 @@ higher-order scattering processes.  By inserting resolutions of the
 identity between each $\hat{V}$ and $\hat{G}$ operator in the second
 term, we find that $f$ contains a contribution of the form
 \begin{equation}
-  \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]}.
+  \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]},
   \label{deltaf}
 \end{equation}
-At resonance, the denominator is small and hence $\Delta f$ is the
-dominant contribution to $f$.  It is worth emphasizing that $\Delta f$
-has contributions from \textit{all} terms in the Born series, not just
-low-order terms.  The particle bounces around inside the scatterer
-many times before it escapes, so high orders in the Born series
-contribute to the outcome.
+where $E_{\mathrm{res}}$ is defined in Eq.~\eqref{Eres}.  At
+resonance, the denominator is small and $\Delta f$ is the dominant
+contribution to $f$.
+
+It is worth noting that $\Delta f$ receives contributions from
+\textit{all} terms in the Born series, not just the low-order terms.
+The high-order terms describe the situations where the particle
+bounces around many times inside the scatterer, before finally
+escaping.
 
 The figure below shows the energy dependence of $\Delta f$, according
 to Eq.~\eqref{deltaf}:
@@ -439,16 +505,18 @@ to Eq.~\eqref{deltaf}:
 \end{center}
 
 \noindent
-The shape of the graph of $|\Delta f|^2$ versus $E$ is called a
-\textbf{Lorentzian}.  It forms a peak centered at $E_{\mathrm{res}}$.
-The width of the peak can be characterized by the \textbf{full-width
-  at half-maximum} (FWHM), the spacing between the two energies where
-$|\Delta f|^2$ has half its maximum value.  It can be shown that
+The shape of the graph of $|\Delta f|^2$ versus $E$ is a Lorentzian
+curve centered at $E_{\mathrm{res}}$.  The width of the peak can be
+characterized by the full-width at half-maximum (FWHM), the spacing
+between the two energies where $|\Delta f|^2$ has half its maximum
+value.  It can be shown that
 \begin{equation}
-  \delta E^{(\mathrm{FWHM})} = 2\, \Big|\mathrm{Im}[\Sigma]\Big|.
+  \delta E^{(\mathrm{FWHM})} = 2\, \big|\mathrm{Im}[\Sigma]\big|.
 \end{equation}
-Thus, the closer $\Sigma$ gets to being a real quantity, the sharper
-the peak.
+(Note that $\mathrm{Im}[\Sigma] < 0$, as shown in the previous
+section.)  Hence, the closer $\Sigma$ gets to being real (i.e., the
+smaller the decay rate of the quasi-bound state), the sharper the
+peak.
 
 The phase $\mathrm{arg}[\Delta f]$ also contains useful information.
 As $E$ crosses $E_{\mathrm{res}}$ from below, the phase increases by
@@ -472,7 +540,7 @@ evidence for the discovery of a new particle, the Higgs boson, in
 \label{sec:goldenrule}
 
 We have seen that the width of a resonance is determined by
-$\mathrm{Im}[\Sigma]$, the imaginary part of the self-energy.  In this
+$\mathrm{Im}[\Sigma]$, the imaginary part of the self energy.  In this
 section, we will show that $\mathrm{Im}[\Sigma]$ represents the decay
 rate of a quasi-bound state, and that it can often be approximated
 using a simple formula called \textbf{Fermi's Golden Rule}.
@@ -532,44 +600,12 @@ satisfied,
   \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\Sigma]},
 \end{equation}
 where $E_{\mathrm{res}}$ is the resonance energy and $\Sigma$ is the
-self-energy of the quasi-bound state.  We can now perform the
-inverse Fourier transform
-\begin{align}
-  \begin{aligned} \lim_{\varepsilon\rightarrow 0^+} f(t) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \; e^{-i\omega t} \, F(\omega) \\ &= \frac{i}{2\pi} \int_{-\infty}^{\infty} d\omega\; \frac{e^{-i\omega t}}{\omega - (E_{\mathrm{res}}+i \mathrm{Im}[\Sigma])/\hbar}\\ &= \exp\left(-\frac{iE_{\mathrm{res}}t}{\hbar}\right)\, \exp\left(-\frac{|\mathrm{Im}[\Sigma]|}{\hbar}\,t\right). \end{aligned}
-\end{align}
-In deriving the last line, we performed a contour integration assuming
-that $\mathrm{Im}[\Sigma] < 0$; this assumption will be proven
-shortly.  The final result is
-\begin{equation}
-  P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = \frac{2|\mathrm{Im}[\Sigma]|}{\hbar}.
-\end{equation}
+self energy of the quasi-bound state.
 
-Let us now take a closer look at the self-energy $\Sigma$, which was defined in
-Eq.~\eqref{sigma}:
-\begin{equation}
-  \Sigma(E) \equiv \lim_{\varepsilon\rightarrow0^+} \sum_k\, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon},
-\end{equation}
-where $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ are the bound and
-free states of the model in the absence of $\hat{V}_1$, and $E_k$ is
-the energy of the $k$-th free state.  We can calculate the imaginary
-part as follows:
-\begin{align}
-  \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
-\end{align}
-The quantity in the square brackets is a Lorentzian function, which is
-always positive.  Hence, $\mathrm{Im}(\Sigma) < 0$, as previously
-asserted.  The Lorentzian function has the limiting form
-\begin{equation}
-  \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
-\end{equation}
-This is because the Lorentzian gets sharper as $\varepsilon\rightarrow0^+$,
-but the area under it is $\pi$.  Hence,
-\begin{equation}
-  \mathrm{Im}\big[\Sigma(E)\big]
-  = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
-  \; \delta(E-E_k).
-  \label{fermigr1}
-\end{equation}
+
+
+
+
 Due to the delta function, non-vanishing contributions come only from
 values of $k$ such that $E = E_k$.  We can use this fact to further
 simplify the result.  Consider the first term in the sum in
@@ -588,6 +624,35 @@ of the sum:
   \; \left( \sum_k \; \delta(E-E_k) \right).
   \label{fermigr2}
 \end{equation}
+
+
+
+
+
+
+
+
+
+We can now perform the
+inverse Fourier transform
+\begin{align}
+  \begin{aligned} \lim_{\varepsilon\rightarrow 0^+} f(t) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \; e^{-i\omega t} \, F(\omega) \\ &= \frac{i}{2\pi} \int_{-\infty}^{\infty} d\omega\; \frac{e^{-i\omega t}}{\omega - (E_{\mathrm{res}}+i \mathrm{Im}[\Sigma])/\hbar}\\ &= \exp\left(-\frac{iE_{\mathrm{res}}t}{\hbar}\right)\, \exp\left(-\frac{|\mathrm{Im}[\Sigma]|}{\hbar}\,t\right). \end{aligned}
+\end{align}
+In deriving the last line, we performed a contour integration assuming
+that $\mathrm{Im}[\Sigma] < 0$; this assumption will be proven
+shortly.  The final result is
+\begin{equation}
+  P(t) = e^{-\kappa t}, \;\;\;\mathrm{where}\;\;\kappa = \frac{2|\mathrm{Im}[\Sigma]|}{\hbar}.
+\end{equation}
+
+
+
+
+
+
+
+
+
 Hence, the quasi-bound state's decay rate is
 \begin{framed}
   \begin{equation}
@@ -623,12 +688,12 @@ see an example in the next section).
 When using plane waves to approximate $\{|\psi_k\rangle\}$, the $k$
 labels are $d$-dimensional wave-vectors.  In this case, it is
 convenient to amend Eq.~\eqref{FGR} to treat $k$-space as a continuum,
-following the procedure discussed in Section II of the previous
-chapter: we introduce a $k$-space discretization $dk = 2\pi/L$, where
-$L$ is the system size in each direction; then, as $L\rightarrow
-\infty$, the discrete sum $\sum_k$ appearing in the definition
-$\rho(E)$ in Eq.~\eqref{FGR} can be turned into an integral.  In place
-of $\rho(E)$, we can define the \textbf{density of states}
+following the procedure discussed in Section 1.2: we introduce a
+$k$-space discretization $dk = 2\pi/L$, where $L$ is the system size
+in each direction; then, as $L\rightarrow \infty$, the discrete sum
+$\sum_k$ appearing in the definition $\rho(E)$ in Eq.~\eqref{FGR} can
+be turned into an integral.  In place of $\rho(E)$, we can define the
+\textbf{density of states}
 \begin{equation}
   \mathcal{D}(E) = \int \frac{d^d k}{(2\pi)^d} \; \delta(E - E_k),
 \end{equation}
@@ -639,8 +704,7 @@ After converting the sum to an integral, there is an inverse factor
 $\left[d^dk/(2\pi)^d\right]^{-1} = L^{d}$ left over, which has to be
 grouped with the $|W|^2$ term in Eq.~\eqref{FGR}.  At the same time,
 we have to re-normalize the free states in the definition of $|W|^2$.
-If we follow the delta normalization convention discussed in Section
-II of the previous chapter,
+If we follow the delta normalization convention from Section 1.2,
 \begin{equation}
   |\psi_k\rangle^{(\textrm{new})}
   = \left(\frac{L}{2\pi}\right)^{d/2} |\psi_{k}\rangle^{(\textrm{old})},
