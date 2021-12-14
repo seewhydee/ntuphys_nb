@@ -22,7 +22,7 @@
 \renewcommand{\thesection}{A\arabic{section}}
 
 \renewcommand{\baselinestretch}{1.0}
-\setlength{\parskip}{0.07in}
+\setlength{\parskip}{0.04in}
 
 \begin{document}
 
@@ -43,8 +43,8 @@ time-independent Schr\"odinger equation is
   -\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),
   \label{tise}
 \end{equation}
-where $\nabla^2$ denotes the $d$-dimensional Laplacian.  We will focus
-on the $d = 2$ and $d = 3$ cases.
+where $\nabla^2$ denotes the $d$-dimensional Laplacian.  We assume $E
+> 0$, and focus on the $d = 2$ and $d = 3$ cases.
 
 It is convenient to rewrite Eq.~\eqref{tise} as
 \begin{equation}
@@ -53,7 +53,7 @@ It is convenient to rewrite Eq.~\eqref{tise} as
 \end{equation}
 where
 \begin{equation}
-  k = \sqrt{\frac{2mE}{\hbar^2}}.
+  k = \sqrt{\frac{2mE}{\hbar^2}} \;\in\; \mathbb{R}^+.
 \end{equation}
 The partial differential equation \eqref{helmholtz} is called the
 \textbf{Helmholtz equation}.  We are interested in its solutions for
