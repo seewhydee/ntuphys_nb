@@ -26,6 +26,9 @@
 \renewcommand{\baselinestretch}{1.0}
 \setlength{\parskip}{0.07in}
 
+\def\thesection{1.\arabic{section}}
+\def\thesubsection{1.\arabic{section}.\arabic{subsection}}
+
 \begin{document}
 
 \begin{center}
@@ -38,22 +41,21 @@
 
 Quantum particles exhibit a feature known as \textbf{wave-particle
   duality}, which can be summarized in the \textbf{quantum double-slit
-  thought experiment}.  As shown in the figure below, a source emits
-electrons of energy $E$ toward a screen with a pair of slits, with a
-detector on the far side.  By moving the detector around, we can
-measure the rate at which electrons are detected at different
-positions.
+  thought experiment}.  As illustrated below, a source emits electrons
+of energy $E$ toward a screen with a pair of slits.  A movable
+detector is placed on the far side, to measure the arrival rates at
+different positions.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.6\textwidth]{doubleslit}
 \end{figure}
 
 The experiment reveals the following: (i) the electrons arrive in
-discrete units---one at a time, like classical particles; (ii) as we
-move the detector around, we find that the \textit{statistical}
-distribution of electron arrivals forms an interference pattern, like
-a diffracted wave.  In the non-relativistic limit, the inferred
-wavelength $\lambda$ is related to the electron energy $E$ by
+discrete units, like classical particles; (ii) the
+\textit{statistical} distribution of electron arrivals forms an
+interference pattern, like a diffracted wave.  In the non-relativistic
+limit, the inferred wavelength $\lambda$ is related to the electron
+energy $E$ by
 \begin{equation}
   \lambda = \frac{2\pi}{k}, \;\;\; E = \frac{\hbar^2k^2}{2m},
 \end{equation}
@@ -63,29 +65,27 @@ the slits by studying the diffraction pattern.)
 
 Wave-particle duality arises from quantum theory's distinction between
 a particle's state and the outcomes of measurements performed on it.
-The state can be described by a wavefunction $\psi(\mathbf{r})$, which
-may undergo diffraction like a classical wave.  Measurement outcomes,
-however, depend \textit{probabilistically} on the wavefunction.  In a
-position measurement, the probability of locating a particle in a
-volume $dV$ around position $\mathbf{r}$ is $|\psi(\mathbf{r})|^2
-\,dV$.
+The state is described by a wavefunction $\psi(\mathbf{r})$, which can
+undergo diffraction like a classical wave.  On the other hand, the
+probability of measuring a particle in a volume $dV$ around position
+$\mathbf{r}$ is given by $|\psi(\mathbf{r})|^2 \,dV$.
 
 In this chapter, we will study a generalization of the double-slit
 experiment called a \textbf{scattering experiment}.  The idea is to
-shoot quantum particles at a target object, called a
-\textbf{scatterer}, and measure the resulting distribution of
-scattered particles.  Just as the double-slit interference pattern can
-be used to deduce the slit spacing, a scattering experiment can be
-used to deduce various facts about the scatterer.  Scattering
-experiments constitute a large proportion of the methods used to probe
-the quantum world, from electron- and photon-based microscopy to the
-huge accelerators used in studying high-energy physics.
+shoot quantum particles at a target, called a \textbf{scatterer}, and
+measure the distribution of scattered particles.  Just as the
+double-slit interference pattern can be used to deduce the slit
+spacing, a scattering experiment can be used to deduce various facts
+about the scatterer.  Scattering experiments constitute a large
+proportion of the methods used to probe the quantum world, from
+electron- and photon-based microscopy to accelerator experiments in
+high-energy physics.
 
-We will focus on a simple non-relativistic scenario.  As depicted
-below, an unbounded $d$-dimensional space is describable by
-coordinates $\mathbf{r}$, with a finite-sized scatterer placed at or
-near $\mathbf{r} = 0$.  An incoming quantum particle, with energy $E$,
-is governed by the Hamiltonian
+We will focus on the non-relativistic scattering experiment depicted
+in the figure below.  An unbounded $d$-dimensional space is described
+by coordinates $\mathbf{r}$, with a scatterer near $\mathbf{r} = 0$.
+An incoming quantum particle, with energy $E$, is governed by the
+Hamiltonian
 \begin{equation}
   \hat{H} = \hat{H}_0 + V(\hat{\mathbf{r}}), \;\;\;
   \hat{H}_0 = \frac{\hat{\mathbf{p}}^2}{2m},
@@ -101,10 +101,9 @@ $|\mathbf{r}| \rightarrow \infty$.
   \centering\includegraphics[width=0.68\textwidth]{scattering}
 \end{figure}
 
-We want to see how this particle is scattered by the potential.
-However, converting this thought experiment into a well-posed
-mathematical problem is not as obvious as it might at first appear!
-We will give the formulation first, before discussing its meaning:
+We want to see how this particle is scattered by the potential.  But
+how can the above description be formulated as a well-posed problem?
+Let us give the formulation first, before discussing its meaning:
 \begin{enumerate}
 \item 
 The particle state $|\psi\rangle$ obeys the time-independent
@@ -133,11 +132,11 @@ eigenstate of $\hat{H}_0$ (with energy $E$) and $\hat{\mathbf{p}}$
 \end{equation}
 
 \item
-The scattered state is an ``outgoing'' state.  What this means
-mathematically is somewhat subtle, and will be explained later.
+The scattered state is an ``outgoing'' state.  What this means will be
+explained later.
 \end{enumerate}
-We can interpet the above four conditions as follows.  Condition 1
-says that the scattering process is elastic: since the scatterer is
+We can interpet the above conditions as follows.  Condition 1 says
+that the scattering process is elastic: since the scatterer is
 described by a potential $V(\mathbf{r})$, its interaction with the
 particle is conservative, so $E$ is fixed.  Condition 2 says that the
 particle's wavefunction $\psi(\mathbf{r}) = \langle \mathbf{r}
@@ -146,13 +145,11 @@ wave.  Condition 3 defines the incoming wave as a plane wave with
 wavelength determined by $E$.  Finally, condition 4 says that the wave
 moves outward to infinity after being scattered.
 
-Note that \textit{this is not an eigenproblem}!  Usually, when we
-invoke the time-independent Schr\"odinger equation, it is treated as
-an eigenproblem (i.e., we need to find the eigenvalues and
-eigenstates).  But in this case, $E$ is an input to the
-calculation---a parameter describing the energy assigned to the
-incoming quantum particle---not an output.  Given $|\psi_i\rangle$,
-$E$, and $V(\mathbf{r})$, we want to find $|\psi_s\rangle$.
+Note that \textit{this is not an eigenproblem}!  Usually, the
+time-independent Schr\"odinger equation is treated as an eigenproblem
+(i.e., we solve for eigenvalues and eigenstates).  Here, we are given
+$|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, and we want
+$|\psi_s\rangle$.  In particular, $E$ is an input, not an output.
 
 \section{Recap: position and momentum states}
 \label{sec:waves}
@@ -225,8 +222,11 @@ It is convenient to re-normalize the momentum eigenstates by taking
 \begin{equation}
   |\mathbf{k}\rangle^{(\textrm{new})} = \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle^{(\textrm{old})}.
 \end{equation}
-In the $L\rightarrow\infty$ limit, the re-normalized momentum
-eigenstates satisfy
+Then, by using the formula
+\begin{equation}
+  \int_{-\infty}^\infty dx\; \exp(ikx) \;=\; 2\pi\, \delta(k),
+\end{equation}
+we can show that the re-normalized momentum eigenstates satisfy:
 \begin{framed}
   \begin{align}
       |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \\
@@ -236,14 +236,10 @@ eigenstates satisfy
 \end{framed}
 \vskip -0.15in
 \noindent
-Now position and momentum are treated on a similar footing; the
-integrals over $\mathbf{r}$ and $\mathbf{k}$ are both taken over
-infinite continuous spaces, and the $|\mathbf{r}\rangle$ and
-$|\mathbf{k}\rangle$ eigenstates are both delta normalized.  Note: in
-deriving the above, it is helpful to use the formula
-\begin{equation}
-  \int_{-\infty}^\infty dx\; \exp(ikx) \;=\; 2\pi\, \delta(k).
-\end{equation}
+Position and momentum are now treated on a similar footing: both
+$|\mathbf{r}\rangle$ and $|\mathbf{k}\rangle$ are delta normalized,
+and the integrals over $\mathbf{r}$ and $\mathbf{k}$ are both taken
+over infinite continuous spaces.
 
 For an arbitrary quantum state $|\psi\rangle$, a wavefunction is
 defined as the projection onto the position basis: $\psi(\mathbf{r}) =
@@ -278,10 +274,10 @@ narrow gaussian functions centered at $x=0$.  For non-singular
 potentials, the validity of the Schr\"odinger wave equation relies on
 $\psi(x)$ being continuous with well-defined first and second
 derivatives.  In the delta function limit, however, these conditions
-are relaxed: $\psi(x)$ must still be continuous, but at $x=0$ its
-first derivative is allowed to become discontinuous and the second
-derivative can diverge.  To see this, integrate the Schr\"odinger wave
-equation over an infinitesimal range around $x = 0$:
+are relaxed: $\psi(x)$ remains continuous, but at $x=0$ its first
+derivative becomes discontinuous.  To see this, integrate the
+Schr\"odinger wave equation over an infinitesimal range around $x =
+0$:
 \begin{align}
   \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0.
   \end{aligned}
@@ -308,15 +304,12 @@ yields
 \end{equation}
 Taking $E = \hbar^2k^2/2m$, and doing a bit of algebra, simplifies this to
 \begin{equation}
-  \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right),
+  \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).
   \label{deltaschrod}
 \end{equation}
-which is an inhomogenous ordinary differential equation for
-$\psi_s(x)$, with the potential on the right hand side acting as a
-``driving term''.
 
-We construct the solution by separately considering the regions $x <
-0$ and $x > 0$.  Within each half-space, $\delta(x)$ vanishes so
+We can construct the solution by separately considering the regions $x
+< 0$ and $x > 0$.  Within each half-space, $\delta(x)$ vanishes so
 Eq.~\eqref{deltaschrod} reduces to
 \begin{equation}
   \left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0.
@@ -329,10 +322,10 @@ solution of the form
 where $f_1$ and $f_2$ can take on different values in each region ($x
 < 0$ or $x > 0$).
 
-Now, remember that we want $\psi_s(x)$ to describe an \textbf{outgoing
-  wave}.  This means it ought to be purely left-moving for $x < 0$,
-and purely right-moving for $x > 0$.  Therefore, let $f_1 = 0$ for $x
-< 0$, and $f_2 = 0$ for $x > 0$, so that
+We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, which means
+it ought to be purely left-moving for $x < 0$, and purely right-moving
+for $x > 0$.  Therefore, let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for
+$x > 0$, so that
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ikx}, & x < 0 \\ f_+ \,e^{ikx}, & x > 0.\end{cases}
 \end{equation}
@@ -369,14 +362,13 @@ Its dependence on $E$ is plotted below:
 \end{figure}
 
 \noindent
-There are several notable features in this plot.  First, for fixed
-potential strength $\gamma$, the scattering strength decreases
-monotonically with $E$---i.e., higher-energy particles are scattered
-less easily.  Second, for given $E$, the scattering strength increases
-with $|\gamma|$, with the limit $|f|^2 \rightarrow 1$ as
-$|\gamma|\rightarrow \infty$.  Third, an attractive potential ($\gamma
-< 0$) and a repulsive potential ($\gamma > 0$) are equally effective
-at scattering the particle.
+For fixed potential strength $\gamma$, we see that the scattering
+strength decreases monotonically with $E$, meaning that higher-energy
+particles are scattered less easily.  On the other hand, for fixed
+$E$, the scattering strength increases with $|\gamma|$, with the limit
+$|f|^2 \rightarrow 1$ as $|\gamma|\rightarrow \infty$.  Note also that
+attractive potentials ($\gamma < 0$) and repulsive potentials ($\gamma
+> 0$) are equally effective scatterers.
 
 \section{Scattering in 2D and 3D}
 \label{sec:2d3d_scattering}
