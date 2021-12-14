@@ -402,49 +402,46 @@ Hence, we arrive at the result
 \section{The self energy}
 \label{sec:self_energy}
 
-The enigmatic quantity $\Sigma(E)$ defined in Eq.~\eqref{sigma} is
+The enigmatic $\Sigma(E)$ appearing in the denominator in
+Eq.~\eqref{phiGphi_result}, and defined in Eq.~\eqref{sigma}, is
 called the \textbf{self energy}.  If we put aside its dependence on
-$E$, treating it as a constant, Eq.~\eqref{phiGphi_result} looks a lot
-like the Green's function of a system with an energy eigenstate of
-energy $E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \Sigma$.  We
-can think of this as the energy of the quasi-bound state, but such an
-interpretation is complicated by the fact that $\Sigma$ is not real
-but complex, as we will see below.
-
-First, however, let us examine the real part of $\Sigma$.  According
-to Eq.~\eqref{phiGphi_result},
-$\langle\varphi|\hat{G}(E)|\varphi\rangle$ is large when the
-denominator is close to zero---which, by the way, is consistent with
-the assumption made in obtaining Eq.~\eqref{phiGpsi}.  Since $E$ is
-real, this happens at the energy
-\begin{equation}
-  E \;\approx\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big]  \,\equiv \, E_{\mathrm{res}}.
-  \label{Eres}
-\end{equation}
-This resonance energy consists of the energy of the original bound
-state, plus two energy shifts: one coming directly from the
-deconfining potential $\hat{V}_1$ (as expected), and the other being
-$\mathrm{Re}[\Sigma]$.  According to Eq.~\eqref{sigma}, the latter
-energy shift arises from the interplay between $|\varphi\rangle$ and
-the free states $\{|\psi_k\rangle\}$.  We can thus interpret this part
-of the quasi-bound state's energy as arising from the disturbance of
-the free state continuum by the quasi-bound state itself---hence the
-term ``self energy''.
-
-Next, we look at $\mathrm{Im}[\Sigma]$, which will turn out to be
-nonzero.  What does it mean for an energy to have an imaginary part?
-If an energy eigenstate has energy $\Sigma$, its time dependence goes
-as $\exp(-i\Sigma t/\hbar)$.  Writing $\Sigma = \mathrm{Re}[\Sigma] +
-i \mathrm{Im}[\Sigma]$, the exponential factor decomposes into
+$E$ and treat it as a constant, Eq.~\eqref{phiGphi_result} looks like
+the Green's function of a system with an energy eigenstate
+$|\varphi\rangle$ of energy
 \begin{equation*}
-  \exp(-i\mathrm{Re}[\Sigma] t/\hbar) \,\exp(\mathrm{Im}[\Sigma] t/\hbar).
+  E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \Sigma.
 \end{equation*}
-Hence, the imaginary part of the energy corresponds to a rate of
-amplification ($\mathrm{Im}[\Sigma] > 0$) or decay
-($\mathrm{Im}[\Sigma] < 0$).
+We can interpret this as the energy of the quasi-bound state.  The
+first term is the energy of the original bound state, the second term
+is an energy shift coming from the deconfining potential $\hat{V}_1$
+(as expected), and the third term is the self energy.
 
-With this in mind, let us take the imaginary part of
-Eq.~\eqref{sigma}:
+According to Eq.~\eqref{sigma}, $\Sigma$ arises from the interplay
+between $|\varphi\rangle$ and the free states $\{|\psi_k\rangle\}$.
+We can interpret it like this: the quasi-bound state disturbs the free
+state continuum, and the free states exert a back-reaction that alters
+the energy of the quasi-bound state.  That is why we call $\Sigma$ the
+``self energy''.
+
+There is one important complication to this story: $\Sigma$ turns out
+to be complex, not real!
+
+What does it mean for an energy to be complex?  If a quantum state has
+energy $\mathcal{E}$, its time dependence goes as $\exp(-i\mathcal{E}
+t/\hbar)$.  Writing $\mathcal{E} = \mathrm{Re}[\mathcal{E}] + i
+\mathrm{Im}[\mathcal{E}]$, the time evolution factor decomposes into
+\begin{equation*}
+  \exp(-i\mathrm{Re}[\mathcal{E}] t/\hbar) \,\exp(\mathrm{Im}[\mathcal{E}] t/\hbar).
+\end{equation*}
+If $\mathrm{Im}[\mathcal{E}] \ne 0$, the norm of the state vector is
+not conserved (as it ought to be for a true energy eigenstate).
+Instead, the norm grows or shrinks with time, and
+$\big|\mathrm{Im}[\mathcal{E}]\big|/\hbar$ is the rate of
+amplification or decay.
+
+We can prove that $\mathrm{Im}[\Sigma] < 0$, implying that the
+quasi-bound state is a decaying state.  To see this, take the
+imaginary part of Eq.~\eqref{sigma}:
 \begin{align}
   \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
 \end{align}
@@ -454,19 +451,21 @@ of $\varepsilon$, so it has the limiting form
 \begin{equation}
   \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
 \end{equation}
-We conclude that
+Therefore,
 \begin{equation}
   \mathrm{Im}\big[\Sigma(E)\big]
   = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
   \; \delta(E-E_k).
   \label{fermigr1}
 \end{equation}
-Clearly, $\mathrm{Im}[\Sigma] < 0$, so this describes a decay rate.
-Every free state with energy equal to $E$ contributes to
-$\mathrm{Im}[\Sigma(E)]$, weighted by the overlap factor $|
-\langle\psi_k| \hat{V}_1|\varphi\rangle|^2$.  In
-Section~\ref{sec:goldenrule}, we will discuss this decay rate in more
-detail.
+From this we see that $\mathrm{Im}[\Sigma] < 0$, as claimed.  The
+value of $\mathrm{Im}[\Sigma(E)]$ receives contributions from every
+free state at the scattering energy $E$, weighted by the overlap
+factor $| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2$.
+
+In Section~\ref{sec:goldenrule}, we will study the decay process in
+further detail, and discuss how to use Eq.~\eqref{fermigr1} in
+practical calculations.
 
 \section{Scattering resonances}
 \label{sec:scattering_resonances}
@@ -487,8 +486,12 @@ term, we find that $f$ contains a contribution of the form
   \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]},
   \label{deltaf}
 \end{equation}
-where $E_{\mathrm{res}}$ is defined in Eq.~\eqref{Eres}.  At
-resonance, the denominator is small and $\Delta f$ is the dominant
+where
+\begin{equation}
+  E_{\mathrm{res}} \;\equiv\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big] \;\in\; \mathbb{R}.
+  \label{Eres}
+\end{equation}
+At resonance, the denominator is small and $\Delta f$ is the dominant
 contribution to $f$.
 
 It is worth noting that $\Delta f$ receives contributions from
