@@ -31,25 +31,20 @@
 \end{center}
 
 This Appendix describes the mathematics of circular waves and
-spherical waves, and how their relevance for scattering problems in 2D
-and 3D respectively.
+spherical waves, and their use in 2D and 3D scattering problems.
 
 \section{The Helmholtz equation}
 
-Consider a non-relativistic particle in the absence of a potential ($V
-= 0$).  This describes, for example, the ``exterior region'' of a
-scattering problem, as discussed in Chapter 1.  The time-independent
-Schr\"odinger equation is
+Consider a non-relativistic particle moving in $d$-dimensional space
+in the absence of a potential ($V = 0$), a scenario applicable to the
+``exterior region'' of a scattering problem (Chapter 1).  The
+time-independent Schr\"odinger equation is
 \begin{equation}
   -\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),
   \label{tise}
 \end{equation}
-where $\mathbf{r}$ runs over some $d$-dimensional domain; for example,
-in a 3D scattering problem, these are three-component coordinate
-vectors for points outside the scatterer.  In this Appendix, we will
-focus on the cases of $d = 2$ and $d = 3$.  (Note, by the way, that if
-the potential $V$ is nonzero but spatially uniform, we can just
-replace all instances of $E$ with $E - V$.)
+where $\nabla^2$ denotes the $d$-dimensional Laplacian.  We will focus
+on the $d = 2$ and $d = 3$ cases.
 
 It is convenient to rewrite Eq.~\eqref{tise} as
 \begin{equation}
@@ -61,23 +56,24 @@ where
   k = \sqrt{\frac{2mE}{\hbar^2}}.
 \end{equation}
 The partial differential equation \eqref{helmholtz} is called the
-\textbf{Helmholtz equation}.  We are interested in finding its
-solutions for 2D and 3D, and for different choices of boundary
-conditions.
+\textbf{Helmholtz equation}.  We are interested in its solutions for
+2D and 3D, with different choices of boundary conditions.
 
-One class of elementary solutions is, of course, the plane waves:
+One class of elementary solutions is, of course, the plane waves
 \begin{equation}
   \psi(\mathbf{r}) = \psi_0 \, \exp\left(i\mathbf{k}\cdot\mathbf{r}\right),
+  \label{planewaves}
 \end{equation}
-where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is any $d$-component
+where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is a $d$-component
 vector satisfying $|\mathbf{k}| = k$ (where $k$ is the scalar
-parameter appearing in the Helmholtz equation).
+parameter in the Helmholtz equation).  The direction of $\mathbf{k}$
+specifies the propagation direction.
 
-For scattering problems, we are interested in a different class of
-solutions related to waves that travel outward (or inward) from a
-single point.  Such solutions can be obtained by going to polar
-coordinates $(r, \phi)$ for 2D, and spherical coordinates
-$(r,\theta,\phi)$ for 3D.
+In scattering problems, it is useful to turn to a different class of
+solutions describing waves propagating outward (or inward) from a
+point, instead of having a fixed direction like a plane wave.  Such
+solutions can be constructed by going to polar coordinates $(r, \phi)$
+for 2D, and spherical coordinates $(r,\theta,\phi)$ for 3D.
 
 \section{Circular Waves in 2D}
 
@@ -86,92 +82,125 @@ In 2D polar coordinates $(r, \phi)$, the wavefunction has the form
   \psi(\mathbf{r}) = \psi(r,\phi).
 \end{equation}
 Since $\phi$ is an angular variable---i.e., $\psi(r,\phi + 2\pi) =
-\psi(r, \phi)$---we can simplify the $\phi$-dependence by focusing on
-solutions with the harmonic form
+\psi(r, \phi)$---we can simplify the $\phi$ dependence by focusing on
+harmonic solutions
 \begin{equation}
-  \psi(r,\phi) = A_m(r)\, e^{im\phi}, \;\;\;m \in\mathbb{Z}.
+  \psi(r,\phi) = \Psi_m(r)\, e^{im\phi}, \;\;\;m \in\mathbb{Z}.
   \label{psi_circular}
 \end{equation}
-If we can obtain these, then more general solutions can be constructed
-by taking superpositions of different $m$.
+More general solutions can be constructed from these, using
+superpositions of different $m$.
 
-We now plug Eq.~\eqref{psi_circular} into the 2D Helmholtz equation,
-and make use of the polar form 2D Laplacian:
+Using Eq.~\eqref{psi_circular}, along with the expression for the 2D
+Laplacian in polar coordinates,
 \begin{equation}
   \nabla^2 = \frac{\partial^2}{\partial r^2} + \frac{1}{r} \,
   \frac{\partial}{\partial r} +
-  \frac{1}{r^2}\frac{\partial^2}{\partial\phi^2}.
+  \frac{1}{r^2}\frac{\partial^2}{\partial\phi^2},
 \end{equation}
-We find that $A_m(r)$ obeys
+we obtain the following ordinary differential equation for $\Psi_m(r)$:
 \begin{equation}
-  \left[r^2 \frac{\partial^2}{\partial r^2} + r \frac{\partial}{\partial r}
-    + k^2 r^2 - m^2 \right] A_m(r) = 0.
+  r \frac{d}{dr}\!\left(r \frac{d\Psi_m}{dr} \right)
+  + \Big(k^2 r^2 - m^2 \Big)\, \Psi_m(r) = 0.
+  \label{besseleq}
 \end{equation}
-This is Bessel's equation, which supports the following solutions:
+This is the Bessel equation, which supports the following solutions:
 \begin{equation}
-  A_m(r) \propto \begin{cases}
-    J_m(kr) &\text{(Bessel function of the first kind)} \\
-    Y_m(kr) &\text{(Bessel function of the second kind)} \\
-    H_m^+(kr) \equiv J_m(kr) + i Y_m(kr) &\text{(Hankel function of the first kind)} \\
-    H_m^-(kr) \equiv J_m(kr) - i Y_m(kr) &\text{(Hankel function of the second kind)}.
+  \Psi_m(r) \propto \begin{cases}
+    J_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.jv.html}{Bessel function of the 1st kind})} \\
+    Y_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.yv.html}{Bessel function of the 2nd kind})} \\
+    H_m^+(kr) \equiv J_m(kr) + i Y_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hankel1.html}{Hankel function of the 1st kind})} \\
+    H_m^-(kr) \equiv J_m(kr) - i Y_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hankel2.html}{Hankel function of the 2nd kind})}.
   \end{cases}
 \end{equation}
-The real functions $\{J_m, Y_m, H_m^\pm\}$ differ in how they behave
-(i) for $r\rightarrow 0$, and (ii) for $r \rightarrow \infty$.  For $r
-\rightarrow 0$, $J_m$ is finite but the others are divergent.  For $r
-\rightarrow \infty$,
+(Click on the links to refer to the implementations of these functions
+in \href{https://scipy.org/}{Scientific Python}.)  The $J_m$ and $Y_m$
+functions are real, while the $H_m^\pm$ functions are complex.
+Notably, these four functions satisfy different boundary conditions in
+the two limits $r\rightarrow 0$ and $r \rightarrow \infty$.
 
+For $r \rightarrow 0$, $J_m$ is finite, while the others ($Y_m$ and
+$H_m^\pm$) are divergent.
 
+For $r \rightarrow \infty$, they have the following asymptotic forms:
+\begin{align}
+  \begin{aligned}
+    J_m(kr) &\rightarrow
+    \sqrt{\frac{2}{\pi kr}} \cos\!\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right) \\
+    Y_m(kr) &\rightarrow
+    \sqrt{\frac{2}{\pi kr}} \sin\!\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right) \\
+    H_m^+(kr) &\rightarrow
+    \sqrt{\frac{2}{\pi kr}}
+    \exp\left[i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right] \\
+    H_m^-(kr) &\rightarrow
+    \sqrt{\frac{2}{\pi kr}}
+    \exp\left[-i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right]
+  \end{aligned}
+  \qquad (\text{as}\; r \rightarrow \infty,\; \textrm{assuming} \;k,r\in\mathbb{R}).
+  \label{Jasymptote}
+\end{align}
+By analogy with Eq.~\eqref{planewaves}, we can interpret the Hankel
+functions of the first kind as circular waves propagating
+\textit{outward} from the origin, and the Hankel functions of the
+second kind as circular waves propagating \textit{inward} to the
+origin.  The Bessel functions are standing waves formed by a mix of
+outgoing and incoming circular waves.
 
+The prefactor of $1/\sqrt{r}$ in these aymptotic forms is consistent
+with energy conservation.  In 2D, at radial distance $r$ the wave is
+spread over a circumferential distance of $2\pi r$, so the combination
+$|\Psi_m(r)|^2 \cdot 2\pi r$ is a constant.
 
+We can convert between plane waves and circular waves with the help of
+the identity
+\begin{equation}
+  e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
+\end{equation}
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
 
-
-
-For
-the moment, we will not specify the boundary conditions, and look
-instead for a general set of solutions for a given $E$ (and hence
-$k$).
-
-In spherical coordinates $(r,\theta,\phi)$, the Helmholtz equation has
-the explicit form
+Next, we consider solutions to the 3D Helmholtz equation expressed in
+spherical coordinates $(r, \theta, \phi)$.  We can simplify the
+dependence on the angular variables $\theta$ and $\phi$ by focusing on
+wavefunctions of the form
 \begin{equation}
-  \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial \psi}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial\psi}{\partial\theta}\right)+\frac{1}{r^2\sin^2\theta}\frac{\partial^2\psi}{\partial\phi^2} + k^2\psi(r,\theta,\phi) = 0.
+  \psi(r,\theta,\phi) = \Psi_{\ell m}(r) \,Y_{\ell m}(\theta, \phi),
+  \label{psi3d}
 \end{equation}
-There is a standard procedure for solving this.  The first step is to
-perform a separation of variables, and look for solutions of the form
+where $Y_{\ell m}(\theta,\phi)$ denotes a
+\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html}{spherical
+  harmonic} function.  In the context of quantum mechanics, such a
+wavefunction has a definite angular momentum; $\ell$ and $m$ are the
+quantum numbers for the total angular momentum and the $z$-component
+of the angular momentum, respectively.  These are integers satisfying
 \begin{equation}
-  \psi(r,\theta,\phi) = A(r) Y_{\ell m}(\theta,\phi),
+  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell,
 \end{equation}
-where $A(r)$ is a function to be determined and $Y_{\ell
-  m}(\theta,\phi)$ is a special function known as a
-\href{https://en.wikipedia.org/wiki/Spherical_harmonics}{spherical
-  harmonic}.  Spherical harmonics are functions designed specifically
-to represent the angular dependence of solutions with definite angular
-momenta.  In the context of quantum mechanics, $\ell$ and $m$ are the
-quantum numbers representing the total angular momentum and the
-$z$-component of the angular momentum.  It can be shown that the
-indices $\ell$ and $m$ must be integers satisfying $\ell \ge 0$ and
-$-\ell\le m \le \ell$, in order for $Y_{\ell m}(\theta,\phi)$ to be
-periodic in $\phi$ and regular at the poles of the spherical
-coordinate system.
+which ensures that $Y_{\ell m}(\theta,\phi)$ is both periodic in
+$\phi$ and regular at the coordinate poles.
 
-After plugging in this form for $\psi(r,\theta,\phi)$, the Helmholtz
-equation reduces to the following ordinary differential equation,
-which is a variant of the Bessel equation:
+Upon plugging Eq.~\eqref{psi3d} into the Helmholtz equation, and
+expressing the 3D Laplacian in spherical coordinates, we obtain the
+following ordinary differential equation for $\Psi_{\ell m}(r)$:
 \begin{equation}
-  \frac{d}{dr}\left(r^2\frac{dA}{dr}\right) + \Big[k^2r^2 - \ell(\ell+1)\Big] A(r) = 0, \;\;\;\ell \in \mathbb{Z}_0^+.
+  \frac{d}{dr}\left(r^2 \, \frac{d\Psi_{\ell m}}{dr}\right)
+  + \Big[k^2r^2 - \ell(\ell+1)\Big] \Psi_{\ell m}(r) = 0.
+  \label{sphbessel}
 \end{equation}
-Note that $m$ drops out of the equation.  Thus, $A(r)$ depends on
-$\ell$, but \textit{not} on $m$.
+Remarkably, the differential operator involves $\ell$ but \textit{not}
+$m$.  Hence, the radial function depends only on $\ell$, and we will
+henceforth write it as $\Psi_\ell(r)$ rather than $\Psi_{\ell m}(r)$.
 
-The ordinary differential equation has two linearly independent real
-solutions, $j_\ell(kr)$ and $y_\ell(kr)$, which are called
-\textbf{spherical Bessel functions}.  Most scientific computing
-packages provide functions to calculate these;
-\href{https://scipy.org/}{Scientific Python}, for example, has
+Eq.~\eqref{sphbessel} has the following solutions:
+
+
+
+two linearly independent real solutions,
+$j_\ell(kr)$ and $y_\ell(kr)$, which are called \textbf{spherical
+  Bessel functions}.  Most scientific computing packages provide
+functions to calculate these; \href{https://scipy.org/}{Scientific
+  Python}, for example, has
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{\texttt{scipy.special.spherical\_jn}}
 and
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_yn.html}{\texttt{scipy.special.spherical\_yn}}.
