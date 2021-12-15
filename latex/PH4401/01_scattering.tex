@@ -727,57 +727,7 @@ propagator is the Green's function for the $d$-dimensional Helmholtz
 equation (see Section~\ref{sec:2d3d_scattering}).  Note that the
 $\nabla^2$ acts upon the $\mathbf{r}$ coordinates, not $\mathbf{r}'$.
 
-To solve for $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, we can
-use the momentum eigenstates:
-\begin{align}
-  \begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &=
-    \langle\mathbf{r}|\hat{G}_0 \Big(\int d^dk' |\mathbf{k}'\rangle\langle\mathbf{k}'| \Big) |\mathbf{r}'\rangle \\ &= \int d^dk' \; \langle\mathbf{r}|\mathbf{k}'\rangle \; \frac{1}{E-\frac{\hbar^2|\mathbf{k}'|^2}{2m}} \; \langle\mathbf{k}'|\mathbf{r}'\rangle \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^d} \int d^dk' \; \frac{\exp\left[i\mathbf{k}' \cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2}.\end{aligned}
-  \label{rGr}
-\end{align}
-To proceed, we must specify the spatial dimension $d$.  Let us set $d
-= 3$; the calculations for other $d$ are fairly similar.  To calculate
-the integral over the 3D wave-vector space, we adopt spherical
-coordinates $(k',\theta,\phi)$, with the coordinate axes aligned so
-that $\mathbf{r}-\mathbf{r}'$ points along the $\theta=0$ direction.
-We can now do the integral:
-\begin{align*}
-  \begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk' \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;{k'}^{2}\sin\theta\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k^2-{k'}^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \int_{-1}^1 d\mu \;{k'}^2\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\mu\right)}{k^2-{k'}^2} \qquad(\text{letting}\;\mu = \cos\theta) \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \; \frac{ {k'}^2}{k^2-{k'}^2}\, \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik'|\mathbf{r}-\mathbf{r}'|\right)}{ik'|\mathbf{r}-\mathbf{r}'|} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k'\, \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)}\end{aligned}
-\end{align*}
-This looks like something we can handle with contour integration
-techniques.  But there's a snag: the integration contour runs over the
-real-$k'$ line, and since $k \in \mathbb{R}^+$, there are two poles
-on the contour (at $\pm k$).  Hence, the value of the integral, as
-written, is singular.
-
-To make the integral non-singular, we must ``regularize'' it by
-tweaking its definition.  One way is to displace the poles
-infinitesimally in the complex $k'$ plane, shifting them off the
-contour.  We have a choice of whether to move each pole upwards or
-downwards; this choice turns out to be linked to whether the waves
-described by $\hat{G}_0$ are incoming, outgoing, or behave some other
-way at infinity.  It turns out that the right choice for us is to move
-the pole at $-k$ infinitesimally downwards, and the pole at $+k$
-infinitesimally upwards:
-
-\begin{figure}[h!]
-  \centering\includegraphics[width=0.37\textwidth]{greencontour}
-\end{figure}
-
-\noindent
-This means replacing the denominator of the integrand as
-follows:
-\begin{equation}
-  (k' - k)(k'+k) \;\rightarrow\; (k' - k - i\varepsilon)(k'+k+i\varepsilon) = {k'}^2 - (k+i\varepsilon)^2,
-\end{equation}
-where $\varepsilon$ is a positive infinitesimal.  This is equivalent
-to replacing $E \rightarrow E + i\varepsilon$ in the definition of the
-Green's function.  The integral can now be computed as
-follows:
-\begin{align*}
-  \begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\right]_{k'=k+i\varepsilon^+} \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}
-\end{align*}
-Plugging this into Eq.~\eqref{rGr} yields the propagator
-$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  The final result is
+The final result is
 given below, along with the results for $d=1$ and $d=2$ (which are
 obtained in a similar fashion):
 \begin{framed}
