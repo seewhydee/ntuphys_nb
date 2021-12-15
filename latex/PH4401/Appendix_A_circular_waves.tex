@@ -91,20 +91,17 @@ harmonic solutions
 More general solutions can be constructed from these, using
 superpositions of different $m$.
 
-Using Eq.~\eqref{psi_circular}, along with the expression for the 2D
-Laplacian in polar coordinates,
-\begin{equation}
-  \nabla^2 = \frac{\partial^2}{\partial r^2} + \frac{1}{r} \,
-  \frac{\partial}{\partial r} +
-  \frac{1}{r^2}\frac{\partial^2}{\partial\phi^2},
-\end{equation}
-we obtain the following ordinary differential equation for $\Psi_m(r)$:
+By plugging Eq.~\eqref{psi_circular} into the Helmholtz equation
+\eqref{helmholtz}, and expressing the 2D Laplacian in polar
+coordinates, we arrive at the following ordinary differential equation
+for $\Psi_m(r)$:
 \begin{equation}
   r \frac{d}{dr}\!\left(r \frac{d\Psi_m}{dr} \right)
   + \Big(k^2 r^2 - m^2 \Big)\, \Psi_m(r) = 0.
   \label{besseleq}
 \end{equation}
-This is the Bessel equation, which supports the following solutions:
+This is the \textbf{Bessel equation}, which supports the following
+solutions:
 \begin{equation}
   \Psi_m(r) \propto \begin{cases}
     J_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.jv.html}{Bessel function of the 1st kind})} \\
@@ -116,13 +113,14 @@ This is the Bessel equation, which supports the following solutions:
 (Click on the links to refer to the implementations of these functions
 in \href{https://scipy.org/}{Scientific Python}.)  The $J_m$ and $Y_m$
 functions are real, while the $H_m^\pm$ functions are complex.
-Notably, these four functions satisfy different boundary conditions in
-the two limits $r\rightarrow 0$ and $r \rightarrow \infty$.
+Notably, these four functions satisfy different boundary conditions
+for $r\rightarrow 0$ and $r \rightarrow \infty$:
 
-For $r \rightarrow 0$, $J_m$ is finite, while the others ($Y_m$ and
+\begin{itemize}
+\item For $r \rightarrow 0$, $J_m$ is finite, while the others ($Y_m$ and
 $H_m^\pm$) are divergent.
 
-For $r \rightarrow \infty$, they have the following asymptotic forms:
+\item For $r \rightarrow \infty$, they have the following asymptotic forms:
 \begin{align}
   \begin{aligned}
     J_m(kr) &\rightarrow
@@ -136,10 +134,13 @@ For $r \rightarrow \infty$, they have the following asymptotic forms:
     \sqrt{\frac{2}{\pi kr}}
     \exp\left[-i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right]
   \end{aligned}
-  \qquad (\text{as}\; r \rightarrow \infty,\; \textrm{assuming} \;k,r\in\mathbb{R}).
+  \quad (\text{as}\; r \rightarrow \infty,\; \textrm{for} \;k,r\in\mathbb{R}).
   \label{Jasymptote}
 \end{align}
-By analogy with Eq.~\eqref{planewaves}, we can interpret the Hankel
+\end{itemize}
+
+By looking at the last two lines in Eq.~\eqref{Jasymptote} and drawing
+an analogy to Eq.~\eqref{planewaves}, we interpret the Hankel
 functions of the first kind as circular waves propagating
 \textit{outward} from the origin, and the Hankel functions of the
 second kind as circular waves propagating \textit{inward} to the
@@ -148,22 +149,23 @@ outgoing and incoming circular waves.
 
 The prefactor of $1/\sqrt{r}$ in these aymptotic forms is consistent
 with energy conservation.  In 2D, at radial distance $r$ the wave is
-spread over a circumferential distance of $2\pi r$, so the combination
-$|\Psi_m(r)|^2 \cdot 2\pi r$ is a constant.
+spread over a circumference of $2\pi r$, so the combination
+$|\Psi_m(r)|^2 \cdot 2\pi r$ does not scale with $r$.
 
-We can convert between plane waves and circular waves with the help of
-the identity
+Finally, the Bessel functions of the first kind obey the identity
 \begin{equation}
-  e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
+  e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr),
 \end{equation}
+which will be useful for converting between plane waves and circular
+waves.
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
 
-Next, we consider solutions to the 3D Helmholtz equation expressed in
-spherical coordinates $(r, \theta, \phi)$.  We can simplify the
-dependence on the angular variables $\theta$ and $\phi$ by focusing on
-wavefunctions of the form
+In 3D, we can adopt spherical coordinates $(r, \theta, \phi)$.  When
+looking for solutions to the 3D Helmholtz equation, we can simplify
+the dependence on the angular variables $\theta$ and $\phi$ by
+focusing on solutions of the form
 \begin{equation}
   \psi(r,\theta,\phi) = \Psi_{\ell m}(r) \,Y_{\ell m}(\theta, \phi),
   \label{psi3d}
@@ -188,30 +190,22 @@ following ordinary differential equation for $\Psi_{\ell m}(r)$:
   + \Big[k^2r^2 - \ell(\ell+1)\Big] \Psi_{\ell m}(r) = 0.
   \label{sphbessel}
 \end{equation}
-Remarkably, the differential operator involves $\ell$ but \textit{not}
-$m$.  Hence, the radial function depends only on $\ell$, and we will
-henceforth write it as $\Psi_\ell(r)$ rather than $\Psi_{\ell m}(r)$.
+Remarkably, the differential equation involves $\ell$ but \textit{not}
+$m$.  Therefore, the radial function depends only on $\ell$, and we
+will henceforth write it as $\Psi_\ell(r)$ rather than $\Psi_{\ell
+  m}(r)$.
 
 Eq.~\eqref{sphbessel} has the following solutions:
+\begin{equation}
+  \Psi_\ell(r) \propto \begin{cases}
+    j_\ell(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{Spherical Bessel function, 1st kind})} \\
+    y_\ell(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_yn.html}{Spherical Bessel function, 2nd kind})} \\
+    h_\ell^+(kr) \equiv j_\ell(kr) + i y_\ell(kr) &\text{(\href{}{Spherical Hankel function, 1st kind})} \\
+    h_\ell^-(kr) \equiv j_\ell(kr) - i y_\ell(kr) &\text{(\href{}{Spherical Hankel function, 2nd kind})}.
+  \end{cases}
+\end{equation}
 
 
-
-two linearly independent real solutions,
-$j_\ell(kr)$ and $y_\ell(kr)$, which are called \textbf{spherical
-  Bessel functions}.  Most scientific computing packages provide
-functions to calculate these; \href{https://scipy.org/}{Scientific
-  Python}, for example, has
-\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{\texttt{scipy.special.spherical\_jn}}
-and
-\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_yn.html}{\texttt{scipy.special.spherical\_yn}}.
-Some spherical Bessel functions are plotted below:
-
-\vskip 0.5cm
-\begin{center}
-  \includegraphics[width=0.67\textwidth]{spherical_bessel}
-\end{center}
-
-\noindent
 Note that the $y_\ell$ functions diverge at $kr\rightarrow 0$.  This
 does not bother us, for we are interested in solutions defined in the
 exterior region, away from the coordinate origin.
