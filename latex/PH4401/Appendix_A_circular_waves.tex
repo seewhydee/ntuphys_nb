@@ -139,8 +139,8 @@ For $r \rightarrow \infty$, they have the following asymptotic forms:
     \exp\left[-i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right]
   \end{aligned}\;\;
   \right\}
-  \;\;\; \text{as}\; r \rightarrow \infty,\;
-  \textrm{assuming} \;k,r\in\mathbb{R}.
+  \;\; \text{for}\;\, kr \rightarrow \infty,\;
+  -\pi < \mathrm{arg}[kr] < \pi.
   \label{Jasymptote}
 \end{align}
 By analogy with Eq.~\eqref{planewaves}, we can interpret the Hankel
@@ -159,6 +159,7 @@ We can convert between plane waves and circular waves with the help of
 the identity
 \begin{equation}
   e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
+  \label{eikrcosphi}
 \end{equation}
 
 \section{Spherical Waves in 3D}
@@ -259,6 +260,7 @@ associated with each term is directly proportional to $|c_{\ell
   m}^\pm|^2$.)
 
 \section{The propagator}
+\label{sec:propagator}
 
 The propagator, introduced in Section 1.7, is the Green's function for
 a free particle.  It is a solution to the partial differential
@@ -270,15 +272,12 @@ equation
 The left side of this equation is the same as the $d$-dimensional
 Helmholtz equation \eqref{helmholtz}, with $\nabla^2$ acting on
 $\mathbf{r}$ (not $\mathbf{r}'$), and $k$ given by Eq.~\eqref{kparm}.
-On the right side, the prefactor of $2m/\hbar^2$ comes from our
-definition of the Green's function based on inverting the Hamiltonian
-(Section 1.6), and $\delta^d(\cdots)$ denotes a $d$-dimensional delta
-function.
+On the right side, $\delta^d(\cdots)$ denotes a $d$-dimensional delta
+function, and the prefactor of $2m/\hbar^2$ comes from how we defined
+the Green's function by inverting the Hamiltonian (Section 1.6).
 
-
-
-To solve for $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, we can
-use the momentum eigenstates:
+We can solve the differential equation with the help of the momentum
+eigenbasis:
 \begin{align}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle
   &= \langle\mathbf{r}|\hat{G}_0 \Big(\int d^dk' |\mathbf{k}'\rangle\langle\mathbf{k}'| \Big) |\mathbf{r}'\rangle \nonumber \\
@@ -290,53 +289,66 @@ use the momentum eigenstates:
       (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2}.
   \label{rGr}
 \end{align}
-To proceed, we must specify the spatial dimension $d$.  Let us set $d
-= 3$; the calculations for other $d$ are fairly similar.  To calculate
-the integral over the 3D wave-vector space, we adopt spherical
-coordinates $(k',\theta,\phi)$, with the coordinate axes aligned so
-that $\mathbf{r}-\mathbf{r}'$ points along the $\theta=0$ direction.
-We can now do the integral:
-\begin{align*}
-  \begin{aligned}\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk' \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;{k'}^{2}\sin\theta\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k^2-{k'}^2} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \int_{-1}^1 d\mu \;{k'}^2\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\mu\right)}{k^2-{k'}^2} \qquad(\text{letting}\;\mu = \cos\theta) \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \; \frac{ {k'}^2}{k^2-{k'}^2}\, \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik'|\mathbf{r}-\mathbf{r}'|\right)}{ik'|\mathbf{r}-\mathbf{r}'|} \\ &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k'\, \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)}\end{aligned}
-\end{align*}
-This looks like something we can handle with contour integration
-techniques.  But there's a snag: the integration contour runs over the
-real-$k'$ line, and since $k \in \mathbb{R}^+$, there are two poles
-on the contour (at $\pm k$).  Hence, the value of the integral, as
-written, is singular.
+To calculate the $d$-dimensional integral, we must introduce an
+explicit coordinate system.  In the following, we will show the
+calculation for 3D.  The 2D case is left as an
+\hyperref[ex:2dpropagator]{exercise}.
+
+Take 3D spherical coordinates $(k',\theta,\phi)$, with the coordinate
+axes aligned so that $\mathbf{r}-\mathbf{r}'$ points along the
+$\theta=0$ direction.  We can now do the integral:
+\begin{align}
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk' \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;{k'}^{2}\sin\theta\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k^2-{k'}^2} \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \int_{-1}^1 d\mu \;{k'}^2\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\mu\right)}{k^2-{k'}^2} \qquad(\text{letting}\;\mu = \cos\theta) \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \; \frac{ {k'}^2}{k^2-{k'}^2}\, \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik'|\mathbf{r}-\mathbf{r}'|\right)}{ik'|\mathbf{r}-\mathbf{r}'|} \nonumber\\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k'\, \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)}.
+  \label{rGrintegrand}
+\end{align}
+This looks like something we can handle via contour integration.
+However, there's a snag: the integration contour runs over the real
+$k'$ line, but since $k \in \mathbb{R}^+$, the poles at $\pm k$ lie on
+the contour.  The integral, as currently defined, is singular.
 
 To make the integral non-singular, we must ``regularize'' it by
 tweaking its definition.  One way is to displace the poles
 infinitesimally in the complex $k'$ plane, shifting them off the
-contour.  We have a choice of whether to move each pole upwards or
-downwards; this choice turns out to be linked to whether the waves
-described by $\hat{G}_0$ are incoming, outgoing, or behave some other
-way at infinity.  It turns out that the right choice for us is to move
-the pole at $-k$ infinitesimally downwards, and the pole at $+k$
-infinitesimally upwards:
+contour.  We have a choice of whether to move each pole
+infinitesimally up or down.  It turns out that the appropriate choice
+is to shift the pole at $-k$ down, and shift the pole at $+k$ up, as
+illustrated by the red dots in the following figure:
 
 \begin{figure}[h!]
   \centering\includegraphics[width=0.37\textwidth]{greencontour}
 \end{figure}
 
 \noindent
-This means replacing the denominator of the integrand as
+This choice will yield a causal Green's function (Section 1.7).  It
+alters the denominator in the integrand of Eq.~\eqref{rGrintegrand} as
 follows:
 \begin{equation}
   (k' - k)(k'+k) \;\rightarrow\; (k' - k - i\varepsilon)(k'+k+i\varepsilon) = {k'}^2 - (k+i\varepsilon)^2,
 \end{equation}
 where $\varepsilon$ is a positive infinitesimal.  This is equivalent
 to replacing $E \rightarrow E + i\varepsilon$ in the definition of the
-Green's function.  The integral can now be computed as
-follows:
+Green's function.  We can now do the integral:
 \begin{align*}
   \begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\right]_{k'=k+i\varepsilon^+} \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}
 \end{align*}
-Plugging this into Eq.~\eqref{rGr} yields the propagator
-$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  
+Plugging this into Eq.~\eqref{rGrintegrand} yields
+\begin{equation}
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = -\frac{2m}{\hbar^2}
+  \cdot \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|},
+\end{equation}
+which describes a spherical wave propagating isotropically outward
+from $\mathbf{r} = \mathbf{r}'$.  It is isotropic because the wave is
+generated by a delta function, which has no preferred direction.  It
+is outgoing due to our preceding choice of regularization.
 
-
-
+The propagators for other spatial dimensions are given in Section 1.7.
+The 1D and 2D derivations are very similar way to the above 3D
+derivation.  The 2D case is left as an
+\hyperref[ex:2dpropagator]{exercise}, with some hints provided.
 
 \section{The scattering matrix}
 
@@ -547,5 +559,27 @@ This result for the scattering amplitude depends upon two variables:
 \theta = \cos^{-1}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}})$, the
 \textbf{deflection angle} (i.e., the angle between the direction of
 incidence and the direction into which the particle is scattered).
+
+\section*{Exercises}
+
+\begin{enumerate}
+\item \label{ex:2dpropagator}
+  In Section~\ref{sec:propagator}, we derived the 3D propagator.
+  Using a similar procedure, prove that the 2D propagator is
+  \begin{equation}
+    \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2}\;
+    \cdot\; \frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|).
+  \end{equation}
+  In evaluating the polar integral, you may find it useful to invoke
+  Eq.~\eqref{eikrcosphi}.  To solve the resulting contour integral,
+  you may refer to the asymptotic forms of the Bessel and Hankel
+  functions given in \eqref{Jasymptote}, and the identity
+  \begin{equation}
+    H_m^+(z) = - (-1)^m \, H_m^-(-z).
+  \end{equation}
+
+  
+
+\end{enumerate}
 
 \end{document}
