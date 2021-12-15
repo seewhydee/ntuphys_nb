@@ -54,6 +54,7 @@ It is convenient to rewrite Eq.~\eqref{tise} as
 where
 \begin{equation}
   k = \sqrt{\frac{2mE}{\hbar^2}} \;\in\; \mathbb{R}^+.
+  \label{kparm}
 \end{equation}
 The partial differential equation \eqref{helmholtz} is called the
 \textbf{Helmholtz equation}.  We are interested in its solutions for
@@ -76,6 +77,7 @@ solutions can be constructed by going to polar coordinates $(r, \phi)$
 for 2D, and spherical coordinates $(r,\theta,\phi)$ for 3D.
 
 \section{Circular Waves in 2D}
+\label{circular_waves}
 
 In 2D polar coordinates $(r, \phi)$, the wavefunction has the form
 \begin{equation}
@@ -104,23 +106,24 @@ This is the \textbf{Bessel equation}, which supports the following
 solutions:
 \begin{equation}
   \Psi_m(r) \propto \begin{cases}
-    J_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.jv.html}{Bessel function of the 1st kind})} \\
-    Y_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.yv.html}{Bessel function of the 2nd kind})} \\
-    H_m^+(kr) \equiv J_m(kr) + i Y_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hankel1.html}{Hankel function of the 1st kind})} \\
-    H_m^-(kr) \equiv J_m(kr) - i Y_m(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hankel2.html}{Hankel function of the 2nd kind})}.
+    J_m(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.jv.html}{Bessel function of the 1st kind})} \\
+    Y_m(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.yv.html}{Bessel function of the 2nd kind})} \\
+    H_m^+(kr) \equiv J_m(kr) + i Y_m(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hankel1.html}{Hankel function of the 1st kind})} \\
+    H_m^-(kr) \equiv J_m(kr) - i Y_m(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.hankel2.html}{Hankel function of the 2nd kind})}.
   \end{cases}
 \end{equation}
 (Click on the links to refer to the implementations of these functions
 in \href{https://scipy.org/}{Scientific Python}.)  The $J_m$ and $Y_m$
 functions are real, while the $H_m^\pm$ functions are complex.
-Notably, these four functions satisfy different boundary conditions
-for $r\rightarrow 0$ and $r \rightarrow \infty$:
+Notably, these four functions satisfy different boundary conditions:
 
 \begin{itemize}
-\item For $r \rightarrow 0$, $J_m$ is finite, while the others ($Y_m$ and
+\item For $kr \rightarrow 0$, $J_m(kr)$ is finite, while the others ($Y_m$ and
 $H_m^\pm$) are divergent.
 
-\item For $r \rightarrow \infty$, they have the following asymptotic forms:
+\item For $kr \rightarrow \infty$, they have the following asymptotic forms:
+\end{itemize}
+\vskip -0.26in
 \begin{align}
   \left.
   \begin{aligned}
@@ -128,129 +131,115 @@ $H_m^\pm$) are divergent.
     \sqrt{\frac{2}{\pi kr}} \cos\!\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right) \\
     Y_m(kr) &\rightarrow
     \sqrt{\frac{2}{\pi kr}} \sin\!\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right) \\
-    H_m^+(kr) &\rightarrow
+    H_m^\pm(kr) &\rightarrow
     \sqrt{\frac{2}{\pi kr}}
-    \exp\left[i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right] \\
-    H_m^-(kr) &\rightarrow
-    \sqrt{\frac{2}{\pi kr}}
-    \exp\left[-i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right]
+    \exp\left[\pm i\left(kr - \frac{m\pi}{2} - \frac{\pi}{4}\right)\right] \\
   \end{aligned}\;\;
   \right\}
-  \;\; \text{for}\;\, kr \rightarrow \infty,\;
-  -\pi < \mathrm{arg}[kr] < \pi.
+  \; \text{for}\;\, -\pi < \mathrm{arg}[kr] < \pi.
   \label{Jasymptote}
 \end{align}
-\end{itemize}
 
-By looking at the last two lines in Eq.~\eqref{Jasymptote} and drawing
-an analogy to Eq.~\eqref{planewaves}, we interpret the Hankel
-functions of the first kind as circular waves propagating
-\textit{outward} from the origin, and the Hankel functions of the
-second kind as circular waves propagating \textit{inward} to the
-origin.  The Bessel functions are standing waves formed by a mix of
-outgoing and incoming circular waves.
+By looking at the last line in Eq.~\eqref{Jasymptote} and drawing an
+analogy to Eq.~\eqref{planewaves}, we see that the Hankel functions of
+the first kind describe \textit{outgoing} waves (propagating away from
+the origin), and the Hankel functions of the second kind describe
+\textit{incoming} waves (propagating toward the origin).  The Bessel
+functions of the first and second kind, being neither purely incoming
+nor outgoing, are analogous to standing waves.  Also, don't forget
+that the full wavefunction \eqref{psi_circular} has a factor of
+$\exp(im\phi)$, which describes how the circular wave propagates in
+the azimuthal direction (i.e., its angular momentum).
 
-The prefactor of $1/\sqrt{r}$ in these aymptotic forms is consistent
-with energy conservation.  In 2D, at radial distance $r$ the wave is
-spread over a circumference of $2\pi r$, so the combination
-$|\Psi_m(r)|^2 \cdot 2\pi r$ does not scale with $r$.
+Note also that the prefactors of $1/\sqrt{r}$ in
+Eq.~\eqref{Jasymptote} are consistent with energy conservation.  In
+2D, the wavefront at radial distance $r$ has circumference $2\pi r$,
+so $|\Psi_m(r)|^2 \cdot 2\pi r$ is constant.
 
 Finally, the Bessel functions of the first kind obey the identity
 \begin{equation}
   e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
   \label{eikrcosphi}
 \end{equation}
-which will be useful for converting between plane waves and circular
-waves.
+This is useful for converting between plane waves and circular waves.
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
 
-In 3D, we can adopt spherical coordinates $(r, \theta, \phi)$.  When
-looking for solutions to the 3D Helmholtz equation, we can simplify
-the dependence on the angular variables $\theta$ and $\phi$ by
-focusing on solutions of the form
+In 3D, we can adopt spherical coordinates $(r, \theta, \phi)$.  To
+solve the 3D Helmholtz equation, we can simplify the dependence on
+$\theta$ and $\phi$ by focusing on solutions of the form
 \begin{equation}
   \psi(r,\theta,\phi) = \Psi_{\ell m}(r) \,Y_{\ell m}(\theta, \phi),
   \label{psi3d}
 \end{equation}
-where $Y_{\ell m}(\theta,\phi)$ denotes a
+where $Y_{\ell m}(\theta,\phi)$ is a
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html}{spherical
-  harmonic} function.  In the context of quantum mechanics, such a
-wavefunction has a definite angular momentum; $\ell$ and $m$ are the
-quantum numbers for the total angular momentum and the $z$-component
-of the angular momentum, respectively.  These are integers satisfying
+  harmonic}.  In the quantum context, this is a wavefunction with
+definite angular momentum; the quantum numbers $\ell$ (for the total
+angular momentum) and $m$ (for the $z$-component of the angular
+momentum) are integers satisfying
 \begin{equation}
-  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell,
+  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell.
 \end{equation}
-which ensures that $Y_{\ell m}(\theta,\phi)$ is both periodic in
-$\phi$ and regular at the coordinate poles.
+This ensures that $Y_{\ell m}(\theta,\phi)$ is periodic in $\phi$ and
+regular at the coordinate poles.
 
-Upon plugging Eq.~\eqref{psi3d} into the Helmholtz equation, and
-expressing the 3D Laplacian in spherical coordinates, we obtain the
-following ordinary differential equation for $\Psi_{\ell m}(r)$:
+Plugging Eq.~\eqref{psi3d} into the Helmholtz equation, and expressing
+the 3D Laplacian in spherical coordinates, yields
 \begin{equation}
   \frac{d}{dr}\left(r^2 \, \frac{d\Psi_{\ell m}}{dr}\right)
   + \Big[k^2r^2 - \ell(\ell+1)\Big] \Psi_{\ell m}(r) = 0.
   \label{sphbessel}
 \end{equation}
 Remarkably, the differential equation involves $\ell$ but \textit{not}
-$m$.  Therefore, the radial function depends only on $\ell$, and we
-will henceforth write it as $\Psi_\ell(r)$ rather than $\Psi_{\ell
-  m}(r)$.
-
-Eq.~\eqref{sphbessel} has the following solutions:
+$m$.  The solution thus only depends on $\ell$, and we henceforth
+write it as $\Psi_\ell(r)$.  Now, Eq.~\eqref{sphbessel} has the
+following solutions:
 \begin{equation}
   \Psi_\ell(r) \propto \begin{cases}
-    j_\ell(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{Spherical Bessel function, 1st kind})} \\
-    y_\ell(kr) &\text{(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_yn.html}{Spherical Bessel function, 2nd kind})} \\
-    h_\ell^+(kr) \equiv j_\ell(kr) + i y_\ell(kr) &\text{(\href{}{Spherical Hankel function, 1st kind})} \\
-    h_\ell^-(kr) \equiv j_\ell(kr) - i y_\ell(kr) &\text{(\href{}{Spherical Hankel function, 2nd kind})}.
+    j_\ell(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{Spherical Bessel function of the 1st kind})} \\
+    y_\ell(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_yn.html}{Spherical Bessel function of the 2nd kind})} \\
+    h_\ell^+(kr) \equiv j_\ell(kr) + i y_\ell(kr) &\text{\small(\href{}{Spherical Hankel function of the 1st kind})} \\
+    h_\ell^-(kr) \equiv j_\ell(kr) - i y_\ell(kr) &\text{\small(\href{}{Spherical Hankel function of the 2nd kind})}.
   \end{cases}
 \end{equation}
+Their boundary behaviors are closely analogous to the 2D counterparts
+from Section~\ref{circular_waves}:
 
+\begin{itemize}
+\item For $kr \rightarrow 0$, $j_\ell(kr)$ is finite, while the others
+  ($y_\ell$ and $h_\ell^\pm$) are divergent.
 
-Note that the $y_\ell$ functions diverge at $kr\rightarrow 0$.  This
-does not bother us, for we are interested in solutions defined in the
-exterior region, away from the coordinate origin.
-
-For large values of the input, the spherical Bessel functions have the
-limiting forms
+\item For $kr \rightarrow \infty$, they have the following asymptotic forms:
+\end{itemize}
+\vskip -0.2in
 \begin{align}
-  \begin{aligned}j_\ell(kr)\; &\overset{kr\rightarrow\infty}{\longrightarrow} \; \frac{\sin(kr-\frac{\ell\pi}{2})}{kr} \\ y_\ell(kr)\; &\overset{kr\rightarrow\infty}{\longrightarrow} \; - \frac{\cos(kr-\frac{\ell\pi}{2})}{kr}.\end{aligned}
+  \left.
+  \begin{aligned}
+    j_\ell(kr)\; &\rightarrow \; \frac{\sin(kr-\frac{\ell\pi}{2})}{kr} \\
+    y_\ell(kr)\; &\rightarrow \; - \frac{\cos(kr-\frac{\ell\pi}{2})}{kr} \\
+    h_\ell^\pm(kr)\; &\rightarrow \; \pm \frac{\exp\left[\pm i(kr-\frac{\ell\pi}{2})\right]}{ikr}
+  \end{aligned}\;\;
+  \right\}
+  \; \text{for}\;\, -\pi < \mathrm{arg}[kr] < \pi.
+  \label{sphJasymptote}
 \end{align}
-Since we are interested in incoming and outgoing spherical waves, it
-is convenient to define
-\begin{equation}
-  h_\ell^\pm(kr) = j_\ell(kr) \pm i y_\ell(kr).
-\end{equation}
-This complex function is called a \textbf{spherical Hankel function}
-of the first kind ($+$) or second kind ($-$).  It solves the same
-differential equation, but has the limiting form
-\begin{equation}
-  h_\ell^\pm(kr)\; \overset{kr\rightarrow\infty}{\longrightarrow} \; \pm \frac{\exp\left[\pm i(kr-\frac{\ell\pi}{2})\right]}{ikr}.
-\end{equation}
-Using it, we can write down a solution to the Helmholtz equation, in
-the form
-\begin{equation}
-  \Psi_{\ell m}^\pm(\mathbf{r}) = h_{\ell}^\pm(kr) \,Y_{\ell m}(\theta,\phi).
-\end{equation}
-This describes a spherical wave that is outgoing ($+$) or incoming
-($-$), and that has a definite angular momentum described by the
-quantum numbers $\ell$ and $m$.
+Hence, the spherical Hankel functions of the first and second kind
+describe outgoing and incoming waves, respectively.
 
-Because the Helmholtz equation is linear, any linear combination of
-spherical waves, with various values of $(\ell,m)$, is also a solution:
+Finally, the following identity is useful for relating plane waves to
+spherical waves:
 \begin{equation}
-  \psi(\mathbf{r}) = \sum_\pm \sum_{\ell = 0}^\infty \sum_{m = - \ell}^\ell c_{\ell m}^\pm \Psi_{\ell m}^\pm(\mathbf{r}).
+  e^{i\mathbf{k}_i \cdot \mathbf{r}}
+  = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 4 \pi j_{\ell}(kr) e^{i\ell\pi/2} \,
+  Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}})
+  \label{plane_wave_decomp}
 \end{equation}
-It can be shown that the spherical waves form a complete solution
-basis.  In other words, any solution to the 3D Helmholtz equation
-within the exterior region can be written in the above form, for some
-choice of complex coefficients $c_{\ell m}^\pm$.  (By the way, these
-spherical waves are appropriately normalized so that the flux
-associated with each term is directly proportional to $|c_{\ell
-  m}^\pm|^2$.)
+In this equation, $\hat{\mathbf{k}}_i$ denotes the angular components
+(in spherical coordinates) of the incident wave-vector $\mathbf{k}_i$,
+and $\hat{\mathbf{r}}$ likewise denotes the angular components of the
+position vector $\mathbf{r}$.
 
 \section{The propagator}
 \label{sec:propagator}
@@ -282,14 +271,13 @@ eigenbasis:
       (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2}.
   \label{rGr}
 \end{align}
-To calculate the $d$-dimensional integral, we must introduce an
-explicit coordinate system.  In the following, we will show the
-calculation for 3D.  The 2D case is left as an
-\hyperref[ex:2dpropagator]{exercise}.
+To calculate the $d$-dimensional integral, we must introduce explicit
+coordinates.  In the following, we will show the calculation for 3D.
+The 2D case is left as an \hyperref[ex:2dpropagator]{exercise}.
 
 Take 3D spherical coordinates $(k',\theta,\phi)$, with the coordinate
-axes aligned so that $\mathbf{r}-\mathbf{r}'$ points along the
-$\theta=0$ direction.  We can now do the integral:
+axes aligned so that $\mathbf{r}-\mathbf{r}'$ points along $\theta=0$.
+Then,
 \begin{align}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \nonumber \\
   &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk' \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;{k'}^{2}\sin\theta\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k^2-{k'}^2} \nonumber \\
@@ -303,10 +291,10 @@ However, there's a snag: the integration contour runs over the real
 $k'$ line, but since $k \in \mathbb{R}^+$, the poles at $\pm k$ lie on
 the contour.  The integral, as currently defined, is singular.
 
-To make the integral non-singular, we must ``regularize'' it by
-tweaking its definition.  One way is to displace the poles
-infinitesimally in the complex $k'$ plane, shifting them off the
-contour.  We have a choice of whether to move each pole
+To get a proper result, we must ``regularize'' the integral by
+tweaking its definition.  One way is to perturb the integrand and
+shift its poles infinitesimally in the complex plane, moving them off
+the contour.  We have a choice of whether to move each pole
 infinitesimally up or down.  It turns out that the appropriate choice
 is to shift the pole at $-k$ down, and shift the pole at $+k$ up, as
 illustrated by the red dots in the following figure:
@@ -316,7 +304,7 @@ illustrated by the red dots in the following figure:
 \end{figure}
 
 \noindent
-This choice will yield a causal Green's function (Section 1.7).  It
+This choice, which will yield a causal Green's function (Section 1.7),
 alters the denominator in the integrand of Eq.~\eqref{rGrintegrand} as
 follows:
 \begin{equation}
@@ -326,24 +314,38 @@ where $\varepsilon$ is a positive infinitesimal.  This is equivalent
 to replacing $E \rightarrow E + i\varepsilon$ in the definition of the
 Green's function.  We can now do the integral:
 \begin{align*}
-  \begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\right]_{k'=k+i\varepsilon^+} \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}
+  \begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}, \;k'=k+i\varepsilon^+\right] \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}
 \end{align*}
-Plugging this into Eq.~\eqref{rGrintegrand} yields
+Plugging this into Eq.~\eqref{rGrintegrand} gives the result
 \begin{equation}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = -\frac{2m}{\hbar^2}
   \cdot \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|},
 \end{equation}
-which describes a spherical wave propagating isotropically outward
-from $\mathbf{r} = \mathbf{r}'$.  It is isotropic because the wave is
+which is a spherical wave propagating isotropically outward from
+$\mathbf{r} = \mathbf{r}'$.  The wave is isotropic because it is
 generated by a delta function, which has no preferred direction.  It
 is outgoing due to our preceding choice of regularization.
 
-The propagators for other spatial dimensions are given in Section 1.7.
-The 1D and 2D derivations are very similar way to the above 3D
-derivation.  The 2D case is left as an
+The propagators for other spatial dimensions are listed in Section
+1.7.  The 1D and 2D derivations are similar to the above 3D
+derivation.  The 2D case is given as an
 \hyperref[ex:2dpropagator]{exercise}, with some hints provided.
 
 \section{The scattering matrix}
+
+Because the Helmholtz equation is linear, any linear combination of
+spherical waves, with various values of $(\ell,m)$, is also a solution:
+\begin{equation}
+  \psi(\mathbf{r}) = \sum_\pm \sum_{\ell = 0}^\infty \sum_{m = - \ell}^\ell c_{\ell m}^\pm \Psi_{\ell m}^\pm(\mathbf{r}).
+\end{equation}
+It can be shown that the spherical waves form a complete solution
+basis.  In other words, any solution to the 3D Helmholtz equation
+within the exterior region can be written in the above form, for some
+choice of complex coefficients $c_{\ell m}^\pm$.  (By the way, these
+spherical waves are appropriately normalized so that the flux
+associated with each term is directly proportional to $|c_{\ell
+  m}^\pm|^2$.)
+
 
 For a given scattering problem, the exterior wavefunction is described
 by the complex numbers $\{c_{\ell m}^+\}$ and $\{c_{\ell m}^-\}$.
@@ -385,14 +387,10 @@ where $|\mathbf{k}_i| = k$.  This introduces an important
 complication: relative to the coordinate origin, a plane wave is
 neither purely ``incoming'' nor ``outgoing''!  In fact, there is a
 mathematical identity stating that
-\begin{align}
-  \begin{aligned}e^{i\mathbf{k}_i \cdot \mathbf{r}} &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 4 \pi j_{\ell}(kr) e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}})\\ &= \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 2 \pi \left[h_{\ell}^+(kr) + h_{\ell}^-(kr)\right] e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}}).\end{aligned}
-  \label{plane_wave_decomp}
-\end{align}
-Here, $\hat{\mathbf{k}}_i$ denotes the angular components (in
-spherical coordinates) of the incident wave-vector $\mathbf{k}_i$,
-while $\hat{\mathbf{r}}$ likewise denotes the angular components of
-the position vector $\mathbf{r}$.  Eq.~\eqref{plane_wave_decomp}
+
+FIXME
+
+Eq.~\eqref{plane_wave_decomp}
 informs us that the incident plane wave can be decomposed into a
 superposition of incoming and outgoing spherical waves, with the wave
 coefficients
