@@ -334,6 +334,7 @@ derivation.  The 2D case is given as an
 \hyperref[ex:2dpropagator]{exercise}, with some hints provided.
 
 \section{Scattering relations}
+\label{sec:scattering}
 
 Circular waves (Section~\ref{circular_waves}) and spherical waves
 (Section~\ref{sec:spherical}) play an important role in the analysis
@@ -356,6 +357,7 @@ and outgoing circular waves (for 2D) or spherical waves (for 3D):
     \Big[c_{\ell m}^+ h_\ell^+(kr) + c_{\ell m}^- h_\ell^-(kr)\Big] \,
     Y_{\ell m}(\theta, \phi). & (\textrm{3D})
   \end{aligned}\right.
+  \label{psirdecomp}
 \end{equation}
 Since the individual circular or spherical waves satisfy the Helmholtz
 equation, which is linear, any such linear superposition automatically
@@ -373,57 +375,94 @@ functions, which give rise to the large-$r$ asymptotic forms in
 
 In a scattering problem, the incoming coefficients $|c_\mu^-|^2$ and
 the outgoing coefficients $|c_\mu^+|^2$ are not independent.  Since
-the Schr\"odinger wave equation is linear, there must be a linear
-relation between them, which can be expressed as
+the Schr\"odinger wave equation is linear, there must be some linear
+relation between them, of the form
 \begin{equation}
-  c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-, \;\;\;\text{for all}\;\;\mu,
+  c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-, \;\;\;\text{for all}\;\;\mu.
+  \label{srelation}
 \end{equation}
-The complex matrix $S$, called the \textbf{scattering matrix}, is
-determined by the scattering potential $V(\mathbf{r})$ and energy $E$.
-It specifies how the scatterer converts incoming waves into outgoing
-waves.
+Here, the outgoing wave coefficients are on the left, and the incoming
+coefficients on the right.  The complex matrix $S$, called the
+\textbf{scattering matrix}, is determined by the scattering potential
+$V(\mathbf{r})$ and energy $E$.  It specifies how the scatterer
+converts incoming waves into outgoing waves.
 
-
-
-Thus far, we have not specified how the ``incoming'' and ``outgoing''
-waves are related to the ``incident'' and ``scattered'' waves of a
-scattering experiment.  We now consider an incident plane wave,
-$\psi_i(\mathbf{r}) = \Psi_i \exp(i\mathbf{k}_i\cdot \mathbf{r})$,
-where $|\mathbf{k}_i| = k$.  This introduces an important
-complication: relative to the coordinate origin, a plane wave is
-neither purely ``incoming'' nor ``outgoing''!  In fact, there is a
-mathematical identity stating that
-
-FIXME
-
-Eq.~\eqref{plane_wave_decomp}
-informs us that the incident plane wave can be decomposed into a
-superposition of incoming and outgoing spherical waves, with the wave
-coefficients
+Do not confuse these ``incoming'' and ``outgoing'' waves with the
+``incident'' and ``scattered'' waves defined in the scattering
+problem.  As discussed in Chapter 1, a scattering experiment typically
+has an incident wave that is a plane wave, of the form
 \begin{equation}
-  c^{\pm}_{i, \ell m} = 2 \pi e^{i\ell\pi/2} \, Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; \Psi_i.
+  \psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}} \;\;\;
+  \mathrm{where}\;\; |\mathbf{k}_i| = k.
 \end{equation}
-As described in Chapter 1, the total wavefunction in a scattering
-problem is the sum of the incident wavefunction $\psi_i(\mathbf{r})$
-and the scattered wavefunction $\psi_s(\mathbf{r})$.  The latter must
-be a superposition of only outgoing spherical waves; let us denote the
-coefficients by $c^+_{s,\ell m}$.  The scattering matrix relation can
-then be re-written as
-\begin{align}
-  c^+_\mu &= c^+_{i,\mu} + c^+_{s,\mu} = \sum_{\mu\nu} S_{\mu\nu} c^-_{i,\nu} \\ \Rightarrow \;\;\; c^+_{s,\ell m} &= 2 \pi \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; \Psi_i.
-\end{align}
-Using this, the scattered wavefunction can be written as
+However, relative to a given coordinate origin ($r = 0$), a plane wave
+is neither purely incoming nor outgoing!  For 2D, we can use
+Eq.~\eqref{eikrcosphi} to decompose the plane wave as
+\begin{equation}
+  \psi_i(\mathbf{r})
+  = \frac{\Psi_i}{2} \sum_{m=-\infty}^\infty i^m e^{im \Delta\phi} \,
+  \left[H_m^+(kr) + H_m^-(kr)\right],
+  \label{psii_2d}
+\end{equation}
+where $r = |\mathbf{r}|$ and $\Delta \phi =
+\cos^{-1}\left[(\mathbf{k}_i\!\cdot\!\mathbf{r})/kr\right]$.
+Likewise, for 3D we can use Eq.~\eqref{plane_wave_decomp} to write
+\begin{equation}
+  \psi_i(\mathbf{r})
+  = 2\pi \Psi_i \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell
+  \left[h_{\ell}^+(kr) + h_{\ell}^-(kr) \right] \, e^{i\ell\pi/2} \,
+  Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}}),
+  \label{psii_3d}
+\end{equation}
+where $\hat{\mathbf{k}}_i$ and $\hat{\mathbf{r}}$ denote the angular
+components of $\mathbf{k}_i$ and $\mathbf{r}$ respectively.  In both
+cases, the incident plane wave is evidently a superposition of
+incoming \textit{and} outgoing waves.
+
+Using Eqs.~\eqref{psii_2d} and \eqref{psii_3d}, we will be able to
+relate the scattering matrix to the formulation of the scattering
+problem discussed in Chapter 1.  Let us see how this is done for 3D;
+the 2D case is left as an \hyperref[ex:2dscattering]{exercise}.
+
+Focusing now on 3D, a comparison of Eqs.~\eqref{psirdecomp} and
+\eqref{psii_3d} allows us to determine the spherical wave coefficients
+for the incident wave:
+\begin{equation}
+  c^{\pm}_{i, \ell m} = 2 \pi e^{i\ell\pi/2} \,
+  Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; \Psi_i.
+  \label{cilm}
+\end{equation}
+The total wavefunction consists of $\psi_i(\mathbf{r})$ plus the
+scattered wavefunction $\psi_s(\mathbf{r})$.  By assumption, the
+latter is a superposition of only outgoing waves, so denote its
+coefficients by $c^+_{s,\ell m}$.  Next, re-express the scattering
+matrix equation \eqref{srelation} using these coefficients:
+\begin{equation}
+  c^+_{i,\ell m} + c^+_{s,\ell m}
+  = \sum_{\ell, m, \ell', m'} S_{\ell m, \ell'm'} c^-_{i,\ell'm'}.
+\end{equation}
+Note that the scattered wave does not contribute to the right side
+because it has no incoming components.  Moving $c_{i,\ell m}^+$ to the
+right side of the equation, and using Eq.~\eqref{cilm}, gives
+\begin{equation}
+  c^+_{s,\ell m} = 2 \pi \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'}
+  - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \,
+  Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; \Psi_i.
+\end{equation}
+Hence, the scattered wavefunction is
 \begin{equation}
   \begin{aligned}\psi_s(\mathbf{r}) &= \sum_{\ell m} c^+_{s,\ell m} h_{\ell}^+(kr) \, Y_{\ell m}(\hat{\mathbf{r}}) \\ &= \Psi_i \sum_{\ell m} \sum_{\ell' m'} 2 \pi \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) e^{i\ell'\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; h_{\ell}^+(kr) \, Y_{\ell m}(\hat{\mathbf{r}}).\end{aligned}
 \end{equation}
-Taking the large-$r$ expansion of the spherical Hankel functions yields
+For large $r$, we can simplify the spherical Hankel functions using
+Eq.~\eqref{sphJasymptote}, obtaining
 \begin{equation}
   \psi_s(\mathbf{r}) \overset{r\rightarrow\infty}{\longrightarrow} \, \Psi_i \frac{e^{ikr}}{r} \; \left[ \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}})\right].
 \end{equation}
-The quantity in square brackets is precisely what we call the
-scattering amplitude:
+The quantity in square brackets is the scattering amplitude (Section
+1.5):
 \begin{equation}
   f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
+  \label{3dfrelation}
 \end{equation}
 
 \section{Spherically symmetric scattering potentials}
@@ -575,7 +614,11 @@ incidence and the direction into which the particle is scattered).
     H_m^+(z) = - (-1)^m \, H_m^-(-z).
   \end{equation}
 
-  
+\item \label{ex:2dscattering} In Section~\ref{sec:scattering}, we
+  derived an expression for the 3D scattering amplitudes in terms of
+  the scattering matrix $S$, Eq.~\eqref{3dfrelation}.  Starting from
+  Eq.~\eqref{psii_2d}, derive the corresponding relation for the 2D
+  scattering amplitudes.
 
 \end{enumerate}
 
