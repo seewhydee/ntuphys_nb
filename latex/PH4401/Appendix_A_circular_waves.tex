@@ -153,8 +153,8 @@ the azimuthal direction (i.e., its angular momentum).
 
 Note also that the prefactors of $1/\sqrt{r}$ in
 Eq.~\eqref{Jasymptote} are consistent with energy conservation.  In
-2D, the wavefront at radial distance $r$ has circumference $2\pi r$,
-so $|\Psi_m(r)|^2 \cdot 2\pi r$ is constant.
+2D, the wavefront at radius $r$ has circumference $2\pi r$, so
+$|\Psi_m(r)|^2 \cdot 2\pi r$ is a constant.
 
 Finally, the Bessel functions of the first kind obey the identity
 \begin{equation}
@@ -226,7 +226,10 @@ from Section~\ref{circular_waves}:
   \label{sphJasymptote}
 \end{align}
 Hence, the spherical Hankel functions of the first and second kind
-describe outgoing and incoming waves, respectively.
+describe outgoing and incoming waves, respectively.  The $1/r$
+prefactors are consistent with energy conservation: in 3D, spherical
+wavefronts are spread over an area $4\pi r^2$, so $|\Psi_{\ell
+  m}(r)|^2 \cdot 4\pi r^2$ is a constant.
 
 Finally, the following identity is useful for relating plane waves to
 spherical waves:
@@ -241,12 +244,11 @@ In this equation, $\hat{\mathbf{k}}_i$ denotes the angular components
 and $\hat{\mathbf{r}}$ likewise denotes the angular components of the
 position vector $\mathbf{r}$.
 
-\section{The propagator}
+\section{Propagators}
 \label{sec:propagator}
 
-The propagator, introduced in Section 1.7, is the Green's function for
-a free particle.  It is a solution to the partial differential
-equation
+A propagator, as discussed in Section 1.7, is a Green's function for a
+free particle.  It is a solution to the partial differential equation
 \begin{equation}
   \Big(\nabla^2 + k^2\Big) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle
   = \frac{2m}{\hbar^2} \; \delta^d(\mathbf{r}-\mathbf{r}').
@@ -331,53 +333,57 @@ The propagators for other spatial dimensions are listed in Section
 derivation.  The 2D case is given as an
 \hyperref[ex:2dpropagator]{exercise}, with some hints provided.
 
-\section{The scattering matrix}
+\section{Scattering relations}
 
-Because the Helmholtz equation is linear, any linear combination of
-spherical waves, with various values of $(\ell,m)$, is also a solution:
+Circular waves (Section~\ref{circular_waves}) and spherical waves
+(Section~\ref{sec:spherical}) play an important role in the analysis
+of scattering problems.
+
+Let $\psi(\mathbf{r})$ be the wavefunction in the external region of a
+scattering experiment, where the scattering potential vanishes.  As
+described in Chapter 1, $\psi(\mathbf{r})$ obeys the Helmholtz
+equation.  We can therefore expand it as a superposition of incoming
+and outgoing circular waves (for 2D) or spherical waves (for 3D):
 \begin{equation}
-  \psi(\mathbf{r}) = \sum_\pm \sum_{\ell = 0}^\infty \sum_{m = - \ell}^\ell c_{\ell m}^\pm \Psi_{\ell m}^\pm(\mathbf{r}).
+  \psi(\mathbf{r}) =
+  \left\{
+  \begin{aligned}
+    &\sum_{m=-\infty}^\infty
+    \Big[c_m^+ H_m^+(kr) + c_m^- H_m^-(kr)\Big] \, e^{im\phi}
+    & (\textrm{2D})
+    \\
+    &\sum_{\ell = 0}^\infty \sum_{m = - \ell}^\ell
+    \Big[c_{\ell m}^+ h_\ell^+(kr) + c_{\ell m}^- h_\ell^-(kr)\Big] \,
+    Y_{\ell m}(\theta, \phi). & (\textrm{3D})
+  \end{aligned}\right.
 \end{equation}
-It can be shown that the spherical waves form a complete solution
-basis.  In other words, any solution to the 3D Helmholtz equation
-within the exterior region can be written in the above form, for some
-choice of complex coefficients $c_{\ell m}^\pm$.  (By the way, these
-spherical waves are appropriately normalized so that the flux
-associated with each term is directly proportional to $|c_{\ell
-  m}^\pm|^2$.)
+Since the individual circular or spherical waves satisfy the Helmholtz
+equation, which is linear, any such linear superposition automatically
+satisfies the Helmholtz equation.  For simplicity, let us denote the
+coefficients by $\{c_\mu^\pm\}$, where $\mu \equiv m$ for 2D and $\mu
+\equiv (\ell, m)$ for 3D.  Each $\mu$ is called a \textbf{scattering
+  channel}.
 
+The circular and spherical waves are appropriately normalized such
+that the energy flux carried in scattering channel $\mu$ is directly
+proportional to $|c_\mu^\pm|^2$.  This follows from the normalization
+choice in the definitions of the Hankel and spherical Hankel
+functions, which give rise to the large-$r$ asymptotic forms in
+\eqref{Jasymptote} and \eqref{sphJasymptote}.
 
-For a given scattering problem, the exterior wavefunction is described
-by the complex numbers $\{c_{\ell m}^+\}$ and $\{c_{\ell m}^-\}$.
-These two sets of coefficients cannot, however, be independent of each
-other.  For fixed $V(\mathbf{r})$ and $E$, suppose there is an
-incoming spherical wave with definite angular momentum, say $c_{\ell
-  m}^- = 1$ for some choice of $(\ell,m)$.  After striking the
-scatterer, the quantum particle bounces back out to infinity, and the
-outgoing wavefunction is some superposition of outgoing spherical
-waves with a variety of angular momenta, described by certain
-coefficients $\{c_{\ell' m'}^+\}$.
-
-Thus, for each choice of incoming wave with definite angular momentum,
-there is a corresponding set of outgoing-wave coefficients.  Since the
-Schr\"odinger wave equation is linear, the principle of superposition
-states that linear combinations of scattering solutions are also valid
-solutions---i.e., solutions to the Schr\"odinger wave equation for the
-same $V(\mathbf{r})$ and $E$.  So if we supply an \textit{arbitrary}
-set of incoming coefficients $\{c_{\ell m}^-\}$, the outgoing
-coefficients must be determined by a linear relation of the form
+In a scattering problem, the incoming coefficients $|c_\mu^-|^2$ and
+the outgoing coefficients $|c_\mu^+|^2$ are not independent.  Since
+the Schr\"odinger wave equation is linear, there must be a linear
+relation between them, which can be expressed as
 \begin{equation}
-  c_{\ell m}^+ = \sum_{\ell'm'} S_{\ell m, \ell' m'} \;c_{\ell' m'}^-.
+  c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-, \;\;\;\text{for all}\;\;\mu,
 \end{equation}
-To make the notation cleaner, we rewrite this as
-\begin{equation}
-  c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-,
-\end{equation}
-where each $\mu$ or $\nu$ denotes a pair of angular momentum quantum
-numbers $(\ell,m)$, called a \textbf{scattering channel}.  The matrix
-$S$ is called a \textbf{scattering matrix}.  Knowing $V(\mathbf{r})$
-and $E$, we can calculate $S$, and knowing $S$ we can determine the
-outgoing wavefunction produced by any set of incoming waves.
+The complex matrix $S$, called the \textbf{scattering matrix}, is
+determined by the scattering potential $V(\mathbf{r})$ and energy $E$.
+It specifies how the scatterer converts incoming waves into outgoing
+waves.
+
+
 
 Thus far, we have not specified how the ``incoming'' and ``outgoing''
 waves are related to the ``incident'' and ``scattered'' waves of a
