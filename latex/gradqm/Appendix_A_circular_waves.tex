@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{framed}
 \usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
@@ -370,7 +371,7 @@ The propagators for other spatial dimensions are listed in Section
 to the above 3D derivation.  The 2D case is given as an
 \hyperref[ex:2dpropagator]{exercise}, with some hints provided.
 
-\section{Scattering relations}
+\section{Partial wave analysis}
 \label{sec:scattering}
 
 Circular waves (Section~\ref{circular_waves}) and spherical waves
@@ -401,7 +402,9 @@ equation, which is linear, any such linear superposition automatically
 satisfies the Helmholtz equation.  For simplicity, let us denote the
 coefficients by $\{c_\mu^\pm\}$, where $\mu \equiv m$ for 2D and $\mu
 \equiv (\ell, m)$ for 3D.  Each $\mu$ is called a \textbf{scattering
-  channel}.
+  channel}.  The approach of dividing a scattering problem into
+different scattering channels is called \textbf{partial wave
+  analysis}.
 
 The circular and spherical waves are appropriately normalized such
 that the energy flux in each scattering channel $\mu$ is directly
@@ -555,7 +558,7 @@ $A_\ell(r)$ in Eq.~\eqref{sphere_ansatz0}:
 
 In the exterior region $r > R$, Eq.~\eqref{sphericalschrod} reduces to
 the spherical Bessel equation \eqref{sphbessel}, with $K(r)
-\rightarrow k$, and we get
+\rightarrow k$, and we can write
 \begin{equation}
   A_{\ell}(r) = c^-_\ell h^-_\ell(kr) + c^+_\ell h^+_\ell(kr)
   \label{aell}
@@ -586,10 +589,10 @@ Since we are assuming that $U > 0$, for all $E > 0$ we have $q \in
 solutions are spherical Bessel functions (of the first and second
 kind) or spherical Hankel functions (of the first and second kind).
 But the interior region includes the point $r = 0$, and the
-wavefunction must be finite.  Hence, we cannot use the $y_\ell$ and
-$h_\ell^\pm$ functions, which diverge at $r = 0$.  We are forced to
-use spherical Bessel functions of the first kind, which are
-non-divergent at $r = 0$:
+wavefunction must be finite, so we cannot use the $y_\ell$ and
+$h_\ell^\pm$ functions, which diverge at $r = 0$.  This leaves the
+spherical Bessel function of the first kind, which is finite at $r =
+0$:
 \begin{equation}
   A_{\ell}(r) = \alpha_\ell \, j_\ell(qr)
   \quad \textrm{for}\,\;r < R.
@@ -613,39 +616,48 @@ With a bit of rearrangement,
   s_\ell = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.
 \end{equation}
 The numerator and denominator are complex conjugates of one another,
-since $j_\ell$ is real and $(h_\ell^+)^* = h_\ell^-$.  Hence,
+since $j_\ell$ is real and $(h_\ell^+)^* = h_\ell^-$.  Hence, the
+scattering matrix component is a pure phase factor:
 \begin{equation}
   s_\ell = e^{2i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].
+  \label{slresult}
 \end{equation}
-In other words, the scattering matrix component is a pure phase
-factor.  This is actually a consequence of energy conservation.  Since
-the scattering matrix does not couple different angular momentum
-channels (due to the spherical symmetry), the incoming flux and
-outgoing flux in each channel must be equal.  Hence, the only thing
-the scattering potential can do is to shift the phase of the outgoing
-spherical wave component in each channel.
+This is consistent with energy conservation: since the $S$ matrix does
+not couple scattering channels of different angular momenta, the
+incoming flux and outgoing flux in each channel must be equal.  Hence,
+the scattering potential can only shift the phase of the outgoing wave
+component, without altering its amplitude.
 
-Plugging this result into the scattering amplitude formulat
+Plugging Eq.~\eqref{slresult} into the scattering amplitude formula
 \eqref{3dfrelation}, we obtain
 \begin{equation}
   f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
 \end{equation}
-This can be simplified with the aid of the following addition theorem
-for spherical harmonics:
+This can be further simplified with the aid of the following addition
+theorem for spherical harmonics:
 \begin{equation}
   P_\ell(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_2) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\hat{\mathbf{r}}_1) Y_{\ell m}(\hat{\mathbf{r}}_2).
 \end{equation}
 where $P_\ell(\cdots)$ denotes a
 \href{https://en.wikipedia.org/wiki/Legendre_polynomials}{Legendre
-  polynomial}.  Finally, we obtain
+  polynomial}.
+
+Finally, we obtain
+\begin{framed}
 \begin{equation}
-  \boxed{\quad\begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}\quad}
+  \begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}
+  \label{fresult}
 \end{equation}
-This result for the scattering amplitude depends upon two variables:
-(i) $E$, the particle energy (which is conserved), and (ii) $\Delta
-\theta = \cos^{-1}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}})$, the
-\textbf{deflection angle} (i.e., the angle between the direction of
-incidence and the direction into which the particle is scattered).
+\end{framed}
+\noindent
+Evidently, $f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}})$ depends on
+two variables: $E$, the conserved particle energy, and $\Delta \theta
+= \cos^{-1}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}})$, the deflection
+angle between the incident and scattered directions.
+
+The formulas in \eqref{fresult} are used to generate the exact
+scattering amplitude plots shown in Section 1.9 of the main text.
+
 
 \section*{Exercises}
 
