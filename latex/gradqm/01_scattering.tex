@@ -362,13 +362,13 @@ Its dependence on $E$ is plotted below:
 \end{figure}
 
 \noindent
-For fixed potential strength $\gamma$, we see that the scattering
-strength decreases monotonically with $E$, meaning that higher-energy
-particles are scattered less easily.  On the other hand, for fixed
-$E$, the scattering strength increases with $|\gamma|$, with the limit
-$|f|^2 \rightarrow 1$ as $|\gamma|\rightarrow \infty$.  Note also that
-attractive potentials ($\gamma < 0$) and repulsive potentials ($\gamma
-> 0$) are equally effective scatterers.
+For fixed potential strength $\gamma$, the scattering strength
+decreases monotonically with $E$, meaning higher-energy particles are
+scattered less easily.  For fixed $E$, the scattering strength
+increases with $|\gamma|$, with the limit $|f|^2 \rightarrow 1$ as
+$|\gamma|\rightarrow \infty$.  Note also that attractive potentials
+($\gamma < 0$) and repulsive potentials ($\gamma > 0$) are equally
+effective scatterers.
 
 \section{Scattering in 2D and 3D}
 \label{sec:2d3d_scattering}
@@ -407,50 +407,58 @@ Take the 2D case first.  Skipping the mathematical details, one finds
 that the general solution to Eq.~\eqref{helmholtzeq} in 2D can be
 written, using polar coordinates $(r,\phi)$, as
 \begin{equation}
-  \psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\,\Psi_m^\pm(r,\phi), \;\;\;\mathrm{where}\;\;\,\Psi_m^\pm(r,\phi) = H_m^\pm(kr)\,e^{im\phi}.
+  \psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\, H_m^\pm(kr)\,e^{im\phi}.
 \end{equation}
-This is a superposition of circular waves $\Psi_m^\pm(r,\phi)$, with
-coefficients $c_m^\pm \in \mathbb{C}$.  Each circular wave is a
-solution to the 2D Helmholtz equation with angular momentum quantum
-number $m \in \mathbb{Z}$.  Its $r$-dependence is given by $H_m^\pm$,
-called a \textbf{Hankel function} of the ``first kind'' ($+$) or
-``second kind'' ($-$).  Some Hankel functions of the first kind are
-plotted below:
+This is a superposition of \textbf{circular waves} with coefficients
+$c_m^\pm \in \mathbb{C}$.  Each circular wave is a solution to the 2D
+Helmholtz equation with angular momentum quantum number $m \in
+\mathbb{Z}$.  Its $r$-dependence is given by $H_m^\pm$, a
+\textbf{Hankel function} of the ``first kind'' ($+$) or ``second
+kind'' ($-$).  For real inputs, these are complex conjugates of each
+other
+\begin{equation}
+  \left[H^+_m(kr)\right]^* = H^-_m(kr) \quad\mathrm{for}\;\,kr \in \mathbb{R}.
+\end{equation}
+Some Hankel functions of the first kind are plotted below:
 
 \begin{figure}[h!]
   \centering\includegraphics[width=0.95\textwidth]{besselh}
 \end{figure}
 
-The $H^-_m$ functions are the complex conjugates of $H^+_m$.  For
-large values of the input,
+\vskip 0.1in
+For large inputs,
 \begin{equation}
   H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{\pm ikr}.
 \end{equation}
-Therefore, the $\pm$ index specifies whether the circular wave is an
-\textbf{outgoing wave} directed outward from the origin ($+$), or an
-\textbf{incoming wave} directed toward the origin ($-$).
+Thus, the $\pm$ index specifies whether the circular wave is
+\textbf{outgoing} ($+$) or \textbf{incoming} ($-$) along the radial
+direction.
 
 The 3D case is treated similarly.  We use spherical coordinates
 $(r,\theta,\phi)$, and the solutions of the 3D Helmholtz equation are
 superpositions of incoming and outgoing spherical waves:
 \begin{equation}
-  \psi(\mathbf{r})=\sum_{\pm}\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell c_{\ell m}^\pm \,\Psi_{\ell m}^\pm(r,\theta,\phi)\;\;\;\mathrm{where}\;\;\Psi_{\ell m}^\pm(r,\theta,\phi) = \,h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi).
+  \psi(\mathbf{r})=\sum_{\pm}\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell c_{\ell m}^\pm \,
+  h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi).
 \end{equation}
-The $c_{\ell m}^\pm$ factors are complex coefficients.  Each
+Here, the $c_{\ell m}^\pm$ factors are complex coefficients, each
 $h_\ell^\pm$ is a \textbf{spherical Hankel function}, and each
-$Y_{\ell m}$ is a \textbf{spherical harmonic}.  The $\ell$ and $m$
-indices specify the angular momentum of the spherical wave.  For large
-inputs, the spherical Hankel functions have the limiting form
+$Y_{\ell m}$ is a \textbf{spherical harmonic} function.  The $\ell$
+and $m$ indices specify the angular momentum of the spherical wave.
+For large inputs, the spherical Hankel functions have the limiting
+form
 \begin{equation}
   h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \pm \frac{\exp\!\left[\pm i\!\left(kr-\frac{\ell\pi}{2}\right)\right]}{ikr}.
 \end{equation}
 Hence, the $\pm$ index specifies whether the spherical wave is
-outgoing ($+$) or incoming ($-$).  More discussion about these
-spherical waves can be found in Appendix A.
+outgoing ($+$) or incoming ($-$).
+
+More discussion about these circular and spherical waves can be found
+in Appendix A.
 
 It is now clear what we need to do to get a scattered wavefunction
-$\psi_s(\mathbf{r})$ that is outgoing at infinity.  We simply write it
-as a superposition of only outgoing ($+$) waves:
+$\psi_s(\mathbf{r})$ that is outgoing at infinity.  It must be a
+superposition of only outgoing ($+$) waves:
 \begin{equation}
   \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^+(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
 \end{equation}
@@ -624,6 +632,7 @@ potential.  To isolate the dependence on the scattering potential, let
 us define the Green's function for a free particle,
 \begin{equation}
   \hat{G}_0=\big(E-\hat{H}_0\big)^{-1}.
+  \label{G0unregulated}
 \end{equation}
 This will be very useful for us, for $\hat{G}_0$ can be calculated
 exactly, whereas $\hat{G}$ often has no analytic expression.  We can
@@ -709,62 +718,80 @@ discussion.
 \section{The Green's function for a free particle}
 \label{sec:freegreen}
 
-We have defined the free-particle Green's function as the operator
-$\hat{G}_0=\big(E-\hat{H}_0\big)^{-1}$.  Its representation in the
-position basis, $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, is
-called the \textbf{propagator}.  As we have just seen, when the Born
+The free-particle Green's function is the operator
+$\hat{G}_0=\big(E-\hat{H}_0\big)^{-1}$.  We will call its
+representation in the position basis,
+$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, the
+\textbf{propagator}.  As shown in the preceding section, when the Born
 series is written in the position basis, the propagator appears in the
 integrand and describes how the particle ``propagates'' between
 discrete scattering events.
 
-The propagator is a solution to a partial differential equation:
+The propagator is a solution for
 \begin{align}
-  \begin{aligned}\langle\mathbf{r} |\big(E-\hat{H}_0\big) \hat{G}_0 |\mathbf{r}'\rangle &= \langle\mathbf{r}|\hat{I}|\mathbf{r}'\rangle \\ = \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}') \\ \Rightarrow \qquad\quad \left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}').\end{aligned}
+  \langle\mathbf{r} |\big(E-\hat{H}_0\big) \hat{G}_0 |\mathbf{r}'\rangle &= \langle\mathbf{r}|\hat{I}|\mathbf{r}'\rangle \nonumber\\
+  = \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}') \nonumber\\
+  \Rightarrow \qquad\quad \left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}').
+  \label{propagatoreq}
 \end{align}
-As before, $k = \sqrt{2mE/\hbar^2}$ where $E$ is the energy of the
-incident particle.  Therefore, up to a factor of $2m/\hbar^2$, the
-propagator is the Green's function for the $d$-dimensional Helmholtz
-equation (see Section~\ref{sec:2d3d_scattering}).  Note that the
-$\nabla^2$ acts upon the $\mathbf{r}$ coordinates, not $\mathbf{r}'$.
+As before,
+\begin{equation}
+  k = \sqrt{\frac{2mE}{\hbar^2}}
+  \label{kdef}
+\end{equation}
+denotes the wavenumber corresponding to the energy of the incident
+particle.  Up to a factor of $2m/\hbar^2$, the propagator is the
+Green's function for the $d$-dimensional Helmholtz equation (see
+Section~\ref{sec:2d3d_scattering}).  Note that the $\nabla^2$ acts
+upon the $\mathbf{r}$ coordinates, ignoring $\mathbf{r}'$.
 
-The final result is
-given below, along with the results for $d=1$ and $d=2$ (which are
-obtained in a similar fashion):
-\begin{framed}
-  \begin{equation}
-    \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \times \begin{cases} \Bigg.\displaystyle\frac{1}{2ik} \exp\left(ik|x-x'|\right),& d=1\\ \Bigg. \displaystyle\frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|), & d=2 \\ \displaystyle \Bigg. - \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}, & d = 3.  \end{cases}
-  \end{equation}
-\end{framed}
-
-\vskip -0.15in
-The propagator can be regarded as a function of the position
-$\mathbf{r}$, describing a wave propagating outwards from a source
-point $\mathbf{r}'$.  This outgoing behavior comes from our above
-choice of regularization, which tweaked the definition of the Green's
-function to be
+Appendix A discusses the process of solving Eq.~\eqref{propagatoreq}.
+Here, we will skip over most of the details of the solution, which
+involves using the momentum basis, imposing an appropriate choice of
+coordinates (e.g., spherical coordinates in 3D), and contour
+integration.  Along the way, it turns out we have to modify the
+definition of the Green's function slightly, in order to get a
+sensible set of solutions.  This involves replacing
+Eq.~\eqref{G0unregulated} with
 \begin{framed}
   \begin{equation}
     \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.
+    \label{G0regulated}
   \end{equation}
 \end{framed}
-\vskip -0.15in
 \noindent
-This is called an \textbf{outgoing} or \textbf{causal Green's
-  function}.  The word ``causal'' refers to the concept of
-``cause-and-effect'': i.e., a source at one point of space (the
-``cause'') leads to the emission of waves that move outwards (the
-``effect'').
+With this tweak, the propagators for 1D, 2D, and 3D are
+\begin{framed}
+  \begin{equation}
+    \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \times \begin{cases} \Bigg.\displaystyle\frac{1}{2ik} \exp\left(ik|x-x'|\right),& d=1\\ \Bigg. \displaystyle\frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|), & d=2 \\ \displaystyle \Bigg. - \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}, & d = 3.  \end{cases}
+    \label{propagator_solutions}
+  \end{equation}
+\end{framed}
+\noindent
+Treating $\mathbf{r}$ as wavefunction coordinates, the solution for
+each $d$ describes a wave propagating outward isotropically from a
+source point $\mathbf{r}'$.  In 1D, the propagator has the form of a
+plane wave on each side, whereas in 2D it is a circular wave, and in
+3D it is a spherical wave.  (To see why \eqref{G0regulated} gives rise
+to outgoing solutions, note that because of Eq.~\eqref{kdef}, the
+$\varepsilon$ term contributes an infinitesimal positive imaginary
+part to $k$, thus ensuring that outgoing waves of the form
+$\sim\exp(ikr)$ are integrable.)
 
-Different regularizations produce Green's functions with alternative
-features.  For instance, we could flip the sign of $i\varepsilon$ in
-the Green's function redefinition, which displaces the $k$-space poles
-in the opposite direction.  The resulting propagator
-$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$ is
-complex-conjugated, and describes a wave moving inwards from infinity,
-``sinking'' into the point $\mathbf{r}'$.  Such a choice of
-regularization thus corresponds to an \textbf{incoming Green's
-  function}.  In the scattering problem, we will always deal with the
-outgoing/causal Green's function.
+
+The Green's function \eqref{G0regulated} is called a \textbf{causal
+  Green's function}.  The word ``causal'' is based on the term ``cause
+and effect''---the source at $\mathbf{r}'$ is the \textit{cause}, and
+the emitted wave that travels out to infinity is the \textit{effect}.
+
+Alternative tweaks to the Green's function produce different
+behaviors.  For instance, we could flip the sign of $\varepsilon$ in
+Eq.~\eqref{G0regulated}.  This gives rise to an \textbf{anti-causal
+  Green's function}, whose solutions are \textit{incoming} waves that
+arrive from infinity and are absorbed into $\mathbf{r}'$.
+
+In dealing with scattering problems, we generally always use the
+causal Green's function.
 
 \section{Scattering amplitudes in 3D}
 \label{sec:3damp}
@@ -901,12 +928,12 @@ which there is no exact solution.
 
 The figure below shows the results of the Born approximation for the
 uniform potential well, compared to the ``exact'' solution computed
-from partial wave analysis.  It plots $|f|^2$ versus the scattering
-energy $E$, for the case of $90^\circ$ scattering (i.e.,
-$\mathbf{k}_f$ perpendicular to $\mathbf{k}_i$), with wells of
-different depth $U$ and the same radius $R = 1$.  We adopt
-computational units $\hbar = m = 1$, and each Monte Carlo integral is
-computed using $3\times10^4$ samples.
+from partial wave analysis.  It plots $|f|^2$ versus the energy $E$,
+for the case of $90^\circ$ scattering (i.e., $\mathbf{k}_f$
+perpendicular to $\mathbf{k}_i$), with wells of different depth $U$
+and the same radius $R = 1$.  We adopt computational units $\hbar = m
+= 1$, and each Monte Carlo integral is computed using $3\times10^4$
+samples.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.97\textwidth]{spherical_well_scattering}
