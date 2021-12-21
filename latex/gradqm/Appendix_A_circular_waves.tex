@@ -36,9 +36,9 @@ spherical waves, and their use in 2D and 3D scattering problems.
 \section{The Helmholtz equation}
 
 Consider a non-relativistic particle moving in $d$-dimensional space
-in the absence of a potential ($V = 0$), a scenario applicable to the
-``exterior region'' of a scattering problem (Chapter 1).  The
-time-independent Schr\"odinger equation is
+in the absence of a potential ($V = 0$), as in the exterior region of
+a scattering problem (Chapter 1).  The time-independent Schr\"odinger
+equation is
 \begin{equation}
   -\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),
   \label{tise}
@@ -58,7 +58,7 @@ where
 \end{equation}
 The partial differential equation \eqref{helmholtz} is called the
 \textbf{Helmholtz equation}.  We are interested in its solutions for
-2D and 3D, with different choices of boundary conditions.
+various choices of boundary conditions, in both 2D and 3D space.
 
 One class of elementary solutions is, of course, the plane waves
 \begin{equation}
@@ -66,15 +66,14 @@ One class of elementary solutions is, of course, the plane waves
   \label{planewaves}
 \end{equation}
 where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is a $d$-component
-vector satisfying $|\mathbf{k}| = k$ (where $k$ is the scalar
-parameter in the Helmholtz equation).  The direction of $\mathbf{k}$
+vector satisfying $|\mathbf{k}| = k$.  The direction of $\mathbf{k}$
 specifies the propagation direction.
 
-In scattering problems, it is useful to turn to a different class of
-solutions describing waves propagating outward (or inward) from a
-point, instead of having a fixed direction like a plane wave.  Such
-solutions can be constructed by going to polar coordinates $(r, \phi)$
-for 2D, and spherical coordinates $(r,\theta,\phi)$ for 3D.
+In scattering problems, it is useful to consider other solutions that
+correspond to waves propagating outward (or inward) from a point,
+unlike a plane wave.  Such solutions can be constructed using polar
+coordinates $(r, \phi)$ in 2D, and spherical coordinates
+$(r,\theta,\phi)$ in 3D.
 
 \section{Circular Waves in 2D}
 \label{circular_waves}
@@ -144,24 +143,47 @@ By looking at the last line in Eq.~\eqref{Jasymptote} and drawing an
 analogy to Eq.~\eqref{planewaves}, we see that the Hankel functions of
 the first kind describe \textit{outgoing} waves (propagating away from
 the origin), and the Hankel functions of the second kind describe
-\textit{incoming} waves (propagating toward the origin).  The Bessel
-functions of the first and second kind, being neither purely incoming
-nor outgoing, are analogous to standing waves.  Also, don't forget
-that the full wavefunction \eqref{psi_circular} has a factor of
-$\exp(im\phi)$, which describes how the circular wave propagates in
-the azimuthal direction (i.e., its angular momentum).
-
-Note also that the prefactors of $1/\sqrt{r}$ in
-Eq.~\eqref{Jasymptote} are consistent with energy conservation.  In
+\textit{incoming} waves (propagating toward the origin).  The
+prefactor of $1/\sqrt{r}$ is consistent with energy conservation: in
 2D, the wavefront at radius $r$ has circumference $2\pi r$, so
 $|\Psi_m(r)|^2 \cdot 2\pi r$ is a constant.
 
-Finally, the Bessel functions of the first kind obey the identity
+\begin{figure}[b]
+  \centering\includegraphics[width=0.99\textwidth]{bessels}
+\end{figure}
+
+The figure below plots the outgoing wavefunctions $H_m^+(kr) \,
+\exp(im\phi)$ for different $m$.  Since the wavefunction is complex,
+we plot just its real part, using red and blue to represent positive
+and negative values.  The radial factor $H_m^+(kr)$ produces an
+overall outward motion, while the $\exp(im\phi)$ factor describes the
+azimuthal motion.  The black arrows indicate the wave's direction of
+propagation at different points, showing that it spirals clockwise
+outward ($m < 0$), propagates istropically outward ($m \ne 0$), or
+spirals counterclockwise outward ($m > 0$).  Note that the $m = 0$
+plot has no apparent divergence at $r = 0$ because we are plotting the
+real part of the wavefunction, and the divergence of $H_m^+$ is in its
+imaginary part (i.e., from $Y_m$).
+
+We can then interpret the Bessel functions of the first and second
+kind as superpositions of $H_m^+$ and $H_m^-$, similar to how standing
+waves are superpositions of counter-propagating plane waves.  The
+$J_m$ functions consist of a superposition that is non-divergent at $r
+= 0$, because the divergences of $H_m^+$ and $H_m^-$ cancel out.  The
+$Y_m$ functions are formed by a superposition that is divergent at $r
+= 0$.
+
+Finally, it is important to bear in mind that plane waves and circular
+waves are both equally valid classes of elementary solutions to the 2D
+Helmholtz equation.  We can even express a plane wave as a
+superposition of circular waves, or vice versa.  The following
+identity is particularly helpful for translating between the two types
+of waves:
 \begin{equation}
   e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
   \label{eikrcosphi}
 \end{equation}
-This is useful for converting between plane waves and circular waves.
+Its usefulness will be demonstrated in Section~\ref{sec:scattering}.
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
@@ -175,10 +197,10 @@ $\theta$ and $\phi$ by focusing on solutions of the form
 \end{equation}
 where $Y_{\ell m}(\theta,\phi)$ is a
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html}{spherical
-  harmonic}.  In the quantum context, this is a wavefunction with
-definite angular momentum; the quantum numbers $\ell$ (for the total
-angular momentum) and $m$ (for the $z$-component of the angular
-momentum) are integers satisfying
+  harmonic}.  In the quantum context, Eq.~\eqref{psi3d} describes a
+wavefunction with definite angular momentum, described by the quantum
+numbers $\ell$ (for the total angular momentum) and $m$ (for the
+$z$-component of the angular momentum), which are integers satisfying
 \begin{equation}
   \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell.
 \end{equation}
@@ -231,36 +253,38 @@ prefactors are consistent with energy conservation: in 3D, spherical
 wavefronts are spread over an area $4\pi r^2$, so $|\Psi_{\ell
   m}(r)|^2 \cdot 4\pi r^2$ is a constant.
 
-Finally, the following identity is useful for relating plane waves to
-spherical waves:
+Similar to the 2D case, we can express a plane wave as a superposition
+of spherical waves.  This is accomplished via the identity
 \begin{equation}
   e^{i\mathbf{k}_i \cdot \mathbf{r}}
   = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell 4 \pi j_{\ell}(kr) e^{i\ell\pi/2} \,
-  Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}})
+  Y_{\ell m}^*(\hat{\mathbf{k}}_i) \, Y_{\ell m}(\hat{\mathbf{r}}),
   \label{plane_wave_decomp}
 \end{equation}
-In this equation, $\hat{\mathbf{k}}_i$ denotes the angular components
-(in spherical coordinates) of the incident wave-vector $\mathbf{k}_i$,
-and $\hat{\mathbf{r}}$ likewise denotes the angular components of the
-position vector $\mathbf{r}$.
+where $\hat{\mathbf{k}}_i$ denotes the angular components (in
+spherical coordinates) of the incident wave-vector $\mathbf{k}_i$, and
+$\hat{\mathbf{r}}$ denotes the angular components of the position
+vector $\mathbf{r}$.
 
 \section{Propagators}
 \label{sec:propagator}
 
-A propagator, as discussed in Section 1.7, is a Green's function for a
-free particle.  It is a solution to the partial differential equation
+As discussed in Section 1.7, a propagator is a Green's function for a
+free particle, meaning that it is a solution to
 \begin{equation}
   \Big(\nabla^2 + k^2\Big) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle
   = \frac{2m}{\hbar^2} \; \delta^d(\mathbf{r}-\mathbf{r}').
+  \label{greendelta}
 \end{equation}
 The left side of this equation is the same as the $d$-dimensional
 Helmholtz equation \eqref{helmholtz}, with $\nabla^2$ acting on
 $\mathbf{r}$ (not $\mathbf{r}'$), and $k$ given by Eq.~\eqref{kparm}.
 On the right side, $\delta^d(\cdots)$ denotes a $d$-dimensional delta
-function, and the prefactor of $2m/\hbar^2$ comes from how we defined
-the Green's function by inverting the Hamiltonian (Section 1.6).
+function, and the prefactor of $2m/\hbar^2$ comes from our definition
+of the Green's function in terms of inverting the Hamiltonian (Section
+1.6).
 
-We can solve the differential equation with the help of the momentum
+We can solve Eq.~\eqref{greendelta} with the help of the momentum
 eigenbasis:
 \begin{align}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle
@@ -277,8 +301,17 @@ To calculate the $d$-dimensional integral, we must introduce explicit
 coordinates.  In the following, we will show the calculation for 3D.
 The 2D case is left as an \hyperref[ex:2dpropagator]{exercise}.
 
-Take 3D spherical coordinates $(k',\theta,\phi)$, with the coordinate
-axes aligned so that $\mathbf{r}-\mathbf{r}'$ points along $\theta=0$.
+\clearpage
+
+In 3D, let us express $\mathbf{k}'$ using spherical coordinates
+$(k',\theta,\phi)$.  We are free to choose the $\theta=0$ axis so that
+it points in the direction of $\mathbf{r}-\mathbf{r}'$, as illustrated
+below:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{spherical_coords}
+\end{figure}
+
 Then,
 \begin{align}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \nonumber \\
