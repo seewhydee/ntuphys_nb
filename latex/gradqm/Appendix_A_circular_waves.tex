@@ -13,7 +13,7 @@
 \usepackage{fancyhdr}
 \fancyhf{}
 \lhead{\tiny Y.~D.~Chong}
-\rhead{\scriptsize PH4401: Quantum Mechanics III}
+\rhead{\scriptsize Appendix A: Circular and Spherical Waves $|$ Graduate Quantum Mechanics}
 \lfoot{}
 \rfoot{\thepage}
 \pagestyle{fancy}
@@ -140,46 +140,54 @@ $H_m^\pm$) are divergent.
   \label{Jasymptote}
 \end{align}
 
-By looking at the last line in Eq.~\eqref{Jasymptote} and drawing an
-analogy to Eq.~\eqref{planewaves}, we see that the Hankel functions of
-the first kind describe \textit{outgoing} waves (propagating away from
-the origin), and the Hankel functions of the second kind describe
-\textit{incoming} waves (propagating toward the origin).  The
+Let us focus on the Hankel functions first.  By comparing the last
+line in Eq.~\eqref{Jasymptote} to Eq.~\eqref{planewaves}, we can
+associate the Hankel functions of the first kind with \textit{outward}
+propagation away from the origin, and the Hankel functions of the
+second kind with \textit{inward} propagation toward the origin.  The
 prefactor of $1/\sqrt{r}$ is consistent with energy conservation: in
 2D, the wavefront at radius $r$ has circumference $2\pi r$, so
 $|\Psi_m(r)|^2 \cdot 2\pi r$ is a constant.
 
+Some Hankel functions of the first kind are plotted below.  They
+indeed diverge at $kr = 0$, and behave as decaying sinosoidal waves
+for large $kr$.
+
 \begin{figure}[b]
+  \centering\includegraphics[width=0.98\textwidth]{besselh}
+\end{figure}
+
+\clearpage
+
+When a Hankel function of the first kind is multiplied by the
+azimuthal factor $\exp(im\phi)$, the resulting wavefunction describes
+an outgoing circular wave.  In the figure below, we plot
+$\mathrm{Re}\left[H_m^+(kr) \exp(im\phi)\right]$ in the 2D plane,
+using red and blue to represent positive and negative values:
+
+\begin{figure}[h!]
   \centering\includegraphics[width=0.99\textwidth]{bessels}
 \end{figure}
 
-The figure below plots the outgoing wavefunctions $H_m^+(kr) \,
-\exp(im\phi)$ for different $m$.  Since the wavefunction is complex,
-we plot just its real part, using red and blue to represent positive
-and negative values.  The radial factor $H_m^+(kr)$ produces an
-overall outward motion, while the $\exp(im\phi)$ factor describes the
-azimuthal motion.  The black arrows indicate the wave's direction of
-propagation at different points, showing that it spirals clockwise
-outward ($m < 0$), propagates istropically outward ($m \ne 0$), or
-spirals counterclockwise outward ($m > 0$).  Note that the $m = 0$
-plot has no apparent divergence at $r = 0$ because we are plotting the
-real part of the wavefunction, and the divergence of $H_m^+$ is in its
-imaginary part (i.e., from $Y_m$).
+\noindent
+In each plot, the black arrows indicate the wave's direction of
+propagation at different points.  Depending on the value of $m$, the
+wave propagates outward in a clockwise spiral ($m < 0$), istropically
+($m = 0$), or in a counterclockwise spiral ($m > 0$).  (Note: the $m =
+0$ plot shows no divergence at $r = 0$ because we are plotting the
+real part of the wavefunction, and only the imaginary part of $H_m^+$
+is divergent.)
 
-We can then interpret the Bessel functions of the first and second
-kind as superpositions of $H_m^+$ and $H_m^-$, similar to how standing
-waves are superpositions of counter-propagating plane waves.  The
-$J_m$ functions consist of a superposition that is non-divergent at $r
-= 0$, because the divergences of $H_m^+$ and $H_m^-$ cancel out.  The
-$Y_m$ functions are formed by a superposition that is divergent at $r
-= 0$.
+The Bessel functions of the first and second kind can be interpreted
+as real superpositions of $H_m^+$ and $H_m^-$, analogous to how
+standing waves are formed by counter-propagating plane waves.  The
+$J_m$ functions are non-divergent at $r = 0$ due to a cancelling of
+the divergences of $H_m^+$ and $H_m^-$, whereas the $Y_m$ functions
+diverge at $r = 0$.
 
-Finally, it is important to bear in mind that plane waves and circular
-waves are both equally valid classes of elementary solutions to the 2D
-Helmholtz equation.  We can even express a plane wave as a
-superposition of circular waves, or vice versa.  The following
-identity is particularly helpful for translating between the two types
-of waves:
+It is possible to express a plane wave as a superposition of circular
+waves, or vice versa.  The following identity is helpful for
+translating between the two types of waves:
 \begin{equation}
   e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
   \label{eikrcosphi}
@@ -210,8 +218,8 @@ These are integers satisfying
 which ensures that $Y_{\ell m}(\theta,\phi)$ is periodic in $\phi$ and
 regular at the coordinate poles.
 
-Plugging Eq.~\eqref{psi3d} into the Helmholtz equation, and expressing
-the 3D Laplacian in spherical coordinates, yields the
+By plugging Eq.~\eqref{psi3d} into the Helmholtz equation and
+expressing the 3D Laplacian in spherical coordinates, we arrive at the
 \textbf{spherical Bessel equation}
 \begin{equation}
   \frac{d}{dr}\left(r^2 \, \frac{d\Psi_{\ell m}}{dr}\right)
@@ -305,8 +313,6 @@ eigenbasis:
 To calculate the $d$-dimensional integral, we must introduce explicit
 coordinates.  In the following, we will show the calculation for 3D.
 The 2D case is left as an \hyperref[ex:2dpropagator]{exercise}.
-
-\clearpage
 
 In 3D, let us express $\mathbf{k}'$ using spherical coordinates
 $(k',\theta,\phi)$.  We are free to choose the $\theta=0$ axis so that
@@ -642,6 +648,7 @@ where $P_\ell(\cdots)$ denotes a
 \href{https://en.wikipedia.org/wiki/Legendre_polynomials}{Legendre
   polynomial}.
 
+\clearpage
 Finally, we obtain
 \begin{framed}
 \begin{equation}

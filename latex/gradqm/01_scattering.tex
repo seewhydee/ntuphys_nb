@@ -14,7 +14,7 @@
 \usepackage{fancyhdr}
 \fancyhf{}
 \lhead{\tiny Y.~D.~Chong}
-\rhead{\scriptsize PH4401: Quantum Mechanics III}
+\rhead{\scriptsize Ch.~1: Scattering Theory $|$ Graduate Quantum Mechanics}
 \lfoot{}
 \rfoot{\thepage}
 \pagestyle{fancy}
@@ -410,29 +410,20 @@ written, using polar coordinates $(r,\phi)$, as
   \psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\, H_m^\pm(kr)\,e^{im\phi}.
 \end{equation}
 This is a superposition of \textbf{circular waves} with coefficients
-$c_m^\pm \in \mathbb{C}$.  Each circular wave is a solution to the 2D
-Helmholtz equation with angular momentum quantum number $m \in
-\mathbb{Z}$.  Its $r$-dependence is given by $H_m^\pm$, a
-\textbf{Hankel function} of the ``first kind'' ($+$) or ``second
-kind'' ($-$).  For real inputs, these are complex conjugates of each
-other
+$c_m^\pm \in \mathbb{C}$.  Each individual circular wave is a solution
+to the 2D Helmholtz equation with angular momentum quantum number $m$.
+Its $r$ dependence is given by $H_m^\pm$, a \textbf{Hankel function}
+of the ``first kind'' ($+$) or ``second kind'' ($-$).  For real
+inputs, these are complex conjugates of each other:
 \begin{equation}
   \left[H^+_m(kr)\right]^* = H^-_m(kr) \quad\mathrm{for}\;\,kr \in \mathbb{R}.
 \end{equation}
-Some Hankel functions of the first kind are plotted below:
-
-\begin{figure}[h!]
-  \centering\includegraphics[width=0.95\textwidth]{besselh}
-\end{figure}
-
-\vskip 0.1in
-For large inputs,
+For large inputs, they have the asymptotic form
 \begin{equation}
   H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{\pm ikr}.
 \end{equation}
-Thus, the $\pm$ index specifies whether the circular wave is
-\textbf{outgoing} ($+$) or \textbf{incoming} ($-$) along the radial
-direction.
+Thus, the $\pm$ index specifies whether the wave is radially
+\textbf{outgoing} ($+$) or \textbf{incoming} ($-$).
 
 The 3D case is treated similarly.  We use spherical coordinates
 $(r,\theta,\phi)$, and the solutions of the 3D Helmholtz equation are
@@ -450,11 +441,11 @@ form
 \begin{equation}
   h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \pm \frac{\exp\!\left[\pm i\!\left(kr-\frac{\ell\pi}{2}\right)\right]}{ikr}.
 \end{equation}
-Hence, the $\pm$ index specifies whether the spherical wave is
-outgoing ($+$) or incoming ($-$).
+Because the $\pm$ index appears in the exponent, it determines whether
+the spherical wave is outgoing ($+$) or incoming ($-$).
 
-More discussion about these circular and spherical waves can be found
-in Appendix A.
+A more detailed discussion about the mathematical properties of
+circular and spherical waves can be found in \textbf{Appendix A}.
 
 It is now clear what we need to do to get a scattered wavefunction
 $\psi_s(\mathbf{r})$ that is outgoing at infinity.  It must be a
@@ -683,6 +674,7 @@ This is called the \textbf{Born series}.
 To interpret this result, let us go to the position basis:
 \begin{align}
   \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}
+    \label{Bornposition}
 \end{align}
 This formula can be regarded as a description of \textbf{multiple
   scattering}.  Due to the presence of the scatterer, the particle
@@ -718,41 +710,41 @@ discussion.
 \section{The Green's function for a free particle}
 \label{sec:freegreen}
 
-The free-particle Green's function is the operator
-$\hat{G}_0=\big(E-\hat{H}_0\big)^{-1}$.  We will call its
-representation in the position basis,
-$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$, the
-\textbf{propagator}.  As shown in the preceding section, when the Born
-series is written in the position basis, the propagator appears in the
-integrand and describes how the particle ``propagates'' between
-discrete scattering events.
+In the position basis representation of the Born series,
+Eq.~\eqref{Bornposition}, a crucial role is played by the matrix
+elements of the free-particle Green's function,
+$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  We call this the
+\textbf{propagator}, as it describes how the particle propagates
+between discrete scattering events.
 
-The propagator is a solution for
-\begin{align}
-  \langle\mathbf{r} |\big(E-\hat{H}_0\big) \hat{G}_0 |\mathbf{r}'\rangle &= \langle\mathbf{r}|\hat{I}|\mathbf{r}'\rangle \nonumber\\
-  = \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}') \nonumber\\
-  \Rightarrow \qquad\quad \left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}').
-  \label{propagatoreq}
-\end{align}
-As before,
+Starting from the definition of $\hat{G}_0$ in
+Eq.~\eqref{G0unregulated}, we can evaluate it in the position basis:
+\begin{align*}
+  \langle\mathbf{r} |\big(E-\hat{H}_0\big) \hat{G}_0 |\mathbf{r}'\rangle &= \langle\mathbf{r}|\hat{I}|\mathbf{r}'\rangle \\
+  = \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}')
+\end{align*}
+Hence,
 \begin{equation}
-  k = \sqrt{\frac{2mE}{\hbar^2}}
+  \left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}'),
+  \label{propagatoreq}
+\end{equation}
+where
+\begin{equation}
+  k = \sqrt{\frac{2mE}{\hbar^2}}.
   \label{kdef}
 \end{equation}
-denotes the wavenumber corresponding to the energy of the incident
-particle.  Up to a factor of $2m/\hbar^2$, the propagator is the
-Green's function for the $d$-dimensional Helmholtz equation (see
-Section~\ref{sec:2d3d_scattering}).  Note that the $\nabla^2$ acts
-upon the $\mathbf{r}$ coordinates, ignoring $\mathbf{r}'$.
+Up to a factor of $2m/\hbar^2$, the propagator is the Green's function
+for the $d$-dimensional Helmholtz equation (see
+Section~\ref{sec:2d3d_scattering}).  Note that the $\nabla^2$ acts on
+the $\mathbf{r}$ coordinates, not $\mathbf{r}'$.
 
-Appendix A discusses the process of solving Eq.~\eqref{propagatoreq}.
-Here, we will skip over most of the details of the solution, which
-involves using the momentum basis, imposing an appropriate choice of
-coordinates (e.g., spherical coordinates in 3D), and contour
-integration.  Along the way, it turns out we have to modify the
-definition of the Green's function slightly, in order to get a
-sensible set of solutions.  This involves replacing
-Eq.~\eqref{G0unregulated} with
+Refer to \textbf{Appendix A} for a discussion about how to solve
+Eq.~\eqref{propagatoreq}.  For now, we skip over the details of
+the solution, which involves using the momentum basis, imposing an
+appropriate choice of coordinates (e.g., spherical coordinates in 3D),
+and contour integration.  Along the way, it turns out to be necessary
+to modify the definition of the Green's function slightly, by
+replacing Eq.~\eqref{G0unregulated} with
 \begin{framed}
   \begin{equation}
     \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.
@@ -760,7 +752,9 @@ Eq.~\eqref{G0unregulated} with
   \end{equation}
 \end{framed}
 \noindent
-With this tweak, the propagators for 1D, 2D, and 3D are
+This tweak is needed to get a sensible set of solutions (again, refer
+to Appendix A for the details).  The resulting propagators for 1D, 2D,
+and 3D are
 \begin{framed}
   \begin{equation}
     \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \times \begin{cases} \Bigg.\displaystyle\frac{1}{2ik} \exp\left(ik|x-x'|\right),& d=1\\ \Bigg. \displaystyle\frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|), & d=2 \\ \displaystyle \Bigg. - \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}, & d = 3.  \end{cases}
@@ -775,9 +769,9 @@ plane wave on each side, whereas in 2D it is a circular wave, and in
 3D it is a spherical wave.  (To see why \eqref{G0regulated} gives rise
 to outgoing solutions, note that because of Eq.~\eqref{kdef}, the
 $\varepsilon$ term contributes an infinitesimal positive imaginary
-part to $k$, thus ensuring that outgoing waves of the form
-$\sim\exp(ikr)$ are integrable.)
-
+part to $k$.  At large distances, the outgoing waves in
+\eqref{propagator_solutions} go as $\exp(ikr)$, so the correction to
+$k$ suppresses the wavefunction and makes it integrable.)
 
 The Green's function \eqref{G0regulated} is called a \textbf{causal
   Green's function}.  The word ``causal'' is based on the term ``cause
@@ -840,55 +834,53 @@ Hence,
     \begin{aligned}
       f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}_i\big\rangle \\
       &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}_i\big\rangle,  \end{aligned}
+    \label{fresult}
   \end{align}
 \end{framed}
 \vskip -0.15in
 \noindent
 subject to the elasticity constraint $|\mathbf{k}_i| =
-|\mathbf{k}_f|$.  In deriving the last line, we used the Born series
-formula \eqref{bornseries}.
+|\mathbf{k}_f|$.  In deriving the last line, we used
+Eq.~\eqref{bornseries}.
 
-This result is the culmination of the numerous definitions and
+Eq.~\eqref{fresult} is the culmination of numerous definitions and
 derivations from the preceding sections.  On the left side is the
-scattering amplitude, the fundamental quantity of interest in
-scattering experiments.  The right side contains quantities that are
-known to us, or that can be calculated: the initial and final momenta,
-the scattering potential, and the Green's function.  Although this
-result was derived for the 3D case, very similar formulas hold for
-other dimensions, but with the $2\pi^2$ factor replaced with other
-numerical factors.
+scattering amplitude, the fundamental quantity of interest in a
+scattering experiment.  The right side contains the various inputs to
+the scattering problem: the initial and final momenta, the scattering
+potential, and the Green's function.  Although this result was derived
+for the 3D case, very similar formulas hold for other dimensions, with
+the $2\pi^2$ factor replaced with other numerical factors.
 
 \section{Example: uniform spherical well in 3D}
 
-Let us test the Born series against a simple example, consisting of
-the scattering potential
+Let us test the Born series with a simple scattering potential
+consisting of a uniform spherical well of depth $U$ and radius $R$:
 \begin{equation}
   V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
     & |\mathbf{r}| > 0. \end{cases}
 \end{equation}
-We will assume that $U > 0$, so that the potential is attactive and
-describes a uniform spherically symmetric well of depth $U$ and radius
-$R$, surrounded by empty space.  For this potential, the scattering
-problem can be solved exactly, using the method of \textbf{partial
-  wave analysis} described in Appendix A.  The resulting scattering
-amplitudes are
+We will assume that $U > 0$, so that the potential is attactive.
+
+As it turns out, this scattering problem can be solved exactly by
+exploiting the spherical symmetry of the scattering potential.  The
+procedure is explained in \textbf{Appendix A}, and the resulting
+scattering amplitude is
 \begin{equation}
   \begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}
 \end{equation}
-This solution is expressed in terms of various special functions;
-$j_\ell$ and $h_\ell$ are the spherical Bessel function of the first
-kind and spherical Hankel function, while $P_\ell$ is the
-\href{https://en.wikipedia.org/wiki/Legendre_polynomials}{\textbf{Legendre
-    polynomial}} (which appears in the definition of the spherical
-harmonic functions).
+This solution is given in terms of the special functions $j_\ell$
+(spherical Bessel functions of the first kind), $h_\ell^+$ (spherical
+Hankel function of the first kind), and $P_\ell$ (Legendre
+polynomial).
 
 We will pit this exact solution against the results from the Born
 series:
 \begin{equation}
   f(\mathbf{k}_i\rightarrow \mathbf{k}_f) \approx - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \, \Bigg[\big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle + \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle + \cdots \Bigg].
 \end{equation}
-The bra-kets can be evaluated in the position representation.  Let us
-do this for just the first two terms in the series:
+The bra-kets can be evaluated using the position representation.  Let
+us do this for just the first two terms in the series:
 \begin{align*}
   \begin{aligned}f(\mathbf{k}_i\rightarrow \mathbf{k}_f) &\approx - \frac{2m}{\hbar^2} \; 2\pi^2 \Bigg[\int d^3r_1\; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \, V(\mathbf{r}_1) \, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \\&\qquad\qquad\quad + \int d^3r_1 \!\! \int d^3r_2 \; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_2)}{(2\pi)^{3/2}} \, V(\mathbf{r}_2) \, \langle\mathbf{r}_2|\hat{G}_0|\mathbf{r}_1 \rangle \, V(\mathbf{r}_1)\, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}}\Bigg] \\ &= \frac{1}{4\pi} \Bigg[\frac{2mU}{\hbar^2} \int_{|\mathbf{r}_1| \le R} d^3r_1 \; \exp\left[i(\mathbf{k}_i-\mathbf{k}_f)\, \cdot\, \mathbf{r}_1\right] \\ &\qquad + \left(\frac{2mU}{\hbar^2}\right)^2\, \int_{|\mathbf{r}_1|<R} d^3 r_1 \int_{|\mathbf{r}_2|<R} d^3 r_2 \; \frac{\exp\left[i(k|\mathbf{r}_1-\mathbf{r}_2| - \mathbf{k}_f \cdot \mathbf{r}_2 +\mathbf{k}_i \cdot \mathbf{r}_1)\right]}{4\pi|\mathbf{r}_1-\mathbf{r}_2|} \Bigg]. \end{aligned}
 \end{align*}
