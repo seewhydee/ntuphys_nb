@@ -43,60 +43,99 @@
 \label{sec:tensorprod}
 
 So far, we have studied quantum mechanical systems consisting of
-single particles.  The next important step is to look at systems of
-more than one particle.  We shall see that the postulates of quantum
+single particles.  The next important step is to consider systems of
+multiple particles.  We shall see that the postulates of quantum
 mechanics, when applied to multi-particle systems, give rise to
-interesting and counterintuitive phenomena such as \textbf{quantum
+important and counterintuitive phenomena such as \textbf{quantum
   entanglement}.
 
-Suppose we have two particles labeled $A$ and $B$.  If each individual
-particle is treated as a quantum system, the postulates of quantum
-mechanics require that its state be described by a vector in a Hilbert
-space.  Let $\mathscr{H}_A$ and $\mathscr{H}_B$ denote the respective
-single-particle Hilbert spaces.  Then the Hilbert space for the
-combined system of two particles is
+Suppose two quantum particles are labeled $A$ and $B$.  By the
+postulates of quantum mechanics, the possible states of each particle
+can be described by vectors in Hilbert spaces.  Let us denote the
+Hilbert spaces as $\mathscr{H}_A$ and $\mathscr{H}_B$, respectively;
+since the nature of the $A$ and $B$ particles may be different, the
+two spaces may be distinct mathematical objects (e.g., they can have
+different dimensions).
+
+The combined system should be describable using some Hilbert space
+$\mathscr{H}$.  We assert that this space is constructed from
+$\mathscr{H}_A$ and $\mathscr{H}_B$ by a so-called \textbf{tensor
+  product}, denoted by
 \begin{equation}
   \mathscr{H} = \mathscr{H}_A\otimes \mathscr{H}_B.
 \end{equation}
-The symbol $\otimes$ refers to a \textbf{tensor product}, a
-mathematical operation that combines two Hilbert spaces to form
-another Hilbert space.  It is most easily understood in terms of
-explicit basis vectors: let $\mathscr{H}_A$ be spanned by a basis
-$\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle, \dots\}$, and
-$\mathscr{H}_B$ be spanned by $\{|\nu_1\rangle, |\nu_2\rangle,
-|\nu_3\rangle, \dots\}$.  Then $\mathscr{H}_A \otimes \mathscr{H}_B$
-is a space spanned by basis vectors consisting of \textit{pairwise
-  combinations} of basis vectors drawn from the $\mathscr{H}_A$ and
-$\mathscr{H}_B$ bases:
+The tensor product is a mathematical procedure for combining two
+vector spaces to form a larger vector space.  It is most easily
+understood by referring to explicit basis vectors.  Let
+$\mathscr{H}_A$ have a basis $\{|\mu_1\rangle, |\mu_2\rangle,
+|\mu_3\rangle, \dots\}$, and let $\mathscr{H}_B$ have a basis
+$\{|\nu_1\rangle, |\nu_2\rangle, |\nu_3\rangle, \dots\}$.  Then
+consider the set of all \textit{pairwise combinations} of basis
+vectors for $\mathscr{H}_A$ and $\mathscr{H}_B$, denoted by
 \begin{equation}
-  \Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;  \textrm{for} \; \textrm{all}\;\,|\mu_i\rangle,\; |\nu_j\rangle \;\,\Big\}.
+  \big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\;\big| \;\;\textrm{all}\;i,\, j\;\,\big\}.
+  \label{ABbasis}
 \end{equation}
-
-Thus, if $\mathscr{H}_A$ has dimension $d_A$ and $\mathscr{H}_B$ has
-dimension $d_B$, then $\mathscr{H}_A\otimes \mathscr{H}_B$ has
-dimension $d_A d_B$.  Any two-particle state can be written as a
-superposition of these basis vectors:
+This notation has an implicit ordering: the $A$ vector must be on the
+left of the $\otimes$ symbol, and the $B$ vector on the right.  Then
+$\mathscr{H}_A \otimes \mathscr{H}_B$ is defined as the space spanned
+by \eqref{ABbasis}: i.e., for any $|\psi\rangle \in \mathscr{H}_A
+\otimes \mathscr{H}_B$,
 \begin{equation}
-  |\psi\rangle = \sum_{ij} \, c_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle.
+  |\psi\rangle = \sum_{ij} \, \psi_{ij}\; |\mu_i\rangle \otimes |\nu_j\rangle
+  \label{psispan}
 \end{equation}
+for some vector components $\psi_{ij} \in \mathbb{C}$.
 
-The inner product between the tensor product basis states is defined
-as follows:
+According to the quantum postulates, we also need
+$\mathscr{H}_A\otimes \mathscr{H}_B$ to have a well-defined inner
+product.  In Dirac bra-ket notation, let us denote the dual of
+$|\mu_i\rangle\otimes|\nu_j\rangle$ by $\langle\mu_i| \otimes
+\langle\nu_j|$.  Note that the ordering in the $\otimes$ symbol
+remains unchanged: $A$ is on the left, and $B$ on the right.  Thus,
+the dual of Eq.~\eqref{psispan} is
 \begin{equation}
-  \Big(|\mu_i\rangle \otimes |\nu_j\rangle\;,\; |\mu_p\rangle \otimes |\nu_q\rangle \Big) \;\equiv\; \Big(\langle\mu_i| \otimes \langle\nu_j| \Big) \Big(|\mu_p\rangle \otimes |\nu_q\rangle\Big) \;\equiv\; \langle\mu_i|\mu_p\rangle \, \langle\nu_j|\nu_q\rangle = \delta_{ip}\delta_{jq}.
-  \label{innerprod}
+  \langle \psi| = \sum_{ij} \, \psi_{ij}^*\; \langle\mu_i| \otimes \langle\nu_j|.
 \end{equation}
-In other words, the inner product is performed ``slot-by-slot''.  We
-calculate the inner product for $A$, calculate the inner product for
-$B$, and then multiply the two resulting numbers.  You can check that
-this satisfies all the formal requirements for an inner product in
-linear algebra (see \hyperref[ex:innerprod]{Exercise 1}).
+We devise the inner product operation for $\mathscr{H}_A\otimes
+\mathscr{H}_B$ so that it obeys the rule
+\begin{equation}
+  \Big(\langle a| \otimes \langle b| \Big)
+  \Big(| a'\rangle \otimes |b'\rangle \Big) = \langle a|a'\rangle\,
+  \langle b|b'\rangle,
+\end{equation}
+for any $|a\rangle, |a'\rangle \in \mathscr{H}_A$ and $|b\rangle,
+|b'\rangle \in \mathscr{H}_B$.  In other words, the inner product is
+performed ``slot by slot'', making use of the inner products of
+$\mathscr{H}_A$ and $\mathscr{H}_B$.  Then, for any $|\psi\rangle,
+|\psi'\rangle \in \mathscr{H}_A \otimes \mathscr{H}_B$, with vector
+components $\psi_{ij}$ and $\psi'_{ij}$ respectively,
+\begin{align}
+  \langle \psi| \psi'\rangle &=
+  \left(\sum_{ij} \, \psi_{ij}^*\; \langle\mu_i| \otimes \langle\nu_j|\right)
+  \left(\sum_{i'j'} \, \psi_{ij}'\; |\mu_{i'}\rangle \otimes |\nu_{j'}\rangle\right) \\
+  &=\sum_{iji'j'} \, \psi_{ij}^*\, \psi_{ij}'
+  \Big( \langle\mu_i| \otimes \langle\nu_j|\Big)
+  \Big( |\mu_{i'}\rangle \otimes |\nu_{j'}\rangle\Big) \\
+  &=\sum_{iji'j'} \, \psi_{ij}^*\, \psi_{ij}' \; \delta_{ii'} \, \delta_{jj'} \\
+  &= \sum_{ij} \psi_{ij}^* \psi'_{ij}.
+\end{align}
+From this discussion, we can also see that the dimension of the tensor
+product space is
+\begin{equation}
+  \mathrm{dim}(\mathscr{H}_A\otimes
+  \mathscr{H}_B) = \mathrm{dim}(\mathscr{H}_A) \,
+  \mathrm{dim}(\mathscr{H}_B).
+\end{equation}
+For a more mathematically precise derivation of the tensor product
+concept, see \hyperref[ex:innerprod]{Exercise 1}.
 
-For example, suppose $\mathscr{H}_A$ and $\mathscr{H}_B$ are both 2D
-Hilbert spaces describing spin-$1/2$ degrees of freedom.  Each space
-can be spanned by an orthonormal basis $\{\,|\!+\!z\rangle,
-\,|\!-\!z\rangle \, \}$, representing ``spin-up'' and ``spin-down''.
-Then the tensor product space $\mathscr{H}$ is a 4D space spanned by
+Let us illustrate the tensor product with a simple example.  Let
+$\mathscr{H}_A$ and $\mathscr{H}_B$ both be 2D Hilbert spaces
+describing spin-$1/2$ degrees of freedom.  Each space can be spanned
+by an orthonormal basis $\{\,|\!+\!z\rangle, \,|\!-\!z\rangle \, \}$,
+representing ``spin-up'' and ``spin-down''.  Then the tensor product
+space $\mathscr{H}$ is a 4D space spanned by
 \begin{equation}
   \Big\{\;|\!+\!z\rangle\otimes|\!+\!z\rangle\,,\; |\!+\!z\rangle\otimes|\!-\!z\rangle\,,\; |\!-z\!\rangle\otimes|\!+\!z\rangle\,,\; |\!-\!z\rangle\otimes|\!-\!z\rangle \;\Big\}.
   \label{spin12}
@@ -611,11 +650,10 @@ given in a review paper by Aspect [\ref{cite:aspect}].
 
 One of the most remarkable consequences of Bell's thought experiment
 is that it provides a way to perform cryptography that is more secure,
-in certain respects, than conventional cryptography.  This possibility
-was first raised by Ekert [\ref{cite:ekert}], and it has led to a huge
-amount of research into \textbf{quantum cryptography}, which is poised
-to be one of the most important technological applications of quantum
-mechanics.
+in certain respects, than conventional cryptography.  The possibility
+of \textbf{quantum cryptography}, first raised by Ekert
+[\ref{cite:ekert}], is poised to be one of the most important
+technological applications of quantum mechanics.
 
 Ekert's quantum cryptography scheme allows two participants, Alice and
 Bob, to share with each other a string of random binary digits (0 or
@@ -1282,34 +1320,19 @@ rather than different theories.
 \section*{Exercises}
 
 \begin{enumerate}
-\item Let $\mathscr{H}_A$ and $\mathscr{H}_B$ denote single-particle
-  Hilbert spaces with well-defined inner products.  That is to say,
-  for all vectors $|\mu\rangle, |\mu'\rangle, |\mu''\rangle \in
-  \mathscr{H}_A$, that Hilbert space's inner product satisfies the
-  inner product axioms
+\item A vector space $\mathscr{H}$ is said to have an inner product if
+  there is an pairwise operation between its vectors that satisfies
+  the following ``inner product axioms''.  For arbitrary
+  $|\psi\rangle, |\psi'\rangle, |\psi''\rangle \in \mathscr{H}_A$,
   \begin{enumerate}
-  \item $\langle \mu|\mu' \rangle = \langle\mu'|\mu\rangle^*$
-  \item $\langle \mu|\mu \rangle \in \mathbb{R}^+_0$, and $\langle \mu|\mu \rangle = 0$ if and only if $|\mu\rangle = 0$.
-  \item $\langle\mu| \, \big(|\mu'\rangle + |\mu'' \rangle\big)
-    = \langle \mu|\mu'\rangle + \langle \mu|\mu''\rangle$
-  \item $\langle \mu | \,\big(c|\mu'\rangle\big) = c\langle\mu|\mu'\rangle$ for all $c\in\mathbb{C}$,
+  \item $\langle \psi|\psi' \rangle = \langle\psi'|\psi\rangle^*$
+  \item $\langle \psi|\psi \rangle \in \mathbb{R}^+_0$, and $\langle \psi|\psi \rangle = 0$ if and only if $|\psi\rangle = 0$.
+  \item $\langle\psi| \, \big(|\psi'\rangle + |\psi'' \rangle\big)
+    = \langle \psi|\psi'\rangle + \langle \psi|\psi''\rangle$
+  \item $\langle \psi | \,\big(c|\psi'\rangle\big) = c\langle\psi|\psi'\rangle$ for all $c\in\mathbb{C}$,
   \end{enumerate}
-  and likewise for vectors from $\mathscr{H}_B$ with that Hilbert
-  space's inner product.
-
-  In Section~\ref{sec:tensorprod}, we defined a tensor product space
-  $\mathscr{H}_A\otimes\mathscr{H}_B$ as the space spanned by the
-  basis vectors $\{|\mu\rangle\otimes|\nu\rangle\}$, where the
-  $|\mu\rangle$'s are basis vectors for $\mathscr{H}_A$ and the
-  $|\nu\rangle$'s are basis vectors for $\mathscr{H}_B$.  Prove that
-  we can define an inner product using
-  \begin{equation}
-    \Big(\langle\mu| \otimes \langle\nu| \Big)
-    \Big(|\mu'\rangle \otimes |\nu'\rangle\Big)
-    \;\equiv\; \langle\mu|\mu'\rangle
-    \, \langle\nu|\nu'\rangle = \delta_{\mu\mu'}\delta_{\nu\nu'}
-  \end{equation}
-  which satisfies the inner product axioms.
+  Prove that the inner product for $\mathscr{H}_A\otimes\mathscr{H}_B$
+  defined in Section~\ref{sec:tensorprod} satisfies these axioms.
   \label{ex:innerprod}
 
 \item Consider the density operator
