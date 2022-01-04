@@ -76,8 +76,8 @@ is on the left of the $\otimes$ symbol, and the vector from
 $\mathscr{H}_B$ is on the right.
 
 We now treat tensor products as vectors in their own right, allowing
-them to be added and/or multiplied by scalars.  These vector
-operations are required to satisfy
+them to be added to each other and/or multiplied by scalars.  These
+vector operations are required to satisfy
 \begin{align}
   \Big(\lambda_1 |a_1\rangle
   + \lambda_2 |a_2\rangle\Big) \otimes |b\rangle &=
@@ -89,23 +89,22 @@ operations are required to satisfy
   \lambda_2 |a\rangle \otimes |b_2\rangle.
   \label{tensorrule2} 
 \end{align}
-Similar to the factorization rules of regular algebra,
-Eqs.~\eqref{tensorrule1}--\eqref{tensorrule2} state that a tensor
-product of linear combinations is equal to a linear combination of
-tensor products; these rules establish a connection between the new
-vector operations acting on tensor products and the old vector
-operations defined for $\mathscr{H}_A$ and $\mathscr{H}_B$.  It can
-then be shown that the space of all possible linear combinations of
+These rules state that a tensor product of linear combinations is
+equal to a linear combination of tensor products, analogous to the
+factorization rules of regular algebra.  The new vector operations
+acting on tensor products are thus built upon the old vector
+operations defined for $\mathscr{H}_A$ and $\mathscr{H}_B$.  It can be
+shown that the resulting space of all possible linear combinations of
 tensor products---the tensor product space $\mathscr{H}_A \otimes
 \mathscr{H}_B$---satisfies the axioms for a vector space.
 
-Given bases for $\mathscr{H}_A$ and $\mathscr{H}_B$, we can form a
-basis for $\mathscr{H}_A\otimes \mathscr{H}_B$.  Let $\{|\mu_1\rangle,
-|\mu_2\rangle, |\mu_3\rangle, \dots\}$ be a basis for $\mathscr{H}_A$,
-and let $\{|\nu_1\rangle, |\nu_2\rangle, |\nu_3\rangle, \dots\}$ be a
-basis for $\mathscr{H}_B$.  Then $\mathscr{H}_A \otimes \mathscr{H}_B$
-is spanned by a basis set formed by all tensor products of the $A$ and
-$B$ basis vectors:
+Next, we can construct a basis for $\mathscr{H}_A\otimes
+\mathscr{H}_B$ by using bases defined for $\mathscr{H}_A$ and
+$\mathscr{H}_B$.  Let $\{|\mu_1\rangle, |\mu_2\rangle, |\mu_3\rangle,
+\dots\}$ be a basis for $\mathscr{H}_A$, and let $\{|\nu_1\rangle,
+|\nu_2\rangle, |\nu_3\rangle, \dots\}$ be a basis for $\mathscr{H}_B$.
+Then $\mathscr{H}_A \otimes \mathscr{H}_B$ is spanned by a basis set
+formed by all tensor products of the $A$ and $B$ basis vectors:
 \begin{equation}
   \Big\{\;\,|\mu_i\rangle\otimes|\nu_j\rangle \;\Big|\;
   \forall \; 1 \le i \le \mathrm{dim}[\mathscr{H}_A],
@@ -118,12 +117,12 @@ if $\mathscr{H}_{A}$ and $\mathscr{H}_{B}$ have different dimensions.
 
 According to the quantum postulates, $\mathscr{H}_A\otimes
 \mathscr{H}_B$ should be not just a vector space but a Hilbert space,
-so it needs a well-defined inner product.  In Dirac bra-ket notation,
-let us denote the dual of $|a\rangle\otimes|b\rangle$ by $\langle a|
-\otimes \langle b|$.  Note that the ordering around the $\otimes$
-symbol remains unchanged: $A$ is on the left, and $B$ on the right.
-The inner product for $\mathscr{H}_A\otimes \mathscr{H}_B$ is defined
-via the rule
+so it must have a well-defined inner product.  In Dirac bra-ket
+notation, we denote the dual of $|a\rangle\otimes|b\rangle$ by
+$\langle a| \otimes \langle b|$.  Note that the ordering around the
+$\otimes$ symbol remains unchanged: $A$ is on the left, and $B$ on the
+right.  The inner product for $\mathscr{H}_A\otimes \mathscr{H}_B$ is
+defined via the rule
 \begin{equation}
   \Big(\langle a| \otimes \langle b| \Big)
   \Big(| a'\rangle \otimes |b'\rangle \Big) = \langle a|a'\rangle\,
