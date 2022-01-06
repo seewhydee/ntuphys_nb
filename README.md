@@ -15,7 +15,7 @@ their applications in physics and other sciences. Topics covered include:
 
 The course notes are maintained in two different formats:
 
-* [LaTeX](https://www.latex-project.org/) notes, located in [latex/complex](latex/complex). The compiled PDFs can be found on my homepage [physics courses](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
+* [LaTeX](https://www.latex-project.org/) notes, located in [latex/complex](latex/complex). Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
 * [Jupyter](https://jupyter.org/) notebooks, located in [jupyter/complex](jupyter/complex).
 
 The two formats have similar contents, but the Jupyter notebooks contain interactive plots that help illustrate various mathematical concepts.
