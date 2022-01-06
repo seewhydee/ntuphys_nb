@@ -1,4 +1,4 @@
-# LaTex and Jupyter Notes for Physics Courses
+# LaTeX and Jupyter Notes for Physics Courses
 
 This repository contains notes and exercises for some [physics courses](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html) I am teaching or have taught at [NTU](http://www.ntu.edu.sg).
 
@@ -15,14 +15,14 @@ their applications in physics and other sciences. Topics covered include:
 
 The course notes are maintained in two different formats:
 
-* LaTeX notes (compiled to PDF), located in [latex/gradqm](latex/gradqm).
+* [LaTeX](https://www.latex-project.org/) notes, located in [latex/gradqm](latex/gradqm). The compiled PDFs can be found on my homepage [physics courses](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
 * [Jupyter](https://jupyter.org/) notebooks, located in [jupyter/gradqm](jupyter/gradqm).
 
-The two formats have basically the same contents, but the Jupyter notebooks contain interactive plots that help illustrate various mathematical concepts.
+The two formats have similar contents, but the Jupyter notebooks contain interactive plots that help illustrate various mathematical concepts.
 
 ## Graduate Quantum Mechanics (PH4401/PAP777)
 
-This course covers advanced concepts in quantum mechanics, with a focus on multi-particle systems. It is meant for year-4 undergraduates or year-1 graduate students who have taken introductory courses in quantum mechanics. Topics covered include:
+This course covers advanced concepts in quantum mechanics, with a focus on foundational topics required for quantum field theory. It is meant for year-4 undergraduates or year-1 graduate students who have already taken introductory courses in quantum mechanics. Topics covered include:
 
 * Scattering theory
 * Quantum entanglement
@@ -31,10 +31,10 @@ This course covers advanced concepts in quantum mechanics, with a focus on multi
 
 The course notes are in LaTeX format, located in [latex/complex](latex/complex).
 
-An accompanying set of [Jupyter](https://jupyter.org/) notebooks
-contains a set of numerical exercises to accompany the course notes
-(e.g., using Monte Carlo integration to compute the Born
-series). These are located in [jupyter/complex](jupyter/complex).
+An accompanying set of [Jupyter](https://jupyter.org/) notebooks,
+located in [jupyter/complex](jupyter/complex), provides numerical
+exercises to accompany the course notes (e.g., computing the Born
+series using Monte Carlo integration).
 
 ## Undergraduate Physics Laboratory (PH2198/PH2199)
 
