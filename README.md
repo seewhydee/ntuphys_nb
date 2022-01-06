@@ -29,7 +29,9 @@ This course covers advanced concepts in quantum mechanics, with a focus on found
 * Identical particles
 * Quantum electrodynamics
 
-The course notes are in LaTeX format, located in [latex/gradqm](latex/gradqm).
+The course notes are in LaTeX format, located
+in [latex/gradqm](latex/gradqm). Compiled PDFs can be found on
+my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
 
 An accompanying set of [Jupyter](https://jupyter.org/) notebooks,
 located in [jupyter/gradqm](jupyter/gradqm), provides numerical
