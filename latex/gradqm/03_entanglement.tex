@@ -51,16 +51,18 @@ important and counterintuitive phenomena such as \textbf{quantum
 \subsection{Tensor products}
 \label{sec:tensorprod}
 
-Suppose we have two particles labeled $A$ and $B$.  If each particle
-is treated as a quantum system, its states are vectors drawn from some
+Suppose we have two particles---or, more generally, two quantum
+objects---labeled $A$ and $B$.  In accordance with the postulates of
+quantum mechanics, each object's quantum states are vectors in some
 Hilbert space denoted by $\mathscr{H}_A$ (for $A$) or $\mathscr{H}_B$
-(for $B$). Since the nature of the $A$ and $B$ particles may be
-different, the two spaces may be mathematically distinct (e.g., they
-may have different dimensions).
+(for $B$). Since the nature of $A$ and $B$ may be different, the two
+Hilbert spaces may be mathematically distinct (e.g., having different
+dimensions).
 
-We assert that the Hilbert space for the combined system
-is something called a \textbf{tensor product space}, which is
-constructed from $\mathscr{H}_A$ and $\mathscr{H}_B$ and denoted by
+The quantum system formed by the combination of $A$ and $B$ must
+itself have a Hilbert space.  We assert that this Hilbert space is
+something called a \textbf{tensor product space} constructed from
+$\mathscr{H}_A$ and $\mathscr{H}_B$, denoted by
 \begin{equation*}
   \mathscr{H}_A\otimes \mathscr{H}_B.
 \end{equation*}
@@ -146,6 +148,7 @@ We also see that
   \mathrm{dim}\left[\mathscr{H}_A\otimes
   \mathscr{H}_B\right] = \mathrm{dim}\left[\mathscr{H}_A\right] \,
   \mathrm{dim}\left[\mathscr{H}_B\right].
+  \label{tensordim}
 \end{equation}
 
 Any $|\psi\rangle \in \mathscr{H}_A\otimes \mathscr{H}_B$ can be
@@ -158,8 +161,9 @@ for some vector components $\psi_{ij}\in\mathbb{C}$.  Its dual is
 \begin{equation}
   \langle \psi| = \sum_{ij} \, \psi_{ij}^*\; \langle\mu_i| \otimes \langle\nu_j|.
 \end{equation}
-If $|\psi'\rangle \in \mathscr{H}_A \otimes \mathscr{H}_B$ is another
-vector with components $\psi'_{ij}$, then
+We can calculate its inner product with another arbitrary vector
+$|\psi'\rangle \in \mathscr{H}_A \otimes \mathscr{H}_B$, whose
+components are $\psi'_{ij}$, as follows:
 \begin{align}
   \langle \psi| \psi'\rangle &=
   \left(\sum_{ij} \, \psi_{ij}^*\; \langle\mu_i| \otimes \langle\nu_j|\right)
@@ -172,84 +176,119 @@ vector with components $\psi'_{ij}$, then
 
 \subsection{Entangled states}
 
-We can illustrate the tensor product concept with a simple example.
-Let $\mathscr{H}_A$ and $\mathscr{H}_B$ both be 2D Hilbert spaces
-describing spin-$1/2$ degrees of freedom.  Each space can be spanned
-by an orthonormal basis $\{\,|\!+\!z\rangle, \,|\!-\!z\rangle \, \}$,
-representing ``spin-up'' and ``spin-down''.  Then the tensor product
-space $\mathscr{H}$ is a 4D space spanned by
+We will illustrate the tensor product concept with a simple example.
+Let the Hilbert spaces $\mathscr{H}_A$ and $\mathscr{H}_B$ each
+describe a spin-$1/2$ degree of freedom.  Each space has an
+orthonormal basis $\{\,|\!+\!z\rangle, \,|\!-\!z\rangle \, \}$,
+consisting of spin-up and spin-down states.  Then the tensor product
+space $\mathscr{H}_A\otimes \mathscr{H}_B$ has a basis set
 \begin{equation}
   \Big\{\;|\!+\!z\rangle\otimes|\!+\!z\rangle\,,\; |\!+\!z\rangle\otimes|\!-\!z\rangle\,,\; |\!-z\!\rangle\otimes|\!+\!z\rangle\,,\; |\!-\!z\rangle\otimes|\!-\!z\rangle \;\Big\}.
+\end{equation}
+Both $\mathscr{H}_A$ and $\mathscr{H}_B$ are two dimensional, whereas
+$\mathscr{H}_A\otimes \mathscr{H}_B$ is four dimensional, in agreement
+with Eq.~\eqref{tensordim}.
+
+It is cumbersome to keep writing $\otimes$ symbols, so we will
+henceforth simplify the notation by omitting the $\otimes$ in tensor
+products.  The ordering is kept the same: $A$ is on the left and $B$
+is on the right.  Thus, the above basis set can be written as
+\begin{equation}
+  \Big\{\;
+  |\!+\!z\rangle\, |\!+\!z\rangle\,,\;
+  |\!+\!z\rangle\, |\!-\!z\rangle\,,\;
+  |\!-\!z\rangle\, |\!+\!z\rangle\,,\;
+  |\!-\!z\rangle\, |\!-\!z\rangle \;\Big\}.
   \label{spin12}
 \end{equation}
 
-We now make an important observation.  If $A$ is in state
-$|\mu\rangle$ and $B$ is in state $|\nu\rangle$, then the state of the
-combined system is fully specified: $|\mu\rangle \otimes |\nu\rangle
-\in \mathscr{H}_A \otimes \mathscr{H}_B$.  But the reverse is not
-generally true!  There exist states of the combined system that
-\textit{cannot} be expressed in terms of definite states of the
-individual particles.  For example, consider the following quantum
-state of two spin-$1/2$ particles:
+The tensor product provides a very way natural way to describe
+situations where $A$ is in some state $|a\rangle$ and $B$ is in some
+state $|b\rangle$.  For example, suppose the states are
+\begin{align}
+  \begin{aligned}
+  |a\rangle &= |\!+\!z\rangle && (\textrm{subsystem}\;A),\\
+  |b\rangle &= \frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle + |\!-\!z\rangle\Big)
+  && (\textrm{subsystem}\;B).
+  \end{aligned}
+\end{align}
+Then the state of the combined system is the tensor product
+\begin{align}
+  |a\rangle\, |b\rangle
+  &= |\!+\!z\rangle \, \left[\frac{1}{\sqrt{2}}\Big(|\!+\!z\rangle + |\!-\!z\rangle\Big)\right] \\
+  &= \frac{1}{\sqrt{2}} |\!+\!z\rangle \, |\!+\!z\rangle
+  \;+\, \frac{1}{\sqrt{2}} |\!+\!z\rangle\, |\!-\!z\rangle
+  \;\;\;\in\; \mathscr{H}_A \otimes \mathscr{H}_B.
+\end{align}
+
+We now come to a critically important point: \textit{not every state
+  of the combined system has this form!}  The tensor product space
+$\mathscr{H}_A\otimes \mathscr{H}_B$ contains vectors that are
+impossible to express as $|a\rangle |b\rangle$ for any $|a\rangle \in
+\mathscr{H}_A$, $|b\rangle \in \mathscr{H}_B$.
+
+For the case of two spin-$1/2$ subsystems, consider the state
 \begin{equation}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big).
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\,|\!-\!z\rangle \,-\, |\!-\!z\rangle\,|\!+\!z\rangle\Big).
   \label{entangled_state}
 \end{equation}
-This state is constructed from two of the four basis states in
-\eqref{spin12}, and you can check that the factor of $1/\sqrt{2}$
-ensures the normalization $\langle\psi|\psi\rangle = 1$ with the inner
-product rule \eqref{innerprod}.  It is evident from looking at
-Eq.~\eqref{entangled_state} that neither $A$ nor $B$ possesses a
-definite $|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.  Moreover, we
-shall show (in Section~\ref{sec:entropy}) that there's \textit{no}
-choice of basis that allows this state to be expressed in terms of
-definite individual-particle states; i.e.,
-\begin{equation}
-  |\psi\rangle \ne |\psi_A\rangle\otimes|\psi_B\rangle \;\;\;\textrm{for}\;\textrm{any}\;\; |\psi_A\rangle \in \mathscr{H}_A, \;|\psi_B\rangle \in \mathscr{H}_B.
-\end{equation}
-In such a situation, the two particles are said to be
-\textbf{entangled}.
+This is constructed from two of the four basis states in
+\eqref{spin12}, with the factor of $1/\sqrt{2}$ ensuring the
+normalization $\langle\psi|\psi\rangle = 1$ in accordance with the
+inner product rule \eqref{innerprod}.  It is evident from looking at
+Eq.~\eqref{entangled_state} that neither $A$ nor $B$ has a definite
+$|\!+\!z\rangle$ or $|\!-\!z\rangle$ state.  Moreover, it turns out
+there is \textit{no} choice of basis allowing this state to be
+expressed in the form $|a\rangle\, |b\rangle$.  (We will prove this
+later, in Section~\ref{sec:entropy}.)
 
-It is cumbersome to keep writing $\otimes$ symbols, so we will
-henceforth omit the $\otimes$ in cases where the tensor product is
-obvious.  For instance,
-\begin{equation}
-  \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle\otimes|\!-\!z\rangle \,-\, |\!-\!z\rangle\otimes|\!+\!z\rangle\Big) \;\;\equiv \;\; \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
-\end{equation}
+In such a situation, the two subsystems $A$ and $B$ are said to be
+\textbf{entangled}.  Quantum entanglement leads to many
+counterintuitive phenomena, which will be explored in the rest of this
+chapter.
 
-For systems of more than two particles, quantum states can be defined
-using multiple tensor products.  Suppose a quantum system contains $N$
-particles described by the individual Hilbert spaces $\{\mathscr{H}_1,
-\mathscr{H}_2, \dots, \mathscr{H}_N\}$ having dimensionality $\{d_1,
-\dots, d_N\}$.  Then the overall system is described by the Hilbert
-space
-\begin{equation}
-  \mathscr{H} = \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots
-  \otimes \mathscr{H}_N,
-\end{equation}
-which has dimensionality $d = d_1 d_2\cdots d_N$.  The dimensionality
-scales exponentially with the number of particles!  For instance, if
-each particle has a 2D Hilbert space, a $20$-particle system has a
-Hilbert space with $2^{20} =1\,048\,576$ dimensions.  Thus, even in
-quantum systems with a modest number of particles, the quantum state
-can carry huge amounts of information.  This is one of the motivations
-behind the active research field of quantum computing.
+\subsection{Multiple subsystems}
 
-Finally, a proviso: although we refer to subsystems like $A$ and $B$
-as ``particles'' for narrative convenience, they need not be actual
-particles.  All this formalism applies to general subsystems---i.e.,
-subsets of a large quantum system's degrees of freedom.  For instance,
-if a quantum system has a position eigenbasis for 3D space, the $x$,
-$y$, and $z$ coordinates are distinct degrees of freedom, so each
-position eigenstate is really a tensor product:
-\begin{equation*}
-  |\,\mathbf{r} = (x,y,z)\,\rangle \;\equiv\; |x\rangle\, |y\rangle\, |z\rangle.
-\end{equation*}
-Also, if the subsystems really \textit{are} particles, we are going to
-assume for now that the particles are distinguishable.  There are
-other complications that arise if the particles are ``identical'',
-which will be the subject of the next chapter (if you're unsure
-what this means, just read on).
+The above tensor product formalism can be straightforwardly extended
+to the case of more than two subsystems.
+
+Suppose a quantum system has $N$ subsystems with Hilbert spaces
+$\mathscr{H}_1, \mathscr{H}_2, \dots, \mathscr{H}_N$.  Then the
+combined system is described by the Hilbert space
+\begin{equation}
+  \mathscr{H}_1 \otimes \mathscr{H}_2 \otimes \cdots \otimes
+  \mathscr{H}_N,
+\end{equation}
+which has dimension
+\begin{equation}
+  \mathrm{dim}\left[\mathscr{H}_1 \otimes \cdots \otimes \mathscr{H}_N\right]
+  = \mathrm{dim}\left[\mathscr{H}_1\right] \cdot
+  \mathrm{dim}\left[\mathscr{H}_2\right] \cdots
+  \mathrm{dim}\left[\mathscr{H}_N\right].
+\end{equation}
+It is remarkable that the dimension scales exponentially with the
+number of subsystems.  For instance, if there are 20 subsystems each
+having a 2D Hilbert space, then the combined Hilbert space has
+dimension $2^{20} =1\,048\,576$.  Thus, quantum systems with only a
+modest number of particles can carry tremendous amounts of information
+in their quantum states.  This is one of the motivations behind the
+active research fields of quantum computing and quantum information
+theory.
+
+%% By the way, the tensor product plays a role even in the quantum
+%% mechanics of a particle moving in multiple spatial dimensions, even if
+%% this was not emphasized in introductory courses.  For instance, in 2D
+%% space the position is determined by two coordinates (e.g., $x$ and
+%% $y$), so each position eigenstate is actually a tensor product:
+%% \begin{equation*}
+%%   |\,\mathbf{r} = (x,y)\,\rangle \;\equiv\; |x\rangle\otimes
+%%   |y\rangle.
+%% \end{equation*}
+
+If the subsystems in question are particles, we assume for now that
+the particles are distinguishable.  There are other complications that
+arise if the particles are ``identical'', which will be the subject of
+the next chapter (if you're unsure what this means, just read on).
 
 \section{Partial measurements}
 \label{sec:partialmeasurements}
