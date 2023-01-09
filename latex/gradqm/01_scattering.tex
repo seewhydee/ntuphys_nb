@@ -197,7 +197,8 @@ Define the set of wave-vectors
   \;m\in\mathbb{Z}, \; j = 1, \dots,d\, \Big\},
 \end{equation*}
 corresponding to plane waves satisfying the periodic boundary
-conditions.  Now define
+conditions.  Note that this set is discrete (i.e., countable).  Now
+define
 \begin{equation}
   |\mathbf{k}\rangle = \frac{1}{L^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle,
 \end{equation}
@@ -216,9 +217,10 @@ each momentum eigenstate can be normalized to unity.  The momentum
 component in each direction is quantized to a multiple of $\Delta p =
 2\pi\hbar/L$.
 
-Next, we take $L \rightarrow \infty$.  In this limit, $\Delta p
-\rightarrow 0$, so the momentum eigenvalues coalesce into a continuum.
-It is convenient to re-normalize the momentum eigenstates by taking
+Next, we take the limit $L \rightarrow \infty$, which implies that
+$\Delta p \rightarrow 0$, i.e.~the discrete momentum eigenvalues
+coalesce into a continuum.  We re-normalize the momentum eigenstates
+by taking
 \begin{equation}
   |\mathbf{k}\rangle^{(\textrm{new})} = \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle^{(\textrm{old})}.
 \end{equation}
@@ -314,18 +316,18 @@ Eq.~\eqref{deltaschrod} reduces to
 \begin{equation}
   \left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0.
 \end{equation}
-This called the \textbf{Helmholtz equation}.  It has a general
-solution of the form
+This called the \textbf{Helmholtz equation}, and its general solution
+is
 \begin{equation}
   \psi_s(x) = \Psi_i \left(f_1 \, e^{ik x} + f_2 \, e^{-ik x}\right),
 \end{equation}
-where $f_1$ and $f_2$ can take on different values in each region ($x
-< 0$ or $x > 0$).
+which is a superposition of right-moving ($e^{ikx}$) and left-moving
+($e^{-ikx}$) waves.  The complex free parameters $f_1$ and $f_2$ can
+have different values in the two regions $x < 0$ and $x > 0$.
 
-We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, which means
-it ought to be purely left-moving for $x < 0$, and purely right-moving
-for $x > 0$.  Therefore, let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for
-$x > 0$, so that
+We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, meaning
+that it is purely left-moving for $x < 0$, and purely right-moving for
+$x > 0$.  Thus, let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for $x > 0$:
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ikx}, & x < 0 \\ f_+ \,e^{ikx}, & x > 0.\end{cases}
 \end{equation}
@@ -610,6 +612,7 @@ To proceed, we define the inverse of the operator on the left-hand
 side:
 \begin{equation}
   \hat{G} = \big(E-\hat{H}\big)^{-1}.
+  \label{Gdef}
 \end{equation}
 This operator is called the \textbf{Green's function}.  Using it, we
 get
@@ -617,10 +620,13 @@ get
   |\psi_s\rangle = \hat{G} \hat{V} |\psi_i\rangle.
   \label{scatterform}
 \end{equation}
+Thus, the Green's function is the key to calculating the scattered
+state $|\psi_s\rangle$.
 
-Note that $\hat{G}$ depends on both the energy $E$ and the scattering
-potential.  To isolate the dependence on the scattering potential, let
-us define the Green's function for a free particle,
+From the definition \eqref{Gdef}, we see that $\hat{G}$ depends on
+both the energy $E$ and the scattering potential (which is inside
+$\hat{H}$).  To isolate the dependence on the scattering potential,
+let us define the Green's function for a free particle,
 \begin{equation}
   \hat{G}_0=\big(E-\hat{H}_0\big)^{-1}.
   \label{G0unregulated}
