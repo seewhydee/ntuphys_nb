@@ -11,7 +11,7 @@ def resonance_demo_1(U, Vb, a, b, Emax):
     psim = np.empty(len(Evec), dtype=complex)
     psip = np.empty(len(Evec), dtype=complex)
 
-    L, V = np.array([b-a, 2*a, b-a]), array([Vb, Vb-U, Vb])
+    L, V = np.array([b-a, 2*a, b-a]), np.array([Vb, Vb-U, Vb])
     for jj in range(len(Evec)):
         k = np.sqrt(2*Evec[jj])
         M = tmm.transfer_matrix(L, V, 0.0, Evec[jj])
@@ -33,7 +33,7 @@ def resonance_demo_2():
     Eres = [10.918, 13.646, 18.092, 24.002, 29.973];
 
     ## Plot resonance wavefunctions (left input = 1)
-    L, V = np.array([b-a, 2*a, b-a]), array([Vb, Vb-U, Vb])
+    L, V = np.array([b-a, 2*a, b-a]), np.array([Vb, Vb-U, Vb])
     for n in range(nstates):
         S = tmm.scattering_matrix(L, V, 0.0, Eres[n])
         components = np.array([1.0, S[0,0]])
@@ -44,7 +44,7 @@ def resonance_demo_2():
         plt.ylim(0)
 
     ## Plot the corresponding square well bound states
-    L, V = np.array([2*a]), array([-U])
+    L, V = np.array([2*a]), np.array([-U])
     Ebound = tmm.bound_state_energies(L, V)
     inputwave = np.array([0, 1.0], dtype=complex)
     for n in range(nstates):
