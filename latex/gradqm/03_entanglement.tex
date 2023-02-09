@@ -484,7 +484,7 @@ There are a couple of noteworthy aspects of this phenomenon:
 
 First, it dispels some commonsensical but mistaken ``explanations''
 for quantum state collapse in terms of perturbative effects.  For
-instance, it is sometimes explained that if we want to measure a
+instance, it is sometimes claimed that if we want to measure a
 particle's position, we need to shine a light beam on it, or disturb
 it in some way, and this disturbance generates an uncertainty in the
 particle's momentum.  The EPR paradox shows that such stories don't
@@ -502,8 +502,8 @@ the singlet state \eqref{eprsinglet} collapses to
 \end{align*}
 different from the collapsed states for the $S_z$ case.  Could Bob use
 this to determine Alice's choice of measurement axis?  If so, this
-would provide a method to instantaenously transmit messages from Alice
-to Bob, violating the theory of relativity!
+would be a way to instantaenously transmit messages from Alice to Bob,
+violating the theory of relativity!
 
 Upon closer inspection, however, it turns out that the choice of
 measurement axis does \textit{not} allow information to be
@@ -515,49 +515,47 @@ various measurement probabilities from the singlet state
 
 \begin{itemize}
 \item
-  Suppose Alice measures along axis $n$, and Bob measures along $n'$.
-  Regardless of $n$ and $n'$, both Alice and Bob have probabilities
-  $\{1/2, 1/2\}$ to obtain the measurement results $+\hbar/2$ and
-  $-\hbar/2$.
+  If Alice measures along axis $n$, and Bob measures along $n'$, both
+  of them have equal probabilities to obtain either outcome
+  ($+\hbar/2$ or $-\hbar/2$), regardless of the axis choice.
 
 \item If $n = n'$, Alice and Bob always get opposite results (similar
   to the $S_z$ case).
 \end{itemize}
 No matter what Alice does, Bob always measures the two possible
-outcomes with 50/50 probability.  He cannot extract any information
+outcomes with 50/50 probability, so he cannot extract any information
 from the quantum state collapse.
 
 Since the quantum thought experiment does not support superluminal
 communication, it is consistent \textit{in practice} with the theory
 of relativity.  However, EPR argued that it violates the
-\textit{spirit} of relativity, since the state collapse is nonlocal
-and instantaneous.  Even if it is unobservable, there is an ingredient
-of the theory (the quantum state) that changes faster than light can
-travel between the two positions.
+\textit{spirit} of relativity, since the quantum state collapse is
+nonlocal and instantaneous.
 
 EPR suggested an alternative: maybe quantum mechanics is an
 approximation of some deeper theory, whose details are currently
 unknown, but which is deterministic and local.  Such a
-``\textbf{hidden variable theory}'' may give the appearance of
-quantum state collapse in the following way.  Suppose each particle
-has a definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$
-or $S_z = -\hbar/2$; let us denote these as $[+]$ or $[-]$.  We can
+``\textbf{hidden variable theory}'' may give the appearance of quantum
+state collapse in the following way.  Suppose each particle has a
+definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$ or
+$S_z = -\hbar/2$; let us denote these as $+$ or $-$.  We can
 hypothesize that the two-particle quantum state $|\psi\rangle$ is not
 an actual description of reality; rather, it corresponds to a
 \textit{statistical} distribution of ``hidden variable'' states,
-denoted by $[+;-]$ (i.e., $S_z = +\hbar/2$ for particle $A$ and $S_z =
--\hbar/2$ for particle $B$), and $[-;+]$ (the other way around).
+denoted by $\hvbox[+]{-}$ (i.e., $S_z = +\hbar/2$ for particle $A$ and
+$S_z = -\hbar/2$ for particle $B$), and $\hvbox[-]{+}$ (the other way
+around).
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.75\textwidth]{hiddenvariables}
 \end{figure}
 
 When Alice measures $S_z$, the value of the hidden variable is
-revealed.  A result of $+z$ implies $[+;-]$, whereas $-z$ implies
-$[-;+]$.  When bob subsequently measures $S_z$, the result obtained is
-the opposite of Alice's result.  But those were simply the values all
-along---there is no instantaneous physical influence traveling between
-their two laboratories.
+revealed.  A result of $+z$ implies $\hvbox[+]{-}$, whereas $-z$
+implies $\hvbox[-]{+}$.  When Bob subsequently measures $S_z$, his
+result is the opposite of Alice's.  But those values were present all
+along---no instantaneous physical influence travels between their two
+laboratories.
 
 Clearly, there are many missing details in this hypothetical
 description.  Any actual hidden variable theory would also need to
@@ -894,7 +892,6 @@ by an orthonormal basis $\{|0\rangle, |1\rangle\}$, we can pick
   \big|\langle\psi_1|\psi_2\rangle\big| = \frac{1}{\sqrt{2}}.
 \end{equation}
 
-\clearpage
 \section{Density operators}
 
 We now introduce the \textbf{density operator}, which helps to
@@ -1474,12 +1471,23 @@ operator $\hat{S}_z$ with eigenvalue $\pm\hbar/2$.
 \begin{equation}
   \hat{S}_n = \hat{U}^\dagger \hat{S}_z \hat{U},
 \end{equation}
-where $\hat{U}$ is a unitary rotation matrix.  Derive expressions for
-the probabilities of the two possible outcomes, $P(A_+)$ and $P(A_-)$,
-as well as the post-collapse states.
+where $\hat{U}$ is a unitary rotation matrix.  The eigenstates of
+$\hat{S}_n$ are $|\pm n\rangle = \hat{U}^\dagger |\pm z\rangle$, with
+eigenvalues $\pm \hbar/2$.  For each measurement outcome $\pm\hbar/2$,
+prove that the collapsed two-particle state is (up to arbitrary phase
+and normalization factors)
+\begin{equation}
+  |\psi'\rangle \propto |\pm \!n \rangle\; |\mp\! n\rangle.
+\end{equation}
+Hint: you don't need the explicit form of $\hat{U}$, only the fact
+that it is unitary.
 
-\item For each of the two outcomes for (a), find the conditional
-  probabilities for the outcomes of a subsequent $S_z$ measurement on
+\item Denote the probabilities of the two outcomes in part (a) by
+  $P(A+)$ and $P(A-)$.  Derive expressions for these two
+  probabilities.
+
+\item For each of the two outcomes from measuring $S_n$ on $A$, find
+  the measurement probabilities for a subsequent $S_z$ measurement on
   $B$, denoted by $P(B_+|A_\pm)$ and $P(B_-|A_\pm)$.  Hence, show that
   \begin{align}
     P(B_+) &= P(B_+|A_+) P(A_+) + P(B_+|A_-) P(A_-) = \frac{1}{2}\\
