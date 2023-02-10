@@ -1111,12 +1111,14 @@ Eq.~\eqref{rhoform} has the following properties:
     \quad\mathrm{with}\;\; \sum_{j=1}^{d_A} p_j = 1.
     \label{trrho_reduced}    
   \end{equation}
-  In other words, the eigenvalues can be interpreted as probabilities.
-  This also implies that $\mathrm{Tr}[\hat\rho_A] = 1$.
+  The eigenvalues can thus be interpreted as probabilities.  Moreover,
+  $\mathrm{Tr}[\hat\rho_A] = 1$.
 
-  This property follows from Property 3 by taking $\hat{Q} =
-  |\varphi\rangle\langle\varphi|$, where $|\varphi\rangle$ is any
-  eigenvector of $\hat\rho_A$, and then taking $\hat{Q} = \hat{I}_A$.
+  Property 4 follows from Property 3.  First, take $\hat{Q} =
+  |j\rangle\langle j|$, where $|j\rangle$ is any eigenvector of
+  $\hat\rho_A$ with eigenvalue $p_j$, and use Property 3 to prove that
+  $0 \le p_j \le 1$.  Then take $\hat{Q} = \hat{I}_A$ and use Property
+  3 to prove that the eigenvalues sum to 1.
 \end{enumerate}
 
 \section{Entanglement entropy}
