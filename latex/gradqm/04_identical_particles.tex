@@ -215,14 +215,14 @@ The above construction can be generalized to arbitrary numbers of
 bosons.  Suppose we have $N$ bosons occupying single-particle states
 enumerated by
 \begin{equation}
-  |\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.
+  |\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle,
 \end{equation}
-Each of the states $|\phi_j\rangle$ is drawn from an orthonormal basis
-set $\{|\mu\rangle\}$ for $\mathscr{H}^{(1)}$.  We use the $\phi$
-labels to indicate that the listed states can overlap.  For example,
-we could have $|\phi_1\rangle = |\phi_2\rangle = |\mu\rangle$, meaning
-that the single-particle state $|\mu\rangle$ is occupied by two
-particles.
+where each $|\phi_j\rangle$ is drawn from an orthonormal basis
+$\{|\mu\rangle\}$ spanning $\mathscr{H}^{(1)}$.  Duplicates are
+allowed, i.e.~different $|\phi_j\rangle$'s can be assigned to the same
+basis state.  For example, we can have $|\phi_1\rangle =
+|\phi_2\rangle = |\mu\rangle$, meaning that there are two particles
+occupying state $|\mu\rangle$.
 
 The $N$-boson state can now be written as
 \begin{equation}
@@ -231,35 +231,41 @@ The $N$-boson state can now be written as
   |\phi_{p(N)}\rangle\Big).
   \label{nbosons}
 \end{equation}
-The sum is taken over each of the $N!$ permutations acting on
-$\{1,2,\dots,N\}$.  For each permutation $p$, we let $p(j)$ denote the
-integer that $j$ is permuted into.
-
-The prefactor $\mathcal{N}$ is a normalization constant, and it can be
-shown that its appropriate value is
+The sum is taken over all the $N!$ permutations acting on
+$\{1,2,\dots,N\}$.  For each permutation, $p(j)$ denotes the integer
+that $j$ is permuted into.  The prefactor $\mathcal{N}$ is a
+normalization constant, and it can be shown that
 \begin{equation}
-  \mathcal{N} = \sqrt{\frac{1}{N!n_a!n_b!\cdots}},
+  \mathcal{N} = \sqrt{\frac{1}{N!\, \prod_\mu n_\mu!}},
+  \label{bosonnorm}
 \end{equation}
-where $n_\mu$ denotes the number of particles in each distinct state
-$|\varphi_\mu\rangle$, and $N = n_\alpha + n_\beta + \cdots$ is the
-total number of particles.  The proof of this is left as an exercise
+where $n_\mu$ denotes the number of particles occupying the
+single-particle basis state $|\varphi_\mu\rangle$, such that $\sum_\mu
+n_\mu = N$.  The proof of this is left as an exercise
 (\hyperref[ex:boson_norm]{Exercise 3}).
 
-To see that the above $N$-particle state is symmetric under exchange,
-apply an arbitrary exchange operator $\hat{P}_{ij}$:
+To see that $|\phi_1,\phi_2,\dots,\phi_N\rangle$ is symmetric under
+exchange, consider any of the terms in the sum in Eq.~\eqref{nbosons},
+corresponding to a permutation $p$.  Let us apply an exchange operator
+$\hat{P}_{ij}$ to this term:
 \begin{align}
-  \begin{aligned}\hat{P}_{ij}|\phi_1,\phi_2,\dots,\phi_N\rangle &= \mathcal{N} \sum_p \hat{P}_{ij} \Big(\cdots  |\phi_{p(i)}\rangle  \cdots  |\phi_{p(j)}\rangle\cdots\Big) \\&= \mathcal{N} \sum_p \Big(\cdots  |\phi_{p(j)}\rangle  \cdots  |\phi_{p(i)}\rangle\cdots\Big).\end{aligned}
+  \hat{P}_{ij} \Big(\cdots  \underbrace{|\phi_{p(i)}\rangle}_{\mathrm{slot}\,i}  \cdots  \underbrace{|\phi_{p(j)}\rangle}_{\mathrm{slot}\,j}\cdots\Big) = \Big(\cdots  \underbrace{|\phi_{p(j)}\rangle}_{\mathrm{slot}\,i}  \cdots  \underbrace{|\phi_{p(i)}\rangle}_{\mathrm{slot}\,j}\cdots\Big).
+\label{pboson}
 \end{align}
-In each term of the sum, two states $i$ and $j$ are interchanged.
-Since the sum runs through all permutations of the states, the result
-is the same with or without the exchange, so we still end up with
-$|\phi_1,\phi_2,\dots,\phi_N\rangle$.  Therefore, the multi-particle
-state is symmetric under every possible exchange operation.
+The result is a tensor product state where the single-particle states
+in slots $i$ and $j$ have been exchanged, which is a different
+permutation of $|\phi_1\rangle \cdots |\phi_N\rangle$.  This other
+permutation, which we denote by $p'$, occurs as another term in the
+sum over all permutations in Eq.~\eqref{nbosons}.  Conversely,
+$\hat{P}_{ij}$ turns the $p'$ term into the $p$ term.  Thus, the
+exchange operator rearranges the terms in the sum, without altering
+the overall state $|\phi_1,\phi_2,\dots,\phi_N\rangle$.  This
+reasoning holds for all the exchange operators (i.e., all $i \ne j$).
 
 \begin{framed}
 \noindent
-\textit{Example}---A three-boson system has two particles in a state
-$|\mu\rangle$, and one particle in a different state $|\nu\rangle$.
+\textit{Example}---A three-boson system has two particles in state
+$|\mu\rangle$, and one particle in an orthogonal state $|\nu\rangle$.
 To express the three-particle state, define $\{|\phi_1\rangle,
 |\phi_2\rangle, |\phi_3\rangle\}$ where $|\phi_1\rangle =
 |\phi_2\rangle = |\mu\rangle$ and $|\phi_3\rangle = |\nu\rangle$.
@@ -304,6 +310,47 @@ The exchange symmetry operators have the expected effects:
   \end{aligned}
 \end{align}
 \end{framed}
+
+Sometimes, such $N$-boson states are written alternatively as
+\begin{equation}
+  |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{M} \; {\sum_p}'\,
+  \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots
+  |\phi_{p(N)}\rangle\Big),
+  \label{nbosons2}
+\end{equation}
+using a modified sum, denoted by $\sum'_p$, that omits duplicate
+permutations that yield the same tensor product state.  For instance,
+in the previous example where $|\phi_1\rangle = |\phi_2\rangle =
+|\mu\rangle$ and $|\phi_3\rangle = |\nu\rangle$, the term $|\phi_1
+\rangle |\phi_2 \rangle |\phi_3 \rangle = |\phi_2 \rangle |\phi_1
+\rangle |\phi_3 \rangle = |\mu \rangle |\mu \rangle |\nu \rangle$
+would only appear once in the modified sum.  If we use this form, the
+normalization constant can be shown to be
+\begin{equation}
+  \mathcal{M}' = \sqrt{\frac{n_a!n_b!\cdots}{N!}},
+\end{equation}
+in place of Eq.~\eqref{bosonnorm}.
+
+An important property of the $N$-boson states given by
+Eq.~\eqref{nbosons} is that if two such states are constructed from
+different populations of single-particle states, they must be
+orthogonal.  Consider two sets of single-particle states,
+$\{\phi_1,\dots,\phi_N\}$ and $\{\phi_1,\dots,\phi_N'\}$; their inner
+product is
+\begin{align}
+  \langle \phi_1, \dots, \phi_N | \phi_1',\dots, \phi_N'\rangle
+  &= \mathcal{NN'}
+  \sum_{pp'} \langle \phi_{p(1)} | \phi'_{p'(1)}\rangle \dots
+  \langle \phi_{p(N)} | \phi'_{p'(N)}\rangle.
+\end{align}
+For this to be nonzero, there must exist some permutations $p, p'$
+where \textit{every} bra $\langle \phi_{p(j)}|$ matches the
+corresponding ket $|\phi_{p'(j)}\rangle$, for all $j = 1, \dots, N$.
+This is possible if and only if the sets $\{\phi_1,\dots,\phi_N\}$ and
+$\{\phi_1,\dots,\phi_N'\}$ are equivalent, in the sense that they
+consist of the same populations of single-particle states (i.e., the
+occupation numbers are the same, regardless of how the state labels
+are ordered).
 
 \subsection{Fermions}
 \label{sec:fermions}
