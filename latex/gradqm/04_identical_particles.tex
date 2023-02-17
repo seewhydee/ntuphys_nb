@@ -382,21 +382,20 @@ single-particle state, Eq.~\eqref{two_fermions} doesn't work, since
 the two terms would cancel to give the zero vector, which is not a
 valid quantum state.  This is a manifestation of the \textbf{Pauli
   exclusion principle}, which states that two fermions cannot occupy
-the same single-particle state.  Thus, each single-particle state is
-either unoccupied or occupied by one fermion.
+the same single-particle state.
 
-For general $N$, let the occupied single-particle states be
-$|\phi_1\rangle$, $|\phi_2\rangle$, $\dots, |\phi_N\rangle$, each
-drawn from some orthonormal basis $\{|\mu\rangle\}$ for
-$\mathscr{H}^{(1)}$, and each distinct.  Then the appropriate
-$N$-fermion state is
+By generalizing the above discussion, we can construct an
+antisymmetric state that describes $N$ fermions occupying the
+orthonormal single-particle states $|\phi_1\rangle$, $|\phi_2\rangle$,
+$\dots, |\phi_N\rangle$ (typically drawn from a suitable basis for
+$\mathscr{H}^{(1)}$).  The $N$-fermion state is
 \begin{equation}
   |\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.
   \label{Nfermions}
 \end{equation}
-It is up to you to verify that the $1/\sqrt{N!}$ prefactor is the
-right normalization constant.  The sum is taken over every permutation
-$p$ of the sequence $\{1,2,\dots,N\}$, and each term in the sum has a
+The $1/\sqrt{N!}$ can be straightforwardly verified to be the right
+normalization constant.  The sum is taken over every permutation $p$
+of the sequence $\{1,2,\dots,N\}$, and each term in the sum has a
 coefficient $s(p)$ denoting the \textbf{parity of the permutation}.
 The parity of any permutation $p$ is defined as $+1$ if $p$ is
 constructed from an even number of transpositions (i.e., exchanges of
