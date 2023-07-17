@@ -1,4 +1,4 @@
-\documentclass[pra,12pt]{revtex4}
+\documentclass[pra,12pt]{revtex4-2}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -43,11 +43,11 @@ Quantum particles exhibit a feature known as \textbf{wave-particle
   duality}, which can be summarized in the \textbf{quantum double-slit
   thought experiment}.  As illustrated below, a source emits electrons
 of energy $E$ toward a screen with a pair of slits.  A movable
-detector is placed on the far side, to measure the arrival rates at
+detector, placed on the far side, measures the arrival rates at
 different positions.
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.6\textwidth]{doubleslit}
+  \centering\includegraphics[width=0.52\textwidth]{doubleslit}
 \end{figure}
 
 The experiment reveals the following: (i) the electrons arrive in
@@ -60,15 +60,15 @@ energy $E$ by
   \lambda = \frac{2\pi}{k}, \;\;\; E = \frac{\hbar^2k^2}{2m},
 \end{equation}
 where $\hbar = h/2\pi$ is Dirac's constant, and $m$ is the electron
-mass.  (This means that if $E$ is known, we can deduce the spacing of
-the slits by studying the diffraction pattern.)
+mass.  (Thus, if $E$ is known, we can deduce the spacing of the slits
+from the diffraction pattern.)
 
-Wave-particle duality arises from quantum theory's distinction between
-a particle's state and the outcomes of measurements performed on it.
-The state is described by a wavefunction $\psi(\mathbf{r})$, which can
-undergo diffraction like a classical wave.  On the other hand, the
-probability of measuring a particle in a volume $dV$ around position
-$\mathbf{r}$ is given by $|\psi(\mathbf{r})|^2 \,dV$.
+%% Wave-particle duality arises from quantum theory's distinction between
+%% a particle's state and the outcomes of measurements performed on it.
+%% The state is described by a wavefunction $\psi(\mathbf{r})$, which can
+%% undergo diffraction like a classical wave.  On the other hand, the
+%% probability of measuring a particle in a volume $dV$ around position
+%% $\mathbf{r}$ is given by $|\psi(\mathbf{r})|^2 \,dV$.
 
 In this chapter, we will study a generalization of the double-slit
 experiment called a \textbf{scattering experiment}.  The idea is to
@@ -82,31 +82,39 @@ electron- and photon-based microscopy to accelerator experiments in
 high-energy physics.
 
 We will focus on the non-relativistic scattering experiment depicted
-in the figure below.  An unbounded $d$-dimensional space is described
+below:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.58\textwidth]{scattering}
+\end{figure}
+
+\noindent
+An unbounded $d$-dimensional space is described
 by coordinates $\mathbf{r}$, with a scatterer near $\mathbf{r} = 0$.
 An incoming quantum particle, with energy $E$, is governed by the
 Hamiltonian
 \begin{equation}
-  \hat{H} = \hat{H}_0 + V(\hat{\mathbf{r}}), \;\;\;
-  \hat{H}_0 = \frac{\hat{\mathbf{p}}^2}{2m},
+  \hat{H} = \hat{H}_0 + V(\hat{\mathbf{r}}),
 \end{equation}
-where $\hat{H}_0$ describes the particle's kinetic energy, $m$ is the
-particle's mass, $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are
-position and momentum operators, and $V$ is a \textbf{scattering
-  potential} describing how the scatterer affects the quantum
-particle.  We assume that $V(\mathbf{r}) \rightarrow 0$ as
-$|\mathbf{r}| \rightarrow \infty$.
+where
+\begin{equation}
+  \hat{H}_0 = \frac{\hat{\mathbf{p}}^2}{2m}
+\end{equation}
+describes the particle's kinetic energy, $m$ is the particle's mass,
+$\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the position and
+momentum operators, and $V$ is a \textbf{scattering potential}
+describing how the scatterer acts upon the particle.  We assume this
+potential vanishes far from the scatterer:
+\begin{equation}
+  V(\mathbf{r}) \; \overset{|\mathbf{r}| \rightarrow \infty}{\longrightarrow}\; 0.
+\end{equation}
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.68\textwidth]{scattering}
-\end{figure}
-
-We want to see how this particle is scattered by the potential.  But
-how can the above description be formulated as a well-posed problem?
-Let us give the formulation first, before discussing its meaning:
+How is the particle scattered by the potential?  In order to study
+this, we formulate the above description as the following mathematical
+problem:
 \begin{enumerate}
 \item 
-The particle state $|\psi\rangle$ obeys the time-independent
+A particle state $|\psi\rangle$ obeys the time-independent
 Schr\"odinger equation
 \begin{equation}
   \hat{H} |\psi\rangle = E |\psi\rangle,
@@ -114,7 +122,7 @@ Schr\"odinger equation
 where $E$ is the incoming particle energy.
 
 \item
-This state can be decomposed into two terms,
+The state $|\psi\rangle$ can be decomposed into two pieces,
 \begin{equation}
   |\psi\rangle \,=\, |\psi_i\rangle \,+\, |\psi_s\rangle,
 \end{equation}
@@ -122,105 +130,102 @@ where $|\psi_i\rangle$ is called the \textbf{incident state} and
 $|\psi_s\rangle$ is called the \textbf{scattered state}.
 
 \item
-The incident state is described by a plane wave---a simultaneous
-eigenstate of $\hat{H}_0$ (with energy $E$) and $\hat{\mathbf{p}}$
-(with momentum $\mathbf{p}_i$):
+The incident state is described by a plane wave, which is a
+simultaneous eigenstate of $\hat{H}_0$ (with energy $E$) and
+$\hat{\mathbf{p}}$ (with momentum $\mathbf{p}_i$):
 \begin{equation}
-  \hat{H}_0 |\psi_i\rangle = E |\psi_i\rangle \;\; \mathrm{and}\;\;
-  \hat{\mathbf{p}} |\psi_i\rangle = \mathbf{p}_i |\psi_i\rangle,
-  \;\; \mathrm{where}\;\; E = \frac{|\mathbf{p}_i|^2}{2m}.
+  \begin{cases}
+  \hat{H}_0 |\psi_i\rangle &= \, E |\psi_i\rangle, \\
+  \;\;\hat{\mathbf{p}} |\psi_i\rangle &= \, \mathbf{p}_i |\psi_i\rangle,
+  \end{cases}
+  \quad \mathrm{where} \;\;\; E = \frac{|\mathbf{p}_i|^2}{2m}.
 \end{equation}
 
 \item
 The scattered state is an ``outgoing'' state.  What this means will be
 explained later.
 \end{enumerate}
-We can interpet the above conditions as follows.  Condition 1 says
-that the scattering process is elastic: since the scatterer is
-described by a potential $V(\mathbf{r})$, its interaction with the
-particle is conservative, so $E$ is fixed.  Condition 2 says that the
-particle's wavefunction $\psi(\mathbf{r}) = \langle \mathbf{r}
-|\psi\rangle$ is a superposition of an incoming wave and a scattered
-wave.  Condition 3 defines the incoming wave as a plane wave with
-wavelength determined by $E$.  Finally, condition 4 says that the wave
-moves outward to infinity after being scattered.
+We can interpet the above statements as follows.  Statement 1 says the
+scattering is elastic: the scatterer is described by a potential
+$V(\mathbf{r})$, so its interaction with the particle is conservative
+and $E$ is fixed.  Statement 2 says that the wavefunction
+$\psi(\mathbf{r}) = \langle \mathbf{r} |\psi\rangle$ is a
+superposition of an incoming wave and a scattered wave.  Statement 3
+defines the incoming wave as a plane wave with wavelength determined
+by $E$.  Statement 4 says the scattered wave moves outward to
+infinity, away from the scatterer.
 
-Note that \textit{this is not an eigenproblem}!  Usually, the
-time-independent Schr\"odinger equation is treated as an eigenproblem
-(i.e., we solve for eigenvalues and eigenstates).  Here, we are given
-$|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, and we want
-$|\psi_s\rangle$.  In particular, $E$ is an input, not an output.
+Note that Statements 1--4 do \textit{not} define an eigenproblem!
+Usually, we deal with the time-independent Schr\"odinger equation by
+solving for eigenvalues and eigenstates.  But here we are given
+$|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, and want to find
+$|\psi_s\rangle$.  In particular, $E$ is an input to the calculation,
+not an output.
 
 \section{Recap: position and momentum states}
 \label{sec:waves}
 
-Before proceeding, let us review the properties of quantum particles
+Before proceeding, let us review the properties of a quantum particle
 in free space.  In a $d$-dimensional space, a coordinate vector
-$\mathbf{r}$ is a real vector of $d$ components.  A quantum particle
-can be described by the position basis---a set of quantum states
-$\{|\mathbf{r}\rangle\}$, one for each possible $\mathbf{r}$.  If we
-are studying a particle trapped in a finite region (e.g., a particle
-in a box), $\mathbf{r}$ is restricted to that region; otherwise,
-$\mathbf{r}$ is any real $d$-dimensional vector.  In either case, the
-position labels are continuous so $\{|\mathbf{r}\rangle\}$ is an
-uncountably infinite set.
-
-The position eigenstates span the state space, so the identity
-operator can be resolved as
+$\mathbf{r}$ is a real vector with $d$ components.  We suppose there
+is a uncountably infinite set of position eigenstates,
+$\{|\mathbf{r}\rangle\}$, where each $|\mathbf{r}\rangle$ describes a
+particle with a definite position $\mathbf{r}$.  The position
+eigenstates are assumed to span the state space, such that the
+identity operator can be resolved as
 \begin{equation}
-  \hat{I} = \int d^dr \, |\mathbf{r}\rangle \,\langle\mathbf{r}|,
+  \hat{I} = \int d^dr \, |\mathbf{r}\rangle \langle\mathbf{r}|,
+  \label{Iresol}
 \end{equation}
-where the integral is taken over all allowed $\mathbf{r}$.  It
-follows that
+with the integral is taken over all allowed $\mathbf{r}$ (e.g.,
+$\mathbf{r} \in \mathbb{R}^d$).  It follows that
 \begin{equation}
   \langle \mathbf{r} | \mathbf{r}' \rangle = \delta^d(\mathbf{r}-\mathbf{r}').
+  \label{rrprime}
 \end{equation}
-The position eigenstates are thus said to be ``delta normalized'',
-rather than being normalized to unity.  Here, $\delta^d(\cdots)$
-denotes the $d$-dimensional delta function; e.g., in 2D,
+Thus, we say that the position eigenstates are
+\textbf{delta-normalized}, rather than being normalized to unity.
+Here $\delta^d(\cdots)$ denotes the $d$-dimensional delta function;
+e.g., in 2D,
 \begin{equation*}
   \langle x,y \,|\, x',y' \rangle = \delta(x-x') \, \delta(y-y').
 \end{equation*}
-The position operator $\hat{\mathbf{r}}$ is defined such that
-$|\mathbf{r}\rangle$ and $\mathbf{r}$ are its eigenstates and
-eigenvalues:
-\begin{equation}
-  \hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\, |\mathbf{r}\rangle.
-\end{equation}
+Moreover, the position operator $\hat{\mathbf{r}}$ is defined such
+that $\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\,
+|\mathbf{r}\rangle$.
 
 Momentum eigenstates are constructed from position eigenstates via
-Fourier transforms.  First, suppose the allowed region of space is a
-box of length $L$ on each side, with periodic boundary conditions.
-Define the set of wave-vectors
-\begin{equation*}
-  \Big\{\mathbf{k}  \; \Big| \;\; k_j = 2\pi m/L\;\;\mathrm{for}
-  \;m\in\mathbb{Z}, \; j = 1, \dots,d\, \Big\},
-\end{equation*}
-corresponding to plane waves satisfying the periodic boundary
-conditions.  Note that this set is discrete (i.e., countable).  Now
-define
+Fourier transforms.  First, let us suppose $\mathbf{r}$ runs over a
+finite box of length $L$ on each side, with periodic boundary
+conditions.  For plane waves of the form
+$\exp(i\mathbf{k}\cdot\mathbf{r})$, where $\mathbf{k} = (k_1, \dots,
+k_d)$ is the wave-vector, the periodic boundary conditions are
+satisfied if and only if
+\begin{equation}
+  k_j = 2\pi m/L\;\;\mathrm{for} \;m\in\mathbb{Z}.
+\end{equation}
+Note that the set of allowed wave-vectors is discrete (i.e.,
+countable), with a discretization of $\Delta k = 2\pi/L$ in each
+direction.  Next, define
 \begin{equation}
   |\mathbf{k}\rangle = \frac{1}{L^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle,
+  \label{pdef}
 \end{equation}
-where the integral is taken over the box.  These can be shown to
-satisfy
+where the integral is taken over the box.  We identify
+$|\mathbf{k}\rangle$ as a momentum eigenstate, i.e., a state with
+definite momentum $\hbar \mathbf{k}$.  Using
+Eqs.~\eqref{Iresol}--\eqref{rrprime} and Eq.~\eqref{pdef}, we can show
+that
 \begin{equation}
   \langle\mathbf{k}|\mathbf{k}'\rangle = \delta_{\mathbf{k},\mathbf{k}'}, \quad \langle\mathbf{r}|\mathbf{k}\rangle = \frac{1}{L^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \sum_{\mathbf{k}} |\mathbf{k}\rangle\,\langle\mathbf{k}|.
 \end{equation}
-The momentum operator is defined to have each $|\mathbf{k}\rangle$ is
-an eigenstate, with eigenvalue $\hbar\mathbf{k}$:
-\begin{equation}
-  \hat{\mathbf{p}} |\mathbf{k}\rangle \,=\, \hbar \mathbf{k}\, |\mathbf{k}\rangle.
-\end{equation}
-So long as $L$ is finite, the $\mathbf{k}$ vectors are discrete, and
-each momentum eigenstate can be normalized to unity.  The momentum
-component in each direction is quantized to a multiple of $\Delta p =
-2\pi\hbar/L$.
+In particular, note that each momentum eigenstate is normalizable to
+unity.
 
-Next, we take the limit $L \rightarrow \infty$, which implies that
-$\Delta p \rightarrow 0$, i.e.~the discrete momentum eigenvalues
-coalesce into a continuum.  We re-normalize the momentum eigenstates
-by taking
+Now let us take $L \rightarrow \infty$.  In this limit, the
+wave-vector discretization $\Delta k = 2\pi / L$ goes to zero, so the
+momentum eigenvalues coalesce into a continuum.  To handle this, we
+redefine the momentum eigenstates as
 \begin{equation}
   |\mathbf{k}\rangle^{(\textrm{new})} = \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle^{(\textrm{old})}.
 \end{equation}
@@ -228,30 +233,50 @@ Then, by using the formula
 \begin{equation}
   \int_{-\infty}^\infty dx\; \exp(ikx) \;=\; 2\pi\, \delta(k),
 \end{equation}
-we can show that the re-normalized momentum eigenstates satisfy:
+we can show that the new momentum eigenstates are related to the
+position eigenstates by
 \begin{framed}
   \begin{align}
-      |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \\
-      |\mathbf{r}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{-i\mathbf{k}\cdot\mathbf{r}} |\mathbf{k}\rangle, \\
-      \langle\mathbf{k}|\mathbf{k}'\rangle = \delta^d(\mathbf{k}-\mathbf{k}'),& \quad \langle\mathbf{r}|\mathbf{k}\rangle = \frac{1}{(2\pi)^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \int d^dk \;|\mathbf{k}\rangle\,\langle\mathbf{k}|.
+      |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \label{kcontdef} \\
+      |\mathbf{r}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{-i\mathbf{k}\cdot\mathbf{r}} |\mathbf{k}\rangle. \label{rcontdef}
   \end{align}
 \end{framed}
-\vskip -0.15in
+\vskip -0.1in
 \noindent
-Position and momentum are now treated on a similar footing: both
-$|\mathbf{r}\rangle$ and $|\mathbf{k}\rangle$ are delta normalized,
-and the integrals over $\mathbf{r}$ and $\mathbf{k}$ are both taken
-over infinite continuous spaces.
-
-For an arbitrary quantum state $|\psi\rangle$, a wavefunction is
-defined as the projection onto the position basis: $\psi(\mathbf{r}) =
-\langle \mathbf{r}|\psi\rangle$.  Using the momentum eigenstates, we can
-show that
+Position and momentum are now treated on similar footing, with the
+integrals over $\mathbf{r}$ and $\mathbf{k}$ both taken over infinite
+spaces.  Moreover, the momentum eigenstates now satisfy
 \begin{align}
-  \begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle &=  \int d^dk \; \langle\mathbf{r}|\mathbf{k}\rangle \; \hbar\mathbf{k} \; \langle\mathbf{k}|\psi\rangle \\ &=  \int \frac{d^dk}{(2\pi)^{d/2}}\; \hbar\mathbf{k} \;e^{i\mathbf{k}\cdot\mathbf{r}} \langle\mathbf{k}|\psi\rangle \\ &=  -i\hbar\nabla \int \frac{d^dk}{(2\pi)^{d/2}}\; \;e^{i\mathbf{k}\cdot\mathbf{r}} \langle\mathbf{k}|\psi\rangle \\ &= -i\hbar \nabla\psi(\mathbf{r}).\end{aligned}
+  I &= \int d^dk \;|\mathbf{k}\rangle\,\langle\mathbf{k}|, \label{Iresolk} \\
+  \langle\mathbf{k}|\mathbf{k}'\rangle &= \delta^d(\mathbf{k}-\mathbf{k}'),
+  \label{kkprime} \\
+  \langle\mathbf{r}|\mathbf{k}\rangle &= \frac{e^{i\mathbf{k}\cdot\mathbf{r}}}{(2\pi)^{d/2}}. \label{kwavefun}
 \end{align}
-This can be used to prove Heisenberg's commutation relation
-$[\hat{r}_i, \hat{p}_j] = i\hbar\delta_{ij}$.
+The first two equations are analogous to their position eigenstate
+counterparts, Eq.~\eqref{Iresol} and \eqref{rrprime}.  In particular,
+Eq.~\eqref{kkprime} says the new $|\mathbf{k}\rangle$'s are
+delta-normalized.  The last equation, \eqref{kwavefun}, can be
+interpreted as the wavefunction of the delta-normalized momentum
+eigenstate.
+
+The momentum operator $\hat{\mathbf{p}}$ is defined using the
+$|\mathbf{k}\rangle$'s as the eigenbasis:
+\begin{equation}
+  \hat{\mathbf{p}} |\mathbf{k}\rangle \,=\, \hbar \mathbf{k}\, |\mathbf{k}\rangle.
+  \label{pop}
+\end{equation}
+For any quantum state $|\psi\rangle$, whose wavefunction is
+$\psi(\mathbf{r}) = \langle \mathbf{r}|\psi\rangle$, we can use
+Eqs.~\eqref{rcontdef} and \eqref{pop} to show that the momentum
+operator acts on wavefunctions in the following way:
+\begin{align}
+  \begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
+    &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \hat{\mathbf{p}} | \psi\rangle \\
+    &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; \hbar\mathbf{k} \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \\
+    &= -i \hbar\nabla \left[\frac{1}{(2\pi)^{d/2}} \, \int d^dk \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \right] \\
+    &= -i\hbar \nabla\psi(\mathbf{r}).
+  \end{aligned}
+\end{align}
 
 \section{Scattering from a 1D delta function potential}
 \label{sec:1dscatter}
