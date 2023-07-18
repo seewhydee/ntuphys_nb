@@ -38,6 +38,7 @@
 %% \section{Scattering Processes in Quantum Mechanics}
 
 \section{Scattering experiments on quantum particles}
+\label{sec:scatintro}
 
 Quantum particles exhibit a feature known as \textbf{wave-particle
   duality}, which can be summarized in the \textbf{quantum double-slit
@@ -282,10 +283,11 @@ operator acts on wavefunctions in the following way:
 \label{sec:1dscatter}
 
 We are now ready to solve a simple scattering problem.  Consider a 1D
-space with spatial coordinate denoted by $x$, and a scattering
-potential that consists of a ``spike'' at $x = 0$:
+space with spatial coordinate $x$, and a scattering potential
+consisting of a ``spike'' at $x = 0$:
 \begin{equation}
   V(x) = \frac{\hbar^2\gamma}{2m} \,\delta(x).
+  \label{Vdeltaf}
 \end{equation}
 The form of the prefactor $\hbar^2\gamma/2m$ is chosen for later
 convenience; the parameter $\gamma$, which has units of $[1/x]$,
@@ -295,64 +297,72 @@ controls the strength of the scattering potential.
   \centering\includegraphics[width=0.45\textwidth]{scattering1d}
 \end{figure}
 
-If you are disturbed by the idea of a delta function potential, just
-regard it as the limiting case of a family of increasingly tall and
-narrow gaussian functions centered at $x=0$.  For non-singular
-potentials, the validity of the Schr\"odinger wave equation relies on
-$\psi(x)$ being continuous with well-defined first and second
-derivatives.  In the delta function limit, however, these conditions
-are relaxed: $\psi(x)$ remains continuous, but at $x=0$ its first
-derivative becomes discontinuous.  To see this, integrate the
-Schr\"odinger wave equation over an infinitesimal range around $x =
+The particle wavefunction $\psi(x)$ satisfies the 1D Schr\"odinger
+wave equation
+\begin{equation}
+  \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x) \right] \psi(x)
+  = E \psi(x).
+  \label{1dschrod}
+\end{equation}
+As this is a second-order differential equation, we normally require
+$\psi(x)$ to be continuous and to have well-defined first and second
+derivatives.  However, the delta function potential \eqref{Vdeltaf}
+relaxes these requirements in a peculiar way: at $x=0$, $\psi(x)$ must
+still be continuous, but its first derivative may now be discontinuous
+(and hence, its second derivative is singular).  To see this,
+integrate Eq.~\eqref{1dschrod} over an infinitesimal range around $x =
 0$:
 \begin{align}
-  \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left\{-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right\} + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0.
+  \begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left(-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right) + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0.
   \end{aligned}
 \end{align}
-Hence,
+Therefore,
 \begin{equation}
-  \lim_{\varepsilon\rightarrow 0^+} \left\{\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right\} =  \gamma \,\psi(0).
+  \lim_{\varepsilon\rightarrow 0^+} \left(\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \;\; \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right) =  \gamma \,\psi(0).
   \label{delta_discontinuity}
 \end{equation}
 
-To proceed, consider a particle incident from the left, with energy
-$E$.  This is described by an incident state proportional to a
-momentum eigenstate $|k\rangle$, where $k = \sqrt{2mE/\hbar^2} > 0$.
-We said ``proportional'', not ``equal'', for it is conventional to
-adopt the normalization
+To proceed, suppose the particle is incident from the left, with
+energy $E$.  As discussed in Sec.~\ref{sec:scatintro}, the particle's
+quantum state is the sum of an incident state $|\psi_i\rangle$ and a
+scattered state $|\psi_s\rangle$, and $|\psi_i\rangle$ is
+proportional to a momentum eigenstate $|k\rangle$, where $k =
+\sqrt{2mE/\hbar^2} > 0$.  We said ``proportional'', not ``equal'', for
+it is conventional to take
 \begin{equation}
-  |\psi_i\rangle = \sqrt{2\pi}\Psi_i |k\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik x},
+  |\psi_i\rangle = \sqrt{2\pi}\, \Psi_i |k\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik x}.
+  \label{psiin1d}
 \end{equation}
-where the complex constant $\Psi_i$ is called the \textbf{incident
-  amplitude}.  Plugging this back into the Schr\"odinger wave equation
-yields
+The complex constant $\Psi_i$ is called the \textbf{incident
+  amplitude}.  With this, Eq.~\eqref{1dschrod} becomes
 \begin{equation}
-  \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \left(\Psi_i \, e^{ikx} + \psi_s(x) \right) = E \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).
+  \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big)
+  = E \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).
 \end{equation}
 Taking $E = \hbar^2k^2/2m$, and doing a bit of algebra, simplifies this to
 \begin{equation}
-  \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) =  \gamma \delta(x) \left(\Psi_i \, e^{ikx} + \psi_s(x) \right).
+  \left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x)
+  = \gamma \delta(x) \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).
   \label{deltaschrod}
 \end{equation}
 
 We can construct the solution by separately considering the regions $x
 < 0$ and $x > 0$.  Within each half-space, $\delta(x)$ vanishes so
-Eq.~\eqref{deltaschrod} reduces to
+Eq.~\eqref{deltaschrod} reduces to the Helmholtz equation
 \begin{equation}
   \left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0.
 \end{equation}
-This called the \textbf{Helmholtz equation}, and its general solution
-is
+This has the general solution
 \begin{equation}
-  \psi_s(x) = \Psi_i \left(f_1 \, e^{ik x} + f_2 \, e^{-ik x}\right),
+  \psi_s(x) = \Psi_i \left(f_R \, e^{ik x} + f_L \, e^{-ik x}\right),
 \end{equation}
 which is a superposition of right-moving ($e^{ikx}$) and left-moving
-($e^{-ikx}$) waves.  The complex free parameters $f_1$ and $f_2$ can
-have different values in the two regions $x < 0$ and $x > 0$.
+($e^{-ikx}$) waves.  The complex parameters $f_1$ and $f_2$ can
+have different values in the $x < 0$ and $x > 0$ regions.
 
-We want $\psi_s(x)$ to describe an \textbf{outgoing wave}, meaning
-that it is purely left-moving for $x < 0$, and purely right-moving for
-$x > 0$.  Thus, let $f_1 = 0$ for $x < 0$, and $f_2 = 0$ for $x > 0$:
+We want the scattered wave to be an outgoing wave.  Thus, for $x < 0$,
+$\psi_s$ is purely left-moving, so $f_R = 0$; and for $x > 0$,
+$\psi_s$ is purely right-moving, so $f_L = 0$.  Therefore,
 \begin{equation}
   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ikx}, & x < 0 \\ f_+ \,e^{ikx}, & x > 0.\end{cases}
 \end{equation}
@@ -361,18 +371,17 @@ The complex numbers $f_-$ and $f_+$ are called \textbf{scattering
 scattered wavefunction moving outward from the scatterer.
 
 Recall from the discussion at the beginning of this section that
-$\psi(x)$ must be continuous everywhere, including at $x = 0$.  Since
-$\psi_i(x)$ is continuous, $\psi_s(x)$ must be as well, so $f_- =
-f_+$.  Moreover, we showed in Eq.~\eqref{delta_discontinuity} that the
-first derivative of $\psi(x)$ is discontinuous at the scatterer.
-Plugging \eqref{delta_discontinuity} into our expression for
-$\psi(x)$, at $x = 0$, gives
+$\psi(x)$ must be continuous at $x = 0$.  This implies that
+$\psi_s(x)$ is also continuous, and therefore that
 \begin{equation}
-  \Psi_i\big[ik(1+f_\pm) - ik(1-f_\pm)\big] =  \Psi(1+f_\pm) \gamma.
+  f_- = f_+ \;\;\;\Rightarrow \;\;\;
+  \psi_s(x) = \Psi_i \,f_\pm\, e^{ik|x|}.
+  \label{psis1d}
 \end{equation}
-Hence, we obtain
+Plugging Eqs.~\eqref{psiin1d} and \eqref{psis1d} into
+Eq.~\eqref{delta_discontinuity} yields
 \begin{equation}
-  f_+ = f_- = -\frac{\gamma}{\gamma - 2ik}.
+  f_\pm = -\frac{\gamma}{\gamma - 2ik}.
 \end{equation}
 
 For now, let us focus on the magnitude of the scattering amplitude (in
@@ -389,148 +398,97 @@ Its dependence on $E$ is plotted below:
 \end{figure}
 
 \noindent
-For fixed potential strength $\gamma$, the scattering strength
-decreases monotonically with $E$, meaning higher-energy particles are
-scattered less easily.  For fixed $E$, the scattering strength
-increases with $|\gamma|$, with the limit $|f|^2 \rightarrow 1$ as
-$|\gamma|\rightarrow \infty$.  Note also that attractive potentials
-($\gamma < 0$) and repulsive potentials ($\gamma > 0$) are equally
-effective scatterers.
-
-\section{Scattering in 2D and 3D}
-\label{sec:2d3d_scattering}
-
-We now consider scattering experiments in spatial dimension $d \ge 2$.
-These have a new and important feature: for $d = 1$, the particle can
-only scatter forward or backward, but for $d \ge 2$ it can be
-scattered to the side.
-
-Far from the scatterer, where $V(\mathbf{r})\rightarrow 0$, the
-scattered wavefunction $\psi_s(\mathbf{r})$ satisfies
-\begin{equation}
-  -\frac{\hbar^2}{2m} \nabla^2 \psi_s(\mathbf{r}) = E \psi_s(\mathbf{r}),
-\end{equation}
-where $\nabla^2$ denotes the $d$-dimensional Laplacian.  Let $E =
-\hbar^2 k^2 / 2m$, where $k \in \mathbf{R}^+$ is the wave-number in
-free space.  Then the above equation can be written as
-\begin{equation}
-  \left[\nabla^2 + k^2\right] \psi_s(\mathbf{r}) = 0,
-  \label{helmholtzeq}
-\end{equation}
-which is the \textbf{Helmholtz equation} in $d$-dimensional space.
-
-We already know of one set of elementary solutions to
-Eq.~\eqref{helmholtzeq}, the plane waves
-\begin{equation*}
-  \big\{\exp(i\mathbf{k}\cdot\mathbf{r}),\;\;\mathrm{where}\;\;
-  |\mathbf{k}| = k \big\}.
-\end{equation*}
-However, we're looking for scattered wavefunctions that are outgoing
-waves, and a plane wave can't be said to be ``outgoing''.  The
-solution, as we shall see, is to construct solutions expressed in
-curvilinear coordinates.
-
-Take the 2D case first.  Skipping the mathematical details, one finds
-that the general solution to Eq.~\eqref{helmholtzeq} in 2D can be
-written, using polar coordinates $(r,\phi)$, as
-\begin{equation}
-  \psi(\mathbf{r})=\sum_{\pm}\sum_{m=-\infty}^\infty c_m^\pm\, H_m^\pm(kr)\,e^{im\phi}.
-\end{equation}
-This is a superposition of \textbf{circular waves} with coefficients
-$c_m^\pm \in \mathbb{C}$.  Each individual circular wave is a solution
-to the 2D Helmholtz equation with angular momentum quantum number $m$.
-Its $r$ dependence is given by $H_m^\pm$, a \textbf{Hankel function}
-of the ``first kind'' ($+$) or ``second kind'' ($-$).  For real
-inputs, these are complex conjugates of each other:
-\begin{equation}
-  \left[H^+_m(kr)\right]^* = H^-_m(kr) \quad\mathrm{for}\;\,kr \in \mathbb{R}.
-\end{equation}
-For large inputs, they have the asymptotic form
-\begin{equation}
-  H_m^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \sqrt{\frac{2}{\pi kr}} \, \exp\left[\pm i\left(kr - \frac{(m+\frac{1}{2})\pi}{2}\right)\right] \;\sim\; r^{-1/2} e^{\pm ikr}.
-\end{equation}
-Thus, the $\pm$ index specifies whether the wave is radially
-\textbf{outgoing} ($+$) or \textbf{incoming} ($-$).
-
-The 3D case is treated similarly.  We use spherical coordinates
-$(r,\theta,\phi)$, and the solutions of the 3D Helmholtz equation are
-superpositions of incoming and outgoing spherical waves:
-\begin{equation}
-  \psi(\mathbf{r})=\sum_{\pm}\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell c_{\ell m}^\pm \,
-  h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi).
-\end{equation}
-Here, the $c_{\ell m}^\pm$ factors are complex coefficients, each
-$h_\ell^\pm$ is a \textbf{spherical Hankel function}, and each
-$Y_{\ell m}$ is a \textbf{spherical harmonic} function.  The $\ell$
-and $m$ indices specify the angular momentum of the spherical wave.
-For large inputs, the spherical Hankel functions have the limiting
-form
-\begin{equation}
-  h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \pm \frac{\exp\!\left[\pm i\!\left(kr-\frac{\ell\pi}{2}\right)\right]}{ikr}.
-\end{equation}
-Because the $\pm$ index appears in the exponent, it determines whether
-the spherical wave is outgoing ($+$) or incoming ($-$).
-
-A more detailed discussion about the mathematical properties of
-circular and spherical waves can be found in \textbf{Appendix A}.
-
-It is now clear what we need to do to get a scattered wavefunction
-$\psi_s(\mathbf{r})$ that is outgoing at infinity.  It must be a
-superposition of only outgoing ($+$) waves:
-\begin{equation}
-  \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^+(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
-\end{equation}
-At large distances, the $r$-dependence reduces to
-\begin{equation}
-  \psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} \,\exp\left(ikr\right).
-\end{equation}
-For $d > 1$, the magnitude decreases with $r$, which is to be expected
-since the outgoing wave spreads out over a wider area.  More
-precisely, if we look at the probability current density
-\begin{equation*}
-  \mathbf{J} = (\hbar/m) \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right],  
-\end{equation*}
-its $r$-component scales as
-\begin{equation}
-  \begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; k \,r^{1-d}.\end{aligned}
-  \label{Jr}
-\end{equation}
-In $d$ dimensions, the area of a wave-front scales as $r^{d-1}$, so
-the probability flux goes as $J_r \,r^{d-1} \sim k$, which is positive
-and independent of $r$.  Hence, there is a constant probability flux
-flowing outward from the origin.  Note that for $d=1$, Eq.~\eqref{Jr}
-states that $J_r \sim r^0$, consistent with the results of the
-previous section: in 1D, waves do not spread with distance since there
-is no transverse dimension.
+The behavior matches our intuition.  For a given particle energy $E$,
+the scattering grows stronger as the potential strength parameter
+$|\gamma|$ increases.  On the other hand, for fixed $\gamma$, a
+higher-energy particle undergoes less scattering.  Note also that
+attractive potentials ($\gamma < 0$) and repulsive potentials ($\gamma
+> 0$) are equally effective at scattering.
 
 \section{Scattering amplitude and scattering cross section}
 \label{sec:scattering_amplitude}
 
-We can use the results of the previous section to express the outcomes
-of a scattering experiment in a cleaner and more systematic way.
-Consider an incident plane wave,
+In the 1D scattering problem of the previous section, the particle can
+only scatter in two directions: forward or backward.  In 2D and higher
+spatial dimensions, there is an important complication: the particle
+can also go ``sideways'', and in fact there is a continuous set of
+directions for it to scatter into.  To deal with this, physicists have
+introduced a systematic formalism for expressing the outcomes of a
+scattering experiment.
+
+In $d$ spatial dimensions, consider (as before) a planar incident
+wavefunction
 \begin{equation}
   \psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}},
+  \label{psiin}
 \end{equation}
-in $d$-dimensional space.  Here, $\Psi_i \in \mathbb{C}$ is the
-\textbf{incident wave amplitude}, and $\mathbf{k}_i$ is the incident
-momentum whose magnitude is $k = |\mathbf{k}_i|$, so that the particle
-energy is $E = \hbar^2k^2/2m$.  We adopt coordinates $(r,\Omega)$,
-where $r$ is the distance from the origin and $\Omega$ denotes the
-other coordinates.  For 1D, $\Omega \in \pm$ specifies the choice of
-``forward'' or ``backward'' scattering; for 2D polar coordinates,
-$\Omega = \phi$; and for 3D spherical coordinates, $\Omega =
-(\theta,\phi)$.
+where $\mathbf{k}$ is the incident wave-vector, whose magnitude is $k
+= |\mathbf{k}|$.  Similar to the 1D case, \eqref{psiin1d}, we call the
+complex coefficient $\Psi_i$ the \textbf{incident wave amplitude}.
 
-Far from the origin, the scattered wavefunction reduces to
+The incident wavefunction generates a scattered wavefunction
+$\psi_s(\mathbf{r})$.  We can express the $\mathbf{r}$-dependence of
+this wavefunction using a coordinate system of the form $(r,\Omega)$,
+where $r$ is the distance from the origin and $\Omega$ denotes the
+other ``directional'' coordinates.  Specifically,
+\begin{itemize}
+\item For $d = 2$, we use polar coordinates $(r,\phi)$, i.e.~$\Omega
+  \equiv \phi$.
+
+\item For $d = 3$, we use spherical coordinates $(r, \theta, \phi)$,
+  i.e.~$\Omega \equiv (\theta,\phi)$.
+\end{itemize}
+We can also wrangle the $d = 1$ case into this framework by letting
+$\Omega \in \{+, -\}$, where $+$ denotes the forward ($+x$) direction
+and $-$ denotes the backward ($-x$) direction.
+
+We assert that, far from the origin, the scattered wavefunction must
+reduce to the form
 \begin{equation}
   \psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\Omega).
+  \label{psiscat}
 \end{equation}
-The complex function $f(\Omega)$, called the \textbf{scattering
-  amplitude}, is the fundamental quantity of interest in scattering
-experiments.  It describes how the particle is scattered in various
-directions, depending on the inputs to the problem (i.e.,
-$\mathbf{k}_i$ and the scattering potential).
+To understand the reasoning behind this, let us go through the
+individual multiplicative factors on the right side of
+Eq.~\eqref{psiscat}.
+
+First, the $\Psi_i$ factor registers the fact that the Schr\"odinger
+wave equation is linear---if we multiply the incident wavefunction
+\eqref{psiin} by any complex number, the resulting scattered
+wavefunction must be multiplied by the same factor.
+
+The next two factors, $r^{\frac{1-d}{2}} \, e^{ikr}$, give the
+$r$-dependence of a wave expanding radially from the origin in $d$
+dimensions.  The $e^{ikr}$ factor captures its outgoing nature (the
+wavefunction's phase increases along the direction of propagation,
+i.e., the direction of increasing $r$).  The other factor provides the
+$r$-scaling needed for probability conservation.  Note that the
+probability current density associated with the scattered wavefunction
+is
+\begin{equation}
+  \mathbf{J}_s = \frac{\hbar}{m} \mathrm{Im}\big[\psi_s^*\nabla\psi_s\big].
+\end{equation}
+Thus, its radial component is
+\begin{equation}
+  \begin{aligned}J_{s}^r\; &= \frac{\hbar}{m}\, \mathrm{Im}\left[\psi_s^* \frac{\partial}{\partial r}\psi_s\right] \\
+    &\overset{r\rightarrow\infty}{\longrightarrow}\;\, \big(\cdots\big)
+    \mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \frac{\partial}{\partial r} \left(r^{\frac{1-d}{2}} \, e^{ikr}\right)\right] \\
+    &= \big(\cdots\big)\,
+    \mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \left(ik r^{\frac{1-d}{2}} \, e^{ikr} + \frac{1-d}{2} \, r^{\frac{-1-d}{2}} \, e^{ikr}\right)\right] \\
+    &= \big(\cdots\big) \, r^{-(d-1)} + O(r^{-d}),
+  \end{aligned}
+  \label{Jsrcalc}
+\end{equation}
+where $(\cdots)$ denotes $r$-independent terms.  In $d$ dimensions,
+the area of the surface at distance $r$ from the origin scales as
+$r^{d-1}$.  Hence, $J_{s}^r$ scales inversely with area, and the total
+flux obtained by integrating $J_{s}^r$ over the area is independent of
+$r$.
+
+The final factor in Eq.~\eqref{psiscat}, $f(\Omega)$, is called the
+\textbf{scattering amplitude}.  This complex function describes how
+the particle is scattered in various directions, and is the
+fundamental quantity of interest in scattering experiments.
 
 Sometimes, we write the scattering amplitude using the alternative
 notation
@@ -544,76 +502,75 @@ $\hat{\mathbf{r}}$, or equivalently by the momentum vector
 $\mathbf{k}_f = k \hat{\mathbf{r}}$, or by the angular coordinates
 $\Omega$.
 
-From the scattering amplitude, we define two other important
-quantities of interest:
+From the scattering amplitude, we can define two other important
+quantities:
 \begin{framed}
   \begin{align}
     \frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\quad \text{(the \textbf{differential scattering cross section})} \\ \sigma &= \int d\Omega\; \big|f(\Omega)\big|^2 \quad\; \text{(the \textbf{total scattering cross section}).} \label{sigma}
   \end{align}
 \end{framed}
-\vskip -0.05in
+\vskip -0.1in
 \noindent
 In Eq.~\eqref{sigma}, $\int d\Omega$ denotes the integral(s) over all
 the angle coordinates; for 1D, this is instead a discrete sum over the
 two possible directions, forward and backward.
 
 The term ``cross section'' comes from an analogy with the scattering
-of classical particles.  Consider the probablity current density
-associated with the scattered wavefunction:
-\begin{equation}
-  \mathbf{J}_s = \frac{\hbar}{m} \mathrm{Im}\big[\psi_s^*\nabla\psi_s\big].
-\end{equation}
-Let us focus only on the $r$-component of the current density, in the
-$r\rightarrow\infty$ limit:
-\begin{equation}
-  \begin{aligned}J_{s,r}\; &\;\;=\;\;\;\, \frac{\hbar}{m}\, \mathrm{Im}\left[\psi_s^* \frac{\partial}{\partial r}\psi_s\right] \\ &\overset{r\rightarrow\infty}{\longrightarrow}\;\, \frac{\hbar}{m}\; |\Psi_i|^2 \; |f(\Omega)|^2 \mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \frac{\partial}{\partial r} \left(r^{\frac{1-d}{2}} \, e^{ikr}\right)\right] \\ & \;\;=\;\;\;\, \frac{\hbar \,k}{m}\; |\Psi_i|^2 \; |f(\Omega)|^2 \,r^{1-d}.\end{aligned}
-\end{equation}
-The total flux of outgoing probability is obtained by integrating
-$J_{s,r}$ over a constant-$r$ surface:
-\begin{equation}
-  I_s \;=\; \int d\Omega\; r^{d-1} \, J_{s,r} \;=\; \frac{\hbar k}{m} \;|\Psi_i|^2 \; \int d\Omega\; \big|f(\Omega)\big|^2.
-  \label{scatterI}
-\end{equation}
-We can assign a physical interpretation to each term in this
-result.  The first factor, $\hbar k/m$, is the
-particle's speed (i.e., the group velocity of the de Broglie wave).
-The second factor, $|\Psi_i|^2$, is the probability density of the incident
-wave, which has units of $[x^{-d}]$ (i.e., inverse $d$-dimensional
-``volume'').  The product of these two factors represents the
-\textbf{incident flux},
-\begin{equation}
-  J_{i} = \frac{\hbar k}{m} \;|\Psi_i|^2.
-\end{equation}
-This has units of $[x^{1-d}t^{-1}]$ (i.e., rate per unit ``area'' in
-$d$-dimensional space).
-
-Let us re-imagine this incident flux $J_i$ as a stream of classical
-particles, and the scatterer as a ``hard-body'' scatterer that only
-interacts with those particles striking it directly:
+of classical particles.  Imagine a stream of classical particles
+incident on a ``hard-body'' scatterer:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.44\textwidth]{crosssection}
 \end{figure}
 
 \noindent
-In this classical picture, the rate at which the incident particles
-strike the scatterer is
+Let the flux of incident classical particles be the same as the value
+obtained from the incident wavefunction \eqref{psiin},
+\begin{equation}
+  J_{i} = \frac{\hbar k}{m} \;|\Psi_i|^2.
+  \label{incidentflux}
+\end{equation}
+Note that this has units of $[x^{1-d}t^{-1}]$ (i.e., number per unit
+time per unit ``area'' in $d$ dimensions).  We assume the scatterer
+only interacts with the particles striking it directly, and the rate
+at which these strikes occur is
 \begin{equation}
   I_s = J_i \, \sigma,
+  \label{scattersigma}
 \end{equation}
-where $\sigma$ is the exposed cross-sectional area of the scatterer.
-Comparing this expression to Eq.~\eqref{scatterI}, we see that $\int
-d\Omega\,|f|^2$ plays a role analogous to the classical hard-body
-cross-sectional area.  We hence call
+where $\sigma$ is the exposed cross-sectional area of the scatterer,
+as shown in the figure.  This is the \textit{total} rate at which
+scattering occurs, regardless of where the particles scatter to.
+
+Let us compare this to the quantum mechanical scattering rate.  Using
+Eq.~\eqref{psiscat}, we can repeat the calculation in \eqref{Jsrcalc}
+for the radial component of the probability current density:
+\begin{equation}
+  J_s^r \; \overset{r\rightarrow\infty}{\longrightarrow}\;
+  \frac{\hbar \,k}{m}\; |\Psi_i|^2 \; |f(\Omega)|^2 \,r^{1-d}
+  + O(r^{-d}).
+\end{equation}
+Hence, the total flux of outgoing probability is
+\begin{equation}
+  I_s = \int d\Omega\; r^{d-1} \, J_{s,r}
+  = \left(\frac{\hbar k}{m} \;|\Psi_i|^2\right) \; \int d\Omega\; \big|f(\Omega)\big|^2.
+  \label{scatterI}
+\end{equation}
+On the right side, the quantity in parentheses is the incident flux,
+Eq.~\eqref{incidentflux}.  Comparing Eq.~\eqref{scatterI} to
+Eq.~\eqref{scattersigma}, we see that
 \begin{equation*}
-  \sigma \equiv \int d\Omega\,|f|^2
+  \sigma \equiv \int d\Omega \; \big|f(\Omega)\big|^2
 \end{equation*}
-the \textbf{total scattering cross section}.  Moreover, the integrand
-$|f|^2$ is called the \textbf{differential scattering cross section},
-for it represents the rate, per unit of solid angle, at which
-particles are scattered in a given direction.  The total and
-differential scattering cross sections are the principal observable
-quantities that can be obtained from scattering experiments.
+is the quantity analogous to the exposed cross-sectional area of the
+classical hard-body.  We therefore call this the \textbf{total
+  scattering cross section}.
+
+Moreover, the integrand $|f|^2$ represents the rate, per unit of solid
+angle, at which particles are scattered in a given direction.  We call
+this the \textbf{differential scattering cross section}.  The total
+and differential scattering cross sections are the principal
+observable quantities typically obtained in scattering experiments.
 
 \section{The Green's function}
 \label{sec:greensfun}
@@ -765,8 +722,7 @@ where
   \label{kdef}
 \end{equation}
 Up to a factor of $2m/\hbar^2$, the propagator is the Green's function
-for the $d$-dimensional Helmholtz equation (see
-Section~\ref{sec:2d3d_scattering}).  Note that the $\nabla^2$ acts on
+for the $d$-dimensional Helmholtz equation.  Note that the $\nabla^2$ acts on
 the $\mathbf{r}$ coordinates, not $\mathbf{r}'$.
 
 Refer to \textbf{Appendix A} for a discussion about how to solve
