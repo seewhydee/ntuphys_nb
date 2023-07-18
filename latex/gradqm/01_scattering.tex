@@ -394,7 +394,7 @@ of the scattering process:
 Its dependence on $E$ is plotted below:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.55\textwidth]{scattering1df}
+  \centering\includegraphics[width=0.52\textwidth]{scattering1df}
 \end{figure}
 
 \noindent
@@ -487,11 +487,8 @@ $r$.
 
 The final factor in Eq.~\eqref{psiscat}, $f(\Omega)$, is called the
 \textbf{scattering amplitude}.  This complex function describes how
-the particle is scattered in various directions, and is the
-fundamental quantity of interest in scattering experiments.
-
-Sometimes, we write the scattering amplitude using the alternative
-notation
+the particle is scattered in various directions.  Sometimes, we write
+it using the alternative notation
 \begin{equation}
   f(\mathbf{k}_i \rightarrow \mathbf{k}_f), \;\;\;\mathrm{where}\;\; \mathbf{k}_f = k \hat{\mathbf{r}}.
 \end{equation}
@@ -512,8 +509,8 @@ quantities:
 \vskip -0.1in
 \noindent
 In Eq.~\eqref{sigma}, $\int d\Omega$ denotes the integral(s) over all
-the angle coordinates; for 1D, this is instead a discrete sum over the
-two possible directions, forward and backward.
+the angle coordinates.  For 1D, this is replaced by a discrete sum
+over the forward and backward directions (see above).
 
 The term ``cross section'' comes from an analogy with the scattering
 of classical particles.  Imagine a stream of classical particles
@@ -524,16 +521,16 @@ incident on a ``hard-body'' scatterer:
 \end{figure}
 
 \noindent
-Let the flux of incident classical particles be the same as the value
-obtained from the incident wavefunction \eqref{psiin},
+Let the incident classical particles have the same flux as the
+incident wavefunction \eqref{psiin},
 \begin{equation}
   J_{i} = \frac{\hbar k}{m} \;|\Psi_i|^2.
   \label{incidentflux}
 \end{equation}
 Note that this has units of $[x^{1-d}t^{-1}]$ (i.e., number per unit
-time per unit ``area'' in $d$ dimensions).  We assume the scatterer
-only interacts with the particles striking it directly, and the rate
-at which these strikes occur is
+time per unit area in $d$ dimensions).  We assume the scatterer only
+interacts with the particles striking it directly, and the rate at
+which these strikes occur is
 \begin{equation}
   I_s = J_i \, \sigma,
   \label{scattersigma}
@@ -587,35 +584,32 @@ scattering problem:
 \end{align}
 These equations can be combined as follows:
 \begin{align}
-  \begin{aligned} \left(\hat{H}_0 + \hat{V}\right) |\psi_i\rangle + \hat{H} |\psi_s\rangle &= E \left( |\psi_i\rangle + |\psi_s\rangle \right) \\ \Rightarrow \quad \hat{V} |\psi_i\rangle + \hat{H} |\psi_s\rangle &= E |\psi_s\rangle  \\ \Rightarrow \quad\; \left(E - \hat{H}\right) |\psi_s\rangle & = \hat{V} |\psi_i\rangle
-  \end{aligned}
+  \left(\hat{H}_0 + \hat{V}\right) |\psi_i\rangle + \hat{H} |\psi_s\rangle &= E \left( |\psi_i\rangle + |\psi_s\rangle \right) \\
+  \Rightarrow \quad \hat{V} |\psi_i\rangle + \hat{H} |\psi_s\rangle &= E |\psi_s\rangle  \\
+  \Rightarrow \quad\; \left(E - \hat{H}\right) |\psi_s\rangle & = \hat{V} |\psi_i\rangle \label{EmHeq}
 \end{align}
-To proceed, we define the inverse of the operator on the left-hand
-side:
+To proceed, we define an operator called the \textbf{Green's
+  function}, which is the inverse of the operator on the left side of
+Eq.~\eqref{EmHeq}:
 \begin{equation}
-  \hat{G} = \big(E-\hat{H}\big)^{-1}.
+  \hat{G}(E) = \big(E-\hat{H}\big)^{-1}.
   \label{Gdef}
 \end{equation}
-This operator is called the \textbf{Green's function}.  Using it, we
-get
+Note that $\hat{G}(E)$ depends parametrically on $E$.  This operator
+is the key to solving the scattering problem, because
 \begin{equation}
   |\psi_s\rangle = \hat{G} \hat{V} |\psi_i\rangle.
   \label{scatterform}
 \end{equation}
-Thus, the Green's function is the key to calculating the scattered
-state $|\psi_s\rangle$.
 
-From the definition \eqref{Gdef}, we see that $\hat{G}$ depends on
-both the energy $E$ and the scattering potential (which is inside
-$\hat{H}$).  To isolate the dependence on the scattering potential,
-let us define the Green's function for a free particle,
+We can also define the Green's function for a free particle,
 \begin{equation}
-  \hat{G}_0=\big(E-\hat{H}_0\big)^{-1}.
+  \hat{G}_0(E)=\big(E-\hat{H}_0\big)^{-1}.
   \label{G0unregulated}
 \end{equation}
-This will be very useful for us, for $\hat{G}_0$ can be calculated
-exactly, whereas $\hat{G}$ often has no analytic expression.  We can
-relate $G$ and $G_0$ as follows:
+As we shall see, $\hat{G}_0$ is often useful because it can be
+calculated exactly, whereas $\hat{G}$ typically has no closed-form
+analytic expression.  We can relate $G$ and $G_0$ as follows:
 \begin{align}
   \begin{aligned}
     \hat{G}(E-\hat{H}_0 - \hat{V})\;\; &= I \;\;\;\mathrm{and}\;\; (E-\hat{H}_0 - \hat{V})\hat{G} = I \\ \Rightarrow \;\;\; \hat{G} \hat{G}_0^{-1} - \hat{G}\hat{V} &= I \;\;\; \mathrm{and}\;\;\;\;\, \hat{G}_0^{-1} \hat{G} - \hat{V}\hat{G} \;\;\;= I.
@@ -630,8 +624,9 @@ by $\hat{G}_0$, we arrive at the following pair of equations, called
     \hat{G} \;&=\; \hat{G}_0 + \hat{G}_0\hat{V}\hat{G} \label{dyson2}
   \end{align}
 \end{framed}
+\vskip-0.1in
 \noindent
-These equations are ``implicit'', as the unknown $\hat{G}$ appears in
+These equations are ``implicit'', as the unknown $\hat{G}$ appears on
 both the left and right sides.
 
 Applying the second Dyson equation, Eq.~\eqref{dyson2}, to the
@@ -640,28 +635,24 @@ scattering problem \eqref{scatterform} gives
   \begin{aligned}|\psi_s\rangle &= \left(\hat{G}_0 + \hat{G}_0\hat{V}\hat{G}\right) \hat{V} |\psi_i\rangle \\ &= \hat{G}_0 \hat{V} |\psi_i\rangle + \hat{G}_0\hat{V}\hat{G} \hat{V} |\psi_i\rangle \\ &= \hat{G}_0 \hat{V} |\psi_i\rangle + \hat{G}_0\hat{V} |\psi_s\rangle \\ &= \hat{G}_0\hat{V} |\psi\rangle.\end{aligned}
   \label{psis_implicity}
 \end{align}
-This is a useful simplification, since it involves $\hat{G}_0$ rather
-than $\hat{G}$.  The downside is that the equation is still implicit:
-the right-hand side involves the unknown total state $|\psi\rangle$,
-rather than the known incident state $|\psi_i\rangle$.
-
-We can try to solve the implicit equation by using
-Eq.~\eqref{psis_implicity} to get an expression for $|\psi\rangle$,
-then repeatedly plugging the result back into the right-hand side of
-Eq.~\eqref{psis_implicity}:
+This equation is likewise implicit, as the right side contains the
+unknown $|\psi\rangle$.  We can try to solve it by iteration, i.e.,
+repeatedly plugging the equation into its own right side:
 \begin{align}
   \begin{aligned}|\psi_s\rangle &= \hat{G}_0 \hat{V} \left(|\psi_i\rangle + \hat{G}_0 \hat{V}|\psi\rangle\right) \\ &= \quad \vdots \\ &= \left[\hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.\end{aligned}
 \end{align}
 Or, equivalently,
 \begin{equation}
-  |\psi\rangle = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.
+  |\psi\rangle
+  = \left[\hat{I} + \hat{G} \hat{V}\right] |\psi_i\rangle
+  = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.
   \label{bornseries}
 \end{equation}
-This is called the \textbf{Born series}.
+This infinite series is called the \textbf{Born series}.
 
 To interpret this result, let us go to the position basis:
 \begin{align}
-  \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \\ &+ \;\;\cdots\end{aligned}
+  \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \;\; + \;\;\cdots\end{aligned}
     \label{Bornposition}
 \end{align}
 This formula can be regarded as a description of \textbf{multiple
@@ -685,25 +676,23 @@ particle at point $\mathbf{r}''$, (ii) propagation from $\mathbf{r}''$
 to $\mathbf{r}'$, (iii) scattering again at point $\mathbf{r}'$, and
 (iv) propagation from $\mathbf{r}'$ to $\mathbf{r}$.  Note that
 $\mathbf{r}'$ and $\mathbf{r}''$ are integrated over all possible
-positions; since the integrals are weighted by $V$, the positions with
-the strongest scattering potential contribute the most.
+positions.  Since the integrals are weighted by $V$, the positions
+with the strongest scattering potential contribute the most.
 
 For a sufficiently weak scatterer, it is often a good approximation to
-retain just the first few terms in the Born series.  However, the
-question of what it means for $\hat{V}$ to be ``sufficiently
-weak''---i.e., the exact requirements for the Born series to
-converge---is a complex topic beyond the scope of our present
+retain just the first few terms in the Born series.  The question of
+when $\hat{V}$ is ``sufficiently weak''---i.e., when the Born series
+converges---is a complex topic beyond the scope of our present
 discussion.
 
-\section{The Green's function for a free particle}
+\section{Green's function for a free particle}
 \label{sec:freegreen}
 
 In the position basis representation of the Born series,
 Eq.~\eqref{Bornposition}, a crucial role is played by the matrix
-elements of the free-particle Green's function,
-$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  We call this the
-\textbf{propagator}, as it describes how the particle propagates
-between discrete scattering events.
+elements $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  We call
+this the \textbf{propagator}, as it describes how the particle
+propagates between discrete scattering events.
 
 Starting from the definition of $\hat{G}_0$ in
 Eq.~\eqref{G0unregulated}, we can evaluate it in the position basis:
@@ -721,26 +710,30 @@ where
   k = \sqrt{\frac{2mE}{\hbar^2}}.
   \label{kdef}
 \end{equation}
-Up to a factor of $2m/\hbar^2$, the propagator is the Green's function
-for the $d$-dimensional Helmholtz equation.  Note that the $\nabla^2$ acts on
-the $\mathbf{r}$ coordinates, not $\mathbf{r}'$.
+Note that the $\nabla^2$ acts on the $\mathbf{r}$ coordinates, not
+$\mathbf{r}'$.
 
-Refer to \textbf{Appendix A} for a discussion about how to solve
-Eq.~\eqref{propagatoreq}.  For now, we skip over the details of
-the solution, which involves using the momentum basis, imposing an
-appropriate choice of coordinates (e.g., spherical coordinates in 3D),
-and contour integration.  Along the way, it turns out to be necessary
-to modify the definition of the Green's function slightly, by
+\textbf{Appendix A} provides an in-depth discussion of how to solve
+Eq.~\eqref{propagatoreq}.  Here, we will skip over the details, but
+there is one important bit to note.  During the derivation, it turns
+out to be necessary to modify the Green's function definition by
 replacing Eq.~\eqref{G0unregulated} with
 \begin{framed}
   \begin{equation}
-    \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.
+    \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1},
     \label{G0regulated}
   \end{equation}
 \end{framed}
+\vskip -0.1in
 \noindent
-This tweak is needed to get a sensible set of solutions (again, refer
-to Appendix A for the details).  The resulting propagators for 1D, 2D,
+This is called a \textbf{causal Green's function}; the word ``causal''
+is based on the term ``cause and effect'', and the tweak is needed so
+that $\hat{G_0}$ describes a wave that travels from a source at
+$\mathbf{r}'$ (the \textit{cause}) to $\mathbf{r}$ (the
+\textit{effect}), not vice versa.  For details, refer to Appendix A.
+
+
+The resulting propagators for 1D, 2D,
 and 3D are
 \begin{framed}
   \begin{equation}
@@ -748,7 +741,11 @@ and 3D are
     \label{propagator_solutions}
   \end{equation}
 \end{framed}
+\vskip -0.1in
 \noindent
+In the $d = 2$ case, $H_0^+$ denotes a Hankel function (see Appendix A
+for details).
+
 Treating $\mathbf{r}$ as wavefunction coordinates, the solution for
 each $d$ describes a wave propagating outward isotropically from a
 source point $\mathbf{r}'$.  In 1D, the propagator has the form of a
@@ -760,75 +757,93 @@ part to $k$.  At large distances, the outgoing waves in
 \eqref{propagator_solutions} go as $\exp(ikr)$, so the correction to
 $k$ suppresses the wavefunction and makes it integrable.)
 
-The Green's function \eqref{G0regulated} is called a \textbf{causal
-  Green's function}.  The word ``causal'' is based on the term ``cause
-and effect''---the source at $\mathbf{r}'$ is the \textit{cause}, and
-the emitted wave that travels out to infinity is the \textit{effect}.
-
-Alternative tweaks to the Green's function produce different
-behaviors.  For instance, we could flip the sign of $\varepsilon$ in
-Eq.~\eqref{G0regulated}.  This gives rise to an \textbf{anti-causal
-  Green's function}, whose solutions are \textit{incoming} waves that
-arrive from infinity and are absorbed into $\mathbf{r}'$.
-
-In dealing with scattering problems, we generally always use the
-causal Green's function.
+%% Alternative tweaks to the Green's function produce different
+%% behaviors.  For instance, we could flip the sign of $\varepsilon$
+%% in Eq.~\eqref{G0regulated}.  This gives rise to an
+%% \textbf{anti-causal Green's function}, whose solutions are
+%% \textit{incoming} waves that arrive from infinity and are absorbed
+%% into $\mathbf{r}'$.  In dealing with scattering problems, we
+%% generally always use the causal Green's function.
 
 \section{Scattering amplitudes in 3D}
 \label{sec:3damp}
 
-The propagator can now be plugged into the scattering problem
-posed in Sections~\ref{sec:scattering_amplitude}--\ref{sec:greensfun}:
+We are now in a position to combine the results of
+Sections~\ref{sec:scattering_amplitude}--\ref{sec:freegreen}.  For
+ease of presentation, we will focus on the 3D case; the 1D and 2D
+cases are handled in a similar way.  Using Eqs.~\eqref{psis_implicity}
+and \eqref{psiscat}, we can express the scattered wavefunction as
 \begin{align}
-  \begin{aligned} \psi_i(\mathbf{r}) &= \Psi_i \, e^{i\mathbf{k}\cdot\mathbf{r}}, \\ \psi_s(\mathbf{r}) &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \;\; \overset{r\rightarrow\infty}{\longrightarrow}\;\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}).
-  \end{aligned}
+  \psi_s(\mathbf{r})
+  &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \\
+  &= \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}')
+  \;\;\overset{r\rightarrow\infty}{\longrightarrow}\;\;
+  \Psi_i \, \frac{e^{ikr}}{r} \, f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}).
+  \label{psis_expansion}
 \end{align}
-Our goal is to determine the scattering amplitude $f$.  We will focus
-on the 3D case; the 1D and 2D cases are handled in a similar way.
+Our goal is to determine the scattering amplitude $f$.  As we saw in
+Sec.~\ref{sec:scattering_amplitude}, $f$ contains the directional
+information about the scattering process, stripping away the
+$r$-dependence (which does not contain information about the
+scatterer, since at for large $r$ it is entirely determined by
+probability conservation).
 
-In the $r\rightarrow\infty$ limit, the propagator can be simplified
-using the Taylor expansion
+From Eq.~\eqref{propagator_solutions}, the propagator in 3D is
+\begin{equation}
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle =
+  - \frac{2m}{\hbar^2}
+  \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}.
+\end{equation}
+In the $r\rightarrow\infty$ limit, this can be simplified using the
+Taylor expansion
 \begin{equation}
   |\mathbf{r} - \mathbf{r}'| = r - \hat{\mathbf{r}} \cdot \mathbf{r}' + \cdots,
 \end{equation}
-where $\hat{\mathbf{r}}$ denotes the unit vector pointing parallel to
-$\mathbf{r}$.  (This is the same ``large-$r$'' expansion used in
-deriving the electric dipole moment in classical electromagnetism.)
-Applying this to the 3D outgoing propagator gives, to lowest order,
+where $\hat{\mathbf{r}}$ is the unit vector pointing parallel to
+$\mathbf{r}$.  (This is the same large-$r$ expansion used to derive
+the electric dipole moment in classical electromagnetism.)  Hence, to
+lowest order,
 \begin{equation}
-  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\approx} - \frac{2m}{\hbar^2}\, \frac{e^{ikr}}{4\pi r}\; \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2}\, \frac{e^{ikr}}{4\pi r}\; \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right).
 \end{equation}
-Hence, the scattered wavefunction is
+Applying this to the left side of Eq.~\eqref{psis_expansion} gives
 \begin{align}
-  \begin{aligned}\psi_s(\mathbf{r}) &\;\;= \;\; \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\overset{r\rightarrow\infty}{\approx} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\ &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r} \; (2\pi)^{3/2} \; \big\langle \mathbf{k}_f \big|\hat{V}\big|\psi\big\rangle, \;\;\;\mathrm{where}\;\; \mathbf{k}_f \equiv k \hat{\mathbf{r}}. \end{aligned}
+  \begin{aligned}\psi_s(\mathbf{r})
+    &\overset{r\rightarrow\infty}{\longrightarrow} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\
+    &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{r} \sqrt{\frac{\pi}{2}} \; \big\langle \mathbf{k}_f \big|\hat{V}\big|\psi\big\rangle. \end{aligned}
 \end{align}
-We can combine this with the Green's function relation from
-Section~\ref{sec:greensfun},
-\begin{equation}
-  |\psi\rangle = \left(\hat{I} + \hat{G}\hat{V}\right)|\psi_i\rangle.
-\end{equation}
-This yields
+On the second line, we simplified the expression by introducing the
+momentum eigenstate with $\mathbf{k}_f \equiv k \hat{\mathbf{r}}$.
+This corresponds to the ``final'' momentum of the scattered particle,
+measured when the particle is picked up by a detector placed in the
+$\hat{\mathbf{r}}$ direction relative to the origin.  Note that
+$|\mathbf{k}_f| = |\mathbf{k}_i| = k$, consistent with elastic
+scattering.
+
+We can massage the result a bit more by using Eq.~\eqref{bornseries}
+to write $|\psi\rangle = [\hat{I} + \hat{G}\hat{V}]|\psi_i\rangle$.
+The incident state $|\psi_i\rangle$ is proportional to the momentum
+eigenstate $|\mathbf{k}_i\rangle$, and we can work out the
+proportionality factor by comparing Eqs.~\eqref{kwavefun} and
+\eqref{psiin}.  The result is
 \begin{align}
-  \begin{aligned}\psi_s(\mathbf{r}) \; &\overset{r\rightarrow\infty}{\longrightarrow} \; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{r} \; \sqrt{\frac{\pi}{2}} \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\psi_i\big\rangle \\ &= - \frac{2m}{\hbar^2} \, \Psi_i\, \frac{e^{ikr}}{r} \; 2\pi^2 \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\mathbf{k}_i\big\rangle.\end{aligned}
+  \begin{aligned}\psi_s(\mathbf{r}) \; &\overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2} \, \Psi_i\, \frac{e^{ikr}}{r} \; 2\pi^2 \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\mathbf{k}_i\big\rangle.\end{aligned}
 \end{align}
-This can be compared to the earlier definition of the scattering amplitude,
-\begin{equation}
-  \psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\longrightarrow} \; \Psi_i \frac{e^{ikr}}{r} f(\mathbf{k}_i\rightarrow \mathbf{k}_f ).
-\end{equation}
-Hence,
+By comparing this to the right side of Eq.~\eqref{psis_expansion}, we
+can read off the scattering amplitude:
 \begin{framed}
   \begin{align}
     \begin{aligned}
       f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}_i\big\rangle \\
-      &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}_i\big\rangle,  \end{aligned}
+      &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}_i\big\rangle.  \end{aligned}
     \label{fresult}
   \end{align}
 \end{framed}
 \vskip -0.15in
 \noindent
-subject to the elasticity constraint $|\mathbf{k}_i| =
-|\mathbf{k}_f|$.  In deriving the last line, we used
-Eq.~\eqref{bornseries}.
+As noted above, this is subject to the elasticity constraint
+$|\mathbf{k}_i| = |\mathbf{k}_f|$.  To get the infinite series on the
+second line of Eq.~\eqref{fresult}, we used Eq.~\eqref{bornseries}.
 
 Eq.~\eqref{fresult} is the culmination of numerous definitions and
 derivations from the preceding sections.  On the left side is the
