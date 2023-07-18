@@ -486,9 +486,16 @@ flux obtained by integrating $J_{s}^r$ over the area is independent of
 $r$.
 
 The final factor in Eq.~\eqref{psiscat}, $f(\Omega)$, is called the
-\textbf{scattering amplitude}.  This complex function describes how
-the particle is scattered in various directions.  Sometimes, we write
-it using the alternative notation
+\textbf{scattering amplitude} and describes how the particle is
+scattered in various directions.  This complex function's magnitude,
+phase, and $\Omega$-dependence are the main avenues by which the
+scattering experiment can reveal information about the scattering
+potential---for, as noted in the previous paragraphs, the other
+factors are fully determined by linearity, outgoing-ness, and
+probability conservation.
+
+Sometimes, we write the scattering ammplitude using the alternative
+notation
 \begin{equation}
   f(\mathbf{k}_i \rightarrow \mathbf{k}_f), \;\;\;\mathrm{where}\;\; \mathbf{k}_f = k \hat{\mathbf{r}}.
 \end{equation}
@@ -703,12 +710,8 @@ Eq.~\eqref{G0unregulated}, we can evaluate it in the position basis:
 Hence,
 \begin{equation}
   \left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}'),
+  \;\;\; \mathrm{where}\;\; k = \sqrt{\frac{2mE}{\hbar^2}}.
   \label{propagatoreq}
-\end{equation}
-where
-\begin{equation}
-  k = \sqrt{\frac{2mE}{\hbar^2}}.
-  \label{kdef}
 \end{equation}
 Note that the $\nabla^2$ acts on the $\mathbf{r}$ coordinates, not
 $\mathbf{r}'$.
@@ -751,11 +754,12 @@ each $d$ describes a wave propagating outward isotropically from a
 source point $\mathbf{r}'$.  In 1D, the propagator has the form of a
 plane wave on each side, whereas in 2D it is a circular wave, and in
 3D it is a spherical wave.  (To see why \eqref{G0regulated} gives rise
-to outgoing solutions, note that because of Eq.~\eqref{kdef}, the
-$\varepsilon$ term contributes an infinitesimal positive imaginary
-part to $k$.  At large distances, the outgoing waves in
-\eqref{propagator_solutions} go as $\exp(ikr)$, so the correction to
-$k$ suppresses the wavefunction and makes it integrable.)
+to outgoing solutions, note that because of the definition of $k$ in
+Eq.~\eqref{propagatoreq}, the $\varepsilon$ term contributes an
+infinitesimal positive imaginary part to $k$.  At large distances, the
+outgoing waves in \eqref{propagator_solutions} go as $\exp(ikr)$, so
+the correction to $k$ suppresses the wavefunction and makes it
+integrable.)
 
 %% Alternative tweaks to the Green's function produce different
 %% behaviors.  For instance, we could flip the sign of $\varepsilon$
@@ -782,11 +786,10 @@ and \eqref{psiscat}, we can express the scattered wavefunction as
   \label{psis_expansion}
 \end{align}
 Our goal is to determine the scattering amplitude $f$.  As we saw in
-Sec.~\ref{sec:scattering_amplitude}, $f$ contains the directional
-information about the scattering process, stripping away the
-$r$-dependence (which does not contain information about the
-scatterer, since at for large $r$ it is entirely determined by
-probability conservation).
+Sec.~\ref{sec:scattering_amplitude}, $f$ is the part of the scattering
+experiment's results containing information about the scatterer (with
+scatterer-independent bits, like the large-$r$ scaling, stripped
+away).
 
 From Eq.~\eqref{propagator_solutions}, the propagator in 3D is
 \begin{equation}
