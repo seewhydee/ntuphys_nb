@@ -1,10 +1,10 @@
-\documentclass[pra,12pt]{revtex4}
+\documentclass[pra,12pt]{revtex4-2}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{framed}
-\usepackage[pdfborder={0 0 0},colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage[pdfborder={0 0 0}, colorlinks=true, linkcolor=blue, urlcolor=blue]{hyperref}
 
 \def\ket#1{\left|#1\right\rangle}
 \def\bra#1{\left\langle#1\right|}
@@ -32,22 +32,24 @@
 \end{center}
 
 This Appendix describes the mathematics of circular waves and
-spherical waves, and their use in 2D and 3D scattering problems.
+spherical waves, and their uses in 2D and 3D scattering problems.
 
 \section{The Helmholtz equation}
 
+
 Consider a non-relativistic particle moving in $d$-dimensional space
-in the absence of a potential ($V = 0$), as in the exterior region of
-a scattering problem (Chapter 1).  The time-independent Schr\"odinger
-equation is
+in the absence of a potential.  Such a situation is encountered, for
+example, in scattering problems for positions far from the scatterer
+(Chapter 1).  The time-independent Schr\"odinger equation is
 \begin{equation}
   -\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),
   \label{tise}
 \end{equation}
-where $\nabla^2$ denotes the $d$-dimensional Laplacian.  We assume $E
-> 0$, and focus on the $d = 2$ and $d = 3$ cases.
+where $\nabla^2$ denotes the $d$-dimensional Laplacian and $E > 0$ is
+the particle's energy.
 
-It is convenient to rewrite Eq.~\eqref{tise} as
+Eq.~\eqref{tise} can be re-written as a differential equation called
+the \textbf{Helmholtz equation}:
 \begin{equation}
   \Big(\nabla^2 + k^2\Big) \psi(\mathbf{r}) = 0,
   \label{helmholtz}
@@ -57,41 +59,48 @@ where
   k = \sqrt{\frac{2mE}{\hbar^2}} \;\in\; \mathbb{R}^+.
   \label{kparm}
 \end{equation}
-The partial differential equation \eqref{helmholtz} is called the
-\textbf{Helmholtz equation}.  We are interested in its solutions for
-various choices of boundary conditions, in both 2D and 3D space.
 
-One class of elementary solutions is, of course, the plane waves
+One class of elementary solutions is, of course,
 \begin{equation}
   \psi(\mathbf{r}) = \psi_0 \, \exp\left(i\mathbf{k}\cdot\mathbf{r}\right),
   \label{planewaves}
 \end{equation}
-where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is a $d$-component
-vector satisfying $|\mathbf{k}| = k$.  The direction of $\mathbf{k}$
-specifies the propagation direction.
+where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is any $d$-component
+vector with $|\mathbf{k}| = k$.  This describes a plane wave
+propagating along the direction parallel to $\mathbf{k}$, with
+wavelength $2\pi/k$.
 
-In scattering problems, it is useful to consider other solutions that
-correspond to waves propagating outward (or inward) from a point,
-unlike a plane wave.  Such solutions can be constructed using polar
-coordinates $(r, \phi)$ in 2D, and spherical coordinates
-$(r,\theta,\phi)$ in 3D.
+When looking at scattered wavefunctions, we are interested in
+``outgoing'' waves---waves that propagate outward from the scatterer,
+toward infinity (see Chapter 1).  A plane wave cannot be said to be
+either ``outgoing'' nor, for that matter, ``incoming''.  This
+indicates that we should look at alternative solutions to
+Eq.~\eqref{helmholtz} that are not plane waves.
+
+We will focus on the $d = 2$ and $d = 3$ cases, and look at these two
+cases separately.
 
 \section{Circular Waves in 2D}
 \label{circular_waves}
 
-In 2D polar coordinates $(r, \phi)$, the wavefunction has the form
+In 2D, we can express $\mathbf{r}$ using polar coordinates $(r,
+\phi)$, and write the wavefunctions as
 \begin{equation}
   \psi(\mathbf{r}) = \psi(r,\phi).
 \end{equation}
-Since $\phi$ is an angular variable---i.e., $\psi(r,\phi + 2\pi) =
-\psi(r, \phi)$---we can simplify the $\phi$ dependence by focusing on
-harmonic solutions
+Moreover, we can focus on solutions of the form
 \begin{equation}
   \psi(r,\phi) = \Psi_m(r)\, e^{im\phi}, \;\;\;m \in\mathbb{Z}.
   \label{psi_circular}
 \end{equation}
-More general solutions can be constructed from these, using
-superpositions of different $m$.
+Such solutions are called \textbf{circular waves}.  As the Helmholtz
+equation is linear, any other solution satisfying the periodic
+boundary conditions in $\phi$ [i.e., $\psi(r,\phi + 2\pi) = \psi(r,
+  \phi)$] can be regarded as a superposition of circular waves of
+different $m$, via the Fourier series.  The integer $m$ describes the
+angular momentum carried by each circular wave.  For example, for $m >
+0$, the phase of $\psi$ increases with $\phi$, so the wave circulates
+in the $+\phi$ direction.
 
 By plugging Eq.~\eqref{psi_circular} into the Helmholtz equation
 \eqref{helmholtz}, and expressing the 2D Laplacian in polar
@@ -113,17 +122,49 @@ solutions:
   \end{cases}
 \end{equation}
 (Click on the links to refer to the implementations of these functions
-in \href{https://scipy.org/}{Scientific Python}.)  The $J_m$ and $Y_m$
-functions are real, while the $H_m^\pm$ functions are complex.
-Notably, these four functions satisfy different boundary conditions:
+in \href{https://scipy.org/}{Scientific Python}.)
 
+The Bessel functions ($J_m$ and $Y_m$) are real-valued, whereas the
+Hankel functions ($H_m^+$ and $H_m^-$) are complex-valued.  The Bessel
+and Hankel functions are related by
+\begin{align}
+  \left\{
+  \begin{aligned}
+    H_m^+ &= J_m + i Y_m \\
+    H_m^- &= J_m - i Y_m
+  \end{aligned}\right.
+  \;\;\;\Leftrightarrow\;\;\;
+  \left\{
+  \begin{aligned}
+    J_m &=  \frac{1}{2}\left( H_m^+ + H_m^- \right)\\
+    Y_m &=  \frac{1}{2i}\left( H_m^+ - H_m^- \right).
+  \end{aligned}\right.
+  \label{JYHrelation}
+\end{align}
+This is very similar to the relationship between the exponential and
+trigonometric functions:
+\begin{align}
+  \left\{
+  \begin{aligned}
+  e^{iz} &= \cos z + i \sin z \\
+  e^{-iz} &= \cos z - i \sin z.
+  \end{aligned}\right.
+  \;\;\;\Leftrightarrow\;\;\;
+  \begin{aligned}
+    \cos z  &= \frac{1}{2} \left(e^{iz} + e^{-iz}\right) \\
+    \sin z &= \frac{1}{2i} \left(e^{iz} - e^{-iz}\right).
+  \end{aligned}
+  \label{sincos}
+\end{align}
+
+Importantly, the Bessel and Hankel functions satisfy different
+boundary conditions:
 \begin{itemize}
 \item For $kr \rightarrow 0$, $J_m(kr)$ is finite, while the others ($Y_m$ and
 $H_m^\pm$) are divergent.
 
 \item For $kr \rightarrow \infty$, they have the following asymptotic forms:
 \end{itemize}
-\vskip -0.26in
 \begin{align}
   \left.
   \begin{aligned}
@@ -140,50 +181,56 @@ $H_m^\pm$) are divergent.
   \label{Jasymptote}
 \end{align}
 
-Let us focus on the Hankel functions first.  By comparing the last
-line in Eq.~\eqref{Jasymptote} to Eq.~\eqref{planewaves}, we can
-associate the Hankel functions of the first kind with \textit{outward}
-propagation away from the origin, and the Hankel functions of the
-second kind with \textit{inward} propagation toward the origin.  The
-prefactor of $1/\sqrt{r}$ is consistent with energy conservation: in
-2D, the wavefront at radius $r$ has circumference $2\pi r$, so
-$|\Psi_m(r)|^2 \cdot 2\pi r$ is a constant.
-
-Some Hankel functions of the first kind are plotted below.  They
-indeed diverge at $kr = 0$, and behave as decaying sinosoidal waves
-for large $kr$.
-
-\begin{figure}[b]
-  \centering\includegraphics[width=0.98\textwidth]{besselh}
-\end{figure}
+Let us focus on the Hankel functions first.  From the last line in
+Eq.~\eqref{Jasymptote}, we see that the $H_m^+$ functions describe
+\textit{outward} propagation (i.e., in the direction of increasing
+$r$), whereas the $H_m^-$ functions describe \textit{inward}
+propagation.  This indicates that plugging $H_m^+$ into
+Eq.~\eqref{psi_circular} yields outgoing circular waves, which will be
+precisely what we need to describe scattered wavefunctions.
 
 \clearpage
 
-When a Hankel function of the first kind is multiplied by the
-azimuthal factor $\exp(im\phi)$, the resulting wavefunction describes
-an outgoing circular wave.  In the figure below, we plot
-$\mathrm{Re}\left[H_m^+(kr) \exp(im\phi)\right]$ in the 2D plane,
-using red and blue to represent positive and negative values:
+Some $H_m^+$ functions are plotted below:
 
+\begin{figure}[h]
+  \centering\includegraphics[width=0.98\textwidth]{besselh}
+\end{figure}
+
+\noindent
+For large $kr$, the function behaves like a decaying complex
+sinuoidal, due to the factor of $1/\sqrt{r}$ in
+Eq.~\eqref{Jasymptote}.  This factor is responsible for the
+conservation of the probability flux carried by the circular wave (see
+Chapter 1, Sec.~1.4).  For small $r$, the value of the function
+(specifically, its imaginary part) diverges.  This is also consistent
+with flux conservation: as $r \rightarrow 0$, conservation of total
+flux means that the flux density (and hence the wavefunction) must
+diverge.
+
+The figure below shows 2D plots for a few outgoing circular waves.
+The real part of the wavefunction is plotted, using red and blue
+colors to represent positive and negative values, while black arrows
+indicate the direction of propagation of the wave at a few selected
+points:
+
+\vskip 0.1in
 \begin{figure}[h!]
   \centering\includegraphics[width=0.99\textwidth]{bessels}
 \end{figure}
 
 \noindent
-In each plot, the black arrows indicate the wave's direction of
-propagation at different points.  Depending on the value of $m$, the
-wave propagates outward in a clockwise spiral ($m < 0$), istropically
-($m = 0$), or in a counterclockwise spiral ($m > 0$).  (Note: the $m =
-0$ plot shows no divergence at $r = 0$ because we are plotting the
-real part of the wavefunction, and only the imaginary part of $H_m^+$
-is divergent.)
+We can see that the wave travels outward in a clockwise spiral ($m <
+0$), isotropically ($m = 0$), or in a counterclockwise spiral ($m >
+0$).
 
-The Bessel functions of the first and second kind can be interpreted
-as real superpositions of $H_m^+$ and $H_m^-$, analogous to how
-standing waves are formed by counter-propagating plane waves.  The
-$J_m$ functions are non-divergent at $r = 0$ due to a cancelling of
-the divergences of $H_m^+$ and $H_m^-$, whereas the $Y_m$ functions
-diverge at $r = 0$.
+In a similar fashion, we can use $H_m^-$ to make incoming circular
+waves.  And the Bessel functions, $J_m$ and $Y_m$, make circular waves
+that carry a definite angular momentum but act like standing waves in
+the $r$ direction.  Based on Eq.~\eqref{JYHrelation}, each Bessel wave
+can be interpreted as a superposition of an incoming and outgoing
+Hankel wave---just as a 1D standing wave is a superposition of
+counter-propagating plane waves, via Eq.~\eqref{sincos}.
 
 It is possible to express a plane wave as a superposition of circular
 waves, or vice versa.  The following identity is helpful for
@@ -193,6 +240,9 @@ translating between the two types of waves:
   \label{eikrcosphi}
 \end{equation}
 Its usefulness will be demonstrated in Section~\ref{sec:scattering}.
+
+\textcolor{red}{More general solutions can be constructed from
+\eqref{psi_circular} by taking superpositions of different $m$.}
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
@@ -691,5 +741,67 @@ scattering amplitude plots shown in Section 1.9 of the main text.
   scattering amplitudes.
 
 \end{enumerate}
+
+\section{Lost and Found}
+
+
+The 3D case is similar.  Adopting spherical coordinates
+$(r,\theta,\phi)$, it is possible to derive solutions to
+Eq.~\eqref{helmholtzeq} that are \textbf{spherical waves} of the form
+\begin{equation}
+  \psi(\mathbf{r}) = h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi),
+  \;\;\; \ell = 0, 1, 2, \dots, \;\; -\ell \le m \le \ell.
+\end{equation}
+The $\ell$ and $m$ integers are the infamous 3D angular momentum
+numbers, and the \textbf{spherical harmonic} function $Y_{\ell m}$
+describes the wavefunction's angular dependence, similar to the
+$e^{im\phi}$ factor in the 2D case \eqref{2dwave}.  The $r$-dependence
+is given by the \textbf{spherical Hankel function} $h_\ell^\pm$, which
+is notable for depending only on $\ell$ and not $m$ (again, refer to
+the relevant mathematics textbooks for details).
+
+For large $r$, the spherical Hankel functions have the limiting form
+\begin{equation}
+  h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \pm \frac{\exp\!\left[\pm i\!\left(kr-\frac{\ell\pi}{2}\right)\right]}{ikr}.
+\end{equation}
+Because the $\pm$ index appears in the exponent, it determines whether
+the spherical wave is outgoing ($+$) or incoming ($-$).
+
+It is now clear what we need to do to get a scattered wavefunction
+$\psi_s(\mathbf{r})$ that is outgoing at infinity.  It must be a
+superposition of only outgoing ($+$) waves:
+\begin{equation}
+  \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^+(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
+\end{equation}
+At large distances, the $r$-dependence reduces to
+\begin{equation}
+  \psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} \,\exp\left(ikr\right).
+\end{equation}
+For $d > 1$, the magnitude decreases with $r$, which is to be expected
+since the outgoing wave spreads out over a wider area.  More
+precisely, if we look at the probability current density
+\begin{equation*}
+  \mathbf{J} = (\hbar/m) \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right],  
+\end{equation*}
+its $r$-component scales as
+\begin{equation}
+  \begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; k \,r^{1-d}.\end{aligned}
+  \label{Jr}
+\end{equation}
+In $d$ dimensions, the area of a wave-front scales as $r^{d-1}$, so
+the probability flux goes as $J_r \,r^{d-1} \sim k$, which is positive
+and independent of $r$.  Hence, there is a constant probability flux
+flowing outward from the origin.  Note that for $d=1$, Eq.~\eqref{Jr}
+states that $J_r \sim r^0$, consistent with the results of the
+previous section: in 1D, waves do not spread with distance since there
+is no transverse dimension.
+
+
+In scattering problems, it is useful to consider other solutions that
+correspond to waves propagating outward (or inward) from a point,
+unlike a plane wave.  Such solutions can be constructed using polar
+coordinates $(r, \phi)$ in 2D, and spherical coordinates
+$(r,\theta,\phi)$ in 3D.
+
 
 \end{document}
