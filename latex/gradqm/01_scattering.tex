@@ -158,10 +158,10 @@ infinity, away from the scatterer.
 
 Note that Statements 1--4 do \textit{not} define an eigenproblem!
 Usually, we deal with the time-independent Schr\"odinger equation by
-solving for eigenvalues and eigenstates.  But here we are given
-$|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, and want to find
-$|\psi_s\rangle$.  In particular, $E$ is an input to the calculation,
-not an output.
+finding eigenvalues and eigenstates.  But here we are given
+$|\psi_i\rangle$, $E$, and $V(\mathbf{r})$, and want $|\psi_s\rangle$.
+In particular, $E$ is an input to the calculation (a continuously
+variable parameter), not an output (an eigenvalue).
 
 \section{Recap: position and momentum states}
 \label{sec:waves}
@@ -859,103 +859,119 @@ the $2\pi^2$ factor replaced with other numerical factors.
 
 \section{Example: uniform spherical well in 3D}
 
-Let us test the Born series with a simple scattering potential
-consisting of a uniform spherical well of depth $U$ and radius $R$:
+Let us test the Born series with a simple scatterer.  Consider a
+scattering potential that is a uniform spherical well of depth $U > 0$
+and radius $R$:
 \begin{equation}
   V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
     & |\mathbf{r}| > 0. \end{cases}
 \end{equation}
-We will assume that $U > 0$, so that the potential is attactive.
 
-As it turns out, this scattering problem can be solved exactly by
-exploiting the spherical symmetry of the scattering potential.  The
-procedure is explained in \textbf{Appendix A}, and the resulting
+As it turns out, this particular scattering problem can be solved
+exactly by exploiting the scattering potential's spherical symmetry.
+The procedure is explained in \textbf{Appendix A}.  The result for the
 scattering amplitude is
 \begin{equation}
   \begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}
+  \label{fresult_well}
 \end{equation}
-This solution is given in terms of the special functions $j_\ell$
-(spherical Bessel functions of the first kind), $h_\ell^+$ (spherical
+The solution is expressed in terms of the special functions $j_\ell$
+(spherical Bessel function of the first kind), $h_\ell^+$ (spherical
 Hankel function of the first kind), and $P_\ell$ (Legendre
 polynomial).
 
-We will pit this exact solution against the results from the Born
-series:
+We will pit this exact solution against the previously-derived Born
+series result, Eq.~\eqref{fresult}:
 \begin{equation}
-  f(\mathbf{k}_i\rightarrow \mathbf{k}_f) \approx - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \, \Bigg[\big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle + \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle + \cdots \Bigg].
+  f(\mathbf{k}_i\rightarrow \mathbf{k}_f) = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \, \Bigg[\big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle + \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle + \cdots \Bigg].
+  \label{fexpression}
 \end{equation}
-The bra-kets can be evaluated using the position representation.  Let
-us do this for just the first two terms in the series:
-\begin{align*}
-  \begin{aligned}f(\mathbf{k}_i\rightarrow \mathbf{k}_f) &\approx - \frac{2m}{\hbar^2} \; 2\pi^2 \Bigg[\int d^3r_1\; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \, V(\mathbf{r}_1) \, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \\&\qquad\qquad\quad + \int d^3r_1 \!\! \int d^3r_2 \; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_2)}{(2\pi)^{3/2}} \, V(\mathbf{r}_2) \, \langle\mathbf{r}_2|\hat{G}_0|\mathbf{r}_1 \rangle \, V(\mathbf{r}_1)\, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}}\Bigg] \\ &= \frac{1}{4\pi} \Bigg[\frac{2mU}{\hbar^2} \int_{|\mathbf{r}_1| \le R} d^3r_1 \; \exp\left[i(\mathbf{k}_i-\mathbf{k}_f)\, \cdot\, \mathbf{r}_1\right] \\ &\qquad + \left(\frac{2mU}{\hbar^2}\right)^2\, \int_{|\mathbf{r}_1|<R} d^3 r_1 \int_{|\mathbf{r}_2|<R} d^3 r_2 \; \frac{\exp\left[i(k|\mathbf{r}_1-\mathbf{r}_2| - \mathbf{k}_f \cdot \mathbf{r}_2 +\mathbf{k}_i \cdot \mathbf{r}_1)\right]}{4\pi|\mathbf{r}_1-\mathbf{r}_2|} \Bigg]. \end{aligned}
-\end{align*}
-If we use only the first term in the Born series, the result is
-called the ``first Born approximation''; if we use two terms, the
-result is called the ``second Born approximation''.  Higher-order Born
-approximations can be derived in a similar fashion.
+Evaluating the full infinite Born series is generally an intractable
+problem, but we can truncate it to get an approximation for $f$.  For
+example, if we keep only the first term, the result is called the
+\textbf{first Born approximation}; if we keep only the first two
+terms, we obtain the \textbf{second Born approximation}.  To evaluate
+the various bra-kets, we can use the position representation to
+express them as explicit integrals.  For example,
+\begin{align}
+  \big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle
+  &= \int d^3r_1\; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \, V(\mathbf{r}_1) \, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}}
+  \nonumber \\
+  &= - \frac{U}{8\pi^3} \int_{|\mathbf{r}_1| \le R} d^3r_1 \; \exp\left[i(\mathbf{k}_i-\mathbf{k}_f)\, \cdot\, \mathbf{r}_1\right] \label{singleint}\\
+  \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle &=
+  \int d^3r_1 \!\! \int d^3r_2 \; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_2)}{(2\pi)^{3/2}} \, V(\mathbf{r}_2) \, \langle\mathbf{r}_2|\hat{G}_0|\mathbf{r}_1 \rangle \, V(\mathbf{r}_1)\, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \nonumber \\
+  &= - \frac{U^2}{32\pi^4} \, \frac{2m}{\hbar^2}\, \int_{|\mathbf{r}_1|<R} d^3 r_1 \int_{|\mathbf{r}_2|<R} d^3 r_2 \; \frac{\exp\left[i(k|\mathbf{r}_1-\mathbf{r}_2| - \mathbf{k}_f \cdot \mathbf{r}_2 +\mathbf{k}_i \cdot \mathbf{r}_1)\right]}{|\mathbf{r}_1-\mathbf{r}_2|}.
+  \label{doubleint}
+\end{align}
 
-The most expedient way to calculate these integrals is to use
+To evaluate the integrals, an expedient approach is
 \href{https://en.wikipedia.org/wiki/Monte_Carlo_integration}{Monte
-  Carlo integration}.  To find an integral of the form
+  Carlo integration}.  For instance, the integral \eqref{singleint}
+has the form
 \begin{equation}
-  I = \int_{|\mathrm{r}|<R} d^3r \, F(\mathbf{r}),
+  I = \int_{|\mathrm{r}|<R} d^3r \, F(\mathbf{r}).
 \end{equation}
-we randomly sample $N$ points within a cube of volume $(2R)^3$
-centered around the origin, enclosing the desired sphere of radius
-$R$.  For the $n$-th sampled point, $\mathbf{r}_n$, we compute
+To compute this, we randomly sample $N$ points within a cube of volume
+$(2R)^3$ centered at the origin.  Note that this cube encloses the
+radius-$R$ sphere over which the integral is meant to be taken.  For
+each sampled point, $\mathbf{r}^{(n)}$, we compute
 \begin{equation}
-  F_n = \begin{cases}F(\mathbf{r}_n), & |\mathbf{r}| < R \\ 0, &\mathrm{otherwise}.\end{cases}
+  F_n = \begin{cases}F(\mathbf{r}^{(n)}), & |\mathbf{r}^{(n)}| < R \\ 0, &\mathrm{otherwise},\end{cases}
 \end{equation}
-The $F_n$'s give the values of the integrand at the sampling points,
-omitting the contribution from points outside the sphere.  Then we
-estimate the integral as
+which drops contributions from points outside the sphere.  Then our
+estimate for $I$ is
 \begin{equation}
   I \,\approx\, (2R)^3 \, \langle F_n\rangle \,=\, \frac{(2R)^3}{N} \sum_{n=1}^N F_n.
+  \label{Iest}
 \end{equation}
-The estimate converges to the true value as $N\rightarrow\infty$; in
+The estimate converges to the true value as $N\rightarrow\infty$.  In
 practice, $N \sim 10^4$ yields a good result for typical 3D integrals,
-and can be computed in around a second on a modern computer.
-Similarly, to calculate the double integral appearing in the second
-term of the Born series, we sample \textit{pairs} of points; the
-volume factor $(2R)^3$ is then replaced by $(2R)^6$.
+and can be calculated in seconds on a modern computer.
 
-This method for calculating the Born series can be readily generalized
-to more complicated scattering potentials, including potentials for
-which there is no exact solution.
+Similarly, to calculate a double integral like Eq.~\eqref{doubleint},
+we sample \textit{pairs} of points, $(\mathbf{r}_1^{(n)},
+\mathbf{r}_2^{(n)})$, and replace the volume factor $(2R)^3$ in
+Eq.~\eqref{Iest} with $(2R)^6$.  The rest of the estimation procedure
+is the same.
 
-The figure below shows the results of the Born approximation for the
-uniform potential well, compared to the ``exact'' solution computed
-from partial wave analysis.  It plots $|f|^2$ versus the energy $E$,
-for the case of $90^\circ$ scattering (i.e., $\mathbf{k}_f$
-perpendicular to $\mathbf{k}_i$), with wells of different depth $U$
-and the same radius $R = 1$.  We adopt computational units $\hbar = m
-= 1$, and each Monte Carlo integral is computed using $3\times10^4$
-samples.
+Evidently, this method does not assume that the scattering potential
+has any particular symmetry.  It is therefore applicable to
+complicated scattering potentials for which there are no exact
+solutions like Eq.~\eqref{fresult_well}.
+
+In the figure below, we compare the Born approximation to the exact
+solution \eqref{fresult_well} for the 3D potential well.  We plot
+$|f|^2$ versus the energy $E$ at a $90^\circ$ scattering angle (i.e.,
+$\mathbf{k}_f$ perpendicular to $\mathbf{k}_i$), for fixed well radius
+$R = 1$ and two different well depths $U = 0.1$ and $U = 1$.  We adopt
+computational units $\hbar = m = 1$, and each Monte Carlo integral is
+computed using $3\times10^4$ samples.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.97\textwidth]{spherical_well_scattering}
 \end{figure}
 
-The first thing to notice in these results in that $|f|^2$ diminishes
-to zero for large $E$.  This makes sense, since the scattering
-potential has some energy scale ($U$), so a incident particle that is
-too energetic ($E \gg U$) will just zoom through, with little chance
-of being deflected.
+The first thing to notice is that $|f|^2$ diminishes to zero for large
+$E$.  This makes sense: the scattering potential has some energy scale
+$\sim U$, so a particle with energy $E \gg U$ should simply zoom
+through, with little chance of being deflected.
 
-Looking more closely at the plots, we see that for the shallower well
-($U = 0.1$), the first Born approximation agrees well with the exact
-results, and the second Born approximation is even better,
-particularly for small $E$.  For the deeper well ($U = 1$), the Born
-approximations do not match the exact results.  Roughly speaking, for
-the stronger scattering potential, an incident particle has a higher
-chance to undergo multiple-scattering (i.e., bouncing around the
-potential multiple times before escaping), which means that higher
-terms in the Born series become more important.  In fact, if the
-potential is too strong, taking the Born approximation to higher
-orders might not even work, as the Born series itself can become
-non-convergent.  In those cases, different methods must be brought to
-bear.  We will see an example in the next chapter, in the form of
-phenomena known as ``scattering resonances''.
+Looking more closely, we see that for the shallower well ($U = 0.1$),
+the first Born approximation agrees pretty well with the exact
+results, while the second Born approximation agrees extremely well.
+The second Born approximation is significantly more accurate than the
+first Born approximation at small values of $E$.
+
+However, for the deeper well ($U = 1$), neither the first nor second
+Born approximations do a good job.  Roughly speaking, the deep
+potential well allows the particle to bounce inside many times before
+escaping (see Sec.~\ref{sec:greensfun}), which means that higher terms
+in the Born series are important and cannot be neglected.
+
+In fact, for very strong scattering potentials, even taking the Born
+approximation to high orders may not work, as the Born series may
+become non-convergent.  In such cases, different methods must be
+brought to bear.  We will see an example in the next chapter.
 
 \section*{Exercises}
 
