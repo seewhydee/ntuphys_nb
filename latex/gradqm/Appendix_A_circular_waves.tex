@@ -35,7 +35,7 @@ This Appendix describes the mathematics of circular waves and
 spherical waves, and their uses in 2D and 3D scattering problems.
 
 \section{The Helmholtz equation}
-
+\label{sec:helmholtz}
 
 Consider a non-relativistic particle moving in $d$-dimensional space
 in the absence of a potential.  Such a situation is encountered, for
@@ -60,25 +60,25 @@ where
   \label{kparm}
 \end{equation}
 
-One class of elementary solutions is, of course,
+One class of elementary solutions is, of course, the plane waves.
+These have the form
 \begin{equation}
   \psi(\mathbf{r}) = \psi_0 \, \exp\left(i\mathbf{k}\cdot\mathbf{r}\right),
   \label{planewaves}
 \end{equation}
-where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is any $d$-component
-vector with $|\mathbf{k}| = k$.  This describes a plane wave
-propagating along the direction parallel to $\mathbf{k}$, with
-wavelength $2\pi/k$.
+where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is a $d$-component
+wave-vector with $|\mathbf{k}| = k$.
 
-When looking at scattered wavefunctions, we are interested in
-``outgoing'' waves---waves that propagate outward from the scatterer,
-toward infinity (see Chapter 1).  A plane wave cannot be said to be
-either ``outgoing'' nor, for that matter, ``incoming''.  This
-indicates that we should look at alternative solutions to
-Eq.~\eqref{helmholtz} that are not plane waves.
-
-We will focus on the $d = 2$ and $d = 3$ cases, and look at these two
-cases separately.
+When studying the scattering problem in Chapter 1, we saw that
+scattered wavefunctions should be ``outgoing'' waves---waves
+propagating outward from the scatterer, toward infinity.  However, a
+plane wave like \eqref{planewaves} cannot be said to be either
+outgoing (nor is it incoming).  This indicates that we should look for
+a different type of solution to Eq.~\eqref{helmholtz}.  In
+Sec.~\ref{circular_waves}--\ref{sec:spherical}, we will discuss the
+nature of these solutions for the $d=2$ and $d=3$ cases, and in
+Sec.~\ref{sec:scattering}--\ref{sec:sphere} we will talk about how
+they can used to solve scattering problems.
 
 \section{Circular Waves in 2D}
 \label{circular_waves}
@@ -220,53 +220,77 @@ points:
 \end{figure}
 
 \noindent
-We can see that the wave travels outward in a clockwise spiral ($m <
-0$), isotropically ($m = 0$), or in a counterclockwise spiral ($m >
-0$).
+We see that the wave travels outward in a clockwise spiral ($m < 0$),
+isotropically ($m = 0$), or in a counterclockwise spiral ($m > 0$).
 
 In a similar fashion, we can use $H_m^-$ to make incoming circular
-waves.  And the Bessel functions, $J_m$ and $Y_m$, make circular waves
-that carry a definite angular momentum but act like standing waves in
-the $r$ direction.  Based on Eq.~\eqref{JYHrelation}, each Bessel wave
-can be interpreted as a superposition of an incoming and outgoing
-Hankel wave---just as a 1D standing wave is a superposition of
-counter-propagating plane waves, via Eq.~\eqref{sincos}.
+waves, and we can use the Bessel functions ($J_m$ and $Y_m$) to make
+circular waves that act like standing waves in the $r$ direction.
+According to Eq.~\eqref{JYHrelation}, each Bessel wave can be
+interpreted as a superposition of an incoming and an outgoing Hankel
+wave, just as a 1D standing wave is a superposition of two
+counter-propagating plane waves via Eq.~\eqref{sincos}.
 
-It is possible to express a plane wave as a superposition of circular
-waves, or vice versa.  The following identity is helpful for
-translating between the two types of waves:
+Like plane waves, circular waves can be used as a basis for expressing
+arbitrary waveforms.  However, when writing a waveform as a
+superposition of circular waves, we must choose the right set of
+circular waves by considering the boundary conditions.  For example, a
+scattered wavefunction is purely outgoing, so its decomposition
+naturally has the form
 \begin{equation}
-  e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m e^{im\phi} \, J_m(kr).
+  \psi_s(\mathbf{r}) = \sum_{m=-\infty}^\infty c_m^+ H_m^+(kr) \, e^{im\phi},
+  \quad c_m^+ \in \mathbb{C},
+\end{equation}
+involving only the $H_m^+$ functions.
+
+To take another example, a plane wave can also be expressed as a
+superposition of circular waves.  For a plane wave of wave-vector
+$\mathbf{k}_z = k \hat{z}$, one can show that
+\begin{equation}
+  e^{i\mathbf{k}_z \cdot \mathbf{r}} =
+  e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m \, J_m(kr)\, e^{im\phi}.
   \label{eikrcosphi}
 \end{equation}
-Its usefulness will be demonstrated in Section~\ref{sec:scattering}.
-
-\textcolor{red}{More general solutions can be constructed from
-\eqref{psi_circular} by taking superpositions of different $m$.}
+(The proof of this is beyond the scope of our discussion.)  This sum
+involves $J_m$-type circular waves, consistent with our assertion in
+Sec.~\ref{sec:helmholtz} that plane waves are neither outgoing nor
+incoming in character.
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
 
-In 3D, we can adopt spherical coordinates $(r, \theta, \phi)$.  To
-solve the 3D Helmholtz equation, we can simplify the dependence on
-$\theta$ and $\phi$ by focusing on solutions of the form
+In 3D, we can express $\mathbf{r}$ using spherical coordinates $(r,
+\theta, \phi)$.  Proceeding by analogy with the 2D case of
+Sec.~\ref{circular_waves}, we look for solutions to the 3D Helmholtz
+equation of the form
+\begin{equation}
+  \psi(r,\theta,\phi) = \Psi(r) \, f(\theta, \phi),
+  \label{psi3d0}
+\end{equation}
+which exhibit a separation of variables between $r$ and
+$(\theta,\phi)$.  Observing that $\theta$ and $\phi$ are angular
+variables, we can specialize further to solutions of definite angular
+momentum,
 \begin{equation}
   \psi(r,\theta,\phi) = \Psi_{\ell m}(r) \,Y_{\ell m}(\theta, \phi).
   \label{psi3d}
 \end{equation}
 Here, the
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html}{spherical
-  harmonic} $Y_{\ell m}(\theta,\phi)$ plays a similar role to the
-$\exp(im\phi)$ factor in the previous 2D case.  In the quantum
-context, Eq.~\eqref{psi3d} describes a wavefunction with definite 3D
-angular momentum, described by the quantum numbers $\ell$ (total
-angular momentum) and $m$ ($z$-component of the angular momentum).
-These are integers satisfying
+  harmonic function} $Y_{\ell m}(\theta,\phi)$ acts as a
+generalization of the $\exp(im\phi)$ factor found in the 2D ansatz
+\eqref{psi_circular}.  It is indexed by two integers $\ell$ and $m$,
+which are the quantum numbers corresponding to the total angular
+momentum and the $z$-component of the angular momentum, respectively;
+these satisfy
 \begin{equation}
-  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell,
+  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell.
+  \label{ellm}
 \end{equation}
-which ensures that $Y_{\ell m}(\theta,\phi)$ is periodic in $\phi$ and
-regular at the coordinate poles.
+So long as Eq.~\eqref{ellm} holds, it can be shown that $Y_{\ell
+  m}(\theta,\phi)$ is a ``well-behaved'' function of $\theta$ and
+$\phi$---i.e., it is periodic in $\phi$ and regular at the coordinate
+poles $\theta = \{0, \pi\}$.
 
 By plugging Eq.~\eqref{psi3d} into the Helmholtz equation and
 expressing the 3D Laplacian in spherical coordinates, we arrive at the
@@ -276,10 +300,10 @@ expressing the 3D Laplacian in spherical coordinates, we arrive at the
   + \Big[k^2r^2 - \ell(\ell+1)\Big] \Psi_{\ell m}(r) = 0.
   \label{sphbessel}
 \end{equation}
-Remarkably, the differential equation involves $\ell$ but \textit{not}
-$m$.  The solution thus only depends on $\ell$, and we henceforth
-write it as $\Psi_\ell(r)$.  Now, Eq.~\eqref{sphbessel} has the
-following solutions:
+Remarkably, the differential equation involves $\ell$ but not $m$.
+The solution thus only depends on $\ell$, and we henceforth write it
+as $\Psi_\ell(r)$.  Now, Eq.~\eqref{sphbessel} has the following
+solutions:
 \begin{equation}
   \Psi_\ell(r) \propto \begin{cases}
     j_\ell(kr) &\text{\small(\href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.spherical_jn.html}{Spherical Bessel function of the 1st kind})} \\
@@ -312,7 +336,7 @@ from Section~\ref{circular_waves}:
 \end{align}
 Hence, the spherical Hankel functions of the first and second kind
 describe outgoing and incoming waves, respectively.  The $1/r$
-prefactors are consistent with energy conservation: in 3D, spherical
+prefactors are consistent with flux conservation: in 3D, spherical
 wavefronts are spread over an area $4\pi r^2$, so $|\Psi_{\ell
   m}(r)|^2 \cdot 4\pi r^2$ is a constant.
 
@@ -328,104 +352,6 @@ where $\hat{\mathbf{k}}_i$ denotes the angular components (in
 spherical coordinates) of the incident wave-vector $\mathbf{k}_i$, and
 $\hat{\mathbf{r}}$ denotes the angular components of the position
 vector $\mathbf{r}$.
-
-\section{Propagators}
-\label{sec:propagator}
-
-As discussed in Section 1.7, a propagator is a Green's function for a
-free particle, expressed in the position basis.  It is a solution to
-\begin{equation}
-  \Big(\nabla^2 + k^2\Big) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle
-  = \frac{2m}{\hbar^2} \; \delta^d(\mathbf{r}-\mathbf{r}').
-  \label{greendelta}
-\end{equation}
-The left side of this equation is the same as the $d$-dimensional
-Helmholtz equation \eqref{helmholtz}, with $\nabla^2$ acting on
-$\mathbf{r}$ (not $\mathbf{r}'$), and $k$ given by Eq.~\eqref{kparm}.
-On the right side, $\delta^d(\cdots)$ denotes a $d$-dimensional delta
-function, and the prefactor of $2m/\hbar^2$ comes from our definition
-of the Green's function in terms of inverting the Hamiltonian (Section
-1.6).
-
-We can solve Eq.~\eqref{greendelta} with the help of the momentum
-eigenbasis:
-\begin{align}
-  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle
-  &= \langle\mathbf{r}|\hat{G}_0 \Big(\int d^dk' |\mathbf{k}'\rangle\langle\mathbf{k}'| \Big) |\mathbf{r}'\rangle \nonumber \\
-  &= \int d^dk' \; \langle\mathbf{r}|\mathbf{k}'\rangle \;
-  \frac{1}{E-\frac{\hbar^2|\mathbf{k}'|^2}{2m}} \;
-  \langle\mathbf{k}'|\mathbf{r}'\rangle \nonumber \\
-  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^d} \int d^dk' \;
-  \frac{\exp\left[i\mathbf{k}' \cdot
-      (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2}.
-  \label{rGr}
-\end{align}
-To calculate the $d$-dimensional integral, we must introduce explicit
-coordinates.  In the following, we will show the calculation for 3D.
-The 2D case is left as an \hyperref[ex:2dpropagator]{exercise}.
-
-In 3D, let us express $\mathbf{k}'$ using spherical coordinates
-$(k',\theta,\phi)$.  We are free to choose the $\theta=0$ axis so that
-it points in the direction of $\mathbf{r}-\mathbf{r}'$, as illustrated
-below:
-
-\begin{figure}[h]
-  \centering\includegraphics[width=0.4\textwidth]{spherical_coords}
-\end{figure}
-
-Then,
-\begin{align}
-  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \nonumber \\
-  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk' \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;{k'}^{2}\sin\theta\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k^2-{k'}^2} \nonumber \\
-  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \int_{-1}^1 d\mu \;{k'}^2\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\mu\right)}{k^2-{k'}^2} \qquad(\text{letting}\;\mu = \cos\theta) \nonumber \\
-  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \; \frac{ {k'}^2}{k^2-{k'}^2}\, \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik'|\mathbf{r}-\mathbf{r}'|\right)}{ik'|\mathbf{r}-\mathbf{r}'|} \nonumber\\
-  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k'\, \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)}.
-  \label{rGrintegrand}
-\end{align}
-This looks like something we can handle via contour integration.
-However, there's a snag: the integration contour runs over the real
-$k'$ line, but since $k \in \mathbb{R}^+$, the poles at $\pm k$ lie on
-the contour.  The integral, as currently defined, is singular.
-
-To get a proper result, we must ``regularize'' the integral by
-tweaking its definition.  One way is to perturb the integrand and
-shift its poles infinitesimally in the complex plane, moving them off
-the contour.  We have a choice of whether to move each pole
-infinitesimally up or down.  It turns out that the appropriate choice
-is to shift the pole at $-k$ down, and shift the pole at $+k$ up, as
-illustrated by the red dots in the following figure:
-
-\begin{figure}[h!]
-  \centering\includegraphics[width=0.37\textwidth]{greencontour}
-\end{figure}
-
-\noindent
-This choice, which will yield a causal Green's function (Section 1.7),
-alters the denominator in the integrand of Eq.~\eqref{rGrintegrand} as
-follows:
-\begin{equation}
-  (k' - k)(k'+k) \;\rightarrow\; (k' - k - i\varepsilon)(k'+k+i\varepsilon) = {k'}^2 - (k+i\varepsilon)^2,
-\end{equation}
-where $\varepsilon$ is a positive infinitesimal.  This is equivalent
-to replacing $E \rightarrow E + i\varepsilon$ in the definition of the
-Green's function.  We can now do the integral:
-\begin{align*}
-  \begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}, \;k'=k+i\varepsilon^+\right] \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}
-\end{align*}
-Plugging this into Eq.~\eqref{rGrintegrand} gives the result
-\begin{equation}
-  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = -\frac{2m}{\hbar^2}
-  \cdot \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|},
-\end{equation}
-which is a spherical wave propagating isotropically outward from
-$\mathbf{r} = \mathbf{r}'$.  The wave is isotropic because it is
-generated by a delta function, which has no preferred direction.  It
-is outgoing due to our preceding choice of regularization.
-
-The propagators for other spatial dimensions are listed in Section
-1.7.  The derivations for the 1D and 2D propagators are very similar
-to the above 3D derivation.  The 2D case is given as an
-\hyperref[ex:2dpropagator]{exercise}, with some hints provided.
 
 \section{Partial wave analysis}
 \label{sec:scattering}
@@ -698,7 +624,6 @@ where $P_\ell(\cdots)$ denotes a
 \href{https://en.wikipedia.org/wiki/Legendre_polynomials}{Legendre
   polynomial}.
 
-\clearpage
 Finally, we obtain
 \begin{framed}
 \begin{equation}
@@ -719,21 +644,6 @@ scattering amplitude plots shown in Section 1.9 of the main text.
 \section*{Exercises}
 
 \begin{enumerate}
-\item \label{ex:2dpropagator}
-  In Section~\ref{sec:propagator}, we derived the 3D propagator.
-  Using a similar procedure, prove that the 2D propagator is
-  \begin{equation}
-    \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2}\;
-    \cdot\; \frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|).
-  \end{equation}
-  In evaluating the polar integral, you may find it useful to invoke
-  Eq.~\eqref{eikrcosphi}.  To solve the resulting contour integral,
-  you may refer to the asymptotic forms of the Bessel and Hankel
-  functions given in \eqref{Jasymptote}, and the identity
-  \begin{equation}
-    H_m^+(z) = - (-1)^m \, H_m^-(-z).
-  \end{equation}
-
 \item \label{ex:2dscattering} In Section~\ref{sec:scattering}, we
   derived an expression for the 3D scattering amplitudes in terms of
   the scattering matrix $S$, Eq.~\eqref{3dfrelation}.  Starting from
@@ -741,67 +651,5 @@ scattering amplitude plots shown in Section 1.9 of the main text.
   scattering amplitudes.
 
 \end{enumerate}
-
-\section{Lost and Found}
-
-
-The 3D case is similar.  Adopting spherical coordinates
-$(r,\theta,\phi)$, it is possible to derive solutions to
-Eq.~\eqref{helmholtzeq} that are \textbf{spherical waves} of the form
-\begin{equation}
-  \psi(\mathbf{r}) = h_\ell^\pm(kr)\,Y_{\ell m}(\theta,\phi),
-  \;\;\; \ell = 0, 1, 2, \dots, \;\; -\ell \le m \le \ell.
-\end{equation}
-The $\ell$ and $m$ integers are the infamous 3D angular momentum
-numbers, and the \textbf{spherical harmonic} function $Y_{\ell m}$
-describes the wavefunction's angular dependence, similar to the
-$e^{im\phi}$ factor in the 2D case \eqref{2dwave}.  The $r$-dependence
-is given by the \textbf{spherical Hankel function} $h_\ell^\pm$, which
-is notable for depending only on $\ell$ and not $m$ (again, refer to
-the relevant mathematics textbooks for details).
-
-For large $r$, the spherical Hankel functions have the limiting form
-\begin{equation}
-  h_\ell^\pm(kr) \overset{r\rightarrow\infty}{\longrightarrow} \pm \frac{\exp\!\left[\pm i\!\left(kr-\frac{\ell\pi}{2}\right)\right]}{ikr}.
-\end{equation}
-Because the $\pm$ index appears in the exponent, it determines whether
-the spherical wave is outgoing ($+$) or incoming ($-$).
-
-It is now clear what we need to do to get a scattered wavefunction
-$\psi_s(\mathbf{r})$ that is outgoing at infinity.  It must be a
-superposition of only outgoing ($+$) waves:
-\begin{equation}
-  \psi_s(\mathbf{r}) = \begin{cases} \displaystyle\sum_{m} c_m^+\,H_m^+(kr)\,e^{im\phi}, &d=2\\ \displaystyle\sum_{\ell m} c_{\ell m}^+\,h_\ell^+(kr)\,Y_{\ell m}(\theta,\phi),&d=3.\end{cases}
-\end{equation}
-At large distances, the $r$-dependence reduces to
-\begin{equation}
-  \psi_s(\mathbf{r}) \; \overset{r\rightarrow\infty}{\sim} \; r^{\frac{1-d}{2}} \,\exp\left(ikr\right).
-\end{equation}
-For $d > 1$, the magnitude decreases with $r$, which is to be expected
-since the outgoing wave spreads out over a wider area.  More
-precisely, if we look at the probability current density
-\begin{equation*}
-  \mathbf{J} = (\hbar/m) \mathrm{Im}\left[\psi_s^*\nabla\psi_s\right],  
-\end{equation*}
-its $r$-component scales as
-\begin{equation}
-  \begin{aligned}J_r \; &\overset{r\rightarrow\infty}{\sim} \; \mathrm{Im}\left[r^{\frac{1-d}{2}} e^{-ikr} \frac{\partial}{\partial r}\left(r^{\frac{1-d}{2}} e^{ikr}\right)\right] \\ &\;\;=\;\;\;\mathrm{Im}\left[\frac{1-d}{2}\, r^{-d} + ik r^{1-d}\right]\\ &\;\;=\;\;\; k \,r^{1-d}.\end{aligned}
-  \label{Jr}
-\end{equation}
-In $d$ dimensions, the area of a wave-front scales as $r^{d-1}$, so
-the probability flux goes as $J_r \,r^{d-1} \sim k$, which is positive
-and independent of $r$.  Hence, there is a constant probability flux
-flowing outward from the origin.  Note that for $d=1$, Eq.~\eqref{Jr}
-states that $J_r \sim r^0$, consistent with the results of the
-previous section: in 1D, waves do not spread with distance since there
-is no transverse dimension.
-
-
-In scattering problems, it is useful to consider other solutions that
-correspond to waves propagating outward (or inward) from a point,
-unlike a plane wave.  Such solutions can be constructed using polar
-coordinates $(r, \phi)$ in 2D, and spherical coordinates
-$(r,\theta,\phi)$ in 3D.
-
 
 \end{document}

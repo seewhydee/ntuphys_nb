@@ -602,24 +602,25 @@ Eq.~\eqref{EmHeq}:
   \hat{G}(E) = \big(E-\hat{H}\big)^{-1}.
   \label{Gdef}
 \end{equation}
-Note that $\hat{G}(E)$ depends parametrically on $E$.  This operator
-is the key to solving the scattering problem, because
+Note that $\hat{G}(E)$ depends parametrically on $E$.  We can now
+convert Eq.~\eqref{EmHeq} into
 \begin{equation}
   |\psi_s\rangle = \hat{G} \hat{V} |\psi_i\rangle.
   \label{scatterform}
 \end{equation}
 
-We can also define the Green's function for a free particle,
+It will also be useful to define the Green's function for a free
+particle,
 \begin{equation}
   \hat{G}_0(E)=\big(E-\hat{H}_0\big)^{-1}.
   \label{G0unregulated}
 \end{equation}
-As we shall see, $\hat{G}_0$ is often useful because it can be
-calculated exactly, whereas $\hat{G}$ typically has no closed-form
-analytic expression.  We can relate $G$ and $G_0$ as follows:
+As we shall see, $\hat{G}_0$ often can be calculated exactly, whereas
+$\hat{G}$ typically has no closed-form analytic expression.  Moreover,
+we can relate $G$ and $G_0$ as follows:
 \begin{align}
   \begin{aligned}
-    \hat{G}(E-\hat{H}_0 - \hat{V})\;\; &= I \;\;\;\mathrm{and}\;\; (E-\hat{H}_0 - \hat{V})\hat{G} = I \\ \Rightarrow \;\;\; \hat{G} \hat{G}_0^{-1} - \hat{G}\hat{V} &= I \;\;\; \mathrm{and}\;\;\;\;\, \hat{G}_0^{-1} \hat{G} - \hat{V}\hat{G} \;\;\;= I.
+    \hat{G}(E-\hat{H}_0 - \hat{V})\;\; &= I \;\;\;\mathrm{and}\;\; (E-\hat{H}_0 - \hat{V})\hat{G} = I \\ \Leftrightarrow \quad\qquad \hat{G} \hat{G}_0^{-1} - \hat{G}\hat{V} &= I \;\;\; \mathrm{and}\;\;\;\;\, \hat{G}_0^{-1} \hat{G} - \hat{V}\hat{G} \;\;\;= I.
   \end{aligned}
 \end{align}
 Upon respectively right-multiplying and left-multiplying these equations
@@ -662,13 +663,12 @@ To interpret this result, let us go to the position basis:
   \begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \;\; + \;\;\cdots\end{aligned}
     \label{Bornposition}
 \end{align}
-This formula can be regarded as a description of \textbf{multiple
-  scattering}.  Due to the presence of the scatterer, the particle
-wavefunction is a quantum superposition of terms describing zero, one,
-two, or more scattering events, as illustrated below:
+This can be regarded as a description of \textbf{multiple scattering}.
+The wavefunction is a superposition of terms involving zero, one, two,
+or more scattering events, as shown below:
 
 \begin{figure}[h!]
-  \centering\includegraphics[width=0.98\textwidth]{bornseries}
+  \centering\includegraphics[width=0.9\textwidth]{bornseries}
 \end{figure}
 
 \noindent
@@ -676,9 +676,9 @@ Each successive term in the Born series involves more scattering
 events, i.e., higher multiples of $\hat{V}$.  For example, the
 second-order term is
 \begin{equation*}
-  \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'').
+  \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}''),
 \end{equation*}
-This describes the particle undergoing (i) scattering of the incident
+which describes the particle undergoing (i) scattering of the incident
 particle at point $\mathbf{r}''$, (ii) propagation from $\mathbf{r}''$
 to $\mathbf{r}'$, (iii) scattering again at point $\mathbf{r}'$, and
 (iv) propagation from $\mathbf{r}'$ to $\mathbf{r}$.  Note that
@@ -710,34 +710,141 @@ Eq.~\eqref{G0unregulated}, we can evaluate it in the position basis:
 Hence,
 \begin{equation}
   \left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}'),
-  \;\;\; \mathrm{where}\;\; k = \sqrt{\frac{2mE}{\hbar^2}}.
   \label{propagatoreq}
 \end{equation}
-Note that the $\nabla^2$ acts on the $\mathbf{r}$ coordinates, not
-$\mathbf{r}'$.
+where
+\begin{equation}
+  k^2 = \frac{2mE}{\hbar^2}.
+  \label{keq}
+\end{equation}
+The left side of this equation is the same as the $d$-dimensional
+Helmholtz equation, with the $\nabla^2$ acting on the $\mathbf{r}$
+coordinates (not $\mathbf{r}'$).  On the right side, we have a term
+proportional to a $d$-dimensional delta function at $\mathbf{r} =
+\mathbf{r}'$.  The propagator thus describes a wave at each position
+$\mathbf{r}$, emitted from a point source at $\mathbf{r}'$.
 
-\textbf{Appendix A} provides an in-depth discussion of how to solve
-Eq.~\eqref{propagatoreq}.  Here, we will skip over the details, but
-there is one important bit to note.  During the derivation, it turns
-out to be necessary to modify the Green's function definition by
-replacing Eq.~\eqref{G0unregulated} with
+Eq.~\eqref{propagatoreq} can be solved analytically for different
+values of the spatial dimension $d$.  In the following, we will work
+through the derivation for $d = 3$.  The derivations for $d = 1$ and
+$d = 2$ are left as \hyperref[ex:1dpropagator]{exercises}.
+
+To derive the 3D propagator, we first re-express it using the momentum
+eigenbasis:
+\begin{align}
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle
+  &= \langle\mathbf{r}|\hat{G}_0 \Big(\int d^3k'\; |\mathbf{k}'\rangle\langle\mathbf{k}'| \Big) |\mathbf{r}'\rangle \nonumber \\
+  &= \int d^3k' \; \langle\mathbf{r}|\mathbf{k}'\rangle \;
+  \frac{1}{E-\frac{\hbar^2|\mathbf{k}'|^2}{2m}} \;
+  \langle\mathbf{k}'|\mathbf{r}'\rangle \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \;
+  \frac{\exp\left[i\mathbf{k}' \cdot
+      (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2}.
+  \label{rGr}
+\end{align}
+Next, we express $\mathbf{k}'$ using spherical coordinates
+$(k',\theta,\phi)$.  We are free to choose the $\theta=0$ axis so that
+it points in the direction of $\mathbf{r}-\mathbf{r}'$, as illustrated
+below:
+
+\begin{figure}[h]
+  \centering\includegraphics[width=0.4\textwidth]{spherical_coords}
+\end{figure}
+
+\noindent
+Then,
+\begin{align}
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int_0^\infty dk' \int_0^\pi d\theta \int_{0}^{2\pi} d\phi \;{k'}^{2}\sin\theta\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\cos\theta\right)}{k^2-{k'}^2} \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \int_{-1}^1 d\mu \;{k'}^2\; \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\mu\right)}{k^2-{k'}^2} \qquad(\text{letting}\;\mu = \cos\theta) \nonumber \\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \; \frac{ {k'}^2}{k^2-{k'}^2}\, \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik'|\mathbf{r}-\mathbf{r}'|\right)}{ik'|\mathbf{r}-\mathbf{r}'|} \nonumber\\
+  &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k'\, \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)}.
+  \label{rGrintegrand}
+\end{align}
+This looks like something we can handle via contour integration.  But
+there's a snag: the integration contour runs over the real $k'$ line,
+but since $k \in \mathbb{R}^+$ the poles at $\pm k$ lie on the
+contour.  The integral, as currently defined, is singular.
+
+To get a finite result, we must ``regularize'' the integral by
+adjusting its definition.  One way is to perturb the integrand and
+shift its poles infinitesimally in the complex plane, moving them off
+the contour.  We have a choice of whether to move each pole
+infinitesimally up or down.  It turns out that the appropriate choice
+is to shift the pole at $-k$ down, and shift the pole at $+k$ up, as
+illustrated by the red dots in the following figure:
+
+\begin{figure}[h!]
+  \centering\includegraphics[width=0.34\textwidth]{greencontour}
+\end{figure}
+
+\noindent
+This alters the denominator in the integrand of
+Eq.~\eqref{rGrintegrand} as follows:
+\begin{equation}
+  (k' - k)(k'+k) \;\rightarrow\; (k' - k - i\epsilon)(k'+k+i\epsilon) = {k'}^2 - (k+i\epsilon)^2,
+  \label{kregularization}
+\end{equation}
+where $\epsilon$ is a positive infinitesimal.  The implications of
+this adjustment will be discussed further below.  For now, let us
+proceed to do the integral, which is no longer divergent:
+\begin{align*}
+  \begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}, \;k'=k+i\varepsilon^+\right] \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}
+\end{align*}
+Finally, plugging this into Eq.~\eqref{rGrintegrand} gives the result
+\begin{equation}
+  \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = -\frac{2m}{\hbar^2}
+  \cdot \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}.
+  \label{3dprop}
+\end{equation}
+
+The 3D propagator \eqref{3dprop} describes a spherical wave centered
+at the source $\mathbf{r}'$.  The wave is isotropic (i.e., independent
+of the direction of $\mathbf{r} - \mathbf{r}'$), consistent with the
+fact that the source, a delta function, has no preferred direction.
+The amplitude of the wave decreases inversely with $\Delta r =
+|\mathbf{r}-\mathbf{r}'|$, consistent with flux conservation in 3D
+(see Sec.~\ref{sec:scattering_amplitude}).
+
+Most importantly, the wave propagates \textit{outward} from
+$\mathbf{r}'$ (since the phase of the wavefunction increases with
+$\Delta r$).  Such a propagator is said to be \textbf{causal}, a word
+based on the term ``cause and effect''---the wave travels from the
+source at $\mathbf{r}'$ (the \textit{cause}) to $\mathbf{r}$ (the
+\textit{effect}).  We can trace this behavior back to the
+regularization in Eq.~\eqref{kregularization}; other regularization
+choices can be shown to yield propagators with different properties
+(see \hyperref[ex:anticausal]{exercises}).  Our regularization
+\eqref{kregularization} can also be expressed as an infinitesimal
+shift in $E$, via Eq.~\eqref{keq}:
+\begin{equation}
+  \frac{\hbar^2 k^2}{2m} = E
+  \;\;\;\Rightarrow\;\;\;
+  \frac{\hbar^2 (k+i\epsilon)^2}{2m}
+  = \frac{\hbar^2}{2m} \left(k^2 + 2ik\epsilon + \cdots\right)
+  = E + i\varepsilon.
+\end{equation}
+In other words, we have swapped the original definition of the Green's
+function, Eq.~\eqref{G0unregulated}, for a \textbf{causal Green's
+  function}
 \begin{framed}
   \begin{equation}
-    \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1},
+    \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.
     \label{G0regulated}
   \end{equation}
 \end{framed}
 \vskip -0.1in
 \noindent
-This is called a \textbf{causal Green's function}; the word ``causal''
-is based on the term ``cause and effect'', and the tweak is needed so
-that $\hat{G_0}$ describes a wave that travels from a source at
-$\mathbf{r}'$ (the \textit{cause}) to $\mathbf{r}$ (the
-\textit{effect}), not vice versa.  For details, refer to Appendix A.
 
+%% At large distances, the
+%% outgoing waves in \eqref{propagator_solutions} go as $\exp(ikr)$, so
+%% the correction to $k$ suppresses the wavefunction and makes it
+%% integrable.)
 
-The resulting propagators for 1D, 2D,
-and 3D are
+Based on Eq.~\eqref{G0regulated}, causal propagators can also be
+derived for other dimensions (see
+\hyperref[ex:1dpropagator]{exercises}).  The results for $d = 1, 2,$
+and $3$ are summarized below:
 \begin{framed}
   \begin{equation}
     \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \times \begin{cases} \Bigg.\displaystyle\frac{1}{2ik} \exp\left(ik|x-x'|\right),& d=1\\ \Bigg. \displaystyle\frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|), & d=2 \\ \displaystyle \Bigg. - \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}, & d = 3.  \end{cases}
@@ -746,20 +853,13 @@ and 3D are
 \end{framed}
 \vskip -0.1in
 \noindent
-In the $d = 2$ case, $H_0^+$ denotes a Hankel function (see Appendix A
-for details).
+For each $d$, the causal propagator describes a wave propagating
+outward isotropically from $\mathbf{r}'$.  In 1D, the propagator has
+the form of a plane wave on each side. In 2D, it is a circular wave
+($H_0^+$ denotes a Hankel function of the first kind; see Appendix A).
+In 3D, as we have already discussed, it has the form of a spherical
+wave.
 
-Treating $\mathbf{r}$ as wavefunction coordinates, the solution for
-each $d$ describes a wave propagating outward isotropically from a
-source point $\mathbf{r}'$.  In 1D, the propagator has the form of a
-plane wave on each side, whereas in 2D it is a circular wave, and in
-3D it is a spherical wave.  (To see why \eqref{G0regulated} gives rise
-to outgoing solutions, note that because of the definition of $k$ in
-Eq.~\eqref{propagatoreq}, the $\varepsilon$ term contributes an
-infinitesimal positive imaginary part to $k$.  At large distances, the
-outgoing waves in \eqref{propagator_solutions} go as $\exp(ikr)$, so
-the correction to $k$ suppresses the wavefunction and makes it
-integrable.)
 
 %% Alternative tweaks to the Green's function produce different
 %% behaviors.  For instance, we could flip the sign of $\varepsilon$
@@ -772,11 +872,14 @@ integrable.)
 \section{Scattering amplitudes in 3D}
 \label{sec:3damp}
 
-We are now in a position to combine the results of
+We are now in a position to generate explicit solutions for the
+scattering problem by combining the results of
 Sections~\ref{sec:scattering_amplitude}--\ref{sec:freegreen}.  For
 ease of presentation, we will focus on the 3D case; the 1D and 2D
-cases are handled in a similar way.  Using Eqs.~\eqref{psis_implicity}
-and \eqref{psiscat}, we can express the scattered wavefunction as
+cases are handled in a similar way.
+
+Using Eqs.~\eqref{psis_implicity} and \eqref{psiscat}, we can express
+the scattered wavefunction as
 \begin{align}
   \psi_s(\mathbf{r})
   &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \\
@@ -994,10 +1097,46 @@ brought to bear.  We will see an example in the next chapter.
   wavefunction.  Explain the relationship between the values of $J$ on
   the left and right side of the scatterer.
 
-\item Derive the Green's function for a free particle in 1D space:
+\item \label{ex:1dpropagator}
+  Derive the causal 1D propagator:
   \begin{equation}
     \langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik_i} \exp\left(ik_i|x-x'|\right).
   \end{equation}
+
+\item \label{ex:2dpropagator}
+  Derive the causal 2D propagator:
+  \begin{equation}
+    \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2}\;
+    \frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|).
+  \end{equation}
+  You should be able to adapt many of the steps in the 3D propagator
+  derivation from Section~\ref{sec:freegreen}.  When evaluating the
+  polar integral, you may want to refer to the discussion of Bessel
+  and Hankel functions in Appendix A.  You may also need the following
+  mathematical identity between the Hankel functions:
+  \begin{equation}
+    H_m^+(z) = - (-1)^m \, H_m^-(-z).
+  \end{equation}
+  
+\item \label{ex:anticausal}
+  In place of the causal Green's function defined in
+  Eq.~\eqref{G0regulated}, consider an infinitesimal shift of the
+  opposite sign:
+  \begin{equation}
+    \hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 - i \varepsilon\big)^{-1}.
+    \label{G0anticausal}
+  \end{equation}
+  \begin{enumerate}[(a)]
+  \item 
+  Whereas the causal propagators in Eq.~\eqref{propagator_solutions}
+  represent outgoing waves, explain why Eq.~\eqref{G0anticausal} will
+  give rise to propagators representing incoming waves.
+
+\item  In the derivation of the 3D propagator,
+  Eqs.~\eqref{rGr}--\eqref{3dprop}, show mathematically how
+  Eq.~\eqref{G0anticausal} changes the contour integration, resulting
+  in an incoming-wave solution.
+  \end{enumerate}
 
 \item In Section~\ref{sec:3damp}, the scattering amplitude
   $f(\mathrm{k}\rightarrow\mathrm{k}')$ for the 3D scattering problem
