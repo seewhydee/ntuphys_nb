@@ -119,6 +119,7 @@ A particle state $|\psi\rangle$ obeys the time-independent
 Schr\"odinger equation
 \begin{equation}
   \hat{H} |\psi\rangle = E |\psi\rangle,
+  \label{scatter1}
 \end{equation}
 where $E$ is the incoming particle energy.
 
@@ -126,6 +127,7 @@ where $E$ is the incoming particle energy.
 The state $|\psi\rangle$ can be decomposed into two pieces,
 \begin{equation}
   |\psi\rangle \,=\, |\psi_i\rangle \,+\, |\psi_s\rangle,
+  \label{scatter2}
 \end{equation}
 where $|\psi_i\rangle$ is called the \textbf{incident state} and
 $|\psi_s\rangle$ is called the \textbf{scattered state}.
@@ -140,6 +142,7 @@ $\hat{\mathbf{p}}$ (with momentum $\mathbf{p}_i$):
   \;\;\hat{\mathbf{p}} |\psi_i\rangle &= \, \mathbf{p}_i |\psi_i\rangle,
   \end{cases}
   \quad \mathrm{where} \;\;\; E = \frac{|\mathbf{p}_i|^2}{2m}.
+  \label{scatter3}
 \end{equation}
 
 \item
@@ -322,19 +325,30 @@ Therefore,
   \label{delta_discontinuity}
 \end{equation}
 
-To proceed, suppose the particle is incident from the left, with
-energy $E$.  As discussed in Sec.~\ref{sec:scatintro}, the particle's
-quantum state is the sum of an incident state $|\psi_i\rangle$ and a
-scattered state $|\psi_s\rangle$, and $|\psi_i\rangle$ is
-proportional to a momentum eigenstate $|k\rangle$, where $k =
-\sqrt{2mE/\hbar^2} > 0$.  We said ``proportional'', not ``equal'', for
-it is conventional to take
+In accordance our previously-discussed formulation of the scattering
+problem, and specifically Eq.~\eqref{scatter2}, the total wavefunction
+is split into
 \begin{equation}
-  |\psi_i\rangle = \sqrt{2\pi}\, \Psi_i |k\rangle \;\;\; \Leftrightarrow\;\;\; \psi_i(x) = \langle x|\psi\rangle = \Psi_i \, e^{ik x}.
+  \psi(x) = \psi_i(x) + \psi_s(x).
+\end{equation}
+Moreover, the incident state should be a momentum eigenstate.  But we
+will \textit{not} let it be delta-normalized, as momentum eigenstates
+normally are (see Sec.~\ref{sec:waves}).  Instead, we write
+\begin{equation}
+  \psi_i(x) = \Psi_i \, e^{ik x},
+  \;\;\;k = \sqrt{\frac{2mE}{\hbar^2}} > 0.
   \label{psiin1d}
 \end{equation}
-The complex constant $\Psi_i$ is called the \textbf{incident
-  amplitude}.  With this, Eq.~\eqref{1dschrod} becomes
+The complex coefficient $\Psi_i$ is called the \textbf{incident
+  amplitude}.  Introducing $\Psi_i$ in this way emphasizes that the
+magnitude and phase of the incident wavefunction are, in principle,
+adjustable parameters in the scattering experiment.  In terms of the
+usual delta-normalized momentum eigenstates,
+\begin{equation}
+  |\psi_i\rangle = \sqrt{2\pi}\, \Psi_i |k\rangle.
+\end{equation}
+
+With this, Eq.~\eqref{1dschrod} becomes
 \begin{equation}
   \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big)
   = E \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).
@@ -394,7 +408,7 @@ of the scattering process:
 Its dependence on $E$ is plotted below:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.52\textwidth]{scattering1df}
+  \centering\includegraphics[width=0.5\textwidth]{scattering1df}
 \end{figure}
 
 \noindent
@@ -413,18 +427,19 @@ only scatter in two directions: forward or backward.  In 2D and higher
 spatial dimensions, there is an important complication: the particle
 can also go ``sideways'', and in fact there is a continuous set of
 directions for it to scatter into.  To deal with this, physicists have
-introduced a systematic formalism for expressing the outcomes of a
-scattering experiment.
+developed a systematic formalism for expressing the outcomes of
+scattering experiments using direction-dependent ``scattering
+amplitudes'', which we will now describe.
 
-In $d$ spatial dimensions, consider (as before) a planar incident
-wavefunction
+To begin, let us define the incident wavefunction as a plane wave in
+$d$ dimensions, by analogy with the 1D case [Eq.~\eqref{psiin1d}]:
 \begin{equation}
   \psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}},
+  \;\;\; |\mathbf{k}_i| = k = \sqrt{\frac{2mE}{\hbar^2}},
   \label{psiin}
 \end{equation}
-where $\mathbf{k}$ is the incident wave-vector, whose magnitude is $k
-= |\mathbf{k}|$.  Similar to the 1D case, \eqref{psiin1d}, we call the
-complex coefficient $\Psi_i$ the \textbf{incident wave amplitude}.
+where $\mathbf{k}_i$ is the incident wave-vector and $\Psi_i \in
+\mathbb{C}$ is the incident amplitude.
 
 The incident wavefunction generates a scattered wavefunction
 $\psi_s(\mathbf{r})$.  We can express the $\mathbf{r}$-dependence of
@@ -442,8 +457,11 @@ We can also wrangle the $d = 1$ case into this framework by letting
 $\Omega \in \{+, -\}$, where $+$ denotes the forward ($+x$) direction
 and $-$ denotes the backward ($-x$) direction.
 
-We assert that, far from the origin, the scattered wavefunction must
-reduce to the form
+In a typical scattering experiment, the scattered wavefunction is
+detected at $r \rightarrow \infty$; i.e., at distances much longer
+than the size of the scatterer, the free-space wavelength, and any
+other relevant length scales.  In this regime, we assert that the
+scattered wavefunction must reduce to the form
 \begin{equation}
   \psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\Omega).
   \label{psiscat}
@@ -452,10 +470,9 @@ To understand the reasoning behind this, let us go through the
 individual multiplicative factors on the right side of
 Eq.~\eqref{psiscat}.
 
-First, the $\Psi_i$ factor registers the fact that the Schr\"odinger
-wave equation is linear---if we multiply the incident wavefunction
-\eqref{psiin} by any complex number, the resulting scattered
-wavefunction must be multiplied by the same factor.
+The first factor $\Psi_i$ accounts for the fact that the Schr\"odinger
+wave equation is linear.  If we vary the incident amplitude, the
+scattered wavefunction must vary proportionally.
 
 The next two factors, $r^{\frac{1-d}{2}} \, e^{ikr}$, give the
 $r$-dependence of a wave expanding radially from the origin in $d$
@@ -486,25 +503,23 @@ flux obtained by integrating $J_{s}^r$ over the area is independent of
 $r$.
 
 The final factor in Eq.~\eqref{psiscat}, $f(\Omega)$, is called the
-\textbf{scattering amplitude} and describes how the particle is
-scattered in various directions.  This complex function's magnitude,
-phase, and $\Omega$-dependence are the main avenues by which the
-scattering experiment can reveal information about the scattering
-potential---for, as noted in the previous paragraphs, the other
-factors are fully determined by linearity, outgoing-ness, and
-probability conservation.
+\textbf{scattering amplitude}.  This complex function is typically the
+main avenue by which a scattering experiment reveals information about
+the scatterer.  As noted in the previous paragraphs, in the large-$r$
+limit, the other factors are determined by linearity, outgoing-ness,
+and flux conservation.  Hence, only $f$ is sensitive to the details of
+the scattering potential.
 
-Sometimes, we write the scattering amplitude using the alternative
-notation
+Note that the scattering amplitude is a function of $\Omega$, i.e.,
+the direction of $\mathbf{r}$.  Sometimes, it is written using the
+alternative notation
 \begin{equation}
-  f(\mathbf{k}_i \rightarrow \mathbf{k}_f), \;\;\;\mathrm{where}\;\; \mathbf{k}_f = k \hat{\mathbf{r}}.
+  f(\mathbf{k}_i \rightarrow \mathbf{k}_f), \qquad
+  \mathbf{k}_f = k\, \frac{\mathbf{r}}{|\mathbf{r}|}.
 \end{equation}
-This emphasizes firstly that the incident wave-vector is
-$\mathbf{k}_i$; and secondly that the particle is scattered in some
-direction which can be specified by either the unit position vector
-$\hat{\mathbf{r}}$, or equivalently by the momentum vector
-$\mathbf{k}_f = k \hat{\mathbf{r}}$, or by the angular coordinates
-$\Omega$.
+This emphasizes that the particle is initially incident with
+wave-vector $\mathbf{k}_i$, then gets scattered elastically into a
+wave-vector $\mathbf{k}_f$ pointing in the direction of $\mathbf{r}$.
 
 From the scattering amplitude, we can define two other important
 quantities:
@@ -640,19 +655,33 @@ both the left and right sides.
 Applying the second Dyson equation, Eq.~\eqref{dyson2}, to the
 scattering problem \eqref{scatterform} gives
 \begin{align}
-  \begin{aligned}|\psi_s\rangle &= \left(\hat{G}_0 + \hat{G}_0\hat{V}\hat{G}\right) \hat{V} |\psi_i\rangle \\ &= \hat{G}_0 \hat{V} |\psi_i\rangle + \hat{G}_0\hat{V}\hat{G} \hat{V} |\psi_i\rangle \\ &= \hat{G}_0 \hat{V} |\psi_i\rangle + \hat{G}_0\hat{V} |\psi_s\rangle \\ &= \hat{G}_0\hat{V} |\psi\rangle.\end{aligned}
-  \label{psis_implicity}
+  |\psi_s\rangle
+  &= \left(\hat{G}_0 + \hat{G}_0\hat{V}\hat{G}\right) \hat{V}
+  \, |\psi_i\rangle \\
+  &= \hat{G}_0 \hat{V} \left(\hat{I} + \hat{G} \hat{V}\right) |\psi_i\rangle.
+  \label{psis_useful}
 \end{align}
-This equation is likewise implicit, as the right side contains the
-unknown $|\psi\rangle$.  We can try to solve it by iteration, i.e.,
-repeatedly plugging the equation into its own right side:
+Using Eq.~\eqref{scatterform} again, we get
+\begin{equation}
+  |\psi_s\rangle = \hat{G}_0\hat{V} |\psi\rangle.
+  \label{psis_implicity}
+\end{equation}
+This remains an implicit equation, but the unknown is $|\psi\rangle$
+rather than $\hat{G}$.  Note that the results up to this point have
+been approximation-free.
+
+One approach to solving Eq.~\eqref{psis_implicity} is to repeatedly
+plug its right side back into itself:
 \begin{align}
-  \begin{aligned}|\psi_s\rangle &= \hat{G}_0 \hat{V} \left(|\psi_i\rangle + \hat{G}_0 \hat{V}|\psi\rangle\right) \\ &= \quad \vdots \\ &= \left[\hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.\end{aligned}
+  \begin{aligned}
+    |\psi_s\rangle &= \hat{G}_0 \hat{V} \left(|\psi_i\rangle + \hat{G}_0 \hat{V}|\psi\rangle\right) \\
+    &= \quad \vdots \\
+    &= \left[\hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.
+  \end{aligned}
 \end{align}
 Or, equivalently,
 \begin{equation}
   |\psi\rangle
-  = \left[\hat{I} + \hat{G} \hat{V}\right] |\psi_i\rangle
   = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.
   \label{bornseries}
 \end{equation}
@@ -833,8 +862,15 @@ function, Eq.~\eqref{G0unregulated}, for a \textbf{causal Green's
     \label{G0regulated}
   \end{equation}
 \end{framed}
-\vskip -0.1in
-\noindent
+
+What is the \textit{physical} meaning this limiting procedure, aside
+from the mathematical expediency of making the relevant integrals
+converge?  One way to address this is to think about the time
+evolution of the wavefunctions.  Our formulation of the scattering
+problem, starting from Eqs.~\eqref{scatter1}--\eqref{scatter4}
+
+
+
 
 %% At large distances, the
 %% outgoing waves in \eqref{propagator_solutions} go as $\exp(ikr)$, so
@@ -878,23 +914,30 @@ Sections~\ref{sec:scattering_amplitude}--\ref{sec:freegreen}.  For
 ease of presentation, we will focus on the 3D case; the 1D and 2D
 cases are handled in a similar way.
 
-Using Eqs.~\eqref{psis_implicity} and \eqref{psiscat}, we can express
-the scattered wavefunction as
-\begin{align}
+By using Eqs.~\eqref{psiscat} and \eqref{psis_useful},
+we can write the scattered wavefunction as
+\begin{equation}
   \psi_s(\mathbf{r})
-  &= \langle\mathbf{r}| \hat{G}_0 \hat{V} |\psi\rangle \\
-  &= \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \psi(\mathbf{r}')
-  \;\;\overset{r\rightarrow\infty}{\longrightarrow}\;\;
+  = \langle\mathbf{r}|
+  \hat{G}_0 \hat{V}
+  \underbrace{\big(\hat{I} + \hat{G} \hat{V}\big) |\psi_i\rangle}_{= |\psi\rangle}
+   \\
+  \;\; \overset{r\rightarrow\infty}{\longrightarrow}\;\;
   \Psi_i \, \frac{e^{ikr}}{r} \, f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}).
   \label{psis_expansion}
-\end{align}
-Our goal is to determine the scattering amplitude $f$.  As we saw in
-Sec.~\ref{sec:scattering_amplitude}, $f$ is the part of the scattering
-experiment's results containing information about the scatterer (with
-scatterer-independent bits, like the large-$r$ scaling, stripped
-away).
+\end{equation}
+We want to use this to find the scattering amplitude $f$.  As
+discussed in Sec.~\ref{sec:scattering_amplitude}, $f$ encodes the
+information about the scatterer that can be retrieved at large
+distances.
 
-From Eq.~\eqref{propagator_solutions}, the propagator in 3D is
+Let us work on the expression on the left first.  Using the position
+representation,
+\begin{align}
+  \psi_s(\mathbf{r}) = \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \langle \mathbf{r}'| \big(\hat{I} + \hat{G} \hat{V}\big) |\psi_i\rangle.
+  \label{psis_positionrep}
+\end{align}
+From Eq.~\eqref{propagator_solutions}, the causal propagator in 3D is
 \begin{equation}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle =
   - \frac{2m}{\hbar^2}
@@ -912,11 +955,14 @@ lowest order,
 \begin{equation}
   \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2}\, \frac{e^{ikr}}{4\pi r}\; \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right).
 \end{equation}
-Applying this to the left side of Eq.~\eqref{psis_expansion} gives
+Applying this to Eq.~\eqref{psis_positionrep} gives
 \begin{align}
   \begin{aligned}\psi_s(\mathbf{r})
-    &\overset{r\rightarrow\infty}{\longrightarrow} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\, \psi(\mathbf{r}') \\
-    &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{r} \sqrt{\frac{\pi}{2}} \; \big\langle \mathbf{k}_f \big|\hat{V}\big|\psi\big\rangle. \end{aligned}
+    &\overset{r\rightarrow\infty}{\longrightarrow} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\,
+    \langle \mathbf{r}'| \big(\hat{I} + \hat{G} \hat{V}\big) |\psi_i\rangle \\
+    &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{r} \sqrt{\frac{\pi}{2}} \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V} \hat{G} \hat{V}
+    \big|\psi_i\big\rangle. \end{aligned}
+  \label{psis_intermediate}
 \end{align}
 On the second line, we simplified the expression by introducing the
 momentum eigenstate with $\mathbf{k}_f \equiv k \hat{\mathbf{r}}$.
@@ -924,14 +970,13 @@ This corresponds to the ``final'' momentum of the scattered particle,
 measured when the particle is picked up by a detector placed in the
 $\hat{\mathbf{r}}$ direction relative to the origin.  Note that
 $|\mathbf{k}_f| = |\mathbf{k}_i| = k$, consistent with elastic
-scattering.
-
-We can massage the result a bit more by using Eq.~\eqref{bornseries}
-to write $|\psi\rangle = [\hat{I} + \hat{G}\hat{V}]|\psi_i\rangle$.
-The incident state $|\psi_i\rangle$ is proportional to the momentum
-eigenstate $|\mathbf{k}_i\rangle$, and we can work out the
-proportionality factor by comparing Eqs.~\eqref{kwavefun} and
-\eqref{psiin}.  The result is
+scattering.  In a similar vein, we can express the incident state in
+terms of a momentum eigenstate, by comparing Eqs.~\eqref{kwavefun} to
+\eqref{psiin}:
+\begin{equation}
+  |\psi_i\rangle = \Psi_i (2\pi)^{3/2} |\mathbf{k}_i\rangle.  
+\end{equation}
+Thus, Eq.~\eqref{psis_intermediate} simplifies to
 \begin{align}
   \begin{aligned}\psi_s(\mathbf{r}) \; &\overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2} \, \Psi_i\, \frac{e^{ikr}}{r} \; 2\pi^2 \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\mathbf{k}_i\big\rangle.\end{aligned}
 \end{align}
