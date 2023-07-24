@@ -863,15 +863,6 @@ function, Eq.~\eqref{G0unregulated}, for a \textbf{causal Green's
   \end{equation}
 \end{framed}
 
-What is the \textit{physical} meaning this limiting procedure, aside
-from the mathematical expediency of making the relevant integrals
-converge?  One way to address this is to think about the time
-evolution of the wavefunctions.  Our formulation of the scattering
-problem, starting from Eqs.~\eqref{scatter1}--\eqref{scatter4}
-
-
-
-
 %% At large distances, the
 %% outgoing waves in \eqref{propagator_solutions} go as $\exp(ikr)$, so
 %% the correction to $k$ suppresses the wavefunction and makes it
@@ -890,11 +881,10 @@ and $3$ are summarized below:
 \vskip -0.1in
 \noindent
 For each $d$, the causal propagator describes a wave propagating
-outward isotropically from $\mathbf{r}'$.  In 1D, the propagator has
-the form of a plane wave on each side. In 2D, it is a circular wave
-($H_0^+$ denotes a Hankel function of the first kind; see Appendix A).
-In 3D, as we have already discussed, it has the form of a spherical
-wave.
+outward isotropically from $\mathbf{r}'$.  In 1D, this has the form of
+a plane wave on each side. In 2D, it is a circular wave ($H_0^+$
+denotes a Hankel function; see Appendix A), and in 3D it is a
+spherical wave.
 
 
 %% Alternative tweaks to the Green's function produce different
@@ -914,8 +904,8 @@ Sections~\ref{sec:scattering_amplitude}--\ref{sec:freegreen}.  For
 ease of presentation, we will focus on the 3D case; the 1D and 2D
 cases are handled in a similar way.
 
-By using Eqs.~\eqref{psiscat} and \eqref{psis_useful},
-we can write the scattered wavefunction as
+Using Eqs.~\eqref{psiscat} and \eqref{psis_useful}, we can write the
+scattered wavefunction as
 \begin{equation}
   \psi_s(\mathbf{r})
   = \langle\mathbf{r}|
@@ -926,10 +916,9 @@ we can write the scattered wavefunction as
   \Psi_i \, \frac{e^{ikr}}{r} \, f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}).
   \label{psis_expansion}
 \end{equation}
-We want to use this to find the scattering amplitude $f$.  As
-discussed in Sec.~\ref{sec:scattering_amplitude}, $f$ encodes the
-information about the scatterer that can be retrieved at large
-distances.
+We want to use this to find the scattering amplitude $f$, which
+encodes the results of the scattering experiment in the large-$r$
+limit (see Sec.~\ref{sec:scattering_amplitude}).
 
 Let us work on the expression on the left first.  Using the position
 representation,
@@ -970,18 +959,18 @@ This corresponds to the ``final'' momentum of the scattered particle,
 measured when the particle is picked up by a detector placed in the
 $\hat{\mathbf{r}}$ direction relative to the origin.  Note that
 $|\mathbf{k}_f| = |\mathbf{k}_i| = k$, consistent with elastic
-scattering.  In a similar vein, we can express the incident state in
-terms of a momentum eigenstate, by comparing Eqs.~\eqref{kwavefun} to
+scattering.  Similarly, we can express the incident state in terms of
+a momentum eigenstate, by comparing Eqs.~\eqref{kwavefun} to
 \eqref{psiin}:
 \begin{equation}
   |\psi_i\rangle = \Psi_i (2\pi)^{3/2} |\mathbf{k}_i\rangle.  
 \end{equation}
-Thus, Eq.~\eqref{psis_intermediate} simplifies to
+Thus, Eq.~\eqref{psis_intermediate} becomes
 \begin{align}
   \begin{aligned}\psi_s(\mathbf{r}) \; &\overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2} \, \Psi_i\, \frac{e^{ikr}}{r} \; 2\pi^2 \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\mathbf{k}_i\big\rangle.\end{aligned}
 \end{align}
-By comparing this to the right side of Eq.~\eqref{psis_expansion}, we
-can read off the scattering amplitude:
+Comparing this to the right side of Eq.~\eqref{psis_expansion}, we can
+read off the scattering amplitude:
 \begin{framed}
   \begin{align}
     \begin{aligned}
@@ -992,9 +981,10 @@ can read off the scattering amplitude:
 \end{framed}
 \vskip -0.15in
 \noindent
-As noted above, this is subject to the elasticity constraint
+As noted above, this result is subject to the elasticity constraint
 $|\mathbf{k}_i| = |\mathbf{k}_f|$.  To get the infinite series on the
-second line of Eq.~\eqref{fresult}, we used Eq.~\eqref{bornseries}.
+second line of Eq.~\eqref{fresult}, we have used
+Eq.~\eqref{bornseries}.
 
 Eq.~\eqref{fresult} is the culmination of numerous definitions and
 derivations from the preceding sections.  On the left side is the
@@ -1008,17 +998,17 @@ the $2\pi^2$ factor replaced with other numerical factors.
 \section{Example: uniform spherical well in 3D}
 
 Let us test the Born series with a simple scatterer.  Consider a
-scattering potential that is a uniform spherical well of depth $U > 0$
-and radius $R$:
+scattering potential that consists of a uniform spherical well of
+depth $U > 0$ and radius $R$:
 \begin{equation}
   V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
     & |\mathbf{r}| > 0. \end{cases}
 \end{equation}
 
 As it turns out, this particular scattering problem can be solved
-exactly by exploiting the scattering potential's spherical symmetry.
-The procedure is explained in \textbf{Appendix A}.  The result for the
-scattering amplitude is
+exactly by exploiting the spherical symmetry of $V(\mathbf{r})$.  The
+solution method, called \textbf{partial wave analysis}, is explained
+in \textbf{Appendix A}.  Its result is
 \begin{equation}
   \begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}
   \label{fresult_well}
@@ -1028,10 +1018,11 @@ The solution is expressed in terms of the special functions $j_\ell$
 Hankel function of the first kind), and $P_\ell$ (Legendre
 polynomial).
 
-We will pit this exact solution against the previously-derived Born
-series result, Eq.~\eqref{fresult}:
+We will pit this against the Born series, which can be regarded as a
+more general method since it does not assume spherical symmetry.
+According to Eq.~\eqref{fresult}, the Born series gives
 \begin{equation}
-  f(\mathbf{k}_i\rightarrow \mathbf{k}_f) = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \, \Bigg[\big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle + \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle + \cdots \Bigg].
+  f(\mathbf{k}_i\rightarrow \mathbf{k}_f) = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \, \left[\big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle + \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle + \cdots \right].
   \label{fexpression}
 \end{equation}
 Evaluating the full infinite Born series is generally an intractable
@@ -1061,8 +1052,8 @@ has the form
 \end{equation}
 To compute this, we randomly sample $N$ points within a cube of volume
 $(2R)^3$ centered at the origin.  Note that this cube encloses the
-radius-$R$ sphere over which the integral is meant to be taken.  For
-each sampled point, $\mathbf{r}^{(n)}$, we compute
+radius-$R$ sphere over which is the integration region.  For each
+sampled point, $\mathbf{r}^{(n)}$, we take
 \begin{equation}
   F_n = \begin{cases}F(\mathbf{r}^{(n)}), & |\mathbf{r}^{(n)}| < R \\ 0, &\mathrm{otherwise},\end{cases}
 \end{equation}
@@ -1082,18 +1073,12 @@ we sample \textit{pairs} of points, $(\mathbf{r}_1^{(n)},
 Eq.~\eqref{Iest} with $(2R)^6$.  The rest of the estimation procedure
 is the same.
 
-Evidently, this method does not assume that the scattering potential
-has any particular symmetry.  It is therefore applicable to
-complicated scattering potentials for which there are no exact
-solutions like Eq.~\eqref{fresult_well}.
-
 In the figure below, we compare the Born approximation to the exact
-solution \eqref{fresult_well} for the 3D potential well.  We plot
-$|f|^2$ versus the energy $E$ at a $90^\circ$ scattering angle (i.e.,
-$\mathbf{k}_f$ perpendicular to $\mathbf{k}_i$), for fixed well radius
-$R = 1$ and two different well depths $U = 0.1$ and $U = 1$.  We adopt
-computational units $\hbar = m = 1$, and each Monte Carlo integral is
-computed using $3\times10^4$ samples.
+solution \eqref{fresult_well}.  We plot $|f|^2$ versus the energy $E$
+at a $90^\circ$ scattering angle (i.e., $\mathbf{k}_f$ perpendicular
+to $\mathbf{k}_i$), for fixed well radius $R = 1$ and two well depths,
+$U = 0.1$ and $U = 1$.  We adopt computational units $\hbar = m = 1$,
+and compute each Monte Carlo integral using $3\times10^4$ samples.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.97\textwidth]{spherical_well_scattering}
@@ -1105,16 +1090,16 @@ $\sim U$, so a particle with energy $E \gg U$ should simply zoom
 through, with little chance of being deflected.
 
 Looking more closely, we see that for the shallower well ($U = 0.1$),
-the first Born approximation agrees pretty well with the exact
-results, while the second Born approximation agrees extremely well.
-The second Born approximation is significantly more accurate than the
-first Born approximation at small values of $E$.
+the first Born approximation already agrees quite well with the exact
+results.  However, the second Born approximation is significantly more
+accurate, particularly for small $E$.
 
-However, for the deeper well ($U = 1$), neither the first nor second
-Born approximations do a good job.  Roughly speaking, the deep
-potential well allows the particle to bounce inside many times before
-escaping (see Sec.~\ref{sec:greensfun}), which means that higher terms
-in the Born series are important and cannot be neglected.
+For the deeper well ($U = 1$), neither the first nor second Born
+approximations do a good job.  Roughly speaking, for the deep
+potential well, we cannot neglect multiple-scattering events
+represented by higher terms in the Born series, whereby the particle
+bounces around many times before leaving the scatterer (see
+Sec.~\ref{sec:greensfun}).
 
 In fact, for very strong scattering potentials, even taking the Born
 approximation to high orders may not work, as the Born series may

@@ -38,9 +38,9 @@ spherical waves, and their uses in 2D and 3D scattering problems.
 \label{sec:helmholtz}
 
 Consider a non-relativistic particle moving in $d$-dimensional space
-in the absence of a potential.  Such a situation is encountered, for
-example, in scattering problems for positions far from the scatterer
-(Chapter 1).  The time-independent Schr\"odinger equation is
+with zero potential.  This is the case, for example, in a scattering
+problem at positions far from the scatterer (Chapter 1).  The
+time-independent Schr\"odinger equation is
 \begin{equation}
   -\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),
   \label{tise}
@@ -59,9 +59,7 @@ where
   k = \sqrt{\frac{2mE}{\hbar^2}} \;\in\; \mathbb{R}^+.
   \label{kparm}
 \end{equation}
-
-One class of elementary solutions is, of course, the plane waves.
-These have the form
+A well-known class of solutions consists of plane waves of the form
 \begin{equation}
   \psi(\mathbf{r}) = \psi_0 \, \exp\left(i\mathbf{k}\cdot\mathbf{r}\right),
   \label{planewaves}
@@ -70,11 +68,11 @@ where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is a $d$-component
 wave-vector with $|\mathbf{k}| = k$.
 
 When studying the scattering problem in Chapter 1, we saw that
-scattered wavefunctions should be ``outgoing'' waves---waves
-propagating outward from the scatterer, toward infinity.  However, a
-plane wave like \eqref{planewaves} cannot be said to be either
-outgoing (nor is it incoming).  This indicates that we should look for
-a different type of solution to Eq.~\eqref{helmholtz}.  In
+scattered wavefunctions should be ``outgoing''---i.e., they should
+propagate outward from the scatterer, to infinity.  However, a plane
+wave like \eqref{planewaves} is neither outgoing, nor incoming.  This
+indicates that we should look for a different type of solution to
+Eq.~\eqref{helmholtz}.  In
 Sec.~\ref{circular_waves}--\ref{sec:spherical}, we will discuss the
 nature of these solutions for the $d=2$ and $d=3$ cases, and in
 Sec.~\ref{sec:scattering}--\ref{sec:sphere} we will talk about how
@@ -84,23 +82,22 @@ they can used to solve scattering problems.
 \label{circular_waves}
 
 In 2D, we can express $\mathbf{r}$ using polar coordinates $(r,
-\phi)$, and write the wavefunctions as
+\phi)$, and write the wavefunction as
 \begin{equation}
   \psi(\mathbf{r}) = \psi(r,\phi).
 \end{equation}
-Moreover, we can focus on solutions of the form
+This should obey periodic boundary conditions in the azimuthal
+direction, $\psi(r,\phi + 2\pi) = \psi(r, \phi)$.  Hence, we can
+express the $\phi$-dependence via the Fourier basis, and focus on
+solutions of the form
 \begin{equation}
   \psi(r,\phi) = \Psi_m(r)\, e^{im\phi}, \;\;\;m \in\mathbb{Z}.
   \label{psi_circular}
 \end{equation}
-Such solutions are called \textbf{circular waves}.  As the Helmholtz
-equation is linear, any other solution satisfying the periodic
-boundary conditions in $\phi$ [i.e., $\psi(r,\phi + 2\pi) = \psi(r,
-  \phi)$] can be regarded as a superposition of circular waves of
-different $m$, via the Fourier series.  The integer $m$ describes the
-angular momentum carried by each circular wave.  For example, for $m >
-0$, the phase of $\psi$ increases with $\phi$, so the wave circulates
-in the $+\phi$ direction.
+These is called a \textbf{circular wave}, and the integer $m$
+describes its angular momentum.  For example, for $m > 0$, the phase
+of $\psi$ increases with $\phi$, so the wave rotates in the $+\phi$
+direction.
 
 By plugging Eq.~\eqref{psi_circular} into the Helmholtz equation
 \eqref{helmholtz}, and expressing the 2D Laplacian in polar
@@ -124,9 +121,9 @@ solutions:
 (Click on the links to refer to the implementations of these functions
 in \href{https://scipy.org/}{Scientific Python}.)
 
-The Bessel functions ($J_m$ and $Y_m$) are real-valued, whereas the
-Hankel functions ($H_m^+$ and $H_m^-$) are complex-valued.  The Bessel
-and Hankel functions are related by
+The Bessel functions $J_m$ and $Y_m$ are real-valued, whereas the
+Hankel functions $H_m^+$ and $H_m^-$ are complex-valued.  These two
+sets of functions are related by
 \begin{align}
   \left\{
   \begin{aligned}
@@ -137,11 +134,11 @@ and Hankel functions are related by
   \left\{
   \begin{aligned}
     J_m &=  \frac{1}{2}\left( H_m^+ + H_m^- \right)\\
-    Y_m &=  \frac{1}{2i}\left( H_m^+ - H_m^- \right).
+    Y_m &=  \frac{1}{2i}\left( H_m^+ - H_m^- \right),
   \end{aligned}\right.
   \label{JYHrelation}
 \end{align}
-This is very similar to the relationship between the exponential and
+which is very similar to the relationship between the exponential and
 trigonometric functions:
 \begin{align}
   \left\{
@@ -156,12 +153,11 @@ trigonometric functions:
   \end{aligned}
   \label{sincos}
 \end{align}
-
-Importantly, the Bessel and Hankel functions satisfy different
+Importantly, the various Bessel and Hankel functions satisfy different
 boundary conditions:
 \begin{itemize}
-\item For $kr \rightarrow 0$, $J_m(kr)$ is finite, while the others ($Y_m$ and
-$H_m^\pm$) are divergent.
+\item For $kr \rightarrow 0$, $J_m(kr)$ is finite, whereas $Y_m$,
+  $H_m^+$, and $H_m^-$ diverge.
 
 \item For $kr \rightarrow \infty$, they have the following asymptotic forms:
 \end{itemize}
@@ -180,14 +176,13 @@ $H_m^\pm$) are divergent.
   \; \text{for}\;\, -\pi < \mathrm{arg}[kr] < \pi.
   \label{Jasymptote}
 \end{align}
-
-Let us focus on the Hankel functions first.  From the last line in
-Eq.~\eqref{Jasymptote}, we see that the $H_m^+$ functions describe
-\textit{outward} propagation (i.e., in the direction of increasing
-$r$), whereas the $H_m^-$ functions describe \textit{inward}
-propagation.  This indicates that plugging $H_m^+$ into
-Eq.~\eqref{psi_circular} yields outgoing circular waves, which will be
-precisely what we need to describe scattered wavefunctions.
+These further cement the analogy with Eq.~\eqref{sincos}.  Moreover,
+from the last line in Eq.~\eqref{Jasymptote}, we see that $H_m^+$
+describes \textit{outward} propagation (i.e., in the direction of
+increasing radial distance $r$), whereas $H_m^-$ describes
+\textit{inward} propagation.  This indicates that using $H_m^+$ in
+Eq.~\eqref{psi_circular} yields an outgoing circular wave---precisely
+what we need for describing scattered wavefunctions.
 
 \clearpage
 
@@ -199,14 +194,13 @@ Some $H_m^+$ functions are plotted below:
 
 \noindent
 For large $kr$, the function behaves like a decaying complex
-sinuoidal, due to the factor of $1/\sqrt{r}$ in
-Eq.~\eqref{Jasymptote}.  This factor is responsible for the
-conservation of the probability flux carried by the circular wave (see
-Chapter 1, Sec.~1.4).  For small $r$, the value of the function
-(specifically, its imaginary part) diverges.  This is also consistent
-with flux conservation: as $r \rightarrow 0$, conservation of total
-flux means that the flux density (and hence the wavefunction) must
-diverge.
+sinuoidal; the decay is caused by the $1/\sqrt{r}$ in
+Eq.~\eqref{Jasymptote}, which upholds the conservation of flux in the
+$r$ direction (see Chapter 1, Sec.~1.4).  For small $kr$, the value of
+$H_m^+(kr)$ diverges (specifically, its imaginary part, which is
+$Y_m$).  This is also consistent with flux conservation, because as
+the ``area'' (circumference) vanishes with $r$, the flux density must
+diverge to keep the total flux independent of $r$.
 
 The figure below shows 2D plots for a few outgoing circular waves.
 The real part of the wavefunction is plotted, using red and blue
@@ -224,37 +218,37 @@ We see that the wave travels outward in a clockwise spiral ($m < 0$),
 isotropically ($m = 0$), or in a counterclockwise spiral ($m > 0$).
 
 In a similar fashion, we can use $H_m^-$ to make incoming circular
-waves, and we can use the Bessel functions ($J_m$ and $Y_m$) to make
-circular waves that act like standing waves in the $r$ direction.
-According to Eq.~\eqref{JYHrelation}, each Bessel wave can be
-interpreted as a superposition of an incoming and an outgoing Hankel
-wave, just as a 1D standing wave is a superposition of two
-counter-propagating plane waves via Eq.~\eqref{sincos}.
+waves, and we can use $J_m$ and $Y_m$ to make circular waves that act
+as standing waves in the $r$ direction.  According to
+Eq.~\eqref{JYHrelation}, each Bessel wave can be interpreted as a
+superposition of an incoming and outgoing Hankel wave, just as a 1D
+standing wave is a superposition of two counter-propagating plane
+waves via Eq.~\eqref{sincos}.
 
 Like plane waves, circular waves can be used as a basis for expressing
 arbitrary waveforms.  However, when writing a waveform as a
 superposition of circular waves, we must choose the right set of
-circular waves by considering the boundary conditions.  For example, a
-scattered wavefunction is purely outgoing, so its decomposition
-naturally has the form
+circular waves by considering the boundary conditions.  For example,
+for a purely outgoing wave like a scattered wavefunction, the
+decomposition naturally has the form
 \begin{equation}
   \psi_s(\mathbf{r}) = \sum_{m=-\infty}^\infty c_m^+ H_m^+(kr) \, e^{im\phi},
   \quad c_m^+ \in \mathbb{C},
 \end{equation}
 involving only the $H_m^+$ functions.
 
-To take another example, a plane wave can also be expressed as a
-superposition of circular waves.  For a plane wave of wave-vector
-$\mathbf{k}_z = k \hat{z}$, one can show that
+Even a plane wave can be expressed as a superposition of circular
+waves.  For a plane wave of wave-vector $\mathbf{k}_z = k \hat{z}$,
+one can show (using mathematical manipulations whose details we will
+skip) that
 \begin{equation}
   e^{i\mathbf{k}_z \cdot \mathbf{r}} =
   e^{ikr\cos\phi} = \sum_{m=-\infty}^\infty i^m \, J_m(kr)\, e^{im\phi}.
   \label{eikrcosphi}
 \end{equation}
-(The proof of this is beyond the scope of our discussion.)  This sum
-involves $J_m$-type circular waves, consistent with our assertion in
-Sec.~\ref{sec:helmholtz} that plane waves are neither outgoing nor
-incoming in character.
+The sum involves $J_m$-type circular waves, consistent with our
+earlier assertion that plane waves are neither purely outgoing nor
+incoming.
 
 \section{Spherical Waves in 3D}
 \label{sec:spherical}
@@ -275,22 +269,22 @@ momentum,
   \psi(r,\theta,\phi) = \Psi_{\ell m}(r) \,Y_{\ell m}(\theta, \phi).
   \label{psi3d}
 \end{equation}
-Here, the
+The
 \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.special.sph_harm.html}{spherical
   harmonic function} $Y_{\ell m}(\theta,\phi)$ acts as a
-generalization of the $\exp(im\phi)$ factor found in the 2D ansatz
+generalization of the $\exp(im\phi)$ factor in the 2D ansatz
 \eqref{psi_circular}.  It is indexed by two integers $\ell$ and $m$,
 which are the quantum numbers corresponding to the total angular
-momentum and the $z$-component of the angular momentum, respectively;
-these satisfy
+momentum and the $z$-component of the angular momentum, respectively.
+If we take
 \begin{equation}
-  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell.
+  \ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell,
   \label{ellm}
 \end{equation}
-So long as Eq.~\eqref{ellm} holds, it can be shown that $Y_{\ell
-  m}(\theta,\phi)$ is a ``well-behaved'' function of $\theta$ and
-$\phi$---i.e., it is periodic in $\phi$ and regular at the coordinate
-poles $\theta = \{0, \pi\}$.
+it can be shown that $Y_{\ell m}(\theta,\phi)$ is a well-behaved
+function of the anglular coordinates $\theta$ and $\phi$; i.e.,
+periodic in $\phi$ and regular at the coordinate poles $\theta = \{0,
+\pi\}$.
 
 By plugging Eq.~\eqref{psi3d} into the Helmholtz equation and
 expressing the 3D Laplacian in spherical coordinates, we arrive at the
@@ -300,9 +294,9 @@ expressing the 3D Laplacian in spherical coordinates, we arrive at the
   + \Big[k^2r^2 - \ell(\ell+1)\Big] \Psi_{\ell m}(r) = 0.
   \label{sphbessel}
 \end{equation}
-Remarkably, the differential equation involves $\ell$ but not $m$.
-The solution thus only depends on $\ell$, and we henceforth write it
-as $\Psi_\ell(r)$.  Now, Eq.~\eqref{sphbessel} has the following
+Remarkably, this turns out to involve only $\ell$, not $m$.  The
+solution thus only depends on $\ell$, and we henceforth write it as
+$\Psi_\ell(r)$.  Now, Eq.~\eqref{sphbessel} has the following
 solutions:
 \begin{equation}
   \Psi_\ell(r) \propto \begin{cases}
@@ -313,12 +307,12 @@ solutions:
   \end{cases}
   \label{sphcases}
 \end{equation}
-Their boundary behaviors are closely analogous to the 2D counterparts
-from Section~\ref{circular_waves}:
+Their boundary conditions are closely analogous to the 2D circular
+waves from Section~\ref{circular_waves}:
 
 \begin{itemize}
-\item For $kr \rightarrow 0$, $j_\ell(kr)$ is finite, while the others
-  ($y_\ell$ and $h_\ell^\pm$) are divergent.
+\item For $kr \rightarrow 0$, $j_\ell(kr)$ is finite, while $y_\ell$,
+  $h_\ell^+$, and $h_\ell^-$ are divergent.
 
 \item For $kr \rightarrow \infty$, they have the following asymptotic forms:
 \end{itemize}
@@ -336,9 +330,9 @@ from Section~\ref{circular_waves}:
 \end{align}
 Hence, the spherical Hankel functions of the first and second kind
 describe outgoing and incoming waves, respectively.  The $1/r$
-prefactors are consistent with flux conservation: in 3D, spherical
+prefactors are consistent with flux conservation in 3D (spherical
 wavefronts are spread over an area $4\pi r^2$, so $|\Psi_{\ell
-  m}(r)|^2 \cdot 4\pi r^2$ is a constant.
+  m}(r)|^2 \cdot 4\pi r^2$ is $r$-independent).
 
 Similar to the 2D case, we can express a plane wave as a superposition
 of spherical waves.  This is accomplished via the identity
@@ -442,12 +436,12 @@ components of $\mathbf{k}_i$ and $\mathbf{r}$ respectively.  In both
 cases, the incident plane wave is evidently a superposition of
 incoming \textit{and} outgoing waves.
 
-Using Eqs.~\eqref{psii_2d} and \eqref{psii_3d}, we will be able to
-relate the scattering matrix to the formulation of the scattering
-problem discussed in Chapter 1.  Let us see how this is done for 3D;
-the 2D case is left as an \hyperref[ex:2dscattering]{exercise}.
+Using Eqs.~\eqref{psii_2d} and \eqref{psii_3d}, we can relate the
+scattering matrix to the formulation of the scattering problem
+discussed in Chapter 1.  Let us go through the details for 3D, leaving
+the 2D case as an \hyperref[ex:2dscattering]{exercise}.
 
-Focusing now on 3D, a comparison of Eqs.~\eqref{psirdecomp} and
+Focusing on 3D, a comparison of Eqs.~\eqref{psirdecomp} and
 \eqref{psii_3d} allows us to determine the spherical wave coefficients
 for the incident wave:
 \begin{equation}
@@ -493,25 +487,22 @@ The quantity in square brackets is the scattering amplitude (Section
 
 As a concluding example, we will use the results from the preceding
 sections to derive the scattering amplitudes for a spatially uniform
-3D sphere.
-
-Consider a spherical potential well of radius $R$ and depth $U$, with
-the potential function
+3D sphere.  The scattering potential is
 \begin{equation}
   V(\mathbf{r}) = \begin{cases}-U &\mathrm{for}\;\; |\mathbf{r}| < R, \\
-    \;\;\; 0 & \mathrm{for}\;\; |\mathbf{r}| > R.\end{cases}
+    \;\;\; 0 & \mathrm{for}\;\; |\mathbf{r}| > R,\end{cases}
   \label{vsphere}
 \end{equation}
-For simplicity, we will assume an attractive potential, $U > 0$.  (The
+where $R$ is the radius of the well and $U$ is its depth.  For
+simplicity, we assume an attractive potential, $U > 0$.  (The
 interested reader can work through the repulsive case, $U < 0$, which
-is almost the same except that the wavefunction inside the scatterer
-may be evanescent.)  We want to derive the $S$ matrix [defined in
-  Eq.~\eqref{srelation}] for this scattering potential.
+is almost the same, except that the wavefunction inside the scatterer
+may be evanescent.)  We aim to derive the $S$ matrix, as defined in
+Eq.~\eqref{srelation}.
 
-First of all, note that the scattering potential is isotropic, so
-angular momentum is conserved: an incoming wave with definite angular
-momentum must scatter into an outgoing wave of the same angular
-momentum.  Thus, we can consider a total wavefunction with definite
+First, note that the scattering potential is isotropic, so angular
+momentum is conserved.  Thus, it is helpful to consider a total
+wavefunction (incident plus scattered wavefunction) with definite
 angular momentum:
 \begin{equation}
   \psi(r,\theta,\phi) = A_{\ell m}(r) \, Y_{\ell m}(\theta, \phi).
@@ -546,35 +537,34 @@ the spherical Bessel equation \eqref{sphbessel}, with $K(r)
   \label{aell}
 \end{equation}
 for some coefficients $c^\pm_\ell$.  Comparing this to
-Eqs.~\eqref{psirdecomp}--\eqref{srelation}, we see that the $S$ matrix
-must have the simplified form
+Eqs.~\eqref{psirdecomp}--\eqref{srelation}, we see that the scattering
+matrix must have the form
 \begin{equation}
   S_{\ell m, \ell' m'} \,=\, s_{\ell} \; \delta_{\ell \ell'} \, \delta_{mm'}.
 \end{equation}
-In other words, angular momentum conservation implies that $S$ is
-diagonal, with the diagonal entries dependent on $\ell$ and not $m$.
-The exterior solution \eqref{aell} can thus be rewritten as
+In other words, $S$ is diagonal, with the diagonal entries dependent
+only on $\ell$ (not $m$).  The exterior solution \eqref{aell} can thus
+be rewritten as
 \begin{equation}
   A(r) = c^-_\ell \Big(h^-_\ell(kr) + s_\ell\, h^+_\ell(kr)\Big)
   \quad \textrm{for}\,\;r > R.
   \label{Aoutside}
 \end{equation}
 
-Next, consider the region inside the scatterer, $r < R$.  Since the
-scattering potential is uniform inside the sphere, the Schr\"odinger
-wave equation reduces to the Helmholtz equation with $k$ replaced by
+Next, consider the region inside the scatterer, $r < R$.  Here, the
+Schr\"odinger wave equation reduces to the Helmholtz equation, with
+$k$ replaced by
 \begin{equation}
   q = \sqrt{\frac{2m(E+U)}{\hbar^2}}.
 \end{equation}
-Since we are assuming that $U > 0$, for all $E > 0$ we have $q \in
-\mathbb{R}^+$.  As discussed in Section~\ref{sec:spherical}, the
-solutions are spherical Bessel functions (of the first and second
-kind) or spherical Hankel functions (of the first and second kind).
-But the interior region includes the point $r = 0$, and the
-wavefunction must be finite, so we cannot use the $y_\ell$ and
-$h_\ell^\pm$ functions, which diverge at $r = 0$.  This leaves the
-spherical Bessel function of the first kind, which is finite at $r =
-0$:
+Given that $U > 0$, we have $q \in \mathbb{R}^+$ for all $E > 0$.  As
+discussed in Section~\ref{sec:spherical}, the solutions are spherical
+Bessel functions (of the first and second kind) or spherical Hankel
+functions (of the first and second kind).  But the interior region
+includes the point $r = 0$, and the wavefunction must be finite, so we
+cannot use the $y_\ell$ or $h_\ell^\pm$ functions, which diverge at $r
+= 0$.  This leaves only the spherical Bessel function of the first
+kind:
 \begin{equation}
   A_{\ell}(r) = \alpha_\ell \, j_\ell(qr)
   \quad \textrm{for}\,\;r < R.
