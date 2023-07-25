@@ -49,7 +49,7 @@ A curious feature of wavefunctions in infinite space is that they come
 in two distinct varieties: (i) \textbf{bound states} that are
 localized to one region, like the ground state of a harmonic
 oscillator, and (ii) \textbf{free states} that extend over all space,
-like plane waves.
+like a plane wave.
 
 Both kinds of states can co-exist in a single system.  This is
 demonstrated by a simple model called the \textbf{1D finite square
@@ -296,7 +296,7 @@ When the potential is just $\hat{V}_0$, let there be a bound state
 $|\varphi\rangle$ with energy $E_0$.  Furthermore, let us assume that
 the potential supports a continuum of free states $\{|\psi_k\rangle\}$
 with energies $\{E_k\}$, where $k$ is some continuous index for
-labelling the free states (we will discuss what this index might
+labeling the free states (we will discuss what this index might
 represent later).  The states satisfy the Schr\"odinger equation
 \begin{align}
   \big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,
@@ -307,27 +307,25 @@ along with the orthogonality and completeness relations
   + \sum_k \, |\psi_k\rangle\langle\psi_k| = \hat{I}.
 \end{equation}
 Here, $\sum_k$ represents a sum over all free states.  Since the free
-states form a continuum, this sum will have to be expressed as an
-integral by re-normalizing the free states (e.g., delta
-normalization), as discussed in Section 1.2.  For the moment, however,
-we will leave it as a discrete sum, with the free states normalized to
-unity.
+states form a continuum, this ought to be expressed as an integral,
+similar to how we treat momentum eigenstates (see Chapter 1).  But,
+for the moment, we write it as a sum for ease of presentation.
 
-We can now treat $\hat{V}$ as a scattering potential, and compute the
-Green's function.  According to Dyson's equations (Section~1.6), the
-Green's function for the full system is
+Let us treat $\hat{V}$ as a scattering potential, and compute the
+Green's function.  According to Dyson's equations, the Green's
+function for the full system is
 \begin{equation}
   \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0,
   \label{Gdyson}
 \end{equation}
-where the causal Green's function (Section 1.7) is
+where
 \begin{equation}
   \hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+}
-  \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}.
+  \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}
 \end{equation}
-Note that Eq.~\eqref{Gdyson} is exact, not an approximation.  If we
-are able to obtain $\hat{G}(E)$, we will be able to determine the
-scattering amplitudes.
+is the causal Green's function.  Note that Eq.~\eqref{Gdyson} is
+exact, not an approximation.  If we can obtain $\hat{G}(E)$, we can
+determine the scattering amplitudes.
 
 Let us find the matrix elements of $\hat{G}(E)$ by using
 $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a convenient basis.
@@ -364,11 +362,10 @@ $\langle\varphi|\cdots|\psi_k\rangle$ gives
 So far, the equations have been exact, but now we apply an
 approximation: in the last line of the above equation, let the factor
 of $\langle\varphi|G|\varphi\rangle$ be large, so that the first term
-in the sum becomes dominant.  It will be shown below that
+in the sum is dominant.  It will be shown below that
 $\langle\varphi|G|\varphi\rangle$ being large is precisely the
 resonance condition, so this approximation will be self-consistent.
-
-With this, we obtain
+Thus, we obtain
 \begin{equation}
   \langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.
   \label{phiGpsi}
@@ -377,8 +374,7 @@ Combining this with Eq.~\eqref{psiGphi} gives
 \begin{equation*}
   \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \sum_k\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.
 \end{equation*}
-
-Hence, we arrive at the result
+We finally arrive at the result
 \begin{framed}
   \begin{align}
     \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle
@@ -404,40 +400,21 @@ with an energy eigenstate $|\varphi\rangle$ of energy
 \end{equation*}
 We can interpret this as the energy of the quasi-bound state.  The
 first term is the energy of the original bound state, the second term
-is an energy shift coming from the deconfining potential $\hat{V}_1$
-(as expected), and the third term is the self energy.
-
+is a straightforward energy shift coming from the deconfining
+potential $\hat{V}_1$, and the third term is the self energy.
 According to Eq.~\eqref{sigma}, $\Sigma$ arises from the interplay
 between $|\varphi\rangle$ and the free states $\{|\psi_k\rangle\}$.
-We can interpret it like this: the quasi-bound state disturbs the free
-state continuum, and the free states exert a back-reaction that alters
-the energy of the quasi-bound state.
+The quasi-bound state disturbs the free states, which collectively
+exert a back-action that shifts its energy.
 
-But there's an important complication: $\Sigma$ turns out to be
-complex, not real!
-
-What does it mean for an energy to be complex?  If a quantum state has
-energy $\mathcal{E}$, its time dependence goes as $\exp(-i\mathcal{E}
-t/\hbar)$.  Writing $\mathcal{E} = \mathrm{Re}[\mathcal{E}] + i
-\mathrm{Im}[\mathcal{E}]$, the time evolution factor decomposes into
-\begin{equation*}
-  \exp(-i\mathrm{Re}[\mathcal{E}] t/\hbar) \,\exp(\mathrm{Im}[\mathcal{E}] t/\hbar).
-\end{equation*}
-If $\mathrm{Im}[\mathcal{E}] \ne 0$, the norm of the state vector is
-not conserved (as it ought to be for a true energy eigenstate).
-Instead, the norm grows or shrinks with time, and
-$\big|\mathrm{Im}[\mathcal{E}]\big|/\hbar$ is the rate of
-amplification or decay.
-
-We can prove that $\mathrm{Im}[\Sigma] < 0$, implying that the
-quasi-bound state is a decaying state.  To see this, take the
-imaginary part of Eq.~\eqref{sigma}:
+There is an important complication: $\Sigma$ turns out to be complex,
+not real!  From Eq.~\eqref{sigma},
 \begin{align}
   \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}
 \end{align}
 The quantity in the square brackets is a Lorentzian function of
 width $\varepsilon$.  The area under the curve is $\pi$, independent
-of $\varepsilon$, so it has the limiting form
+of $\varepsilon$, so we can use the limiting expression
 \begin{equation}
   \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).
 \end{equation}
@@ -445,33 +422,38 @@ Therefore,
 \begin{equation}
   \mathrm{Im}\big[\Sigma(E)\big]
   = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
-  \; \delta(E-E_k).
+  \; \delta(E-E_k) < 0.
   \label{fermigr1}
 \end{equation}
-From this we see that $\mathrm{Im}[\Sigma] < 0$, as claimed.  The
-value of $\mathrm{Im}[\Sigma(E)]$ receives contributions from every
-free state at the scattering energy $E$, weighted by the overlap
-factor $| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2$.
-
-In Section~\ref{sec:goldenrule}, we will study the decay process in
-further detail, and discuss how to use Eq.~\eqref{fermigr1} in
-practical calculations.
+What does it mean for an energy to be complex?  If a quantum state has
+energy $E$, its time dependence goes as $\exp(-iE t/\hbar)$.  For $E =
+\mathcal{E} + i \Gamma$, the time evolution factor is
+\begin{equation*}
+  e^{-i\mathcal{E} t/\hbar} \, e^{\Gamma t/\hbar}.
+\end{equation*}
+Since $\mathrm{Im}[\Sigma] < 0$, the quasi-bound state is decaying
+exponentially with time.  This matches our description of it as a
+localized state that is \textit{almost} an energy eigenstate, but not
+exactly one---so, after some time, it escapes the scatterer and
+disappears to infinity.
 
 \section{Scattering resonances}
 \label{sec:scattering_resonances}
 
-In Section 1.8, we derived the following relationship between the
-Green's function and the scattering amplitude $f$:
+In Chapter 1, Sec.~1.7, we derived the following relationship between
+the Green's function and the scattering amplitude $f$:
 \begin{equation}
   f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.
 \end{equation}
 Here, $|\mathbf{k}\rangle$ and $|\mathbf{k}'\rangle$ are incident and
 scattered plane wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
 The first term describes the lowest-order scattering process (the
-first Born approximation).  The second term contains all second- and
-higher-order scattering processes.  By inserting resolutions of the
-identity between each $\hat{V}$ and $\hat{G}$ operator in the second
-term, we find that $f$ contains a contribution of the form
+first Born approximation).  The second term contains second- and
+higher-order scattering processes.
+
+By inserting resolutions of the identity between each $\hat{V}$ and
+$\hat{G}$ operator in the second term, we find that $f$ contains a
+contribution of the form
 \begin{equation}
   \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]},
   \label{deltaf}
@@ -481,77 +463,66 @@ where
   E_{\mathrm{res}} \;\equiv\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big] \;\in\; \mathbb{R}.
   \label{Eres}
 \end{equation}
-At resonance, the denominator is small and $\Delta f$ is the dominant
-contribution to $f$.
-
-It is worth noting that $\Delta f$ receives contributions from
-\textit{all} terms in the Born series, not just the low-order terms.
-The high-order terms describe the situations where the particle
-bounces around many times inside the scatterer, before finally
-escaping.
+At resonance, the denominator is small so $\Delta f$ is the dominant
+part of $f$.  It is worth noting that $\Delta f$ contains
+contributions from all terms in the Born series, not just low-order
+terms.
 
 The figure below shows the energy dependence of $\Delta f$, according
 to Eq.~\eqref{deltaf}:
 
 \begin{center}
-  \includegraphics[width=0.7\textwidth]{resonance}  
+  \includegraphics[width=0.69\textwidth]{resonance}  
 \end{center}
 
 \noindent
-The shape of the graph of $|\Delta f|^2$ versus $E$ is a Lorentzian
-curve centered at $E_{\mathrm{res}}$.  The width of the peak can be
+The graph of $|\Delta f|^2$ versus $E$ forms a Lorentzian curve
+centered at $E_{\mathrm{res}}$.  The width of the peak can be
 characterized by the full-width at half-maximum (FWHM), the spacing
 between the two energies where $|\Delta f|^2$ has half its maximum
-value.  It can be shown that
+value, which can be calculated to be
 \begin{equation}
   \delta E^{(\mathrm{FWHM})} = 2\, \big|\mathrm{Im}[\Sigma]\big|.
 \end{equation}
-(Note that $\mathrm{Im}[\Sigma] < 0$, as shown in the previous
-section.)  Hence, the closer $\Sigma$ gets to being real (i.e., the
-smaller the decay rate of the quasi-bound state), the sharper the
-peak.
+(Note: we showed earlier that $\mathrm{Im}[\Sigma] < 0$.)  The smaller
+the decay rate, the sharper the peak.
 
 The phase $\mathrm{arg}[\Delta f]$ also contains useful information.
 As $E$ crosses $E_{\mathrm{res}}$ from below, the phase increases by
-$\pi$.  The energy range over which this phase shift occurs is $\sim
+$\pi$.  The shift also occurs over an energy width of $\sim
 |\mathrm{Im}[\Sigma]|$.
 
-These two signatures---peaks and phase shifts---are sought after in
-numerous real-world scattering experiments.  In actual experiments,
-the peaks and phase shifts are often overlaid on a ``background''
-caused by non-resonant processes.  For example, the plot below was
-released by the CMS experiment at the Large Hadron Collider (LHC),
-showing a resonance peak on a large background.  This was part of the
-evidence for the discovery of a new particle, the Higgs boson, in
-2012.
+These resonant features---peaks and/or phase shifts---are sought after
+in many kinds of real-world scattering experiments.  Often, they are
+overlaid on a ``background'' caused by non-resonant processes.  This
+can be seen, for example, in the plot below from the CMS experiment at
+the Large Hadron Collider (LHC), declaring the experimental
+observation of the Higgs boson in 2012.
 
-\begin{figure}[h]
-  \centering\includegraphics[width=0.46\textwidth]{higgs}
-\end{figure}
+\begin{center}
+  \includegraphics[width=0.4\textwidth]{higgs}
+\end{center}
 
 \section{Fermi's Golden Rule}
 \label{sec:goldenrule}
 
-We have seen that the width of a resonance is determined by
-$\mathrm{Im}[\Sigma]$, the imaginary part of the self energy.  In this
-section, we will show that $\mathrm{Im}[\Sigma]$ represents the decay
-rate of a quasi-bound state, and that it can often be approximated
-using a simple formula called \textbf{Fermi's Golden Rule}.
+In the previous sections, we have seen that the width of a resonance
+is determined by the decay rate of a quasi-bound state, which is given
+by the imaginary part of its self energy.  Now, we will derive a
+simple and powerful formula for approximating it in many
+circumstances, called \textbf{Fermi's Golden Rule}.
 
-Suppose we set the state of a particle to a quasi-bound state
-$|\varphi\rangle$ at time $t = 0$.  Since $|\varphi\rangle$ is not an
-exact eigenstate of the Hamiltonian, the particle will not remain in
-that state for $t > 0$.  Over time, the wavefunction will leak out of
-the potential well, corresponding to the ``decay'' of the quasi-bound
-state into the free state continuum.
-
-The decay process can be described by
+Suppose we initialize the particle, at time $t = 0$, to a quasi-bound
+state $|\varphi\rangle$.  As $|\varphi\rangle$ is not an eigenstate of
+the Hamiltonian, the particle does not remain in that state forever.
+To quantify the ``decay'' of the quasi-bound state, we imagine
+performing a measurement that has $|\varphi\rangle$ as one of its
+eigenstates, at time $t > 0$.  The probability that the particle is
+observed to still be in state $|\varphi\rangle$ is
 \begin{equation}
-  P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2,
+  P(t) = \Big|\langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle\Big|^2.
 \end{equation}
-which is the probability for the system to continue occupying state
-$|\varphi\rangle$ after time $t$.  To calculate $P(t)$, let us define
-the function
+To help us calculate $P(t)$, let us define
 \begin{equation}
   f(t) = \begin{cases} \langle\varphi|\exp\left(-i\hat{H}t/\hbar\right)|\varphi\rangle \,e^{-\varepsilon t}, & t \ge 0 \\ 0, & t < 0,\end{cases}
   \label{fregulated}
@@ -567,7 +538,7 @@ expectation that the bound state should decay permanently into the
 continuum of free states, and should never be repopulated by waves
 ``bouncing back'' from infinity.
 
-We can determine $f(t)$ by first studying its Fourier transform,
+To find $f(t)$, we first take its Fourier transform,
 \begin{equation}
   F(\omega) \;=\; \int_{-\infty}^\infty dt \; e^{i\omega t}\, f(t) \;=\; \int_0^\infty dt \; e^{i(\omega + i\varepsilon) t} \; \langle\varphi|e^{-i\hat{H}t/\hbar}|\varphi\rangle.
 \end{equation}
@@ -584,9 +555,8 @@ contribution from the $t \rightarrow\infty$ limit.  Hence,
   \lim_{\varepsilon \rightarrow 0^+} F(\omega) = i \hbar \, \langle \varphi | \hat{G}(\hbar\omega) | \varphi\rangle,
 \end{equation}
 where $\hat{G}$ is our old friend the causal Green's function (see
-Section 1.7).  The appearance of the causal Green's function, and not
-other regularizations of the Green's function, can be traced to
-Eq.~\eqref{fregulated}, which defined $f(t)$ to be nonzero only for $t
+Chapter 1, Sec.~1.6).  Its appearance can be traced to
+Eq.~\eqref{fregulated}, which defines $f(t)$ to be nonzero only for $t
 \ge 0$.
 
 In Section~\ref{sec:scattering_resonances}, we saw that when the
@@ -595,8 +565,8 @@ system is at or close to resonance,
   \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle \approx \frac{1}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\Sigma]},
 \end{equation}
 where $E_{\mathrm{res}}$ is the resonance energy, and $\Sigma$ is the
-self energy of the quasi-bound state.  Using this approximation, we
-can do the inverse Fourier transform to retrieve $f(t)$:
+self energy of the quasi-bound state.  Using this, we can perform an
+inverse Fourier transform to retrieve $f(t)$:
 \begin{align}
   \begin{aligned} \lim_{\varepsilon\rightarrow 0^+} f(t) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\infty}^{\infty} \frac{d\omega}{2\pi} \; e^{-i\omega t} \, F(\omega) \\
     &\approx \frac{i}{2\pi} \int_{-\infty}^{\infty} d\omega\; \frac{e^{-i\omega t}}{\omega - (E_{\mathrm{res}}+i \mathrm{Im}[\Sigma])/\hbar} \\
@@ -613,32 +583,30 @@ E_{\mathrm{res}}$.  Thus,
 The quasi-bound state decays exponentially, with a decay rate
 proportional to $|\mathrm{Im}[\Sigma]|$.
 
-\clearpage
-In Section~\ref{sec:self_energy}, we derived an expression for
-$\mathrm{Im}[\Sigma]$, Eq.~\eqref{fermigr1}, which is reproduced here
-for convenience:
+We previously derived a formula for $\mathrm{Im}[\Sigma]$,
+Eq.~\eqref{fermigr1}, reproduced here for convenience:
 \begin{equation}
   \mathrm{Im}\big[\Sigma(E)\big]
   = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
   \; \delta(E-E_k).
   \label{fermigr1a}
 \end{equation}
-Due to the delta function, non-vanishing contributions come only from
-values of $k$ such that $E = E_k$.  We can use this to further
-simplify the result.  Consider the $\big| \langle\psi_k|
-\hat{V}_1|\varphi\rangle\big|^2$ factor in Eq.~\eqref{fermigr1a}.  It
-is $k$-dependent, but we can let
+In the sum over $k$, each term is a non-negative real number
+consisting of two factors: (i) a $k$-dependent ``weight'' $|
+\langle\psi_k| \hat{V}_1|\varphi\rangle|^2$, and (ii) a delta
+function, which vanishes unless $E_k = E$.  Because only a subset of
+the free states are relevant to the sum, it is convenient to define
 \begin{equation*}
-  \overline{\big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\big|^2}
+  \overline{\big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\big|^2},
 \end{equation*}
-denote its average value over the values of $k$ for which $E = E_k$.
-Then we can approximate Eq.~\eqref{fermigr1a} by pulling that term out
-of the sum:
+which is the average weight over the participating free states (i.e.,
+those with $E = E_k$).  Then we can approximate Eq.~\eqref{fermigr1a}
+by pulling the weights out of the sum:
 \begin{equation}
   \mathrm{Im}\big[\Sigma(E)\big]
   \approx - \pi \;
   \overline{\big| \langle\psi_{k(E)}| \hat{V}_1|\varphi\rangle\big|^2}
-  \; \left( \sum_k \; \delta(E-E_k) \right).
+  \; \sum_k \; \delta(E-E_k).
   \label{fermigr2}
 \end{equation}
 This allows us to write the decay rate in Eq.~\eqref{Ptresult} as
@@ -646,63 +614,74 @@ This allows us to write the decay rate in Eq.~\eqref{Ptresult} as
   \begin{equation}
     \kappa
     \,\approx\, \frac{2\pi}{\hbar} \;
-    \overline{\big|W_{k(E_\mathrm{res})}\big|^2} \; \rho(E_{\mathrm{res}}),
+    \overline{\big|W\big|^2} \; \rho(E_{\mathrm{res}}),
     \quad \mathrm{where} \quad \left\{
     \begin{aligned}
-      W_{k} &= \langle\psi_{k}| \hat{V}_1|\varphi\rangle \\
+      W &= \langle\psi_{k}| \hat{V}_1|\varphi\rangle \\
       \rho(E) &= \sum_k \; \delta(E-E_k).
     \end{aligned}\right.
     \label{FGR}
   \end{equation}
 \end{framed}
-
+\vskip -0.1in
+\noindent
 This result is called \textbf{Fermi's golden rule}.  It states that
 the decay rate of a quasi-bound state is determined by the product of
-two quantities.  The first, $\overline{|W_k|^2}$, characterizes the
-coupling between the quasi-bound state and the free states.  It
-obtained by taking the absolute square of the \textbf{transition
-  amplitude} $\langle\psi_{k}| \hat{V}_1|\varphi\rangle$, and
-averaging over those free states meeting the resonance condition $E_k
-= E_{\mathrm{res}}$.  The second factor, $\rho(E_{\mathrm{res}})$, is
-the number of free states per unit energy at energy
-$E_{\mathrm{res}}$; the more free states, the faster the decay.
+two real factors:
 
-Often, each these two factors is estimated using further
-approximations.  One very common trick for estimating $\rho(E)$ is to
-treat the free states as plane waves.  In this approximation, the $k$
-labels are $d$-dimensional wave-vectors, and we treat $k$-space as a
-continuum, following the procedure discussed in Section 1.2, by
-introducing a $k$-space discretization $dk = 2\pi/L$, where $L$ is the
-system size in each direction.  Then the $\rho(E)$ factor in
-Eq.~\eqref{FGR} can be replaced with the \textbf{density of states}
-\begin{equation}
-  \mathcal{D}(E) = \int \frac{d^d k}{(2\pi)^d} \; \delta(E - E_k),
-\end{equation}
-which counts the number of free states with energy $E$ per unit energy
-and per unit volume.
+\begin{itemize}
+\item
+  $\overline{|W|^2}$, which is obtained by taking the absolute square
+  of the \textbf{transition amplitude} $\langle\psi_{k}|
+  \hat{V}_1|\varphi\rangle$, and averaging over available free states
+  (i.e., the free states meeting the resonance condition $E_k =
+  E_{\mathrm{res}}$).  This characterizes how strongly the quasi-bound
+  state couples, on average, to the available free states.
 
-But notice that $\mathcal{D}(E)$ doesn't have the same units as
-$\rho(E)$!  When converting the sum to an integral, there is a factor
-of $\left[d^dk/(2\pi)^d\right]^{-1} = L^{d}$ left over.  This can be
-grouped with $\overline{|W_k|^2}$ in the Fermi's golden rule formula.
-At the same time, we have to re-normalize the free states in the
-definition of $W_k$, via the usual delta normalization convention
-(Section 1.2):
-\begin{equation}
+\item
+  $\rho(E_{\mathrm{res}})$, which is the number of free states per
+  unit energy at energy $E_{\mathrm{res}}$.  This says that the decay
+  rate is proportional to the number of available free states.
+\end{itemize}
+\vskip -0.1in
+\noindent
+Typically, these two factors are estimated by making further
+approximations.
+
+One very common approximation is to treat the free states as plane
+waves.  In this case, we take the $k$ labels to be $d$-dimensional
+wave-vectors.  As the wave-vectors are continuous, we convert the sum
+over $k$ into an integral in the usual way, by defining the
+discretization step $dk = 2\pi/L$ where $L \rightarrow \infty$ (see
+Chapter 1, Sec.~1.2):
+\begin{align}
+  \rho(E) &= \sum_k \delta(E-E_k) \nonumber \\
+  &= L^d \underbrace{\int \frac{d^d k}{(2\pi)^d} \; \delta(E - E_k).}_{\equiv \displaystyle \mathcal{D}(E)} \label{densityofstates}
+\end{align}
+The \textbf{density of states} $\mathcal{D}(E)$ counts the number of
+free states of energy $E$, per unit energy and per unit volume.  Note
+that it has different dimensions from $\rho(E)$.  We also need to
+re-normalize the transition amplitude, via the usual
+delta-normalization convention:
+\begin{align}
   |\psi_k\rangle^{(\textrm{new})}
-  = \left(\frac{L}{2\pi}\right)^{d/2} |\psi_{k}\rangle^{(\textrm{old})}.
-\end{equation}
-Once the dust settles, we arrive at the following re-statement of
-Fermi's golden rule in terms of plane wave states:
+  &= \left(\frac{L}{2\pi}\right)^{d/2} |\psi_{k}\rangle^{(\textrm{old})} \\
+  \Rightarrow \;\;\;
+  \langle\psi_{k}| \hat{V}_1|\varphi\rangle^{(\textrm{old})}
+  &= \left(\frac{2\pi}{L}\right)^{d/2} \langle\psi_{k}| \hat{V}_1|\varphi\rangle^{(\textrm{new})}.
+  \label{psiknew}
+\end{align}
+Plugging Eq.~\eqref{densityofstates} and \eqref{psiknew} into
+\eqref{FGR}, we can re-state Fermi's golden rule as
 \begin{framed}
   \begin{equation}
     \kappa
     \,\approx\, \frac{2\pi}{\hbar} \;
-    \overline{\big|\mathcal{W}_{k(E_\mathrm{res})}\big|^2} \;
+    \overline{\big|\mathcal{W}\big|^2} \;
     \mathcal{D}(E_{\mathrm{res}}),
     \quad \mathrm{where} \quad \left\{
     \begin{aligned}
-      \mathcal{W}_k
+      \mathcal{W}
       &= (2\pi)^{d/2} \;
       \langle\psi_{k}| \hat{V}_1|\varphi\rangle \\
       \mathcal{D}(E) &= \int \frac{d^dk}{(2\pi)^d} \; \delta(E-E_k).
@@ -710,6 +689,13 @@ Fermi's golden rule in terms of plane wave states:
     \label{FGR2}
   \end{equation}
 \end{framed}
+\vskip -0.1in
+\noindent
+Here, $\overline{\big|\mathcal{W}\big|^2}$ is averaged over all plane
+waves satisfying the resonance condition $E_k = E$.  Note that the $L$
+factors in Eq.~\eqref{densityofstates} and \eqref{psiknew} do not
+appear in the result \eqref{FGR2}, as they have cancelled each other
+out.
 
 \section{Fermi's golden rule in a 1D model}
 \label{sec:fgr1d}
@@ -742,11 +728,10 @@ By matching $\varphi(x)$ and $d\varphi/dx$ across the $x=a$ interface,
 we can derive $E_0$, $\mathcal{A}$, and $\mathcal{B}$.  The details
 are left as an \hyperref[ex:1dfgr]{exercise}.
 
-Once we have obtained $\varphi(x)$, we want to use it to find the
-transition amplitude $\langle\psi_k|\hat{V}_1|\varphi\rangle$, where
-$\psi_k(x)$ is a representative free eigenstate of $V_0(x)$ that the
-quasi-bound state decays to.  We can estimate this with a series of
-tricks.  First,
+Having obtained $\varphi(x)$, we want the transition amplitude
+$\langle\psi_k|\hat{V}_1|\varphi\rangle$, where $\psi_k(x)$ is a
+representative free eigenstate of $V_0(x)$ that the quasi-bound state
+decays to.  We can estimate this with a series of tricks.  First,
 \begin{equation}
   \langle\psi_k|\hat{V}_1|\varphi\rangle \,=\, \int_{-\infty}^\infty dx \, \psi_k^*(x)\, V_1(x)\, \varphi(x) \,=\, V_b \int_{-b}^b dx \; \psi_k^*(x) \,\varphi(x).
 \end{equation}
@@ -766,13 +751,13 @@ probability, so
   \left| \int_{b}^\infty dx \, \psi_k^*(x)\, \varphi(x)\right|^2.
   \label{overlapintegral}
 \end{equation}
-Outside the scatterer ($x > b$), the escaping free state can be
-approximated as an outgoing plane wave, with the delta-normalized form
+Outside the scatterer, the escaping free state is approximately an
+outgoing plane wave,
 \begin{equation}
   \psi_k(x) \,\approx\, \frac{e^{ikx}}{\sqrt{2\pi}},
   \label{psikx}
 \end{equation}
-where $k$ is chosen such that
+where
 \begin{equation}
   E_k = E_{\mathrm{res}} \approx E_0 + V_b \;\;\;\Rightarrow \;\;\; k \approx \sqrt{\frac{2m}{\hbar^2}(E_0+V_b)}.
 \end{equation}
@@ -800,32 +785,31 @@ each $E$, both positive and negative $k$ contribute to the density of
 states.
 
 We can now plug Eqs.~\eqref{overlap1d} and \eqref{dos1d} into Fermi's
-golden rule, Eq.~\eqref{FGR2}.  In the figure below, the orange curve
-shows how the resulting decay rate, $\kappa$, varies with the barrier
-thickness $b-a$, with the other model parameters fixed at $U = 6$,
-$V_b = 30$, and $a = 1$:
+golden rule, Eq.~\eqref{FGR2}.  The figure below shows results for $U
+= 6$, $V_b = 30$, and $a = 1$, with computational units $\hbar = m =
+1$.  The orange curve shows how $\kappa$, the decay rate from Fermi's
+golden rule, varies with the barrier thickness $b-a$.  For comparison,
+the blue dots show the values of $\kappa$ derived from the resonant
+scattering peak (see Section~\ref{sec:scattering_resonances}), by
+computing the transmittance using the transfer matrix method (see
+\textbf{Appendix B}) and numerically extracting the peak width.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.8\textwidth]{goldenrule}
 \end{figure}
 
 \noindent
-For comparison, the blue dots show the values of $\kappa$ derived from
-the resonant scattering peak (see
-Section~\ref{sec:scattering_resonances}), by computing the
-transmittance using the transfer matrix method (see \textbf{Appendix
-  B}) and numerically extracting the peak width.
-
 The agreement is pretty good, especially considering the numerous
-approximations leading to the derivation of Fermi's golden rule!
+approximations leading to the derivation of Fermi's golden rule!  The
+behavior also matches our intuition: when the barrier thickness is
+large, the quasi-bound state should indeed decay more slowly.
 
-In this simple 1D example, the scattering peaks could be calculated
-numerically without too much difficulty, so Fermi's golden rule was
-not actually very useful.  However, there are more complex scenarios
-where obtaining the scattering peaks directly is very difficult (e.g.,
-higher-dimensional systems with non-perturbative scattering
-potentials).  In such cases, Fermi's golden rule provides a tractable
-and accurate estimate for the decay rates of quasi-bound states.
+In this simple 1D example, Fermi's golden rule is not especially
+useful since the scattering problem can be solved easily (see Appendix
+B).  However, in higher dimensions, nonperturbative scattering
+problems are typically much less tractable.  In such cases, Fermi's
+golden rule provides a very convenient way to estimate the widths of
+resonance peaks.
 
 \section*{Exercises}
 
