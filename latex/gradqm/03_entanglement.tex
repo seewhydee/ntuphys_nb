@@ -348,99 +348,116 @@ never mind; just read on.)
 \section{Partial measurements}
 \label{sec:partialmeasurements}
 
-Let us recall how measurements work in single-particle quantum theory.
-Each observable $Q$ is described by some Hermitian operator $\hat{Q}$,
-which has an eigenbasis $\{|q_i\rangle\}$ such that
+Let us recall how measurements work in basic quantum theory.  Each
+observable $Q$ is described by some Hermitian operator $\hat{Q}$,
+which has an eigenbasis $\{|q\rangle\}$ such that
 \begin{equation}
-  \hat{Q}|q_i\rangle = q_i |q_i\rangle.
+  \hat{Q}|q\rangle = q |q\rangle.
 \end{equation}
-For simplicity, let the eigenvalues $\{q_i\}$ be non-degenerate.
-Suppose a particle initially has quantum state $|\psi\rangle$.  This
-can always be expanded in terms of the eigenbasis of $\hat{Q}$:
+For simplicity, let the eigenvalues $\{q\}$ be non-degenerate.
+Suppose a system initially has quantum state $|\psi\rangle$.  This can
+always be expanded in terms of the eigenbasis of $\hat{Q}$:
 \begin{equation}
-  |\psi\rangle = \sum_i \psi_i\, |q_i\rangle, \;\;\mathrm{where}\;\;\,\textrm{and}\;\, \psi_i = \langle q_i|\psi\rangle.
+  |\psi\rangle = \sum_q |q\rangle \psi_q, \;\;\mathrm{where}\;\, \psi_q = \langle q|\psi\rangle.
+  \label{psiexpansion}
 \end{equation}
-The \textbf{measurement postulate of quantum mechanics} states that if
-we measure $Q$, then (i) the probability of obtaining the measurement
-outcome $q_i$ is $P_i = |\psi_i|^2$, the absolute square of the
-coefficient of $|q_i\rangle$ in the basis expansion; and (ii) upon
-obtaining this outcome, the system instantly ``collapses'' into state
-$|q_i\rangle$.
+The measurement postulate of quantum mechanics states that if we
+measure $Q$, then (i) the probability of obtaining each possible
+outcome $q$ is
+\begin{equation}
+  P(q) = |\psi_q|^2,
+  \label{Pq}
+\end{equation}
+and (ii) upon obtaining this outcome, the system instantly
+collapses into state $|q\rangle$.
 
 Mathematically, these two rules can be summarized using the projection
 operator
 \begin{equation}
-  \hat{\Pi}(q_i) = |q_i\rangle\langle q_i|.
+  \hat{\Pi}(q) = |q\rangle\langle q|.
+  \label{project}
 \end{equation}
 Applying this operator to $|\psi\rangle$ gives the non-normalized
 state vector
 \begin{equation}
-  |\psi'\rangle = |q_i\rangle \langle q_i|\psi\rangle.
+  |\psi'\rangle = \hat{\Pi}(q) |\psi\rangle = |q\rangle \langle q|\psi\rangle.
 \end{equation}
 From this, we glean two pieces of information:
 \begin{itemize}
 \item The probability of obtaining this outcome is
-  $\langle\psi'|\psi'\rangle = |\langle q_i|\psi\rangle|^2$.
+  $P(q) = \langle\psi'|\psi'\rangle = |\langle q|\psi\rangle|^2$.
 
-\item The post-collapse state is obtained by the re-normalization
-  $|\psi'\rangle \rightarrow |q_i\rangle$.
+\item The post-measurement state is given by renormalizing
+  $|\psi'\rangle$ to $|q\rangle$.
 \end{itemize}
 
-For multi-particle systems, there is a new complication: what if a
-measurement is performed on just one particle?
+For combined systems (e.g., systems of multiple particles), there is a
+new complication: \textit{what if a measurement is performed on just
+  one subsystem}?
 
-Consider a system of two particles A and B, with two-particle Hilbert
-space $\mathscr{H}_A \otimes \mathscr{H}_B$.  We perform a measurement
-on particle $A$, corresponding to a Hermitian operator $\hat{Q}_A$
-that acts upon $\mathscr{H}_A$ and has eigenvectors $\{|\mu\rangle\;
-|\; \mu = 1, 2, \dots\}$ (i.e., the eigenvectors are enumerated by
-some index $\mu$).  We can write any state $|\psi\rangle$ using the
-eigenbasis of $\hat{Q}_A$ for the $\mathscr{H}_A$ part, and an
-arbitrary basis $\{|\nu\rangle\}$ for the $\mathscr{H}_B$ part:
+Suppose once again that we have two subsystems $A$ and $B$, with
+combined Hillbert space $\mathscr{H}_A \otimes \mathscr{H}_B$.  We
+perform a measurement on $A$, corresponding to a Hermitian operator
+acting upon $\mathscr{H}_A$ whose eigenstates are
+\begin{equation*}
+  \big\{\;|\alpha\rangle\; \big\}, \quad
+  \mathrm{where}~\alpha = 1, 2, \dots
+\end{equation*}
+To form a basis for $\mathscr{H}_A \otimes \mathscr{H}_B$, let us take
+tensor products of these $A$ eigenstates with an arbitrary basis for
+$B$, denoted by $\{|\beta\rangle\}$.  Any state $|\psi\rangle \in
+\mathscr{H}_A \otimes \mathscr{H}_B$ can be expressed as
 \begin{align}
-  \begin{aligned}
-    |\psi\rangle &= \sum_{\mu\nu}
-    \psi_{\mu\nu}\, |\mu\rangle |\nu\rangle \\
-    &= \sum_\mu |\mu\rangle |\varphi_\mu \rangle,
-    \;\;\;\mathrm{where}\;\;\;
-    |\varphi_\mu\rangle\equiv \sum_\nu \psi_{\mu\nu}\,|\nu\rangle
-    \;\in\; \mathscr{H}_B.
-  \end{aligned}
+  |\psi\rangle &= \sum_{\alpha\beta}
+  \psi_{\alpha\beta}\, |\alpha\rangle |\beta\rangle \\
+  &= \sum_\alpha |\alpha\rangle \underbrace{\left( \sum_\beta \psi_{\alpha\beta}\,|\beta\rangle\right)}_{\displaystyle \equiv |\varphi_\alpha\rangle}.
   \label{psi_twop}
 \end{align}
-Unlike the single-particle case, the ``coefficient'' of
-$|\mu_i\rangle$ in this basis expansion is not a complex number, but a
-vector in $\mathscr{H}_B$.
+Note that the vector $|\varphi_\alpha\rangle$ defined in
+Eq.~\eqref{psi_twop} lies in $\mathscr{H}_B$; its $\alpha$ subscript
+emphasizes that it depends on $\alpha$.
 
-Proceeding by analogy, the probability of obtaining the outcome
-labelled by $\mu$ should be the ``absolute square'' of this
-``coefficient'', $\langle\varphi_\mu|\varphi_\mu\rangle$.  Let us
-define the partial projector
+Let us compare Eq.~\eqref{psi_twop} with Eq.~\eqref{psiexpansion}.
+Evidently, the $|\varphi_\alpha\rangle$ in \eqref{psi_twop} plays a
+role similar to $\psi_q$ in \eqref{psiexpansion} (though the former is
+a vector and the latter is a scalar).  Proceeding by analogy with
+Eq.~\eqref{Pq}, the probability for each measurement outcome $\alpha$
+should be
 \begin{equation}
-  \hat{\Pi}(\mu) \,=\, |\mu\rangle\langle \mu| \otimes  \hat{I}.
+  P(\alpha) = \langle\varphi_\alpha|\varphi_\alpha\rangle
+  = \sum_\beta |\psi_{\alpha\beta}|^2.
+  \label{Palpha0}
 \end{equation}
-The $A$ slot of this operator contains a projector,
-$|\mu\rangle\langle \mu|$, while the $B$ slot leaves the
-$\mathscr{H}_B$ part of the two-particle space unchanged.  Applying
-the partial projector to the state given in Eq.~\eqref{psi_twop} gives
+
+We can make the analogy clearer.  Previously, we saw how each
+measurement outcome can be associated with a projection operator,
+Eq.~\eqref{project}.  For a partial measurement, let us define the
+\textbf{partial projector}
 \begin{equation}
-  |\psi'\rangle \,=\, \hat{\Pi}(\mu)\, |\psi\rangle
-  \,=\, |\mu\rangle |\varphi_\mu\rangle.
+  \hat{\Pi}(\alpha) \,=\, |\alpha\rangle\langle \alpha| \otimes  \hat{I}.
 \end{equation}
-Now we follow the same measurement rules as before.  The outcome
-probability is
+The $A$ slot contains the projection operator associated with the
+measurement outcome $\alpha$, while the $B$ slot contains the identity
+operator for $\mathscr{H}_B$ (as no measurement is done on $B$).
+Applying this to Eq.~\eqref{psi_twop} gives
 \begin{equation}
-  P_\mu = \langle\psi'|\psi'\rangle
-  = \langle \mu|\mu\rangle\, \langle \varphi_\mu|\varphi_\mu\rangle
-  = \sum_\nu |\psi_{\mu\nu}|^2.
+  |\psi'\rangle \,=\, \hat{\Pi}(\alpha)\, |\psi\rangle
+  \,=\, |\alpha\rangle |\varphi_\alpha\rangle.
 \end{equation}
-The post-measurement collapsed state is obtained by the
-re-normalization
+Then, following the same rules as before, the probability of this
+outcome is
 \begin{equation}
-  |\psi'\rangle
-  \;\;\rightarrow\;\;
-  \frac{1}{\sqrt{\sum_{\nu'} |\psi_{\mu\nu'}|^2}}\;
-  \sum_{\nu} \psi_{\mu\nu} |\mu\rangle |\nu\rangle.
+  P(\alpha) = \langle\psi'|\psi'\rangle
+  = \langle \alpha|\alpha\rangle\, \langle \varphi_\alpha|\varphi_\alpha\rangle
+  = \sum_\beta |\psi_{\alpha\beta}|^2,
+\end{equation}
+in agreement with Eq.~\eqref{Palpha0}.  The post-measurement state is
+obtained by re-normalizing $|\psi'\rangle$:
+\begin{equation}
+  \frac{1}{\sqrt{\langle\psi'|\psi'\rangle}} |\psi'\rangle
+  =
+  \frac{1}{\sqrt{\sum_{\beta'} |\psi_{\alpha\beta'}|^2}}\;
+  \sum_{\beta} \psi_{\alpha\beta} |\alpha\rangle |\beta\rangle.
 \end{equation}
 
 \begin{framed}
@@ -448,123 +465,119 @@ re-normalization
 \textit{Example}---A system of two spin-$1/2$ particles is in
 the ``singlet state''
 \begin{equation}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).
 \end{equation}
-For each particle, $|\!+\!z\,\rangle$ and $|\!-\!z\,\rangle$ denote
-eigenstates of the operator $\hat{S}_z$, with eigenvalues $+\hbar/2$
-and $-\hbar/2$ respectively.  Suppose we measure $S_z$ on particle A.
-What are the probabilities of the possible outcomes, and the
-associated post-collapse states?
+As usual, $|\!\uparrow\rangle$ and $|\!\downarrow\rangle$ are the
+eigenstates of the spin operator $\hat{S}_z$, corresponding to the
+eigenvalues $+\hbar/2$ and $-\hbar/2$ respectively.
+
+If we measure $S_z$ on $A$, what is the probability of each outcome,
+and the post-measurement state?
 
 \begin{itemize}
 \item \textbf{First outcome: $+\hbar/2$}.
   \begin{itemize}
-  \item The partial projector is $|\!+\!z\rangle\langle+z| \otimes \hat{I}$.
-  \item Applying the projection to $|\psi\rangle$ yields
-    $|\psi'\rangle = (1/\sqrt{2})\,|\!+\!z\rangle|\!-\!z\rangle$.
+  \item The projected state is $\displaystyle |\psi'\rangle = \left(|\!\uparrow\rangle\langle\uparrow| \otimes \hat{I}\right)|\psi\rangle = 
+    \frac{1}{\sqrt{2}}\,|\!\uparrow\rangle|\!\downarrow\rangle$.
   \item The outcome probability is $\displaystyle
-    P_+ = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
-  \item The post-collapse state is $\displaystyle
-    \frac{1}{\sqrt{P_+}} |\psi'\rangle = |\!+\!z\rangle |\!-\!z\rangle$
+    P(+) = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
+  \item The post-collapse state is $\displaystyle |\!\uparrow\rangle |\!\downarrow\rangle$
   \end{itemize}
 
 \item \textbf{Second outcome: $-\hbar/2$}.
   \begin{itemize}
-  \item The partial projector is $|\!-\!z\rangle\langle-z| \otimes
-    \hat{I}$.
-  \item Applying the projection to $|\psi\rangle$ yields
-    $|\psi'\rangle = (1/\sqrt{2})\,|\!-\!z\rangle|\!+\!z\rangle$.
-  \item The outcome probability is $\displaystyle P_- = \langle \psi'|\psi'\rangle =
+  \item The projected state is $\displaystyle |\psi'\rangle = \left(|\!\downarrow\rangle\langle\downarrow| \otimes \hat{I}\right)|\psi\rangle = 
+    -\frac{1}{\sqrt{2}}\,|\!\downarrow\rangle|\!\uparrow\rangle$.
+  \item The outcome probability is $\displaystyle P(-) = \langle \psi'|\psi'\rangle =
     \frac{1}{2}$.
-  \item The post-collapse state is $\displaystyle = \frac{1}{\sqrt{P_-}} |\psi'\rangle
-    = |\!-\!z\rangle |\!+\!z\rangle$.
+  \item The post-collapse state is $\displaystyle |\!\downarrow\rangle |\!\uparrow\rangle$.
   \end{itemize}
 \end{itemize}
-The two possible outcomes, $+\hbar/2$ and $-\hbar/2$, occur with equal
-probability.  In either case, the two-particle state collapses so that
-$A$ is in the observed spin eigenstate, and $B$ has the opposite spin.
-After the collapse, the two-particle state is no longer entangled.
+In other words, the two possible outcomes are equally probable, and
+either way the state collapses so that $A$ and $B$ have opposite
+spins.  After the measurement, note that $A$ and $B$ are no longer
+entangled.
 \end{framed}
 
 \section{The Einstein-Podolsky-Rosen ``paradox''}
 
 In 1935, Einstein, Podolsky, and Rosen (EPR) formulated a thought
-experiment, now known as the \textbf{EPR paradox}, that highlights the
+experiment, now called the \textbf{EPR paradox}, highlighting the
 counter-intuitive features of quantum entanglement [\ref{cite:epr}].
-They tried to use this thought experiment to argue that quantum theory
-cannot serve as a fundamental description of reality.  Subsequently,
-however, it was shown that the EPR paradox is not an actual paradox;
-physical systems \textit{really do} have the strange behavior that the
-thought experiment highlighted.
+They intended for this to show that quantum theory cannot be a
+fundamental description of reality.  Subsequently, it was shown that
+the EPR paradox is not an actual paradox---physical systems
+\textit{really do} behave like the thought experiment!  Nowadays, the
+EPR ``paradox'' is regarded as an important tool for thinking about
+quantum entanglement.
 
-Consider an entangled state, like the following ``singlet state'' of
-two spin-$1/2$ particles:
+Consider, once again, the singlet state of two spin-$1/2$ particles,
+$A$ and $B$ (which occupy the left and right slots of the tensor
+product, respectively):
 \begin{equation}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).
   \label{eprsinglet}
 \end{equation}
-As before, let the two particles be labeled $A$ and $B$.  Measuring
-$S_z$ on $A$ collapses the system into a two-particle state that is
-unentangled, where each particle has a definite spin.  If the
-measurement outcome is $+\hbar/2$, the new state is $|\!+\!z\rangle
-|\!-\!z\rangle$, whereas if the outcome is $-\hbar/2$, the new state
-is $|\!-\!z\rangle|\!+\!z\rangle$.
+As we saw in the previous section, measuring $S_z$ on $A$ leads to two
+equally probable outcomes.  If the result is $+\hbar/2$, the
+post-measurement state is $|\!\uparrow\rangle |\!\downarrow\rangle$,
+and if the result is $-\hbar/2$, the post-measurement state is
+$|\!\downarrow\rangle|\!\uparrow\rangle$.
 
-The postulates of quantum theory seem to indicate that the state
-collapse happens instantaneously, regardless of the distance
-separating the particles.  Imagine that we prepare the two-particle
-state in a laboratory on Earth.  Particle $A$ is then transported to
-the laboratory of Alice, in the Alpha Centauri star system, and
-particle $B$ is transported to the laboratory of Bob, in the
-Betelgeuse system, separated by $\sim 640$ light years.  In principle,
-this can be done carefully enough to avoid disturbing the two-particle
-quantum state.
+The postulates of quantum theory indicate that the state collapse is
+instantaneous.  So we can imagine preparing the two-particle state in
+a laboratory on Earth, and transporting particle $A$ to Alice in the
+Alpha Centauri star system, and particle $B$ to Bob in the Betelgeuse
+system, many light years away:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.75\textwidth]{epr}
+  \centering\includegraphics[width=0.7\textwidth]{epr}
 \end{figure}
 
-Once ready, Alice measures $\hat{S}_z$ on particle $A$, which induces
-an instantaneous collapse of the two-particle state.  Immediately
-afterwards, Bob measures $\hat{S}_z$ on particle $B$, and
-obtains---with 100\% certainty---the opposite spin.  During the time
-interval between these two measurements, no classical signal could
-have traveled between the two star systems, not even at the speed of
-light.  Yet the state collapse induced by Alice's measurement has a
-definite effect on the result of Bob's measurement.
+\noindent
+In principle, this can be done carefully enough to avoid disturbing
+the two-particle state.
 
-There are a couple of noteworthy aspects of this phenomenon:
+Once ready, Alice measures $\hat{S}_z$ on $A$, inducing an
+instantaneous collapse of the two-particle state.  Immediately
+afterwards, Bob measures $\hat{S}_z$ on $B$, and obtains---with 100\%
+probability---the result opposite to whatever Alice got.
 
-First, it dispels some commonsensical but mistaken ``explanations''
-for quantum state collapse in terms of perturbative effects.  For
+During the time interval between these two measurements, no classical
+signal could have traveled between the two star systems, not even at
+the speed of light.  Yet the state collapse induced by Alice's
+measurement affects the result of Bob's measurement!
+
+One noteworthy aspect of this thought experiment is that it dispels
+some commonsensical but mistaken explanations for state collapse.  For
 instance, it is sometimes claimed that if we want to measure a
 particle's position, we need to shine a light beam on it, or disturb
 it in some way, and this disturbance generates an uncertainty in the
 particle's momentum.  The EPR paradox shows that such stories don't
-capture the full weirdness of quantum state collapse: we can collapse
-the state by doing a measurement on \textit{another} particle far
-away!
+capture the weirdness of state collapse: quantum mechanics allows us
+to collapse a particle's state without interacting directly with it,
+but by performing a measurement on another particle far away.
 
-Second, our experimentalists can exert control over how precisely the
-state collapses, by choosing what measurements to perform.  For
-instance, if Alice (who goes first) measures $S_x$ rather than $S_z$,
-the singlet state \eqref{eprsinglet} collapses to
+Something else worth noting is that our experimentalists can exert a
+degree of control over the state collapse, by their choice of what
+measurements to perform.  For instance, if Alice measures $S_x$
+(rather than $S_z$), the two-particle state collapses to something
+like:
 \begin{align*}
-  |\!+\!x\rangle \otimes |\cdots\rangle &\qquad(\textrm{if Alice got $+\hbar/2$}) \\
-  |\!-\!x\rangle \otimes |\cdots\rangle &\qquad(\textrm{if Alice got $-\hbar/2$}),
+  |\!\rightarrow\rangle \otimes |\cdots\rangle &\qquad(\textrm{if Alice got $+\hbar/2$}) \\
+  |\!\leftarrow\rangle \otimes |\cdots\rangle &\qquad(\textrm{if Alice got $-\hbar/2$}),
 \end{align*}
-different from the collapsed states for the $S_z$ case.  Could Bob use
-this to determine Alice's choice of measurement axis?  If so, this
-would be a way to instantaenously transmit messages from Alice to Bob,
-violating the theory of relativity!
+which are different from the previous post-measurement states.  Could
+this allow Bob to determine Alice's choice of measurement axis?  If
+so, this would be a way to instantaenously transmit messages from
+Alice to Bob, violating the theory of relativity!
 
-Upon closer inspection, however, it turns out that the choice of
-measurement axis does \textit{not} allow information to be
-transmitted.  The key point is that quantum states themselves cannot
-be measured; only observables can be measured.  By calculating the
-various measurement probabilities from the singlet state
-\eqref{eprsinglet}, we can prove the following (see
-\hyperref[ex:singletproperties]{Exercise 1}):
+Upon closer inspection, it turns out that controlling measurement axis
+does \textit{not} allow Alice and Bob to communicate.  The key point
+is that quantum states themselves cannot be measured; only observables
+are measured.  By calculating the various measurement probabilities
+from the singlet state \eqref{eprsinglet}, we can prove the following
+(see \hyperref[ex:singletproperties]{Exercise 1}):
 
 \begin{itemize}
 \item
@@ -575,47 +588,48 @@ various measurement probabilities from the singlet state
 \item If $n = n'$, Alice and Bob always get opposite results (similar
   to the $S_z$ case).
 \end{itemize}
-No matter what Alice does, Bob always measures the two possible
-outcomes with 50/50 probability, so he cannot extract any information
-from the quantum state collapse.
 
-Since the quantum thought experiment does not support superluminal
-communication, it is consistent \textit{in practice} with the theory
-of relativity.  However, EPR argued that it violates the
-\textit{spirit} of relativity, since the quantum state collapse is
-nonlocal and instantaneous.
+Since Bob always has equal probability to get either measurement
+outcome, he cannot extract any information from Alice's collapse of
+the two-particle state.  This implies that the thought experiment is
+consistent \textit{in practice} with the theory of relativity.
+Nonetheless, EPR argued that the instantaneous state collapse violates
+the \textit{spirit} of relativity.
 
 EPR suggested an alternative: maybe quantum mechanics is an
 approximation of some deeper theory, whose details are currently
 unknown, but which is deterministic and local.  Such a
-``\textbf{hidden variable theory}'' may give the appearance of quantum
-state collapse in the following way.  Suppose each particle has a
-definite but ``hidden'' value of $S_z$, either $S_z = +\hbar/2$ or
-$S_z = -\hbar/2$; let us denote these as $+$ or $-$.  We can
-hypothesize that the two-particle quantum state $|\psi\rangle$ is not
-an actual description of reality; rather, it corresponds to a
+\textbf{hidden-variable theory} may give the appearance of quantum
+state collapse in the following way:
+
+Suppose, contrary to quantum theory, that each particle has a definite
+value of $S_z$, i.e., $S_z = +\hbar/2$ or $-\hbar/2$.  For simplicity,
+let us denote these options as $+$ or $-$.  Let us hypothesize that
+the two-particle quantum state $|\psi\rangle$ is not an actual
+description of reality, but instead corresponds to a
 \textit{statistical} distribution of ``hidden variable'' states,
-denoted by $\hvbox[+]{-}$ (i.e., $S_z = +\hbar/2$ for particle $A$ and
-$S_z = -\hbar/2$ for particle $B$), and $\hvbox[-]{+}$ (the other way
-around).
+denoted by $\hvbox[+]{-}$ (i.e., $S_z = +\hbar/2$ for $A$ and $S_z =
+-\hbar/2$ for $B$), or $\hvbox[-]{+}$ (vice versa).
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.75\textwidth]{hiddenvariables}
 \end{figure}
 
-When Alice measures $S_z$, the value of the hidden variable is
-revealed.  A result of $+z$ implies $\hvbox[+]{-}$, whereas $-z$
-implies $\hvbox[-]{+}$.  When Bob subsequently measures $S_z$, his
-result is the opposite of Alice's.  But those values were present all
-along---no instantaneous physical influence travels between their two
-laboratories.
+When Alice measures $S_z$, the hidden variable is revealed.  If she
+got $+$, that means the original hidden variable state must have been
+$\hvbox[+]{-}$, whereas if she got $-z$, the hidden variable state
+must have been $\hvbox[-]{+}$.  When Bob subsequently measures $S_z$,
+his result will be the opposite of Alice's, but these outcomes are
+predetermined; there is no physical influence traveling between Alice
+and Bob.
 
-Clearly, there are many missing details in this hypothetical
-description.  Any actual hidden variable theory would also need to
-replicate the huge list of successful predictions made by quantum
-theory.  Trying to come up with a suitable theory of this sort seems
-difficult, but with enough hard work, one might imagine that it is
-doable.
+Clearly, there are many theoretical details missing: the hidden
+variable theory also needs to replicate all the successful predictions
+made by quantum theory.  Trying to come up with a suitable theory of
+this sort seems difficult, but with enough hard work, might it be
+doable?
+
+Well, no.
 
 \section{Bell's theorem}
 \label{sec:bell}
