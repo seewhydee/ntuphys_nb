@@ -607,7 +607,7 @@ value of $S_z$, i.e., $S_z = +\hbar/2$ or $-\hbar/2$.  For simplicity,
 let us denote these options as $+$ or $-$.  Let us hypothesize that
 the two-particle quantum state $|\psi\rangle$ is not an actual
 description of reality, but instead corresponds to a
-\textit{statistical} distribution of ``hidden variable'' states,
+\textit{statistical} distribution of ``hidden-variable states'',
 denoted by $\hvbox[+]{-}$ (i.e., $S_z = +\hbar/2$ for $A$ and $S_z =
 -\hbar/2$ for $B$), or $\hvbox[-]{+}$ (vice versa).
 
@@ -616,71 +616,68 @@ denoted by $\hvbox[+]{-}$ (i.e., $S_z = +\hbar/2$ for $A$ and $S_z =
 \end{figure}
 
 When Alice measures $S_z$, the hidden variable is revealed.  If she
-got $+$, that means the original hidden variable state must have been
-$\hvbox[+]{-}$, whereas if she got $-z$, the hidden variable state
+got $+$, that means the original hidden-variable state must have been
+$\hvbox[+]{-}$, whereas if she got $-z$, the hidden-variable state
 must have been $\hvbox[-]{+}$.  When Bob subsequently measures $S_z$,
 his result will be the opposite of Alice's, but these outcomes are
 predetermined; there is no physical influence traveling between Alice
 and Bob.
 
-Clearly, there are many theoretical details missing: the hidden
-variable theory also needs to replicate all the successful predictions
-made by quantum theory.  Trying to come up with a suitable theory of
-this sort seems difficult, but with enough hard work, might it be
-doable?
+Clearly, there are many theoretical details missing: the
+hidden-variable theory also needs to replicate all the successful
+predictions made by quantum theory.  Trying to come up with a suitable
+theory of this sort seems difficult, but with enough hard work, might
+it be doable?
 
 Well, no.
 
 \section{Bell's theorem}
 \label{sec:bell}
 
-In 1964, John S.~Bell published a bombshell paper showing that the
-predictions of quantum theory are \textit{inherently inconsistent}
-with hidden variable theories [\ref{cite:bell}].  The amazing thing
-about this result, known as \textbf{Bell's theorem}, is that it
-requires no knowledge about the details of the hidden variable theory,
-just that it is deterministic and local.  Here, we present a
-simplified version of the theorem due to Mermin [\ref{cite:mermin}].
+In 1964, Bell published a bombshell paper showing that the predictions
+of quantum theory are inherently inconsistent with hidden-variable
+theories [\ref{cite:bell}].  The amazing thing about this proof, which
+is called \textbf{Bell's theorem}, is that it requires no knowledge
+about the details of the hidden-variable theory, merely the fact that
+it is deterministic and local.  Here, we present a simplified version
+of Bell's theorem due to Mermin [\ref{cite:mermin}].
 
-Suppose once again that we have spin-1/2 particle pairs, with particle
-$A$ sent to Alice, and particle $B$ to Bob.  In the framework of
-quantum mechanics, particle pairs are repeatedly prepared in the
-singlet state
+Yet again, we consider pairs of spin-1/2 particles, with particle $A$
+sent to Alice and particle $B$ to Bob, with the two-particle state
 \begin{equation}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).
   \label{bellsinglet}
 \end{equation}
-During each round of the experiment, Alice and Bob are each allowed to
-measure their particle's spin along one of three possible spin axes,
-whose observables are denoted by $S_1$, $S_2$, $S_3$ (we'll specify
-the directions of these spin axes later).  Each experimentalist
-chooses $S_1$, $S_2$, or $S_3$, \textit{randomly and with equal
-  probabilities}.
+In each round of the thought experiment, Alice and Bob are each
+allowed to measure their particle's spin along one of three possible
+spin axes, whose observables are denoted by $S_1$, $S_2$, $S_3$ (we'll
+specify the directions of these spin axes later).  Each
+experimentalist chooses $S_1$, $S_2$, or $S_3$, \textit{randomly and
+  with equal probabilities}.
 
 Many rounds of the experiment are conducted.  After each round, we
-record each experimentalist's choice of spin axis and measurement
-result ($+$ or $-$), like this:
+record Alice's and Bob's axis choices and measurement results, like
+this:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.67\textwidth]{bell}
+  \centering\includegraphics[width=0.6\textwidth]{bell}
 \end{figure}
 
-Finally, the experimental records are brought together and examined.
-We will assume that the results are consistent with the predictions of
-quantum theory.  Among other things, this means that whenever the
-experimentalists happened to choose the same axis, their measurement
-results have opposite signs.  For instance, in the above example, this
-occurred during Round 4, where both experimentalists chose axis $S_3$.
+After all the rounds are finished, the experimental records are
+brought together and examined.  Assuming the results are consistent
+with quantum theory, whenever the experimentalists \textit{happened}
+to choose the same axis, they must have obtained opposite results.
+For instance, in the above example, both experimentalists chose axis
+$S_3$ during Round 4; Alice got $-$, and Bob got $+$.
 
-Can a hidden variable theory reproduce the results of quantum theory?
+Can a hidden-variable theory reproduce the results of quantum theory?
 In such a theory, each particle has a definite value for each spin
 observable.  For example, particle $A$ might have $S_1 = +\hbar/2, \,
-S_2 = +\hbar/2, \, S_3 = -\hbar/2$, which we can express more
-concisely just using the signs of the spins: $+, +, -$.  To be
-consistent with the predictions of quantum theory for the singlet
-state \eqref{bellsinglet}, the two particles' hidden spin variables
-must have opposite values for each axis.  Hence, there are $8$
-possible ``hidden variable states'', which we denote as follows:
+S_2 = +\hbar/2, \, S_3 = -\hbar/2$, which we can denote more concisely
+as $+, +, -$.  To be consistent with quantum theory's predictions, for
+every spin axis, the two particles' hidden variables must have
+opposite values.  Hence, there are $8$ possible hidden-variable
+states, which we denote as follows:
 \begin{align*}
   \begin{aligned}
     \hvbox[+++]{---} \;\;\;
@@ -693,12 +690,12 @@ possible ``hidden variable states'', which we denote as follows:
     \hvbox[---]{+++}
   \end{aligned}
 \end{align*}
-For instance, $\hvbox[++-]{--+}$ indicates that for particle $A$, $S_1
+For instance, $\hvbox[++-]{--+}$ indicates that particle $A$ has $S_1
 = S_2 = +\hbar/2$ and $S_3 = -\hbar/2$, while particle $B$ has $S_1 =
-S_2 = -\hbar/2$ and $S_3 = +\hbar/2$.  Instead of the system being
-prepared in the quantum state \eqref{bellsinglet}, before each round
-the hidden variable state is set to one of the 8 above possibilities,
-according to some set of unknown probabilities
+S_2 = -\hbar/2$ and $S_3 = +\hbar/2$.  The hidden-variable theory
+postulates that the quantum two-particle state \eqref{bellsinglet} is
+actually some kind of statistical distribution, i.e., a set of
+probabilities for each of the 8 hidden-variable states:
 \begin{equation*}
   \Big\{ P\big(\hvbox[+++]{---}\,\big), \;P\big(\hvbox[++-]{--+}\,\big),
   \dots, P\big(\hvbox[---]{+++}\,\big) \Big\}.
@@ -706,9 +703,9 @@ according to some set of unknown probabilities
 
 Let us focus on the rounds in which Alice and Bob \textit{chose
   different spin axes}.  Within this subset, what is the probability
-\textit{for their measurement results to have opposite signs} (i.e.,
-one $+$ and one $-$)?  To answer this question, we first consider
-these 6 hidden variable states:
+\textit{for their measurement results to have opposite signs}?  To
+answer this question, we first consider these 6 hidden-variable
+states:
 \begin{align*}
   \begin{aligned}
     \hvbox[++-]{--+} \;\;\;
@@ -726,8 +723,8 @@ there are two choices that give opposite signs for the measurement
 results: $(S_1,S_2)$ or $(S_2,S_1)$.  Conversely, there are four
 choices that give the same sign: $(S_1,S_3)$, $(S_2,S_3)$, $(S_3,S_1)$
 and $(S_3, S_2)$.  Since the axis choices are totally random, the
-probability of obtaining opposite signs for this hidden variable state
-is 1/3.  Going through the rest of the 6 hidden variable states listed
+probability of obtaining opposite signs for this hidden-variable state
+is 1/3.  Going through the rest of the 6 hidden-variable states listed
 above, we find that the probability to get opposite signs is likewise
 1/3.  In the notation of conditional probabilities,
 \begin{equation}
@@ -738,12 +735,12 @@ above, we find that the probability to get opposite signs is likewise
 where ``opp.''~stands for opposite signs being obtained in the two
 measurement results.
 
-Now look at the remaining 2 hidden variable states:
+Now look at the remaining 2 hidden-variable states:
 \begin{equation*}
     \hvbox[+++]{---} \;\;\;
     \hvbox[---]{+++}
 \end{equation*}
-For these, the conditional probabilities are evidently
+For these, the conditional probabilities are
 \begin{equation}
   P\big(\textrm{opp.} | \hvbox[+++]{---}\,\big) =
   P\big(\textrm{opp.} | \hvbox[---]{+++}\,\big) = 1.
@@ -763,7 +760,7 @@ By the law of conditional probabilities, the probability for the
     P\big(\hvbox[---]{+++}\,\big),
   \end{aligned}
 \end{align}
-where the sum runs over all 8 possibilities (hidden variable states).
+where the sum runs over all 8 possibilities (hidden-variable states).
 We can use Eqs.~\eqref{bell1} and \eqref{bell2} to insert the
 conditional probabilities, resulting in
 \begin{align}
@@ -771,21 +768,21 @@ conditional probabilities, resulting in
     P\big(\textrm{opp.}\big) &=
     \frac{1}{3} \Big[\underbrace{P\big(\hvbox[++-]{--+}\,\big)
       + P\big(\hvbox[+-+]{-+-}\,\big)
-      + \cdots + P\big(\hvbox[--+]{++-}\,\big)}_{\textrm{6 hidden variable states
+      + \cdots + P\big(\hvbox[--+]{++-}\,\big)}_{\textrm{6 hidden-variable states
 obeying Eq.~\eqref{bell1}}}\Big] \\
     &\quad + \underbrace{P\big(\hvbox[+++]{---}\,\big)
-    + P\big(\hvbox[---]{+++}\,\big)}_{\textrm{2 hidden variable states obeying \eqref{bell2}}}.
+    + P\big(\hvbox[---]{+++}\,\big)}_{\textrm{2 hidden-variable states obeying \eqref{bell2}}}.
   \end{aligned}
 \end{align}
 It follows that
 \begin{equation}
   P\big(\textrm{opp.}\big) \ge
   \frac{1}{3} \Big[\underbrace{P\big(\hvbox[++-]{--+}\,\big)
-      + \cdots + P\big(\hvbox[---]{+++}\,\big)}_{\textrm{all 8 hidden variable states}}
-    \Big]
+      + \cdots + P\big(\hvbox[---]{+++}\,\big)}_{\textrm{all 8 hidden-variable states}}
+    \Big].
   \label{bellprob}
 \end{equation}
-The probabilities---whatever they are---must sum to one, so
+The probabilities in the square brackets must sum to one.  Therefore,
 \begin{equation}
   P\big(\textrm{opp.}\big) \ge \frac{1}{3}.
   \label{bellresult}
@@ -795,54 +792,81 @@ follows:
 
 \begin{framed}
 \noindent
-\textit{In a hidden variable theory, for the rounds where Alice and
+\textit{In a hidden-variable theory, for the rounds where Alice and
   Bob choose different spin axes, their measurement results have
   opposite signs with probability $\ge 1/3$.}
 \end{framed}
 
 If we can identify a situation where quantum theory predicts a
-probability $P < 1/3$, violating Bell's inequality, that would prove
-that quantum theory is fundamentally inconsistent with a general class
-of hidden variable theories.  It would not matter how complicated the
-``inner workings'' of the hidden variable theory may be, so long as it
-meets the modest assumptions in the above derivation---e.g., that
-there are local deterministic hidden variables that specify each
-measurement outcome, and that the occurrences of the hidden variable
-states in each round are associated with probabilities that sum to
-one.
+probability $< 1/3$, violating Bell's inequality, that would prove
+that quantum theory is fundamentally inconsistent with a broad class
+of hidden-variable theories.  It does not matter how complicated the
+inner workings of the hidden-variable theory are; so long as it meets
+the modest assumptions presented above (e.g., there are local
+deterministic hidden variables for each measurement, the
+hidden-variable states are associated with probabilities summing to
+one, etc.), such a theory would be considered disproven.
 
-To complete the proof, we must find a set $\{S_1, S_2, S_3\}$ such
-that the predictions of quantum mechanics violate Bell's inequality.
-One simple choice is to align $S_1$ with the $z$ axis, and align $S_2$
-and $S_3$ along the $x$-$z$ plane at $120^\circ$ ($2\pi/3$ radians)
-from $S_1$, as shown below:
+To finish up, we must find a set of spin operators $\{S_1, S_2, S_3\}$
+such that quantum theory predicts a violation of Bell's inequality.
+One way to accomlpish this is to align $S_1$ with the $z$ axis, and
+place $S_2$ and $S_3$ in the $x$-$z$ plane at $120^\circ$ ($2\pi/3$
+radians) from $S_1$, as shown below:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.28\textwidth]{bellaxes}
 \end{figure}
 
-The corresponding spin operators can be written in the eigenbasis of
-$\hat{S}_z$:
+\noindent
+Using simple geometry, we can write $\{S_1, S_2, S_3\}$ in terms of
+the Pauli matrices $\hat{\sigma}_1$ and $\hat{\sigma}_3$:
 \begin{align}
-  \begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \sigma_3 \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 + \sin(2\pi/3)\sigma_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \sigma_3 - \sin(2\pi/3)\sigma_1\right].\end{aligned}
+  \begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \hat{\sigma}_3
+    \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 + \sin(2\pi/3)\hat{\sigma}_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 - \sin(2\pi/3)\hat{\sigma}_1\right].\end{aligned}
 \end{align}
 
-Suppose Alice chooses $S_1$, and obtains $+\hbar/2$.  Particle $A$
-collapses to state $|\!+\!z\rangle$, and particle $B$ collapses to
-state $|\!-\!z\rangle$.  Bob is assumed to choose a different spin
-axis.  If the choice is $S_2$, the expectation value is
+For this choice of spin axes, suppose Alice chooses $S_1$ (i.e.,
+$S_z$), and measures the result $+\hbar/2$.  Then the two-particle
+state collapses to $|\!\uparrow\rangle |\!\downarrow\rangle$.  Bob is
+assumed to choose a different spin axis.  If he chooses to measure
+$S_2$, the expectation value for his measurement is
 \begin{align}
-  \begin{aligned}\langle\, - z \, | \, S_2 \,|-\!z\,\rangle &= \frac{\hbar}{2} \Big[\cos(2\pi/3) \langle\,- z\,|\sigma_3| - \!z\,\rangle + \sin(2\pi/3)\langle\,- z\,|\sigma_1|-\!z\,\rangle\Big]\\ &= \frac{\hbar}{2} \cdot \frac{1}{2} \end{aligned}
+  \langle\,\downarrow | \hat{S}_2 \,|\!\downarrow\,\rangle
+  &= \frac{\hbar}{2} \,
+  \Big[\cos(2\pi/3) \, \langle\,\downarrow|\sigma_3| \downarrow\,\rangle
+    + \sin(2\pi/3)\, \langle\,\downarrow|\sigma_1|\downarrow\,\rangle\Big]\\
+  &= \frac{\hbar}{2} \cdot \frac{1}{2}.
+  \label{bellP}
 \end{align}
-If $P_+$ and $P_-$ respectively denote the probability of measuring
-$+\hbar/2$ and $-\hbar/2$ in this measurement, the above equation
-implies that $P_+ - P_- = + 1/2$.  Moreover, $P_+ + P_- = 1$ by
-probability conservation.  Hence, the probability of obtaining a
-negative value (the opposite sign from Alice's measurement) is $P_- =
-1/4$.  All the other possible scenarios are worked out similarly.  The
-result is that the overall probability of the two experimentalists
-obtaining opposite results (in the cases where they choose different
-measurement axis) is $1/4$.  Bell's inequality is violated!
+We can also write this expectation value in terms of the probabilities
+for Bob to measure $+\hbar/2$ and $-\hbar/2$, denoted by $P_B(+)$ and
+$P_B(-)$ respectively:
+\begin{align}
+  \langle\,\downarrow | \hat{S}_2 \,|\!\downarrow\,\rangle
+  &= \left[+\frac{\hbar}{2} P_B(+) - \frac{\hbar}{2} P_B(-)\right] \\
+  &= \frac{\hbar}{2} \Big[P_B(+) - P_B(-)\Big].
+  \label{bellP2}
+\end{align}
+Eqs.~\eqref{bellP} and Eq.~\eqref{bellP2} together imply that
+\begin{equation}
+  P_B(+) - P_B(-) = \frac{1}{2}.
+\end{equation}
+Moreover, by probability conservation,
+\begin{equation}
+  P_B(+) + P_B(-) = 1.
+\end{equation}
+Hence, the probability for Bob to obtain a negative value (the
+opposite of Alice's result) is
+\begin{equation}
+  P_B(-) = \frac{1}{4}.
+  \label{Bobresult}
+\end{equation}
+In a similar fashion, we can work through all the other possible
+scenarios involving different choices of spin axes by Alice and Bob.
+All yield the same result as Eq.~\eqref{Bobresult}: i.e., assuming
+Alice and Bob chose different measurement axis, the probability for
+them to obtain opposite results is $1/4$.  Bell's inequality is
+violated!
 
 Last of all, we must consult Nature.  Is it possible to experimentally
 observe a violation of Bell's inequality?  In the decades following
@@ -850,7 +874,7 @@ Bell's paper, many experiments were performed to answer this question.
 These experiments are all substantially more complicated than the
 above toy model, and are subject to various real-world imperfections.
 But in the end, the experimental consensus is a clear \textit{yes}:
-Nature agrees with quantum mechanics, not the hidden variable
+Nature agrees with quantum mechanics, not the hidden-variable
 theories!  The experimental evidence is reviewed in a paper by Aspect
 [\ref{cite:aspect}].
 
@@ -872,36 +896,42 @@ have established the key, they can use it alongside various
 non-quantum methods to encrypt messages between each other (e.g., by using the key as a
 \href{https://en.wikipedia.org/wiki/One-time_pad}{one-time pad}).
 
-The scheme follows almost immediately from the Bell thought experiment
-of Section \ref{sec:bell}.  In each round, a pair of spin-$1/2$
-particles is prepared in the singlet state, with particle $A$ sent to
-Alice and $B$ sent to Bob.  Alice and Bob each randomly choose a
-measurement axis ($S_1$, $S_2$, or $S_3$) to measure the spin of their
-particle.
+The scheme closely follows the Bell thought experiment from Section
+\ref{sec:bell}.  Alice and Bob take part in multiple rounds of
+measurements; during each round, a pair of spin-$1/2$ particles is
+prepared in the singlet state \eqref{bellsinglet}, with particle $A$
+going to Alice and $B$ going to Bob.  Each participant randomly
+chooses an axis ($S_1$, $S_2$, or $S_3$), performs the corresponding
+spin measurement, and secretly records down the result.
 
-After many rounds, Alice and Bob publicly announce their choices of
-measurement axes.  These announcements are assumed to take place over
-some communication channel that cannot be jammed or manipulated by any
-hostile party---but \textit{can} be eavesdropped upon.  Next, Alice
-and Bob locate the rounds in which they picked the same axis (about
-1/3 of the rounds).  Their results for these rounds must be the
-opposites of each other.  Hence, they have established a random binary
-string known to each other but to no one else.
+Alice and Bob then tell each other what axes they chose during the
+measurement rounds.  These announcements are assumed to take place
+over a communication channel that isn't necessarily secure, in the
+sense that it might be eavesdropped upon; however, it is assumed that
+the communications cannot be jammed or altered by any third party.
+From this information, Alice and Bob identify the rounds in which they
+picked the same axis (about 1/3 of the rounds), during which they must
+have obtained exactly opposite measurement results.  These measurement
+results are thus a string of random binary digits known to both Alice
+and Bob, and no one else.
 
-How might a third party, Eve, attempt to eavesdrop?  Suppose Eve can
-intercept some or all of the $B$ particles intended for Bob.  She
-might try to extract information from these particles---which, in
-quantum theory, means doing measurements on them---and sending along
-replacement particles to Bob, hoping he does not notice.  However,
-such measurements would break the entanglement between the particles
-received by Alice and Bob.  The situation turns into a kind of hidden
-variable theory, with the ``hidden variables'' corresponding to the
-information extracted by Eve.  To check for this, Alice and Bob can
-announce their measurement results for the rounds in which they chose
-different axes (as those rounds are not needed for the secret key),
-and determine whether Bell's inequality is violated (which would mean
-that no eavesdropping has taken place).  For details, refer to
-Ref.~[\ref{cite:ekert}].
+How might a third party, Eve, attempt to eavesdrop?  Suppose Eve was
+able to intercept some or all of the $B$ particles intended for Bob.
+She can try to extract some information from them (which, according to
+quantum theory, means doing measurements on them), and then sending
+some replacement particles to Bob (hoping he does not notice).
+However, such measurements would break the entanglement between the
+particles received by Alice and Bob.  The situation turns into a kind
+of hidden-variable theory, where the hidden variables represent the
+information extracted by Eve.
+
+To check for Eve's tampering, Alice and Bob can publicly announce
+their measurement results for the rounds in which they chose different
+axes.  (These rounds are not needed for the secret key, so the
+measurement results are okay to reveal.)  From this information, each
+of them can verify whether Bell's inequality is violated; if so, that
+is a guarantee that no eavesdropping has taken place.  For details,
+refer to Ref.~[\ref{cite:ekert}].
 
 Alternatively, Eve might try to ``clone'' the quantum state of
 particle $B$ before passing it along to Bob.  If this can be done, Eve
@@ -1297,21 +1327,21 @@ equal: i.e., $p_j = 1/d_A$ for all $j = 1, \dots, d_A$.
 
 \begin{framed}
 \noindent
-\textit{Example}---Consider the following state of two spin-$1/2$
+\textit{Example}---Consider the singlet state of two spin-$1/2$
 particles:
 \begin{align}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big).
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).
 \end{align}
-The density operator for the two-particle system is
+The corresponding density operator is
 \begin{equation}
-  \hat{\rho}(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big) \Big(\langle+z|\langle-z| \,-\, \langle-z|\langle+z|\Big).
+  \hat{\rho}(\psi) = \frac{1}{2} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big) \Big(\langle\uparrow\!|\langle\downarrow\!| \,-\, \langle\downarrow\!|\langle\uparrow\!|\Big).
 \end{equation}
 Tracing over system $B$ (the second slot) yields the reduced density operator
 \begin{equation}
-  \hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!+\!z\rangle \langle+z| \,+\, |\!-\!z\rangle \langle-z|\Big).
+  \hat{\rho}_A(\psi) = \frac{1}{2} \Big(|\!\uparrow\rangle \langle\uparrow\!| \,+\, |\!\downarrow\rangle \langle\downarrow\!|\Big).
 \end{equation}
 This can be expressed as a matrix in the
-$\{|\!+z\rangle,|\!-z\rangle\}$ basis:
+$\{|\!\uparrow\rangle,|\!\downarrow\rangle\}$ basis:
 \begin{equation}
   \hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.
 \end{equation}
@@ -1528,13 +1558,15 @@ rather than different theories.
 
 \begin{enumerate}
 
-\item Consider the singlet state
+\item \label{ex:singletproperties}
+Consider the singlet state
 \begin{equation}
-  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle|\!-\!z\rangle \,-\, |\!-\!z\rangle|\!+\!z\rangle\Big),
+  |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big),
 \end{equation}
 where the left- and right-hand slots refer to subsystems $A$ and $B$
-respectively, and $|\pm\!z\rangle$ denotes the eigenstate of the spin
-operator $\hat{S}_z$ with eigenvalue $\pm\hbar/2$.
+respectively, and $\{|\!\uparrow\rangle, |\!\downarrow\rangle\}$
+denote the eigenstates of the spin operator $\hat{S}_z$ with
+eigenvalue $\pm\hbar/2$.
 \begin{enumerate}[(a)]
 \item Suppose we perform a measurement on $A$ using a rotated spin
   observable
@@ -1542,7 +1574,7 @@ operator $\hat{S}_z$ with eigenvalue $\pm\hbar/2$.
   \hat{S}_n = \hat{U}^\dagger \hat{S}_z \hat{U},
 \end{equation}
 where $\hat{U}$ is a unitary rotation matrix.  The eigenstates of
-$\hat{S}_n$ are $|\pm n\rangle = \hat{U}^\dagger |\pm z\rangle$, with
+$\hat{S}_n$ are $|\!\pm n\rangle = \hat{U}^\dagger |\!\updownarrow\rangle$, with
 eigenvalues $\pm \hbar/2$.  For each measurement outcome $\pm\hbar/2$,
 prove that the collapsed two-particle state is (up to arbitrary phase
 and normalization factors)
@@ -1553,7 +1585,7 @@ Hint: you don't need the explicit form of $\hat{U}$, only the fact
 that it is unitary.
 
 \item Denote the probabilities of the two outcomes in part (a) by
-  $P(A+)$ and $P(A-)$.  Derive expressions for these two
+  $P(A_+)$ and $P(A_-)$.  Derive expressions for these two
   probabilities.
 
 \item For each of the two outcomes from measuring $S_n$ on $A$, find
@@ -1570,7 +1602,6 @@ that it is unitary.
 
 
   
-  \label{ex:singletproperties}
   %% \item A vector space $\mathscr{H}$ is said to have an inner product if
 %%   there is an pairwise operation between its vectors that satisfies
 %%   the following ``inner product axioms''.  For arbitrary
@@ -1588,21 +1619,20 @@ that it is unitary.
 
 \item Consider the density operator
   \begin{equation}
-    \hat{\rho} = \frac{1}{2} |\!+\!z\rangle \langle+z|
-    \,+\, \frac{1}{2} |\!+\!x\rangle \langle+x|
+    \hat{\rho} = \frac{1}{2} |\!\uparrow\rangle \langle\uparrow\!|
+    \,+\, \frac{1}{2} |\!\rightarrow\rangle \langle\rightarrow\!|,
+    \label{den}
   \end{equation}
-  where $|\!+\!x\rangle = \frac{1}{\sqrt{2}} \left(|\!+\!z\rangle +
-  |\!-\!z\rangle\right)$.  This can be viewed as an equal-probability
-  sum of two different pure states.  However, the density matrix can
-  also be written as
+  where
   \begin{equation}
-    \hat{\rho} \,=\, p_1\, |\psi_1\rangle \langle \psi_1|
-    \,+\, p_2\, |\psi_2\rangle \langle\psi_2|
+    |\!\rightarrow\rangle = \frac{1}{\sqrt{2}} \left(|\!\uparrow\rangle +
+  |\!\downarrow\rangle\right).
   \end{equation}
-  where $|\psi_{1}\rangle$ and $|\psi_{2}\rangle$ are the eigenvectors
-  of $\hat{\rho}$.  Show that $p_1$ and $p_2$ are \textit{not} 1/2.
+  This can be regarded as a equal-probability ensemble of two pure
+  states, $|\!\uparrow\rangle$ and $|\!\rightarrow\rangle$.  However,
+  find the eigenvalues of $\hat{\rho}$, and show that they are
+  \textit{not} equal to 1/2.
   \label{ex:rho_decomp}
-
 
 \item 
   Consider two distinguishable particles, $A$ and $B$.  The 2D Hilbert
