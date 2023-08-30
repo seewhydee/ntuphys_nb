@@ -100,10 +100,10 @@ to simplify by omitting the $\otimes$ in bra-ket notation:
 \begin{equation}
   |a \rangle \otimes |b\rangle \;\; \equiv \;\; |a \rangle |b\rangle.
 \end{equation}
-However, the ordering is always retained: whenever we see such a
-``product of two kets'', the vector on the left is always understood
-to be the $A$-type vector in the tensor product, and the one on the
-right is the $B$-type vector.
+However, even when we write the tensor product this way, as a
+``product of two kets'', the ordering remains important.  The vector
+on the left is implicitly understood to be the $A$-type vector, and
+the one on the right is the $B$-type vector.
 
 It can be shown that the space of all tensor products, \textit{and
   linear combinations thereof}, forms a Hilbert space.  We call this
@@ -150,7 +150,7 @@ Eq.~\eqref{tensordef} satisfies the factorization rules
   + \begin{pmatrix} a_1' \\ a_2' \end{pmatrix} \otimes
   \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}.
 \end{align}
-We can calculate inner products between tensor products in a pretty
+We can also calculate inner products between tensor products in a
 straightforward way.  The dual of Eq.~\eqref{tensordef} is
 \begin{equation}
   \langle a| \langle b| =
@@ -171,9 +171,9 @@ product.)  Hence,
   \label{inprodex3}
 \end{align}
 The inner product is performed ``slot by slot'', by taking the inner
-products of the original $A$-type and $B$-type vectors, and
-multiplying the resulting numbers.  It can be shown that this
-procedure preserves the inner product axioms.
+products of the constituent $A$-type and $B$-type vectors, and
+multiplying the results together.  It can be shown that this procedure
+preserves the inner product axioms.
 
 The key features of the above example generalize to more complicated
 tensor products, including cases where $\mathscr{H}_A$ and
@@ -508,8 +508,9 @@ They intended for this to show that quantum theory cannot be a
 fundamental description of reality.  Subsequently, it was shown that
 the EPR paradox is not an actual paradox---physical systems
 \textit{really do} behave like the thought experiment!  Nowadays, the
-EPR ``paradox'' is regarded as an important tool for thinking about
-quantum entanglement.
+EPR ``paradox'' is regarded not as an argument against quantum
+mechanics, but as an important tool for thinking about quantum
+entanglement.
 
 Consider, once again, the singlet state of two spin-$1/2$ particles,
 $A$ and $B$ (which occupy the left and right slots of the tensor
@@ -531,7 +532,7 @@ Alpha Centauri star system, and particle $B$ to Bob in the Betelgeuse
 system, many light years away:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.7\textwidth]{epr}
+  \centering\includegraphics[width=0.6\textwidth]{epr}
 \end{figure}
 
 \noindent
@@ -655,29 +656,27 @@ specify the directions of these spin axes later).  Each
 experimentalist chooses $S_1$, $S_2$, or $S_3$, \textit{randomly and
   with equal probabilities}.
 
-Many rounds of the experiment are conducted.  After each round, we
-record Alice's and Bob's axis choices and measurement results, like
-this:
+Many rounds of the experiment are conducted.  Afterwards, we bring
+together Alice's and Bob's experimental records, and examine their
+axis choices and results.  For example:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.6\textwidth]{bell}
 \end{figure}
 
-After all the rounds are finished, the experimental records are
-brought together and examined.  Assuming the results are consistent
-with quantum theory, whenever the experimentalists \textit{happened}
-to choose the same axis, they must have obtained opposite results.
-For instance, in the above example, both experimentalists chose axis
-$S_3$ during Round 4; Alice got $-$, and Bob got $+$.
+\noindent
+If the results are consistent with quantum theory, whenever Alice and
+Bob chose the same axis (by random chance), they must have obtained
+opposite results.  For example, in the above records, they both chose
+axis $S_3$ during Round 4; Alice got $-$, and Bob got $+$.
 
-Can a hidden-variable theory reproduce the results of quantum theory?
-In such a theory, each particle has a definite value for each spin
-observable.  For example, particle $A$ might have $S_1 = +\hbar/2, \,
-S_2 = +\hbar/2, \, S_3 = -\hbar/2$, which we can denote more concisely
-as $+, +, -$.  To be consistent with quantum theory's predictions, for
-every spin axis, the two particles' hidden variables must have
-opposite values.  Hence, there are $8$ possible hidden-variable
-states, which we denote as follows:
+Can a hidden-variable theory reproduce such behavior?  In a
+hidden-variable theory, each particle has a definite value for each
+spin observable.  For example, $A$ might have $S_1 = +\hbar/2, \, S_2
+= +\hbar/2, \, S_3 = -\hbar/2$, which we can denote more concisely as
+`$++-$'.  For every spin axis, the two particles' hidden variables
+must have opposite values.  Hence, there are $8$ possible
+hidden-variable states, which we can denote like this:
 \begin{align*}
   \begin{aligned}
     \hvbox[+++]{---} \;\;\;
@@ -690,12 +689,11 @@ states, which we denote as follows:
     \hvbox[---]{+++}
   \end{aligned}
 \end{align*}
-For instance, $\hvbox[++-]{--+}$ indicates that particle $A$ has $S_1
-= S_2 = +\hbar/2$ and $S_3 = -\hbar/2$, while particle $B$ has $S_1 =
-S_2 = -\hbar/2$ and $S_3 = +\hbar/2$.  The hidden-variable theory
-postulates that the quantum two-particle state \eqref{bellsinglet} is
-actually some kind of statistical distribution, i.e., a set of
-probabilities for each of the 8 hidden-variable states:
+For instance, $\hvbox[++-]{--+}$ indicates that $A$ has $S_1 = S_2 =
++\hbar/2$ and $S_3 = -\hbar/2$, while $B$ has $S_1 = S_2 = -\hbar/2$
+and $S_3 = +\hbar/2$.  The hidden-variable theory postulates that the
+two-particle state \eqref{bellsinglet} is actually some kind of
+statistical distribution involving 8 hidden-variable states:
 \begin{equation*}
   \Big\{ P\big(\hvbox[+++]{---}\,\big), \;P\big(\hvbox[++-]{--+}\,\big),
   \dots, P\big(\hvbox[---]{+++}\,\big) \Big\}.
@@ -797,24 +795,23 @@ follows:
   opposite signs with probability $\ge 1/3$.}
 \end{framed}
 
-If we can identify a situation where quantum theory predicts a
-probability $< 1/3$, violating Bell's inequality, that would prove
-that quantum theory is fundamentally inconsistent with a broad class
-of hidden-variable theories.  It does not matter how complicated the
-inner workings of the hidden-variable theory are; so long as it meets
-the modest assumptions presented above (e.g., there are local
-deterministic hidden variables for each measurement, the
-hidden-variable states are associated with probabilities summing to
-one, etc.), such a theory would be considered disproven.
+If we can find a situation where quantum theory predicts a violation
+of Bell's inequality, that would prove quantum theory is inconsistent
+with a broad class of hidden-variable theories.  It would not matter
+how complicated the inner workings of the hidden-variable theory are,
+so long as it meets the modest assumptions presented above (e.g.,
+there are local deterministic hidden variables for each measurement,
+the hidden-variable states are associated with probabilities summing
+to one, etc.)
 
-To finish up, we must find a set of spin operators $\{S_1, S_2, S_3\}$
-such that quantum theory predicts a violation of Bell's inequality.
-One way to accomlpish this is to align $S_1$ with the $z$ axis, and
-place $S_2$ and $S_3$ in the $x$-$z$ plane at $120^\circ$ ($2\pi/3$
-radians) from $S_1$, as shown below:
+Thus, we seek a set of spin operators $\{S_1, S_2, S_3\}$ such that
+quantum theory violates Bell's inequality.  One way to accomplish this
+is to align $S_1$ with the $z$ axis, and place $S_2$ and $S_3$ in the
+$x$-$z$ plane at $120^\circ$ ($2\pi/3$ radians) from $S_1$, as shown
+below:
 
 \begin{figure}[h]
-  \centering\includegraphics[width=0.28\textwidth]{bellaxes}
+  \centering\includegraphics[width=0.25\textwidth]{bellaxes}
 \end{figure}
 
 \noindent
@@ -926,19 +923,17 @@ of hidden-variable theory, where the hidden variables represent the
 information extracted by Eve.
 
 To check for Eve's tampering, Alice and Bob can publicly announce
-their measurement results for the rounds in which they chose different
-axes.  (These rounds are not needed for the secret key, so the
-measurement results are okay to reveal.)  From this information, each
-of them can verify whether Bell's inequality is violated; if so, that
-is a guarantee that no eavesdropping has taken place.  For details,
-refer to Ref.~[\ref{cite:ekert}].
+their measurement results for the rounds in which their axes were
+different.  (Remember, these rounds are not needed for the secret
+key.)  Each of them can then check for a violation of Bell's
+inequality, which would guarantee no eavesdropping has taken place.
+For details, refer to Ref.~[\ref{cite:ekert}].
 
-Alternatively, Eve might try to ``clone'' the quantum state of
-particle $B$ before passing it along to Bob.  If this can be done, Eve
-can retain the cloned quantum state, wait for Bob to announce his
-choice of measurement axis for that round, and then perform the
-corresponding measurement to reproduce Bob's result.  Though plausible
-at first glance, this turns out to be incompatible with the laws of
+Alternatively, Eve might duplicate or ``clone'' the quantum state of
+$B$ before it goes to Bob.  Then she can wait for Bob to announce his
+choice of measurement axis for that round, perform that measurement on
+her cloned particle, and reproduce Bob's result.  Though plausible at
+first glance, this turns out to be incompatible with the laws of
 quantum mechanics.
 
 The so-called \textbf{no-cloning theorem} can be proven as follows.
@@ -992,8 +987,9 @@ by an orthonormal basis $\{|0\rangle, |1\rangle\}$, we can pick
 
 \section{Density operators}
 
-We now introduce the \textbf{density operator}, which helps to
-streamline many calculations in multi-particle quantum mechanics.
+We now introduce the \textbf{density operator}, which helps streamline
+many calculations involving multiple particles (or, more generally,
+multiple subsystems).
 
 Consider a quantum system with a $d$-dimensional Hilbert space
 $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
