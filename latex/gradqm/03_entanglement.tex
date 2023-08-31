@@ -987,13 +987,13 @@ by an orthonormal basis $\{|0\rangle, |1\rangle\}$, we can pick
 
 \section{Density operators}
 
-We now introduce the \textbf{density operator}, which helps streamline
-many calculations involving multiple particles (or, more generally,
-multiple subsystems).
+We now introduce \textbf{density operators}, which help streamline
+calculations involving systems of multiple particles (or, more
+generally, multiple subsystems).
 
 Consider a quantum system with a $d$-dimensional Hilbert space
 $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
-\mathscr{H}$, define
+\mathscr{H}$, define the Hermitian operator
 \begin{equation}
   \hat{\rho} = |\psi\rangle\, \langle\psi|.
   \label{rho_pure}
@@ -1001,13 +1001,13 @@ $\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
 This is just the projection operator for $|\psi\rangle$, but in this
 context we call it a ``density operator''.  Some other authors call it
 a \textbf{density matrix}, based on the fact that linear operators can
-be represented as matrices.  It has the following noteworthy features:
+be represented as matrices.
 
+Using the density operator, we can re-express what we know about
+measurements in quantum mechanics, as follows:
 \begin{enumerate}
-\item It is Hermitian.  
-
-\item Suppose $\hat{Q}$ is an observable with eigenvalues $\{q\}$ and
-  eigenstates $\{|q\rangle\}$.  If we do a $\hat{Q}$ measurement on
+\item Let $\hat{Q}$ be an observable with eigenvalues $\{q\}$ and
+  eigenstates $\{|q\rangle\}$.  If we perform this measurement on
   $|\psi\rangle$, the probability of obtaining $q$ is
   \begin{equation}
     P(q) = \big|\langle q | \psi\rangle\big|^2 =
@@ -1025,36 +1025,36 @@ be represented as matrices.  It has the following noteworthy features:
   \end{equation}
   In the last equality, $\mathrm{Tr}[\cdots]$ denotes the trace, which
   is the sum of the diagonal elements of the matrix representation of
-  the operator.  The value of the trace is basis-independent.
+  the operator.  The result is basis-independent.
 \end{enumerate}
 
 Now consider, once again, a composite system consisting of two
 subsystems $A$ and $B$, with Hilbert spaces $\mathscr{H}_A$ and
-$\mathscr{H}_B$.  Let's say we are interested in the physical behavior
-of $A$, that is to say the outcome probabilities and expectation
-values of any measurements performed on $A$.  These can be calculated
-from $|\psi\rangle$, the state of the combined system; however,
-$|\psi\rangle$ also carries information about $B$, which is not
-relevant to us as we only care about $A$.
+$\mathscr{H}_B$.  Let's say we are interested in the properties of
+$A$, meaning the probabilities and expectation values for any
+measurements performed on $A$.  From the state of the combined system,
+$|\psi\rangle \in \mathscr{H}_A\otimes \mathscr{H}_B$, we can
+certainly calculate these quantities.  However, $|\psi\rangle$ also
+contains a lot of information about $B$ that is irrelevant to us.
 
 There is a more economical way to encode just the information about
-$A$.  We can define the density operator for subsystem $A$ (sometimes
-called the \textbf{reduced density operator}):
+$A$.  We can define the density operator for $A$ (sometimes called the
+\textbf{reduced density operator}) as
 \begin{equation}
   \hat{\rho}_A = \mathrm{Tr}_B \,\big[\,\hat{\rho}\,\big].
   \label{rhoa_def}
 \end{equation}
 Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace}.
 This means tracing over the $\mathscr{H}_B$ part of the Hilbert space
-$\mathscr{H} = \mathscr{H}_A \otimes \mathscr{H}_B$, which yields an
-operator acting on $\mathscr{H}_A$.
+$\mathscr{H}_A \otimes \mathscr{H}_B$, which yields an operator acting
+on $\mathscr{H}_A$.
 
-To better understand Eq.~\eqref{rhoa_def}, let us go to an explicit
+To better understand Eq.~\eqref{rhoa_def}, let us take an explicit
 basis.  Let $\hat{Q}_A$ be an observable for $\mathscr{H}_A$ with
 eigenbasis $\{|\alpha\rangle\}$, and let $\hat{Q}_B$ be an observable
-for $\mathscr{H}_B$ with eigenbasis $\{|\beta\rangle\}$.  From the
-density operator of the combined system, $\hat{\rho} =
-|\psi\rangle\langle \psi|$, we can calculate the partial trace:
+for $\mathscr{H}_B$ with eigenbasis $\{|\beta\rangle\}$.  Starting
+from the density operator of the combined system, $\hat{\rho} =
+|\psi\rangle\langle \psi|$, the partial trace is
 \begin{equation}
   \hat{\rho}_A =
     \sum_\beta
@@ -1063,9 +1063,8 @@ density operator of the combined system, $\hat{\rho} =
     \Big( \hat{I}\otimes | \beta\rangle \Big).
     \label{rhoa_explicit}
 \end{equation}
-This is a Hermitian operator acting on the $\mathscr{H}_A$ space.  In
-the $\{|\alpha\rangle\}$ basis for $\mathscr{H}_A$, the diagonal
-matrix elements of the operator are
+This is a Hermitian operator for $\mathscr{H}_A$.  In the
+$\{|\alpha\rangle\}$ basis, its diagonal matrix elements are
 \begin{align}
   \begin{aligned}
     \langle \alpha | \hat{\rho}_A | \alpha \rangle
@@ -1099,9 +1098,9 @@ It follows that the expectation value for the observable is
   = \mathrm{Tr}\Big[\hat{Q}_A \, \hat{\rho}_A \Big].
   \label{rho_expect}
 \end{equation}
-These results hold for any choice of basis.  Hence, knowing the
-density operator for $A$, we can determine the outcome probabilities
-of any partial measurement performed on $A$.
+These results hold for any choice of basis.  Hence, knowing
+$\hat{\rho}_A$, we can calculate the probabilities for any measurement
+performed on $A$.
 
 To better understand these results, let us expand the state of the
 combined system as
@@ -1125,19 +1124,20 @@ and the reduced density operator is
     \;\;\;\mathrm{where}\;\;\;
     |\varphi_\beta\rangle = \sum_\alpha \psi_{\alpha\beta} |\alpha\rangle.
   \end{aligned}
+  \label{rhoa_tmp}
 \end{align}
 But $|\varphi_\beta\rangle$ is not necessarily normalized to unity:
 \begin{equation}
   \langle \varphi_\beta | \varphi_\beta\rangle =
   \sum_{\alpha}|\psi_{\alpha\beta}|^2 \le 1.
 \end{equation}
-Let us therefore define
+Let us therefore define the re-normalized states
 \begin{equation}
   |\tilde{\varphi}_\beta\rangle = \frac{1}{\sqrt{P_\beta}} |\varphi_\beta\rangle,
   \;\;\;\mathrm{where} \;\; P_\beta = \sum_{\alpha}|\psi_{\alpha\beta}|^2.
 \end{equation}
 Note that each $P_\beta$ is a non-negative real number in the range
-$[0,1]$.  Then
+$[0,1]$.  Eq.~\eqref{rhoa_tmp} now becomes
 \begin{equation}
   \hat{\rho}_A = \sum_\beta P_\beta\, |\tilde{\varphi}_\beta\rangle
   \langle \tilde{\varphi}_\beta|,
@@ -1153,24 +1153,22 @@ $[0,1]$.  Then
 We can interpret this as a weighted sum of individual density
 operators, defined with a set of quantum states
 $\{|\tilde{\varphi}_\beta\rangle\}$ and classical probabilities
-$\{P_\beta\}$.  This called an \textbf{ensemble} of quantum states.
-Note that the states in the ensemble need not be orthogonal to each
-other.
+$\{P_\beta\}$.  This called an \textbf{ensemble} of states.  Note that
+the states in the ensemble need not be orthogonal to each other.
 
 Although we derived Eq.~\eqref{rhoform} from $|\psi\rangle$, the state
 of the combined system, we cannot work backwards from $\hat{\rho}_A$
 to figure out $|\psi\rangle$ (specifically, the coefficients
-$\psi_{\alpha\beta}$).  From subsystem $A$'s point of view,
-$\hat{\rho}_A$ provides all the information needed to calculate the
-probabilities for any measurement on $A$ (as we have seen), and does
-not contain any extra information about subsystem $B$, or how $A$ and
-$B$ were entangled.  Thus, instead of persistently referring to
-$\hat{\rho}_A$ as a reduced density operator, we can simply think of
-it as ``the density operator for $A$''.
+$\psi_{\alpha\beta}$).  In other words, $\hat{\rho}_A$ provides all
+the necessary information regarding measurements on $A$, but does not
+contain any extra information about subsystem $B$, or how $A$ and $B$
+were entangled.  Therefore, we don't have to keep thinking of
+$\hat{\rho}_A$ as a reduced density operator derived from some larger
+state, but simply think of it as ``the density operator for $A$''.
 
 In this sense, a density operator of the form
 $|\psi\rangle\langle\psi|$ is just the special case of an ensemble of
-one quantum state, $|\psi\rangle$, with probability $P = 1$.  Such an
+one quantum state $|\psi\rangle$ with probability $P = 1$.  Such an
 ensemble is called a \textbf{pure state}, and obviously describes a
 quantum system that is not entangled with anything else.  If an
 ensemble is not a pure state, implying that there is entanglement with
@@ -1209,16 +1207,18 @@ Eq.~\eqref{rhoform} has the following properties:
   = |\alpha\rangle \langle \alpha|$ in Eq.~\eqref{prop3}.
   
 \item The eigenvalues of $\hat{\rho}_A$, denoted by $\{p_1, p_2,
-  \dots, p_{d_A}\}$, satisfy
+  \dots, p_{d_A}\}$, form a set of probabilities.  In other words,
+  they satisfy
   \begin{equation}
     p_j \in \mathbb{R} \;\;\;\mathrm{and}\;\; 0 \le p_j \le 1 \;\;
     \mathrm{for}\;\; j = 1,\dots,d_A,
     \quad\mathrm{with}\;\; \sum_{j=1}^{d_A} p_j = 1.
     \label{trrho_reduced}    
   \end{equation}
-  The eigenvalues can thus be interpreted as probabilities.  Moreover,
-  $\mathrm{Tr}[\hat\rho_A] = 1$.
-
+  From this, it directly follows that
+  \begin{equation}
+    \mathrm{Tr}[\hat\rho_A] = 1.
+  \end{equation}
   Property 4 follows from Property 3.  First, take $\hat{Q}_A =
   |j\rangle\langle j|$, where $|j\rangle$ is any eigenvector of
   $\hat\rho_A$ with eigenvalue $p_j$, and use Property 3 to prove that
