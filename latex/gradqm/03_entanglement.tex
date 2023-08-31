@@ -1133,28 +1133,28 @@ But $|\varphi_\beta\rangle$ is not necessarily normalized to unity:
 \end{equation}
 Let us therefore define the re-normalized states
 \begin{equation}
-  |\tilde{\varphi}_\beta\rangle = \frac{1}{\sqrt{P_\beta}} |\varphi_\beta\rangle,
+  |\Psi_\beta\rangle = \frac{1}{\sqrt{P_\beta}} |\varphi_\beta\rangle,
   \;\;\;\mathrm{where} \;\; P_\beta = \sum_{\alpha}|\psi_{\alpha\beta}|^2.
 \end{equation}
 Note that each $P_\beta$ is a non-negative real number in the range
 $[0,1]$.  Eq.~\eqref{rhoa_tmp} now becomes
 \begin{equation}
-  \hat{\rho}_A = \sum_\beta P_\beta\, |\tilde{\varphi}_\beta\rangle
-  \langle \tilde{\varphi}_\beta|,
+  \hat{\rho}_A = \sum_\beta P_\beta\, |\Psi_\beta\rangle
+  \langle \Psi_\beta|,
   \;\;\;\mathrm{where}\;\;
   \begin{cases}
     \;\;\textrm{each $P_\beta$ is a real number in $[0,1]$, and} \\
-    \;\;\textrm{each}\; |\tilde{\varphi}_\beta\rangle \in \mathscr{H}_A,
+    \;\;\textrm{each}\; |\Psi_\beta\rangle \in \mathscr{H}_A,
     \;\;\mathrm{with}
-    \;\;\langle\tilde{\varphi}_\beta|\tilde{\varphi}_\beta\rangle = 1.
+    \;\;\langle\Psi_\beta|\Psi_\beta\rangle = 1.
   \end{cases}
   \label{rhoform}
 \end{equation}
 We can interpret this as a weighted sum of individual density
 operators, defined with a set of quantum states
-$\{|\tilde{\varphi}_\beta\rangle\}$ and classical probabilities
-$\{P_\beta\}$.  This called an \textbf{ensemble} of states.  Note that
-the states in the ensemble need not be orthogonal to each other.
+$\{|\Psi_\beta\rangle\}$ and classical probabilities $\{P_\beta\}$.
+This called an \textbf{ensemble} of states.  Note that the states in
+the ensemble need not be orthogonal to each other.
 
 Although we derived Eq.~\eqref{rhoform} from $|\psi\rangle$, the state
 of the combined system, we cannot work backwards from $\hat{\rho}_A$
@@ -1166,13 +1166,25 @@ were entangled.  Therefore, we don't have to keep thinking of
 $\hat{\rho}_A$ as a reduced density operator derived from some larger
 state, but simply think of it as ``the density operator for $A$''.
 
-In this sense, a density operator of the form
-$|\psi\rangle\langle\psi|$ is just the special case of an ensemble of
-one quantum state $|\psi\rangle$ with probability $P = 1$.  Such an
-ensemble is called a \textbf{pure state}, and obviously describes a
-quantum system that is not entangled with anything else.  If an
-ensemble is not a pure state, implying that there is entanglement with
-some other system, we call it a \textbf{mixed state}.
+From this point of view, a density operator of the form
+$|\psi\rangle\langle\psi|$ is the special case of an ensemble of one
+quantum state $|\psi\rangle$ with probability $P = 1$.  We call such
+an ensemble a \textbf{pure state}.  If an ensemble is not a pure
+state, implying that the system is entangled with something else, we
+call it a \textbf{mixed state}.
+
+In many circumstances, we can deduce that a system is in a given mixed
+state without doing any partial trace to derive the density matrix.
+For example, if the system with energy eigenbasis $\{|\psi_n\rangle\}$
+and energies $\{E_n\}$ is in thermal equilibrium with an external heat
+bath of temperature $T$, we can take the density operator to be
+\begin{equation}
+  \hat{\rho}_A = \sum_{n} \frac{\exp(-E_n/k_BT)}{Z} \, |E_n\rangle\langle E_n|,
+\end{equation}
+where $Z = \sum_n \exp(-E_n/k_BT)$.  This comes from the postulates of
+statistical mechanics, rather than any actual derivation involving
+tracing out the quantum degrees of freedom of the heat bath (which
+would be a hopeless endeavor).
 
 We can show that any linear operator $\hat{\rho}_A$ obeying
 Eq.~\eqref{rhoform} has the following properties:
@@ -1188,14 +1200,14 @@ Eq.~\eqref{rhoform} has the following properties:
     \begin{aligned}
       \langle Q_A \rangle
       &\equiv \sum_\beta P_\beta
-      \langle \tilde{\varphi}_\beta|\hat{Q}_A|\tilde{\varphi}_\beta\rangle \\
+      \langle \Psi_\beta|\hat{Q}_A|\Psi_\beta\rangle \\
       &= \sum_{\alpha\beta} P_\beta\,
-      \langle \tilde{\varphi}_\beta|\alpha\rangle \,
-      \langle\alpha|\hat{Q}_A|\tilde{\varphi}_\beta\rangle
+      \langle \Psi_\beta|\alpha\rangle \,
+      \langle\alpha|\hat{Q}_A|\Psi_\beta\rangle
       \;\;\;\big(\textrm{using some basis} \;\{|\alpha\rangle\}\big) \\
       &= \sum_\alpha
-      \langle\alpha|\hat{Q}_A \left(\sum_\beta |\tilde{\varphi}_\beta\rangle
-      \langle \tilde{\varphi}_\beta|\right) |\alpha\rangle \\
+      \langle\alpha|\hat{Q}_A \left(\sum_\beta |\Psi_\beta\rangle
+      \langle \Psi_\beta|\right) |\alpha\rangle \\
       &= \mathrm{Tr}\left[\,\hat{Q}_A \,\hat{\rho}_A\,\right].
     \end{aligned}
     \label{prop3}
