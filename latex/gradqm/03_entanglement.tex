@@ -1006,12 +1006,11 @@ be represented as matrices.  It has the following noteworthy features:
 \begin{enumerate}
 \item It is Hermitian.  
 
-\item Suppose $\hat{Q}$ is an observable with eigenvalues $\{q_\mu\}$
-  and eigenstates $\{|\mu\rangle\}$ (where $\mu$ is some label that
-  enumerates the eigenstates.  If we do a $\hat{Q}$ measurement on
-  $|\psi\rangle$, the probability of obtaining $q_\mu$ is
+\item Suppose $\hat{Q}$ is an observable with eigenvalues $\{q\}$ and
+  eigenstates $\{|q\rangle\}$.  If we do a $\hat{Q}$ measurement on
+  $|\psi\rangle$, the probability of obtaining $q$ is
   \begin{equation}
-    P_\mu = \big|\langle \mu | \psi\rangle\big|^2 =
+    P(q) = \big|\langle q | \psi\rangle\big|^2 =
     \langle \mu |\, \hat{\rho}\, | \mu \rangle.
     \label{Pi_rho}
   \end{equation}
@@ -1019,8 +1018,8 @@ be represented as matrices.  It has the following noteworthy features:
 \item Moreover, the expectation value of the observable is
   \begin{equation}
     \langle Q\rangle
-    = \sum_\mu q_\mu P_\mu
-    = \sum_\mu q_\mu \langle \mu | \hat{\rho}| \mu \rangle
+    = \sum_q q P(q)
+    = \sum_q q \langle q | \hat{\rho}| q \rangle
     = \mathrm{Tr}\big[\,\hat{Q} \, \hat{\rho}\,\big].
     \label{Qexpt}
   \end{equation}
@@ -1052,117 +1051,130 @@ operator acting on $\mathscr{H}_A$.
 
 To better understand Eq.~\eqref{rhoa_def}, let us go to an explicit
 basis.  Let $\hat{Q}_A$ be an observable for $\mathscr{H}_A$ with
-eigenbasis $\{|\mu\rangle\}$, and let $\hat{Q}_B$ be an observable for
-$\mathscr{H}_B$ with eigenbasis $\{|\nu\rangle\}$.  If the density
-operator of the combined system is $\hat{\rho} = |\psi\rangle\langle
-\psi|$, then
+eigenbasis $\{|\alpha\rangle\}$, and let $\hat{Q}_B$ be an observable
+for $\mathscr{H}_B$ with eigenbasis $\{|\beta\rangle\}$.  From the
+density operator of the combined system, $\hat{\rho} =
+|\psi\rangle\langle \psi|$, we can calculate the partial trace:
 \begin{equation}
   \hat{\rho}_A =
-    \sum_\nu
-    \Big( \hat{I}\otimes \langle \nu| \Big)
+    \sum_\beta
+    \Big( \hat{I}\otimes \langle \beta| \Big)
     \; |\psi\rangle \langle \psi | \;
-    \Big( \hat{I}\otimes | \nu\rangle \Big).
+    \Big( \hat{I}\otimes | \beta\rangle \Big).
     \label{rhoa_explicit}
 \end{equation}
 This is a Hermitian operator acting on the $\mathscr{H}_A$ space.  In
-the $\{|\mu\rangle\}$ basis, its diagonal matrix elements are
+the $\{|\alpha\rangle\}$ basis for $\mathscr{H}_A$, the diagonal
+matrix elements of the operator are
 \begin{align}
   \begin{aligned}
-    \langle \mu | \hat{\rho}_A | \mu \rangle
+    \langle \alpha | \hat{\rho}_A | \alpha \rangle
     &=
-    \sum_\nu
-    \Big( \langle \mu| \langle \nu| \Big)
+    \sum_\beta
+    \Big( \langle \alpha| \langle \beta| \Big)
     \, |\psi\rangle \langle \psi | \,
-    \Big( |\mu\rangle | \nu\rangle \Big) \\
+    \Big( |\alpha\rangle | \beta\rangle \Big) \\
     &=
     \langle \psi | \,
-    \left[ |\mu\rangle \langle \mu| \otimes
-      \left(\sum_\nu | \nu\rangle \langle \nu|\right) \right]
+    \left[ |\alpha\rangle \langle \alpha| \otimes
+      \left(\sum_\beta | \beta\rangle \langle \beta|\right) \right]
     |\psi\rangle \\
     &=
     \langle \psi | \,
-    \Big( |\mu\rangle \langle \mu| \otimes \hat{I}_B\Big) |\psi\rangle.
+    \Big( |\alpha\rangle \langle \alpha| \otimes \hat{I}_B\Big) |\psi\rangle.
   \end{aligned}
 \end{align}
 According to the rules of partial measurements discussed in
 Section~\ref{sec:partialmeasurements}, this is precisely the
-probability of obtaining $q_\mu$ when measuring $\hat{Q}_A$ on subsystem
-$A$:
+probability of obtaining $\alpha$ when measuring $\hat{Q}_A$ on
+subsystem $A$:
 \begin{equation}
-  P_\mu = \langle \mu | \hat{\rho}_A | \mu \rangle.
+  P(\alpha) = \langle \alpha | \hat{\rho}_A | \alpha \rangle.
   \label{rho_prob}
 \end{equation}
-It follows that the expectation value for observable $\hat{M}$ is
+It follows that the expectation value for the observable is
 \begin{equation}
-  \langle Q_A \rangle = \sum_\mu q_\mu
-  \langle \mu | \hat{\rho}_A | \mu \rangle
+  \langle Q_A \rangle = \sum_\alpha \alpha
+  \langle \alpha | \hat{\rho}_A | \alpha \rangle
   = \mathrm{Tr}\Big[\hat{Q}_A \, \hat{\rho}_A \Big].
   \label{rho_expect}
 \end{equation}
 These results hold for any choice of basis.  Hence, knowing the
 density operator for $A$, we can determine the outcome probabilities
-of \textit{any} partial measurement performed on $A$.
+of any partial measurement performed on $A$.
 
-To better understand the properties of $\hat{\rho}_A$, let us write
-$|\psi\rangle$ explicitly as
+To better understand these results, let us expand the state of the
+combined system as
 \begin{equation}
-  |\psi\rangle = \sum_{\mu\nu} \psi_{\mu\nu} |\mu\rangle |\nu\rangle,
+  |\psi\rangle = \sum_{\alpha\beta} \psi_{\alpha\beta} |\alpha\rangle |\beta\rangle,
 \end{equation}
-where $\sum_{\mu\nu} |\psi_{\mu\nu}|^2 = 1$.  Then
+where $\sum_{\alpha\beta} |\psi_{\alpha\beta}|^2 = 1$.  Then
+\begin{equation}
+  \hat{\rho} = \sum_{\alpha\alpha'\beta\beta'} \psi_{\alpha\beta}
+  \psi_{\alpha'\beta'}^* \; |\alpha\rangle |\beta\rangle \,
+  \langle\alpha'|\langle \beta'|,
+\end{equation}
+and the reduced density operator is
 \begin{align}
   \begin{aligned}
-    \hat{\rho} &= \sum_{\mu\mu'\nu\nu'} \psi_{\mu\nu}
-    \psi_{\mu'\nu'}^* \; |\mu\rangle |\nu\rangle \,
-    \langle\mu'|\langle \nu'| \\
-    \hat{\rho}_A &= \sum_{\mu\mu'\nu} \psi_{\mu\nu}\psi_{\mu'\nu}^* |\mu\rangle
-    \langle\mu'| \\
-    &= \sum_\nu \left(\sum_\mu \psi_{\mu\nu} |\mu\rangle\right)
-    \left(\sum_{\mu'} \psi_{\mu'\nu}^*\langle\mu'|\right) \\
-    &= \sum_\nu |\varphi_\nu\rangle \langle \varphi_\nu|,
+    \hat{\rho}_A &= \sum_{\alpha\alpha'\beta} \psi_{\alpha\beta}\psi_{\alpha'\beta}^* |\alpha\rangle
+    \langle\alpha'| \\
+    &= \sum_\beta \left(\sum_\alpha \psi_{\alpha\beta} |\alpha\rangle\right)
+    \left(\sum_{\alpha'} \psi_{\alpha'\beta}^*\langle\alpha'|\right) \\
+    &= \sum_\beta |\varphi_\beta\rangle \langle \varphi_\beta|,
     \;\;\;\mathrm{where}\;\;\;
-    |\varphi_\nu\rangle = \sum_\mu \psi_{\mu\nu} |\mu\rangle.
+    |\varphi_\beta\rangle = \sum_\alpha \psi_{\alpha\beta} |\alpha\rangle.
   \end{aligned}
 \end{align}
-But $|\varphi_\nu\rangle$ is not necessarily normalized to unity:
-$\langle \varphi_\nu | \varphi_\nu\rangle =
-\sum_{\mu}|\psi_{\mu\nu}|^2 \le 1$.  Let us define
+But $|\varphi_\beta\rangle$ is not necessarily normalized to unity:
 \begin{equation}
-  |\tilde{\varphi}_\nu\rangle = \frac{1}{\sqrt{P_\nu}} |\varphi_\nu\rangle,
-  \;\;\;\mathrm{where} \;\; P_\nu = \sum_{\mu}|\psi_{\mu\nu}|^2.
+  \langle \varphi_\beta | \varphi_\beta\rangle =
+  \sum_{\alpha}|\psi_{\alpha\beta}|^2 \le 1.
 \end{equation}
-Note that each $P_\nu$ is a non-negative real number in the range
+Let us therefore define
+\begin{equation}
+  |\tilde{\varphi}_\beta\rangle = \frac{1}{\sqrt{P_\beta}} |\varphi_\beta\rangle,
+  \;\;\;\mathrm{where} \;\; P_\beta = \sum_{\alpha}|\psi_{\alpha\beta}|^2.
+\end{equation}
+Note that each $P_\beta$ is a non-negative real number in the range
 $[0,1]$.  Then
 \begin{equation}
-  \hat{\rho}_A = \sum_\nu P_\nu\, |\tilde{\varphi}_\nu\rangle
-  \langle \tilde{\varphi}_\nu|,
+  \hat{\rho}_A = \sum_\beta P_\beta\, |\tilde{\varphi}_\beta\rangle
+  \langle \tilde{\varphi}_\beta|,
   \;\;\;\mathrm{where}\;\;
   \begin{cases}
-    \;\;\textrm{each $P_\nu$ is a real number in $[0,1]$, and} \\
-    \;\;\textrm{each}\; |\tilde{\varphi}_\nu\rangle \in \mathscr{H}_A,
+    \;\;\textrm{each $P_\beta$ is a real number in $[0,1]$, and} \\
+    \;\;\textrm{each}\; |\tilde{\varphi}_\beta\rangle \in \mathscr{H}_A,
     \;\;\mathrm{with}
-    \;\;\langle\tilde{\varphi}_\nu|\tilde{\varphi}_\nu\rangle = 1.
+    \;\;\langle\tilde{\varphi}_\beta|\tilde{\varphi}_\beta\rangle = 1.
   \end{cases}
   \label{rhoform}
 \end{equation}
+We can interpret this as a weighted sum of individual density
+operators, defined with a set of quantum states
+$\{|\tilde{\varphi}_\beta\rangle\}$ and classical probabilities
+$\{P_\beta\}$.  This called an \textbf{ensemble} of quantum states.
+Note that the states in the ensemble need not be orthogonal to each
+other.
 
-In general, we can define a density operator as any operator that has
-the form of Eq.~\eqref{rhoform}, regardless of whether or not it was
-formally derived via a partial trace.  We can interpret it as
-describing a ensemble of quantum states weighted by a set of classical
-probabilities.  Each term in the sum consists of (i) a weighting
-coefficient $P_\nu$ which can be regarded as a probability (the
-coefficients are all real numbers in the range $[0,1]$, and sum to 1),
-and (ii) a projection operator associated with some normalized state
-vector $|\tilde{\varphi}_\nu\rangle$.  Note that the states in the
-ensemble do not have to be orthogonal to each other.
+Although we derived Eq.~\eqref{rhoform} from $|\psi\rangle$, the state
+of the combined system, we cannot work backwards from $\hat{\rho}_A$
+to figure out $|\psi\rangle$ (specifically, the coefficients
+$\psi_{\alpha\beta}$).  From subsystem $A$'s point of view,
+$\hat{\rho}_A$ provides all the information needed to calculate the
+probabilities for any measurement on $A$ (as we have seen), and does
+not contain any extra information about subsystem $B$, or how $A$ and
+$B$ were entangled.  Thus, instead of persistently referring to
+$\hat{\rho}_A$ as a reduced density operator, we can simply think of
+it as ``the density operator for $A$''.
 
-From this point of view, a density operator of the form
-$|\psi\rangle\langle\psi|$ corresponds to the special case of an
-ensemble containing only one quantum state $|\psi\rangle$.  Such an
-ensemble is called a \textbf{pure state}, and describes a quantum
-system that is not entangled with any other system.  If an ensemble is
-not a pure state, we call it a \textbf{mixed state}; it describes a
-system that is entangled with some other system.
+In this sense, a density operator of the form
+$|\psi\rangle\langle\psi|$ is just the special case of an ensemble of
+one quantum state, $|\psi\rangle$, with probability $P = 1$.  Such an
+ensemble is called a \textbf{pure state}, and obviously describes a
+quantum system that is not entangled with anything else.  If an
+ensemble is not a pure state, implying that there is entanglement with
+some other system, we call it a \textbf{mixed state}.
 
 We can show that any linear operator $\hat{\rho}_A$ obeying
 Eq.~\eqref{rhoform} has the following properties:
@@ -1177,25 +1189,24 @@ Eq.~\eqref{rhoform} has the following properties:
   \begin{align}
     \begin{aligned}
       \langle Q_A \rangle
-      &\equiv \sum_\nu P_\nu
-      \langle \tilde{\varphi}_\nu|\hat{Q}_A|\tilde{\varphi}_\nu\rangle \\
-      &= \sum_{\mu\nu} P_\nu\,
-      \langle \tilde{\varphi}_\nu|\mu\rangle \,
-      \langle\mu|\hat{Q}|\tilde{\varphi}_\nu\rangle
-      \;\;\;\big(\textrm{using some basis} \;\{|\mu\rangle\}\big) \\
-      &= \sum_\mu
-      \langle\mu|\hat{Q} \left(\sum_\nu |\tilde{\varphi}_\nu\rangle
-      \langle \tilde{\varphi}_\nu|\right) |\mu\rangle \\
-      &= \mathrm{Tr}\left[\,\hat{Q} \,\hat{\rho}_A\,\right].
+      &\equiv \sum_\beta P_\beta
+      \langle \tilde{\varphi}_\beta|\hat{Q}_A|\tilde{\varphi}_\beta\rangle \\
+      &= \sum_{\alpha\beta} P_\beta\,
+      \langle \tilde{\varphi}_\beta|\alpha\rangle \,
+      \langle\alpha|\hat{Q}_A|\tilde{\varphi}_\beta\rangle
+      \;\;\;\big(\textrm{using some basis} \;\{|\alpha\rangle\}\big) \\
+      &= \sum_\alpha
+      \langle\alpha|\hat{Q}_A \left(\sum_\beta |\tilde{\varphi}_\beta\rangle
+      \langle \tilde{\varphi}_\beta|\right) |\alpha\rangle \\
+      &= \mathrm{Tr}\left[\,\hat{Q}_A \,\hat{\rho}_A\,\right].
     \end{aligned}
     \label{prop3}
   \end{align}
-  This property can be used to deduce the probability of obtaining any
-  measurement outcome: if $|\mu\rangle$ is the eigenstate associated
-  with the outcome, the outcome probability is
-  $\langle\mu|\hat\rho_A|\mu\rangle$, consistent with
-  Eq.~\eqref{rho_prob}.  To see this, take $\hat{Q} = |\mu\rangle
-  \langle \mu|$ in Eq.~\eqref{prop3}.
+  This also gives the probability for any measurement outcome: if
+  $|\alpha\rangle$ is the eigenstate associated with the outcome, the
+  outcome probability is $\langle\alpha|\hat\rho_A|\alpha\rangle$,
+  consistent with Eq.~\eqref{rho_prob}.  To see this, take $\hat{Q}_A
+  = |\alpha\rangle \langle \alpha|$ in Eq.~\eqref{prop3}.
   
 \item The eigenvalues of $\hat{\rho}_A$, denoted by $\{p_1, p_2,
   \dots, p_{d_A}\}$, satisfy
@@ -1208,7 +1219,7 @@ Eq.~\eqref{rhoform} has the following properties:
   The eigenvalues can thus be interpreted as probabilities.  Moreover,
   $\mathrm{Tr}[\hat\rho_A] = 1$.
 
-  Property 4 follows from Property 3.  First, take $\hat{Q} =
+  Property 4 follows from Property 3.  First, take $\hat{Q}_A =
   |j\rangle\langle j|$, where $|j\rangle$ is any eigenvector of
   $\hat\rho_A$ with eigenvalue $p_j$, and use Property 3 to prove that
   $0 \le p_j \le 1$.  Then take $\hat{Q} = \hat{I}_A$ and use Property
