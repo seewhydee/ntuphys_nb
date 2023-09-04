@@ -54,31 +54,31 @@ and counterintuitive phenomena, such as \textbf{quantum entanglement}.
 
 Suppose we have two quantum objects, $A$ and $B$.  According to
 quantum mechanics, $A$ is associated with some Hilbert space
-$\mathscr{H}_A$ (meaning that every state of A is a vector in that
-space), and $B$ is similarly associated with a Hilbert space
-$\mathscr{H}_B$.  Note that $\mathscr{H}_A$ and $\mathscr{H}_B$ may be
+$\mathscr{H}_A$ (i.e., every state of A is a vector in that space),
+and $B$ is similarly associated with a Hilbert space $\mathscr{H}_B$.
+The two spaces $\mathscr{H}_A$ and $\mathscr{H}_B$ may be
 mathematically distinct; for example, they may have different
-dimensions.  Now, the combined system of $A$ and $B$ should likewise
+dimensions.  Obviously, the combined system of $A$ and $B$ should also
 be describable by quantum mechanics.  What is its Hilbert space?
 
 In linear algebra, there is an concept called the \textbf{tensor
-  product} which turns out to be exactly what we need to answer this
-question.  Given $|a\rangle \in \mathscr{H}_A$ and $|b\rangle \in
-\mathscr{H}_B$, consider an ordered pair of these two vectors, which
-we call ``the tensor product of $|a\rangle$ and $|b\rangle$'', and
-which we denote by
+  product} that happens to be exactly what we need.  Given $|a\rangle
+\in \mathscr{H}_A$ and $|b\rangle \in \mathscr{H}_B$, consider an
+ordered pair of these two vectors, which we call ``the tensor product
+of $|a\rangle$ and $|b\rangle$''.  We denote this by
 \begin{equation*}
   |a\rangle \otimes |b\rangle.
 \end{equation*}
 Note that this is an \textit{ordered} pair, i.e.,
-$|a\rangle\otimes|b\rangle$ is not necessarily the same as
-$|b\rangle\otimes|a\rangle$.
+$|a\rangle\otimes|b\rangle$ and $|b\rangle\otimes|a\rangle$ are not
+identical.
 
-It turns out that tensor products can act as vectors: they can form
-linear combinations, by addition to each other and/or multiplication
-by scalars (complex numbers).  These vector operations are related to
-the original vector operations for $\mathscr{H}_A$ and $\mathscr{H}_B$
-via a pair of ``factorization rules'',
+It turns out that tensor products can act as vectors: we can form
+linear combinations by adding them to each other and/or multiplying
+them by scalars (complex numbers).  These vector operations are
+compatible with the original vector operations for $\mathscr{H}_A$ and
+$\mathscr{H}_B$, in the sense that they obey the ``factorization
+rules''
 \begin{align}
   \Big(\lambda |a\rangle
   + \lambda' |a'\rangle\Big) \otimes |b\rangle &=
@@ -90,50 +90,89 @@ via a pair of ``factorization rules'',
   \lambda' |a\rangle \otimes |b'\rangle.
   \label{tensorrule2} 
 \end{align}
-These are reminiscent of the rules of ordinary algebra, with $\otimes$
-acting like multiplication (except that $|a\rangle\otimes|b\rangle \ne
-|b\rangle\otimes|a\rangle$ in general).
+(Note that the expressions inside the parentheses are vector
+operations in $\mathscr{H}_A$ and $\mathscr{H}_B$ respectively.)
+These are reminiscent of the rules of algebra, with $\otimes$ acting
+like multiplication, except that $|a\rangle\otimes|b\rangle$ is not
+considered equivalent to $|b\rangle\otimes|a\rangle$.
 
 We will be dealing with tensor products a lot, and it can be
-cumbersome to keep writing the $\otimes$.  Therefore, it is customary
-to simplify by omitting the $\otimes$ in bra-ket notation:
+cumbersome to keep writing the $\otimes$.  For convenience, it is
+customary to omit the $\otimes$ in bra-ket notation:
 \begin{equation}
   |a \rangle \otimes |b\rangle \;\; \equiv \;\; |a \rangle |b\rangle.
 \end{equation}
-However, even when we write the tensor product this way, as a
-``product of two kets'', the ordering remains important.  The vector
-on the left is implicitly understood to be the $A$-type vector, and
-the one on the right is the $B$-type vector.
+But even as we write the tensor product this way, as a ``product of
+two kets'', the ordering remains important.  The left slot is
+implicitly understood to contain the $A$-type ket, while the right
+slot contains the $B$-type ket.
 
-It can be shown that the space of all tensor products, \textit{and
-  linear combinations thereof}, forms a Hilbert space.  We call this
-the tensor product space of $\mathscr{H}_A$ and $\mathscr{H}_B$,
+The space of all tensor products, \textit{and linear combinations
+  thereof}, forms a Hilbert space.  We call this the \textbf{tensor
+  product space} of $\mathscr{H}_A$ and $\mathscr{H}_B$, which is
 denoted by
 \begin{equation*}
   \mathscr{H}_A\otimes \mathscr{H}_B.
 \end{equation*}
-(For denoting tensor product \textit{spaces}, we will not omit the
-$\otimes$ symbol.)  The tensor product thus provides a natural way to combine two Hilbert spaces to form a larger Hilbert space.
+(For denoting tensor product spaces, we will not omit the $\otimes$
+symbol.)  The tensor product thus provides a natural way to combine
+two Hilbert spaces into a larger Hilbert space.
 
-As an explicit example, let both $\mathscr{H}_A$ and $\mathscr{H}_B$
-be the space of two-component complex vectors, $\mathbb{C}^2$.  Given
-two vectors
+As an example, let $A$ and $B$ be distinct spin-$1/2$ degrees of
+freedom, so that $\mathscr{H}_A = \mathscr{H}_B = \mathbb{C}^2$ (the
+space of two-component complex vectors).  For each spin-$1/2$
+subsystem, we can adopt the orthonormal basis
 \begin{equation}
-  |a\rangle = \begin{pmatrix} a_1 \\ a_2 \end{pmatrix} \in \mathbb{C}^2,
-  \quad
-  |b\rangle = \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} \in \mathbb{C}^2,
+  |\!\uparrow\rangle = \begin{pmatrix}1 \\ 0 \end{pmatrix}, \quad
+  |\!\downarrow\rangle = \begin{pmatrix}0 \\ 1 \end{pmatrix},
 \end{equation}
-we can define the tensor product as
+representing (e.g.)~a spin-up and spin-down state respectively.  From
+these, we can construct four ordered pairs, $|\!\uparrow\rangle
+|\!\uparrow\rangle$, $|\!\uparrow\rangle |\!\downarrow\rangle$,
+$|\!\downarrow\rangle |\!\uparrow\rangle$, and $|\!\downarrow\rangle
+|\!\downarrow\rangle$, each of which can be interpreted as a state of
+the combined system of $A$ and $B$; for instance, $|\!\uparrow\rangle
+|\!\downarrow\rangle$ represents a situation in which $A$ has spin up
+and $B$ has spin down.  We assign to them the representation
+\begin{align}
+  \begin{aligned}
+  |\!\uparrow\rangle  |\!\uparrow\rangle
+  &= \begin{pmatrix}1 \\ 0 \\ 0 \\ 0\end{pmatrix},\quad
+  |\!\uparrow\rangle  |\!\downarrow\rangle
+  = \begin{pmatrix}0 \\ 1 \\ 0 \\ 0\end{pmatrix}, \\
+  |\!\downarrow\rangle  |\!\uparrow\rangle
+  &= \begin{pmatrix}0 \\ 0 \\ 1 \\ 0\end{pmatrix},\quad
+  |\!\downarrow\rangle  |\!\downarrow\rangle
+  = \begin{pmatrix}0 \\ 0 \\ 0 \\ 1\end{pmatrix}.
+  \end{aligned}
+  \label{c4basis}
+\end{align}
+These constitute a basis for $\mathbb{C}^2 \otimes \mathbb{C}^2 =
+\mathbb{C}^4$, which serves as the state space for the combined
+system.  Given any two vectors for $A$ and $B$,
+\begin{align}
+  |a\rangle &=
+  a_1 |\!\uparrow\rangle + a_2 |\!\downarrow\rangle =
+  \begin{pmatrix} a_1 \\ a_2 \end{pmatrix} \in \mathbb{C}^2, \\
+  |b\rangle &=
+  b_1 |\!\uparrow\rangle + b_2 |\!\downarrow\rangle \,=
+  \begin{pmatrix} b_1 \\ b_2 \end{pmatrix} \in \mathbb{C}^2,
+\end{align}
+the factorization rules \eqref{tensorrule1}--\eqref{tensorrule2} imply
+that their tensor product is
 \begin{equation}
   |a\rangle |b\rangle =
+  a_1 b_1 |\!\uparrow\rangle |\!\uparrow\rangle
+  + a_1 b_2 |\!\uparrow\rangle |\!\downarrow\rangle
+  + a_2 b_1 |\!\downarrow\rangle |\!\uparrow\rangle
+  + a_2 b_2 |\!\downarrow\rangle |\!\downarrow\rangle
+  =
   \begin{pmatrix} a_1 b_1 \\ a_1 b_2 \\ a_2 b_1 \\ a_2 b_2 \end{pmatrix}.
   \label{tensordef}
 \end{equation}
-This is a vector in the space of four-component complex vectors,
-$\mathbb{C}^4$, which serves as the tensor product space.  From
-Eq.~\eqref{tensordef}, it is clear that $|a\rangle \otimes |b\rangle
-\ne |b\rangle \otimes |a\rangle$ in general.  We can also show that
-Eq.~\eqref{tensordef} satisfies the factorization rules
+Conversely, we can take Eq.~\eqref{tensordef} as the definition of the
+tensor product, which is consistent with the basis \eqref{c4basis},
+and use it to derive the factorization rules
 \eqref{tensorrule1}--\eqref{tensorrule2}.  For instance,
 \begin{align}
   \left[\begin{pmatrix} a_1 \\ a_2 \end{pmatrix}
@@ -150,56 +189,65 @@ Eq.~\eqref{tensordef} satisfies the factorization rules
   + \begin{pmatrix} a_1' \\ a_2' \end{pmatrix} \otimes
   \begin{pmatrix} b_1 \\ b_2 \end{pmatrix}.
 \end{align}
-We can also calculate inner products between tensor products in a
-straightforward way.  The dual of Eq.~\eqref{tensordef} is
+
+The dual (or ``bra'') of a tensor product $|a\rangle |b\rangle$ is
+denoted by $\langle a| \langle b|$.  Note that taking the dual retains
+the ordering of the tensor product: the bra for $A$ goes in the left
+slot, and the bra for $B$ goes in the right slot.  From
+Eq.~\eqref{tensordef}, the dual of a $\mathbb{C}^2\otimes\mathbb{C}^2$
+tensor product ket is
 \begin{equation}
   \langle a| \langle b| =
   \begin{pmatrix} a_1^* b_1^* & a_1^* b_2^*
     & a_2^* b_1^* & a_2^* b_2^* \end{pmatrix}.
 \end{equation}
-(Note that taking the dual does not affect the ordering of the tensor
-product.)  Hence,
+Hence, the inner product between two tensor products is
 \begin{align}
+  \begin{aligned}
   \Big(\langle a| \langle b|\Big)
   \Big(|a'\rangle |b'\rangle\Big)
   &= \begin{pmatrix} a_1^* b_1^* & a_1^* b_2^*
     & a_2^* b_1^* & a_2^* b_2^* \end{pmatrix}
   \begin{pmatrix} a_1' b_1' \\ a_1' b_2' \\
-    a_2' b_1' \\ a_2' b_2' \end{pmatrix} \label{inprodex1}\\
+    a_2' b_1' \\ a_2' b_2' \end{pmatrix} \\
   &= (a_1^*a_1' + a_2^*a_2') (b_1^*b_1' + b_2^*b_2') \\
   &= \langle a|a'\rangle \; \langle b|b'\rangle.  
-  \label{inprodex3}
+  \end{aligned}
+  \label{inprodex}
 \end{align}
-The inner product is performed ``slot by slot'', by taking the inner
-products of the constituent $A$-type and $B$-type vectors, and
-multiplying the results together.  It can be shown that this procedure
-preserves the inner product axioms.
+The operation is performed ``slot by slot'', by taking the inner
+products of the $A$-type and $B$-type vectors, and multiplying the
+results together.  This is also consistent with the assumption that
+the four basis states in \eqref{c4basis} form an orthonormal set.
 
 The key features of the above example generalize to more complicated
-tensor products, including cases where $\mathscr{H}_A$ and
-$\mathscr{H}_B$ are inequivalent (e.g., when they have different
-dimensions).  To proceed, let us suppose the two vector spaces have
-orthonormal bases, possibly of different sizes, denoted like this:
+tensor products.  Suppose the two subsystems $A$ and $B$ have
+orthonormal bases denoted as follows:
 \begin{align}
   \Big\{ |\alpha\rangle \Big\} &\;\;\textrm{is a basis for}\;\; \mathscr{H}_A,
-  \;\mathrm{where}\;\; \alpha = 1, 2, \dots, \mathrm{dim}(\mathscr{H}_A)\\
+  \;\mathrm{where}\;\; \alpha = 1, 2, \dots, \mathrm{dim}(\mathscr{H}_A)
+  \label{subbasis1} \\
   \Big\{ |\beta\rangle \Big\} &\;\; \textrm{is a basis for}\;\; \mathscr{H}_B,
   \;\mathrm{where}\;\; \beta\, = 1, 2, \dots, \mathrm{dim}(\mathscr{H}_B).
+  \label{subbasis2}
 \end{align}
-Given that $\mathscr{H}_A \otimes \mathscr{H}_B$ is defined as the
-space of all possible tensor products and their linear combinations,
-we can see that
+Note that the two bases may have different sizes (i.e.,
+$\mathscr{H}_A$ and $\mathscr{H}_B$ may have different dimensions).
+Following the same reasoning as in the preceding example, we can set
+up a tensor product operation that obeys the factorization rules
+\eqref{tensorrule1}--\eqref{tensorrule2}, and use
+\eqref{subbasis1}--\eqref{subbasis2} to construct a basis for the
+tensor product space:
 \begin{align}
   \Big\{ |\alpha \rangle |\beta \rangle \Big\}
   \;\;\textrm{is a basis for}\;\; \mathscr{H}_A \otimes \mathscr{H}_B,
   \;\mathrm{where}\;
   \begin{cases}
-    \alpha &= 1, 2, \dots, \mathrm{dim}(\mathscr{H}_A), \\
-    \beta &= 1, 2, \dots, \mathrm{dim}(\mathscr{H}_B).
+    \;\;\alpha \!\!\!\!&= 1, 2, \dots, \mathrm{dim}(\mathscr{H}_A), \\
+    \;\;\beta \!\!\!\!\!&= 1, 2, \dots, \mathrm{dim}(\mathscr{H}_B).
   \end{cases}
 \end{align}
-This basis is orthonormal because, as in
-Eqs.~\eqref{inprodex1}--\eqref{inprodex3},
+The basis states are orthonormal:
 \begin{equation}
   \Big(\langle \alpha| \langle \beta|\Big)
   \Big(|\alpha'\rangle |\beta'\rangle\Big)
@@ -207,43 +255,16 @@ Eqs.~\eqref{inprodex1}--\eqref{inprodex3},
   = \delta_{\alpha\alpha'} \delta_{\beta\beta'}.
   \label{innerprod}
 \end{equation}
-Hence,
+As a corollary, the dimension of the tensor product space is
 \begin{equation}
   \dim\left[\mathscr{H}_A \otimes \mathscr{H}_B\right]
   = \mathrm{dim}(\mathscr{H}_A)\; \mathrm{dim}(\mathscr{H}_B).
   \label{tensordim}
 \end{equation}
 
-Returning to the earlier $\mathbb{C}^2\otimes\mathbb{C}^2$ example,
-let us take the following orthonormal basis for both $\mathscr{H}_A =
-\mathbb{C}^2$ and $\mathscr{H}_B = \mathbb{C}^2$:
-\begin{equation}
-  |\!\uparrow\rangle = \begin{pmatrix}1 \\ 0 \end{pmatrix}, \quad
-  |\!\downarrow\rangle = \begin{pmatrix}0 \\ 1 \end{pmatrix}.
-\end{equation}
-In a quantum mechanical context, $A$ and $B$ could each represent a
-spin-$1/2$ subsystem, with $|\!\uparrow\rangle$ denoting the spin-up
-state and $|\!\downarrow\rangle$ the spin-down state (e.g., along the
-$z$ axis).  Then, using Eq.~\eqref{tensordef}, we find that
-\begin{align}
-  \begin{aligned}
-  |\!\uparrow\rangle  |\!\uparrow\rangle
-  &= \begin{pmatrix}1 \\ 0 \\ 0 \\ 0\end{pmatrix},\quad
-  |\!\uparrow\rangle  |\!\downarrow\rangle
-  = \begin{pmatrix}0 \\ 1 \\ 0 \\ 0\end{pmatrix}, \\
-  |\!\downarrow\rangle  |\!\uparrow\rangle
-  &= \begin{pmatrix}0 \\ 0 \\ 1 \\ 0\end{pmatrix},\quad
-  |\!\downarrow\rangle  |\!\downarrow\rangle
-  = \begin{pmatrix}0 \\ 0 \\ 0 \\ 1\end{pmatrix}.
-  \end{aligned}
-\end{align}
-This is, of course, an orthonormal basis for the tensor product space
-$\mathbb{C}^2\otimes\mathbb{C}^2 = \mathbb{C}^4$, which is the state
-space for the combined two-spin system.
-
 \subsection{Entanglement}
 
-The above definition of the tensor product space contains an important
+The above discussion of tensor product spaces contains an important
 subtlety.  Even though we used tensor products of the form
 \begin{equation}
   |a\rangle |b\rangle
@@ -252,16 +273,16 @@ subtlety.  Even though we used tensor products of the form
 to help define the tensor product space, vectors drawn from
 $\mathscr{H}_A \otimes \mathscr{H}_B$ do not necessarily have this
 form.  This is because $\mathscr{H}_A \otimes \mathscr{H}_B$ contains
-not only tensor products, but also linear combinations generated by
-performing vector operations on tensor products.  The latter are
-\textit{not} guaranteed to have the form \eqref{tprod_generic}.
+not only tensor products, but also all possible linear combinations of
+tensor products.  The latter are \textit{not} guaranteed to have the
+form \eqref{tprod_generic}.
 
 In quantum mechanics, a tensor product like \eqref{tprod_generic} is
 an obvious and natural way to describe a situation where subsystem $A$
 is in state $|a\rangle$, and $B$ is in state $|b\rangle$.  For
-example, in the previous example of two spin-$1/2$ subsystems, suppose
-$A$ and $B$ are both in the spin-up state; then the state of the
-combined system is
+instance, in our previous example of two spin-$1/2$ subsystems, if $A$
+and $B$ are both in the spin-up state, the state of the combined
+system is
 \begin{equation}
   |\!\uparrow\rangle |\!\uparrow\rangle.
   \label{stateexample1}
@@ -277,10 +298,8 @@ Similarly, suppose the states of $A$ and $B$ are
 Then the state of the combined system is
 \begin{align}
   |a\rangle\, |b\rangle
-  = |\!\uparrow\rangle\, \frac{1}{\sqrt{2}}\,
+  = \frac{1}{\sqrt{2}}\, |\!\uparrow\rangle\,
   \Big(|\!\uparrow\rangle + |\!\downarrow\rangle\Big)
-  = \frac{1}{\sqrt{2}} \Big( |\!\uparrow\rangle \, |\!\uparrow\rangle
-  + |\!\uparrow\rangle\, |\!\downarrow\rangle \Big).
   \label{stateexample2}
 \end{align}
 But now consider the state
@@ -295,13 +314,12 @@ valid vector in $\mathscr{H}_A \otimes \mathscr{H}_B =
 \mathbb{C}^2\otimes\mathbb{C}^2$.  However, it turns out to be
 impossible to re-write Eq.~\eqref{entangled_state} in the form
 $|a\rangle|b\rangle$!  (We will prove this later, in
-Section~\ref{sec:entropy}.)  In such a situation, $A$ and $B$ each
-cannot be said to have a well-defined, stand-alone quantum state; only
-the combined system has a state $|\psi\rangle$.  We then say that the
-subsystems $A$ and $B$ are \textbf{entangled}.
-
-Entanglement leads to many counterintuitive phenomena, which will be
-explored in the rest of this chapter.
+Section~\ref{sec:entropy}.)  In such a situation, $A$ and $B$ do not
+individually have stand-alone quantum states; only the combined system
+has a well-defined quantum state, $|\psi\rangle$.  We then say $A$ and
+$B$ are \textbf{entangled}.  Entanglement leads to many
+counterintuitive phenomena, which we will explore in the rest of this
+chapter.
 
 \subsection{Multiple subsystems}
 
@@ -323,11 +341,10 @@ which has dimension
 Note that the dimension scales exponentially with the number of
 subsystems.  For instance, if there are 20 subsystems each having a 2D
 Hilbert space, the combined Hilbert space has dimension $2^{20}
-=1\,048\,576$.  This implies that quantum systems with only a modest
-number of particles can carry tremendous amounts of information in
-their quantum states.  This is one of the motivations behind the
-active research fields of quantum computing and quantum information
-theory.
+=1\,048\,576$.  This implies that quantum systems containing only a
+modest number of particles can carry tremendous amounts of information
+in their quantum states.  This is the primary motivation behind the
+active research field of quantum computing.
 
 %% By the way, the tensor product plays a role even in the quantum
 %% mechanics of a particle moving in multiple spatial dimensions, even if
