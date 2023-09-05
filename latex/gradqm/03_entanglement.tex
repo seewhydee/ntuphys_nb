@@ -263,6 +263,7 @@ As a corollary, the dimension of the tensor product space is
 \end{equation}
 
 \subsection{Entanglement}
+\label{sec:entanglement}
 
 The above discussion of tensor product spaces contains an important
 subtlety.  Even though we used tensor products of the form
@@ -834,7 +835,7 @@ how complicated the inner workings of the hidden-variable theory are,
 so long as it meets the modest assumptions presented above (e.g.,
 there are local deterministic hidden variables for each measurement,
 the hidden-variable states are associated with probabilities summing
-to one, etc.)
+to one, etc.).
 
 Thus, we seek a set of spin operators $\{S_1, S_2, S_3\}$ such that
 quantum theory violates Bell's inequality.  One way to accomplish this
@@ -913,9 +914,9 @@ One of the most remarkable consequences of Bell's thought experiment
 is that it provides a way to perform cryptography that is more secure,
 in certain respects, than conventional cryptography.  The possibility
 of \textbf{quantum cryptography} is poised to be one of the most
-important technological applications of quantum mechanics.  Here, we
-describe one of the earliest quantum cryptography schemes, devised by
-Ekert in 1991 [\ref{cite:ekert}].
+important technological applications of quantum entanglement.  Here,
+we describe one of the earliest quantum cryptography schemes, devised
+by Ekert in 1991 [\ref{cite:ekert}].
 
 Ekert's scheme allows two participants, Alice and Bob, to share with
 each other a string of random binary digits (0 or 1), called a
@@ -1023,70 +1024,69 @@ We now introduce \textbf{density operators}, which help streamline
 calculations involving systems of multiple particles (or, more
 generally, multiple subsystems).
 
-Consider a quantum system with a $d$-dimensional Hilbert space
-$\mathscr{H}$.  Given an arbitrary state $|\psi\rangle \in
-\mathscr{H}$, define the Hermitian operator
+As a warm-up, consider a quantum system in a state $|\psi\rangle \in
+\mathscr{H}$.  We can define the Hermitian operator
 \begin{equation}
   \hat{\rho} = |\psi\rangle\, \langle\psi|.
   \label{rho_pure}
 \end{equation}
-This is just the projection operator for $|\psi\rangle$, but in this
-context we call it a ``density operator''.  Some other authors call it
-a \textbf{density matrix}, based on the fact that linear operators can
-be represented as matrices.
+This is just the projector for $|\psi\rangle$, but in this context we
+call it a ``density operator''.  It is also commonly called a
+\textbf{density matrix}.
 
-Using the density operator, we can re-express what we know about
-measurements in quantum mechanics, as follows:
+In Section~\ref{sec:partialmeasurements}, we had gone through the
+rules for calculating the probabilities for measurements done on
+$|\psi\rangle$.  Using $\hat{\rho}$, these rules can be re-stated as
+follows:
+
 \begin{enumerate}
-\item Let $\hat{Q}$ be an observable with eigenvalues $\{q\}$ and
-  eigenstates $\{|q\rangle\}$.  If we perform this measurement on
-  $|\psi\rangle$, the probability of obtaining $q$ is
+\item If we measure an observable $\hat{Q}$, whose eigenvalues are
+  $\{q\}$ and eigenstates are $\{|q\rangle\}$, the probability of
+  obtaining $q$ is
   \begin{equation}
     P(q) = \big|\langle q | \psi\rangle\big|^2 =
     \langle \mu |\, \hat{\rho}\, | \mu \rangle.
     \label{Pi_rho}
   \end{equation}
 
-\item Moreover, the expectation value of the observable is
+\item The expectation value of the observable is
   \begin{equation}
     \langle Q\rangle
     = \sum_q q P(q)
-    = \sum_q q \langle q | \hat{\rho}| q \rangle
+    = \sum_q \langle q | \hat{Q}\, \hat{\rho}| q \rangle
     = \mathrm{Tr}\big[\,\hat{Q} \, \hat{\rho}\,\big].
     \label{Qexpt}
   \end{equation}
-  In the last equality, $\mathrm{Tr}[\cdots]$ denotes the trace, which
-  is the sum of the diagonal elements of the matrix representation of
-  the operator.  The result is basis-independent.
+  Here, $\mathrm{Tr}[\cdots]$ denotes the trace, which is the sum of
+  the diagonal elements of the matrix representation of the operator.
+  Its value is basis independent.
 \end{enumerate}
 
-Now consider, once again, a composite system consisting of two
+Let us move on to partial measurements.  Consider, once again, two
 subsystems $A$ and $B$, with Hilbert spaces $\mathscr{H}_A$ and
-$\mathscr{H}_B$.  Let's say we are interested in the properties of
-$A$, meaning the probabilities and expectation values for any
-measurements performed on $A$.  From the state of the combined system,
-$|\psi\rangle \in \mathscr{H}_A\otimes \mathscr{H}_B$, we can
-certainly calculate these quantities.  However, $|\psi\rangle$ also
-contains a lot of information about $B$ that is irrelevant to us.
+$\mathscr{H}_B$.  Suppose we are specifically interested in partial
+measurements performed on $A$.  As detailed in
+Section~\ref{sec:partialmeasurements} the probabilities of these
+partial measurement outcomes can be calculated from the state of the
+combined system,
+\begin{equation*}
+  |\psi\rangle \in \mathscr{H}_A\otimes \mathscr{H}_B.
+\end{equation*}
+However, $|\psi\rangle$ also contains information about $B$, which we
+are not interested in.  Is there a more economical way to encode just
+the properties of the $A$ subsystem?
 
-There is a more economical way to encode just the information about
-$A$.  We can define the density operator for $A$ (sometimes called the
-\textbf{reduced density operator}) as
+To do this, we define the density operator for $A$, sometimes called
+the \textbf{reduced density operator}, as follows:
 \begin{equation}
   \hat{\rho}_A = \mathrm{Tr}_B \,\big[\,\hat{\rho}\,\big].
   \label{rhoa_def}
 \end{equation}
-Here, $\mathrm{Tr}_B[\cdots]$ refers to a \textbf{partial trace}.
-This means tracing over the $\mathscr{H}_B$ part of the Hilbert space
-$\mathscr{H}_A \otimes \mathscr{H}_B$, which yields an operator acting
-on $\mathscr{H}_A$.
-
-To better understand Eq.~\eqref{rhoa_def}, let us take an explicit
-basis.  Let $\hat{Q}_A$ be an observable for $\mathscr{H}_A$ with
-eigenbasis $\{|\alpha\rangle\}$, and let $\hat{Q}_B$ be an observable
-for $\mathscr{H}_B$ with eigenbasis $\{|\beta\rangle\}$.  Starting
-from the density operator of the combined system, $\hat{\rho} =
-|\psi\rangle\langle \psi|$, the partial trace is
+Here, $\hat{\rho}$ is the density matrix for the combined system, as
+defined in Eq.~\eqref{rho_pure}.  $\mathrm{Tr}_B[\cdots]$ denotes a
+\textbf{partial trace}, which means tracing out the $B$ part of the
+Hilbert space.  To be precise, given a basis $\{|\beta\rangle\}$ for
+$\mathscr{H}_B$, the partial trace is
 \begin{equation}
   \hat{\rho}_A =
     \sum_\beta
@@ -1095,45 +1095,49 @@ from the density operator of the combined system, $\hat{\rho} =
     \Big( \hat{I}\otimes | \beta\rangle \Big).
     \label{rhoa_explicit}
 \end{equation}
-This is a Hermitian operator for $\mathscr{H}_A$.  In the
-$\{|\alpha\rangle\}$ basis, its diagonal matrix elements are
+In the $A$ part of the Hilbert space, we do nothing (i.e., apply
+identity operators), while in the $B$ part we perform a trace.
+Whereas the standard trace turns an operator to a scalar, this partial
+trace turns an operator acting on $\mathscr{H}_A \otimes
+\mathscr{H}_B$ into an operator acting on just $\mathscr{H}_A$.  Like
+the standard trace, the partial trace turns out to be basis
+independent---i.e., even if we use a different basis in
+Eq.~\eqref{rhoa_explicit}, we end up with the same operator.
+
+Now, suppose we measure an observable $\hat{Q}_A$ on subsystem $A$,
+which has eigenstates $\{|\alpha\rangle\}$ and eigenvalues
+$\{\alpha\}$.  According to the rules for partial measurements
+(Section~\ref{sec:partialmeasurements}), the probability of obtaining
+$\alpha$ is
 \begin{align}
-  \begin{aligned}
-    \langle \alpha | \hat{\rho}_A | \alpha \rangle
+  P(\alpha)
     &=
-    \sum_\beta
-    \Big( \langle \alpha| \langle \beta| \Big)
-    \, |\psi\rangle \langle \psi | \,
-    \Big( |\alpha\rangle | \beta\rangle \Big) \\
+    \langle \psi | \,
+    \Big( |\alpha\rangle \langle \alpha| \otimes \hat{I}_B\Big) |\psi\rangle \\
     &=
     \langle \psi | \,
     \left[ |\alpha\rangle \langle \alpha| \otimes
       \left(\sum_\beta | \beta\rangle \langle \beta|\right) \right]
     |\psi\rangle \\
     &=
-    \langle \psi | \,
-    \Big( |\alpha\rangle \langle \alpha| \otimes \hat{I}_B\Big) |\psi\rangle.
-  \end{aligned}
+    \sum_\beta
+    \Big( \langle \alpha| \langle \beta| \Big)
+    \, |\psi\rangle \langle \psi | \,
+    \Big( |\alpha\rangle | \beta\rangle \Big) \\
+    &= \langle \alpha | \hat{\rho}_A | \alpha \rangle.
+    \label{rho_prob}
 \end{align}
-According to the rules of partial measurements discussed in
-Section~\ref{sec:partialmeasurements}, this is precisely the
-probability of obtaining $\alpha$ when measuring $\hat{Q}_A$ on
-subsystem $A$:
-\begin{equation}
-  P(\alpha) = \langle \alpha | \hat{\rho}_A | \alpha \rangle.
-  \label{rho_prob}
-\end{equation}
-It follows that the expectation value for the observable is
+This result is clearly analogous to Eq.~\eqref{Pi_rho}.  Hence, we can
+use $\hat{\rho}_A$ to directly calculate the probabilities for
+measurements performed on $A$.  As a corollary,
 \begin{equation}
   \langle Q_A \rangle = \sum_\alpha \alpha
   \langle \alpha | \hat{\rho}_A | \alpha \rangle
-  = \mathrm{Tr}\Big[\hat{Q}_A \, \hat{\rho}_A \Big].
+  = \mathrm{Tr}\Big[\hat{Q}_A \, \hat{\rho}_A \Big],
   \label{rho_expect}
 \end{equation}
-These results hold for any choice of basis.  Hence, knowing
-$\hat{\rho}_A$, we can calculate the probabilities for any measurement
-performed on $A$.
-
+which is analogous to Eq.~\eqref{Qexpt}.
+    
 To better understand these results, let us expand the state of the
 combined system as
 \begin{equation}
@@ -1182,44 +1186,33 @@ $[0,1]$.  Eq.~\eqref{rhoa_tmp} now becomes
   \end{cases}
   \label{rhoform}
 \end{equation}
-We can interpret this as a weighted sum of individual density
-operators, defined with a set of quantum states
-$\{|\Psi_\beta\rangle\}$ and classical probabilities $\{P_\beta\}$.
-This called an \textbf{ensemble} of states.  Note that the states in
-the ensemble need not be orthogonal to each other.
+This has the form of a sum of density operators for a set of quantum
+states $\{|\Psi_\beta\rangle\}$, weighted by a set of classical
+probabilities $\{P_\beta\}$.  This called an \textbf{ensemble} of
+states.  Note that the states in the ensemble need not be orthogonal
+to each other.
 
-Although we derived Eq.~\eqref{rhoform} from $|\psi\rangle$, the state
-of the combined system, we cannot work backwards from $\hat{\rho}_A$
-to figure out $|\psi\rangle$ (specifically, the coefficients
-$\psi_{\alpha\beta}$).  In other words, $\hat{\rho}_A$ provides all
-the necessary information regarding measurements on $A$, but does not
-contain any extra information about subsystem $B$, or how $A$ and $B$
-were entangled.  Therefore, we don't have to keep thinking of
+Although we have derived Eq.~\eqref{rhoform} from $|\psi\rangle$, the
+state of the combined system, we cannot work backwards from
+$\hat{\rho}_A$ to figure out $|\psi\rangle$ (specifically, the
+coefficients $\psi_{\alpha\beta}$).  In other words, $\hat{\rho}_A$
+provides all the necessary information regarding measurements on $A$,
+discarding extraneous information about subsystem $B$ and how it is
+entangled with $A$.  This means that we don't have to keep thinking of
 $\hat{\rho}_A$ as a reduced density operator derived from some larger
-state, but simply think of it as ``the density operator for $A$''.
+state; we can simply present it as ``the density operator for $A$''.
 
 From this point of view, a density operator of the form
-$|\psi\rangle\langle\psi|$ is the special case of an ensemble of one
+$|\psi\rangle\langle\psi|$, which we started with back in
+Eq.~\eqref{rho_pure}, is the special case of an ensemble of one
 quantum state $|\psi\rangle$ with probability $P = 1$.  We call such
 an ensemble a \textbf{pure state}.  If an ensemble is not a pure
-state, implying that the system is entangled with something else, we
-call it a \textbf{mixed state}.
+state, we call it a \textbf{mixed state}, and this implies that the
+system is entangled with something else.
 
-In many circumstances, we can deduce that a system is in a given mixed
-state without doing any partial trace to derive the density matrix.
-For example, if the system with energy eigenbasis $\{|\psi_n\rangle\}$
-and energies $\{E_n\}$ is in thermal equilibrium with an external heat
-bath of temperature $T$, we can take the density operator to be
-\begin{equation}
-  \hat{\rho}_A = \sum_{n} \frac{\exp(-E_n/k_BT)}{Z} \, |E_n\rangle\langle E_n|,
-\end{equation}
-where $Z = \sum_n \exp(-E_n/k_BT)$.  This comes from the postulates of
-statistical mechanics, rather than any actual derivation involving
-tracing out the quantum degrees of freedom of the heat bath (which
-would be a hopeless endeavor).
-
-We can show that any linear operator $\hat{\rho}_A$ obeying
-Eq.~\eqref{rhoform} has the following properties:
+Using Eq.~\eqref{rhoform}, we can show that the density matrix
+$\hat{\rho}_A$ (be it for a pure state or a mixed state) has the
+following properties:
 \begin{enumerate}
 \item $\hat{\rho}_A$ is Hermitian.
 
@@ -1231,15 +1224,15 @@ Eq.~\eqref{rhoform} has the following properties:
   \begin{align}
     \begin{aligned}
       \langle Q_A \rangle
-      &\equiv \sum_\beta P_\beta
-      \langle \Psi_\beta|\hat{Q}_A|\Psi_\beta\rangle \\
-      &= \sum_{\alpha\beta} P_\beta\,
-      \langle \Psi_\beta|\alpha\rangle \,
-      \langle\alpha|\hat{Q}_A|\Psi_\beta\rangle
-      \;\;\;\big(\textrm{using some basis} \;\{|\alpha\rangle\}\big) \\
-      &= \sum_\alpha
-      \langle\alpha|\hat{Q}_A \left(\sum_\beta |\Psi_\beta\rangle
-      \langle \Psi_\beta|\right) |\alpha\rangle \\
+      %% &\equiv \sum_\beta P_\beta
+      %% \langle \Psi_\beta|\hat{Q}_A|\Psi_\beta\rangle \\
+      %% &= \sum_{\alpha\beta} P_\beta\,
+      %% \langle \Psi_\beta|\alpha\rangle \,
+      %% \langle\alpha|\hat{Q}_A|\Psi_\beta\rangle
+      %% \;\;\;\big(\textrm{using some basis} \;\{|\alpha\rangle\}\big) \\
+      %% &= \sum_\alpha
+      %% \langle\alpha|\hat{Q}_A \left(\sum_\beta |\Psi_\beta\rangle
+      %% \langle \Psi_\beta|\right) |\alpha\rangle \\
       &= \mathrm{Tr}\left[\,\hat{Q}_A \,\hat{\rho}_A\,\right].
     \end{aligned}
     \label{prop3}
@@ -1248,7 +1241,7 @@ Eq.~\eqref{rhoform} has the following properties:
   $|\alpha\rangle$ is the eigenstate associated with the outcome, the
   outcome probability is $\langle\alpha|\hat\rho_A|\alpha\rangle$,
   consistent with Eq.~\eqref{rho_prob}.  To see this, take $\hat{Q}_A
-  = |\alpha\rangle \langle \alpha|$ in Eq.~\eqref{prop3}.
+  = |\alpha\rangle \langle \alpha|$.
   
 \item The eigenvalues of $\hat{\rho}_A$, denoted by $\{p_1, p_2,
   \dots, p_{d_A}\}$, form a set of probabilities.  In other words,
@@ -1270,6 +1263,23 @@ Eq.~\eqref{rhoform} has the following properties:
   3 to prove that the eigenvalues sum to 1.
 \end{enumerate}
 
+In some circumstances, we can assume that a system is in a given mixed
+state, without deriving its density matrix via a partial trace.  For
+example, if a system has energy eigenbasis $\{|\psi_n\rangle\}$ and
+energies $\{E_n\}$, and is in thermal equilibrium with an external
+heat bath of temperature $T$, its density operator can be assumed to
+be
+\begin{equation}
+  \hat{\rho}_A = \sum_{n} \frac{\exp(-E_n/k_BT)}{Z} \, |E_n\rangle\langle E_n|,
+\end{equation}
+where $Z = \sum_n \exp(-E_n/k_BT)$.  This is justified by the
+postulates of statistical mechanics, rather than any actual derivation
+based on tracing out the heat bath's quantum degrees of freedom, which
+would be hopelessly complicated.  So long as the weights in the sum
+are classical probabilities (i.e., non-negative real numbers adding up
+to 1), the density matrix $\hat{\rho}_A$ will satisfy the general
+properties 1--4 described above.
+
 \section{Entanglement entropy}
 \label{sec:entropy}
 
@@ -1278,16 +1288,15 @@ individual particles lack definite quantum states.  It would be nice
 to make this statement more precise, and in fact physicists have come
 up with several different quantitive measures of entanglement.  In
 this section, we will describe the most common measure,
-\textbf{entanglement entropy}, which is closely related to the entropy
-concept from thermodynamics, statistical mechanics, and information
-theory.
+\textbf{entanglement entropy}, which is closely related to the
+``entropy'' concept from thermodynamics, statistical mechanics, and
+information theory.
 
 We have seen from the previous section that if a subsystem $A$ is
 (possibly) entangled with some other subsystem $B$, the information
-required to calculate all partial measurement outcomes on $A$ is
-stored within a reduced density operator $\hat{\rho}_A$.  We can use
-this to define a quantity called the \textbf{entanglement entropy} of
-$A$:
+required to calculate all partial measurement outcomes on $A$ is given
+by a reduced density operator $\hat{\rho}_A$.  We can use this to
+define a quantity called the \textbf{entanglement entropy} of $A$:
 \begin{equation}
   S_{A} = - k_b \, \mathrm{Tr}_A \Big\{ \hat{\rho}_A\, \ln\!\big[\hat{\rho}_A\big]\Big\}.
   \label{entropy}
@@ -1298,88 +1307,72 @@ which is the inverse of the exponential: $\ln(\hat{P}) = \hat{Q}
 Boltzmann's constant, and ensures that $S_A$ has the same units as
 thermodynamic entropy.
 
-The definition of the entanglement entropy is based on an analogy with
-the entropy concept from classical thermodynamics, statistical
-mechanics and information theory.  In those classical contexts,
-entropy is a quantitative measure of uncertainty (i.e, lack of
-information) about a system's underlying microscopic state, or
-``microstate''.  Suppose a system has $W$ possible microstates that
-occur with probabilities $\{p_1, p_2, \dots, p_W\}$, satisfying
-$\sum_i p_i = 1$.  Then we define the classical entropy
+In classical statistical mechanics, entropy is a quantitative measure
+of uncertainty (i.e, lack of information) about a system's underlying
+microscopic state, or ``microstate''.  Suppose a system has $W$
+possible microstates occurring with probabilities $\{p_1, p_2, \dots,
+p_W\}$.  Then the classical entropy is defined as
 \begin{equation}
   S_{\mathrm{cl.}} = - k_b \sum_{i=1}^W p_i \ln(p_i).
+  \label{Scl}
 \end{equation}
-In a situation of complete certainty where the system is known to be
-in a specific microstate $k$ ($p_i = \delta_{ik}$), the formula gives
-$S_{\mathrm{cl.}} = 0$.  (Note that $x \ln(x)\rightarrow 0$ as
-$x\rightarrow 0$).  In a situation of complete uncertainty where all
-microstates are equally probable ($p_i = 1/W$), we get
-$S_{\mathrm{cl.}} = k_b \ln W$, the entropy of a microcanonical
-ensemble in statistical mechanics.  For any other distribution of
-probabilities, it can be shown that the entropy lies between these two
-extremes: $0 \le S_{\mathrm{cl.}}  \le k_b\ln W$.  For a review of the
-properties of entropy, see Appendix C.
+It can be shown (see Appendix C) that for \textit{any} probability
+distribution,
+\begin{equation}
+  0 \le S_{\mathrm{cl.}} \le k_b\ln W.
+\end{equation}
+The lower bound, $S_{\mathrm{cl.}} = 0$, occurs if and only if $p_i =
+\delta_{ik}$ for a specific $k$, which can be interpreted as a
+situation of ``complete certainty'' about the microstate.  The upper
+bound, $S_{\mathrm{cl.}} = k_b\ln W$, occurs if and only if all
+microstates are equally probable (i.e., $p_i = 1/W$), which
+corresponds to ``complete uncertainty'' about the system's microstate.
 
-The concept of entanglement entropy aims to quantify the uncertainty
-arising from a quantum (sub)system's lack of a definite quantum state,
-due to it being possibly entangled with another (sub)system.  When
-formulating it, the key issue we need to be careful about is how to
-extend classical notions of probability to quantum systems.  We have
-seen that when performing a measurement on $A$ whose possible outcomes
-are $\{q_\mu\}$, the probability of getting $q_\mu$ is $P_\mu =
-\langle \mu | \hat{\rho}_A|\mu\rangle$.  However, it is problematic to
-directly substitute these probabilities $\{P_\mu\}$ into the classical
-entropy formula, since they are basis-dependent (i.e., the set of
-probabilities is dependent on the choice of measurement).
+The entanglement entropy \eqref{entropy} similarly aims to quantify
+the uncertainty arising from a quantum system's lack of a definite
+quantum state, due to it being possibly entangled with another system.
+In formulating this concept, we need to be careful about how classical
+notions of probability apply to quantum systems.  We have seen that
+when performing a measurement on $A$ whose possible outcomes are
+$\{q\}$, the probability of each outcome is $P(q) = \langle q |
+\hat{\rho}_A|q\rangle$.  However, it is problematic to directly
+substitute these probabilities $\{P(q)\}$ into the classical entropy
+formula \eqref{Scl}, since they are basis-dependent.
 Eq.~\eqref{entropy} bypasses this problem by using the trace, which is
 basis-independent.
 
-In the special case where $\{|\mu\rangle\}$ is the eigenbasis for
-$\hat{\rho}_A$, the connection is easier to see.  From
-\eqref{trrho_reduced}, the eigenvalues $\{p_\mu\}$ are all real numbers
-between 0 and 1, and summing to unity, so they can be regarded as
-probabilities.  Then the entanglement entropy is
+In one specific basis, the eigenbasis for $\hat{\rho}_A$, the
+entanglement entropy does match the classical entropy formula.  Let
+$\{|\mu\rangle\}$ be the eigenstates of $\hat{\rho}_A$; as shown in
+Eq.~\eqref{trrho_reduced}, the corresponding eigenvalues $\{p_\mu\}$
+form a set of probabilities.  Then
 \begin{align}
   \begin{aligned}
     S_A &= -k_b \sum_\mu \langle \mu | \hat{\rho}_A \ln(\hat{\rho}_A) | \mu\rangle  \\
     &= - k_b \sum_\mu p_\mu \ln(p_\mu).
+    \label{SAmu}
   \end{aligned}
 \end{align}
-Therefore, in this particular basis the expression for the
-entanglement entropy is consistent with the classical definition of
-entropy, with the eigenvalues of $\hat{\rho}_A$ serving as the
-relevant probabilities.
-
-By analogy with the classical entropy formula (see Appendix C), the
-entanglement entropy has the following bounds:
+From this, we can see that the entanglement entropy obeys the
+following bounds, similar to the classical entropy formula:
 \begin{equation}
-  0 \le S_A \le k_b\ln(d_A),
+  0 \le S_A \le k_b\ln(d_A), \quad
+  \mathrm{where}\; d_A = \mathrm{dim}\left[\mathscr{H}_A\right].
   \label{Sabounds}
 \end{equation}
-where $d_A$ is the dimension of $\mathscr{H}_A$.
-
-The lower bound $S_A = 0$ holds if and only if system $A$ is in a pure
-state (i.e., it is not entangled with any other system).  This is
-because the bound corresponds to a situation where $\hat{\rho}_A$ has
-one eigenvalue that is 1, and all the other eigenvalues are 0 (see
-Appendix C).  If we denote the eigenvector associated with the
-non-vanishing eigenvalue by $|\psi\rangle$, then the density matrix
-can be written as $\hat{\rho}_A = |\varphi\rangle\langle\varphi|$, which
-has the form of a pure state.
-
-As a corollary, if we find that $S_{A} \ne 0$, then $\hat{\rho}_A$
-cannot be written as a pure state $|\psi\rangle\langle\psi|$ for
-\textit{any} $|\psi\rangle$, and hence it must describe a mixed state.
+The lower bound, $S_A = 0$, holds if and only if one of the $p_\mu$'s
+in Eq.~\eqref{SAmu} is 1, and all the others are zero, meaning $A$ is
+in a pure state.  Conversely, $S_{A} \ne 0$ when $\hat{\rho}_A$
+describes a mixed state---i.e., $A$ is entangled with some other
+quantum system.
 
 A system is said to be \textbf{maximally entangled} if it saturates
-the upper bound of \eqref{Sabounds}, $S_A = k_b \ln(d_A)$.  This
-occurs if and only if the eigenvalues of the density operator are all
-equal: i.e., $p_j = 1/d_A$ for all $j = 1, \dots, d_A$.
+the upper bound of \eqref{Sabounds}.  This occurs if and only if the
+eigenvalues of the density operator are all equal to $1/d_A$.
 
 \begin{framed}
 \noindent
-\textit{Example}---Consider the singlet state of two spin-$1/2$
-particles:
+\textit{Example}---Consider the singlet state
 \begin{align}
   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).
 \end{align}
@@ -1396,26 +1389,26 @@ $\{|\!\uparrow\rangle,|\!\downarrow\rangle\}$ basis:
 \begin{equation}
   \hat{\rho}_A(\psi) = \begin{pmatrix}\frac{1}{2} & 0 \\ 0 & \frac{1}{2}\end{pmatrix}.
 \end{equation}
-Now we can use $\hat{\rho}_A$ to compute the entanglement entropy
+Now we can use $\hat{\rho}_A$ to compute the entanglement entropy:
 \begin{equation}
   S_A = -k_b\mathrm{Tr}\left\{\hat{\rho}_A\ln(\rho_A)\right\} = -k_b\mathrm{Tr}\begin{pmatrix}\frac{1}{2}\ln\left(\frac{1}{2}\right) & 0 \\ 0 & \frac{1}{2}\ln\left(\frac{1}{2}\right)\end{pmatrix} = k_b\ln(2).
 \end{equation}
-Hence, the particles are maximally entangled.
+Hence, $A$ and $B$ are maximally entangled.
 \end{framed}
 
 \section{The Many Worlds Interpretation}
 
 We conclude this chapter by discussing a set of compelling but
 controversial ideas arising from the phenomenon of quantum
-entanglement: the \textbf{Many Worlds Interpretation} as formulated by
-Hugh Everett [\ref{cite:everett}].
+entanglement: the \textbf{Many Worlds Interpretation} of quantum
+mechanics [\ref{cite:everett}].
 
 So far, when describing the phenomenon of state collapse, we have
 relied on the measurement postulate (see
 Section~\ref{sec:partialmeasurements}), which is part of the
 \textbf{Copenhagen Interpretation} of quantum mechanics.  This is how
-quantum mechanics is typically taught, and how physicists think about
-the theory when doing practical, everyday calculations.
+quantum mechanics is typically taught, and also how physicists usually
+think about quantum measurements when doing practical calculations.
 
 However, the measurement postulate has two bad features:
 
@@ -1427,22 +1420,21 @@ However, the measurement postulate has two bad features:
 \begin{equation}
   i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle
 \end{equation}
-is completely deterministic.  If you know $\hat{H}(t)$ and are given
-the state $|\psi(t_0)\rangle$ at some time $t_0$, you can in principle
-determine $|\psi(t)\rangle$ for all $t$.  This time-evolution consists
-of a smooth, non-random rotation of the state vector within its
-Hilbert space.  A measurement process, however, has a completely
-different character: it causes the state vector to jump
-discontinuously to a randomly-selected value.  It is strange that
-quantum theory contains two completely different ways for a state to
-change.
+is completely deterministic.  If you know $\hat{H}(t)$ and the initial
+state $|\psi(t_0)\rangle$ at time $t_0$, you can in principle
+calculate $|\psi(t)\rangle$ for all $t$.  This time evolution
+describes a smooth, deterministic rotation of the state vector.  A
+measurement process is completely different: during state collapse,
+the state vector jumps instantaneously to a random value.  It seems
+strange for quantum theory to contain two completely different ways
+for a state to change.
 
 \item The measurement postulate is silent on what constitutes a
-measurement.  Does measurement require a conscious observer?  Surely
-not: as Einstein once exasperatedly asked, are we really expected to
-believe that the Moon exists only when we look at it?  But if a given
-device interacts with a particle, what determines whether it acts via
-the Schr\"odinger equation, or performs a measurement?
+  measurement.  Does measurement require a conscious observer?  Surely
+  not: as Einstein once exasperatedly asked, are we expected to
+  believe that the Moon exists only when we look at it?  But if a
+  given device interacts with a particle, what determines whether it
+  acts via the Schr\"odinger equation, or performs a measurement?
 \end{enumerate}
 
 The Many Worlds Interpretation seeks to resolve these problems by
@@ -1456,7 +1448,7 @@ can be described by applying the Schr\"odinger equation to a quantum
 system containing both the thing being measured \textit{and} the
 measurement apparatus itself.
 
-We can study this using a toy model formulated by Albrecht
+We can illustrate this using a toy model formulated by Albrecht
 [\ref{cite:albrecht}].  Consider a spin-$1/2$ particle, and an
 apparatus designed to measure $S_z$.  Let $\mathscr{H}_S$ be the
 spin-$1/2$ Hilbert space (which is 2D), and $\mathscr{H}_A$ be the
@@ -1470,7 +1462,7 @@ space of the combined system is
 and is $2d$-dimensional.  Let us suppose the system is prepared in an initial
 state
 \begin{equation}
-  |\psi(0)\rangle = \Big(a_+ |\!+z\rangle + a_- |\!-z\rangle\Big) \otimes |\Psi\rangle,
+  |\psi(0)\rangle = \Big(a_+ |\!\uparrow\rangle + a_- |\!\downarrow\rangle\Big) \otimes |\Psi\rangle,
 \end{equation}
 where $a_\pm\in\mathbb{C}$ are the quantum amplitudes for the particle
 to be initially spin-up or spin-down, and $|\Psi\rangle \in
@@ -1497,20 +1489,20 @@ Sch\"odinger equation
   |\psi(t)\rangle = U(t)|\psi(0)\rangle, \;\;\;\mathrm{where}\;\; \hat{U}(t) = \exp\left[-\frac{i}{\hbar}\hat{H}t\right].
 \end{equation}
 Because the part of $\hat{H}$ acting on the $\mathscr{H}_S$ subspace
-is $\hat{S}_z$, the result necessarily has the following form:
+is $\hat{S}_z$, the result necessarily has the form
 \begin{align}
-  \begin{aligned}|\psi(t)\rangle &= \hat{U}(t)\Big(a_+ |\!+\!z\rangle + a_- |\!-\!z\rangle\Big) \otimes |\Psi\rangle \\ &= a_+ |\!+\!z\rangle \otimes |\Psi_+(t)\rangle \;+\; a_- |\!-\!z\rangle \otimes |\Psi_-(t)\rangle. \end{aligned}
+  \begin{aligned}|\psi(t)\rangle &= \hat{U}(t)\Big(a_+ |\!\uparrow\rangle + a_- |\!\downarrow\rangle\Big) \otimes |\Psi\rangle \\ &= a_+ |\!\uparrow\rangle \otimes |\Psi_+(t)\rangle \;+\; a_- |\!\downarrow\rangle \otimes |\Psi_-(t)\rangle. \end{aligned}
 \end{align}
 Here, $|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are apparatus states
-that are ``paired up'' with the $|\!+\!z\rangle$ and $|\!-\!z\rangle$
-states of the spin-$1/2$ subsystem.  At $t=0$, both
-$|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are equal to
+that are ``paired up'' with the $|\!\uparrow\rangle$ and
+$|\!\downarrow\rangle$ states of the spin-$1/2$ subsystem.  At $t=0$,
+both $|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are equal to
 $|\Psi\rangle$; for $t > 0$, they rotate into different parts of the
 state space $\mathscr{H}_A$.  If the dimensionality of $\mathscr{H}_A$
 is sufficiently large, and both $\hat{V}$ and $|\Psi\rangle$ are
-sufficiently complicated, we can guess (and we will verify numerically) that
-the two state vectors rotate into completely different parts of
-the state space, so that
+sufficiently complicated, we can guess (and we will verify
+numerically) that the two state vectors rotate into completely
+different parts of the state space, so that
 \begin{equation}
   \langle\Psi_+(t) | \Psi_-(t)\rangle \approx 0 \;\;\;\textrm{for sufficiently large}\;\; t.
 \end{equation}
