@@ -1128,8 +1128,8 @@ $\alpha$ is
     \label{rho_prob}
 \end{align}
 This result is clearly analogous to Eq.~\eqref{Pi_rho}.  Hence, we can
-use $\hat{\rho}_A$ to directly calculate the probabilities for
-measurements performed on $A$.  As a corollary,
+use $\hat{\rho}_A$ to directly calculate the probabilities for any
+measurement on $A$.  As a corollary,
 \begin{equation}
   \langle Q_A \rangle = \sum_\alpha \alpha
   \langle \alpha | \hat{\rho}_A | \alpha \rangle
@@ -1438,74 +1438,108 @@ for a state to change.
 \end{enumerate}
 
 The Many Worlds Interpretation seeks to resolve these problems by
-positing that \textit{the measurement postulate is \underline{not} a
-  fundamental postulate of quantum mechanics}.  Rather, what we call
-``measurement'', including state collapse and the apparent randomness
-of measurement results, is an emergent phenomenon that can be derived
-from the behavior of complex many-particle quantum systems obeying the
-Schr\"odinger equation.  The key idea is that a measurement process
-can be described by applying the Schr\"odinger equation to a quantum
-system containing both the thing being measured \textit{and} the
-measurement apparatus itself.
+positing that the measurement postulate is \textit{not} a fundamental
+postulate of quantum mechanics.  Rather, what we call ``measurement''
+is an emergent behavior of large and complex quantum systems obeying
+the Schr\"odinger equation.  The various phenomena associated with
+measurement (e.g., random outcomes and state collapse) can be derived,
+rather than posited, from a quantum description of both the system
+being measured \textit{and} the system doing the measurement.
 
-We can illustrate this using a toy model formulated by Albrecht
-[\ref{cite:albrecht}].  Consider a spin-$1/2$ particle, and an
-apparatus designed to measure $S_z$.  Let $\mathscr{H}_S$ be the
-spin-$1/2$ Hilbert space (which is 2D), and $\mathscr{H}_A$ be the
-Hilbert space of the apparatus (which has dimension $d$).  We will
-assume that $d$ is very large, as actual experimental apparatuses are
-macroscopic objects containing $10^{23}$ or more atoms!  The Hilbert
-space of the combined system is
+We can use a toy model to illustrate this idea [\ref{cite:albrecht}].
+Consider a spin-$1/2$ particle, whose Hilbert space is
+$\mathscr{H}_S$.  Suppose we have an apparatus that measures $S_z$ on
+that particle.  This ``apparatus'' has a vast number of degrees of
+freedom, for it comprises a macroscopic device that performs the $S_z$
+measurement (and, optionally, an experimentalist who looks at the
+result, etc.).  Therefore, its Hilbert space must have a
+mind-bogglingly large dimension:
 \begin{equation}
-  \mathscr{H} = \mathscr{H}_S \otimes \mathscr{H}_A,
+  d_A = \mathrm{dim}[\mathscr{H}_A] \gg 1.
 \end{equation}
-and is $2d$-dimensional.  Let us suppose the system is prepared in an initial
-state
+The Hilbert space for the combined system of spin and apparatus is
 \begin{equation}
-  |\psi(0)\rangle = \Big(a_+ |\!\uparrow\rangle + a_- |\!\downarrow\rangle\Big) \otimes |\Psi\rangle,
+  \mathscr{H}_S \otimes \mathscr{H}_A.
 \end{equation}
-where $a_\pm\in\mathbb{C}$ are the quantum amplitudes for the particle
-to be initially spin-up or spin-down, and $|\Psi\rangle \in
-\mathscr{H}_A$ is the initial state of the apparatus.
 
-The combined system now evolves via the Schr\"odinger equation.  We
-aim to show that if the Hamiltonian has the form
+Let us suppose the combined system is prepared in an initial state
 \begin{equation}
-  \hat{H} = \hat{S}_z \otimes \hat{V},
+  |\psi(0)\rangle = \Big(a_1 |\!\uparrow\rangle + a_2 |\!\downarrow\rangle\Big) \otimes |\Psi\rangle,
+  \label{psi0_albrecht}
 \end{equation}
-where $\hat{S}_z$ is the operator corresponding to the observable
-$S_z$, then time evolution has an effect equivalent to the measurement
-of $S_z$.
+where $a_1$ and $a_2$ are the spin-up and spin-down quantum
+amplitudes, and $|\Psi\rangle \in \mathscr{H}_A$ is some initial state
+for the apparatus, which is initially not entangled with the spin.
 
-It turns out that we can show this without making any special choices
-for $\hat{V}$ or $|\Psi\rangle$.  We only need $d \gg 2$, and for both
-$\hat{V}$ and $|\Psi\rangle$ to be ``sufficiently complicated''.  We
-choose $|\Psi\rangle$ to be a random state vector, and choose random
-matrix components for the operator $\hat{V}$.  The precise generation
-procedures will be elaborated on later.  Once we decide on
-$|\Psi\rangle$ and $\hat{V}$, we can evolve the system by solving the
-Sch\"odinger equation
+We will show that the combined system behaves as though the apparatus
+is ``measuring'' $S_z$, if it simply evolves according to a
+Hamiltonian of the form
 \begin{equation}
-  |\psi(t)\rangle = U(t)|\psi(0)\rangle, \;\;\;\mathrm{where}\;\; \hat{U}(t) = \exp\left[-\frac{i}{\hbar}\hat{H}t\right].
+  \hat{H} = \hat{S}_z \otimes \hat{V}.
+  \label{V_albrecht}
 \end{equation}
-Because the part of $\hat{H}$ acting on the $\mathscr{H}_S$ subspace
-is $\hat{S}_z$, the result necessarily has the form
+The demonstration only uses unitary time evolution via the
+Schr\"odinger equation, \textit{without} the measurement postulate.
+Also, it turns out that we will not need to make any special choices
+for $|\Psi\rangle$ in Eq.~\eqref{psi0_albrecht}, or $\hat{V}$ in
+Eq.~\eqref{V_albrecht}, so we leave these unspecified for now.
+
+As the Hamiltonian \eqref{V_albrecht} is time-independent, the state
+after some time $t$ is
+\begin{equation}
+  |\psi(t)\rangle = e^{-i\hat{H}t/\hbar}\, |\psi(0)\rangle.
+  \label{mwi_psit}
+\end{equation}
+To calculate this, observe how the Hamiltonian \eqref{V_albrecht} acts
+on each term of the initial state defined in
+Eq.~\eqref{psi0_albrecht}:
 \begin{align}
-  \begin{aligned}|\psi(t)\rangle &= \hat{U}(t)\Big(a_+ |\!\uparrow\rangle + a_- |\!\downarrow\rangle\Big) \otimes |\Psi\rangle \\ &= a_+ |\!\uparrow\rangle \otimes |\Psi_+(t)\rangle \;+\; a_- |\!\downarrow\rangle \otimes |\Psi_-(t)\rangle. \end{aligned}
+  \hat{H} |\!\uparrow\rangle |\Psi\rangle
+  &= + \frac{\hbar}{2}\;
+  |\!\uparrow\rangle \otimes \left(\hat{V} |\Psi\rangle\right), \\
+  \hat{H} |\!\downarrow\rangle |\Psi\rangle
+  &= - \frac{\hbar}{2}\;
+  |\!\downarrow\rangle \otimes \left( \hat{V} |\Psi\rangle\right).
 \end{align}
-Here, $|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are apparatus states
-that are ``paired up'' with the $|\!\uparrow\rangle$ and
-$|\!\downarrow\rangle$ states of the spin-$1/2$ subsystem.  At $t=0$,
-both $|\Psi_+(t)\rangle$ and $|\Psi_-(t)\rangle$ are equal to
-$|\Psi\rangle$; for $t > 0$, they rotate into different parts of the
-state space $\mathscr{H}_A$.  If the dimensionality of $\mathscr{H}_A$
-is sufficiently large, and both $\hat{V}$ and $|\Psi\rangle$ are
-sufficiently complicated, we can guess (and we will verify
-numerically) that the two state vectors rotate into completely
-different parts of the state space, so that
+Hence,
 \begin{equation}
-  \langle\Psi_+(t) | \Psi_-(t)\rangle \approx 0 \;\;\;\textrm{for sufficiently large}\;\; t.
+  e^{-i\hat{H}t/\hbar}\, 
+  |\!\updownarrow\rangle |\Psi\rangle
+  = |\!\updownarrow\rangle \otimes
+  \left(e^{\mp i\hat{V}t/2} |\Psi\rangle\right).
 \end{equation}
+Applying this to Eq.~\eqref{mwi_psit} yields
+\begin{equation}
+  |\psi(t)\rangle =
+  a_1 |\!\uparrow\rangle |\Psi_\uparrow(t)\rangle + a_2 |\!\downarrow\rangle  |\Psi_\downarrow(t)\rangle,
+  \label{psit}
+\end{equation}
+where
+\begin{equation}
+  |\Psi_{\updownarrow} (t)\rangle = e^{\mp i\hat{V}t/2} |\Psi\rangle
+  \;\;\in\, \mathscr{H}_A.
+\end{equation}
+
+Based on Eq.~\eqref{psit}, we would like to interpret
+$|\Psi_\uparrow(t)\rangle$ and $|\Psi_\downarrow(t)\rangle$ as the
+states of the apparatus corresponding to each possible measurement
+result.  For example, $|\Psi_\uparrow(t)\rangle$ may represent a state
+in which the device has a message saying ``$S_z = + \hbar/2$'' on its
+screen, and the experimentalist has read the message and concluded
+that the particle is spin-up.  For this interpretation to hold,
+$|\Psi_\uparrow(t)\rangle$ and $|\Psi_\downarrow(t)\rangle$ must
+describe utterly different microscopic states of the apparatus,
+meaning they ought to be orthogonal.  In fact, this condition is easy
+to satisfy.  We will show (and will later verify numerically) that so
+long as $d_A \gg 1$,
+\begin{equation}
+  \langle\Psi_\uparrow(t) | \Psi_\downarrow(t)\rangle \rightarrow 0
+\end{equation}
+after a relatively short time $t$ has elapsed.
+
+
+
+
 Once this is the case, the two terms in the above expression for
 $|\psi(t)\rangle$ can be interpreted as two decoupled ``worlds''.  In
 one world, the spin has a definite value $+\hbar/2$, and the apparatus
@@ -1520,32 +1554,43 @@ distinguished from each other.  The two worlds are
 ``weighted'' by $|a_+|^2$ and $|a_-|^2$, which correspond to the
 probabilities of the two possible measurement results.
 
-The above description can be tested numerically.  Let us use an
-arbitrary basis for the apparatus space $\mathscr{H}_A$; in that
-basis, let the $d$ components of the initial apparatus state vector
-$|\Psi\rangle$ be random complex numbers:
-\begin{align}
-  \begin{aligned}
-  |\Psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\, \begin{pmatrix}\Psi_0 \\ \Psi_1 \\ \vdots \\ \Psi_{d-1}
-  \end{pmatrix}, \;\; \mathrm{where} \;\; \mathrm{Re}(\Psi_j), \mathrm{Im}(\Psi_j) \sim N(0,1).
-  \end{aligned}
-\end{align}
-In other words, the real and imaginary parts of each complex number
-$\Psi_j$ are independently drawn from the the standard normal
-(Gaussian) distribution, denoted by $N(0,1)$.  The normalization
-constant $\mathcal{N}$ is defined so that $\langle\Psi|\Psi\rangle =
-1$.
 
-Likewise, we generate the matrix elements of $\hat{V}$ according to
-the following random scheme:
-\begin{align}
-  \begin{aligned}A_{ij} &\sim u_{ij} + i v_{ij}, \;\;\;\mathrm{where}\;\;u_{ij},v_{ij}\sim N(0,1)\\ \hat{V} &= \frac{1}{2\sqrt{d}} \left(\hat{A} + \hat{A}^\dagger\right).\end{aligned}
-\end{align}
-This scheme produces a $d\times d$ matrix with random components,
-subject to the requirement that the overall matrix be Hermitian.  The
-factor of $1/2\sqrt{d}$ is relatively unimportant; it ensures that the
-eigenvalues of $\hat{V}$ lie in the range $[-2,2]$, instead of scaling
-with $d$ [\ref{cite:edelman}].
+
+
+
+
+
+For this demonstration, it turns out that we do not need to make any
+special choices for the apparatus state $|\Psi\rangle$ in
+Eq.~\eqref{psi0_albrecht}, or the operator $\hat{V}$ in
+Eq.~\eqref{V_albrecht}.  Let us therefore choose them in a generic
+way.  In some basis for $\mathscr{H}_A$, let $|\Psi\rangle$ be a
+random complex vector, with each component having its real and
+imaginary parts drawn from the normal distribution $N(0,1)$:
+\begin{equation}
+  |\Psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\, \begin{pmatrix}
+    \Psi_1 \\ \vdots \\ \Psi_{d_A}
+  \end{pmatrix}, \;\; \mathrm{where} \;\; \mathrm{Re}(\Psi_j), \mathrm{Im}(\Psi_j) \sim N(0,1).
+\end{equation}
+Here, the constant $\mathcal{N}$ is chosen so that $|\Psi\rangle$ is
+normalized to unity.  Similarly, we let $\hat{V}$ be a random
+Hermitian $d_A\times d_A$ matrix:
+\begin{equation}
+  \hat{V} = \frac{1}{2\sqrt{d_A}} \left(\hat{A} + \hat{A}^\dagger\right),
+  \;\; \mathrm{where} \;\; \mathrm{Re}(A_{ij}), \mathrm{Im}(A_{ij}) \sim N(0,1).
+  \label{gue}
+\end{equation}
+(The prefactor of $1/2\sqrt{d_A}$ is unimportant for our present
+discussion; it simply ensures that the eigenvalues of $\hat{V}$ lie in
+the range $[-2,2]$ rather than scaling with $d_A$, according to the
+theory of random matrices [\ref{cite:edelman}].)
+
+
+
+
+
+
+
 
 The Schr\"odinger equation can now be solved numerically.  The results
 are shown below:
