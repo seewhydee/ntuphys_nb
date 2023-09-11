@@ -1398,24 +1398,23 @@ Hence, $A$ and $B$ are maximally entangled.
 
 \section{The Many Worlds Interpretation}
 
-We conclude this chapter by discussing a set of compelling but
-controversial ideas arising from the phenomenon of quantum
-entanglement: the \textbf{Many Worlds Interpretation} of quantum
-mechanics [\ref{cite:everett}].
+We conclude this chapter with a set of interesting but controversial
+ideas related to the entanglement phenomenon: the \textbf{Many Worlds
+  Interpretation} of quantum mechanics [\ref{cite:everett}].
 
 So far, when describing the phenomenon of state collapse, we have
 relied on the measurement postulate (see
 Section~\ref{sec:partialmeasurements}), which is part of the
 \textbf{Copenhagen Interpretation} of quantum mechanics.  This is how
 quantum mechanics is typically taught, and also how physicists usually
-think about quantum measurements when doing practical calculations.
+think about measurement when doing practical calculations.
 
 However, the measurement postulate has two bad features:
 
 \begin{enumerate}
-\item It stands apart from the other postulates of quantum mechanics,
-  for it is the only place where randomness (or ``indeterminism'')
-  creeps into quantum theory.  The other postulates do not refer to
+\item It stands apart from the other postulates of quantum mechanics
+  as the only place where randomness (or ``indeterminism'') creeps
+  into quantum theory.  The other postulates do not refer to
   probabilities.  In particular, the Schr\"odinger equation
 \begin{equation}
   i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = \hat{H}(t) |\psi(t)\rangle
@@ -1431,29 +1430,30 @@ for a state to change.
 
 \item The measurement postulate is silent on what constitutes a
   measurement.  Does measurement require a conscious observer?  Surely
-  not: as Einstein once exasperatedly asked, are we expected to
-  believe that the Moon exists only when we look at it?  But if a
-  given device interacts with a particle, what determines whether it
-  acts via the Schr\"odinger equation, or performs a measurement?
+  not: as Einstein once exasperatedly asked, are we to believe that
+  the Moon exists only when we look at it?  But if a given device
+  interacts with a particle, what determines whether it acts via the
+  Schr\"odinger equation, or performs a measurement?
 \end{enumerate}
 
-The Many Worlds Interpretation seeks to resolve these problems by
-positing that the measurement postulate is \textit{not} a fundamental
-postulate of quantum mechanics.  Rather, what we call ``measurement''
-is an emergent behavior of large and complex quantum systems obeying
-the Schr\"odinger equation.  The various phenomena associated with
-measurement (e.g., random outcomes and state collapse) can be derived,
-rather than posited, by adopting a quantum description for both the
-system being measured \textit{and} the system doing the measurement.
+The Many Worlds Interpretation of quantum mechanics seeks to resolve
+these problems by positing that the measurement postulate is
+\textit{not} a fundamental postulate of quantum mechanics.  It says
+that the key features of quantum measurement---e.g., the randomness of
+outcomes, and the quantum state collapsing after a measurement---are
+emergent properties of large and complex quantum systems obeying the
+Schr\"odinger equation.  They can be derived, rather than posited, by
+adopting quantum descriptions for both the system being measured
+\textit{and} the system doing the measurement.
 
 We can use a toy model to illustrate this idea [\ref{cite:albrecht}].
-Suppose we have a spin-$1/2$ particle, whose Hilbert space is
-$\mathscr{H}_S$, and an apparatus that measures $S_z$ on that
-particle.  The apparatus has a vast number of degrees of freedom, for
-it comprises a macroscopic device that performs the $S_z$ measurement
-(and, optionally, an experimentalist who looks at the result, etc.).
-Therefore, its Hilbert space must have a mind-bogglingly large
-dimension:
+Suppose we have (i) a spin-$1/2$ particle, whose Hilbert space is
+$\mathscr{H}_S$, and (ii) an apparatus that measures $S_z$ on that
+particle, whose Hilbert space is $\mathscr{H}_A$.  The apparatus has a
+vast number of degrees of freedom, for it comprises a macroscopic
+device that performs the $S_z$ measurement (and, optionally, an
+experimentalist who looks at the result, etc.).  Its Hilbert space
+thus has a mind-bogglingly high dimension:
 \begin{equation}
   d_A = \mathrm{dim}[\mathscr{H}_A] \gg 1.
 \end{equation}
@@ -1471,15 +1471,15 @@ where $a_1$ and $a_2$ are the spin-up and spin-down quantum
 amplitudes, and $|\Psi\rangle \in \mathscr{H}_A$ is some initial state
 for the apparatus, which is initially not entangled with the spin.
 
-We will show that the combined system behaves as though the apparatus
-is ``measuring'' the spin, simply by evolving it under a Hamiltonian
+We aim to show that the apparatus behaves as though is ``measuring''
+the spin, simply by evolving the combined system using a Hamiltonian
 of the form
 \begin{equation}
   \hat{H} = \hat{S}_z \otimes \hat{V}.
   \label{V_albrecht}
 \end{equation}
-This will only involve unitary time evolution (i.e., the Schr\"odinger
-equation), \textit{without} invoking the measurement postulate.  Also,
+This will only involve unitary time evolution via the Schr\"odinger
+equation, \textit{without} invoking the measurement postulate.  Also,
 it turns out that we will not need to make any special choices for
 $|\Psi\rangle$ in Eq.~\eqref{psi0_albrecht}, or $\hat{V}$ in
 Eq.~\eqref{V_albrecht}, so we leave these unspecified for now.
@@ -1520,41 +1520,41 @@ where
 \end{equation}
 
 Based on Eq.~\eqref{psit}, we can interpret $|\Psi_\uparrow(t)\rangle$
-and $|\Psi_\downarrow(t)\rangle$ as the states of the apparatus
-corresponding to each possible measurement result.  For example,
+and $|\Psi_\downarrow(t)\rangle$ as apparatus states corresponding to
+each possible measurement result.  For example,
 $|\Psi_\uparrow(t)\rangle$ may represent a state in which the device
-has printed a message saying ``$S_z = + \hbar/2$'' on its screen, and
-the experimentalist has read the message and concluded that the
-particle is spin-up.  For this interpretation to work,
-$|\Psi_\uparrow(t)\rangle$ and $|\Psi_\downarrow(t)\rangle$ must refer
-to utterly different microscopic states of the apparatus, so they
-ought to be orthogonal.  In fact, this condition is easy to satisfy.
-We will show (and will later verify numerically) that so long as $d_A
-\gg 1$,
+has printed a message saying ``$S_z = + \hbar/2$'' on its screen;
+also, if the apparatus subsystem contains an experimentalist, that
+person has read the message and observed that the result is spin-up.
+For this interpretation to work, $|\Psi_\uparrow(t)\rangle$ and
+$|\Psi_\downarrow(t)\rangle$ ought to be almost exactly orthogonal,
+since they refer to utterly different states of $\mathscr{H}_A$.  This
+turns out to be readily satisfied; we will show (and later verify
+numerically) that if $d_A \gg 1$,
 \begin{equation}
   \langle\Psi_\uparrow(t) | \Psi_\downarrow(t)\rangle \rightarrow 0
   \label{overlapzero}
 \end{equation}
 after the passage of a short time $t$.
 
-This view of the measurement process is called the Many Worlds
-Interpretation.  The two terms in Eq.~\eqref{psit} are interpreted as
-two disinct ``worlds''.  Within each world, the spin has ``collapsed''
-to a definite value, the apparatus has ``measured'' that value of
-$S_z$, and the spin and apparatus are not entangled with each other.
-But from the point of view of the combined state $|\psi(t)\rangle$,
-the spin and apparatus \textit{are} entangled.  The combined state
-contains both worlds, whose relative weights, $|a_1|^2$ and $|a_2|^2$,
-are precisely the two outcome probabilities specified by the
-pre-measurement state \eqref{psi0_albrecht}.
+In the Many Worlds Interpretation, the two terms in Eq.~\eqref{psit}
+represent two disinct ``worlds''.  Within each world, it appears that
+the spin has collapsed to a particular eigenstate, and the apparatus
+has measured the corresponding value of $S_z$.  But from the point of
+view of the combined state $|\psi(t)\rangle$, which contains both
+worlds, the spin and apparatus are entangled.  The two worlds'
+relative importance is quantified by the weights $|a_1|^2$ and
+$|a_2|^2$, which are precisely the two measurement probabilities
+specified by the initial state \eqref{psi0_albrecht}.
 
-To illustrate this, let us perform an explicit numerical calculation.
-We need to choose the apparatus state $|\Psi\rangle$ in
-Eq.~\eqref{psi0_albrecht} and the operator $\hat{V}$ in
-Eq.~\eqref{V_albrecht}, but it turns out that these do not have to be
-chosen in any special way.  For $|\Psi\rangle$, let us pick a random
-complex vector in an arbitrary basis, with each component having its
-real and imaginary parts drawn from the normal distribution $N(0,1)$:
+To back this up, let us perform an explicit numerical calculation.
+Since we have little hope of formulating a realistic model for a
+measurement apparatus, let us choose the apparatus state
+$|\Psi\rangle$ in Eq.~\eqref{psi0_albrecht}, and the operator
+$\hat{V}$ in Eq.~\eqref{V_albrecht}, in a generic way.  For
+$|\Psi\rangle$, we pick a random complex vector in an arbitrary basis,
+with each component having its real and imaginary parts drawn from the
+normal distribution $N(0,1)$:
 \begin{equation}
   |\Psi\rangle = \frac{1}{\sqrt{\mathcal{N}}}\, \begin{pmatrix}
     \Psi_1 \\ \vdots \\ \Psi_{d_A}
@@ -1593,12 +1593,12 @@ apparatus (see Section~\ref{sec:entropy}).  At $t = 0$, this is zero,
 consistent with the two subsystems being initially unentangled
 [Eq.~\eqref{psi0_albrecht}].  Subsequently, $S_A$ increases up to
 \begin{equation}
-  S_A^{\mathrm{max}}/k_b = - \Big( |a_1|^2 \ln|a_1|^2 + |a_2|^2\ln|a_2|^2 \Big) \approx 0.693.
+  S_A^{\mathrm{max}} = - k_b \Big( |a_1|^2 \ln|a_1|^2 + |a_2|^2\ln|a_2|^2 \Big) \approx 0.693 \,k_b.
 \end{equation}
-This value is indicated in the figure by a horizontal dashed line.  It
-corresponds to the result of the classical entropy formula for the
-probability distribution $\{|a_1|^2,|a_2|^2\}$.  The entropy reaches
-this value at around the same time $|\langle\Psi_+|\Psi_-\rangle|^2$
+This corresponds to the classical entropy for a probability
+distribution $\{|a_1|^2,|a_2|^2\}$, and is indicated by a horizontal
+dashed line in the above figure.  Note that $S_A$ reaches
+$S_A^{\mathrm{max}}$ roughly when $|\langle\Psi_+|\Psi_-\rangle|^2$
 reaches zero.  This tells us that the establishment of entanglement
 between the spin and the apparatus (from the combined state's point of
 view) is associated with the process of measurement, and the formation
@@ -1617,7 +1617,7 @@ vast multitude.
 It is up to you to decide whether this conception of reality seems
 reasonable.  It is essentially a matter of preference, because the
 Copenhangen Interpretation and the Many Worlds Interpretation have
-identical physical consequences, which is why they are referred to as
+identical physical consequences---which is why they are referred to as
 different ``interpretations'' of quantum mechanics, rather than
 different theories.
 
