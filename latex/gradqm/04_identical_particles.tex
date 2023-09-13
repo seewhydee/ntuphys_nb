@@ -152,40 +152,59 @@ conserved.
 
 \clearpage
 
-We now postulate that:
+We now postulate that for any system of identical particles,
 \begin{enumerate}
-\item The state of the $N$ identical particles must always be an
-  eigenstate of \textit{every} $\hat{P}_{ij}$.
+\item The quantum state must be an eigenstate of \textit{every}
+  exchange operator $\hat{P}_{ij}$.
 
-\item Every exchange parity $p_{ij}$ has the same value: they are all
-  $+1$, or all $-1$.
+\item The exchange parities $p_{ij}$ are all $+1$, or all $-1$.
 
-\item This $p_{ij}$ value is determined solely by the type of
-  particle.  For example, electrons always have $p_{ij} = -1$.
+\item This choice of exchange parity is determined by the type of
+  particle.  For example, photons always have $p_{ij} = 1$, never
+  $-1$.
 \end{enumerate}
-These are \textit{not} results that we have derived!  You can think of
-them as facts about Nature, which we shall simply assume to be true
-for now.  Much later, we will circle back to see how these postulates
-might be justified.
+These are \textit{not} results that we have derived, and for now you
+should just regard them as facts about Nature.  We will assume them to
+be true for now, and circle back later to see how they might be
+justified.
 
-Particles that have symmetric states ($p_{ij} = +1$) are called
-\textbf{bosons}.  It turns out that the elementary particles that
-``carry'' the fundamental forces are all bosons: these are the photons
-(elementary particles of light, which carry the electromagnetic
-force), gluons (elementary particles that carry the strong nuclear
-force, responsible for binding protons and neutrons together), and $W$
-and $Z$ bosons (particles that carry the weak nuclear force
-responsible for beta decay).  Other bosons include particles that
-carry non-fundamental forces, such as phonons (particles of sound), as
-well as certain composite particles such as alpha particles (helium-4
-nuclei).
+Particles with exchange parity $+1$ are called \textbf{bosons}.  These
+include the elementary particles that carry the fundamental forces:
+photons (carriers of the electromagnetic force), gluons (carriers of
+the strong nuclear force), and the $W$ and $Z$ bosons (carriers of the
+weak nuclear force).  Bosons that are composite particles (i.e.,
+particles that are composed of smaller particles) include alpha
+particles (helium-4 nuclei) and phonons (particles of sound).
 
-Particles that have antisymmetric states ($p_{ij} = -1$) are called
-\textbf{fermions}.  All the elementary particles of ``matter'' are
-fermions: electrons, muons, tauons, quarks, neutrinos, and their
-anti-particles (positrons, anti-neutrinos, etc.).  Certain composite
-particles are also fermions, including protons and neutrons, which are
-each composed of three quarks.
+Particles that have exchange parity $-1$ are called \textbf{fermions}.
+These include the elementary particles making up ordinary matter:
+electrons and quarks, as well as protons and neutrons, which are
+composite particles made of three quarks each.  There are also many
+other elementary fermions including positrons, muons, and neutrinos.
+
+Whether a particle type is bosonic or fermionic is often referred to
+as the choice of ``\textbf{particle statistics}''.  This is because
+the exchange parity affects the statistical behavior of large
+ensembles of particles: bosons obey the Bose-Einstein distribution,
+while fermions obey the Fermi-Dirac distribution.  The implications
+for statistical mechanics are profound, but fall outside the scope of
+our discussion.
+
+For elementary particles, the \textbf{spin-statistics theorem} states
+that particles with integer spin (i.e., total spin equal to an integer
+multiple of $\hbar$) are bosons, whereas particles with half-integer
+spin are fermions.  For instance, photons are spin-1 bosons, and
+electrons are spin-1/2 fermions.  Though the spin-statistics theorem
+is simple to state, \hyperref[cite:duck]{its proof} is surprisingly
+complicated, and seems to require at minimum the combination of
+quantum mechanics with relativity.  In non-relativistic settings, the
+spin-statistics theorem holds in the vast majority of cases (e.g.,
+electronic quasiparticles in ordinary solid-state materials are
+spin-1/2 fermions, like elementary electrons), but it lacks the status
+of a rigorous theorem and is possible to violate.  The development of
+materials containing emergent particles that violate the
+spin-statistics theorem is an active area of research in condensed
+matter physics.
 
 \subsection{Bosons}
 \label{sec:bosons}
@@ -308,24 +327,25 @@ operator:
 \end{align}
 \end{framed}
 
-To see why Eq.~\eqref{nbosons} gives a state that is symmetric under
-every exchange operator, consider any term in the sum, corresponding
-to a permutation $p$, and apply any exchange operator $\hat{P}_{ij}$
-to it:
+To see why the state $|\phi_1,\dots,\phi_N\rangle$ defined in
+Eq.~\eqref{nbosons} is symmetric under every exchange operator,
+consider a representative term in the sum, corresponding to a
+permutation $p$.  When an exchange operator $\hat{P}_{ij}$ acts on it,
+the single-particle states in slots $i$ and $j$ swap places:
 \begin{align}
   \hat{P}_{ij} \Big(\cdots  \underbrace{|\phi_{p(i)}\rangle}_{\mathrm{slot}\,i}  \cdots  \underbrace{|\phi_{p(j)}\rangle}_{\mathrm{slot}\,j}\cdots\Big) = \Big(\cdots  \underbrace{|\phi_{p(j)}\rangle}_{\mathrm{slot}\,i}  \cdots  \underbrace{|\phi_{p(i)}\rangle}_{\mathrm{slot}\,j}\cdots\Big).
 \label{pboson}
 \end{align}
-On the right side, the single-particle states in slots $i$ and $j$
-have been exchanged.  The resulting tensor product represents a
-different permutation of $(1, \dots, N)$, which we denote by $p'$.  In
-Eq.~\eqref{nbosons}, $p'$ also appears as a distinct term in the sum
-over all permutations, and $\hat{P}_{ij}$ turns that term into the $p$
-term.  Therefore, $\hat{P}_{ij}$ merely swaps the two terms in the
-sum, which does not alter the overall result.
+The tensor product on the right represents a different permutation of
+$(1, \dots, N)$, which we denote by $p'$.  The $p'$ permutation occurs
+as another term in $|\phi_1,\dots,\phi_N\rangle$, and applying
+$\hat{P}_{ij}$ turns this term into the $p$ term.  Thus,
+$\hat{P}_{ij}$ merely swaps two terms in the sum, without affecting
+the overall sum.  This holds for every $p$, so $\hat{P}_{ij}$ leaves
+$|\phi_1,\dots,\phi_N\rangle$ unchanged.
 
-If the preceding paragraph is unclear, try following the logic using
-the explicit example in Eqs.~\eqref{3bosonex1}--\eqref{3bosonex3}.
+If the preceding paragraph is unclear, try tracing its logic using
+Eqs.~\eqref{3bosonex1}--\eqref{3bosonex3}.
 
 As for the normalization constant in Eq.~\eqref{nbosons}, it can be
 shown that
@@ -338,7 +358,7 @@ single-particle basis state $|\varphi_\mu\rangle$, such that $\sum_\mu
 n_\mu = N$.  The proof of Eq.~\eqref{bosonnorm} is left as an exercise
 (\hyperref[ex:boson_norm]{Exercise 3}).
 
-Sometimes, in place of Eq.~\eqref{nbosons}, $N$-boson states are
+In place of Eq.~\eqref{nbosons}, $N$-boson states can alternatively be
 expressed as
 \begin{equation}
   |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{M} \; \sum_{p,\,\textrm{no dupes}}\,
@@ -346,27 +366,26 @@ expressed as
   |\phi_{p(N)}\rangle\Big),
   \label{nbosons2}
 \end{equation}
-where the sum omits duplicate permutations (i.e., those that yield the
+where the sum omits duplicate permutations (i.e., those yielding the
 same tensor product).  For instance, in the previous example of
 $|\phi_1\rangle = |\phi_2\rangle = |\mu\rangle$ and $|\phi_3\rangle =
 |\nu\rangle$, instead of having $|\phi_1 \rangle |\phi_2 \rangle
 |\phi_3 \rangle$ and $|\phi_2 \rangle |\phi_1 \rangle |\phi_3 \rangle$
-appear separately in the sum, we only write it once, since both
-permutations refer to the same tensor product $|\mu \rangle |\mu
-\rangle |\nu \rangle$.  If we use this convention, the normalization
-constant should be
+appear separately in the sum, we only write it once, as both
+permutations ultimately refer to $|\mu \rangle |\mu \rangle |\nu
+\rangle$.  If we adopt this convention, the normalization condition
+\eqref{bosonnorm} is replaced by
 \begin{equation}
-  \mathcal{M} = \sqrt{\frac{\prod_\mu n_\mu!}{N!}},
+  \mathcal{M} = \sqrt{\frac{\prod_\mu n_\mu!}{N!}}.
 \end{equation}
-in place of Eq.~\eqref{bosonnorm}.
 
-The $N$-boson states constructed using Eq.~\eqref{nbosons} have an
-important property: if we build two such states from different sets of
-single-particle states, they are orthogonal.  To prove this, take two
-sets of single-particle states, $\{\phi_1,\dots,\phi_N\}$ and
-$\{\phi_1,\dots,\phi_N'\}$.  We then use Eq.~\eqref{nbosons} to
-construct the corresponding $N$-boson states, and take the inner
-product:
+The $N$-boson states constructed using Eq.~\eqref{nbosons}---or, if
+you prefer, Eq.~\eqref{nbosons2}---have an important property: if we
+build two such states from different sets of single-particle states,
+they are orthogonal.  To prove this, take two sets of single-particle
+states, $\{\phi_1,\dots,\phi_N\}$ and $\{\phi_1,\dots,\phi_N'\}$.  The
+two $N$-boson states, constructed by Eq.~\eqref{nbosons}, have the
+inner product
 \begin{align}
   \langle \phi_1, \dots, \phi_N | \phi_1',\dots, \phi_N'\rangle
   &= \mathcal{NN'}
@@ -374,27 +393,30 @@ product:
   \langle \phi_{p(N)} | \phi'_{p'(N)}\rangle.
   \label{bosorthog}
 \end{align}
-For this to be nonzero, there must be some $p$ and $p'$ such that
-every bra $\langle \phi_{p(j)}|$ matches the corresponding ket
-$|\phi_{p'(j)}\rangle$, for all $j = 1, \dots, N$.  This is possible
-if and only if the two sets of single-particle states are equivalent:
-i.e., $(\phi_1,\dots, \phi_N)$ and $(\phi_1',\dots, \phi_N')$ are
-merely permutations of each other.
+Consider each term in the double sum, involving permutations $p$ and
+$p'$.  If \textit{every} bra $\langle \phi_{p(j)}|$ matches the
+corresponding ket $|\phi_{p'(j)}\rangle$, the term is unity, otherwise
+it is zero (since at least one of the bra-kets in the product
+vanishes).  There is some $p, p'$ achieving this condition if and only
+if the two sets of single-particle states are equivalent: i.e.,
+$(\phi_1,\dots, \phi_N) \equiv (\phi_1',\dots, \phi_N')$ up to a
+permutation.  In that case, $| \phi_1, \dots, \phi_N \rangle = |
+\phi_1',\dots, \phi_N'\rangle$ so the inner product is unity.
 
 \subsection{Fermions}
 \label{sec:fermions}
 
-A state of $N$ fermions must be antisymmetric under every possible
-exchange operator:
+A state of $N$ fermions must be antisymmetric under every exchange
+operator $\hat{P}_{ij}$:
 \begin{equation}
-  \hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle \;\;\; \forall\, i,j\in\{1,\dots,N\}, \; i\ne j.
+  \hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle.
 \end{equation}
-Similar to the bosonic case, we can explicitly construct multi-fermion
-states based on the occupancy of single-particle state.
 
-First consider $N=2$, with the fermions occupying the single-particle
-states $|\mu\rangle$ and $|\nu\rangle$ (which, once again, we assume
-to be orthonormal).  The appropriate two-particle state is
+Similar to the bosonic case, we can construct $N$-fermion states from
+a set of single-particle states.  First, consider $N=2$.  If the
+fermions occupy the single-particle states $|\mu\rangle$ and
+$|\nu\rangle$, which are orthonormal, then the appropriate 2-fermion
+state is
 \begin{equation}
   |\mu,\nu\rangle = \frac{1}{\sqrt{2}}
   \Big(|\mu\rangle|\nu\rangle - |\nu\rangle|\mu\rangle\Big).
@@ -406,48 +428,47 @@ We can easily check that this is antisymmetric:
   \Big(|\nu\rangle|\mu\rangle - |\mu\rangle|\nu\rangle\Big)
   = - |\mu,\nu\rangle.
 \end{equation}
-Note that if $|\mu\rangle$ and $|\nu\rangle$ are the same
-single-particle state, Eq.~\eqref{two_fermions} doesn't work, since
-the two terms would cancel to give the zero vector, which is not a
-valid quantum state.  This is a manifestation of the \textbf{Pauli
-  exclusion principle}, which states that two fermions cannot occupy
-the same single-particle state.
+If $|\mu\rangle$ and $|\nu\rangle$ are the same single-particle state,
+Eq.~\eqref{two_fermions} doesn't work, since the two terms would
+cancel to give the zero vector, which is not a valid quantum state.
+This is a manifestation of the \textbf{Pauli exclusion principle},
+which states that two fermions cannot occupy the same single-particle
+state.
 
-By generalizing the above discussion, we can construct an
-antisymmetric state that describes $N$ fermions occupying the
-orthonormal single-particle states $|\phi_1\rangle$, $|\phi_2\rangle$,
-$\dots, |\phi_N\rangle$ (typically drawn from a suitable basis for
-$\mathscr{H}^{(1)}$).  The $N$-fermion state is
+To generalize this, let $|\phi_1\rangle$, $|\phi_2\rangle$, $\dots,
+|\phi_N\rangle$ be a set of $N$ orthonormal single-particle states,
+which are occupied by identical fermions.  Then the $N$-fermion state
+is
 \begin{equation}
   |\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.
   \label{Nfermions}
 \end{equation}
-The $1/\sqrt{N!}$ can be straightforwardly verified to be the right
-normalization constant.  The sum is taken over every permutation $p$
-of the sequence $\{1,2,\dots,N\}$, and each term in the sum has a
-coefficient $s(p) = \pm1$ denoting the \textbf{parity} of permutation
-$p$.
+Here, the sum is taken over every permutation $p$ of the sequence
+$\{1,2,\dots,N\}$, and each term in the sum has a coefficient $s(p) =
+\pm1$ denoting the \textbf{parity} of permutation $p$, defined below.
+The $1/\sqrt{N!}$ prefactor can be shown to normalize
+$|\phi_1,\dots,\phi_N\rangle$ to unity.
 
-According to the mathematical theory of permutations, any permutation
-$p$ can be generated by starting with the trivial sequence $\{1, 2,
-\dots, N\}$, and applying a series of transpositions (i.e., choosing
-two slots in the sequence, and swapping their contents).  The parity
-$s(p)$ is defined to be $+1$ if $p$ is generated from an even number
-of transpositions, and $-1$ if it is generated from an odd number of
-transpositions.  A result known as the ``parity theorem'' states that
-even if a permutation $p$ can be generated from different series of
-transpositions, the different choices all give the same $s(p)$; in
-other words, the parity is a property of the permutation itself.
+Any permutation $p$ can be generated by starting from the trivial
+sequence $(1, 2, \dots, N)$, and repeatedly applying transpositions
+(i.e., choosing two slots and swapping them).  The parity $s(p)$ is
+defined as $+1$ if $p$ is generated by an even number of
+transpositions, and $-1$ if it is generated by an odd number of
+transpositions.  Although it is generally possible to generate $p$
+from different sequences of transpositions, a result called the
+``parity theorem'' states that these all give the same $s(p)$.  In
+other words, $s(p)$ is a property of $p$ itself.
 
+\clearpage
 Let's look at a couple of examples.
 
 \begin{framed}
 \noindent
-\textit{Example}---Consider $N=2$.  The sequence $\{1,2\}$
+\textit{Example}---Consider $N=2$.  The sequence $(1,2)$
 has two permutations:
 \begin{align}
   \begin{aligned}
-    p_1 : \{1,2\} &\rightarrow \{1,2\}, \;\;\;s(p_1) = +1 \\ p_2 : \{1,2\} &\rightarrow \{2,1\}, \;\;\;s(p_2) = -1.\end{aligned}
+    p_1 : (1,2) &\rightarrow (1,2), \;\;\;s = +1 \\ p_2 : (1,2) &\rightarrow (2,1), \;\;\;s = -1.\end{aligned}
 \end{align}
 Plugging these into Eq.~\eqref{Nfermions} yields
 \begin{equation*}
@@ -460,25 +481,26 @@ which is equivalent to the previously-discussed example
 
 \begin{framed}
 \noindent
-\textit{Example}---For $N=3$, the sequence $\{1,2,3\}$ has $3!=6$ permutations:
+\textit{Example}---For $N=3$, the sequence $(1,2,3)$ has $3!=6$ permutations:
 \begin{align}
   \begin{aligned}
-  p_1 : \{1,2,3\} &\rightarrow \{1,2,3\}, \;\;\;s(p_1) = +1 \\
-  p_2 : \{1,2,3\} &\rightarrow \{2,1,3\}, \;\;\;s(p_2) = -1 \\
-  p_3 : \{1,2,3\} &\rightarrow \{2,3,1\}, \;\;\;s(p_3) = +1 \\
-  p_4 : \{1,2,3\} &\rightarrow \{3,2,1\}, \;\;\;s(p_4) = -1 \\
-  p_5 : \{1,2,3\} &\rightarrow \{3,1,2\}, \;\;\;s(p_5) = +1 \\
-  p_6 : \{1,2,3\} &\rightarrow \{1,3,2\}, \;\;\;s(p_6) = -1.\end{aligned}
+  p_1 : (1,2,3) &\rightarrow (1,2,3), \;\;\;s = +1 \\
+  p_2 : (1,2,3) &\rightarrow (2,1,3), \;\;\;s = -1 \\
+  p_3 : (1,2,3) &\rightarrow (2,3,1), \;\;\;s = +1 \\
+  p_4 : (1,2,3) &\rightarrow (3,2,1), \;\;\;s = -1 \\
+  p_5 : (1,2,3) &\rightarrow (3,1,2), \;\;\;s = +1 \\
+  p_6 : (1,2,3) &\rightarrow (1,3,2), \;\;\;s = -1.\end{aligned}
 \end{align}
-In this list, the permutation on each line is derived from the
-previous one by an additional transposition, hence the alternating
-signs of $s(p)$.  We can also note, for example, that an alternative
-way to generate $p_4$ is to apply one transposition to $\{1,2,3\}$,
-swapping slot 1 and slot 3, rather than the three transpositions
-involved in going from line 1 to line 4.  Both routes give $s(p_4) =
--1$, consistent with the parity theorem.
+In this list, we start from $(1,2,3)$ and apply one transposition at a
+time to generate the next line.  Hence, the signs of $s(p)$ alternate.
+This sequence of transpositions is not unique; for example, we can
+generate $p_4$ by starting from $(1,2,3)$ and transposing 1 and 3.
+This involves one transposition, rather than three transpositions as
+in the above list.  But both routes give the same parity, $s(p_4) =
+-1$.
 
-The resulting three-fermion state is
+Plugging these permutations into Eq.~\eqref{Nfermions}, we obtain the
+3-fermion state
 \begin{align}
   \begin{aligned}
     |\phi_1, \phi_2, \phi_3\rangle
@@ -494,31 +516,30 @@ The resulting three-fermion state is
 \end{align}
 \end{framed}
 
-Let us now run through some properties of the $N$-fermion states
-constructed using Eq.~\eqref{Nfermions}.
+Let us examine the properties of the $N$-fermion states constructed
+from Eq.~\eqref{Nfermions}.
 
-Firstly, the $N$-fermion state is a valid quantum state only if the
-set of single-particle basis states used to construct it,
-$\{|\phi_1\rangle, \dots, |\phi_N\rangle\}$ does not contain any
-duplicates.  If there is a duplicate, then each term in the sum within
+Firstly, the $N$-fermion state obeys the Pauli exclusion principle: it
+is valid only if the single-particle states used to construct it,
+$\{|\phi_1\rangle, \dots, |\phi_N\rangle\}$, contain no duplicates.
+If there is a duplicate, then each term in the sum within
 Eq.~\eqref{Nfermions} must contain, somewhere in the tensor product,
-two kets referring to the same single-particle state:
+two kets referring to the same single-particle state $|\mu\rangle$,
+say in slots $i$ and $j$:
 \begin{equation*}
 s(p)\big( \cdots
       \underbrace{|\phi_{p(i)}\rangle}_{= |\mu\rangle} \cdots
       \underbrace{|\phi_{p(j)}\rangle}_{= |\mu\rangle} \cdots \big)\Big].
 \end{equation*}
 But there is another permutation, $p'$, which is the same as $p$
-except that the two affected slots (in this case, $i$ and $j$) are
-transpoed.  This would appear in the term with a parity factor of the
-opposite sign.  Hence, the sum in Eq.~\eqref{Nfermions} cancels
-pair-waise, resulting in the zero vector, which is not a valid quantum
-state.  This is a manifestation of the aforementioned Pauli exclusion
-principle.
+except with the $i$ and $j$ slots transposed.  That term appears with
+a parity of the opposite sign.  This implies that the terms in the sum
+cancel pair-wise, so $|\phi_1,\dots,\phi_N\rangle = 0$, which is not a
+valid quantum state.
 
 Secondly, we can verify that the $N$-fermion state is totally
-antisymmetric.  Consider what happens when we apply $\hat{P}_{ij}$
-(for any $i \ne j$) to a term in the sum in Eq.~\eqref{Nfermions}:
+antisymmetric.  Consider what happens when we apply an exchange
+operator $\hat{P}_{ij}$ to a term in the sum in Eq.~\eqref{Nfermions}:
 \begin{align}
   \begin{aligned}
     \hat{P}_{ij} \Big[s(p)\big( \cdots
@@ -545,11 +566,10 @@ the $p'$ term yields the negative of the $p$ term.  Hence,
 Thirdly, two $N$-fermion states constructed using
 Eq.~\eqref{Nfermions} are orthogonal unless they consist of identical
 sets of single-particle states.  In other words, $\langle \phi_1,
-\dots, \phi_N| \phi_1', \dots, \phi_N'\rangle = 0$ unless $\{\phi_1,
-\dots, \phi_N\}$ and $\{\phi_1', \dots, \phi_N'\}$ are equivalent up
-to a permutation.  The proof for this orthogonality property is the
-same as in the $N$-boson case discussed before [see
-  Eq.~\eqref{bosorthog}].
+\dots, \phi_N| \phi_1', \dots, \phi_N'\rangle = 0$ unless $(\phi_1,
+\dots, \phi_N) \equiv (\phi_1', \dots, \phi_N')$ are equivalent up to
+a permutation.  The proof follows the same logic as the $N$-boson case
+discussed before [see Eq.~\eqref{bosorthog}].
 
 \subsection{Distinguishing particles}
 
@@ -558,30 +578,29 @@ we implicitly assumed that the particles are distinguishable.  For
 example, in the EPR thought experiment, we started with the
 two-particle state
 \begin{equation}
-  |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!+\!z\rangle |\!-\!z\rangle
-  - |\!-\!z\rangle |\!+\!z\rangle \Big),
+  |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
+  - |\!\downarrow\rangle |\!\uparrow\rangle \Big),
   \label{EPR}
 \end{equation}
-which appears to be antisymmetric.  Does this mean that we cannot
+which looks like an antisymmetric state.  Does this mean we cannot
 prepare $|\psi_{\mathrm{EPR}}\rangle$ using photons (which are
-bosons)?  More disturbingly, we discussed how measuring $\hat{S}_z$ on
-particle $A$, and obtaining the result $+\hbar/2$, causes the
-two-particle state to collapse into $|\!+\!z\rangle |\!-\!z\rangle$,
-which is neither symmetric nor antisymmetric.  Is this result
-invalidated if the particles are identical?
+bosons)?  More disturbingly, measuring ${S}_z$ on one particle causes
+the two-particle state to collapse into $|\!\uparrow\rangle
+|\!\downarrow\rangle$ or $|\!\downarrow\rangle |\!\uparrow\rangle$,
+which are neither symmetric nor antisymmetric.  Does this violate the
+notion of identical particles?
 
 The answer to each question is no.  The confusion arises because the
-particle exchange symmetry has to involve an exchange of \textit{all}
-the degrees of freedom of each particle, and Eq.~\eqref{EPR} only
-shows the spin degree of freedom.
+particle exchange symmetry involves an exchange of \textit{all} the
+degrees of freedom of each particle, while Eq.~\eqref{EPR} only shows
+the spin degree of freedom.
 
-To unpack the above statement, let us suppose the two particles in the
-EPR experiment are identical bosons.  We have focused on each
-particle's spin degree of freedom, but they must also have a position
-degree of freedom---that's how we can have a particle at Alpha
-Centauri ($A$) and another at Betelgeuse ($B$).  If we explicitly
-account for this position degree of freedom, the single-particle
-Hilbert space should be
+Suppose the two particles in the EPR experiment are identical bosons.
+We have focused on each particle's spin degree of freedom, but they
+must also have a position degree of freedom---that's how we can have
+one particle at each location (Alpha Centauri and Betelgeuse).
+Accounting for this position degree of freedom, the single-particle
+Hilbert space is
 \begin{equation}
   \mathscr{H}^{(1)} = \mathscr{H}_{\mathrm{spin}} \otimes \mathscr{H}_{\mathrm{position}}.
 \end{equation}
@@ -589,16 +608,15 @@ For simplicity, let us treat position as a twofold degree of freedom,
 treating $\mathscr{H}_{\mathrm{position}}$ as a 2D space spanned by
 the basis $\{|A\rangle, |B\rangle\}$.
 
-Now consider the state we previously denoted by $|\!+\!z\rangle
-|\!-\!z\rangle$, which refers to a spin-up particle at $A$ and a
-spin-down particle at $B$.  In our previous notation, it was
-implicitly assumed that $A$ refers to the left-hand slot of the tensor
-product, and $B$ refers to the right-hand slot.  If we account for the
-position degrees of freedom, the state is written as
+Previously, we used $|\!\uparrow\rangle |\!\downarrow\rangle$ to denote a
+spin-up particle at $A$ and a spin-down particle at $B$.  This
+implicitly assumed that $A$ refers to the left slot of the tensor
+product, and $B$ refers to the right slot.  If we write the position
+degrees of freedom explicitly, this state is
 \begin{equation}
-  |+\!z, A;\; -z, B\rangle = \frac{1}{\sqrt{2}}
-  \Big(|\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
-  + |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big),
+  |\uparrow, A;\; \downarrow, B\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
+  + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \Big),
   \label{asym1}
 \end{equation}
 where the kets are written in the following order:
@@ -615,18 +633,18 @@ spaces---which includes both the position \textit{and} the spin part.
 Hence, Eq.~\eqref{asym1} is explicitly symmetric:
 \begin{align}
   \begin{aligned}
-  \hat{P}_{12} \, |+\!z, A\,;\, -z, B\rangle &= \frac{1}{\sqrt{2}}
-  \Big(|\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle
-  + |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle \Big) \\
-  &= |+\!z, A\,;\, -z, B\rangle.
+  \hat{P}_{12} \, |\uparrow, A\,;\, \downarrow, B\rangle &= \frac{1}{\sqrt{2}}
+  \Big(|\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle
+  + |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle \Big) \\
+  &= |\uparrow, A\,;\, \downarrow, B\rangle.
   \end{aligned}
 \end{align}
 Likewise, if there is a spin-down particle at $A$ and a spin-up
 particle at $B$, the bosonic two-particle state is
 \begin{equation}
-  |-\!z, A\,;\, +z, B\rangle = \frac{1}{\sqrt{2}}
-  \Big(|\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
-  + |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
+  |\downarrow, A\,;\, \uparrow, B\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
+  + |\!\uparrow\rangle|B\rangle |\!\downarrow\rangle|A\rangle \Big).
   \label{asym2}
 \end{equation}
 Using Eqs.~\eqref{asym1} and \eqref{asym2}, we can rewrite the EPR
@@ -634,89 +652,82 @@ singlet state \eqref{EPR} as
 \begin{align}
   \begin{aligned}
     |\psi_{\mathrm{EPR}}\rangle &= \frac{1}{\sqrt{2}} \Big(
-    |\!+\!z, A\,;\, -z, B\rangle - |-\!z, A\,;\, +z, B\rangle \Big)\\
+    |\!\uparrow, A\,;\, \downarrow, B\rangle - |\downarrow, A\,;\, \uparrow, B\rangle \Big)\\
     &= \frac{1}{2} \Big(\,
-    |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
-    + |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \\
-    &\quad\;\;- |\!-\!z\rangle|A\rangle |\!+\!z\rangle|B\rangle
-    - |\!+\!z\rangle|B\rangle |\!-\!z\rangle|A\rangle \Big).
+    |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
+    + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \\
+    &\quad\;\;- |\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
+    - |\!\uparrow\rangle|B\rangle |\!\downarrow\rangle|A\rangle \Big).
     \label{epr1}
   \end{aligned}
 \end{align}
 
-As it turns out Eq.~\eqref{epr1} can be further simplified with some
-careful re-ordering.  Instead of the ordering \eqref{order1}, order by
-spins and then positions:
+Eq.~\eqref{epr1} can be further simplified by re-ordering the tensor
+product slots.  In place of \eqref{order1}, let us order by spins and
+then positions:
 \begin{equation}
   \Big[
     (\textrm{spin 1}) \otimes (\textrm{spin 2}) \Big]
   \otimes
   \Big[
-    (\textrm{position 1}) \otimes (\textrm{position 2}) \Big]
+    (\textrm{position 1}) \otimes (\textrm{position 2}) \Big].
   \label{order2}
 \end{equation}
 Then Eq.~\eqref{epr1} can be rewritten as
 \begin{equation}
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(
-  |\!+\!z\rangle |\!-\!z\rangle - |\!-\!z\rangle |\!+\!z\rangle \Big)  
+  |\!\uparrow\rangle |\!\downarrow\rangle - |\!\downarrow\rangle |\!\uparrow\rangle \Big)  
   \otimes \frac{1}{\sqrt{2}} \Big(
   |A\rangle |B\rangle - |B\rangle |A\rangle \Big).
   \label{eprsplit}
 \end{equation}
-Evidently, even though the spin degrees of freedom form an
-antisymmetric combination, as described by Eq.~\eqref{EPR}, the
-position degrees of freedom in Eq.~\eqref{eprsplit} also have an
-antisymmetric form, such that the overall two-particle state is
-symmetric!
+The spin degrees of freedom indeed form an antisymmetric combination,
+as described by Eq.~\eqref{EPR}.  But the position degrees of freedom
+are also antisymmetric, so the overall state is symmetric.
 
-Now suppose we perform a measurement on $|\psi_{\mathrm{EPR}}\rangle$,
-and find that the particle at position $A$ has spin $+z$.  As usual, a
-measurement outcome can be associated with a projection operator.
-Using the ordering \eqref{order1}, we can write the relevant
-projection operator as
+Now suppose we measure $S_z$ on the particle at position $A$, and find
+that it is spin-up.  As previously discussed, a measurement outcome is
+associated with a projection operator.  Using the ordering
+\eqref{order1}, the relevant projection operator is
 \begin{equation}
-  \hat{\Pi} = \Big(|\!+\!z\rangle \langle+z| \otimes |A\rangle \langle A|\Big)
+  \hat{\Pi} = \Big(|\!\uparrow\rangle \langle\uparrow\!| \otimes |A\rangle \langle A|\Big)
   \otimes\Big( \hat{I} \otimes \hat{I}\Big)
   + \Big(\hat{I} \otimes \hat{I} \Big) \otimes \Big(
-  |\!+\!z\rangle \langle+z| \otimes |A\rangle \langle A| \Big).
+  |\!\uparrow\rangle \langle\uparrow\!| \otimes |A\rangle \langle A| \Big).
 \end{equation}
-This accounts for the fact that the observed phenomenon---spin $+z$ at
+This accounts for the fact that the observed phenomenon---spin up at
 position $A$---may refer to either particle.  Applying $\hat{\Pi}$ to
-the EPR state \eqref{epr1} yields
+the EPR state yields
 \begin{equation}
   |\psi'\rangle \;=\;
   \frac{1}{2} \Big(
-    |\!+\!z\rangle|A\rangle |\!-\!z\rangle|B\rangle
-    + |\!-\!z\rangle|B\rangle |\!+\!z\rangle|A\rangle \Big).
+    |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
+    + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \Big).
 \end{equation}
 Apart from a change in normalization, this is precisely the fermionic
-state $|+\!z,A;-z,B\rangle$ defined in Eq.~\eqref{asym1}.  In our
-earlier notation, this state was simply written as
-$|\!+\!z\rangle|-\!z\rangle$.  This goes to show that particle
-exchange symmetry is fully compatible with the concepts of partial
-measurements, entanglement, etc., discussed in the previous chapter.
+state $|\uparrow,A;\downarrow,B\rangle$ defined in Eq.~\eqref{asym1}.
+In our earlier notation, which tracked only the spin degrees of
+freedom, this was simply written as
+$|\!\uparrow\rangle|\downarrow\rangle$.  We therefore conclude that
+particle exchange symmetry is compatible with our previous discussions
+about partial measurements, entanglement, etc.
 
-\subsection{Implications of exchange symmetry}
+\subsection{Exchange symmetry and distinguishability}
 
-The choice of exchange symmetry eigenvalue---symmetric (bosons) or
-antisymmetric (fermions)---is often referred to as \textbf{particle
-  statistics}.  This is because statistical ensembles of bosons and
-fermions are governed by different distributions, called the
-Bose-Einstein and Fermi-Dirac distributions respectively.  The
-implications for statistical mechanics are profound, but fall outside
-the scope of this course.
+Our formulation of bosonic and fermionic states has been built upon
+the mathematical framework of tensor product states, in which
+single-particle states can be assigned to the various ``slots'' in
+each tensor product.  One might question whether this framework is
+consistent with the notion of particle indistinguishability.  It seems
+unsatisfactory that the framework allows us to write down a state like
+$|\mu\rangle|\nu\rangle$, where $\mu\ne\nu$, yet this 
 
-Our above formulation of bosonic and fermionic multi-particle quantum
-states has relied on the assignment of single-particle states to (say)
-the ``first slot'' or ``second slot'' in a tensor product.  One might
-question whether this is philosophically consistent with the notion of
-particle indistinguishability.  After all, it seems unsatisfactory
-that our mathematical framework allows us to write down a state like
-$|\mu\rangle|\nu\rangle$ where $\mu\ne\nu$, which is physically
-impossible since it is not symmetric or antisymmetric.  Moreover, we
-use such states to define a ``particle exchange'' operation that
-appears to have no direct physical meaning (unlike, say, a rotation
-operation, which is physically meaningful).
+
+which is
+physically impossible since it is not symmetric or antisymmetric.
+Moreover, we use this framework to define a ``particle exchange''
+operation that appears to have no physical meaning (unlike, say, a
+rotation operation, which can be defined in physical terms).
 
 To address these unsatisfactory features,
 \hyperref[cite:leinaas]{Leinaas and Myrheim (1977)} developed an
@@ -729,8 +740,7 @@ as a mathematical object that has a built-in property that
 interchanging entries leaves the object invariant.  Bosonic or
 fermionic states can be constructed by carefully analyzing the
 topological structure of wavefunctions defined on such configuration
-spaces.  For more details, the interested reader is referred to the
-paper by Leinaas and Myrheim [\ref{cite:leinaas}].
+spaces.
 
 A startling outcome of Leinaas and Myrheim's analysis is that the
 distinction between fermions and bosons is not absolute.  In certain
@@ -1939,6 +1949,9 @@ are excitations of deeper, more fundamental entities---quantum fields!
 
 \item Sakurai, \S6
 
+\item I.~Duck and E.~C.~G.~Sundarshan, \textit{Pauli and the Spin-Statistics Theorem}, World Scientific (1998).
+  \label{cite:duck}
+  
 \item J.~M.~Leinaas and J.~Myrheim, \textit{On the Theory of Identical Particles}, Nuovo Cimento B \textbf{37}, 1 (1977).
   \label{cite:leinaas}
   
