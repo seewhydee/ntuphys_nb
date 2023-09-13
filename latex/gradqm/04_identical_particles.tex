@@ -1,4 +1,4 @@
-\documentclass[pra,12pt]{revtex4-2}
+\documentclass[prx,12pt]{revtex4-2}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -29,7 +29,12 @@
 \setlength{\epigraphwidth}{.6\textwidth}
 
 \def\thesection{4.\arabic{section}}
-\def\thesubsection{4.\arabic{section}.\arabic{subsection}}
+\def\thesubsection{\thesection.\arabic{subsection}}
+
+\makeatletter
+\renewcommand{\p@subsection}{}
+\renewcommand{\p@subsubsection}{}
+\makeatother
 
 \begin{document}
 \setcounter{page}{60}
@@ -163,12 +168,13 @@ We now postulate that for any system of identical particles,
   particle.  For example, photons always have $p_{ij} = 1$, never
   $-1$.
 \end{enumerate}
-These are \textit{not} results that we have derived, and for now you
-should just regard them as facts about Nature.  We will assume them to
-be true for now, and circle back later to see how they might be
-justified.
+These statements are \textit{not} results that we have derived, and
+for now you should just regard them as a set of fundamental
+assumptions about the properties of particles.  We will circle back
+later to see how they might be justified (see Sections
+\ref{sec:indistinguishability} and \ref{sec:outlook}).
 
-Particles with exchange parity $+1$ are called \textbf{bosons}.  These
+Particles with exchange parity $+1$ are called \textbf{bosons}.  They
 include the elementary particles that carry the fundamental forces:
 photons (carriers of the electromagnetic force), gluons (carriers of
 the strong nuclear force), and the $W$ and $Z$ bosons (carriers of the
@@ -571,7 +577,14 @@ sets of single-particle states.  In other words, $\langle \phi_1,
 a permutation.  The proof follows the same logic as the $N$-boson case
 discussed before [see Eq.~\eqref{bosorthog}].
 
-\subsection{Distinguishing particles}
+\subsection{Particle indistinguishability}
+\label{sec:indistinguishability}
+
+The assertion that a set of identical particles must always have a
+fixed exchange parity---which gave rise to the requirement of
+symmetric states for bosons, and antisymmetric states for
+fermions---can be interpreted as t
+
 
 When studying the phenomenon of entanglement in the previous chapter,
 we implicitly assumed that the particles are distinguishable.  For
@@ -712,15 +725,18 @@ $|\!\uparrow\rangle|\downarrow\rangle$.  We therefore conclude that
 particle exchange symmetry is compatible with our previous discussions
 about partial measurements, entanglement, etc.
 
-\subsection{Exchange symmetry and distinguishability}
+
+
+
+
 
 Our formulation of bosonic and fermionic states has been built upon
 the mathematical framework of tensor product states, in which
-single-particle states can be assigned to the various ``slots'' in
-each tensor product.  One might question whether this framework is
-consistent with the notion of particle indistinguishability.  It seems
-unsatisfactory that the framework allows us to write down a state like
-$|\mu\rangle|\nu\rangle$, where $\mu\ne\nu$, yet this 
+single-particle states are assigned to various ``slots'' in tensor
+products.  One might question whether this framework is well-suited to
+the notion of particle indistinguishability.  It seems unsatisfactory
+that the framework allows us to write down a state like
+$|\mu\rangle|\nu\rangle$, where $\mu\ne\nu$, yet this
 
 
 which is
@@ -1820,6 +1836,7 @@ $\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
 \end{align}
 
 \subsection{Looking ahead}
+\label{sec:outlook}
 
 In the next chapter, we will use these ideas to formulate a quantum
 theory of electromagnetism.  This is a bosonic quantum field theory in

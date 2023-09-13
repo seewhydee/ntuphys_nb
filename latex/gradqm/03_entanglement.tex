@@ -1,4 +1,4 @@
-\documentclass[pra,12pt]{revtex4-2}
+\documentclass[prx,12pt]{revtex4-2}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -30,7 +30,12 @@
 \setlength{\parskip}{0.04in}
 
 \def\thesection{3.\arabic{section}}
-\def\thesubsection{3.\arabic{section}.\arabic{subsection}}
+\def\thesubsection{\thesection.\arabic{subsection}}
+
+\makeatletter
+\renewcommand{\p@subsection}{}
+\renewcommand{\p@subsubsection}{}
+\makeatother
 
 \begin{document}
 \setcounter{page}{36}

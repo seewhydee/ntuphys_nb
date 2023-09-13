@@ -1,4 +1,4 @@
-\documentclass[pra,12pt]{revtex4-2}
+\documentclass[prx,12pt]{revtex4-2}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -20,7 +20,14 @@
 
 \setlength{\parindent}{14pt}
 \renewcommand{\theequation}{A.\arabic{equation}}
-\renewcommand{\thesection}{A\arabic{section}}
+
+\def\thesection{A.\arabic{section}}
+\def\thesubsection{\thesection.\arabic{subsection}}
+
+\makeatletter
+\renewcommand{\p@subsection}{}
+\renewcommand{\p@subsubsection}{}
+\makeatother
 
 \renewcommand{\baselinestretch}{1.0}
 \setlength{\parskip}{0.04in}

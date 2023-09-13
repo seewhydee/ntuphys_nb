@@ -1,4 +1,4 @@
-\documentclass[pra,12pt]{revtex4}
+\documentclass[prx,12pt]{revtex4-2}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
@@ -29,7 +29,12 @@
 \setlength{\epigraphwidth}{.6\textwidth}
 
 \def\thesection{5.\arabic{section}}
-\def\thesubsection{5.\arabic{section}.\arabic{subsection}}
+\def\thesubsection{\thesection.\arabic{subsection}}
+
+\makeatletter
+\renewcommand{\p@subsection}{}
+\renewcommand{\p@subsubsection}{}
+\makeatother
 
 \begin{document}
 \setcounter{page}{86}
