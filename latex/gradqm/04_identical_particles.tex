@@ -62,6 +62,7 @@ quantum mechanics.  Exploring this idea will lead us to a fundamental
 re-interpretation of what ``particles'' are.
 
 \subsection{Particle exchange symmetry}
+\label{sec:exchange}
 
 Suppose we have two particles of the same type, e.g.~two electrons.
 It is a fact of Nature that all electrons have identical physical
@@ -120,8 +121,8 @@ The exchange operator has the following properties:
   of basis (see \hyperref[ex:1]{Exercise 1}).
 
 \item $\hat{P}$ commutes with any two-particle operator that treats
-  the two particles on equal footing, such as the Hamiltonian
-  \eqref{exampleH} (see \hyperref[ex:2]{Exercise 2}).
+  the two particles on equal footing, like the Hamiltonian in
+  Eq.~\eqref{exampleH} (see \hyperref[ex:2]{Exercise 2}).
 \end{enumerate}
 
 According to Noether's theorem, any symmetry implies a conservation
@@ -580,40 +581,76 @@ discussed before [see Eq.~\eqref{bosorthog}].
 \subsection{Particle indistinguishability}
 \label{sec:indistinguishability}
 
-The assertion that a set of identical particles must always have a
-fixed exchange parity---which gave rise to the requirement of
-symmetric states for bosons, and antisymmetric states for
-fermions---can be interpreted as t
+The assertion that any set of identical particles has a fixed exchange
+parity (i.e., they are either bosons or fermions) can be interpreted
+as the requirement for particles to be fundamentally
+\textbf{indistinguishable}.
 
+For a system of $N$ identical particles, the Hilbert space consists of
+$N$ copies of the single-particle Hilbert space $\mathscr{H}^{(1)}$:
+\begin{equation}
+  \underbrace{\mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}
+    \otimes \mathscr{H}^{(1)} \otimes \cdots
+  \otimes \mathscr{H}^{(1)}}_{N~\mathrm{times}},
+\end{equation}
+With this tensor product space, we can define observables and states
+that single out individual slots in the tensor product.  For example,
+for a set of spin-1/2 degrees of freedom, we can define an observable
+like
+\begin{equation}
+  \hat{S}_z \otimes \hat{I} \otimes \hat{I} \otimes \cdots \otimes \hat{I},
+\end{equation}
+which corresponds to the value of $S_z$ for the particle in slot 1.
+Likewise, we can define a state like
+\begin{equation}
+  |\!\uparrow\rangle |\!\downarrow\rangle |\!\downarrow\rangle
+  \cdots |\!\downarrow\rangle,
+\end{equation}
+where the particle in slot 1 is spin-up, and all the others are
+spin-down.  If such observables and states are allowed, then the slot
+numbers have physical meaning---in principle, we would be able to
+construct experiments that can identify a given particle in an
+$N$-particle system as being in slot 1, slot 2, etc.
 
-When studying the phenomenon of entanglement in the previous chapter,
-we implicitly assumed that the particles are distinguishable.  For
-example, in the EPR thought experiment, we started with the
-two-particle state
+The exchange symmetry discussed in Section~\ref{sec:exchange} serves
+as a constraint that makes the slot number physically meaningless.  To
+achieve this, we only allow observables that treat the particles on
+equal footing (i.e., observables must commute with the exchange
+operators $\hat{P}_{ij}$), and quantum states that are eigenstates of
+$\hat{P}_{ij}$.  Under such circumstances, the particles are said to
+be indistinguishable.  Since the slot numbers have no physical
+meaning, there is no way for us to properly identify a given particle
+as ``particle 1'', ``particle 2'', etc.
+
+At first glance, this might appear to contradict our earlier
+discussions from Chapter 3.  For example, in the EPR thought
+experiment, we started with the singlet state
 \begin{equation}
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
   - |\!\downarrow\rangle |\!\uparrow\rangle \Big),
   \label{EPR}
 \end{equation}
-which looks like an antisymmetric state.  Does this mean we cannot
-prepare $|\psi_{\mathrm{EPR}}\rangle$ using photons (which are
-bosons)?  More disturbingly, measuring ${S}_z$ on one particle causes
-the two-particle state to collapse into $|\!\uparrow\rangle
-|\!\downarrow\rangle$ or $|\!\downarrow\rangle |\!\uparrow\rangle$,
-which are neither symmetric nor antisymmetric.  Does this violate the
-notion of identical particles?
+which looks like an antisymmetric state; does this mean we can only
+prepare this state with fermions?  More disturbingly, measuring
+${S}_z$ on one particle collapses the two-particle state into
+$|\!\uparrow\rangle |\!\downarrow\rangle$ or $|\!\downarrow\rangle
+|\!\uparrow\rangle$, which are not eigenstates of $\hat{P}_{12}$.  Is
+this now forbidden?
 
-The answer to each question is no.  The confusion arises because the
-particle exchange symmetry involves an exchange of \textit{all} the
-degrees of freedom of each particle, while Eq.~\eqref{EPR} only shows
-the spin degree of freedom.
+The answer to each question is no.  The confusion arises because we
+require identical particles to be \textit{fundamentally}
+indistinguishable, meaning that they are indistinguishable when
+accounting for all of the particles' degrees of freedom.  If we only
+deal with a restricted set of degrees of freedom---as in
+Eq.~\eqref{EPR}, which only involves spin degrees of freedom---then
+particles \textit{can} be distinguished from each other.
 
-Suppose the two particles in the EPR experiment are identical bosons.
-We have focused on each particle's spin degree of freedom, but they
-must also have a position degree of freedom---that's how we can have
-one particle at each location (Alpha Centauri and Betelgeuse).
-Accounting for this position degree of freedom, the single-particle
-Hilbert space is
+For example, suppose the two particles in the EPR experiment are
+identical bosons.  Apart from the spin degree of freedom, the
+particles must also have a position degree of freedom; that's how we
+can assign one particle to each location (Alpha Centauri and
+Betelgeuse).  This means the single-particle Hilbert space has the
+form
 \begin{equation}
   \mathscr{H}^{(1)} = \mathscr{H}_{\mathrm{spin}} \otimes \mathscr{H}_{\mathrm{position}}.
 \end{equation}
@@ -621,11 +658,11 @@ For simplicity, let us treat position as a twofold degree of freedom,
 treating $\mathscr{H}_{\mathrm{position}}$ as a 2D space spanned by
 the basis $\{|A\rangle, |B\rangle\}$.
 
-Previously, we used $|\!\uparrow\rangle |\!\downarrow\rangle$ to denote a
-spin-up particle at $A$ and a spin-down particle at $B$.  This
-implicitly assumed that $A$ refers to the left slot of the tensor
-product, and $B$ refers to the right slot.  If we write the position
-degrees of freedom explicitly, this state is
+Previously, we used $|\!\uparrow\rangle |\!\downarrow\rangle$ to
+denote a spin-up particle at $A$ and a spin-down particle at $B$.
+This implicitly assumed that $A$ refers to the left slot of the tensor
+product, and $B$ refers to the right slot.  Using the position degrees
+of freedom, we can instead write this as
 \begin{equation}
   |\uparrow, A;\; \downarrow, B\rangle = \frac{1}{\sqrt{2}}
   \Big(|\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
@@ -642,8 +679,8 @@ where the kets are written in the following order:
   \label{order1}
 \end{equation}
 The exchange operator $\hat{P}_{12}$ swaps the two particles' Hilbert
-spaces---which includes both the position \textit{and} the spin part.
-Hence, Eq.~\eqref{asym1} is explicitly symmetric:
+spaces, which includes both position and spin.  Hence,
+Eq.~\eqref{asym1} is explicitly symmetric:
 \begin{align}
   \begin{aligned}
   \hat{P}_{12} \, |\uparrow, A\,;\, \downarrow, B\rangle &= \frac{1}{\sqrt{2}}
@@ -686,7 +723,7 @@ then positions:
     (\textrm{position 1}) \otimes (\textrm{position 2}) \Big].
   \label{order2}
 \end{equation}
-Then Eq.~\eqref{epr1} can be rewritten as
+With this convention, Eq.~\eqref{epr1} becomes
 \begin{equation}
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(
   |\!\uparrow\rangle |\!\downarrow\rangle - |\!\downarrow\rangle |\!\uparrow\rangle \Big)  
@@ -695,79 +732,54 @@ Then Eq.~\eqref{epr1} can be rewritten as
   \label{eprsplit}
 \end{equation}
 The spin degrees of freedom indeed form an antisymmetric combination,
-as described by Eq.~\eqref{EPR}.  But the position degrees of freedom
-are also antisymmetric, so the overall state is symmetric.
+as described by Eq.~\eqref{EPR}.  But the position degrees of freedom,
+which we previously did not explicit monitor, are also antisymmetric.
+The overall state is therefore symmetric, consistent with the two
+particles being identical bosons.
 
-Now suppose we measure $S_z$ on the particle at position $A$, and find
-that it is spin-up.  As previously discussed, a measurement outcome is
-associated with a projection operator.  Using the ordering
-\eqref{order1}, the relevant projection operator is
+Now suppose we measure $S_z$ on the particle at $A$, and find that it
+is spin-up.  This measurement outcome is associated with a projector,
+which in the ordering convention \eqref{order1} can be written as
 \begin{equation}
   \hat{\Pi} = \Big(|\!\uparrow\rangle \langle\uparrow\!| \otimes |A\rangle \langle A|\Big)
   \otimes\Big( \hat{I} \otimes \hat{I}\Big)
   + \Big(\hat{I} \otimes \hat{I} \Big) \otimes \Big(
   |\!\uparrow\rangle \langle\uparrow\!| \otimes |A\rangle \langle A| \Big).
 \end{equation}
-This accounts for the fact that the observed phenomenon---spin up at
-position $A$---may refer to either particle.  Applying $\hat{\Pi}$ to
-the EPR state yields
+This operator treats the two particles on equal footing, and commutes
+with $\hat{P}_{12}$.  Applying it to the EPR state, and renormalizing,
+yields the post-collapse state
 \begin{equation}
   |\psi'\rangle \;=\;
-  \frac{1}{2} \Big(
+  \frac{1}{\sqrt{2}} \Big(
     |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
     + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \Big).
 \end{equation}
-Apart from a change in normalization, this is precisely the fermionic
-state $|\uparrow,A;\downarrow,B\rangle$ defined in Eq.~\eqref{asym1}.
-In our earlier notation, which tracked only the spin degrees of
-freedom, this was simply written as
-$|\!\uparrow\rangle|\downarrow\rangle$.  We therefore conclude that
-particle exchange symmetry is compatible with our previous discussions
-about partial measurements, entanglement, etc.
+This is precisely the bosonic state $|\uparrow,A;\downarrow,B\rangle$
+defined in Eq.~\eqref{asym1}, which is equivalent to the singlet state
+\eqref{epr1}.  From this, we conclude that exchange symmetry is
+compatible with all our previous discussions about partial
+measurements, entanglement, etc.
 
-
-
-
-
-
-Our formulation of bosonic and fermionic states has been built upon
-the mathematical framework of tensor product states, in which
-single-particle states are assigned to various ``slots'' in tensor
-products.  One might question whether this framework is well-suited to
-the notion of particle indistinguishability.  It seems unsatisfactory
-that the framework allows us to write down a state like
-$|\mu\rangle|\nu\rangle$, where $\mu\ne\nu$, yet this
-
-
-which is
-physically impossible since it is not symmetric or antisymmetric.
-Moreover, we use this framework to define a ``particle exchange''
-operation that appears to have no physical meaning (unlike, say, a
-rotation operation, which can be defined in physical terms).
-
-To address these unsatisfactory features,
-\hyperref[cite:leinaas]{Leinaas and Myrheim (1977)} developed an
-interesting formulation of particle indistinguishability that avoids
-the concept of particle exchange, by focusing on the properties of
-multi-particle wavefunctions.  In their view, a multi-particle
-wavefunction is indexed by a set of coordinates $(\mathbf{r}_1, \dots,
-\mathbf{r}_N)$ which are not to be regarded as an ordinary vector, but
-as a mathematical object that has a built-in property that
-interchanging entries leaves the object invariant.  Bosonic or
-fermionic states can be constructed by carefully analyzing the
-topological structure of wavefunctions defined on such configuration
-spaces.
-
-A startling outcome of Leinaas and Myrheim's analysis is that the
-distinction between fermions and bosons is not absolute.  In certain
-special quantum systems in two spatial dimensions, there can exist
-identical particles known as \textbf{anyons}, which act as though they
-are intermediate between fermions and bosons.  However, a discussion
-of anyons requires knowledge about magnetic vector potentials in
-quantum mechanics, which will be discussed in Chapter 5; after having
-gone through that chapter, you may refer to Appendix F, which gives a
-brief introduction to the theory of anyons.
-
+Exchange symmetry is not the only possible way to formulate the notion
+of particle indistinguishability.  \hyperref[cite:leinaas]{Leinaas and
+  Myrheim (1977)} have developed an alternative way to describe
+indistinguishable particles, based on redefining the functional
+meaning of multi-particle wavefunctions.  In their view, a
+multi-particle wavefunction is a function of something denoted by
+$(\mathbf{r}_1, \dots, \mathbf{r}_N)$ which is not an ordinary vector,
+but a special mathematical object with built-in invariance under slot
+exchange.  Bosonic or fermionic states can be constructed by carefully
+analyzing the topological structure of wavefunctions defined on such
+configuration spaces.  One startling outcome of this analysis is that
+the distinction between fermions and bosons is not absolute.  In
+certain special quantum systems in two spatial dimensions, there can
+exist identical particles known as \textbf{anyons}, which act like
+they are intermediate between fermions and bosons.  However, a
+discussion of anyons requires knowledge about magnetic vector
+potentials in quantum mechanics, which will be discussed in Chapter 5;
+after having gone through that chapter, you may refer to Appendix F,
+which gives a brief introduction to the theory of anyons.
 
 \section{Second quantization}
 
