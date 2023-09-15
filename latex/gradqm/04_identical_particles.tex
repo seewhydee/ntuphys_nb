@@ -581,49 +581,51 @@ discussed before [see Eq.~\eqref{bosorthog}].
 \subsection{Particle indistinguishability}
 \label{sec:indistinguishability}
 
-The assertion that any set of identical particles has a fixed exchange
-parity (i.e., they are either bosons or fermions) can be interpreted
-as the requirement for particles to be fundamentally
-\textbf{indistinguishable}.
+The statement that identical particles must be either bosons or
+fermions can be interpreted as a requirement for particle
+\textbf{indistinguishability}.
 
 For a system of $N$ identical particles, the Hilbert space consists of
 $N$ copies of the single-particle Hilbert space $\mathscr{H}^{(1)}$:
 \begin{equation}
   \underbrace{\mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}
     \otimes \mathscr{H}^{(1)} \otimes \cdots
-  \otimes \mathscr{H}^{(1)}}_{N~\mathrm{times}},
+  \otimes \mathscr{H}^{(1)}}_{N~\mathrm{times}}.
 \end{equation}
-With this tensor product space, we can define observables and states
-that single out individual slots in the tensor product.  For example,
-for a set of spin-1/2 degrees of freedom, we can define an observable
-like
+If there are no other restrictions in place, we can use this tensor
+product space to define observables and states that single out
+individual slots in the tensor product.  For example, for a set of
+spin-1/2 degrees of freedom, we can define an observable like
 \begin{equation}
   \hat{S}_z \otimes \hat{I} \otimes \hat{I} \otimes \cdots \otimes \hat{I},
 \end{equation}
-which corresponds to the value of $S_z$ for the particle in slot 1.
-Likewise, we can define a state like
+which singles out the spin of the particle in slot 1.  Likewise, we
+can define a state like
 \begin{equation}
   |\!\uparrow\rangle |\!\downarrow\rangle |\!\downarrow\rangle
   \cdots |\!\downarrow\rangle,
 \end{equation}
 where the particle in slot 1 is spin-up, and all the others are
 spin-down.  If such observables and states are allowed, then the slot
-numbers have physical meaning---in principle, we would be able to
-construct experiments that can identify a given particle in an
-$N$-particle system as being in slot 1, slot 2, etc.
+number has physical meaning.  In principle, we can construct
+experiments that are able to identify a given particle as being in
+slot 1, slot 2, etc.
 
-The exchange symmetry discussed in Section~\ref{sec:exchange} serves
-as a constraint that makes the slot number physically meaningless.  To
-achieve this, we only allow observables that treat the particles on
-equal footing (i.e., observables must commute with the exchange
-operators $\hat{P}_{ij}$), and quantum states that are eigenstates of
-$\hat{P}_{ij}$.  Under such circumstances, the particles are said to
-be indistinguishable.  Since the slot numbers have no physical
-meaning, there is no way for us to properly identify a given particle
-as ``particle 1'', ``particle 2'', etc.
+However, intuition tells us that the slot number should not be
+physically meaningful; it is an artificial degree of freedom, used for
+internal ``book-keeping'' and nothing more.  Therefore, we introduce
+the exchange operators $\hat{P}_{ij}$ (see
+Section~\ref{sec:exchange}), and postulate that all physically valid
+observables must commute with $\hat{P}_{ij}$, and that quantum states
+must be eigenstates of $\hat{P}_{ij}$.  With the imposition of these
+restrictions, the slot number becomes physically inaccessible: given
+$N$ identical particles, there is no way, even in principle, to
+perform a measurement to ascertain that a given particle belongs in
+(say) slot 1.  The particles are thus said to be indistinguishable.
 
-At first glance, this might appear to contradict our earlier
-discussions from Chapter 3.  For example, in the EPR thought
+At first glance, the indistinguishability requirement may seem to
+undermine our earlier discussions about partial measurements and
+entangled states (see Chapter 3).  For example, in the EPR thought
 experiment, we started with the singlet state
 \begin{equation}
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
@@ -645,8 +647,8 @@ deal with a restricted set of degrees of freedom---as in
 Eq.~\eqref{EPR}, which only involves spin degrees of freedom---then
 particles \textit{can} be distinguished from each other.
 
-For example, suppose the two particles in the EPR experiment are
-identical bosons.  Apart from the spin degree of freedom, the
+As an illustration, let us see how the EPR thought experiment is done
+with two identical bosons.  Apart from the spin degree of freedom, the
 particles must also have a position degree of freedom; that's how we
 can assign one particle to each location (Alpha Centauri and
 Betelgeuse).  This means the single-particle Hilbert space has the
@@ -705,8 +707,8 @@ singlet state \eqref{EPR} as
     |\!\uparrow, A\,;\, \downarrow, B\rangle - |\downarrow, A\,;\, \uparrow, B\rangle \Big)\\
     &= \frac{1}{2} \Big(\,
     |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
-    + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \\
-    &\quad\;\;- |\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
+    + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle
+    - |\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
     - |\!\uparrow\rangle|B\rangle |\!\downarrow\rangle|A\rangle \Big).
     \label{epr1}
   \end{aligned}
@@ -761,25 +763,28 @@ defined in Eq.~\eqref{asym1}, which is equivalent to the singlet state
 compatible with all our previous discussions about partial
 measurements, entanglement, etc.
 
-Exchange symmetry is not the only possible way to formulate the notion
-of particle indistinguishability.  \hyperref[cite:leinaas]{Leinaas and
-  Myrheim (1977)} have developed an alternative way to describe
-indistinguishable particles, based on redefining the functional
-meaning of multi-particle wavefunctions.  In their view, a
-multi-particle wavefunction is a function of something denoted by
-$(\mathbf{r}_1, \dots, \mathbf{r}_N)$ which is not an ordinary vector,
-but a special mathematical object with built-in invariance under slot
-exchange.  Bosonic or fermionic states can be constructed by carefully
-analyzing the topological structure of wavefunctions defined on such
-configuration spaces.  One startling outcome of this analysis is that
-the distinction between fermions and bosons is not absolute.  In
-certain special quantum systems in two spatial dimensions, there can
-exist identical particles known as \textbf{anyons}, which act like
-they are intermediate between fermions and bosons.  However, a
-discussion of anyons requires knowledge about magnetic vector
-potentials in quantum mechanics, which will be discussed in Chapter 5;
-after having gone through that chapter, you may refer to Appendix F,
-which gives a brief introduction to the theory of anyons.
+Exchange symmetry is not the only way to implement particle
+indistinguishability.  \hyperref[cite:leinaas]{Leinaas and Myrheim
+  (1977)} developed an alternative framework for describing
+indistinguishable particles, based on a redefinition of the quantum
+wavefunction.  Normally, a multi-particle wavefunction
+$\Psi(\mathbf{r}_1, \dots, \mathbf{r}_N)$ is a function that maps a
+vector $(\mathbf{r}_1, \dots, \mathbf{r}_N)$ to a complex number.  In
+Leinaas and Myrheim's view, for identical particles the input is not a
+vector, but a more complicated mathematical object with built-in
+invariance under slot exchange: $(\dots, \mathbf{r}_i, \dots,
+\mathbf{r}_j,\dots ) \equiv (\dots, \mathbf{r}_j, \dots,
+\mathbf{r}_i,\dots )$.  By carefully analyzing the properties of such
+functions, bosonic or fermionic states can be constructed.  One
+startling outcome of this analysis is that the distinction between
+fermions and bosons is not absolute.  In two spatial dimensions, there
+is the fascinating possibility of having particles, called
+\textbf{anyons}, that act like they are intermediate between fermions
+and bosons.  A proper discussion of anyons requires knowledge about
+magnetic vector potentials in quantum mechanics, which will be
+discussed in Chapter 5; after having gone through that chapter, you
+may refer to Appendix F, which gives a brief introduction to the
+theory of anyons.
 
 \section{Second quantization}
 
