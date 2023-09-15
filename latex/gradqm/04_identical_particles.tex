@@ -84,17 +84,19 @@ is
 consisting of the non-relativistic kinetic energies and the Coulomb
 potential energy.  Operators $\hat{\mathbf{p}}_1$ and
 $\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
-$\hat{\mathbf{r}}_2$ act on electron 2.
+$\hat{\mathbf{r}}_2$ act on electron 2.  Swapping $\hat{\mathbf{p}}_1
+\leftrightarrow \hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1
+\leftrightarrow \hat{\mathbf{r}}_2$ leaves $\hat{H}$ unchanged.
 
-Based on our present understanding of multi-particle quantum
-mechanics, the tensor product space \eqref{2h} allows for the
-definition of observables and states that single out individual slots
-in the tensor product.  For example, the observable
+From our present understanding of multi-particle quantum mechanics,
+the tensor product space \eqref{2h} allows for the definition of
+observables and states that single out individual slots in the tensor
+product.  For example, we can write down an observable
 \begin{equation}
   \hat{p}_{z,1} = \hat{p}_z \otimes \hat{I}
 \end{equation}
-singles out the momentum of the particle in slot 1.  Likewise, we can
-define a state like
+that singles out the momentum of the particle in slot 1.  Likewise, we
+can define a state
 \begin{equation}
   |\mathbf{r}_1\rangle |\mathbf{r}_2\rangle,
 \end{equation}
@@ -111,22 +113,19 @@ a matter of convention, not a physically meaningful (i.e., observable)
 degree of freedom.  Contrary to the previous paragraph, it seems
 reasonable to demand that the particles are
 \textbf{indistinguishable}, in the sense that there is no physically
-possible method to perform a measurement to ascertain whether a
+possible method to perform a measurement to ascertain whether a given
 particle occupies slot 1 or slot 2.
 
 How might indistinguishability be imposed on the theory?  To help
 figure this out, let us first introduce a symmetry called
 \textbf{exchange symmetry}, which refers to the exchange of the slots
 in the tensor product.  The Hamiltonian \eqref{exampleH} evidently
-possess this symmetry, because swapping $\hat{\mathbf{p}}_1
-\leftrightarrow \hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1
-\leftrightarrow \hat{\mathbf{r}}_2$ leaves it unchanged.  To formulate
-this more rigorously, we define the \textbf{exchange operator},
-$\hat{P}$, as follows.  Let $\{|\mu\rangle\}$ be a basis for
-$\mathscr{H}^{(1)}$, so that tensor products of the form $|\mu\rangle
-|\nu\rangle$ (constructed from vectors both drawn from that basis)
-form a basis for $\mathscr{H}^{(2)}$.  Then $\hat{P}$ is the linear
-operator satisfying
+possess this symmetry.  To formulate this more rigorously, we define
+the \textbf{exchange operator}, $\hat{P}$, as follows.  Let
+$\{|\mu\rangle\}$ be a basis for $\mathscr{H}^{(1)}$, so that tensor
+products of the form $|\mu\rangle |\nu\rangle$ (constructed from
+vectors both drawn from that basis) form a basis for
+$\mathscr{H}^{(2)}$.  Then $\hat{P}$ is the linear operator satisfying
 \begin{equation}
   \hat{P} |\mu\rangle |\nu\rangle = |\nu\rangle|\mu\rangle
 \end{equation}
@@ -137,9 +136,10 @@ for all $\mu, \nu$.  Thus, when applied to general vectors,
     \;&=  \sum_{\mu\nu} \psi_{\mu\nu} |\nu\rangle|\mu\rangle \\
     &= \sum_{\mu\nu} \psi_{\nu\mu} |\nu\rangle|\mu\rangle
     \;\;\;\textrm{(interchanging $\mu\leftrightarrow \nu$
-      in the double sum)}\end{aligned}
+      in the double sum).}\end{aligned}
 \end{align}
 
+\noindent
 The exchange operator has the following properties:
 \begin{enumerate}
 \item $\hat{P}^2 = \hat{I},$ where $\hat{I}$ is the identity operator.
@@ -147,8 +147,8 @@ The exchange operator has the following properties:
 \item $\hat{P}$ is both unitary and Hermitian (see
   \hyperref[ex:1]{Exercise 1}).
   
-\item The effect of $\hat{P}$ does not depend on the choice
-  of basis (see \hyperref[ex:1]{Exercise 1}).
+\item The ``slot-swapping'' effect of $\hat{P}$ is independent of the
+  basis of $\mathscr{H}^{(1)}$ (see \hyperref[ex:1]{Exercise 1}).
 
 \item $\hat{P}$ commutes with any two-particle operator that treats
   the two particles on equal footing, like the Hamiltonian in
@@ -156,11 +156,10 @@ The exchange operator has the following properties:
 \end{enumerate}
 
 According to Noether's theorem, any symmetry implies a conservation
-law.  In the case of exchange symmetry, $\hat{P}$ is both Hermitian
-\textit{and} unitary, so we can take the conserved quantity to be the
-eigenvalue of $\hat{P}$ itself.  The eigenvalue, $p$, is called the
-\textbf{exchange parity}.  Since $\hat{P}^2 = \hat{I}$, there are just
-two possibilities:
+law.  The exchange operator $\hat{P}$ is both Hermitian \textit{and}
+unitary, so we can take the conserved quantity to be its eigenvalue,
+$p$, which is called the \textbf{exchange parity}.  Since $\hat{P}^2 =
+\hat{I}$, the possibilities are:
 \begin{equation}
   p = \begin{cases}+1 & \textrm{(``symmetric\;state'')}, \;\;\textrm{or} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}
 \end{equation}
@@ -176,17 +175,17 @@ operators $\hat{P}_{ij}$ such that
   = |\mu\rangle \cdots \underbrace{|\lambda\rangle}_{\mathrm{slot}~i} \cdots \underbrace{|\nu\rangle}_{\mathrm{slot}~j} \cdots,
 \end{equation}
 where $i,j\in\{1,2,\dots,N\}$ and $i < j$.  Note that the subscripts
-in $\hat{P}_{ij}$ refer to the particles the exchange operator is
-swapping, not matrix indices.
+in $\hat{P}_{ij}$ refer to the slots being swapped, not matrix
+indices.
 
 We now postulate that for any system of $N$ identical particles,
 \begin{enumerate}
 \item Any physically valid quantum states must be an eigenstate of
-  \textit{every} $\hat{P}_{ij}$.
+  every $\hat{P}_{ij}$.
 
-\item The eigenvalues (i.e., exchange parities) $p_{ij}$ are all $+1$,
-  or all $-1$.  The value is determined by the particle type; for
-  example, photons always have $p_{ij} = 1$.
+\item The exchange parities $p_{ij}$ are all $+1$, or all $-1$.  The
+  value is determined by the particle type; for example, photons
+  always have $p_{ij} = 1$.
 
 \item Any physically valid observable, including the Hamiltonian,
   commutes with every $\hat{P}_{ij}$.
@@ -198,8 +197,8 @@ previously-stated goal of making the particles indistinguishable.  At
 any time, the $N$-particle state is an eigenstate of every
 $\hat{P}_{ij}$, so no slot in the tensor product is singled out.  The
 Hamiltonian commutes with every $\hat{P}_{ij}$, so this property is
-conserved under time evolution.  Moreover, no observable is ever
-allowed to treat the slots on unequal footing.
+conserved under time evolution.  Moreover, no observable is allowed to
+treat the slots on unequal footing.
 
 Let us henceforth assume that these postulates are true facts about
 Nature.  Later, we will circle back to examine the condition of
@@ -216,18 +215,17 @@ determines the exchange parity.  There are two cases:
 \item Particles with exchange parity $+1$ are called \textbf{bosons}.
   They include the elementary particles that carry the fundamental
   forces: photons (carriers of the electromagnetic force), gluons
-  (carriers of the strong nuclear force), and the $W$ and $Z$ bosons
+  (carriers of the strong nuclear force), and $W$ and $Z$ bosons
   (carriers of the weak nuclear force).  Bosons that are composite
-  particles (i.e., particles that are composed of smaller particles)
-  include alpha particles (helium-4 nuclei) and phonons (particles of
-  sound).
+  particles (i.e., particles made of smaller particles) include alpha
+  particles (helium-4 nuclei) and phonons (particles of sound).
 
-\item Particles that have exchange parity $-1$ are called
+\item Particles with exchange parity $-1$ are called
   \textbf{fermions}.  These include the elementary particles making up
   ordinary matter: electrons and quarks, as well as protons and
   neutrons, which are composite particles made of three quarks each.
-  There are also many other elementary fermions including positrons,
-  muons, and neutrinos.
+  There are many other elementary fermions including positrons, muons,
+  and neutrinos.
 \end{itemize}
 
 Whether a particle type is bosonic or fermionic is often referred to
@@ -236,7 +234,7 @@ the exchange parity affects the statistical behavior of large
 ensembles of particles: bosons obey the Bose-Einstein distribution,
 while fermions obey the Fermi-Dirac distribution.  The implications
 for statistical mechanics are profound, but fall outside the scope of
-our discussion.
+this course.
 
 For elementary particles, the \textbf{spin-statistics theorem} states
 that particles with integer spin (i.e., total spin equal to an integer
@@ -244,17 +242,16 @@ multiple of $\hbar$) are bosons, whereas particles with half-integer
 spin are fermions.  For instance, photons are spin-1 bosons, and
 electrons are spin-1/2 fermions.  Though the spin-statistics theorem
 is simple to state, \hyperref[cite:duck]{its proof} is surprisingly
-complicated, and seems to require at minimum the combination of
-quantum mechanics with relativity.  In non-relativistic settings, the
+complicated, seeming to require at minimum the combination of quantum
+mechanics with relativity.  In non-relativistic settings, the
 spin-statistics theorem holds in the vast majority of cases (e.g.,
 electronic quasiparticles in ordinary solid-state materials are
 spin-1/2 fermions, like elementary electrons), but it lacks the status
-of a rigorous theorem and is possible to violate.  The development of
-materials containing emergent particles that violate the
-spin-statistics theorem is an active area of research in condensed
-matter physics.
+of a rigorous theorem and is violable.  The development of materials
+containing emergent particles that violate the spin-statistics theorem
+is an active area of research in condensed matter physics.
 
-Incidentally, exchange symmetry is not the only way to formulate
+Incidentally, exchange operators are not the only way to formulate
 particle indistinguishability.  \hyperref[cite:leinaas]{Leinaas and
   Myrheim (1977)} developed an interesting alternative description of
 indistinguishable particles based on a redefinition of the quantum
@@ -642,9 +639,9 @@ discussed before [see Eq.~\eqref{bosorthog}].
 
 It might have struck you that the requirement of particle
 indistinguishbility, introduced in Section~\ref{sec:exchange}, might
-undermine the discussions about partial measurements and entanglement
-from Chapter 3.  For example, in the EPR thought experiment, we
-started with the singlet state
+undermine what we said about partial measurements and entanglement
+from Chapter 3.  For example, in the EPR thought experiment, we used
+the singlet state
 \begin{equation}
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
   - |\!\downarrow\rangle |\!\uparrow\rangle \Big),
@@ -904,17 +901,16 @@ definite particle numbers.  For example,
   \frac{1}{\sqrt{2}} \Big(|1,0,0,0,0,\dots\rangle + |1,1,1,0,0,\dots\rangle\Big)
 \end{equation*}
 is a valid state vector describing the superposition of a one-particle
-state and a three-particle state.  We will revisit the phenomenon of
-quantum states with indeterminate particle numbers later.
+state and a three-particle state.  We will revisit this possibility
+later.
 
 \subsection{Second quantization for bosons}
 \label{sec:second_quantized_bosons}
 
 After this lengthy prelude, we are ready to introduce the formalism of
-second quantization.  Let us concentrate on bosons first.  
-
-We define an operator called the \textbf{boson creation operator},
-denoted by $\hat{a}_\mu^\dagger$ and acting in the following way:
+second quantization.  Let us concentrate on bosons first.  We define a
+\textbf{boson creation operator}, denoted by $\hat{a}_\mu^\dagger$ and
+acting in the following way:
 \begin{equation}
   \hat{a}_\mu^\dagger \big|n_1, n_2, \dots, n_\mu, \dots\big\rangle = \sqrt{n_\mu+1} \; \big|n_1, n_2, \dots, n_\mu + 1, \dots\big\rangle.
   \label{amu}
@@ -1126,24 +1122,22 @@ the creation and annihilation operators, without worrying about the
 underlying occupation number representation and its $(-1)^{(\cdots)}$
 factors.  By the way, if we had chosen to omit the $(-1)^{(\cdots)}$
 factors in the definitions, the creation and annihilation operators
-would still satisfy the \textit{anticommutation} relation
+would still satisfy the anticommutation relation
 $\{\hat{c}_\mu,\hat{c}_\nu^\dagger\}=\delta_{\mu\nu}$, but two
 creation operators or two annihilation operators would
 \textit{commute} rather than \textit{anticommute}.  During subsequent
-calculations, the ``algebra'' of creation and annihilation operators
-ends up being much harder to deal with.
+calculations, the algebra of creation and annihilation operators ends
+up being much harder to deal with.
 
-\subsection{Second-quantized operators}
+\subsection{Second quantization for non-interacting particles}
 \label{sec:second_quant_op}
 
 One of the key benefits of second quantization is that it allows us to
 express multi-particle quantum operators clearly and succinctly, using
-creation and annihilation operators as ``building blocks''.
+creation and annihilation operators as the basic building blocks.
 
-\subsubsection{Non-interacting particles}
-
-Consider a system of \textit{non-interacting} particles.  When there
-is just one particle ($N=1$), let the single-particle Hamiltonian be
+Consider a system of non-interacting particles.  When there is just
+one particle ($N=1$), let the single-particle Hamiltonian be
 $\hat{H}^{(1)}$, which is a Hermitian operator acting on the
 single-particle Hilbert space $\mathscr{H}^{(1)}$.  For general $N$,
 the multi-particle Hamiltonian $\hat{H}$ is a Hermitian operator
@@ -1227,16 +1221,22 @@ is
   \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\mu|\hat{A}^{(1)}|\nu\rangle.
   \label{Aop}
 \end{equation}
-
 For fermions, everything from Eq.~\eqref{twobosonH}--\eqref{Aop} also
 holds, but with the $a$ operators replaced by fermionic $c$ operators.
 
-\subsubsection{Change of basis}
+The term ``second quantization'' originates from this process of using
+creation and annihilation operators to define Hamiltonians and other
+observables.  The idea is that single-particle quantum mechanics is
+derived from the quantization of classical Hamiltonians, by imposing
+commutation relations like $[x,p] = i\hbar$.  Then we extend the
+theory to multi-particle systems, by using the single-particle states
+to define creation/annihilation operators.  This can be viewed as a
+``second'' quantization step.
 
-A given set of creation and annihilation operators is defined using a
-basis of single-particle states $\{|\mu\rangle\}$, but such a choice
-is obviously not unique.  Suppose we have a different single-particle
-basis $\{|\alpha\rangle\}$, such that
+By the way, although each set of creation and annihilation operators
+is defined using a given single-particle basis $\{|\mu\rangle\}$, the
+choice of basis is obviously not unique.  Suppose we have a different
+single-particle basis $\{|\alpha\rangle\}$, such that
 \begin{equation}
   |\alpha\rangle = \sum_\mu U_{\alpha\mu} |\mu\rangle,
   \label{alphabasis}
@@ -1244,12 +1244,12 @@ basis $\{|\alpha\rangle\}$, such that
 where $U_{\alpha\mu}$ are the elements of a unitary matrix.  Let
 $\hat{a}_\alpha^\dagger$ and $\hat{a}_\mu^\dagger$ denote the creation
 operators defined using the two different basis (once again, we will
-use the notation for bosons, but the equations in this section are
-valid for fermions too).  Writing Eq.~\eqref{alphabasis} in terms of
-the creation operators,
+use the notation for bosons, but the following equations are valid for
+fermions too).  Writing Eq.~\eqref{alphabasis} in terms of the
+creation operators,
 \begin{align}
   \hat{a}_\alpha^\dagger|\varnothing\rangle
-  = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger |\varnothing\rangle,
+  = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger |\varnothing\rangle.
 \end{align}
 We therefore deduce that
 \begin{equation}
@@ -1290,8 +1290,7 @@ This precisely matches the term in parentheses in
 Eq.~\eqref{Htransformed}.  This is consistent with the general form of
 $\hat{H}$ for non-interacting particles, Eq.~\eqref{twobosonH}.
 
-
-\subsubsection{Particle interactions}
+\subsection{Particle interactions}
 
 Hermitian operators can also be constructed out of other kinds of
 groupings of creation and annihilation operators.  For example, a
@@ -1322,8 +1321,7 @@ Suppose we are given the two-particle potential as an operator
 $\hat{V}^{(2)}$ acting on the two-particle Hilbert space
 $\mathscr{H}^{(2)}$.  We should be able to express the
 second-quantized operator $\hat{V}$ in terms of $\hat{V}^{(2)}$, by
-comparing their matrix elements.  For example, consider the
-two-boson states
+comparing their matrix elements.  For example, let
 \begin{align}
   \begin{aligned}
     |n_\mu = 1, n_\nu = 1\rangle &= \frac{1}{\sqrt{2}}
@@ -1380,7 +1378,7 @@ The appropriate coefficients for $\mu = \nu$ and/or $\lambda =
 \sigma$, as well as for the fermionic case, are left for the reader to
 work out.
 
-\subsubsection{Other observables?}
+\subsection{Particle non-conserving observables}
 
 Another way to build a Hermitian operator from creation and
 annihilation operators is
@@ -1397,16 +1395,6 @@ it subsequently evolves into a superposition of states with different
 particle numbers.  In the theory of quantum electrodynamics, this type
 of operator is used to describe the emission and absorption of photons
 caused by moving charges.
-
-Incidentally, the name ``second quantization'' comes from this process
-of using creation and annihilation operators to define Hamiltonians.
-The idea is that single-particle quantum mechanics is derived by
-``quantizing'' classical Hamiltonians via the imposition of
-commutation relations like $[x,p] = i\hbar$.  Then, we extend the
-theory to multi-particle systems by using the single-particle states
-to define creation/annihilation operators obeying commutation or
-anticommutation relations.  This can be viewed as a ``second''
-quantization step.
 
 \section{Quantum field theory}
 \label{sec:qft}
