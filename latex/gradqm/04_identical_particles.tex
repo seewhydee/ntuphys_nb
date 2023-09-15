@@ -61,7 +61,7 @@ indistinguishability imposes a strong constraint on multi-particle
 quantum mechanics.  Exploring this idea will lead us to a fundamental
 re-interpretation of what ``particles'' are.
 
-\subsection{Particle exchange symmetry}
+\subsection{Indistinguishability and exchange symmetry}
 \label{sec:exchange}
 
 Suppose we have two particles of the same type, e.g.~two electrons.
@@ -72,6 +72,7 @@ must be mathematically identical.  If the single-electron Hilbert
 space is $\mathscr{H}^{(1)}$, the two-electron Hilbert space should be
 \begin{equation}
   \mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.
+  \label{2h}
 \end{equation}
 Since the two electrons have identical properties, any Hamiltonian
 must treat them on the same footing.  An example of such a Hamiltonian
@@ -83,21 +84,49 @@ is
 consisting of the non-relativistic kinetic energies and the Coulomb
 potential energy.  Operators $\hat{\mathbf{p}}_1$ and
 $\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
-$\hat{\mathbf{r}}_2$ act on electron 2.  Evidently, the Hamiltonian
-\eqref{exampleH} is invariant under an interchange of the operators
-for the two electrons (i.e., $\hat{\mathbf{p}}_1 \leftrightarrow
-\hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1 \leftrightarrow
-\hat{\mathbf{r}}_2$).  This symmetry is called \textbf{exchange
-  symmetry}.
+$\hat{\mathbf{r}}_2$ act on electron 2.
 
-As we know, symmetries of quantum systems can be represented by
-unitary operators that commute with the Hamiltonian.  For exchange
-symmetry, the symmetry operator is denoted by $\hat{P}$, and its
-action can be defined as follows.  Let $\{|\mu\rangle\}$ be a basis
-for $\mathscr{H}^{(1)}$, so that tensor products of the form
-$|\mu\rangle |\nu\rangle$ (constructed from vectors both drawn from
-that basis) form a basis for $\mathscr{H}^{(2)}$.  Then $\hat{P}$ is
-the linear operator satisfying
+Based on our present understanding of multi-particle quantum
+mechanics, the tensor product space \eqref{2h} allows for the
+definition of observables and states that single out individual slots
+in the tensor product.  For example, the observable
+\begin{equation}
+  \hat{p}_{z,1} = \hat{p}_z \otimes \hat{I}
+\end{equation}
+singles out the momentum of the particle in slot 1.  Likewise, we can
+define a state like
+\begin{equation}
+  |\mathbf{r}_1\rangle |\mathbf{r}_2\rangle,
+\end{equation}
+which says that the particle in slot 1 is at position $\mathbf{r}_1$,
+and the particle in slot 2 is in a different position $\mathbf{r}_2$.
+If such observables and states are allowed, then the slot number has
+physical meaning.  In principle, we can construct experiments that can
+identify a given particle as being in slot 1 or slot 2.
+
+Now, let us take the point of view of fundamental physics, and imagine
+that the universe contains only these two particles.  From this
+fundamental perspective, what we call slot 1 or slot 2 should just be
+a matter of convention, not a physically meaningful (i.e., observable)
+degree of freedom.  Contrary to the previous paragraph, it seems
+reasonable to demand that the particles are
+\textbf{indistinguishable}, in the sense that there is no physically
+possible method to perform a measurement to ascertain whether a
+particle occupies slot 1 or slot 2.
+
+How might indistinguishability be imposed on the theory?  To help
+figure this out, let us first introduce a symmetry called
+\textbf{exchange symmetry}, which refers to the exchange of the slots
+in the tensor product.  The Hamiltonian \eqref{exampleH} evidently
+possess this symmetry, because swapping $\hat{\mathbf{p}}_1
+\leftrightarrow \hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1
+\leftrightarrow \hat{\mathbf{r}}_2$ leaves it unchanged.  To formulate
+this more rigorously, we define the \textbf{exchange operator},
+$\hat{P}$, as follows.  Let $\{|\mu\rangle\}$ be a basis for
+$\mathscr{H}^{(1)}$, so that tensor products of the form $|\mu\rangle
+|\nu\rangle$ (constructed from vectors both drawn from that basis)
+form a basis for $\mathscr{H}^{(2)}$.  Then $\hat{P}$ is the linear
+operator satisfying
 \begin{equation}
   \hat{P} |\mu\rangle |\nu\rangle = |\nu\rangle|\mu\rangle
 \end{equation}
@@ -110,6 +139,7 @@ for all $\mu, \nu$.  Thus, when applied to general vectors,
     \;\;\;\textrm{(interchanging $\mu\leftrightarrow \nu$
       in the double sum)}\end{aligned}
 \end{align}
+
 The exchange operator has the following properties:
 \begin{enumerate}
 \item $\hat{P}^2 = \hat{I},$ where $\hat{I}$ is the identity operator.
@@ -138,56 +168,67 @@ If the two-particle system is initially in an eigenstate of $\hat{P}$
 with exchange parity $p$, and the Hamiltonian $\hat{H}$ commutes with
 $\hat{P}$ (as it should), then $p$ is conserved for all time.
 
-The above concepts generalize to systems of more than two particles.
-Given $N$ particles, we can define a set of exchange operators
-$\hat{P}_{ij}$ such that
+The exchange symmetry concept generalize to systems of more than two
+particles.  For $N$ particles, we can define a set of exchange
+operators $\hat{P}_{ij}$ such that
 \begin{equation}
   \hat{P}_{ij} \; |\mu\rangle \cdots \underbrace{|\nu\rangle}_{\mathrm{slot}~i} \cdots \underbrace{|\lambda\rangle}_{\mathrm{slot}~j} \cdots
   = |\mu\rangle \cdots \underbrace{|\lambda\rangle}_{\mathrm{slot}~i} \cdots \underbrace{|\nu\rangle}_{\mathrm{slot}~j} \cdots,
 \end{equation}
 where $i,j\in\{1,2,\dots,N\}$ and $i < j$.  Note that the subscripts
 in $\hat{P}_{ij}$ refer to the particles the exchange operator is
-swapping, not matrix indices.  If the particles are identical, the
-Hamiltonian must treat them all on equal footing, which is the same as
-saying that
-\begin{equation}
-  [\hat{H}, \hat{P}_{ij}] = 0 \;\;\; \textrm{for all}~i < j.
-\end{equation}
-In that case, all the exchange parities, $p_{ij} = \pm 1$, are
-conserved.
+swapping, not matrix indices.
 
-\clearpage
-
-We now postulate that for any system of identical particles,
+We now postulate that for any system of $N$ identical particles,
 \begin{enumerate}
-\item The quantum state must be an eigenstate of \textit{every}
-  exchange operator $\hat{P}_{ij}$.
+\item Any physically valid quantum states must be an eigenstate of
+  \textit{every} $\hat{P}_{ij}$.
 
-\item The exchange parities $p_{ij}$ are all $+1$, or all $-1$.
+\item The eigenvalues (i.e., exchange parities) $p_{ij}$ are all $+1$,
+  or all $-1$.  The value is determined by the particle type; for
+  example, photons always have $p_{ij} = 1$.
 
-\item This choice of exchange parity is determined by the type of
-  particle.  For example, photons always have $p_{ij} = 1$, never
-  $-1$.
+\item Any physically valid observable, including the Hamiltonian,
+  commutes with every $\hat{P}_{ij}$.
 \end{enumerate}
-These statements are \textit{not} results that we have derived, and
-for now you should just regard them as a set of fundamental
-assumptions about the properties of particles.  We will circle back
-later to see how they might be justified (see Sections
-\ref{sec:indistinguishability} and \ref{sec:outlook}).
 
-Particles with exchange parity $+1$ are called \textbf{bosons}.  They
-include the elementary particles that carry the fundamental forces:
-photons (carriers of the electromagnetic force), gluons (carriers of
-the strong nuclear force), and the $W$ and $Z$ bosons (carriers of the
-weak nuclear force).  Bosons that are composite particles (i.e.,
-particles that are composed of smaller particles) include alpha
-particles (helium-4 nuclei) and phonons (particles of sound).
+\noindent
+If these statements hold, then we will have achieved our
+previously-stated goal of making the particles indistinguishable.  At
+any time, the $N$-particle state is an eigenstate of every
+$\hat{P}_{ij}$, so no slot in the tensor product is singled out.  The
+Hamiltonian commutes with every $\hat{P}_{ij}$, so this property is
+conserved under time evolution.  Moreover, no observable is ever
+allowed to treat the slots on unequal footing.
 
-Particles that have exchange parity $-1$ are called \textbf{fermions}.
-These include the elementary particles making up ordinary matter:
-electrons and quarks, as well as protons and neutrons, which are
-composite particles made of three quarks each.  There are also many
-other elementary fermions including positrons, muons, and neutrinos.
+Let us henceforth assume that these postulates are true facts about
+Nature.  Later, we will circle back to examine the condition of
+particle distinguishability, which motivated these developments, from
+a different point of view (see Section \ref{sec:outlook}).  In
+Section~\ref{sec:distinguishability}, we will discuss the
+circumstances under which particles can be treated as distinguishable,
+despite being indistinguishable at a fundamental level.
+
+The second postulate, in the above list, stated that the particle type
+determines the exchange parity.  There are two cases:
+
+\begin{itemize}
+\item Particles with exchange parity $+1$ are called \textbf{bosons}.
+  They include the elementary particles that carry the fundamental
+  forces: photons (carriers of the electromagnetic force), gluons
+  (carriers of the strong nuclear force), and the $W$ and $Z$ bosons
+  (carriers of the weak nuclear force).  Bosons that are composite
+  particles (i.e., particles that are composed of smaller particles)
+  include alpha particles (helium-4 nuclei) and phonons (particles of
+  sound).
+
+\item Particles that have exchange parity $-1$ are called
+  \textbf{fermions}.  These include the elementary particles making up
+  ordinary matter: electrons and quarks, as well as protons and
+  neutrons, which are composite particles made of three quarks each.
+  There are also many other elementary fermions including positrons,
+  muons, and neutrinos.
+\end{itemize}
 
 Whether a particle type is bosonic or fermionic is often referred to
 as the choice of ``\textbf{particle statistics}''.  This is because
@@ -213,6 +254,28 @@ materials containing emergent particles that violate the
 spin-statistics theorem is an active area of research in condensed
 matter physics.
 
+Incidentally, exchange symmetry is not the only way to formulate
+particle indistinguishability.  \hyperref[cite:leinaas]{Leinaas and
+  Myrheim (1977)} developed an interesting alternative description of
+indistinguishable particles based on a redefinition of the quantum
+wavefunction.  Normally, a multi-particle wavefunction
+$\Psi(\mathbf{r}_1, \dots, \mathbf{r}_N)$ is a function that maps a
+vector $(\mathbf{r}_1, \dots, \mathbf{r}_N)$ to a complex number.  In
+Leinaas and Myrheim's view, for identical particles the input is not a
+vector, but a more complicated mathematical object with built-in
+invariance under slot exchange: $(\dots, \mathbf{r}_i, \dots,
+\mathbf{r}_j,\dots ) \equiv (\dots, \mathbf{r}_j, \dots,
+\mathbf{r}_i,\dots )$.  By carefully analyzing the properties of such
+functions, bosonic or fermionic wavefunctions can be constructed.  One
+startling outcome of this analysis is that the distinction between
+fermions and bosons is not absolute.  In two spatial dimensions, there
+is the fascinating possibility of particles called \textbf{anyons},
+which act like they are intermediate between fermions and bosons.  A
+proper discussion of anyons requires knowledge about magnetic vector
+potentials in quantum mechanics, which will be discussed in Chapter 5;
+after having gone through that chapter, you may refer to Appendix F,
+which gives a brief introduction to the theory of anyons.
+
 \subsection{Bosons}
 \label{sec:bosons}
 
@@ -231,13 +294,11 @@ $|\mu\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
   |\mu,\mu\rangle = |\mu\rangle  |\mu\rangle.
   \label{mumu}
 \end{equation}
-This evidently satisfies the symmetry \eqref{sym}.  Next, suppose the
-two bosons occupy \textit{different} single-particle states,
-$|\mu\rangle$ and $|\nu\rangle$, which are orthonormal vectors in
-$\mathscr{H}^{(1)}$.  It would be wrong to write the two-boson state
-as $|\mu\rangle |\nu\rangle$, because the particles would not be
-symmetric under exchange.  Instead, we construct the multi-particle
-state
+This clearly satisfies Eq.~\eqref{sym}.  Next, suppose the two bosons
+occupy different single-particle states, $|\mu\rangle$ and
+$|\nu\rangle$, which are orthonormal.  It would be wrong to write the
+two-boson state as $|\mu\rangle |\nu\rangle$, as this does not satisfy
+Eq.~\eqref{sym}.  Instead, take
 \begin{equation}
   |\mu,\nu\rangle = \frac{1}{\sqrt{2}} \Big( |\mu\rangle |\nu\rangle +
   |\nu\rangle |\mu\rangle\Big).
@@ -265,13 +326,12 @@ be drawn from the same basis state.  Then the $N$-boson state is
 \begin{equation}
   |\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p
   \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots
-  |\phi_{p(N)}\rangle\Big),
+  |\phi_{p(N)}\rangle\Big).
   \label{nbosons}
 \end{equation}
-with the sum taken over all $N!$ distinct permutations of the sequence
-$(1,2,\dots,N)$.  For each permutation, $p(j)$ denotes the integer
-that $j$ is permuted into.  The prefactor $\mathcal{N}$ is a
-normalization constant.
+The sum is taken over all $N!$ permutations of $(1,2,\dots,N)$, with
+$p(j)$ denoting what $j$ is permuted to.  The prefactor $\mathcal{N}$
+is a normalization constant.
 
 \begin{framed}
 \noindent
@@ -466,7 +526,6 @@ from different sequences of transpositions, a result called the
 ``parity theorem'' states that these all give the same $s(p)$.  In
 other words, $s(p)$ is a property of $p$ itself.
 
-\clearpage
 Let's look at a couple of examples.
 
 \begin{framed}
@@ -578,74 +637,32 @@ sets of single-particle states.  In other words, $\langle \phi_1,
 a permutation.  The proof follows the same logic as the $N$-boson case
 discussed before [see Eq.~\eqref{bosorthog}].
 
-\subsection{Particle indistinguishability}
-\label{sec:indistinguishability}
+\subsection{Distinguishing particles}
+\label{sec:distinguishability}
 
-The statement that identical particles must be either bosons or
-fermions can be interpreted as a requirement for particle
-\textbf{indistinguishability}.
-
-For a system of $N$ identical particles, the Hilbert space consists of
-$N$ copies of the single-particle Hilbert space $\mathscr{H}^{(1)}$:
-\begin{equation}
-  \underbrace{\mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}
-    \otimes \mathscr{H}^{(1)} \otimes \cdots
-  \otimes \mathscr{H}^{(1)}}_{N~\mathrm{times}}.
-\end{equation}
-If there are no other restrictions in place, we can use this tensor
-product space to define observables and states that single out
-individual slots in the tensor product.  For example, for a set of
-spin-1/2 degrees of freedom, we can define an observable like
-\begin{equation}
-  \hat{S}_z \otimes \hat{I} \otimes \hat{I} \otimes \cdots \otimes \hat{I},
-\end{equation}
-which singles out the spin of the particle in slot 1.  Likewise, we
-can define a state like
-\begin{equation}
-  |\!\uparrow\rangle |\!\downarrow\rangle |\!\downarrow\rangle
-  \cdots |\!\downarrow\rangle,
-\end{equation}
-where the particle in slot 1 is spin-up, and all the others are
-spin-down.  If such observables and states are allowed, then the slot
-number has physical meaning.  In principle, we can construct
-experiments that are able to identify a given particle as being in
-slot 1, slot 2, etc.
-
-However, intuition tells us that the slot number should not be
-physically meaningful; it is an artificial degree of freedom, used for
-internal ``book-keeping'' and nothing more.  Therefore, we introduce
-the exchange operators $\hat{P}_{ij}$ (see
-Section~\ref{sec:exchange}), and postulate that all physically valid
-observables must commute with $\hat{P}_{ij}$, and that quantum states
-must be eigenstates of $\hat{P}_{ij}$.  With the imposition of these
-restrictions, the slot number becomes physically inaccessible: given
-$N$ identical particles, there is no way, even in principle, to
-perform a measurement to ascertain that a given particle belongs in
-(say) slot 1.  The particles are thus said to be indistinguishable.
-
-At first glance, the indistinguishability requirement may seem to
-undermine our earlier discussions about partial measurements and
-entangled states (see Chapter 3).  For example, in the EPR thought
-experiment, we started with the singlet state
+It might have struck you that the requirement of particle
+indistinguishbility, introduced in Section~\ref{sec:exchange}, might
+undermine the discussions about partial measurements and entanglement
+from Chapter 3.  For example, in the EPR thought experiment, we
+started with the singlet state
 \begin{equation}
   |\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
   - |\!\downarrow\rangle |\!\uparrow\rangle \Big),
   \label{EPR}
 \end{equation}
-which looks like an antisymmetric state; does this mean we can only
+which looks like an antisymmetric state.  Does this mean we can only
 prepare this state with fermions?  More disturbingly, measuring
 ${S}_z$ on one particle collapses the two-particle state into
 $|\!\uparrow\rangle |\!\downarrow\rangle$ or $|\!\downarrow\rangle
 |\!\uparrow\rangle$, which are not eigenstates of $\hat{P}_{12}$.  Is
 this now forbidden?
 
-The answer to each question is no.  The confusion arises because we
-require identical particles to be \textit{fundamentally}
-indistinguishable, meaning that they are indistinguishable when
-accounting for all of the particles' degrees of freedom.  If we only
-deal with a restricted set of degrees of freedom---as in
-Eq.~\eqref{EPR}, which only involves spin degrees of freedom---then
-particles \textit{can} be distinguished from each other.
+The answer to each question is no.  The confusion arises because
+identical particles are only indistinguishable at a
+\textit{fundamental} level, meaning when all degrees of freedom are
+accounted for.  If we deal with a restricted set of degrees of
+freedom, like Eq.~\eqref{EPR} which only involves the particles'
+spins, then particles \textit{can} be distinguished from each other.
 
 As an illustration, let us see how the EPR thought experiment is done
 with two identical bosons.  Apart from the spin degree of freedom, the
@@ -763,29 +780,6 @@ defined in Eq.~\eqref{asym1}, which is equivalent to the singlet state
 compatible with all our previous discussions about partial
 measurements, entanglement, etc.
 
-Exchange symmetry is not the only way to implement particle
-indistinguishability.  \hyperref[cite:leinaas]{Leinaas and Myrheim
-  (1977)} developed an alternative framework for describing
-indistinguishable particles, based on a redefinition of the quantum
-wavefunction.  Normally, a multi-particle wavefunction
-$\Psi(\mathbf{r}_1, \dots, \mathbf{r}_N)$ is a function that maps a
-vector $(\mathbf{r}_1, \dots, \mathbf{r}_N)$ to a complex number.  In
-Leinaas and Myrheim's view, for identical particles the input is not a
-vector, but a more complicated mathematical object with built-in
-invariance under slot exchange: $(\dots, \mathbf{r}_i, \dots,
-\mathbf{r}_j,\dots ) \equiv (\dots, \mathbf{r}_j, \dots,
-\mathbf{r}_i,\dots )$.  By carefully analyzing the properties of such
-functions, bosonic or fermionic states can be constructed.  One
-startling outcome of this analysis is that the distinction between
-fermions and bosons is not absolute.  In two spatial dimensions, there
-is the fascinating possibility of having particles, called
-\textbf{anyons}, that act like they are intermediate between fermions
-and bosons.  A proper discussion of anyons requires knowledge about
-magnetic vector potentials in quantum mechanics, which will be
-discussed in Chapter 5; after having gone through that chapter, you
-may refer to Appendix F, which gives a brief introduction to the
-theory of anyons.
-
 \section{Second quantization}
 
 In the usual tensor product notation, symmetric and antisymmetric
@@ -808,9 +802,8 @@ how many are in state $|2\rangle$, denoted $n_2$; and so on.  Thus,
   |n_1,n_2,n_3,\dots\rangle
 \end{equation*}
 is \textit{defined} as the appropriate symmetric or antisymmetric
-multi-particle state, constructed using Eq.~\eqref{nbosons} if we're
-dealing with bosons, or using Eq.~\eqref{Nfermions} if we're dealing
-with fermions.
+multi-particle state, constructed using Eq.~\eqref{nbosons} for
+bosons, and Eq.~\eqref{Nfermions} for fermions.
 
 Let us run through a couple of examples:
 
@@ -1865,9 +1858,9 @@ variables.  In the classical limit, the quantum field theory reduces
 to Maxwell's theory of the electromagnetic field.
 
 It is hard to overstate the importance of quantum field theories in
-physics.  At a fundamental level, all elementary particles currently
-known to humanity can be described using a quantum field theory called
-the Standard Model.  These particles are roughly divided into two
+physics.  At a fundamental level, all currently-known elementary
+particles can be described using a quantum field theory called the
+Standard Model.  These particles are roughly divided into two
 categories.  The first consists of ``force-carrying'' particles:
 photons (which carry the electromagnetic force), gluons (which carry
 the strong nuclear force), and the $W/Z$ bosons (which carry the weak
