@@ -150,8 +150,8 @@ The exchange operator has the following properties:
 \item The ``slot-swapping'' effect of $\hat{P}$ is independent of the
   basis of $\mathscr{H}^{(1)}$ (see \hyperref[ex:1]{Exercise 1}).
 
-\item $\hat{P}$ commutes with any two-particle operator that treats
-  the two particles on equal footing, like the Hamiltonian in
+\item $\hat{P}$ commutes with any 2-particle operator that treats the
+  two particles on equal footing, like the Hamiltonian in
   Eq.~\eqref{exampleH} (see \hyperref[ex:2]{Exercise 2}).
 \end{enumerate}
 
@@ -163,7 +163,7 @@ $p$, which is called the \textbf{exchange parity}.  Since $\hat{P}^2 =
 \begin{equation}
   p = \begin{cases}+1 & \textrm{(``symmetric\;state'')}, \;\;\textrm{or} \\ -1 & \textrm{(``antisymmetric\;state'').}\end{cases}
 \end{equation}
-If the two-particle system is initially in an eigenstate of $\hat{P}$
+If the 2-particle system is initially in an eigenstate of $\hat{P}$
 with exchange parity $p$, and the Hamiltonian $\hat{H}$ commutes with
 $\hat{P}$ (as it should), then $p$ is conserved for all time.
 
@@ -217,7 +217,7 @@ determines the exchange parity.  There are two cases:
   forces: photons (carriers of the electromagnetic force), gluons
   (carriers of the strong nuclear force), and $W$ and $Z$ bosons
   (carriers of the weak nuclear force).  Bosons that are composite
-  particles (i.e., particles made of smaller particles) include alpha
+  particles (particles made of smaller particles) include alpha
   particles (helium-4 nuclei) and phonons (particles of sound).
 
 \item Particles with exchange parity $-1$ are called
@@ -232,8 +232,8 @@ Whether a particle type is bosonic or fermionic is often referred to
 as the choice of ``\textbf{particle statistics}''.  This is because
 the exchange parity affects the statistical behavior of large
 ensembles of particles: bosons obey the Bose-Einstein distribution,
-while fermions obey the Fermi-Dirac distribution.  The implications
-for statistical mechanics are profound, but fall outside the scope of
+while fermions obey the Fermi-Dirac distribution.  This has profound
+implications for statistical mechanics, falling outside the scope of
 this course.
 
 For elementary particles, the \textbf{spin-statistics theorem} states
@@ -253,7 +253,7 @@ is an active area of research in condensed matter physics.
 
 Incidentally, exchange operators are not the only way to formulate
 particle indistinguishability.  \hyperref[cite:leinaas]{Leinaas and
-  Myrheim (1977)} developed an interesting alternative description of
+  Myrheim} developed an interesting alternative description of
 indistinguishable particles based on a redefinition of the quantum
 wavefunction.  Normally, a multi-particle wavefunction
 $\Psi(\mathbf{r}_1, \dots, \mathbf{r}_N)$ is a function that maps a
@@ -262,16 +262,16 @@ Leinaas and Myrheim's view, for identical particles the input is not a
 vector, but a more complicated mathematical object with built-in
 invariance under slot exchange: $(\dots, \mathbf{r}_i, \dots,
 \mathbf{r}_j,\dots ) \equiv (\dots, \mathbf{r}_j, \dots,
-\mathbf{r}_i,\dots )$.  By carefully analyzing the properties of such
-functions, bosonic or fermionic wavefunctions can be constructed.  One
-startling outcome of this analysis is that the distinction between
-fermions and bosons is not absolute.  In two spatial dimensions, there
-is the fascinating possibility of particles called \textbf{anyons},
-which act like they are intermediate between fermions and bosons.  A
-proper discussion of anyons requires knowledge about magnetic vector
-potentials in quantum mechanics, which will be discussed in Chapter 5;
-after having gone through that chapter, you may refer to Appendix F,
-which gives a brief introduction to the theory of anyons.
+\mathbf{r}_i,\dots )$.  By analyzing the properties of such functions,
+bosonic or fermionic wavefunctions can be constructed.  One startling
+outcome of this analysis is that the distinction between fermions and
+bosons is not absolute.  In two spatial dimensions, there is the
+fascinating possibility of particles called \textbf{anyons}, which are
+intermediate between fermions and bosons.  A proper discussion of
+anyons requires knowledge about magnetic vector potentials in quantum
+mechanics, which will be discussed in Chapter 5; after having gone
+through that chapter, you may refer to Appendix F, which gives a brief
+introduction to the theory of anyons.
 
 \subsection{Bosons}
 \label{sec:bosons}
@@ -282,34 +282,31 @@ operator:
   \hat{P}_{ij}\; |\psi\rangle = |\psi\rangle.
   \label{sym}
 \end{equation}
-
 There is a standard way to construct multi-particle states obeying
 this symmetry condition.  First, consider a two-boson system ($N =
 2$).  If both bosons occupy the same single-particle state,
-$|\mu\rangle \in \mathscr{H}^{(1)}$, the two-boson state is simply
+$|\mu\rangle \in \mathscr{H}^{(1)}$, Eq.~\eqref{sym} can be satisfied
+using the two-boson state
 \begin{equation}
   |\mu,\mu\rangle = |\mu\rangle  |\mu\rangle.
   \label{mumu}
 \end{equation}
-This clearly satisfies Eq.~\eqref{sym}.  Next, suppose the two bosons
-occupy different single-particle states, $|\mu\rangle$ and
-$|\nu\rangle$, which are orthonormal.  It would be wrong to write the
-two-boson state as $|\mu\rangle |\nu\rangle$, as this does not satisfy
-Eq.~\eqref{sym}.  Instead, take
+Next, suppose the bosons occupy two single-particle states,
+$|\mu\rangle$ and $|\nu\rangle$, which are orthonormal.  The two-boson
+state cannot be $|\mu\rangle |\nu\rangle$, as this fails to satisfy
+Eq.~\eqref{sym}.  Instead, let
 \begin{equation}
   |\mu,\nu\rangle = \frac{1}{\sqrt{2}} \Big( |\mu\rangle |\nu\rangle +
   |\nu\rangle |\mu\rangle\Big).
   \label{bosonmunu}
 \end{equation}
-We can check that this has the appropriate exchange symmetry:
+You can check that $1/\sqrt{2}$ is the right normalization factor.
+This state has the right exchange symmetry:
 \begin{equation}
   \hat{P}_{12}\,|\mu,\nu\rangle \;=\; \frac{1}{\sqrt{2}}
   \Big( |\nu\rangle  |\mu\rangle + |\mu\rangle  |\nu\rangle\Big)
   \,=\, |\mu, \nu\rangle.
 \end{equation}
-The $1/\sqrt{2}$ factor in Eq.~\eqref{bosonmunu} ensures that the
-state is normalized (check for yourself; for this to work,
-$|\mu\rangle$ and $|\nu\rangle$ must be orthonormal).
 
 We can generalize the above construction to $N$ bosons, using the $N$
 single-particle states
@@ -327,8 +324,8 @@ be drawn from the same basis state.  Then the $N$-boson state is
   \label{nbosons}
 \end{equation}
 The sum is taken over all $N!$ permutations of $(1,2,\dots,N)$, with
-$p(j)$ denoting what $j$ is permuted to.  The prefactor $\mathcal{N}$
-is a normalization constant.
+$p(j)$ denoting what $j$ is permuted to.  The normalization constant
+$\mathcal{N}$ will be discussed later.
 
 \begin{framed}
 \noindent
@@ -457,15 +454,15 @@ inner product
   \langle \phi_{p(N)} | \phi'_{p'(N)}\rangle.
   \label{bosorthog}
 \end{align}
-Consider each term in the double sum, involving permutations $p$ and
-$p'$.  If \textit{every} bra $\langle \phi_{p(j)}|$ matches the
-corresponding ket $|\phi_{p'(j)}\rangle$, the term is unity, otherwise
-it is zero (since at least one of the bra-kets in the product
-vanishes).  There is some $p, p'$ achieving this condition if and only
-if the two sets of single-particle states are equivalent: i.e.,
-$(\phi_1,\dots, \phi_N) \equiv (\phi_1',\dots, \phi_N')$ up to a
-permutation.  In that case, $| \phi_1, \dots, \phi_N \rangle = |
-\phi_1',\dots, \phi_N'\rangle$ so the inner product is unity.
+Take each term in the double sum, involving permutations $p$ and $p'$.
+If \textit{every} bra $\langle \phi_{p(j)}|$ matches the corresponding
+ket $|\phi_{p'(j)}\rangle$, the term is unity; otherwise it is zero
+since at least one of the bra-kets in the product vanishes.  There is
+some $p, p'$ achieving this condition if and only if the two sets of
+single-particle states are equivalent: i.e., $(\phi_1,\dots, \phi_N)
+\equiv (\phi_1',\dots, \phi_N')$ up to a permutation, in which case $|
+\phi_1, \dots, \phi_N \rangle$ and $| \phi_1',\dots, \phi_N'\rangle$
+refer to the same state.
 
 \subsection{Fermions}
 \label{sec:fermions}
@@ -475,7 +472,6 @@ operator $\hat{P}_{ij}$:
 \begin{equation}
   \hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle.
 \end{equation}
-
 Similar to the bosonic case, we can construct $N$-fermion states from
 a set of single-particle states.  First, consider $N=2$.  If the
 fermions occupy the single-particle states $|\mu\rangle$ and
@@ -592,7 +588,7 @@ say in slots $i$ and $j$:
 \begin{equation*}
 s(p)\big( \cdots
       \underbrace{|\phi_{p(i)}\rangle}_{= |\mu\rangle} \cdots
-      \underbrace{|\phi_{p(j)}\rangle}_{= |\mu\rangle} \cdots \big)\Big].
+      \underbrace{|\phi_{p(j)}\rangle}_{= |\mu\rangle} \cdots \big).
 \end{equation*}
 But there is another permutation, $p'$, which is the same as $p$
 except with the $i$ and $j$ slots transposed.  That term appears with
@@ -616,12 +612,12 @@ operator $\hat{P}_{ij}$ to a term in the sum in Eq.~\eqref{Nfermions}:
 \end{align}
 The single-particle states for $p(i)$ and $p(j)$ have exchanged
 places.  This yields a new sequence of state labels, corresponding to
-a new permutation which we denote by $p'$.  Since $p'$ differs from
-$p$ by a single transposition (of slots $i$ and $j$), they have
-opposite parities: $s(p') = - s(p)$.  This means that
-\eqref{fermionswap} is the negative of another term in
+a new permutation which we call $p'$.  Since $p'$ differs from $p$ by
+a single transposition (of slots $i$ and $j$), $s(p') = - s(p)$.
+Hence, \eqref{fermionswap} is the negative of another term in
 Eq.~\eqref{Nfermions}.  By the same logic, applying $\hat{P}_{ij}$ to
-the $p'$ term yields the negative of the $p$ term.  Hence,
+the $p'$ term yields the negative of the $p$ term.  We thereby
+conclude that
 \begin{equation}
   \hat{P}_{ij} |\phi_1,\dots,\phi_N\rangle = - |\phi_1,\dots,\phi_N\rangle.
 \end{equation}
@@ -632,13 +628,13 @@ sets of single-particle states.  In other words, $\langle \phi_1,
 \dots, \phi_N| \phi_1', \dots, \phi_N'\rangle = 0$ unless $(\phi_1,
 \dots, \phi_N) \equiv (\phi_1', \dots, \phi_N')$ are equivalent up to
 a permutation.  The proof follows the same logic as the $N$-boson case
-discussed before [see Eq.~\eqref{bosorthog}].
+discussed earlier [see Eq.~\eqref{bosorthog}].
 
 \subsection{Distinguishing particles}
 \label{sec:distinguishability}
 
 It might have struck you that the requirement of particle
-indistinguishbility, introduced in Section~\ref{sec:exchange}, might
+indistinguishbility, introduced in Section~\ref{sec:exchange}, could
 undermine what we said about partial measurements and entanglement
 from Chapter 3.  For example, in the EPR thought experiment, we used
 the singlet state
@@ -649,7 +645,7 @@ the singlet state
 \end{equation}
 which looks like an antisymmetric state.  Does this mean we can only
 prepare this state with fermions?  More disturbingly, measuring
-${S}_z$ on one particle collapses the two-particle state into
+${S}_z$ on one particle collapses the 2-particle state into
 $|\!\uparrow\rangle |\!\downarrow\rangle$ or $|\!\downarrow\rangle
 |\!\uparrow\rangle$, which are not eigenstates of $\hat{P}_{12}$.  Is
 this now forbidden?
@@ -706,7 +702,7 @@ Eq.~\eqref{asym1} is explicitly symmetric:
   \end{aligned}
 \end{align}
 Likewise, if there is a spin-down particle at $A$ and a spin-up
-particle at $B$, the bosonic two-particle state is
+particle at $B$, the bosonic 2-particle state is
 \begin{equation}
   |\downarrow, A\,;\, \uparrow, B\rangle = \frac{1}{\sqrt{2}}
   \Big(|\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
@@ -787,30 +783,28 @@ of such multi-particle states.  (The reason for the name ``second
 quantization'' will not be apparent until later; it is a bad name, but
 one we are stuck with for historical reasons.)
 
-We start by defining a convenient way to specify states of multiple
-identical particles, called the \textbf{occupation number
-  representation}.  Let us enumerate a set of single-particle states,
-$\{|1\rangle, |2\rangle, |3\rangle, \cdots\}$, that form a complete
-orthonormal basis for the single-particle Hilbert space
-$\mathscr{H}^{(1)}$.  Then, we build multi-particle states by
-specifying how many particles are in state $|1\rangle$, denoted $n_1$;
-how many are in state $|2\rangle$, denoted $n_2$; and so on.  Thus,
+We start by introducing a convenient way to specify multi-particle
+states, called the \textbf{occupation number representation}.  Suppose
+$\{|1\rangle, |2\rangle, |3\rangle, \cdots\}$ is an orthonormal basis
+for the single-particle Hilbert space $\mathscr{H}^{(1)}$.  From
+Sections~\ref{sec:bosons} and \ref{sec:fermions}, we know that the
+single-particle states can be used to construct $N$-particle bosonic
+or fermionic states.  The construction depends on how many particles
+are occupying each single-particle state.  Letting $n_j$ denote the
+occupancy number of state $|j\rangle$, we can define
 \begin{equation*}
   |n_1,n_2,n_3,\dots\rangle
 \end{equation*}
-is \textit{defined} as the appropriate symmetric or antisymmetric
-multi-particle state, constructed using Eq.~\eqref{nbosons} for
-bosons, and Eq.~\eqref{Nfermions} for fermions.
-
-Let us run through a couple of examples:
+as the corresponding bosonic state constructed using
+Eq.~\eqref{nbosons}, or the fermionic state constructed using
+Eq.~\eqref{Nfermions}.
 
 \begin{framed}
 \noindent
-\textit{Example}---The two-particle state $|0,2,0,0,\dots\rangle$ has
+\textit{Example}---The 2-particle state $|0,2,0,0,\dots\rangle$ has
 both particles in the single-particle state $|2\rangle$.  This is only
 possible if the particles are bosons, since fermions cannot share the
-same state.  Written out in tensor product form, the symmetric state
-is
+same state.  Hence,
 \begin{equation}
   |0,2,0,0,\dots\rangle \equiv |2\rangle|2\rangle.
 \end{equation}
@@ -818,16 +812,14 @@ is
 
 \begin{framed}
 \noindent
-\textit{Example}---The three-particle state $|1,1,1,0,0,\dots\rangle$
-has one particle each occupying $|1\rangle$, $|2\rangle$, and
-$|3\rangle$.  If the particles are bosons, this corresponds to the
-symmetric state
+\textit{Example}---The 3-particle state $|1,1,1,0,0,\dots\rangle$ has
+one particle each occupying $|1\rangle$, $|2\rangle$, and $|3\rangle$.
+If the particles are bosons, this corresponds to the symmetric state
 \begin{align}
   \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|1\rangle|2\rangle|3\rangle + |3\rangle|1\rangle|2\rangle + |2\rangle|3\rangle|1\rangle \\&\;\qquad+ |1\rangle|3\rangle|2\rangle + |2\rangle|1\rangle|3\rangle + |3\rangle|2\rangle|1\rangle \Big).
   \end{aligned}
 \end{align}
-And if the particles are fermions, the appropriate antisymmetric state
-is
+And if the particles are fermions,
 \begin{align}
   \begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|1\rangle|2\rangle|3\rangle + |3\rangle|1\rangle|2\rangle + |2\rangle|3\rangle|1\rangle \\&\;\qquad - |1\rangle|3\rangle|2\rangle - |2\rangle|1\rangle|3\rangle - |3\rangle|2\rangle|1\rangle\Big).
   \end{aligned}
@@ -836,53 +828,76 @@ is
 
 \subsection{Fock space}
 
-There is a subtle point that we have glossed over: what Hilbert space
-do these state vectors reside in?  The state $|0,2,0,0,\dots\rangle$
-is a bosonic two-particle state, which is a vector in the two-particle
-Hilbert space $\mathscr{H}^{(2)} = \mathscr{H}^{(1)}\otimes
-\mathscr{H}^{(1)}$.  However, $\mathscr{H}^{(2)}$ also contains
-two-particle states that are not symmetric under exchange, which is
-not allowed for bosons.  Thus, it would be more rigorous for us to
-narrow the Hilbert space to the space of state vectors that are
-symmetric under exchange.  We denote this reduced space by
-$\mathscr{H}^{(2)}_S$.
-
-Likewise, $|1,1,1,0,\dots\rangle$ is a three-particle state lying in
-$\mathscr{H}^{(3)}$.  If the particles are bosons, we can narrow the
-space to $\mathscr{H}^{(3)}_S$.  If the particles are fermions, we can
-narrow it to the space of three-particle states that are antisymmetric
-under exchange, denoted by $\mathscr{H}^{(3)}_A$.  Thus,
-$|1,1,1,0,\dots\rangle \in \mathscr{H}^{(3)}_{S/A}$, where the
-subscript $S/A$ depends on whether we are dealing with symmetric
-states ($S$) or antisymmetric states ($A$).
-
-We can make the occupation number representation more convenient to
-work with by defining an ``extended'' Hilbert space, called the
-\textbf{Fock space}, that is the space of bosonic/fermionic states
-\textit{for arbitrary numbers of particles}.  In the formal language
-of linear algebra, the Fock space can be written as
+There is a subtle point we have glossed over: what Hilbert space do
+these state vectors reside in?  For instance, the state
+$|0,2,0,0,\dots\rangle$ is a bosonic 2-particle state, which is a
+vector in the 2-particle Hilbert space:
 \begin{equation}
-  \mathscr{H}_{S/A}^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_{S/A} \oplus \mathscr{H}^{(3)}_{S/A} \oplus \mathscr{H}^{(4)}_{S/A} \oplus \cdots
+  |0,2,0,0,\dots\rangle \in \mathscr{H}^{(2)} = \mathscr{H}^{(1)}\otimes
+\mathscr{H}^{(1)}.
+\end{equation}
+However, this statement is over-broad, because $\mathscr{H}^{(2)}$
+also contains 2-particle states that do not satisfy the bosonic
+exchange symmetry.  We can therefore shrink the Hilbert space to the
+space of 2-particle state vectors with exchange parity +1, denoted by
+$\mathscr{H}^{(2)}_+$:
+\begin{equation}
+  |0,2,0,0,\dots\rangle \in \mathscr{H}^{(2)}_+.
+\end{equation}
+In a similar fashion, for the 3-particle state
+$|1,1,1,0,\dots\rangle$, we can write
+\begin{equation}
+  |1,1,1,0,\dots\rangle \in
+  \begin{cases}
+    \mathscr{H}^{(3)}_+ & \textrm{(for bosons)} \\
+    \mathscr{H}^{(3)}_- & \textrm{(for fermions)},
+  \end{cases}
+\end{equation}
+where $\mathscr{H}^{(3)}_\pm$ is the space of 3-particle with exchange
+parity +1 or -1, respectively.
+
+In this framework, if two state have different total particle number
+$N = n_1 + n_2 + \cdots$, they lie in different spaces.  But we can
+consolidate them by defining the space of all multi-particle states
+regardless of $N$, called the \textbf{Fock space}.  In the formal
+language of linear algebra,
+\begin{equation}
+  \mathscr{H}_\pm^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_\pm \oplus \mathscr{H}^{(3)}_\pm \oplus \mathscr{H}^{(4)}_\pm \oplus \cdots
   \label{fock}
 \end{equation}
-Here, $\oplus$ represents the \textbf{direct sum} operation, which
-combines vector spaces by directly grouping their basis vectors into a
-larger basis set; if $\mathscr{H}_1$ has dimension $d_1$ and
-$\mathscr{H}_2$ has dimension $d_2$, then
-$\mathscr{H}_1\oplus\mathscr{H}_2$ has dimension $d_1+d_2$.  (By
-contrast, the space $\mathscr{H}_1\otimes\mathscr{H}_2$, defined via
-the tensor product, has dimension $d_1d_2$.)  Once again, the
-subscript $S/A$ depends on whether we are dealing with bosons ($S$) or
-fermions ($A$).
+Here, the $\pm$ subscript specifies whether we are dealing with bosons
+($+$) or fermions ($-$).  The $\oplus$ symbol denotes the
+\textbf{direct sum} operation, which combines vector spaces by
+grouping their basis vectors into a larger basis set.  For example,
+\begin{align}
+  \begin{aligned}
+    &\mathscr{H}_1~\textrm{has basis}~\big\{ |a\rangle, |b\rangle \big\}, \\
+    &\mathscr{H}_2~\textrm{has basis}~\big\{ |c\rangle, |d\rangle, |e\rangle \big\}
+  \end{aligned}
+  \;\;\Rightarrow\;\;\;
+\mathscr{H}_1 \oplus \mathscr{H}_2~\textrm{has basis}~\big\{ |a\rangle, |b\rangle, |c\rangle, |d\rangle, |e\rangle \big\}.
+\end{align}
+Evidently,
+\begin{equation}
+  \mathrm{dim}\left[\mathscr{H}_1 \oplus \mathscr{H}_2\right]
+  = \mathrm{dim}\left[\mathscr{H}_1\right] +
+  \mathrm{dim}\left[\mathscr{H}_2\right].
+\end{equation}
+This is different for the tensor product operation:
+\begin{equation}
+  \mathrm{dim}\left[\mathscr{H}_1 \otimes \mathscr{H}_2\right]
+  = \mathrm{dim}\left[\mathscr{H}_1\right] 
+  \mathrm{dim}\left[\mathscr{H}_2\right].
+\end{equation}
 
-The upshot is that any multi-particle state that we can write down in
-the occupation number representation, $|n_1,n_2,n_3,\dots\rangle$, is
-guaranteed to lie in the Fock space $\mathscr{H}^{F}_{S/A}$.
-Moreover, these states form a complete basis for
-$\mathscr{H}^{F}_{S/A}$.
+The upshot is that we can regard any state written using the the
+occupation number representation, $|n_1,n_2,n_3,\dots\rangle$, as a
+vector in $\mathscr{H}_\pm^F$, without worrying about the total
+particle number.  Moreover, such states form a complete basis for
+$\mathscr{H}^{F}_\pm$.
 
-In Eq.~\eqref{fock}, the first term of the direct sum is
-$\mathscr{H}^{(0)}$, the ``Hilbert space of 0 particles''.  This
+In Eq.~\eqref{fock}, the first term of the direct sum,
+$\mathscr{H}^{(0)}$, is the ``Hilbert space of 0 particles''.  This
 Hilbert space contains only one distinct state vector, denoted by
 \begin{equation}
   |\varnothing\rangle \equiv |0,0,0,0,\dots\rangle.
@@ -890,19 +905,23 @@ Hilbert space contains only one distinct state vector, denoted by
 This refers to the \textbf{vacuum state}, a quantum state in which
 there are literally no particles.  Note that $|\varnothing\rangle$ is
 \textit{not} the same thing as a zero vector; it has the standard
-normalization $\langle\varnothing|\varnothing\rangle = 1$.  The
-concept of a ``state of no particles'' may seem silly, but we will see
-that there are very good reasons to include it in the formalism.
+normalization
+\begin{equation}
+  \langle\varnothing|\varnothing\rangle = 1.
+\end{equation}
+The concept of a ``state of no particles'' may seem silly, but we will
+see that there are very good reasons to include it in the formalism.
 
-Another subtle consequence of introducing the Fock space concept is
-that it is now legitimate to write down quantum states that lack
-definite particle numbers.  For example,
+A subtle consequence of the Fock space concept is that we can now
+define quantum states that do not have a definite number of particles.
+For example,
 \begin{equation*}
   \frac{1}{\sqrt{2}} \Big(|1,0,0,0,0,\dots\rangle + |1,1,1,0,0,\dots\rangle\Big)
+  \in \mathscr{H}^F_\pm
 \end{equation*}
-is a valid state vector describing the superposition of a one-particle
-state and a three-particle state.  We will revisit this possibility
-later.
+is neither a 1-particle state nor a 3-particle state, but a
+superposition of the two.  We will discuss the significance of states
+with indefinite particle number later.
 
 \subsection{Second quantization for bosons}
 \label{sec:second_quantized_bosons}
@@ -1025,15 +1044,15 @@ fermion creation operator can be defined as follows:
     \end{cases} \\&= (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big|n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big\rangle. \end{aligned}
 \end{align}
 In other words, if state $\mu$ is unoccupied, then
-$\hat{c}_\mu^\dagger$ increments the occupation number to 1, and
-multiplies the state by an overall factor of $(-1)^{n_1 + n_2 + \cdots
-  + n_{\mu-1}}$ (i.e, $+1$ if there is an even number of occupied
-states preceding $\mu$, and $-1$ if there is an odd number).  The role
-of this factor will be apparent later.  Note that this definition
-requires the single-particle states to be ordered in some way;
-otherwise, it would not make sense to speak of the states
-``preceding'' $\mu$.  It does not matter which ordering we choose, so
-long as we make \textit{some} choice, and stick to it consistently.
+$\hat{c}_\mu^\dagger$ increments the occupation number to 1 and
+introduces a factor of $(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}$ (i.e,
+$+1$ if there is an even number of occupied states preceding $\mu$,
+and $-1$ if there is an odd number).  The role of this factor will be
+apparent later.  Note that this definition requires the
+single-particle states to be ordered in some way; otherwise, it would
+not make sense to speak of the states ``preceding'' $\mu$.  It does
+not matter which ordering we choose, so long as we make \textit{some}
+choice and stick to it consistently.
 
 If $\mu$ is occupied, applying $\hat{c}_\mu^\dagger$ gives the zero
 vector.  The occupation numbers are therefore forbidden from being
@@ -1294,8 +1313,8 @@ $\hat{H}$ for non-interacting particles, Eq.~\eqref{twobosonH}.
 
 Hermitian operators can also be constructed out of other kinds of
 groupings of creation and annihilation operators.  For example, a
-pairwise (two-particle) potential can be described with a
-superposition of creation and annihilation operator pairs, of the form
+pairwise (2-particle) potential can be described with a superposition
+of creation and annihilation operator pairs, of the form
 \begin{equation}
   \hat{V} = \frac{1}{2}
   \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \,
@@ -1317,8 +1336,8 @@ constraint on the coefficents:
   V_{\lambda\sigma\mu \nu}^* = V_{\mu\nu\lambda\sigma}.
 \end{equation}
 
-Suppose we are given the two-particle potential as an operator
-$\hat{V}^{(2)}$ acting on the two-particle Hilbert space
+Suppose we are given the 2-particle potential as an operator
+$\hat{V}^{(2)}$ acting on the 2-particle Hilbert space
 $\mathscr{H}^{(2)}$.  We should be able to express the
 second-quantized operator $\hat{V}$ in terms of $\hat{V}^{(2)}$, by
 comparing their matrix elements.  For example, let
