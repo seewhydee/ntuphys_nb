@@ -769,9 +769,13 @@ yields the post-collapse state
 \end{equation}
 This is precisely the bosonic state $|\uparrow,A;\downarrow,B\rangle$
 defined in Eq.~\eqref{asym1}, which is equivalent to the singlet state
-\eqref{epr1}.  From this, we conclude that exchange symmetry is
-compatible with all our previous discussions about partial
-measurements, entanglement, etc.
+\eqref{epr1}.
+
+From this discussion, we conclude that exchange symmetry is compatible
+with all our previous discussions about partial measurements,
+entanglement, etc.
+
+\clearpage
 
 \section{Second quantization}
 
@@ -780,36 +784,35 @@ states become quite cumbersome to deal with when the number of
 particles is large.  We will now introduce a formalism called
 \textbf{second quantization}, which greatly simplifies manipulations
 of such multi-particle states.  (The reason for the name ``second
-quantization'' will not be apparent until later; it is a bad name, but
-one we are stuck with for historical reasons.)
+quantization'' will not be apparent until
+\hyperref[second_quantization_terminology]{later}; it is a bad name,
+but one we are stuck with for historical reasons.)
 
 We start by introducing a convenient way to specify multi-particle
 states, called the \textbf{occupation number representation}.  Suppose
 $\{|1\rangle, |2\rangle, |3\rangle, \cdots\}$ is an orthonormal basis
 for the single-particle Hilbert space $\mathscr{H}^{(1)}$.  From
-Sections~\ref{sec:bosons} and \ref{sec:fermions}, we know that the
-single-particle states can be used to construct $N$-particle bosonic
-or fermionic states.  The construction depends on how many particles
-are occupying each single-particle state.  Letting $n_j$ denote the
-occupancy number of state $|j\rangle$, we can define
+Sections~\ref{sec:bosons} and \ref{sec:fermions}, we know how to use
+the single-particle states to construct $N$-particle bosonic or
+fermionic states.  Letting $n_j$ denote the occupancy number of state
+$|j\rangle$, we define
 \begin{equation*}
   |n_1,n_2,n_3,\dots\rangle
 \end{equation*}
-as the corresponding bosonic state constructed using
-Eq.~\eqref{nbosons}, or the fermionic state constructed using
-Eq.~\eqref{Nfermions}.
+as the multi-particle state constructed by Eq.~\eqref{nbosons} for
+bosons, or Eq.~\eqref{Nfermions} for fermions.
 
 \begin{framed}
 \noindent
 \textit{Example}---The 2-particle state $|0,2,0,0,\dots\rangle$ has
-both particles in the single-particle state $|2\rangle$.  This is only
-possible if the particles are bosons, since fermions cannot share the
-same state.  Hence,
+both particles in the single-particle state $|2\rangle$ (which is only
+possible if the particles are bosons):
 \begin{equation}
   |0,2,0,0,\dots\rangle \equiv |2\rangle|2\rangle.
 \end{equation}
 \end{framed}
 
+\vskip -0.1in
 \begin{framed}
 \noindent
 \textit{Example}---The 3-particle state $|1,1,1,0,0,\dots\rangle$ has
@@ -836,9 +839,9 @@ vector in the 2-particle Hilbert space:
   |0,2,0,0,\dots\rangle \in \mathscr{H}^{(2)} = \mathscr{H}^{(1)}\otimes
 \mathscr{H}^{(1)}.
 \end{equation}
-However, this statement is over-broad, because $\mathscr{H}^{(2)}$
-also contains 2-particle states that do not satisfy the bosonic
-exchange symmetry.  We can therefore shrink the Hilbert space to the
+However, this statement is over-broad, since $\mathscr{H}^{(2)}$ also
+contains 2-particle states that do not satisfy the bosonic exchange
+symmetry.  To be more precise, we can shrink the Hilbert space to the
 space of 2-particle state vectors with exchange parity +1, denoted by
 $\mathscr{H}^{(2)}_+$:
 \begin{equation}
@@ -853,19 +856,19 @@ $|1,1,1,0,\dots\rangle$, we can write
     \mathscr{H}^{(3)}_- & \textrm{(for fermions)},
   \end{cases}
 \end{equation}
-where $\mathscr{H}^{(3)}_\pm$ is the space of 3-particle with exchange
-parity +1 or -1, respectively.
+where $\mathscr{H}^{(3)}_\pm$ is the space of 3-particle states with
+exchange parity +1 or -1, respectively.
 
-In this framework, if two state have different total particle number
-$N = n_1 + n_2 + \cdots$, they lie in different spaces.  But we can
+Thus far, if two state have different total particle number $N = n_1 +
+n_2 + \cdots$, they are regarded as lying in different spaces.  We can
 consolidate them by defining the space of all multi-particle states
 regardless of $N$, called the \textbf{Fock space}.  In the formal
-language of linear algebra,
+language of linear algebra, this extended space is
 \begin{equation}
-  \mathscr{H}_\pm^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_\pm \oplus \mathscr{H}^{(3)}_\pm \oplus \mathscr{H}^{(4)}_\pm \oplus \cdots
+  \mathscr{H}_\pm^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_\pm \oplus \mathscr{H}^{(3)}_\pm \oplus \mathscr{H}^{(4)}_\pm \oplus \cdots,
   \label{fock}
 \end{equation}
-Here, the $\pm$ subscript specifies whether we are dealing with bosons
+where the $\pm$ subscripts specify whether we are dealing with bosons
 ($+$) or fermions ($-$).  The $\oplus$ symbol denotes the
 \textbf{direct sum} operation, which combines vector spaces by
 grouping their basis vectors into a larger basis set.  For example,
@@ -876,41 +879,45 @@ grouping their basis vectors into a larger basis set.  For example,
   \end{aligned}
   \;\;\Rightarrow\;\;\;
 \mathscr{H}_1 \oplus \mathscr{H}_2~\textrm{has basis}~\big\{ |a\rangle, |b\rangle, |c\rangle, |d\rangle, |e\rangle \big\}.
+\label{directsum_ex}
 \end{align}
-Evidently,
+The direct sum should not be confused with the tensor product
+introduced in Chapter 3.  In particular, we can see from
+Eq.~\eqref{directsum_ex} that
 \begin{equation}
   \mathrm{dim}\left[\mathscr{H}_1 \oplus \mathscr{H}_2\right]
   = \mathrm{dim}\left[\mathscr{H}_1\right] +
   \mathrm{dim}\left[\mathscr{H}_2\right].
 \end{equation}
-This is different for the tensor product operation:
+By contrast, for the tensor product,
 \begin{equation}
   \mathrm{dim}\left[\mathscr{H}_1 \otimes \mathscr{H}_2\right]
   = \mathrm{dim}\left[\mathscr{H}_1\right] 
   \mathrm{dim}\left[\mathscr{H}_2\right].
 \end{equation}
 
-The upshot is that we can regard any state written using the the
-occupation number representation, $|n_1,n_2,n_3,\dots\rangle$, as a
-vector in $\mathscr{H}_\pm^F$, without worrying about the total
-particle number.  Moreover, such states form a complete basis for
-$\mathscr{H}^{F}_\pm$.
-
 In Eq.~\eqref{fock}, the first term of the direct sum,
-$\mathscr{H}^{(0)}$, is the ``Hilbert space of 0 particles''.  This
+$\mathscr{H}^{(0)}$, is the Hilbert space of 0 particles.  This
 Hilbert space contains only one distinct state vector, denoted by
 \begin{equation}
   |\varnothing\rangle \equiv |0,0,0,0,\dots\rangle.
 \end{equation}
-This refers to the \textbf{vacuum state}, a quantum state in which
-there are literally no particles.  Note that $|\varnothing\rangle$ is
-\textit{not} the same thing as a zero vector; it has the standard
-normalization
+This called the \textbf{vacuum state}.  Note that
+$|\varnothing\rangle$ is \textit{not} the same thing as a zero vector;
+it has the standard normalization
 \begin{equation}
   \langle\varnothing|\varnothing\rangle = 1.
 \end{equation}
-The concept of a ``state of no particles'' may seem silly, but we will
-see that there are very good reasons to include it in the formalism.
+The concept of ``a state of zero particles'' may seem silly, but we
+will see that there are very good reasons to include it in the
+formalism.
+
+Now that we have defined the Fock space, any state written using the
+occupation number representation, $|n_1,n_2,n_3,\dots\rangle$, can be
+regarded as a vector in $\mathscr{H}_\pm^F$, regardless of its total
+particle number.  Such states moreover form a complete basis for
+$\mathscr{H}^{F}_\pm$.
+
 
 A subtle consequence of the Fock space concept is that we can now
 define quantum states that do not have a definite number of particles.
@@ -1021,18 +1028,18 @@ is that
 \begin{equation}
   \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle = n_\mu \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.
 \end{equation}
-Hence, we can define the Hermitian operator
+Hence, we can define an observable corresponding to the occupation
+number of single-particle state $\mu$:
 \begin{equation}
-  \hat{n}_\mu \equiv \hat{a}_\mu^\dagger \hat{a}_\mu,
+  \hat{n}_\mu \equiv \hat{a}_\mu^\dagger \hat{a}_\mu.
+  \label{numberop}
 \end{equation}
-whose eigenvalue is the occupation number of single-particle state $\mu$.
 
-If you are familiar with the method of creation/annihilation operators
-for solving the quantum harmonic oscillator, you will have noticed the
-striking similarity with the particle creation/annihilation operators
-for bosons.  This is no mere coincidence.  We will examine the
-relationship between harmonic oscillators and bosons in the next
-chapter.
+If you are familiar with the method of ladder operators for solving
+the quantum harmonic oscillator, you will have noticed the striking
+similarity to the creation and annihilation operators for bosons.
+This is no mere coincidence.  We will examine the relationship between
+harmonic oscillators and bosons in Section~\ref{sec:ho}.
 
 \subsection{Second quantization for fermions}
 \label{sec:second_quantized_fermions}
@@ -1148,166 +1155,159 @@ creation operators or two annihilation operators would
 calculations, the algebra of creation and annihilation operators ends
 up being much harder to deal with.
 
-\subsection{Second quantization for non-interacting particles}
+\subsection{Hamiltonians for non-interacting particles}
 \label{sec:second_quant_op}
 
-One of the key benefits of second quantization is that it allows us to
-express multi-particle quantum operators clearly and succinctly, using
-creation and annihilation operators as the basic building blocks.
+Second quantization provides a powerful way to express quantum
+operators, such as the Hamiltonian, for multi-particle systems.  The
+basic idea is to use creation and annihilation operators as the basic
+building blocks for constructing all other operators.
 
-Consider a system of non-interacting particles.  When there is just
-one particle ($N=1$), let the single-particle Hamiltonian be
-$\hat{H}^{(1)}$, which is a Hermitian operator acting on the
+Suppose the Hamiltonian for a single-particle ($N=1$) system is
+$\hat{H}^{(1)}$.  This is a Hermitian operator acting on the
 single-particle Hilbert space $\mathscr{H}^{(1)}$.  For general $N$,
-the multi-particle Hamiltonian $\hat{H}$ is a Hermitian operator
-acting on the Fock space $\mathscr{H}^F$.  How is $\hat{H}$ related to
-$\hat{H}^{(1)}$?
+the Hamiltonian $\hat{H}$ should be a Hermitian operator acting on the
+Fock space $\mathscr{H}^F$.  What is this operator, and how is it
+related to $\hat{H}^{(1)}$?
 
-Let us take the bosonic case.  Then the multi-particle Hamiltonian
-should be
+Let us assume, for specificity, that the particles are bosons.  We
+assert that if the particles are \textit{non-interacting} (the precise
+meaning of which will be discussed shortly), the multi-particle
+Hamiltonian is
 \begin{equation}
   \hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu,
-  \;\;\; \mathrm{where}\;\;\;
-  H_{\mu\nu} = \langle\mu|\hat{H}^{(1)}|\nu\rangle,
   \label{twobosonH}
 \end{equation}
 where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
-and annihilation operators, and $|\mu\rangle$, $|\nu\rangle$ refer to
-single-particle state vectors drawn from some orthonormal basis for
-$\mathscr{H}^{(1)}$.
-
-To understand why Eq.~\eqref{twobosonH} is right, consider its matrix
-elements with respect to various states.  First, for the vacuum state
-$|\varnothing\rangle$,
+and annihilation operators, defined using any orthonormal basis for
+$\mathscr{H}^{(1)}$, and
 \begin{equation}
-  \langle\varnothing|\hat{H}|\varnothing\rangle = 0.
+  H_{\mu\nu} = \langle\mu|\hat{H}^{(1)}|\nu\rangle
+  \label{Hmunu}
 \end{equation}
-This makes sense. Second, consider the matrix elements between
-single-particle states:
-\begin{equation}
-  \begin{aligned}
-    \langle n_\mu = 1 |\hat{H}|n_\nu = 1\rangle
-    &= \langle\varnothing|a_\mu \Big(\sum_{\mu'\nu'} \hat{a}^\dagger_{\mu'} H_{\mu'\nu'} \hat{a}_{\nu'}\Big) a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \langle\varnothing|a_\mu \hat{a}^\dagger_{\mu'}  \hat{a}_{\nu'} a_\nu^\dagger |\varnothing\rangle \\ &= \sum_{\mu'\nu'} H_{\mu'\nu'} \, \delta^{\mu}_{\mu'} \delta^{\nu}_{\nu'} \\&= H_{\mu\nu}.\end{aligned}
-\end{equation}
-This exactly matches the matrix element defined in
-Eq.~\eqref{twobosonH}.
+are the single-particle Hamiltonian's matrix elements in that basis.
 
-Finally, consider the case where $\{|\mu\rangle\}$ forms an eigenbasis
-of $\hat{H}_1$.  Then
+To justify Eq.~\eqref{twobosonH}, consider how it acts on various
+states in $\mathscr{H}^F$.  For the vacuum state,
+\begin{equation}
+  \hat{H}|\varnothing\rangle = 0,
+\end{equation}
+so $|\varnothing\rangle$ is an energy eigenstate with zero energy, as
+expected.  For single-particle states,
+\begin{align}
+  \hat{H} |n_\nu = 1\rangle
+  &= \sum_{\mu\nu'} \hat{a}^\dagger_{\mu} H_{\mu\nu'} \hat{a}_{\nu'}\,
+  \hat{a}_\nu^\dagger | \varnothing\rangle \label{hn1} \\
+  &= \sum_{\mu} H_{\mu\nu} \hat{a}^\dagger_{\nu} |\varnothing\rangle.
+      \label{hn2}
+\end{align}
+In going from Eq.~\eqref{hn1} to \eqref{hn2}, we used the commutation
+relation $\hat{a}_{\nu'} \hat{a}_\nu^\dagger = \delta_{\nu\nu'} +
+\hat{a}_\nu^\dagger \hat{a}_{\nu'}$, and the fact that
+$\hat{a}_{\nu'}|\varnothing\rangle = 0$.  We see that Eq.~\eqref{hn2}
+exactly matches what we get from the single-particle Hamiltonian
+defined in Eq.~\eqref{Hmunu}:
+\begin{equation}
+  \hat{H}^{(1)} = \sum_{\mu\nu} |\mu\rangle H_{\mu\nu} \langle \nu|
+  \;\;\;\Rightarrow\;\;\;
+  \hat{H}^{(1)} |\nu\rangle = \sum_\mu H_{\mu\nu} |\mu\rangle.
+\end{equation}
+As a final justification, suppose the single-particle basis states are
+eigenstates of $\hat{H}^{(1)}$:
 \begin{equation}
   \hat{H}^{(1)}|\mu\rangle = E_\mu |\mu\rangle
   \;\;\;\Rightarrow\;\;\;
-  H_{\mu\nu} = E_\mu\,\delta_{\mu\nu} \;\;\;\Rightarrow \;\;
-  \hat{H} = \sum_{\mu} E_\mu \,\hat{n}_\mu.
+  \hat{H} = \sum_{\mu} E_\mu \, \hat{a}^\dagger_\mu \hat{a}_\mu
+  = \sum_{\mu} E_\mu \hat{n}_\mu,
 \end{equation}
-As previously noted, $\hat{n}_\mu = \hat{a}^\dagger_\mu \hat{a}_\mu$
-is the number operator, an observable corresponding to the occupation
-number of single-particle state $\mu$.  Thus, the total energy is the
-sum of the single-particle energies, as expected for a system of
-non-interacting particles.
+where $\hat{n}_\mu$ is the number operator defined in
+Eq.~\eqref{numberop}.  Thus, the total energy of the system is the sum
+of the energies of the individual particles, as we expect for
+particles not interacting with one another.
 
-We can also think of the Hamiltonian $\hat{H}$ as the generator of
-time evolution.  Eq.~\eqref{twobosonH} describes an infinitesimal time
-step that consists of a superposition of alternative evolution
-processes.  Each term in the superposition, $\hat{a}^\dagger_\mu
-H_{\mu\nu} \hat{a}_\nu$, describes a particle being annihilated in
-state $\nu$, and immediately re-created in state $\mu$, which is
-equivalent to ``transferring'' a particle from $\nu$ to $\mu$.  The
-quantum amplitude for this process is described by the matrix element
-$H_{\mu\nu}$.  This description of time evolution is applicable not
-just to single-particle states, but also to multi-particle states
-containing any number of particles.
-
-Note also that the number of particles does not change during time
-evolution.  Whenever a particle is annihilated in a state $\nu$, it is
-immediately re-created in some state $\mu$.  This implies that the
-Hamiltonian commutes with the total particle number operator:
+It is interesting to interpret Eq.~\eqref{twobosonH} in light of the
+Hamiltonian's role as the generator of time evolution.  During an
+infinitesimal time step, the evolution operator is
+\begin{align}
+  \hat{U}(\delta t) &\approx
+  \hat{I} - \frac{i \delta t}{\hbar} \hat{H} \\
+  &= \hat{I} - \frac{i \delta t}{\hbar} \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu.
+\end{align}
+The evolution includes processes whereby a particle is annihilated in
+state $\nu$, and then immediately re-created in state $\mu$, which we
+can interpret as transferring a particle from $\nu$ to $\mu$.  These
+processes, as well as the omitted higher-order terms, leave the total
+particle number unchanged.  In fact, we can formally show that the
+total particle number is conserved:
 \begin{equation}
   [\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.
   \label{Hdiag}
 \end{equation}
-The formal proof for this is left as an exercise (see
-\hyperref[ex:n_conserved]{Exercise 6}).  It follows directly from the
-creation and annihilation operators' commutation relations (for
-bosons) or anticommuattion relations (for fermions).
+This proof is left as an exercise (see
+\hyperref[ex:n_conserved]{Exercise 6}).
 
-Apart from the total energy, other kinds of observables---the total
-momentum, total angular momentum, etc.---can be expressed in a similar
-way.  Let $\hat{A}^{(1)}$ be a single-particle observable.  For a
-multi-particle system, the operator corresponding to the ``total $A$''
-is
+Other multi-particle observables can be expressed similarly.  Given
+any single-particle observable $\hat{A}^{(1)}$, we can define an
+observable for the ``total $A$'' of a multi-particle system:
 \begin{equation}
   \hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\mu|\hat{A}^{(1)}|\nu\rangle.
   \label{Aop}
 \end{equation}
-For fermions, everything from Eq.~\eqref{twobosonH}--\eqref{Aop} also
-holds, but with the $a$ operators replaced by fermionic $c$ operators.
-
-The term ``second quantization'' originates from this process of using
-creation and annihilation operators to define Hamiltonians and other
-observables.  The idea is that single-particle quantum mechanics is
-derived from the quantization of classical Hamiltonians, by imposing
-commutation relations like $[x,p] = i\hbar$.  Then we extend the
-theory to multi-particle systems, by using the single-particle states
-to define creation/annihilation operators.  This can be viewed as a
-``second'' quantization step.
-
-By the way, although each set of creation and annihilation operators
-is defined using a given single-particle basis $\{|\mu\rangle\}$, the
-choice of basis is obviously not unique.  Suppose we have a different
-single-particle basis $\{|\alpha\rangle\}$, such that
+Similar to Eq.~\eqref{Hdiag}, the $\hat{A}$ operator commutes with the
+total particle number operator $\hat{N}$.  It is also worth noting
+that the form of Eq.~\eqref{Aop} is independent of the choice of
+single-particle basis.  Suppose we replace the $\{|\mu\rangle,
+|\nu\rangle, \dots\}$ basis with a new basis $\{|p\rangle, |q\rangle,
+\dots\}$, related to the old basis states by some linear
+transformation
 \begin{equation}
-  |\alpha\rangle = \sum_\mu U_{\alpha\mu} |\mu\rangle,
+  |p\rangle = \sum_\mu U_{p\mu} |\mu\rangle,
   \label{alphabasis}
 \end{equation}
-where $U_{\alpha\mu}$ are the elements of a unitary matrix.  Let
-$\hat{a}_\alpha^\dagger$ and $\hat{a}_\mu^\dagger$ denote the creation
-operators defined using the two different basis (once again, we will
-use the notation for bosons, but the following equations are valid for
-fermions too).  Writing Eq.~\eqref{alphabasis} in terms of the
-creation operators,
+where $U$ is unitary: $U^*_{p \mu} = (U^{-1})_{\mu p}$.  We can write
+Eq.~\eqref{alphabasis} in second quantized form as
 \begin{align}
-  \hat{a}_\alpha^\dagger|\varnothing\rangle
-  = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger |\varnothing\rangle.
+  \hat{a}_p^\dagger|\varnothing\rangle = \sum_\mu U_{p\mu}
+  \hat{a}_\mu^\dagger |\varnothing\rangle,
 \end{align}
-We therefore deduce that
-\begin{equation}
-  \hat{a}_\alpha^\dagger = \sum_\mu U_{\alpha\mu} \hat{a}_\mu^\dagger,
-  \;\;\;
-  \hat{a}_\alpha = \sum_\mu U_{\alpha\mu}^* \hat{a}_\mu.
-  \label{atrans}
-\end{equation}
-Using the unitarity of $U_{\alpha\mu}$, we can verify that
-$\hat{a}_\alpha$ and $\hat{a}_\alpha^\dagger$ satisfy bosonic
-commutation relations if and only if $\hat{a}_\mu$ and
-$\hat{a}_\mu^\dagger$ do so.  For fermions, we put $c$ operators in
-place of $a$ operators in Eq.~\eqref{atrans}, and use anticommutation
-rather than commutation relations.
-
-To illustrate how a basis change affects a second quantized
-Hamiltonian, consider a system of non-interacting particles whose
-single-particle Hamiltonian is diagonal in the $\alpha$ basis.  The
-multi-particle Hamiltonian is
-\begin{equation}
-  \hat{H} = \sum_\alpha E_\alpha \hat{a}_\alpha^\dagger \hat{a}_\alpha,
-\end{equation}
-consistent with Eq.~\eqref{Hdiag}.  Applying Eq.~\eqref{atrans},
-\begin{equation}
-  \hat{H} = \sum_{\mu\nu} \hat{a}_\mu^\dagger
-  \left(\sum_\alpha E_\alpha U_{\alpha\mu} U_{\alpha\nu}^*\right)
-  \hat{a}_\nu
-  \label{Htransformed}
-\end{equation}
-Compare this to single-particle bra-ket
+where $\hat{a}_p^\dagger$ is the creation operator defined in the new
+basis.  We thereby deduce that
 \begin{align}
-  H_{\mu\nu} \equiv \langle\mu | \hat{H}^{(1)} | \nu\rangle
-  &= \sum_{\alpha\beta} \langle \alpha | U_{\alpha\mu} \hat{H}^{(1)} U_{\beta\nu}^* |\beta\rangle \\
-  &= \sum_{\alpha\beta} U_{\alpha\mu} U_{\beta\nu}^* \, E_\beta \, \delta_{\alpha\beta} \\
-  &= \sum_{\alpha} E_\alpha\, U_{\alpha\mu} U_{\alpha\nu}^*.
+  \hat{a}_p^\dagger &= \sum_\mu U_{p\mu} \hat{a}_\mu^\dagger \label{ap}\\
+  \hat{a}_p &= \sum_\mu U_{p\mu}^* \hat{a}_\mu. \label{apdagger}
 \end{align}
-This precisely matches the term in parentheses in
-Eq.~\eqref{Htransformed}.  This is consistent with the general form of
-$\hat{H}$ for non-interacting particles, Eq.~\eqref{twobosonH}.
+Using the unitarity of $U_{\alpha\mu}$, we can verify that the new
+$\hat{a}_p$ and $\hat{a}_p^\dagger$ operators satisfy the bosonic
+commutation relations.  We can also invert
+Eq.~\eqref{ap}--\eqref{apdagger} to obtain
+\begin{align}
+  \hat{a}_\mu^\dagger &= \sum_p U_{p\mu}^* \hat{a}_p^\dagger\\
+  \hat{a}_\mu &= \sum_p U_{p\mu} \hat{a}_p.
+\end{align}
+Plugging these into the multi-particle observable \eqref{Aop} yields
+\begin{align}
+  \hat{A} &= \sum_{\mu\nu pq}
+  \hat{a}^\dagger_p U_{p\mu}^* A_{\mu\nu} U_{q\nu} \hat{a}_q \\
+  &= \sum_{pq}
+  \hat{a}^\dagger_p A_{pq} \hat{a}_q,
+\end{align}
+where
+\begin{equation}
+  A_{pq} = U_{p\mu}^* A_{\mu\nu} U_{q\nu}
+  = \langle p | \hat{A}^{(1)} |q\rangle.
+\end{equation}
+In other words, adopting a different single-particle basis simply
+alters the single-particle state labels in Eq.~\eqref{Aop}.
+    
+For fermions, all of the above holds true with the $a$ operators
+replaced by $c$ operators.  For example, the Hamiltonian for a system
+of non-interacting fermions is
+\begin{equation}
+  \hat{H} = \sum_{\mu\nu} \hat{c}^\dagger_\mu H_{\mu\nu} \hat{c}_\nu,
+  \label{twofermionH}
+\end{equation}
+where the $\hat{c}_\nu$ and $\hat{c}_\mu^\dagger$ operators obey the
+anticommutation relations \eqref{anticommutation}.
 
 \subsection{Particle interactions}
 
@@ -1471,6 +1471,18 @@ quantities, such as the electric field components $E_x(\mathbf{r})$,
 $E_y(\mathbf{r})$, and $E_z(\mathbf{r})$.  In the present case, each
 $\mathbf{r}$ is assigned a set of quantum operators.  This kind of
 quantum theory is called a \textbf{quantum field theory}.
+
+\label{second_quantization_terminology}
+\textcolor{red}{
+The term ``second quantization'' originates from the practice of using
+creation and annihilation operators to construct Hamiltonians and
+other observables.  The idea is that single-particle quantum mechanics
+is derived by quantizing classical Hamiltonians, through the
+imposition of commutation relations like $[x,p] = i\hbar$.  To extend
+the single-particle quantum theory to a multi-particle theory, we use
+the single-particle state labels to define creation and annihilation
+operators, which is like a ``second'' quantization step.
+}
 
 We can use the $\hat{\psi}(\mathbf{r})$ and
 $\hat{\psi}^\dagger(\mathbf{r})$ operators to write second quantized
