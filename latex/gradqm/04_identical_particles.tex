@@ -1311,36 +1311,38 @@ anticommutation relations \eqref{anticommutation}.
 
 \subsection{Particle interactions}
 
-Hermitian operators can also be constructed out of other kinds of
-groupings of creation and annihilation operators.  For example, a
-pairwise (2-particle) potential can be described with a superposition
-of creation and annihilation operator pairs, of the form
+There are other ways to combine creation and annihilation operators
+into multi-particle observables.  For example, a pairwise potential
+for a system of bosons has the form
 \begin{equation}
   \hat{V} = \frac{1}{2}
   \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \,
   V_{\mu\nu\lambda\sigma}\, \hat{a}_\sigma \hat{a}_\lambda.
   \label{Vop}
 \end{equation}
-The prefactor of $1/2$ is conventional.  In terms of time evolution,
-$\hat{V}$ ``transfers'' (annihilates and then re-creates) a
-\textit{pair} of particles during each infinitesimal time step.  Since
-the number of annihilated particles is always equal to the number of
-created particles, the interaction conserves the total particle
-number.  We can ensure that $\hat{V}$ is Hermitian by imposing a
-constraint on the coefficents:
+The prefactor of $1/2$ is conventional.  If such an operator is placed
+into the Hamiltonian, then during each infinitesimal time step it
+induces the annihilation and immediate re-creation of a pair of
+particles, which can be interpreted as a two-particle interaction.
+The total particle number is conserved during this process.
+
+The coefficients $\{ V_{\mu\nu\lambda\sigma} \}$ in Eq.~\eqref{Vop}
+can be determined from the 2-particle form of the potential operator.
+First, note that we want $\hat{V}$ to be Hermitian, so
 \begin{equation}
   \hat{V}^\dagger = \frac{1}{2}
   \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\lambda \hat{a}^\dagger_\sigma
-  \, V_{\mu\nu\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V}
-  \;\;\Leftarrow \;\;
+  \, V_{\mu\nu\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V}.
+\end{equation}
+Comparing this to Eq.~\eqref{Vop}, we see that Hermiticity can be
+achieved by requiring that
+\begin{equation}
   V_{\lambda\sigma\mu \nu}^* = V_{\mu\nu\lambda\sigma}.
 \end{equation}
-
-Suppose we are given the 2-particle potential as an operator
-$\hat{V}^{(2)}$ acting on the 2-particle Hilbert space
-$\mathscr{H}^{(2)}$.  We should be able to express the
-second-quantized operator $\hat{V}$ in terms of $\hat{V}^{(2)}$, by
-comparing their matrix elements.  For example, let
+Now, let $\hat{V}^{(2)}$ be the potential operator in the 2-particle
+Hilbert space $\mathscr{H}^{(2)}$.  We can compare the matrix elements
+for $\hat{V}$ and $\hat{V}^{(2)}$.  For example, consider the 2-boson
+states
 \begin{align}
   \begin{aligned}
     |n_\mu = 1, n_\nu = 1\rangle &= \frac{1}{\sqrt{2}}
@@ -1354,15 +1356,14 @@ $\hat{V}^{(2)}$ are
 \begin{multline}
   \langle n_\mu = 1, n_\nu = 1 | \hat{V}^{(2)} |n_\lambda = 1, n_\sigma = 1\rangle \\
   = \frac{1}{2} \Big(
-  \langle\mu|\langle\nu|\hat{V}^{(2)}|\lambda\rangle\sigma\rangle
-  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\lambda\rangle\sigma\rangle
-  + \langle\mu|\langle\nu|\hat{V}^{(2)}|\sigma\rangle\lambda\rangle
-  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\sigma\rangle\lambda\rangle
+  \langle\mu|\langle\nu|\hat{V}^{(2)}|\lambda\rangle|\sigma\rangle
+  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\lambda\rangle|\sigma\rangle
+  + \langle\mu|\langle\nu|\hat{V}^{(2)}|\sigma\rangle|\lambda\rangle
+  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\sigma\rangle|\lambda\rangle
   \Big).
   \label{mat0}
 \end{multline}
-On the other hand, the matrix elements of the second-quantized
-operator $\hat{V}$ are
+On the other hand, the matrix elements of $\hat{V}$ are
 \begin{align}
   \langle n_\mu = 1, n_\nu = 1 | \hat{V} |n_\lambda = 1, n_\sigma = 1\rangle
   &= \sum_{\mu'\nu'\lambda'\sigma'} V_{\mu'\nu'\lambda'\sigma'}
@@ -1376,11 +1377,12 @@ operator $\hat{V}$ are
   \right).
 \end{align}
 In going from Eq.~\eqref{mat1} to \eqref{mat2}, we use the bosonic
-commutation relations repeatedly to ``pushing'' the annihilation
+commutation relations repeatedly to ``push'' the annihilation
 operators to the right (so that they can act upon
-$|\varnothing\rangle$) and the creation operators to the left (so that
-they can act upon $\langle\varnothing|$).  Comparing Eq.~\eqref{mat0}
-to Eq.~\eqref{mat2}, we see that the matrix elements match if we take
+$|\varnothing\rangle$), and to push the creation operators to the left
+(so that they can act upon $\langle\varnothing|$).  Comparing
+Eq.~\eqref{mat0} to Eq.~\eqref{mat2}, we see that the matrix elements
+match if we simply take
 \begin{align}
   V_{\mu\nu\lambda\sigma} = \langle\mu|\langle\nu|\hat{V}^{(2)}
   |\lambda\rangle|\sigma\rangle.
@@ -1394,26 +1396,28 @@ have something like
   \varphi_\lambda(r_1) \, \varphi_\sigma(r_2).
 \end{align}
 The appropriate coefficients for $\mu = \nu$ and/or $\lambda =
-\sigma$, as well as for the fermionic case, are left for the reader to
-work out.
+\sigma$, and for the fermionic case, are left for the reader to work
+out.
 
 \subsection{Particle non-conserving observables}
 
-Another way to build a Hermitian operator from creation and
-annihilation operators is
+Another way to build an observable from creation and annihilation
+operators is
 \begin{equation}
   \hat{A} = \sum_\mu \left(\alpha_\mu \hat{a}_\mu^\dagger + \alpha^*_\mu \hat{a}_\mu\right).
 \end{equation}
 If such a term is added to a Hamiltonian, it breaks the conservation
-of total particle number.  Each infinitesimal time step will include
-processes that decrement the particle number (due to $\hat{a}_\mu$),
-as well as processes that increment the particle number (due to
-$\hat{a}_\mu^\dagger$).  Even if the system starts out with a fixed
-number of particles, such as the vacuum state $|\varnothing\rangle$,
-it subsequently evolves into a superposition of states with different
-particle numbers.  In the theory of quantum electrodynamics, this type
-of operator is used to describe the emission and absorption of photons
-caused by moving charges.
+of total particle number $N$.  Each infinitesimal time step will
+involve processes that decrement $N$ (due to $\hat{a}_\mu$), and
+processes that increment $N$ (due to $\hat{a}_\mu^\dagger$).  Even if
+the initial state has definite $N$, it will subsequently evolve into a
+state with indefinite $N$, consisting of a superposition of vectors
+with different $N$.
+
+Such operators are physically relevant.  For example, we will see that
+in quantum electrodynamics (Chapter 5), this sort of number
+non-conserving operator is responsible for the emission and absorption
+of photons.
 
 \section{Quantum field theory}
 \label{sec:qft}
