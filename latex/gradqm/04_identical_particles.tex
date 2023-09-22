@@ -1428,15 +1428,14 @@ of photons.
 
 So far, we have been agnostic about the choice of single-particle
 basis states used in defining creation and annihilation operators.
-Let us now focus on situations where the single-particle Hilbert space
-$\mathscr{H}^{(1)}$ has a position basis, which would be a natural
-choice of basis to work with.
+Let us now consider the common situation where the single-particle
+Hilbert space $\mathscr{H}^{(1)}$ has a position basis.
 
 Assume, as before, that $\{|\mu\rangle\}$ is some discrete orthonormal
-basis for $\mathscr{H}^{(1)}$.  We can use the basis states to define
-creation and annihilation operators $\hat{a}_\mu^\dagger$ and
-$\hat{a}_\mu$ (we will adopt the notation for bosons, but most of this
-discussion applies without modification to fermions).  Now, let
+basis for $\mathscr{H}^{(1)}$, from which are defined the creation and
+annihilation operators $\hat{a}_\mu^\dagger$ and $\hat{a}_\mu$ (we
+will adopt the notation for bosons, but most of this discussion
+applies without modification to fermions).  Now, let
 $\mathscr{H}^{(1)}$ also have a position basis
 $\{|\mathbf{r}\rangle\}$, where the position eigenstates are indexed
 by $d$-dimensional position vectors $\mathbf{r}$.  For each
@@ -1460,19 +1459,19 @@ Now consider the following ``\textbf{field operators}'':
   \hat{\psi}^\dagger(\mathbf{r}) &= \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger.
   \label{psir2}
 \end{align}
-These are constructed from the particle creation and annihilation
-operators, and are therefore operators acting on the Fock space.  They
-depend parametrically on $\mathbf{r}$, in the same sense that
-$\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ depend on the choice of $\mu$.
+These are Fock space operators, and they depend parametrically on
+$\mathbf{r}$, just as $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ depend
+on the choice of $\mu$.
 
 In classical physics, a field is something that maps the position
 $\mathbf{r}$ to one or more numbers, like the components of the
-electric field vector $\mathbf{E}(\mathbf{r})$.  Since
-$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$ map
-$\mathbf{r}$ to operators (rather than a number), they can be regarded
-as the quantum generalization of the classical notion of a field.  A
-quantum theory involving such position-to-operator mappings is
-therefore called a \textbf{quantum field theory}.
+electric field vector $\mathbf{E}(\mathbf{r})$.  Here we have
+$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$, which
+map $\mathbf{r}$ to operators, rather than numbers.  This can
+therefore be regarded as a quantum generalization of the classical
+notion of a field.  A quantum theory involving such
+position-to-operator mappings is called a \textbf{quantum field
+  theory}.
 
 To understand the meaning of these field operators, let us use
 Eqs.~\eqref{wfn1}--\eqref{wfn2} to derive the inverse relations
@@ -1494,51 +1493,54 @@ Similarly, we can show that
   = \big[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\big]
   = 0.
 \end{equation}
-These are exactly like the original bosonic commutation relations
-\eqref{commutations}, with the state labels replaced by positions and
-the Kronecker delta replaced by a delta function.  For fermions, the
-commutators are replaced by anticommutators.  We can therefore
-interpret $\hat{\psi}^\dagger(\mathbf{r})$ and
+These are just like the original bosonic commutation relations
+\eqref{commutations}, except that the state labels replaced by
+positions, and the Kronecker delta is replaced by a delta function.
+We can therefore interpret $\hat{\psi}^\dagger(\mathbf{r})$ and
 $\hat{\psi}(\mathbf{r})$ as spatially localized creation and
 annihhilation operators: $\hat{\psi}^\dagger(\mathbf{r})$ creates a
 particle at $\mathbf{r}$, while $\hat{\psi}(\mathbf{r})$ annihilates a
-particle at $\mathbf{r}$.
+particle at $\mathbf{r}$.  For fermions, the above commutators are
+simply replaced by anticommutators.
 
 \label{second_quantization_terminology}
-Eqs.~\eqref{psir1}--\eqref{psir2} also provide the motivation behind
-the term ``second quantization'', which was introduced in
-Section~\ref{sec:secondquant} to refer to the use of creation and
-annihilation operators for multi-particle systems.  The idea is that
-single-particle quantum mechanics is derived by quantizing classical
-mechanics, which involves converting numbers like $\mathbf{r}$ and
-$\mathbf{p}$ into operators like $\hat{\mathbf{r}}$ and
-$\hat{\mathbf{p}}$.  To extend single-particle quantum mechanics to a
-multi-particle theory, we introduce creation and annihilation
-operators, such as $\hat{\psi}^\dagger(\mathbf{r})$ and
-$\hat{\psi}(\mathbf{r})$, whose definitions in
-Eqs.~\eqref{psir1}--\eqref{psir2} are based on the single-particle
-wavefunctions.  Hence, the passage from single-particle to
-multi-particle quantum mechanics procedure can be viewed as a
-``second'' quantization step, whereby the single-particle wavefunction
-$\varphi_\mu(\mathbf{r})$ is converted into a quantum field.
+These field operators supply the motivation for the term ``second
+quantization'', introduced in Section~\ref{sec:secondquant} to refer
+to the use of creation and annihilation operators for multi-particle
+quantum systems.  The idea is that single-particle quantum mechanics
+is derived by quantizing classical mechanics, which involves
+converting numbers like $\mathbf{r}$ and $\mathbf{p}$ into operators
+like $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$.  The subsequent
+extension of single-particle quantum mechanics to multi-particle
+quantum mechanics involves creation and annihilation operators like
+$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$, whose
+definitions in Eqs.~\eqref{psir1}--\eqref{psir2} are based on the
+single-particle wavefunctions.  This can be viewed as a second
+quantization step, whereby the single-particle wavefunction
+$\varphi_\mu(\mathbf{r})$ is converted into a quantum field.  Still,
+``second quantization'' is not entirely satisfactory terminology,
+because quantum field theories are not necessarily derived using this
+two-step procedure.  In Section~\ref{sec:scalar_boson}, we will see an
+example of deriving field operators directly from a classical field
+theory.
 
-We can construct physically relevant observables using the field
+Physically relevant observables can be expressed using the field
 operators $\hat{\psi}(\mathbf{r})$ and
-$\hat{\psi}^\dagger(\mathbf{r})$ in place of the $\hat{a}_\mu$ and
-$\hat{a}_\mu^\dagger$ operators.  As discussed in
-Section~\ref{sec:second_quant_op}, for a single-particle observable
+$\hat{\psi}^\dagger(\mathbf{r})$.  As discussed in
+Section~\ref{sec:second_quant_op}, given a single-particle observable
 $\hat{A}^{(1)}$ we can define a Fock space observable $\hat{A}$
-corresponding to the ``total $A$'' of a multi-particle system.  In
-terms of the field operators,
+corresponding to the ``total $A$'' of a multi-particle system.  With
+the field operators, we can express such observables as
 \begin{equation}
   \hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r})
   \;\langle \mathbf{r}|\hat{A}^{(1)}|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').
   \label{Arecipe}
 \end{equation}
-As an example, take the single-particle Hamiltonian for a particle in
-a potential $V$,
+For example, take the single-particle Hamiltonian for a particle in a
+potential $V$:
 \begin{equation}
   \hat{H}^{(1)} = \frac{|\hat{\mathbf{p}}|^2}{2m} + V(\hat{\mathbf{r}}),
+  \label{Hsinglep}
 \end{equation}
 where $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the
 single-particle position and momentum operators.  We can convert the
@@ -1548,72 +1550,82 @@ operator can be further simplified by integrating by parts twice,
 which yields
 \begin{align}
   \hat{T} &= \frac{\hbar^2}{2m} \int d^d r\; \nabla \hat{\psi}^\dagger
-  (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}). \label{Top}
+  (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}).
+  \label{Top}
 \end{align}
 The potential energy operator, meanwhile, simplifies to
 \begin{equation}
-  \hat{V} = \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}). \label{Vhatop}
+  \hat{V} = \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}).
+  \label{Vhatop}
 \end{equation}
+Note that the $\hat{\mathbf{r}}$ in Eq.~\eqref{Hsinglep} is an
+operator, whereas the the $\mathbf{r}$ in Eqs.~\eqref{Top} and
+\eqref{Vhatop} are vectors (i.e., arrays of numbers).  In a quantum
+field theory, the position serves as an index for the various field
+operators, and is not itself an observable.
+
 Eqs.~\eqref{Top} and \eqref{Vhatop} are strongly reminiscent of the
 expectation values for the kinetic and potential energy in
 single-particle quantum mechanics:
 \begin{equation}
   \langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,
 \end{equation}
-where $\psi(\mathbf{r})$ is the single-particle wavefunction.
+where $\psi(\mathbf{r})$ is the single-particle wavefunction.  This
+accords with the aforementioned hand-waving interpretation of
+$\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$ as being
+derived by ``quantizing'' the wavefunction.
 
 As mentioned in Section~\ref{sec:particle-nonconserving}, we can also
 use creation and annihilation operators to construct observables that
-do not conserve particle number.  One example is
+do not commute with the total particle number.  One example is
 \begin{equation*}
   \psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger.
 \end{equation*}
-More generally, we can have observables of the form
+More generally, we can come up with observables of the form
 \begin{equation}
   F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),
   \label{fieldop}
 \end{equation}
 where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  We will
-soon see that this type of observable corresponds to the classical
-notion of a field variable, like the electric $\mathbf{E}(\mathbf{r})$
-or the magnetic field $\mathbf{B}(\mathbf{r})$.
+shortly see that observables of this sort are used in the quantum
+generalization of classical field variables, like the electric field
+$\mathbf{E}(\mathbf{r})$ or the magnetic field
+$\mathbf{B}(\mathbf{r})$.
 
 In the next two sections, we will try to get a better understanding of
-the relationship between classical fields and \textit{bosonic} quantum
-fields.  (For fermionic quantum fields, the situation is more
-complicated; they cannot be related to classical fields of the sort we
-are familiar with, for reasons that lie outside the scope of this
-course.)
+the relationship between classical fields and bosonic quantum fields.
+(The situation for fermionic quantum fields is more complicated; these
+cannot be related to classical fields of the sort we are familiar
+with, for reasons that lie outside the scope of this course.)
 
 \subsection{Revisiting the harmonic oscillator}
 \label{sec:ho}
 
 Before delving into the links between classical fields and bosonic
-quantum fields, it is first necessary to revisit the harmonic
-oscillator, to see how the concept of a \textbf{mode of oscillation}
-carries over from classical to quantum mechanics.
+quantum fields, let us first revisit the harmonic oscillator.  Our
+objective is to see how the concept of a \textbf{normal mode} carries
+over from classical to quantum mechanics.
 
-A classical harmonic oscillator is described by the Hamiltonian
+A classical 1D harmonic oscillator is described by the Hamiltonian
 \begin{equation}
   H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2x^2,
   \label{Hclass}
 \end{equation}
-where $x$ is the ``position'' of the oscillator, which we call the
-\textbf{oscillator variable}; $p$ is the corresponding momentum
-variable; $m$ is the mass; and $\omega$ is the natural frequency of
-oscillation.  We know that the classical equation of motion has the
-general form
+where $x$ is the oscillator's position variable, $p$ is the
+corresponding momentum variable, $m$ is the mass, and $\omega$ is the
+natural frequency of oscillation.  We know that the classical
+equations of motion have solutions of the form
 \begin{equation}
   x(t) = \mathcal{A}\, e^{-i\omega t} + \mathcal{A}^*\, e^{i\omega t}.
   \label{xt0}
 \end{equation}
-This describes an oscillation of frequency $\omega$.  It is
+Such a solution describes an oscillation of frequency $\omega$, and is
 parameterized by the \textbf{mode amplitude} $\mathcal{A}$, a complex
-number that determines the magnitude and phase of the oscillation.
+number determining the magnitude and phase of the oscillation.
 
 For the quantum harmonic oscillator, $x$ and $p$ are replaced by the
-Hermitian operators $\hat{x}$ and $\hat{p}$.  From these, the
-operators $\hat{a}$ and $\hat{a}^\dagger$ can be defined:
+observables $\hat{x}$ and $\hat{p}$.  From these, we can define the
+\textbf{ladder operators} $\hat{a}$ and $\hat{a}^\dagger$:
 \begin{align}
   \left\{
   \begin{aligned}
@@ -1629,30 +1641,31 @@ operators $\hat{a}$ and $\hat{a}^\dagger$ can be defined:
   \end{aligned}\right.
   \label{create_annihilate}
 \end{align}
-We can then show that
+It can be shown that
 \begin{equation}
   \left[\,\hat{a}\,,\,\hat{a}^\dagger\,\right] = 1, \;\;\;
-  \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right),
+  \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right).
   \label{create_annihilate_qho}
 \end{equation}
-and from these the energy spectrum of the quantum harmonic oscillator
-can be derived.  These facts should have been covered in an earlier
-course.
+Furthermore, we can use the ladder operators to derive the energy
+spectrum.  The details should have been covered in an earlier course.
 
-Here, we are interested in how the creation and annihilation operators
-relate to the \textit{dynamics} of the quantum harmonic oscillator.
-In the Heisenberg picture, with $t = 0$ as the reference time, we
-define the time-dependent operator
+How do the ladder operators relate to the dynamics of the quantum
+harmonic oscillator?  Let us go to the Heisenberg picture, with $t =
+0$ as the reference time.  The Heisenberg picture position operator is
 \begin{equation}
-  \hat{x}(t) = \hat{U}^\dagger(t) \,\hat{x}\, \hat{U}(t), \;\;\;
+  \hat{x}(t) = \hat{U}^\dagger(t) \,\hat{x}\, \hat{U}(t),
+\end{equation}
+where
+\begin{equation}
   \hat{U}(t) \equiv \exp\left(-\frac{i}{\hbar}\hat{H}t\right).
 \end{equation}
 We will adopt the convention that all operators written with an
-explicit time dependence are Heisenberg picture operators, while
-operators without an explicit time dependence are Schr\"odinger
-picture operators; hence, $\hat{x} \equiv \hat{x}(0)$.  The Heisenberg
-picture creation and annihilation operators, $\hat{a}^\dagger(t)$ and
-$\hat{a}(t)$, are related to $\hat{x}(t)$ by
+explicit $t$-dependence refer to Heisenberg picture operators, while
+those written without a $t$-dependence are Schr\"odinger picture
+operators.  For example, $\hat{x} \equiv \hat{x}(0)$.  Now, referring
+to Eq.~\eqref{create_annihilate}, we see that $\hat{x}(t)$ is related
+to the Heisenberg picture ladder operators by
 \begin{equation}
   \hat{x}(t) = \sqrt{\frac{\hbar}{2m\omega}} \, \Big(\hat{a}(t)+\hat{a}^\dagger(t)\Big).
   \label{xt1}
@@ -1660,19 +1673,20 @@ $\hat{a}(t)$, are related to $\hat{x}(t)$ by
 The Heisenberg equation for the annihilation operator is
 \begin{align}
   \begin{aligned}
-  \frac{d\hat{a}(t)}{dt} &= \frac{i}{\hbar} \left[\hat{H},\hat{a}(t)\right] \\
-  &= \frac{i}{\hbar} \,\hat{U}^\dagger(t) \left[\hat{H},\hat{a}\right] \hat{U}(t) \\
+  \frac{d\hat{a}(t)}{dt} &= \frac{i}{\hbar} \big[\hat{H},\hat{a}(t)\big] \\
+  &= \frac{i}{\hbar} \,\hat{U}^\dagger(t) \big[\hat{H},\hat{a}\big] \hat{U}(t) \\
   &= \frac{i}{\hbar} \,\hat{U}^\dagger(t) \Big(-\hbar\omega \hat{a}\Big) \hat{U}(t) \\
   &= -i\omega \hat{a}(t).
   \end{aligned}
   \label{heisenbergeq}
 \end{align}
-Hence, the solution for this differential equation is
+Hence,
 \begin{equation}
-  \hat{a}(t) = \hat{a} \, e^{-i\omega t},
+  \hat{a}(t) = \hat{a} \, e^{-i\omega t}.
   \label{at}
 \end{equation}
-and Eq.~\eqref{xt1} becomes
+We can apply this, along with its Hermitian conjugate, to
+Eq.~\eqref{xt1}, obtaining
 \begin{equation}
   \hat{x}(t) = \sqrt{\frac{\hbar}{2m\omega}} \,
   \Big(\hat{a} \,e^{-i\omega t} \,+\,
@@ -1684,13 +1698,12 @@ This has exactly the same form as the classical oscillatory solution
 factor $\sqrt{\hbar/2m\omega}$ plays the role of the mode amplitude
 $\mathcal{A}$.
 
-Now, suppose we come at things from the opposite end.  Let's say we
-start with creation and annihilation operators satisfying
+Now, suppose we come at things from the opposite direction.  We start
+with a pair of ladder operators that satisfy
 Eq.~\eqref{create_annihilate_qho}, from which
-Eqs.~\eqref{heisenbergeq}--\eqref{at} follow.  Using the creation and
-annihilation operators, we would like to construct an observable that
-corresponds to a classical oscillator variable.  A natural Hermitian
-ansatz is
+Eqs.~\eqref{heisenbergeq}--\eqref{at} follow.  We then want to
+construct an observable corresponding to a classical oscillator
+variable.  A natural Hermitian ansatz is
 \begin{equation}
   \hat{x}(t) = 
   \mathcal{C} \left(\hat{a} \,e^{-i\omega t} \,+\,
@@ -1700,19 +1713,18 @@ ansatz is
 where $\mathcal{C}$ is a constant that is conventionally taken to be
 real.
 
-How might $\mathcal{C}$ be chosen?  A convenient way is to study the
-behavior of the oscillator variable \textit{in the classical limit}.
-The classical limit of a quantum harmonic oscillator is described by a
-\textbf{coherent state}.  The details of how this state is defined
-need not concern us for now (see Appendix E).  The most important
-things to know are that (i) it can be denoted by $|\alpha\rangle$
-where $\alpha \in \mathbb{C}$, (ii) it is an eigenstate of the
-annihilation operator:
+How might $\mathcal{C}$ be chosen?  To figure this out, we can study
+the behavior \textit{in the classical limit}.  The classical limit of
+a quantum harmonic oscillator is described by a \textbf{coherent
+  state}.  The details of how this state is defined need not concern
+us for now (see Appendix E).  The most important things to know are
+that (i) it can be denoted by $|\alpha\rangle$ where $\alpha \in
+\mathbb{C}$, (ii) it is an eigenstate of the annihilation operator:
 \begin{equation}
   \hat{a}|\alpha\rangle = \alpha|\alpha\rangle.
   \label{coherent}
 \end{equation}
-And (iii) its energy expectation value is
+Also, (iii) its energy expectation value is
 \begin{equation}
   \langle E\rangle = \ \langle\alpha|\hat{H}|\alpha\rangle = \hbar
   \omega \left(|\alpha|^2 + \frac{1}{2}\right)
@@ -1729,9 +1741,9 @@ trajectory
   \alpha^*\, e^{i\omega t}\right).
   \label{xtc2}
 \end{equation}
-This trajectory has amplitude $2\mathcal{C}|\alpha|$.  At maximum
-displacement, the classical momentum is zero, so the total energy of
-the classical oscillator must be
+This has amplitude $2\mathcal{C}|\alpha|$.  At maximum displacement,
+the classical momentum is zero, so the total energy of the classical
+oscillator must be
 \begin{equation}
   E_{\mathrm{classical}}
   = \frac{1}{2} m\omega^2 \Big(2\mathcal{C}|\alpha|\Big)^2
@@ -1740,36 +1752,39 @@ the classical oscillator must be
 \end{equation}
 Equating the classical energy \eqref{Eclassical} to the coherent state
 energy \eqref{Havg1} gives
-\begin{equation}
-  \mathcal{C} = \sqrt{\frac{\hbar}{2m\omega}},
-\end{equation}
-which is precisely the scale factor found in Eq.~\eqref{xtquantum}.
+\begin{align}
+  2m\omega^2 \mathcal{C}^2 |\alpha|^2 &= \hbar \omega
+  |\alpha|^2 \\ \Rightarrow \qquad
+  \mathcal{C} &= \sqrt{\frac{\hbar}{2m\omega}}.
+\end{align}
+This exactly matches the factor in Eq.~\eqref{xtquantum}.
 
 \subsection{A scalar boson field}
+\label{sec:scalar_boson}
 
-We now have the tools available to understand the connection between a
-very simple classical field and its quantum counterpart.  Consider a
-classical scalar field variable $f(x,t)$, defined in one spatial
-dimension, whose classical equation of motion is the wave equation:
+We now have the basic ingredients for understanding the connection
+between a classical field and its quantum counterpart.  Consider a
+classical scalar field variable $f(x,t)$, defined in 1D space, whose
+classical equation of motion is the wave equation:
 \begin{equation}
   \frac{\partial^2\! f(x,t)}{\partial x^2}
   = \frac{1}{c^2} \frac{\partial^2\! f(x,t)}{\partial t^2}.
   \label{waveeqn}
 \end{equation}
-The constant $c$ is a wave speed.  This sort of classical field arises
-in many physical contexts, including the propagation of sound through
-air, in which case $c$ is the speed of sound.
+The constant $c$ is a wave speed.  Eq.~\eqref{waveeqn} arises in many
+physical contexts, including the propagation of sound through air, in
+which case $c$ is the speed of sound.
 
-For simplicity, let us first assume that the field is defined within a
-finite interval of length $L$, with periodic boundary conditions:
-$f(x,t) \equiv f(x+L, t)$.  Solutions to the wave equation can be
-described by the following ansatz:
+Let us first consider the case where the field is defined in a finite
+interval of length $L$, with the periodic boundary conditions $f(x,t)
+\equiv f(x+L, t)$.  Eq.~\eqref{waveeqn} possesses solutions of the
+form
 \begin{equation}
   f(x,t) = \sum_n \left( \mathcal{A}_n\, \varphi_n(x) \, e^{-i\omega_n t}
-  + \mathcal{A}_n^*\, \varphi_n^*(x) \, e^{i\omega_n t}\right).
+  + \mathcal{A}_n^*\, \varphi_n^*(x) \, e^{i\omega_n t}\right),
   \label{fnorm}
 \end{equation}
-This ansatz describes a superposition of \textbf{normal modes}.  Each
+which corresponds to a superposition of \textbf{normal modes}.  Each
 normal mode (labelled $n$) varies harmonically in time with a mode
 frequency $\omega_n$, and varies in space according to a complex mode
 profile $\varphi_n(x)$; its overall magnitude and phase is specified
@@ -1778,9 +1793,8 @@ normalized according to some fixed convention, e.g.
 \begin{equation}
   \int_0^L dx \, |\varphi_n(x)|^2 = 1.
 \end{equation}
-
-Substituting Eq.~\eqref{fnorm} into Eq.~\eqref{waveeqn}, and using
-the periodic boundary conditions, gives
+Substituting Eq.~\eqref{fnorm} into Eq.~\eqref{waveeqn}, and using the
+periodic boundary conditions, gives
 \begin{align}
   \varphi_n(x) = \frac{1}{\sqrt{L}}\, \exp\left(ik_n x\right), \;\;\;
   \omega_n = c k_n = \frac{2\pi c n}{L}, \;\;\; n \in \mathbb{Z}.
@@ -1792,19 +1806,18 @@ These mode profiles are orthonormal:
 \end{equation}
 Each normal mode carries energy.  By analogy with the classical
 harmonic oscillator---see Eqs.~\eqref{xtc2}--\eqref{Eclassical}---we
-assume that the energy density (i.e., energy per unit length) is
-proportional to the square of the field variable.  Let it have the
-form
+assume that the energy per unit length is proportional to the square
+of the field variable.  Let it have the form
 \begin{equation}
   U(x) = 2 \rho \sum_n|\mathcal{A}_n|^2 \, |\varphi_n(x)|^2,
   \label{Edensity}
 \end{equation}
 where $\rho$ is some parameter that has to be derived from the
 underlying physical context.  For example, for acoustic modes, $\rho$
-is the mass density of the underlying acoustic medium; in the next
-chapter, we will see a concrete example involving the energy density
-of an electromagnetic mode.  From Eq.~\eqref{Edensity}, the total
-energy is
+is the mass density of the underlying acoustic medium.  In the next
+chapter, we will see another example involving the energy density of
+an electromagnetic mode.  From Eq.~\eqref{Edensity}, we can express
+the total energy of the system as
 \begin{equation}
   E = \int_0^L dx \; U(x) = 2  \rho \sum_n |\mathcal{A}_n|^2.
   \label{classical_energy}
@@ -1823,36 +1836,38 @@ harmonic oscillators:
 \begin{equation}
   \hat{H} = \sum_n \hbar \omega_n \hat{a}_n^\dagger \hat{a}_n + E_0,
 \end{equation}
-where $E_0$ is the ground-state energy.  Just like in the previous
-section, we can define a Heisenberg-picture annihilation operator, and
-solving its Heisenberg equation yields
+where $E_0$ is the ground-state energy.  Just as in
+Section~\ref{sec:ho}, the Heisenberg picture annihilation operator has
+the following solution:
 \begin{equation}
   \hat{a}_n(t) = \hat{a}_n e^{-i\omega_n t}.
 \end{equation}
-We then define a Schr\"odinger picture Hermitian operator of the form
+As previously noted, we can use the creation and annihilation
+operators to construct observables.  In the Schr\"odinger picture,
+consider an observable of the form
 \begin{equation}
   \hat{f}(x) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x)
   + \hat{a}_n^\dagger \varphi_n^*(x) \Big),
 \end{equation}
-where $\mathcal{C}_n$ is a real constant (one for each normal mode).
-The corresponding Heisenberg picture operator is
+involving some real constant $\mathcal{C}_n$ for each normal mode $n$.
+In the Heisenberg picture,
 \begin{equation}
   \hat{f}(x,t) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
-  + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big),
+  + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).
   \label{fxt}
 \end{equation}
-which is the quantum version of the classical solution
+This is evidently the quantum version of the classical solution
 \eqref{fnorm}.
 
-To determine the $\mathcal{C}_n$ scale factors, we consider the
-classical limit.  The procedure is a straightfoward generalization of
-the \hyperref[sec:ho]{previously discussed} harmonic oscillator case.
-We introduce a state $|\alpha\rangle$ that is a coherent state for all
-the normal modes; i.e., for any given $n$,
+To determine the $\mathcal{C}_n$ factors, we consider the classical
+limit and follow the same procedure as Section~\ref{sec:ho}.  Let
+$|\alpha\rangle$ be a coherent state for all the normal modes; i.e.,
+for each $n$,
 \begin{equation}
   \hat{a}_n |\alpha\rangle = \alpha_n |\alpha\rangle
 \end{equation}
-for some $\alpha_n \in \mathbb{C}$.  The energy expectation value is
+for some $\alpha_n \in \mathbb{C}$.  Then the expectation value for
+the total energy is
 \begin{equation}
   \langle E\rangle = \sum_n \hbar \omega_n |\alpha_n|^2.
   \label{Ecoherent_field}
@@ -1863,20 +1878,20 @@ $\alpha_n^*$ respectively.  Hence, we identify $\mathcal{C}_n
 \alpha_n$ as the classical mode amplitude $\mathcal{A}_n$ in
 Eq.~\eqref{fnorm}.  In order for the classical energy
 \eqref{classical_energy} to match the coherent state energy
-\eqref{Ecoherent_field}, we need
-\begin{equation}
-  2\rho |\mathcal{A}_n|^2 = 2 \rho |\mathcal{C}_n\alpha_n|^2
-  = \hbar \omega_n |\alpha_n|^2 \quad \Rightarrow \quad
-  \mathcal{C}_n = \sqrt{\frac{\hbar\omega_n}{2\rho}}.
-\end{equation}
-Hence, the appropriate field operator is
+\eqref{Ecoherent_field},
+\begin{align}
+  2\rho |\mathcal{A}_n|^2 &= 2 \rho |\mathcal{C}_n\alpha_n|^2
+  = \hbar \omega_n |\alpha_n|^2 \\ \Rightarrow \qquad
+  \mathcal{C}_n &= \sqrt{\frac{\hbar\omega_n}{2\rho}}.
+\end{align}
+We thus conclude that the appropriate field operator is
 \begin{equation}
   \hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho}}
   \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
   + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).
 \end{equation}
 Returning to the Schr\"odinger picture, and using the explicit mode
-profiles from Eq.~\eqref{classical_modes}, we get
+profiles from Eq.~\eqref{classical_modes},
 \begin{equation}
   \hat{f}(x) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho L}}
   \Big(\hat{a}_n e^{ik_n x}
@@ -1893,7 +1908,7 @@ The result is
 where $\hat{a}(k)$ denotes a rescaled annihilation operator defined by
 $\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
 \begin{align}
-  \Big[\,\hat{a}(k)\,,\, \hat{a}^\dagger(k')\,\Big] = \delta(k-k').
+  \big[\,\hat{a}(k)\,,\, \hat{a}^\dagger(k')\,\big] = \delta(k-k').
 \end{align}
 
 \subsection{Looking ahead}
