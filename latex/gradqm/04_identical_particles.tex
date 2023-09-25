@@ -1914,44 +1914,42 @@ $\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
 \subsection{Looking ahead}
 \label{sec:outlook}
 
-In the next chapter, we will use these ideas to formulate a quantum
-theory of electromagnetism.  This is a bosonic quantum field theory in
-which the creation and annihilation operators act upon particles
-called \textbf{photons}---the elementary particles of light.  Linear
-combinations of these photon operators can be used to define Hermitian
-field operators that correspond to the classical electromagnetic field
-variables.  In the classical limit, the quantum field theory reduces
-to Maxwell's theory of the electromagnetic field.
+In the next chapter, we will see how quantum field theory can be used
+to formulate a quantum theory of electrodynamics.  The electromagnetic
+field will be described by a boson field, whose $\hat{a}^\dagger$ and
+$\hat{a}$ operators create and annihilate photons, or particles of
+light.  We will see how to define observables that correspond to the
+classical electromagnetic field variables, and how the quantum
+dynamics of the electromagnetic field reduces to Maxwell's equations
+in the classical limit.  The electromagnetic field interacts with
+electrons, which are in turn described using a fermion field.
 
-It is hard to overstate the importance of quantum field theories in
-physics.  At a fundamental level, all currently-known elementary
-particles can be described using a quantum field theory called the
-Standard Model.  These particles are roughly divided into two
-categories.  The first consists of ``force-carrying'' particles:
-photons (which carry the electromagnetic force), gluons (which carry
-the strong nuclear force), and the $W/Z$ bosons (which carry the weak
-nuclear force); these particles are excitations of bosonic quantum
-fields, similar to the one described in the previous section.  The
-second category consists of ``particles of matter'', such as
-electrons, quarks, and neutrinos; these are excitations of
-\textit{fermionic} quantum fields, whose creation and annihilation
-operators obey anticommutation relations.
+Quantum electrodynamics is only one example of the importance of
+quantum field theory.  In fundamental physics, all currently-known
+elementary particles can be described using a quantum field theory
+called the Standard Model, which incorporates numerous boson fields
+(e.g., photons and gluons) and fermion fields (e.g., electrons and
+quarks) that interact with one another.  Quantum field theory is also
+widely used in condensed matter physics, since it is the natural
+framework for dealing with systems of many particles.
 
-As Wilczek [\ref{cite:wilczek}] has pointed out, the modern picture of
-fundamental physics bears a striking resemblence to the old idea of
-``luminiferous ether'': a medium filling all of space and time, whose
-vibrations are physically-observable light waves.  The key difference,
-as we now understand, is that the ether is not a classical medium, but
-one obeying the rules of quantum mechanics.  (Another difference,
-which we have not discussed so far, is that modern field theories can
-be made compatible with relativity.)
+\hyperref[cite:wilczek]{Wilczek} has pointed out that the modern
+picture of fundamental physics bears a striking resemblence to the old
+idea of the ``luminiferous ether'': a medium that fills all of space
+and time, whose vibrations are physically-observable light waves.  The
+key difference is that this ether is not a classical medium, but one
+obeying the rules of quantum mechanics.  (Another difference is that
+is that the fundamental quantum fields obey relativistic symmetries,
+so that their behavior is invariant under a change of reference
+frame.)
 
 It is quite compelling to think of fields, not individual particles,
-as the fundamental objects in the universe.  This point of view
-``explains'', in a sense, why all particles of the same type have the
-same properties (e.g., why all electrons in the universe have exactly
-the same mass).  The particles themselves are not fundamental; they
-are excitations of deeper, more fundamental entities---quantum fields!
+as the fundamental objects describing the contents of the universe.
+This point of view explains, in a sense, why all particles of the same
+type have the same properties---for example, why all electrons have
+exactly the same mass, charge, etc.  It is because the particles
+themselves are not fundamental; they are excitations of underlying
+entities---quantum fields!
 
 \section*{Exercises}
 
@@ -1959,7 +1957,7 @@ are excitations of deeper, more fundamental entities---quantum fields!
 \item Consider a system of two identical particles.  Each
   single-particle Hilbert space $\mathscr{H}^{(1)}$ is spanned by a
   basis $\{|\mu_i\}$.  The exchange operator is defined on
-  $\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}$ by
+  $\mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}$ by
   \begin{equation}
     P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
     \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle.
@@ -1993,12 +1991,12 @@ are excitations of deeper, more fundamental entities---quantum fields!
   single-particle state $\mu$.
   \label{ex:boson_norm}
 
-\item $\mathscr{H}_{S}^{(N)}$ and $\mathscr{H}_{A}^{(N)}$ denote the
+\item $\mathscr{H}_{+}^{(N)}$ and $\mathscr{H}_{-}^{(N)}$ denote the
   Hilbert spaces of $N$-particle states that are totally symmetric and
   totally antisymmetric under exchange, respectively.  Prove that
   \begin{align}
-    \mathrm{dim}\left(\mathscr{H}_{S}^{(N)}\right) &= \frac{(d+N-1)!}{N!(d-1)!}, \\
-    \mathrm{dim}\left(\mathscr{H}_{A}^{(N)}\right) &= \frac{d!}{N!(d-N)!}.
+    \mathrm{dim}\left(\mathscr{H}_{+}^{(N)}\right) &= \frac{(d+N-1)!}{N!(d-1)!}, \\
+    \mathrm{dim}\left(\mathscr{H}_{-}^{(N)}\right) &= \frac{d!}{N!(d-N)!}.
   \end{align}
 
 \item
