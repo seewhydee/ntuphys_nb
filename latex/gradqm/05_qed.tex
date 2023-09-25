@@ -37,7 +37,7 @@
 \makeatother
 
 \begin{document}
-\setcounter{page}{86}
+\setcounter{page}{90}
 
 \begin{center}
 {\Large \textbf{Chapter 5: Quantum Electrodynamics}}
@@ -71,23 +71,21 @@ referred to are Dyson's 1951 lecture notes on quantum electrodynamics
 \subsection{Non-relativistic electrons in an electromagnetic field}
 \label{sec:nonrel}
 
-Consider a non-relativistic charged particle in an electromagnetic
-field.  As we are mainly interested in the physics of electrons
-interacting with electromagnetic fields, we henceforth take the
-electric charge of the particle to be $-e$, where $e =
-1.602\times10^{-19}\,\mathrm{C}$ is the elementary charge.  To
-describe particles with an arbitrary electric charge $q$, simply
-perform the substitution $e \rightarrow -q$ in the formulas you will
-subsequently encounter.
+Consider a charged particle in an electromagnetic field.  As we are
+mainly interested in the case where the particle in question is an
+electron, we will henceforth take the electric charge to be $-e$,
+where $e = 1.602\times10^{-19}\,\mathrm{C}$.  For particles with
+charge $q$, simply perform the substitution $e \rightarrow -q$ in the
+formulas appearing in this chapter.
 
-We wish to formulate the Hamiltonian governing the quantum dynamics of
-such a particle, subject to two simplifying assumptions: (i) the
-particle has charge and mass but is otherwise ``featureless'' (i.e.,
-we ignore the spin angular momentum and magnetic dipole moment that
-real electrons possess), and (ii) the electromagnetic field is treated
-as a classical field, meaning that the electric and magnetic fields
-are definite quantities rather than operators.  (We will see how to go
-beyond these simplifications later.)
+Let us formulate the Hamiltonian governing the quantum dynamics of
+such a particle, subject to some simplifying assumptions: (i) the
+particle has charge and mass but no other relevant mechanical
+properties (e.g., we ignore spin); (ii) the electromagnetic field is
+treated as a classical field, meaning that the electric and magnetic
+field vectors are classical field variables, not operators; and (iii)
+the mechanics is non-relativistic.  We will later see how to go beyond
+each of these simplifications.
 
 Classically, the electromagnetic field acts on the particle via the
 Lorentz force law,
@@ -97,93 +95,119 @@ Lorentz force law,
 \end{equation}
 where $\mathbf{r}$ and $\dot{\mathbf{r}}$ denote the position and
 velocity of the particle, $t$ is the time, and $\mathbf{E}$ and
-$\mathbf{B}$ are the electric and magnetic fields.  If no other forces
-are present, Newton's second law yields the equation of motion
+$\mathbf{B}$ are the electric and magnetic fields.  With no other
+forces present, and in the non-relativistic limit, the equation of
+motion can be derived using Newton's second law:
 \begin{equation}
   m\ddot{\mathbf{r}} = -e\Big(\mathbf{E}(\mathbf{r},t)
   + \dot{\mathbf{r}} \times \mathbf{B}(\mathbf{r},t)\Big),
   \label{eom}
 \end{equation}
-where $m$ is the particle's mass.  To quantize this, we must first
-convert the equation of motion into the form of Hamilton's equations
-of motion.
+where $m$ is the particle's mass.
 
-Let us introduce the electromagnetic scalar and vector potentials
-$\Phi(\mathbf{r},t)$ and $\mathbf{A}(\mathbf{r},t)$:
-\begin{align}
-  \mathbf{E}(\mathbf{r},t) &= - \nabla \Phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t}, \\
-  \mathbf{B}(\mathbf{r},t) &= \nabla \times \mathbf{A}(\mathbf{r},t).
-  \label{Bfield}
-\end{align}
-We now postulate that the equation of motion \eqref{eom} can be
-described by the Lagrangian
+We assert that Eq.~\eqref{eom} can be derived from the Lagrangian
 \begin{framed}
 \begin{equation}
   L(\mathbf{r},\dot{\mathbf{r}},t) = \frac{1}{2}m\dot{\mathbf{r}}^2
   + e \Big[\Phi(\mathbf{r},t) - \dot{\mathbf{r}} \cdot \mathbf{A}(\mathbf{r},t)
-    \Big].
+    \Big],
   \label{Lag}
 \end{equation}
 \end{framed}
-\vskip -0.15in
 \noindent
-This follows the usual prescription for the Lagrangian as kinetic
-energy minus potential energy, with $-e\Phi$ serving as the potential
-energy function, except for the $-e\dot{\mathbf{r}} \cdot \mathbf{A}$
-term.  To see if this Lagrangian works, plug it into the
-Euler-Lagrange equations
+where $\Phi$ and $\mathbf{A}$ are the scalar and vector potentials,
+which are related to $\mathbf{E}$ and $\mathbf{B}$ by
+\begin{align}
+  \mathbf{E}(\mathbf{r},t) &= - \nabla \Phi(\mathbf{r},t) - \frac{\partial\mathbf{A}}{\partial t}, \label{Efield0} \\
+  \mathbf{B}(\mathbf{r},t) &= \nabla \times \mathbf{A}(\mathbf{r},t).
+  \label{Bfield0}
+\end{align}
+Roughly speaking, Eq.~\eqref{Lag} follows the usual prescription that
+the Lagrangian is ``the kinetic energy minus the potential energy.''
+In this case, the ``potential energy'' consists of a term contributed
+by the electric potential, $-e\Phi$, and a more mysterious term,
+$e\dot{\mathbf{r}} \cdot \mathbf{A}$, which describes a coupling
+between the electron's velocity and the vector potential.
+
+To show that this Lagrangian works, we want to verify that the
+equation of motion \eqref{eom} is equivalent to the Euler-Lagrange
+equations
 \begin{equation}
   \frac{\partial L}{\partial r_i} = \frac{d}{dt}
-  \frac{\partial L}{\partial \dot{r}_i}.
+  \frac{\partial L}{\partial \dot{r}_i},
   \label{EulerLagrange}
 \end{equation}
-The partial derivatives of the Lagrangian are:
+where $r_i$ denotes the $i$-th component of $\mathbf{r}$.  From
+Eq.~\eqref{Lag}, the partial derivatives of $L$ are
 \begin{align}
-  \begin{aligned}
-    \frac{\partial L}{\partial r_i} &=
-    e\Big[\partial_i \Phi - \dot{r}_j \,\partial_i A_j \Big]\\
-    \frac{\partial L}{\partial \dot{r}_i} &= m\dot{r}_i - e A_i.
-  \end{aligned}
+  \frac{\partial L}{\partial r_i} &=
+  e\Big[\partial_i \Phi - \sum_j \dot{r}_j \,\partial_i A_j \Big],\label{dLdr}\\
+  \frac{\partial L}{\partial \dot{r}_i} &= m\dot{r}_i - e A_i,
+  \label{dLdv}
 \end{align}
-Now we want to take the \textit{total} time derivative of $\partial L
-/\partial \dot{r}_i$.  In doing so, note that the $\mathbf{A}$ field
-has its own $t$-dependence, as well as varying with the particle's
-$t$-dependent position.  Thus,
+where $\partial_i \equiv \partial/\partial r_i$.  Next, we want to
+apply the total time derivative, $d/dt$, to Eq.~\eqref{dLdv}.  In
+doing so, note that $\mathbf{A}$ has its own $t$-dependence, as well
+as varying with the particle's $t$-dependent position.  Thus,
 \begin{align}
   \begin{aligned}
     \frac{d}{dt} \frac{\partial L}{\partial \dot{r}_i}
     &= m\ddot{r}_i - e\, \frac{d}{dt} A_i(\mathbf{r}(t),t) \\
-    &= m\ddot{r}_i - e\, \partial_t A_i
-    - e\, \dot{r}_j \partial_j A_i.
+    &= m\ddot{r}_i - e\, \frac{\partial A_i}{\partial t}
+    - e\, \sum_j \dot{r}_j \partial_j A_i.
   \end{aligned}
+  \label{dLdt}
 \end{align}
-(In the above equations, $\partial_i \equiv \partial/\partial r_i$,
-where $r_i$ is the $i$-th component of the position vector, while
-$\partial_t \equiv \partial/\partial t$.)  Plugging these expressions
-into the Euler-Lagrange equations \eqref{EulerLagrange} gives
+Plugging Eqs.~\eqref{dLdr} and \eqref{dLdt} into
+Eq.~\eqref{EulerLagrange} gives
 \begin{align}
-  \begin{aligned}
-    m\ddot{r}_i &=
-    -e\Big[\Big(-\partial_i \Phi - \partial_t A_i\Big)
-      + \dot{r}_j \Big( \partial_i A_j - \partial_j A_i\Big) \Big] \\
-    &= -e \Big[E_i(\mathbf{r},t) + \big(\dot{\mathbf{r}} \times
-      \mathbf{B}(\mathbf{r},t) \big)_i\, \Big].
-  \end{aligned}
+  m\ddot{r}_i =
+  -e\left[\left(-\partial_i \Phi - \frac{\partial A_i}{\partial t}\right)
+    + \sum_j \dot{r}_j \Big( \partial_i A_j - \partial_j A_i\Big) \right].
+  \label{mvtmp}
 \end{align}
-(The last step can be derived by expressing the cross product using
-the Levi-Cevita symbol, and using the identity $\varepsilon_{ijk}
-\varepsilon_{lmk} = \delta_{il} \delta_{jm} - \delta_{im}
-\delta_{jl}$.)  This exactly matches Eq.~\eqref{eom}, as desired.
+We want to compare this to the equation of motion \eqref{eom}.  The
+latter is expressed in terms of $\mathbf{E}$ and $\mathbf{B}$, so we
+must first use Eq.~\eqref{Efield0} and \eqref{Bfield0} to re-express
+it using the potentials.  Then the $\mathbf{E}$ term in
+Eq.~\eqref{eom} immediately matches the first term in the square
+brackets in Eq.~\eqref{mvtmp}.  The $\dot{\mathbf{r}}\times\mathbf{B}$
+term, however, needs a bit more manipulation.  First, express the
+cross product using the Levi-Cevita symbol:
+\begin{align}
+  (\dot{\mathbf{r}} \times \mathbf{B})_i &=
+  \sum_{jk} \varepsilon_{ijk} \dot{r}_j B_k \\
+  &= \sum_{jk} \varepsilon_{ijk} \dot{r}_j \left(\sum_{pq} \varepsilon_{kpq} \partial_p A_q  \right) \\
+  &= \sum_{jpq} \left(\sum_k \varepsilon_{ijk} \varepsilon_{pqk}\right)
+  \dot{r}_j  \partial_p A_q.
+  \label{vBtmp}
+\end{align}
+Then we use the identity
+\begin{equation}
+  \sum_k \varepsilon_{ijk} \varepsilon_{pqk}
+  = \delta_{ip} \delta_{jq} - \delta_{iq} \delta_{jp}.
+\end{equation}
+Eq.~\eqref{vBtmp} now simplifies to
+\begin{align}
+  (\dot{\mathbf{r}} \times \mathbf{B})_i
+  &= \sum_{j} \left( \dot{r}_j  \partial_i A_j - \dot{r}_j  \partial_j A_i\right),
+\end{align}
+which matches the second term in the square brackets in
+Eq.~\eqref{mvtmp}.  We have thus verified the validity of the
+Lagrangian \eqref{Lag}.
 
 We now use the Lagrangian to derive the Hamiltonian.  The canonical
 momentum is
 \begin{equation}
-  p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i.
+  p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i,
   \label{canonp}
 \end{equation}
-The Hamiltonian is defined as $H(\mathbf{r},\mathbf{p}) = \mathbf{p}
-\cdot \dot{\mathbf{r}} - L$.  Using Eq.~\eqref{canonp}, we express it
-in terms of $\mathbf{p}$ rather than $\dot{\mathbf{r}}$:
+and the Hamiltonian is defined as
+\begin{equation}
+  H(\mathbf{r},\mathbf{p}) = \mathbf{p} \cdot \dot{\mathbf{r}} - L.
+\end{equation}
+With the help of Eq.~\eqref{canonp}, we express $H$ purely in terms of
+$\mathbf{r}$ and $\mathbf{p}$, without $\dot{\mathbf{r}}$:
 \begin{align}
   \begin{aligned}
     H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
@@ -231,7 +255,7 @@ potentials
 \end{equation}
 where $C$ is some constant.  These potentials are
 $\mathbf{r}$-independent, but the vector potential is time-dependent,
-so the $-\dot{\mathbf{A}}$ term in Eq.~\eqref{Bfield} gives a
+so the $-\dot{\mathbf{A}}$ term in Eq.~\eqref{Bfield0} gives a
 non-vanishing electric field:
 \begin{equation}
   \mathbf{E}(\mathbf{r},t) = - C\hat{z}, \;\;\;\mathbf{B}(\mathbf{r},t) = 0.
