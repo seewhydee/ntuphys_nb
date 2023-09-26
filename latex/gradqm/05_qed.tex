@@ -230,107 +230,144 @@ in a scalar potential,
   H = \frac{|\mathbf{p}|^2}{2m} + V(\mathbf{r},t).
 \end{equation*}
 In Eq.~\eqref{H0}, the $-e\Phi$ term acts like a potential energy,
-which is no surprise.  More interestingly, the vector potential
-appears via the substitution
+which is no surprise.  More interesting is how the vector potential
+enters; it appears in the ``kinetic'' term via the substitution
 \begin{equation}
   \mathbf{p} \rightarrow \mathbf{p} + e\mathbf{A}(\mathbf{r},t).  
 \end{equation}
 
 What does this mean?  Think about what ``momentum'' means for a
 charged particle in an electromagnetic field.  Noether's theorem
-states that each symmetry of a system (whether classical or quantum)
-is associated with a conservation law.  Momentum is the quantity
-conserved when the system is symmetric under spatial translations.
-One of Hamilton's equations states that
+states that any symmetry of a system, whether classical or quantum, is
+associated with a conservation law.  Thus, momentum is conserved if
+the system is translationally symmetric, as we can see from Hamilton's
+equation
 \begin{equation*}
-  \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
+  \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i}.
 \end{equation*}
-which implies that if $H$ is $\mathbf{r}$-independent, then
-$d\mathbf{p}/dt = 0$.  But when the electromagnetic potentials are
-$\mathbf{r}$-independent, the quantity $m\dot{\mathbf{r}}$ (which we
-usually call momentum) is not necessarily conserved!  Take the
-potentials
+If $H$ is $\mathbf{r}$-independent, then $d\mathbf{p}/dt = 0$.  But
+even if the electromagnetic potentials are $\mathbf{r}$-independent,
+the quantity $m\dot{\mathbf{r}}$ is \textit{not} necessarily
+conserved!  As a demonstration, consider
 \begin{equation}
   \Phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
 \end{equation}
 where $C$ is some constant.  These potentials are
-$\mathbf{r}$-independent, but the vector potential is time-dependent,
-so the $-\dot{\mathbf{A}}$ term in Eq.~\eqref{Bfield0} gives a
-non-vanishing electric field:
+$\mathbf{r}$-independent, but because of the time-dependence in the
+vector potential, Eq.~\eqref{Bfield0} gives a non-vanishing electric
+field:
 \begin{equation}
   \mathbf{E}(\mathbf{r},t) = - C\hat{z}, \;\;\;\mathbf{B}(\mathbf{r},t) = 0.
 \end{equation}
-The Lorentz force law then says that
+Plugging this into the Lorentz force law, we find that
+$m\dot{\mathbf{r}}$ is not conserved:
 \begin{equation}
-  \frac{d}{dt}(m\dot{\mathbf{r}}) = eC\hat{z},
+  \frac{d}{dt}(m\dot{\mathbf{r}}) = eC\hat{z}.
 \end{equation}
-and thus $m\dot{\mathbf{r}}$ is not conserved.  On the other hand, the
-quantity $\mathbf{p} = m\dot{\mathbf{r}} - e \mathbf{A}$ \textit{is}
-conserved:
+On the other hand, the canonical momentum defined in
+Eq.~\eqref{canonp} is conserved:
 \begin{equation}
+  \frac{d\mathbf{p}}{dt} =
   \frac{d}{dt}(m\dot{\mathbf{r}} - e\mathbf{A}) =
   eC\hat{z} - eC\hat{z} = 0.
 \end{equation}
-Hence, this is the appropriate canonical momentum for a particle in an
-electromagnetic field.
 
-We are now ready to go from classical to quantum mechanics.  Replace
-$\mathbf{r}$ with the position operator $\hat{\mathbf{r}}$, and
-$\mathbf{p}$ with the momentum operator $\hat{\mathbf{p}}$.  The
-resulting quantum Hamiltonian is
+Having established the classical Hamiltonian, we can promote it into a
+quantum Hamiltonian in the usual way, replacing $\mathbf{r}$ by the
+position operator $\hat{\mathbf{r}}$ and $\mathbf{p}$ by the momentum
+operator $\hat{\mathbf{p}}$:
 \begin{framed}
   \begin{equation}
-    \hat{H}(t) = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
+    \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
     - e\Phi(\hat{\mathbf{r}},t).
     \label{quantumH}
   \end{equation}
 \end{framed}
-\vskip -0.15in
 \noindent
-Note: the momentum operator is $\hat{\mathbf{p}} = -i\hbar\nabla$
-in the wavefunction representation, as usual.
+Both the scalar and vector potential terms are functions of the
+position operator $\hat{\mathbf{r}}$, so if we want to expand the
+square in the first term of Eq.~\eqref{quantumH}, it is important to
+note that $\hat{\mathbf{p}}$ and $\mathbf{A}(\hat{\mathbf{r}},t)$ need
+not commute:
+\begin{align}
+  \big|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)\big|^2
+  &= \sum_j \Big[\hat{p}_j + e A_j(\hat{\mathbf{r}},t)\Big] \,
+  \Big[\hat{p}_j + e A_j(\hat{\mathbf{r}},t)\Big]\\
+  &= \sum_j \Big( \hat{p}_j^2
+  + e\, \big[\hat{p}_j A_j(\hat{\mathbf{r}},t) + A_j(\hat{\mathbf{r}},t) p_j\big]
+  + e^2A_j^2(\hat{\mathbf{r}},t)^2 \Big).
+  \label{pexpansion}
+\end{align}
+For example, if we are working in the position representation (i.e.,
+using wavefunctions), then $\hat{\mathbf{p}} = -i\hbar\nabla$.  When
+dealing with the operator combination $\hat{p}_j A_j(\mathbf{r},t)$,
+the gradient in the momentum operator applies to everything on its
+right, i.e., both $A_j$ and the wavefunction.  By the product rule,
+\begin{equation}
+  \hat{p}_j A_j(\mathbf{r},t) \psi(\mathbf{r},t)
+  = -i\hbar \left[\frac{\partial A_j}{\partial r_j} + A_j \frac{\partial}{\partial r_j}\right] \psi(\mathbf{r},t).
+\end{equation}
+Thus, in the position representation, Eq.~\eqref{pexpansion} can also
+be written as
+\begin{equation}
+  \big|\hat{\mathbf{p}}+e\mathbf{A}\big|^2
+  = - \frac{\hbar^2}{2m} \nabla^2
+  - 2 i \hbar e \mathbf{A} \cdot \nabla
+  - i \hbar e \left(\nabla\cdot \mathbf{A}\right)
+  + e^2|\mathbf{A}|^2.
+\end{equation}
 
 \subsection{Gauge symmetry}
 \label{sec:gauge}
 
-The Hamiltonian \eqref{quantumH} possesses a subtle property known as
-\textbf{gauge symmetry}.  Suppose we modify the scalar and vector
-potentials via the substitutions
+In classical electromagnetism, it is known that the scalar and vector
+potentials have a peculiar feature: they do not uniquely define the
+$\mathbf{E}$ and $\mathbf{B}$ fields.  Suppose we perform a
+\textbf{gauge transformation} consisting of the substitution
 \begin{align}
   \Phi(\mathbf{r},t) &\rightarrow \Phi(\mathbf{r},t) - \dot{\Lambda}(\mathbf{r},t) \label{gauge-subst-1} \\
   \mathbf{A}(\mathbf{r},t) &\rightarrow
   \mathbf{A}(\mathbf{r},t) + \nabla{\Lambda}(\mathbf{r},t),
   \label{gauge-subst-2}
 \end{align}
-where $\Lambda(\mathbf{r},t)$ is an arbitrary scalar field called a
-\textbf{gauge field}.  This is the \textbf{gauge transformation} of
-classical electromagnetism, which as we know leaves the electric and
-magnetic fields unchanged.  When applied to the Hamiltonian
-\eqref{quantumH}, it generates a new Hamiltonian
+where $\Lambda(\mathbf{r},t)$ is an arbitrary scalar field.  Plugging
+these into Eqs.~\eqref{Efield0} and \eqref{Bfield0}, we find that the
+$\mathbf{E}$ and $\mathbf{B}$ fields are unchanged; thus, the gauge
+transformation has no effect on the dynamics of any charged particles
+interacting with the electromagnetic field.
+
+In quantum electromagnetism, this feature manifests as a subtle but
+important symmetry known as \textbf{gauge symmetry}.  Let us insert
+the gauge transformed potentials
+\eqref{gauge-subst-1}--\eqref{gauge-subst-2} into the quantum
+Hamiltonian \eqref{quantumH}.  This results in the transformed
+Hamiltonian
 \begin{equation}
-  \hat{H}_\Lambda(t)
+  \hat{H}_\Lambda
   = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t) + e\nabla\Lambda(\hat{\mathbf{r}},t)|^2}{2m}
   - e\Phi(\hat{\mathbf{r}},t) + e\dot{\Lambda}(\hat{\mathbf{r}},t).
 \end{equation}
-Now suppose $\psi(\mathbf{r},t)$ is a wavefunction obeying the
-Schr\"odinger equation for the original Hamiltonian $\hat{H}$:
+Let us work in the position representation.  Suppose the wavefunction
+$\psi(\mathbf{r},t)$ is a solution to the Schr\"odinger wave equation
+under the original Hamiltonian,
 \begin{equation}
   i\hbar\frac{\partial\psi}{\partial t} =
-  \hat{H}(t) \psi(\mathbf{r},t)
-  = \left[\frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
-  - e\Phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t).
+  \hat{H} \psi(\mathbf{r},t).
+  %% = \left[\frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
+  %% - e\Phi(\hat{\mathbf{r}},t) \right]\psi(\mathbf{r},t),
+  \label{origschrod}
 \end{equation}
-Then it can be shown that the wavefunction $\psi\,
-\exp(-ie\Lambda/\hbar)$ automatically satisfies the Schr\"odinger
-equation for the transformed Hamiltonian $\hat{H}_\Lambda$:
-\begin{equation}
-  i\hbar\frac{\partial}{\partial t} \left[\psi(\mathbf{r},t) \, \exp\left(-\frac{ie\Lambda(\mathbf{r},t)}{\hbar}\right)\right] =
-  \hat{H}_\Lambda(t) \left[\psi(\mathbf{r},t) \, \exp\left(-\frac{ie\Lambda(\mathbf{r},t)}{\hbar}\right)\right].
-  \label{gaugeschrod}
-\end{equation}
+Then we assert that there is a corresponding solution for the gauge
+transformed Hamiltonian:
+\begin{align}
+  i\hbar\frac{\partial \psi_\Lambda}{\partial t} &=
+  \hat{H}_\Lambda \psi_\Lambda(\mathbf{r},t),
+  \label{gaugeschrod} \\
+  \psi_\Lambda(\mathbf{r},t) &=
+  \psi(\mathbf{r}, t)\, \exp\left[\frac{-ie\Lambda(\mathbf{r}, t)}{\hbar}\right].
+\end{align}
 
-To prove this, observe how time and space derivatives act on the new
-wavefunction:
+To prove this, observe how time and space derivatives act on $\psi_\Lambda$:
 \begin{align}
   \begin{aligned}
     \frac{\partial}{\partial t} \left[\psi \, \exp\left(-\frac{ie\Lambda}{\hbar}\right)\right] &=
@@ -350,18 +387,19 @@ terms in the scalar and vector potentials.  For example,
   \exp\left(-\frac{ie\Lambda}{\hbar}\right)
   \label{first_gauge_action}
 \end{align}
-If we apply the $(-i\hbar\nabla + e\mathbf{A} + e\nabla\Lambda)$
-operator a second time, it has a similar effect but with the quantity
-in square brackets on the right-hand side of
-\eqref{first_gauge_action} taking the place of $\psi$:
+If we apply $(-i\hbar\nabla + e\mathbf{A} + e\nabla\Lambda)$ another
+time, it has a similar effect, but with the quantity in square
+brackets on the right-hand side of Eq.~\eqref{first_gauge_action}
+taking the place of $\psi$.  Hence,
 \begin{equation}
   \Big|-i\hbar\nabla + e\mathbf{A} + e\nabla\Lambda\;\Big|^2
   \left[\psi \, \exp\left(-\frac{ie\Lambda}{\hbar}\right)\right]  
   =   \Big[\left|-i\hbar\nabla + e\mathbf{A}\right|^2\psi\Big]\;
   \exp\left(-\frac{ie\Lambda}{\hbar}\right).
 \end{equation}
-The remainder of the proof for Eq.~\eqref{gaugeschrod} can be carried
-out straightforwardly.
+By applying this observation to the left and right sides of
+Eq.~\eqref{gaugeschrod}, we find that it reduces to the original
+Schr\"odinger equation \eqref{origschrod}.
 
 The above result can be stated in a simpler form if the
 electromagnetic fields are static.  In this case, the time-independent
@@ -478,7 +516,7 @@ of the system, can be explained using gauge symmetry.  When an extra
 flux of $nh/e$ (where $n\in\mathbb{Z}$) is threaded through the
 annulus, Eq.~\eqref{Asolenoid} tells us that the change in vector
 potential is $\Delta \mathbf{A} = (n\hbar/ e r) \mathbf{e}_\phi$.  But
-we can undo the effects of this via the gauge field
+we can undo the effects of this via a gauge transformation with
 \begin{equation}
   \Lambda(r,\phi) = - \frac{n\hbar}{e} \, \phi \;\;\;\Rightarrow
   \begin{cases}\nabla \Lambda &= \displaystyle - (n\hbar/er) \, \mathbf{e}_\phi
@@ -1141,10 +1179,9 @@ In the next step, we choose a convenient gauge called the
 (To see that we can always make such a gauge choice, suppose we start
 out with a scalar potential $\Phi_0$ and vector potential
 $\mathbf{A}_0$ not satisfying \eqref{coulomb}.  Perform a gauge
-transformation with a gauge field $\Lambda(\mathbf{r}, t) = - \int^t
-dt'\; \Phi_0(\mathbf{r}, t')$.  The new scalar potential is $\Phi =
-\Phi_0 + \dot{\Lambda} = 0$; moreover, the new vector potential
-satisfies
+transformation with $\Lambda(\mathbf{r}, t) = - \int^t dt'\;
+\Phi_0(\mathbf{r}, t')$.  The new scalar potential is $\Phi = \Phi_0 +
+\dot{\Lambda} = 0$; moreover, the new vector potential satisfies
 \begin{equation}
   \nabla\cdot\mathbf{A} = \nabla\cdot \mathbf{A}_0 - \nabla^2 \Lambda
   = \nabla\cdot \mathbf{A}_0 + \int^t dt'\; \nabla^2\Phi_0(\mathbf{r}, t').
