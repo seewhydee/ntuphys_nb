@@ -146,9 +146,10 @@ Eq.~\eqref{Lag}, the partial derivatives of $L$ are
   \label{dLdv}
 \end{align}
 where $\partial_i \equiv \partial/\partial r_i$.  Next, we want to
-apply the total time derivative, $d/dt$, to Eq.~\eqref{dLdv}.  In
-doing so, note that $\mathbf{A}$ has its own $t$-dependence, as well
-as varying with the particle's $t$-dependent position.  Thus,
+apply the total time derivative, $d/dt$, to Eq.~\eqref{dLdv}.  When
+doing this, note that $\mathbf{A}$ can have its own $t$-dependence, in
+addition to its dependence on $\mathbf{r}(t)$.  Thus, by the chain
+rule of total derivatives,
 \begin{align}
   \begin{aligned}
     \frac{d}{dt} \frac{\partial L}{\partial \dot{r}_i}
@@ -168,12 +169,12 @@ Eq.~\eqref{EulerLagrange} gives
 \end{align}
 We want to compare this to the equation of motion \eqref{eom}.  The
 latter is expressed in terms of $\mathbf{E}$ and $\mathbf{B}$, so we
-must first use Eq.~\eqref{Efield0} and \eqref{Bfield0} to re-express
-it using the potentials.  Then the $\mathbf{E}$ term in
-Eq.~\eqref{eom} immediately matches the first term in the square
-brackets in Eq.~\eqref{mvtmp}.  The $\dot{\mathbf{r}}\times\mathbf{B}$
-term, however, needs a bit more manipulation.  First, express the
-cross product using the Levi-Cevita symbol:
+must first re-express it using the potentials, using
+Eqs.~\eqref{Efield0} and \eqref{Bfield0}.  The $\mathbf{E}$ term then
+immediately matches the first term in the square brackets in
+Eq.~\eqref{mvtmp}.  The $\dot{\mathbf{r}}\times\mathbf{B}$ term, which
+produces the magnetic force, needs a bit more manipulation.  First, we
+express the cross product using the Levi-Cevita symbol:
 \begin{align}
   (\dot{\mathbf{r}} \times \mathbf{B})_i &=
   \sum_{jk} \varepsilon_{ijk} \dot{r}_j B_k \\
@@ -272,10 +273,10 @@ Eq.~\eqref{canonp} is conserved:
   eC\hat{z} - eC\hat{z} = 0.
 \end{equation}
 
-Having established the classical Hamiltonian, we can promote it into a
-quantum Hamiltonian in the usual way, replacing $\mathbf{r}$ by the
-position operator $\hat{\mathbf{r}}$ and $\mathbf{p}$ by the momentum
-operator $\hat{\mathbf{p}}$:
+From the classical Hamiltonian, we can derive the quantum Hamiltonian
+in the usual way, replacing $\mathbf{r}$ by the position operator
+$\hat{\mathbf{r}}$ and $\mathbf{p}$ by the momentum operator
+$\hat{\mathbf{p}}$:
 \begin{framed}
   \begin{equation}
     \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
@@ -300,9 +301,9 @@ not commute:
 \end{align}
 For example, if we are working in the position representation (i.e.,
 using wavefunctions), then $\hat{\mathbf{p}} = -i\hbar\nabla$.  When
-dealing with the operator combination $\hat{p}_j A_j(\mathbf{r},t)$,
-the gradient in the momentum operator applies to everything on its
-right, i.e., both $A_j$ and the wavefunction.  By the product rule,
+dealing with $\hat{p}_j A_j(\mathbf{r},t)$, the gradient in the
+momentum operator applies to everything on its right, i.e., both $A_j$
+and the wavefunction.  By the product rule,
 \begin{equation}
   \hat{p}_j A_j(\mathbf{r},t) \psi(\mathbf{r},t)
   = -i\hbar \left[\frac{\partial A_j}{\partial r_j} + A_j \frac{\partial}{\partial r_j}\right] \psi(\mathbf{r},t).
