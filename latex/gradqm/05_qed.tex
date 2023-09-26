@@ -68,7 +68,7 @@ referred to are Dyson's 1951 lecture notes on quantum electrodynamics
 
 \section{Quantization of the Lorentz Force Law}
 
-\subsection{Non-relativistic electrons in an electromagnetic field}
+\subsection{Classical Lagrangian and Hamiltonian}
 \label{sec:nonrel}
 
 Consider a charged particle in an electromagnetic field.  As we are
@@ -125,11 +125,11 @@ which are related to $\mathbf{E}$ and $\mathbf{B}$ by
 Roughly speaking, Eq.~\eqref{Lag} follows the usual prescription that
 the Lagrangian is ``the kinetic energy minus the potential energy.''
 In this case, the ``potential energy'' consists of a term contributed
-by the electric potential, $-e\Phi$, and a more mysterious term,
-$e\dot{\mathbf{r}} \cdot \mathbf{A}$, which describes a coupling
-between the electron's velocity and the vector potential.
+by the electric potential, $-e\Phi$, and a term $e\dot{\mathbf{r}}
+\cdot \mathbf{A}$ that seems to describe a coupling between the
+electron's velocity and the vector potential.
 
-To show that this Lagrangian works, we want to verify that the
+To show that this is the right Lagrangian, we want to verify that the
 equation of motion \eqref{eom} is equivalent to the Euler-Lagrange
 equations
 \begin{equation}
@@ -146,10 +146,10 @@ Eq.~\eqref{Lag}, the partial derivatives of $L$ are
   \label{dLdv}
 \end{align}
 where $\partial_i \equiv \partial/\partial r_i$.  Next, we want to
-apply the total time derivative, $d/dt$, to Eq.~\eqref{dLdv}.  When
-doing this, note that $\mathbf{A}$ can have its own $t$-dependence, in
-addition to its dependence on $\mathbf{r}(t)$.  Thus, by the chain
-rule of total derivatives,
+apply the total time derivative, $d/dt$, to Eq.~\eqref{dLdv}.  In
+doing this, note that the $\mathbf{A}$ field felt by the particle
+varies with $t$ via $\mathbf{r}(t)$, as well as the $t$-dependence of
+the field itself.  By the chain rule of total derivatives,
 \begin{align}
   \begin{aligned}
     \frac{d}{dt} \frac{\partial L}{\partial \dot{r}_i}
@@ -169,12 +169,12 @@ Eq.~\eqref{EulerLagrange} gives
 \end{align}
 We want to compare this to the equation of motion \eqref{eom}.  The
 latter is expressed in terms of $\mathbf{E}$ and $\mathbf{B}$, so we
-must first re-express it using the potentials, using
+first re-express it using $\Phi$ and $\mathbf{A}$ via
 Eqs.~\eqref{Efield0} and \eqref{Bfield0}.  The $\mathbf{E}$ term then
-immediately matches the first term in the square brackets in
-Eq.~\eqref{mvtmp}.  The $\dot{\mathbf{r}}\times\mathbf{B}$ term, which
-produces the magnetic force, needs a bit more manipulation.  First, we
-express the cross product using the Levi-Cevita symbol:
+matches the first term in the square brackets in Eq.~\eqref{mvtmp}.
+The $\dot{\mathbf{r}}\times\mathbf{B}$ term, which produces the
+magnetic force, needs a bit more manipulation.  Using the Levi-Cevita
+symbol,
 \begin{align}
   (\dot{\mathbf{r}} \times \mathbf{B})_i &=
   \sum_{jk} \varepsilon_{ijk} \dot{r}_j B_k \\
@@ -183,85 +183,86 @@ express the cross product using the Levi-Cevita symbol:
   \dot{r}_j  \partial_p A_q.
   \label{vBtmp}
 \end{align}
-Then we use the identity
+Next, we use the identity
 \begin{equation}
   \sum_k \varepsilon_{ijk} \varepsilon_{pqk}
   = \delta_{ip} \delta_{jq} - \delta_{iq} \delta_{jp}.
 \end{equation}
-Eq.~\eqref{vBtmp} now simplifies to
+This allows us to simplify Eq.~\eqref{vBtmp} into
 \begin{align}
   (\dot{\mathbf{r}} \times \mathbf{B})_i
   &= \sum_{j} \left( \dot{r}_j  \partial_i A_j - \dot{r}_j  \partial_j A_i\right),
 \end{align}
 which matches the second term in the square brackets in
-Eq.~\eqref{mvtmp}.  We have thus verified the validity of the
-Lagrangian \eqref{Lag}.
+Eq.~\eqref{mvtmp}, as desired.
 
-We now use the Lagrangian to derive the Hamiltonian.  The canonical
-momentum is
+We now proceed to Hamiltonian mechanics.  Following the usual
+procedure, we first defining the canonical momentum, $p_i = \partial
+L/\partial \dot{r}_i$.  Using the Lagrangian \eqref{Lag}, we obtain
 \begin{equation}
-  p_i = \frac{\partial L}{\partial \dot{r}_i} = m\dot{r}_i - e A_i,
+  m \dot{\mathbf{r}} = \mathbf{p} + e \mathbf{A}(\mathbf{r},t).
   \label{canonp}
 \end{equation}
-and the Hamiltonian is defined as
+The Hamiltonian is then defined as
 \begin{equation}
   H(\mathbf{r},\mathbf{p}) = \mathbf{p} \cdot \dot{\mathbf{r}} - L.
+  \label{Hdef}
 \end{equation}
-With the help of Eq.~\eqref{canonp}, we express $H$ purely in terms of
-$\mathbf{r}$ and $\mathbf{p}$, without $\dot{\mathbf{r}}$:
+We plug Eqs.~\eqref{Lag} and \eqref{canonp} into Eq.~\eqref{Hdef}, to
+express $H$ in terms of $\mathbf{r}$ and $\mathbf{p}$, without
+$\dot{\mathbf{r}}$:
 \begin{align}
-  \begin{aligned}
-    H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
-    - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
-    + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
-    &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
-    - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
-    - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
-    + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right).
-  \end{aligned}
-\end{align}
-After cancelling various terms, we obtain
-\begin{equation}
-  H = \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
+  H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
+  - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
+  + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
+  &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
+  - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
+  - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
+  + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
+  &= \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
   \label{H0}
-\end{equation}
-This looks a lot like the Hamiltonian for a non-relativistic particle
-in a scalar potential,
+\end{align}
+Let us compare the result \eqref{H0} to the Hamiltonian for a
+non-relativistic particle in a scalar potential,
 \begin{equation*}
   H = \frac{|\mathbf{p}|^2}{2m} + V(\mathbf{r},t).
 \end{equation*}
-In Eq.~\eqref{H0}, the $-e\Phi$ term acts like a potential energy,
-which is no surprise.  More interesting is how the vector potential
-enters; it appears in the ``kinetic'' term via the substitution
+The $-e\Phi$ term acts like a potential energy, which is no surprise.
+More interestingly, the vector potential enters into the kinetic
+energy term, through the substitution
 \begin{equation}
   \mathbf{p} \rightarrow \mathbf{p} + e\mathbf{A}(\mathbf{r},t).  
 \end{equation}
 
-What does this mean?  Think about what ``momentum'' means for a
-charged particle in an electromagnetic field.  Noether's theorem
-states that any symmetry of a system, whether classical or quantum, is
-associated with a conservation law.  Thus, momentum is conserved if
-the system is translationally symmetric, as we can see from Hamilton's
-equation
+Why does the vector potential manifest as some kind of momentum shift?
+This can be traced back to Eq.~\eqref{canonp}, which says that in the
+presence of a vector potential, the quantity
+$m\dot{\mathbf{r}}$---which we normally think of as the ``kinetic
+momentum'' giving rise to the particle's kinetic energy---differs from
+the canonical momentum $\mathbf{p}$ by a shift of $e\mathbf{A}$.
+Recall that the concept of canonical momentum is tied to Noether's
+theorem, which states that any symmetry of a system is associated with
+a conservation law.  For translational symmetry, the conserved
+quantity is the canonical momentum.  Hamilton's equation,
 \begin{equation*}
-  \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i}.
+  \frac{dp_i}{dt} = \frac{\partial H}{\partial r_i},
 \end{equation*}
-If $H$ is $\mathbf{r}$-independent, then $d\mathbf{p}/dt = 0$.  But
-even if the electromagnetic potentials are $\mathbf{r}$-independent,
-the quantity $m\dot{\mathbf{r}}$ is \textit{not} necessarily
-conserved!  As a demonstration, consider
+implies that if $H$ is $\mathbf{r}$-independent, $d\mathbf{p}/dt = 0$.
+However, for a particle in a vector potential, even if $\mathbf{A}$ is
+$\mathbf{r}$-independent (i.e., translationally symmetric),
+$m\dot{\mathbf{r}}$ is \textit{not} necessarily conserved!  For
+example, consider the $\mathbf{r}$-independent potentials
 \begin{equation}
   \Phi(\mathbf{r}, t) = 0, \;\;\; \mathbf{A}(\mathbf{r}, t) = Ct \hat{z},
 \end{equation}
-where $C$ is some constant.  These potentials are
-$\mathbf{r}$-independent, but because of the time-dependence in the
-vector potential, Eq.~\eqref{Bfield0} gives a non-vanishing electric
+where $C$ is some constant.  Thanks to the $t$-dependence in the
+$\mathbf{A}$ potential, plugging these potentials into
+Eqs.~\eqref{Efield0}--\eqref{Bfield0} gives a non-vanishing electric
 field:
 \begin{equation}
   \mathbf{E}(\mathbf{r},t) = - C\hat{z}, \;\;\;\mathbf{B}(\mathbf{r},t) = 0.
 \end{equation}
-Plugging this into the Lorentz force law, we find that
-$m\dot{\mathbf{r}}$ is not conserved:
+Therefore, $m\dot{\mathbf{r}}$ is not conserved:
 \begin{equation}
   \frac{d}{dt}(m\dot{\mathbf{r}}) = eC\hat{z}.
 \end{equation}
@@ -273,10 +274,13 @@ Eq.~\eqref{canonp} is conserved:
   eC\hat{z} - eC\hat{z} = 0.
 \end{equation}
 
-From the classical Hamiltonian, we can derive the quantum Hamiltonian
-in the usual way, replacing $\mathbf{r}$ by the position operator
-$\hat{\mathbf{r}}$ and $\mathbf{p}$ by the momentum operator
-$\hat{\mathbf{p}}$:
+\subsection{Quantum Hamiltonian}
+
+From the classical Hamiltonian \eqref{H0}, we can formulate the
+Hamiltonian operator for a nonrelativistic quantum particle in an
+electromagnetic field.  As usual, the quantization procedure merely
+involves replacing the $\mathbf{r}$ and $\mathbf{p}$ variables with
+$\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ operators:
 \begin{framed}
   \begin{equation}
     \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t)|^2}{2m}
@@ -321,10 +325,12 @@ be written as
 \subsection{Gauge symmetry}
 \label{sec:gauge}
 
-In classical electromagnetism, it is known that the scalar and vector
-potentials have a peculiar feature: they do not uniquely define the
-$\mathbf{E}$ and $\mathbf{B}$ fields.  Suppose we perform a
-\textbf{gauge transformation} consisting of the substitution
+It is interesting that the Hamiltonian \eqref{quantumH} is expressed
+in terms of the scalar and vector potentials, $\Phi$ and $\mathbf{A}$.
+In classical electromagnetism, it is known that $\Phi$ and
+$\mathbf{A}$ do not uniquely define the $\mathbf{E}$ and $\mathbf{B}$
+fields.  Suppose we perform a \textbf{gauge transformation} on the
+potentials,
 \begin{align}
   \Phi(\mathbf{r},t) &\rightarrow \Phi(\mathbf{r},t) - \dot{\Lambda}(\mathbf{r},t) \label{gauge-subst-1} \\
   \mathbf{A}(\mathbf{r},t) &\rightarrow
@@ -334,21 +340,20 @@ $\mathbf{E}$ and $\mathbf{B}$ fields.  Suppose we perform a
 where $\Lambda(\mathbf{r},t)$ is an arbitrary scalar field.  Plugging
 these into Eqs.~\eqref{Efield0} and \eqref{Bfield0}, we find that the
 $\mathbf{E}$ and $\mathbf{B}$ fields are unchanged; thus, the gauge
-transformation has no effect on the dynamics of any charged particles
+transformation has no effect on the dynamics of any charged particle
 interacting with the electromagnetic field.
 
-In quantum electromagnetism, this feature manifests as a subtle but
-important symmetry known as \textbf{gauge symmetry}.  Let us insert
-the gauge transformed potentials
-\eqref{gauge-subst-1}--\eqref{gauge-subst-2} into the quantum
-Hamiltonian \eqref{quantumH}.  This results in the transformed
-Hamiltonian
+In the quantum theory, this feature manifests as a subtle symmetry of
+the Hamiltonian, called \textbf{gauge symmetry}.  Let us insert the
+gauge transformed potentials
+\eqref{gauge-subst-1}--\eqref{gauge-subst-2} into the Hamiltonian
+\eqref{quantumH}.  This results in the transformed Hamiltonian
 \begin{equation}
   \hat{H}_\Lambda
   = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}},t) + e\nabla\Lambda(\hat{\mathbf{r}},t)|^2}{2m}
   - e\Phi(\hat{\mathbf{r}},t) + e\dot{\Lambda}(\hat{\mathbf{r}},t).
 \end{equation}
-Let us work in the position representation.  Suppose the wavefunction
+We will work in the position representation.  Suppose the wavefunction
 $\psi(\mathbf{r},t)$ is a solution to the Schr\"odinger wave equation
 under the original Hamiltonian,
 \begin{equation}
@@ -365,7 +370,7 @@ transformed Hamiltonian:
   \hat{H}_\Lambda \psi_\Lambda(\mathbf{r},t),
   \label{gaugeschrod} \\
   \psi_\Lambda(\mathbf{r},t) &=
-  \psi(\mathbf{r}, t)\, \exp\left[\frac{-ie\Lambda(\mathbf{r}, t)}{\hbar}\right].
+  \psi(\mathbf{r}, t)\, \exp\left(-\frac{ie\Lambda(\mathbf{r}, t)}{\hbar}\right).
 \end{align}
 
 To prove this, observe how time and space derivatives act on $\psi_\Lambda$:
@@ -402,22 +407,31 @@ By applying this observation to the left and right sides of
 Eq.~\eqref{gaugeschrod}, we find that it reduces to the original
 Schr\"odinger equation \eqref{origschrod}.
 
-The above result can be stated in a simpler form if the
-electromagnetic fields are static.  In this case, the time-independent
-electromagnetic Hamiltonian is
+The above result can be stated in a simpler form if the potential
+fields are static.  In this case, the time-independent electromagnetic
+Hamiltonian is
 \begin{equation}
   \hat{H} = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}})|^2}{2m}
   - e\Phi(\hat{\mathbf{r}}).
 \end{equation}
-Suppose $\hat{H}$ has eigenenergies $\{E_m \}$ and energy
-eigenfunctions $\{\psi_m(\mathbf{r})\}$.  Then the gauge-transformed
-Hamiltonian
+By a time-independent gauge transformation, we can define
 \begin{equation}
   \hat{H}_\Lambda = \frac{|\hat{\mathbf{p}}+e\mathbf{A}(\hat{\mathbf{r}}) + e\nabla\Lambda(\mathbf{r})|^2}{2m}
   - e\Phi(\hat{\mathbf{r}})
 \end{equation}
-has the same energy spectrum $\{E_m\}$, with eigenfunctions
-$\{\,\psi_m(\mathbf{r}) \exp[-ie\Lambda(\mathbf{r})/\hbar]\,\}$.
+Then the gauge symmetry states that
+\begin{align}
+  \hat{H}\psi(\mathbf{r}) = E \psi(\mathbf{r})
+  \quad \Leftrightarrow \quad
+  \left\{
+  \begin{aligned}
+  \hat{H}_\Lambda \psi_\Lambda(\mathbf{r}) &= E \psi_\Lambda(\mathbf{r}), \\
+  \psi_\Lambda(\mathbf{r}) &= \psi(\mathbf{r}) \exp\left(-\frac{ie\Lambda(\mathbf{r})}{\hbar}\right).
+  \end{aligned}\right.
+\end{align}
+In other words, the gauge transformed Hamiltonian has the same energy
+spectrum, and its eigenfunctions are the original eigenfunctions
+modified by a phase factor involving $\Lambda(\mathbf{r})$.
 
 \subsection{The Aharonov-Bohm effect}
 
