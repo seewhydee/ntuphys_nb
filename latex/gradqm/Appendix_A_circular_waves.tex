@@ -193,21 +193,26 @@ what we need for describing scattered wavefunctions.
 
 \clearpage
 
-Some $H_m^+$ functions are plotted below:
+Let us examine the $H_m^+$ functions in more detail.  (You are welcome
+to check the properties of the $H_m^-$ counterparts.)  Below, we plot
+the real and imaginary parts for $m = 0, 1, 2, 3$:
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.98\textwidth]{besselh}
 \end{figure}
 
 \noindent
-For large $kr$, the function behaves like a decaying complex
-sinuoidal; the decay is caused by the $1/\sqrt{r}$ in
-Eq.~\eqref{Jasymptote}, which upholds the conservation of flux in the
-$r$ direction (see Chapter 1, Sec.~1.4).  For small $kr$, the value of
-$H_m^+(kr)$ diverges (specifically, its imaginary part, which is
-$Y_m$).  This is also consistent with flux conservation, because as
-the ``area'' (circumference) vanishes with $r$, the flux density must
-diverge to keep the total flux independent of $r$.
+For large $kr$, the functions behave as decaying complex sinuoidals,
+in accordance with Eq.~\eqref{Jasymptote}.  In the asymptotic form
+Eq.~\eqref{Jasymptote}, the decay factor of $1/\sqrt{r}$ satisfies the
+conservation of flux in the $r$ direction in 2D (see Chapter 1,
+Sec.~1.4); moreover, the Hankel functions for different $m$'s are all
+normalized to carry the same flux.
+
+For small $kr$, the value of $H_m^+(kr)$ diverges (specifically, its
+imaginary part, which is $Y_m$).  This is also consistent with flux
+conservation: as the circumference vanishes with $r$, the flux density
+must diverge as $1/r$ to keep the total flux constant.
 
 The figure below shows 2D plots for a few outgoing circular waves.
 The real part of the wavefunction is plotted, using red and blue
@@ -223,14 +228,6 @@ points:
 \noindent
 We see that the wave travels outward in a clockwise spiral ($m < 0$),
 isotropically ($m = 0$), or in a counterclockwise spiral ($m > 0$).
-
-In a similar fashion, we can use $H_m^-$ to make incoming circular
-waves, and we can use $J_m$ and $Y_m$ to make circular waves that act
-as standing waves in the $r$ direction.  According to
-Eq.~\eqref{JYHrelation}, each Bessel wave can be interpreted as a
-superposition of an incoming and outgoing Hankel wave, just as a 1D
-standing wave is a superposition of two counter-propagating plane
-waves via Eq.~\eqref{sincos}.
 
 Like plane waves, circular waves can be used as a basis for expressing
 arbitrary waveforms.  However, when writing a waveform as a
@@ -337,9 +334,11 @@ waves from Section~\ref{circular_waves}:
 \end{align}
 Hence, the spherical Hankel functions of the first and second kind
 describe outgoing and incoming waves, respectively.  The $1/r$
-prefactors are consistent with flux conservation in 3D (spherical
+prefactors are consistent with flux conservation in 3D: spherical
 wavefronts are spread over an area $4\pi r^2$, so $|\Psi_{\ell
-  m}(r)|^2 \cdot 4\pi r^2$ is $r$-independent).
+  m}(r)|^2 \cdot 4\pi r^2$ is $r$-independent.  The spherical Hankel
+functions for different $\ell, m$ are normalized to carry the same
+flux.
 
 Similar to the 2D case, we can express a plane wave as a superposition
 of spherical waves.  This is accomplished via the identity
@@ -393,13 +392,15 @@ The circular and spherical waves are appropriately normalized such
 that the energy flux in each scattering channel $\mu$ is directly
 proportional to $|c_\mu^\pm|^2$.  This follows from the normalization
 choice in the definitions of the Hankel and spherical Hankel
-functions, which led to the large-$r$ asymptotic forms in
-\eqref{Jasymptote} and \eqref{sphJasymptote}.
+functions, as noted in Sections~\ref{circular_waves} and
+\ref{sec:spherical}).
 
-In a scattering problem, the incoming coefficients $|c_\mu^-|^2$ and
-the outgoing coefficients $|c_\mu^+|^2$ are not independent.  Since
-the Schr\"odinger wave equation is linear, there must be some linear
-relation between them, of the form
+In a scattering problem, the incoming coefficients $c_\mu^-$ and the
+outgoing coefficients $c_\mu^+$ are not independent.  If we vary any
+individual $c_\mu^-$, there should be a corresponding linear variation
+in every $c_\mu^+$ (the variation is linear since the Schr\"odinger
+wave equation is linear).  Hence, there exists a set of linear
+relations
 \begin{equation}
   c_{\mu}^+ = \sum_{\nu} S_{\mu \nu} \, c_{\nu}^-, \;\;\;\text{for all}\;\;\mu.
   \label{srelation}
@@ -408,7 +409,12 @@ Here, the outgoing wave coefficients are on the left, and the incoming
 coefficients on the right.  The complex matrix $S$, called the
 \textbf{scattering matrix}, is determined by the scattering potential
 $V(\mathbf{r})$ and energy $E$.  It specifies how the scatterer
-converts incoming waves into outgoing waves.
+converts incoming waves into outgoing waves.  Due to flux
+conservation, the scattering matrix must be unitary:
+\begin{equation}
+  \left(S^{-1}\right)_{mm'} = S_{m'm}^*.
+  \label{Sunitary}
+\end{equation}
 
 Do not confuse the ``incoming'' and ``outgoing'' waves of
 Eq.~\eqref{psirdecomp} with the ``incident'' and ``scattered'' waves
@@ -504,22 +510,40 @@ where $R$ is the radius of the well and $U$ is its depth.  For
 simplicity, we assume an attractive potential, $U > 0$.  (The
 interested reader can work through the repulsive case, $U < 0$, which
 is almost the same, except that the wavefunction inside the scatterer
-may be evanescent.)  We aim to derive the $S$ matrix, as defined in
-Eq.~\eqref{srelation}.
+is an evanescent wave.)
 
-First, note that the scattering potential is isotropic, so angular
-momentum is conserved.  Thus, it is helpful to consider a total
-wavefunction (incident plus scattered wavefunction) with definite
-angular momentum:
+This scattering potential is isotropic, so angular momentum is
+conserved.  There must therefore exist solutions where both the
+incident and scattered wavefunctions have definite angular momentum
+$\ell, m$.  The total wavefunction takes the form
 \begin{equation}
-  \psi(r,\theta,\phi) = A_{\ell m}(r) \, Y_{\ell m}(\theta, \phi).
+  \psi(r,\theta,\phi) = A_{\ell m}(r) \, Y_{\ell m}(\theta, \phi)
   \label{sphere_ansatz0}
 \end{equation}
-This is similar to Eq.~\eqref{psi3d}, except we want it to be the
-solution for the Schr\"odinger equation with the potential
-\eqref{vsphere}, rather than the Helmholtz equation.
+everywhere (i.e., inside and outside the scatterer).  The existence of
+such solutions implies that the scattering matrix is diagonal; in
+other words, the scattering channels can be considered independently
+of each other.  Moreover, the diagonal entries turn out to depend on
+only the principal angular momentum quantum number $\ell$ (see below),
+so
+\begin{equation}
+  S_{\ell m, \ell' m'} \,=\, s_{\ell} \; \delta_{\ell \ell'} \, \delta_{mm'}.
+  \label{Sdiagonal}
+\end{equation}
+We also know from Eq.~\eqref{Sunitary} that the scattering matrix is
+unitary.  For a matrix that is both diagonal and unitary, each
+diagonal matrix element must have magnitude 1.  Hence,
+\begin{equation}
+  s_{\ell} = e^{i\Delta_{\ell}},
+  \label{sell}
+\end{equation}
+for some real phase $\Delta_{\ell}$.  This has a simple physical
+intepretation: since each scattering channel is independent and
+flux-conserving, the outgoing wave in that channel must have the same
+magnitude as the incoming wave.  It can only vary by a phase shift.
 
-Plugging this ansatz into the Schr\"odinger equation yields
+Let us plug the ansatz \eqref{sphere_ansatz0} into the Schr\"odinger
+equation.  This gives
 \begin{equation}
   \frac{d}{dr}\left(r^2\frac{dA_{\ell m}}{dr}\right)
   + \Big[K^2(r)\, r^2 - \ell(\ell+1)\Big] A_{\ell m}(r) = 0,
@@ -540,20 +564,16 @@ In the exterior region $r > R$, Eq.~\eqref{sphericalschrod} reduces to
 the spherical Bessel equation \eqref{sphbessel}, with $K(r)
 \rightarrow k$, and we can write
 \begin{equation}
-  A_{\ell}(r) = c^-_\ell h^-_\ell(kr) + c^+_\ell h^+_\ell(kr)
+  A_{\ell}(r) = c^-_\ell h^-_\ell(kr) + c^+_\ell h^+_\ell(kr),
   \label{aell}
 \end{equation}
-for some coefficients $c^\pm_\ell$.  Comparing this to
-Eqs.~\eqref{psirdecomp}--\eqref{srelation}, we see that the scattering
-matrix must have the form
+for some coefficients $c^+_\ell$ and $c^-_\ell$ obeying the scattering
+relation~\eqref{srelation}.  The fact that $A_{\ell}$ does not depend
+on $m$ justifies our prior assertion, in Eq.~\eqref{Sdiagonal}, that
+the scattering matrix entries do not depend on $m$.  Using
+Eqs.~\eqref{Sdiagonal}--\eqref{sell}, we can simplify this to
 \begin{equation}
-  S_{\ell m, \ell' m'} \,=\, s_{\ell} \; \delta_{\ell \ell'} \, \delta_{mm'}.
-\end{equation}
-In other words, $S$ is diagonal, with the diagonal entries dependent
-only on $\ell$ (not $m$).  The exterior solution \eqref{aell} can thus
-be rewritten as
-\begin{equation}
-  A(r) = c^-_\ell \Big(h^-_\ell(kr) + s_\ell\, h^+_\ell(kr)\Big)
+  A_\ell(r) = c^-_\ell \Big(h^-_\ell(kr) + e^{i\Delta_\ell}\, h^+_\ell(kr)\Big),
   \quad \textrm{for}\,\;r > R.
   \label{Aoutside}
 \end{equation}
@@ -582,35 +602,33 @@ To proceed, we compare the exterior solution \eqref{Aoutside} and the
 interior solution \eqref{Ainside} at $r = R$.  Matching both the
 wavefunction and its first derivative, we obtain two equations:
 \begin{align}
-  \begin{aligned} \alpha_\ell\, j_\ell(qR) &= c^-_\ell \Big(h^-_\ell(kR) + s_\ell h^+_\ell(kR)\Big) \\ \alpha_\ell\, q j_\ell'(qR) &= c^-_\ell k \Big({h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)\Big).\end{aligned}
+  \begin{aligned} \alpha_\ell\, j_\ell(qR)
+    &=\;\; c^-_\ell \Big(h^-_\ell(kR) \,
+    + e^{i\Delta_\ell} h^+_\ell(kR)\Big) \\
+    \alpha_\ell\, q j_\ell'(qR)
+    &= c^-_\ell k \Big({h^-_\ell}'(kR) + e^{i\Delta_\ell} {h^+_\ell}'(kR)\Big).\end{aligned}
 \end{align}
 Here, $j_\ell'$ denotes the derivative of the spherical Bessel
 function, and likewise for ${h_\ell^\pm}'$.  Taking the ratio of these
-two equations eliminates $\alpha_\ell$ and $c_\ell^-$:
+two equations eliminates $\alpha_\ell$ and $c_\ell^-$.  Then a bit of
+rearrangement yields
 \begin{equation}
-  \frac{q j_\ell'(qR)}{j_\ell(qR)} = k \frac{{h^-_\ell}'(kR) + s_\ell {h^+_\ell}'(kR)}{h^-_\ell(kR) + s_\ell h^+_\ell(kR)}.
+  e^{i\Delta_\ell} = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.
 \end{equation}
-With a bit of rearrangement,
+On the right-hand side, the numerator and denominator are complex
+conjugates of one another, since $j_\ell$ is real and $(h_\ell^+)^* =
+h_\ell^-$; hence, the expression has magnitude 1, matching the
+left-hand side.  We thus obtain
 \begin{equation}
-  s_\ell = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.
-\end{equation}
-The numerator and denominator are complex conjugates of one another,
-since $j_\ell$ is real and $(h_\ell^+)^* = h_\ell^-$.  Hence, the
-scattering matrix component is a pure phase factor:
-\begin{equation}
-  s_\ell = e^{2i\delta_\ell}, \;\;\;\mathrm{where}\;\; \delta_\ell = \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].
+  \Delta_\ell
+  = \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)\right].
   \label{slresult}
 \end{equation}
-This is consistent with energy conservation: since the $S$ matrix does
-not couple scattering channels of different angular momenta, the
-incoming flux and outgoing flux in each channel must be equal.  Hence,
-the scattering potential can only shift the phase of the outgoing wave
-component, without altering its amplitude.
 
-Plugging Eq.~\eqref{slresult} into the scattering amplitude formula
-\eqref{3dfrelation}, we obtain
+This result can then be plugged into the scattering amplitude formula
+\eqref{3dfrelation}:
 \begin{equation}
-  f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
+  f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\Delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).
 \end{equation}
 This can be further simplified with the aid of the following addition
 theorem for spherical harmonics:
@@ -619,12 +637,10 @@ theorem for spherical harmonics:
 \end{equation}
 where $P_\ell(\cdots)$ denotes a
 \href{https://en.wikipedia.org/wiki/Legendre_polynomials}{Legendre
-  polynomial}.
-
-Finally, we obtain
+  polynomial}.  Finally, we obtain
 \begin{framed}
 \begin{equation}
-  \begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}
+  \begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\Delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \Delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}
   \label{fresult}
 \end{equation}
 \end{framed}
