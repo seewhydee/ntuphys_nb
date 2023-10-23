@@ -853,55 +853,66 @@ below:
 \end{figure}
 
 \noindent
-Using simple geometry, we can write $\{S_1, S_2, S_3\}$ in terms of
-the Pauli matrices $\hat{\sigma}_1$ and $\hat{\sigma}_3$:
+Referring to this diagram, we can express the three spin operators as
 \begin{align}
-  \begin{aligned}\hat{S}_1 &= \frac{\hbar}{2} \, \hat{\sigma}_3
-    \\ \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 + \sin(2\pi/3)\hat{\sigma}_1\right]  \\   \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 - \sin(2\pi/3)\hat{\sigma}_1\right].\end{aligned}
+  \begin{aligned}
+    \hat{S}_1 &= \frac{\hbar}{2} \, \hat{\sigma}_3
+    && = \hat{S}_z
+    \\
+    \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 + \sin(2\pi/3)\hat{\sigma}_1\right] &&= \hat{U}^\dagger \hat{S}_z \hat{U}
+    \\
+    \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 - \sin(2\pi/3)\hat{\sigma}_1\right] &&= \hat{U} \hat{S}_z \hat{U}^\dagger,
+  \end{aligned}
 \end{align}
+where $\hat{U}$ is the following unitary rotation operator:
+\begin{equation}
+  \hat{U} = e^{(i\pi/3) \hat{\sigma}_2}
+  = \begin{pmatrix} 1/2 & \sqrt{3}/2\\
+    -\sqrt{3}/2 & 1/2
+  \end{pmatrix}.
+  \label{Uform}
+\end{equation}
 
-For this choice of spin axes, suppose Alice chooses $S_1$ (i.e.,
-$S_z$), and measures the result $+\hbar/2$.  Then the two-particle
-state collapses to $|\!\uparrow\rangle |\!\downarrow\rangle$.  Bob is
-assumed to choose a different spin axis.  If he chooses to measure
-$S_2$, the expectation value for his measurement is
+Suppose Alice chooses $S_1$, while Bob chooses $S_2$.  Note that the
+eigenstates of $\hat{S}_2$ are
+\begin{equation}
+  |\!\pm \!s_2\rangle = \hat{U}^\dagger |\!\updownarrow\rangle,
+  \label{s2eigs}
+\end{equation}
+since
+\begin{equation}
+  \hat{S}_2 \left(\hat{U}^\dagger |\!\updownarrow\rangle\right)
+  =
+  \hat{U}^\dagger \hat{S}_z \hat{U} \left(\hat{U}^\dagger |\!\updownarrow\rangle\right)
+  = \pm \frac{\hbar}{2} \; \hat{U}^\dagger |\!\updownarrow\rangle.
+\end{equation}
+The probability that Alice and Bob obtain opposite results, for this
+choice of axes, can be written in the form
+\begin{equation}
+  P(\textrm{opp}.) = P(A_+) P(B_-|A_+) +  P(A_+) P(B_-|A_+).
+\end{equation}
+For example, $P(A_+)$ denotes the probability of Alice obtaining $+$,
+whereupon Bob performs his measurement on the $|\!\downarrow\rangle$
+state; and we want the probability of Bob obtaining $-$, corresponding
+to the eigenstate $|\!-s_2\rangle$.  Therefore,
 \begin{align}
-  \langle\,\downarrow | \hat{S}_2 \,|\!\downarrow\,\rangle
-  &= \frac{\hbar}{2} \,
-  \Big[\cos(2\pi/3) \, \langle\,\downarrow|\sigma_3| \downarrow\,\rangle
-    + \sin(2\pi/3)\, \langle\,\downarrow|\sigma_1|\downarrow\,\rangle\Big]\\
-  &= \frac{\hbar}{2} \cdot \frac{1}{2}.
-  \label{bellP}
+  P(\textrm{opp}.) &= \frac{1}{2} \, \big|\langle -s_2 | \!\downarrow\rangle\big|^2
+  + \frac{1}{2} \, \big|\langle +s_2 | \!\uparrow\rangle\big|^2 \\
+  &= \frac{1}{2} \left(
+    \big|\langle \downarrow\! | \hat{U} | \!\downarrow\rangle\big|^2
+    + \big|\langle \uparrow \!| \hat{U} | \!\uparrow\rangle\big|^2
+    \right) \label{Popp3}\\
+    &= \frac{1}{4}. \label{Bobresult}
 \end{align}
-We can also write this expectation value in terms of the probabilities
-for Bob to measure $+\hbar/2$ and $-\hbar/2$, denoted by $P_B(+)$ and
-$P_B(-)$ respectively:
-\begin{align}
-  \langle\,\downarrow | \hat{S}_2 \,|\!\downarrow\,\rangle
-  &= \left[+\frac{\hbar}{2} P_B(+) - \frac{\hbar}{2} P_B(-)\right] \\
-  &= \frac{\hbar}{2} \Big[P_B(+) - P_B(-)\Big].
-  \label{bellP2}
-\end{align}
-Eqs.~\eqref{bellP} and Eq.~\eqref{bellP2} together imply that
-\begin{equation}
-  P_B(+) - P_B(-) = \frac{1}{2}.
-\end{equation}
-Moreover, by probability conservation,
-\begin{equation}
-  P_B(+) + P_B(-) = 1.
-\end{equation}
-Hence, the probability for Bob to obtain a negative value (the
-opposite of Alice's result) is
-\begin{equation}
-  P_B(-) = \frac{1}{4}.
-  \label{Bobresult}
-\end{equation}
+In obtaining Eq.~\eqref{Popp3}, we have used Eq.~\eqref{s2eigs}, and
+in obtaining Eq.~\eqref{Bobresult}, we have used Eq.~\eqref{Uform}.
+
 In a similar fashion, we can work through all the other possible
-scenarios involving different choices of spin axes by Alice and Bob.
-All yield the same result as Eq.~\eqref{Bobresult}: i.e., assuming
-Alice and Bob chose different measurement axis, the probability for
-them to obtain opposite results is $1/4$.  Bell's inequality is
-violated!
+choices of spin axes (subject to the over-arching constraint that
+Alice and Bob pick different axes).  All the cases yield the same
+result as Eq.~\eqref{Bobresult}.  In other words, the probability for
+Alice and Bob obtain opposite results is $1/4$, so Bell's inequality
+is violated!
 
 Last of all, we must consult Nature.  Is it possible to experimentally
 observe a violation of Bell's inequality?  In the decades following
