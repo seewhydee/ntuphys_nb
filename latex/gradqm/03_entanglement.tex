@@ -396,13 +396,13 @@ $|q\rangle$.
 Mathematically, these two rules can be summarized using the projection
 operator
 \begin{equation}
-  \hat{\rho}(q) = |q\rangle\langle q|.
+  \hat{\Pi}(q) = |q\rangle\langle q|.
   \label{project}
 \end{equation}
 Applying this operator to $|\psi\rangle$ gives the non-normalized
 state vector
 \begin{equation}
-  |\psi'\rangle = \hat{\rho}(q) |\psi\rangle = |q\rangle \langle q|\psi\rangle.
+  |\psi'\rangle = \hat{\Pi}(q) |\psi\rangle = |q\rangle \langle q|\psi\rangle.
 \end{equation}
 And from $|\psi'\rangle$, we can obtain:
 \begin{itemize}
@@ -454,7 +454,7 @@ that each measurement outcome is associated with a projection
 operator, Eq.~\eqref{project}.  For a partial measurement, we can
 accordingly define the \textbf{partial projector}
 \begin{equation}
-  \hat{\rho}(\alpha) \,=\, |\alpha\rangle\langle \alpha| \otimes  \hat{I}.
+  \hat{\Pi}(\alpha) \,=\, |\alpha\rangle\langle \alpha| \otimes  \hat{I}.
 \end{equation}
 The $A$ slot contains the projection operator associated with the
 measurement outcome $\alpha$, similar to Eq.~\eqref{project}.  The $B$
@@ -462,7 +462,7 @@ slot contains the identity operator for $\mathscr{H}_B$, indicating
 that no measurement is being done on $B$.  Applying this partial
 projector to Eq.~\eqref{psi_twop} gives
 \begin{equation}
-  |\psi'\rangle \,=\, \hat{\rho}(\alpha)\, |\psi\rangle
+  |\psi'\rangle \,=\, \hat{\Pi}(\alpha)\, |\psi\rangle
   \,=\, |\alpha\rangle |\varphi_\alpha\rangle.
 \end{equation}
 Then, following the same rules as before, the probability for the
