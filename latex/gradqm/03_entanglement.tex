@@ -1249,7 +1249,7 @@ following properties:
       %% &= \sum_\alpha
       %% \langle\alpha|\hat{Q}_A \left(\sum_\beta |\Psi_\beta\rangle
       %% \langle \Psi_\beta|\right) |\alpha\rangle \\
-      &= \mathrm{Tr}\left[\,\hat{Q}_A \,\hat{\rho}_A\,\right].
+      &= \mathrm{Tr}_A\left[\,\hat{Q}_A \,\hat{\rho}_A\,\right].
     \end{aligned}
     \label{prop3}
   \end{align}
@@ -1263,14 +1263,14 @@ following properties:
   \dots, p_{d_A}\}$, form a set of probabilities.  In other words,
   they satisfy
   \begin{equation}
-    p_j \in \mathbb{R} \;\;\;\mathrm{and}\;\; 0 \le p_j \le 1 \;\;
-    \mathrm{for}\;\; j = 1,\dots,d_A,
-    \quad\mathrm{with}\;\; \sum_{j=1}^{d_A} p_j = 1.
+    p_n \in \mathbb{R} \;\;\;\mathrm{and}\;\; 0 \le p_n \le 1 \;\;
+    \mathrm{for}\;\; n = 1,\dots,d_A,
+    \quad\mathrm{with}\;\; \sum_{n=1}^{d_A} p_n = 1.
     \label{trrho_reduced}    
   \end{equation}
   From this, it directly follows that
   \begin{equation}
-    \mathrm{Tr}[\hat\rho_A] = 1.
+    \mathrm{Tr}_A[\hat\rho_A] = 1.
   \end{equation}
   Property 4 follows from Property 3.  First, take $\hat{Q}_A =
   |j\rangle\langle j|$, where $|j\rangle$ is any eigenvector of
@@ -1359,13 +1359,13 @@ basis-independent.
 
 In one specific basis, the eigenbasis for $\hat{\rho}_A$, the
 entanglement entropy does match the classical entropy formula.  Let
-$\{|\mu\rangle\}$ be the eigenstates of $\hat{\rho}_A$; as shown in
-Eq.~\eqref{trrho_reduced}, the corresponding eigenvalues $\{p_\mu\}$
+$\{|n\rangle\}$ be the eigenstates of $\hat{\rho}_A$; as shown in
+Eq.~\eqref{trrho_reduced}, the corresponding eigenvalues $\{p_n\}$
 form a set of probabilities.  Then
 \begin{align}
   \begin{aligned}
-    S_A &= -k_b \sum_\mu \langle \mu | \hat{\rho}_A \ln(\hat{\rho}_A) | \mu\rangle  \\
-    &= - k_b \sum_\mu p_\mu \ln(p_\mu).
+    S_A &= -k_b \sum_n \langle n | \hat{\rho}_A \ln(\hat{\rho}_A) | n\rangle  \\
+    &= - k_b \sum_n p_n \ln(p_n).
     \label{SAmu}
   \end{aligned}
 \end{align}
@@ -1376,7 +1376,7 @@ following bounds, similar to the classical entropy formula:
   \mathrm{where}\; d_A = \mathrm{dim}\left[\mathscr{H}_A\right].
   \label{Sabounds}
 \end{equation}
-The lower bound, $S_A = 0$, holds if and only if one of the $p_\mu$'s
+The lower bound, $S_A = 0$, holds if and only if one of the $p_n$'s
 in Eq.~\eqref{SAmu} is 1, and all the others are zero, meaning $A$ is
 in a pure state.  Conversely, $S_{A} \ne 0$ when $\hat{\rho}_A$
 describes a mixed state---i.e., $A$ is entangled with some other
