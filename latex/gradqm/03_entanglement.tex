@@ -1305,14 +1305,14 @@ to make this statement more precise, and in fact physicists have come
 up with several different quantitive measures of entanglement.  In
 this section, we will describe the most common measure,
 \textbf{entanglement entropy}, which is closely related to the
-``entropy'' concept from thermodynamics, statistical mechanics, and
+entropy concept from thermodynamics, statistical mechanics, and
 information theory.
 
 We have seen from the previous section that if a subsystem $A$ is
 (possibly) entangled with some other subsystem $B$, the information
 required to calculate all partial measurement outcomes on $A$ is given
 by a reduced density operator $\hat{\rho}_A$.  We can use this to
-define a quantity called the \textbf{entanglement entropy} of $A$:
+define a quantity called the \textbf{entanglement entropy}:
 \begin{equation}
   S_{A} = - k_b \, \mathrm{Tr}_A \Big\{ \hat{\rho}_A\, \ln\!\big[\hat{\rho}_A\big]\Big\}.
   \label{entropy}
@@ -1701,7 +1701,7 @@ that it is unitary.
 %%   defined in Section~\ref{sec:tensorprod} satisfies these axioms.
 %%   \label{ex:innerprod}
 
-\item Consider the density operator
+\item Consider two spin-1/2 subsystems, with the density operator
   \begin{equation}
     \hat{\rho} = \frac{1}{2} |\!\uparrow\rangle \langle\uparrow\!|
     \,+\, \frac{1}{2} |\!\rightarrow\rangle \langle\rightarrow\!|,
@@ -1712,10 +1712,7 @@ that it is unitary.
     |\!\rightarrow\rangle = \frac{1}{\sqrt{2}} \left(|\!\uparrow\rangle +
   |\!\downarrow\rangle\right).
   \end{equation}
-  This can be regarded as a equal-probability ensemble of two pure
-  states, $|\!\uparrow\rangle$ and $|\!\rightarrow\rangle$.  However,
-  find the eigenvalues of $\hat{\rho}$, and show that they are
-  \textit{not} equal to 1/2.
+  Find the entanglement entropy.
   \label{ex:rho_decomp}
 
 \item 
