@@ -1525,15 +1525,26 @@ operators $\hat{\psi}(\mathbf{r})$ and
 $\hat{\psi}^\dagger(\mathbf{r})$.  As discussed in
 Section~\ref{sec:second_quant_op}, given a single-particle observable
 $\hat{A}^{(1)}$ we can define a Fock space observable $\hat{A}$
-corresponding to the ``total $A$'' of a multi-particle system.  With
-the field operators, we can express such observables as
+corresponding to the ``total $A$'' of a multi-particle system:
+\begin{equation}
+  \hat{A} = \sum_{\mu\nu} \hat{a}_\mu^\dagger \,
+  \langle\mu|\hat{A}^{(1)}|\nu\rangle \, \hat{a}_\nu.
+  \label{Ainitial}
+\end{equation}
+We can re-express such an operator using the field operators.  First,
+using Eqs.~\eqref{wfn1}--\eqref{wfn2}, we derive the inverse relations
+\begin{align}
+  \hat{a}_\mu &= \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}) \\
+  \hat{a}_\mu^\dagger &= \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).
+\end{align}
+Plugging these into Eq.~\eqref{Ainitial} yields
 \begin{equation}
   \hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r})
   \;\langle \mathbf{r}|\hat{A}^{(1)}|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').
   \label{Arecipe}
 \end{equation}
-For example, take the single-particle Hamiltonian for a particle in a
-potential $V$:
+For example, the single-particle Hamiltonian for a particle in a
+potential $V$ is
 \begin{equation}
   \hat{H}^{(1)} = \frac{|\hat{\mathbf{p}}|^2}{2m} + V(\hat{\mathbf{r}}),
   \label{Hsinglep}
