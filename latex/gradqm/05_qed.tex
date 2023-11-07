@@ -108,7 +108,7 @@ where $m$ is the particle's mass.
 We assert that Eq.~\eqref{eom} can be derived from the Lagrangian
 \begin{framed}
 \begin{equation}
-  L(\mathbf{r},\dot{\mathbf{r}},t) = \frac{1}{2}m\dot{\mathbf{r}}^2
+  L(\mathbf{r},\dot{\mathbf{r}},t) = \frac{1}{2}m |\dot{\mathbf{r}}|^2
   + e \Big[\Phi(\mathbf{r},t) - \dot{\mathbf{r}} \cdot \mathbf{A}(\mathbf{r},t)
     \Big],
   \label{Lag}
@@ -215,10 +215,10 @@ $\dot{\mathbf{r}}$:
   H &= \mathbf{p}\cdot \left(\frac{\mathbf{p}+e\mathbf{A}}{m}\right)
   - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
   + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
-  &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
-  - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
-  - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
-  + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
+  %% &= \frac{|\mathbf{p}+e\mathbf{A}|^2}{m}
+  %% - \frac{e}{m}\mathbf{A}\cdot \left(\mathbf{p}+e\mathbf{A}\right)
+  %% - \left(\frac{|\mathbf{p}+e\mathbf{A}|^2}{2m}
+  %% + e\Phi - \frac{e}{m}(\mathbf{p}+e\mathbf{A})\cdot \mathbf{A}\right) \\
   &= \frac{|\mathbf{p}+e\mathbf{A}(\mathbf{r},t)|^2}{2m} - e\Phi(\mathbf{r},t).
   \label{H0}
 \end{align}
@@ -619,7 +619,7 @@ equation,
 Note that the left side has a first-order time derivative.  On the
 right, the Hamiltonian $\hat{H}$ contains spatial derivatives in the
 form of momentum operators.  We know that time and space derivatives
-of wavefunctions are related to energy and momentum by
+of the wavefunction are related to energy and momentum, respectively:
 \begin{equation}
     i\hbar\, \partial_t\; \leftrightarrow \;
     E, \qquad
@@ -632,34 +632,35 @@ are related by
   E^2 = m^2c^4 + \sum_{j=1}^3 p_j^2c^2,
   \label{Erelativistic}
 \end{equation}
-where $m$ is the rest mass and $c$ is the speed of light.  Note that
-$E$ and $p$ appear to the same order in this equation.  (Following the
-usual practice in relativity theory, we use Roman indices $j \in
+where $m$ is the rest mass and $c$ is the speed of light.  (Following
+the usual practice in relativity theory, we use Roman indices $j \in
 \{1,2,3\}$ for the spatial coordinates $\{x,y,z\}$.)
 
-Since the left side of the Schr\"odinger equation \eqref{schrod} has a
-first-order time derivative, a relativistic Hamiltonian should involve
-first-order spatial derivatives.  So we make the guess
+Since the left side of Eq.~\eqref{schrod} has a first-order time
+derivative, we guess that the Hamiltonian on the right should involve
+first-order spatial derivatives.  Let us take
 \begin{equation}
   \hat{H} = \alpha_0 mc^2 + \sum_{j=1}^3 \alpha_j \hat{p}_j c,
   \label{Dirac0}
 \end{equation}
-where $\hat{p}_j \equiv -i\hbar \partial/\partial x_j$.  The $mc^2$
-and $c$ factors are placed for later convenience.  We now need to
-determine the dimensionless ``coefficients'' $\alpha_0$, $\alpha_1$,
-$\alpha_2$, and $\alpha_3$.
-
-For a wavefunction with definite momentum $\mathbf{p}$ and energy
-$E$,
+where $\hat{p}_j \equiv -i\hbar \partial_j$.  The $mc^2$ and $c$
+factors are placed for later convenience.  To determine the
+dimensionless ``coefficients'' $\alpha_0$, $\alpha_1$, $\alpha_2$, and
+$\alpha_3$, consider a wavefunction with definite energy $E$ and
+momentum $\mathbf{p}$:
 \begin{equation}
-  \hat{H}\psi = E \psi \;\;\;\Rightarrow \;\;\;
+  \left\{\begin{aligned}\hat{H}\psi &= E \psi \\
+  \hat{p}_i \psi &= p_i \psi
+  \end{aligned}\right.
+    \;\;\;\Rightarrow \;\;\;
   \left(\alpha_0mc^2 + \sum_{j=1}^3\alpha_j p_jc\right) \psi = E\,\psi.
 \end{equation}
-This is obtained by replacing the $\hat{p}_j$ operators with definite
-numbers.  If $\psi$ is a scalar, this would imply that $\alpha_0 mc^2
-+ \sum_{j}\alpha_j p_j c = E$ for certain scalar coefficients
-$\{\alpha_0, \dots, \alpha_3\}$, which does not match the relativistic
-energy-mass-momentum relation \eqref{Erelativistic}.
+If $\psi$ is a scalar, this would imply that
+\begin{equation*}
+  \alpha_0 mc^2 + \sum_{j}\alpha_j p_j c = E
+\end{equation*}
+for certain scalar coefficients $\{\alpha_0, \dots, \alpha_3\}$, which
+does not match Eq.~\eqref{Erelativistic} at all!
 
 But we can get things to work if $\psi(\mathbf{r},t)$ is a
 multi-component wavefunction, rather than a scalar wavefunction, and
@@ -672,17 +673,17 @@ matrix-vector product operation.  In that case,
     \label{Dirac}
   \end{equation}
 \end{framed}
-\vskip -0.15in
+\vskip -0.05in
 \noindent
 where the hats on $\{\hat{\alpha}_0, \dots, \hat{\alpha}_3\}$ indicate
 that they are matrix-valued.  Applying the Hamiltonian twice gives
 \begin{equation}
-  \left(\hat{\alpha}_0mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^{\!2}\;
+  \Big(\hat{\alpha}_0mc^2 + \sum_{j}\hat{\alpha}_j p_j c\Big)^{\!2}\;
   \psi = E^2\,\psi.
 \end{equation}
 This can be satisfied if
 \begin{equation}
-  \left(\hat{\alpha}_0 mc^2 + \sum_{j=1}^3\hat{\alpha}_j p_j c\right)^2
+  \Big(\hat{\alpha}_0 mc^2 + \sum_{j}\hat{\alpha}_j p_j c\Big)^2
   = E^2\, \hat{I},
 \end{equation}
 where $\hat{I}$ is the identity matrix.  Expanding the square (and
@@ -757,82 +758,69 @@ This is plotted below:
 \end{center}
 
 \noindent
-The energy spectrum forms two hyperbolic bands.  For each
-$\mathbf{p}$, there are two degenerate positive energy eigenvalues,
-and two degenerate negative energy eigenvalues, for a total of four
-eigenvalues (matching the number of wavefunction components).  The
-upper band matches the dispersion relation for a massive relativistic
-particle, as desired.  But what about the negative-energy band?  Who
-ordered that?
+The energy spectrum forms two hyperbolas.  The upper hyperbola matches
+the standard dispersion relation for a massive relativistic particle.
+But what about the negative-energy hyperbola?  Who ordered that?
 
-It might be possible for us to ignore the existence of the
-negative-energy states, if we only ever consider an isolated electron;
-we could just declare the positive-energy states to be the ones we are
-interested in, and ignore the others.  However, the problem becomes
-hard to dismiss once we let the electron interact with another system,
-such as the electromagnetic field.  Under such circumstances, the
-availability of negative-energy states extending down to $E\rightarrow
--\infty$ would destabilize the positive-energy electron states, since
-the electron can repeatedly hop to states with ever more negative
-energies by shedding energy (e.g., by emitting photons).  This is
-obviously problematic.  However, let us wait for a while (till
-Section~\ref{sec:positrons}) to discuss how the stability problem
-might be resolved.
+If we are considering an isolated electron, it might be possible for
+us to simply declare that we are only interested in the
+positive-energy states, and ignore the negative-energy states.
+However, this becomes untenable once we couple the electron to
+additional systems like the electromagnetic field: even if the
+electron starts with $E > 0$, it can hop to the negative-energy
+hyperbola by shedding energy into the external system.  This seems
+like a glaring problem, but let us wait till
+Section~\ref{sec:positrons} to discuss how to resolve it.
 
-For now, let us take a closer look at the meaning of the Dirac
-wavefunction.  Its four components represent a four-fold ``internal''
-degree of freedom, distinct from the electron's ordinary kinematic
-degrees of freedom.  Since there are two energy bands, the assignment
-of an electron to the upper or lower band (or some superposition
-thereof) consitutes two degrees of freedom.  Each band must then
-posssess a two-fold degree of freedom (so that $2\times 2 = 4$), which
-turns out to be associated with the electron's spin.
-
-To see explicitly how this works, let us pick a representation for the
-$\hat{\alpha}_\mu$ matrices.  The choice of representation determines
-how the four degrees of freedom are encoded in the individual
-wavefunction components.  We will use the Dirac representation
-\eqref{alpha_matrices}.  In this case, it is convenient to divide the
-components into upper and lower parts,
+Moreover, each hyperbola is two-fold degenerate.  Since the Dirac
+wavefunction has four components, for each $\mathbf{p}$ there are four
+orthogonal energy eigenstates, two with (equal) positive energy and
+two with (equal) negative energy.  However, the four wavefunction
+components are \textit{not} necessarily related in a simple way to the
+choice of positive or negative $E$.  Let us take the Dirac
+representation \eqref{alpha_matrices}, and divide the components by
 \begin{equation}
   \psi(\mathbf{r},t) = \begin{bmatrix}\psi_A(\mathbf{r},t)
     \\ \psi_B(\mathbf{r},t)
   \end{bmatrix},
+  \label{diracdivision}
 \end{equation}
-where $\psi_A$ and $\psi_B$ have two components each.  Then, for an
-eigenstate with energy $E$ and momentum $\mathbf{p}$, applying
-\eqref{alpha_matrices} to the Dirac equation \eqref{Dirac} gives
+where $\psi_A$ and $\psi_B$ have two components each.  The Dirac
+equation \eqref{Dirac} then reduces to
 \begin{align}
   \psi_A &= \frac{1}{E - mc^2} \sum_j \hat{\sigma}_j p_j \psi_B,
   \label{dirac_nonrel1} \\
   \psi_B &= \frac{1}{E + mc^2} \sum_j \hat{\sigma}_j p_j \psi_A.
   \label{dirac_nonrel2}
 \end{align}
-Consider the non-relativistic limit, $|\mathbf{p}| \rightarrow 0$, for
-which $E$ approaches either $mc^2$ or $-mc^2$.  For the upper band ($E
-\gtrsim mc^2$), the vanishing of the denominator in
-Eq.~\eqref{dirac_nonrel1} tells us that the wavefunction is dominated
-by $\psi_A$.  Conversely, for the lower band ($E \lesssim -mc^2$),
-Eq.~\eqref{dirac_nonrel2} tells us that the wavefunction is dominated
-by $\psi_B$.  We can thus associate the upper ($A$) and lower ($B$)
-components with the band degree of freedom.  Note, however, that this
-is only an approximate association that holds in the non-relativistic
-limit!  In the relativistic regime, upper-band states can have
-non-vanishing values in the $B$ components, and vice versa.  (There
-does exist a way to make the upper/lower spinor components correspond
-rigorously to positive/negative energies, but this requires a more
-complicated representation than the Dirac representation
+For $|\mathbf{p}| \rightarrow 0$, $E$ approaches either $mc^2$ or
+$-mc^2$.  On the upper hyperbola ($E \sim mc^2$), the vanishing of the
+denominator in Eq.~\eqref{dirac_nonrel1} implies that the wavefunction
+is dominated by $\psi_A$, with $\psi_B \sim 0$.  Conversely, on the
+lower hyperbola ($E \sim -mc^2$), the wavefunction is dominated by
+$\psi_B$, with $\psi_A \sim 0$.
+
+However, this association only holds in the non-relativistic limit!
+In the relativistic regime, $|\mathbf{p}| \sim |E| \gg mc^2$,
+Eqs.~\eqref{dirac_nonrel1} and \eqref{dirac_nonrel2} imply that
+$|\psi_A| \sim |\psi_B|$ for both positive-energy and negative-energy
+eigenstates.  (There does exist a way to make the upper/lower
+components correspond rigorously to positive/negative $E$, but this
+requires adopting a much more complicated matrix representation
 [\ref{cite:foldy}].)
 
-\subsection{Dirac electrons in an electromagnetic field}
+In the next section, we will see that the two-fold degeneracy of each
+energy hyperbola is related to the electron's spin degree of freedom.
+
+\subsection{Dirac electron in an electromagnetic field}
 \label{sec:diracem}
 
-To continue pursuing our objective of interpreting the Dirac
-wavefunction, we must determine how the electron interacts with an
-electromagnetic field.  We introduce electromagnetism by following the
-same procedure as in the non-relativistic theory
-(Section~\ref{sec:nonrel}): add $-e\Phi(\mathbf{r},t)$ as a scalar
-potential function, and add the vector potential via the substitution
+Let us next look at how Dirac's electron interacts with an
+electromagnetic field.  To introduce the electromagnetic field into
+the theory, we follow the same procedure as in the non-relativistic
+theory (Section~\ref{sec:nonrel}): add $-e\Phi(\mathbf{r},t)$ as a
+scalar potential function, and add the vector potential via the
+substitution
 \begin{equation}
   \hat{\mathbf{p}} \rightarrow \hat{\mathbf{p}}
   + e\mathbf{A}(\hat{\mathbf{r}},t).  
@@ -848,8 +836,11 @@ Applying this recipe to the Dirac Hamiltonian (\ref{Dirac}) yields
 You can check that this has the same gauge symmetry properties as the
 non-relativistic theory discussed in Section~\ref{sec:gauge}.
 
-In the Dirac representation \eqref{alpha_matrices},
-Eq.~\eqref{DiracEM} reduces to
+We now take the Dirac representation \eqref{alpha_matrices}.
+Moreover, following Eq.~\eqref{diracdivision}, let $\psi_A$ and
+$\psi_B$ denote the the Dirac wavefunction's upper and lower
+components (each having two components).  Then Eq.~\eqref{DiracEM}
+reduces to
 \begin{align}
   i\hbar\, \partial_t \, \psi_A
   &= \big(+mc^2 -e\Phi \big)\,
@@ -861,31 +852,21 @@ Eq.~\eqref{DiracEM} reduces to
   \psi_B \,+\, \sum_{j} \hat{\sigma}_j \big(-i\hbar\partial_j
     +eA_j \big)\, c\;\psi_A, \label{Dirac2b}
 \end{align}
-where $\psi_A$ and $\psi_B$ are the previously-introduced
-two-component objects corresponding to the upper and lower halves of
-the Dirac wavefunction.
-
-In the non-relativistic limit, solutions to the above equations can be
-cast in the form
+In the non-relativistic limit, we can seek solutions of the form
 \begin{align}
   \begin{aligned}
-  \psi_{A}(\mathbf{r},t) &= \Psi_{A}(\mathbf{r},t)\,
-  \exp\left[-i\left(\frac{mc^2}{\hbar}\right)t\right] \\
-  \psi_{B}(\mathbf{r},t) &= \Psi_{B}(\mathbf{r},t)\,
+  \psi_{A/B}(\mathbf{r},t) &= \Psi_{A/B}(\mathbf{r},t)\,
   \exp\left[-i\left(\frac{mc^2}{\hbar}\right)t\right].
   \end{aligned}
 \end{align}
-The exponentials on the right side are the $\exp(-i\omega t)$ factor
-corresponding to the rest energy $mc^2$, which dominates the
-electron's energy in the non-relativistic limit.  (Note that by using
-$+mc^2$ rather than $-mc^2$, we are explicitly referencing the
-positive-energy band.)  If the electron is in an eigenstate with
-$\mathbf{p} = 0$ and there are no electromagnetic fields, $\Psi_A$ and
-$\Psi_B$ would just be constants.  Now suppose the electron is
-non-relativistic but not in a $\mathbf{p} = 0$ eigenstate, and the
-electromagnetic fields are weak but not necessarily vanishing.  In
-that case, $\Psi_A$ and $\Psi_B$ are functions that vary with $t$, but
-slowly.
+The phase factor on the right side comes from the rest energy $mc^2$.
+This is assumed to be by far the largest energy scale in the problem,
+corresponding to a fast oscillation.  (By using $mc^2$ rather than
+$-mc^2$, we are focusing on the positive-energy states.)  The
+functions $\Psi_A$ and $\Psi_B$ are ``slowly-varying envelopes'',
+which have $t$-dependences much slower than the phase factor.  When
+$\mathbf{p} = 0$ and $\Phi = \mathbf{A} = 0$, they reduce to
+constants.
 
 Plugging this ansatz into Eqs.~\eqref{Dirac2a}--\eqref{Dirac2b} gives
 \begin{align}
@@ -949,12 +930,13 @@ Hence,
   \,-\, \left(-\frac{\hbar e}{2m}\, \hat{\boldsymbol{\sigma}}\right)
   \,\cdot\, \mathbf{B} \right\} \Psi_A.
 \end{equation}
-This is an exact match for Eq.~\eqref{quantumH}, except that the
-Hamiltonian has an additional term of the form $-
-\hat{\boldsymbol{\mu}} \cdot \hat{\mathbf{B}}$.  This additional term
-corresponds to the potential energy of a magnetic dipole of moment
-$\boldsymbol{\mu}$ in a magnetic field $\mathbf{B}$.  The Dirac theory
-therefore predicts the electron's magnetic dipole moment to be
+On the right side, we see the Hamiltonian for a non-relativistic
+electron in an electromagnetic field, Eq.~\eqref{quantumH}, but with
+an additional term of the form $- \hat{\boldsymbol{\mu}} \cdot
+\hat{\mathbf{B}}$.  This new term matches the potential energy of a
+magnetic dipole of moment $\boldsymbol{\mu}$ in a magnetic field
+$\mathbf{B}$.  Therefore, the theory predicts that the electron has a
+magnetic dipole moment of
 \begin{equation}
   |\boldsymbol{\mu}| = \frac{\hbar e}{2m}.
   \label{Diracmu}
@@ -967,17 +949,16 @@ electronic and electromagnetic quantum fields.  Using the full theory
 of quantum electrodynamics, that ``anomalous magnetic moment'' can
 also be calculated and matches experiment to around one part in
 $10^9$, making it one of the most precise theoretical predictions in
-physics!  For details, see Ref.~[\ref{cite:zee}].
+physics [\ref{cite:zee}]!
 
 It is noteworthy that we did not set out to include spin in the
 theory, yet it arose, seemingly unavoidably, as a by-product of
 formulating a relativistic theory of the electron.  This is a
-manifestation of the general principle that relativistic quantum
-theory is more constrained than non-relativistic quantum
-theory~[\ref{cite:dyson}].  Due to the demands imposed by relativistic
-symmetries, spin is not allowed to be an optional part of the theory
-of the relativistic electron---it has to be built into the theory at a
-fundamental level.
+manifestation of the principle that relativistic quantum theory is
+more constrained than non-relativistic quantum
+theory~[\ref{cite:dyson}].  To satisfy the relativistic symmetries,
+spin cannot be an optional part of the theory---it must be built-in at
+a fundamental level.
 
 \subsection{Positrons and Dirac Field Theory}
 \label{sec:positrons}
