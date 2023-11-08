@@ -740,8 +740,10 @@ One particularly useful choice is called the \textbf{Dirac
 \end{align}
 where $\{\hat{\sigma}_{1}, \hat{\sigma}_{2}, \hat{\sigma}_{3}\}$
 denote the usual Pauli matrices.  Since the $\hat{\alpha}_\mu$'s are
-$4\times4$ matrices, it follows that $\psi(\mathbf{r})$ is a
-four-component field.
+$4\times4$ matrices, the field $\psi(\mathbf{r})$, at each point
+$\mathbf{r}$, is a four-component object, called a \textbf{spinor}
+(it's not a vector since its behaves differently under coordinate
+transformations; we won't get into the details).
 
 \subsection{Eigenstates of the Dirac Hamiltonian}
 \label{sec:deigenstates}
@@ -750,6 +752,7 @@ According to Eq.~\eqref{Erelativistic}, the energy eigenvalues of the
 Dirac Hamiltonian are
 \begin{equation}
   E = \pm \sqrt{m^2c^4 + \sum_{j} p_j^2c^2}.
+  \label{Edispdirac}
 \end{equation}
 This is plotted below:
 
@@ -757,36 +760,33 @@ This is plotted below:
   \includegraphics[width=0.27\textwidth]{diraccone}
 \end{center}
 
-\noindent
 The energy spectrum forms two hyperbolas.  The upper hyperbola matches
 the standard dispersion relation for a massive relativistic particle.
-But what about the negative-energy hyperbola?  Who ordered that?
+But what about the negative-energy hyperbola?  Nobody ordered that,
+and we might be tempted to simply ignore the negative-energy states,
+focusing only on the positive-energy states.  However, this becomes
+untenable once we couple the electron to additional systems like the
+electromagnetic field: even if the electron starts with $E > 0$, it
+can hop to the negative-energy hyperbola by shedding energy into the
+external system.  This seems like a glaring problem, but let us wait
+till Section~\ref{sec:positrons} to discuss how to resolve it.
 
-If we are considering an isolated electron, it might be possible for
-us to simply declare that we are only interested in the
-positive-energy states, and ignore the negative-energy states.
-However, this becomes untenable once we couple the electron to
-additional systems like the electromagnetic field: even if the
-electron starts with $E > 0$, it can hop to the negative-energy
-hyperbola by shedding energy into the external system.  This seems
-like a glaring problem, but let us wait till
-Section~\ref{sec:positrons} to discuss how to resolve it.
-
-Moreover, each hyperbola is two-fold degenerate.  Since the Dirac
-wavefunction has four components, for each $\mathbf{p}$ there are four
-orthogonal energy eigenstates, two with (equal) positive energy and
-two with (equal) negative energy.  However, the four wavefunction
-components are \textit{not} necessarily related in a simple way to the
-choice of positive or negative $E$.  Let us take the Dirac
-representation \eqref{alpha_matrices}, and divide the components by
+Notice also that for each $\mathbf{p}$, the Dirac Hamiltonian reduces
+to a $4\times4$ matrix, so there are four orthogonal eigenstates.
+Hence, both energy hyperbolas are two-fold degenerate.  The four
+degrees of freedom (two from the choice of positive/negative $E$, two
+from the degeneracy) are related to the four spinor components in a
+somewhat subtle way.  To help understand this, let us adopt the Dirac
+representation \eqref{alpha_matrices}, and divide the spinor as
+follows:
 \begin{equation}
   \psi(\mathbf{r},t) = \begin{bmatrix}\psi_A(\mathbf{r},t)
     \\ \psi_B(\mathbf{r},t)
   \end{bmatrix},
   \label{diracdivision}
 \end{equation}
-where $\psi_A$ and $\psi_B$ have two components each.  The Dirac
-equation \eqref{Dirac} then reduces to
+where $\psi_A$ and $\psi_B$ have two components each.  Using the Dirac
+Hamiltonian \eqref{Dirac}, we derive
 \begin{align}
   \psi_A &= \frac{1}{E - mc^2} \sum_j \hat{\sigma}_j p_j \psi_B,
   \label{dirac_nonrel1} \\
@@ -795,22 +795,21 @@ equation \eqref{Dirac} then reduces to
 \end{align}
 For $|\mathbf{p}| \rightarrow 0$, $E$ approaches either $mc^2$ or
 $-mc^2$.  On the upper hyperbola ($E \sim mc^2$), the vanishing of the
-denominator in Eq.~\eqref{dirac_nonrel1} implies that the wavefunction
-is dominated by $\psi_A$, with $\psi_B \sim 0$.  Conversely, on the
-lower hyperbola ($E \sim -mc^2$), the wavefunction is dominated by
-$\psi_B$, with $\psi_A \sim 0$.
+denominator in Eq.~\eqref{dirac_nonrel1} implies that $\psi_A$
+dominates the wavefunction, with $\psi_B \sim 0$.  On the lower
+hyperbola ($E \sim -mc^2$), $\psi_B$ dominates, with $\psi_A \sim 0$.
+In the next section, we will develop this further and show that the
+two-fold degree of freedom of each sub-spinor, $\psi_A$ and $\psi_B$,
+corresponds to the electron's spin.
 
 However, this association only holds in the non-relativistic limit!
 In the relativistic regime, $|\mathbf{p}| \sim |E| \gg mc^2$,
 Eqs.~\eqref{dirac_nonrel1} and \eqref{dirac_nonrel2} imply that
 $|\psi_A| \sim |\psi_B|$ for both positive-energy and negative-energy
-eigenstates.  (There does exist a way to make the upper/lower
+eigenstates.  (There does exist a way to make the upper/lower spinor
 components correspond rigorously to positive/negative $E$, but this
-requires adopting a much more complicated matrix representation
+requires adopting a more complicated matrix representation
 [\ref{cite:foldy}].)
-
-In the next section, we will see that the two-fold degeneracy of each
-energy hyperbola is related to the electron's spin degree of freedom.
 
 \subsection{Dirac electron in an electromagnetic field}
 \label{sec:diracem}
@@ -960,72 +959,45 @@ theory~[\ref{cite:dyson}].  To satisfy the relativistic symmetries,
 spin cannot be an optional part of the theory---it must be built-in at
 a fundamental level.
 
-\subsection{Positrons and Dirac Field Theory}
+\subsection{Positrons and the Dirac Field}
 \label{sec:positrons}
 
-As noted in Section~\ref{sec:deigenstates}, the stability of the
-quantum states described by the Dirac equation is threatened by the
-presence of negative-energy solutions.  To get around this problem,
-Dirac suggested that what we regard as the ``vacuum'' may actually be
-a state, called the \textbf{Dirac sea}, in which all negative-energy
-states are occupied.  Since electrons are fermions, the Pauli
-exclusion principle would then forbid decay into the negative-energy
-states, stabilizing the positive-energy states.
+As noted in Section~\ref{sec:deigenstates}, the Dirac Hamiltonian has
+both positive-energy and negative-energy eigenstates, and the presence
+of the negative-energy states threatens to destabilize the
+positive-energy states.  To get around this, Dirac suggested that the
+``vacuum'' might actually be a multi-particle state, called the
+\textbf{Dirac sea}, in which all negative-energy states are occupied.
+Since electrons are fermions, the Pauli exclusion principle forbids
+decay into the negative-energy states, thus stabilizing the
+positive-energy solutions.
 
 At first blush, the idea seems ridiculous; how can the vacuum contain
 an infinite number of particles?  However, we shall see that the idea
-becomes more plausible if the Dirac equation is reinterpreted as a
-single-particle \textit{construction} which arises from a more
-fundamental quantum field theory.  The Dirac sea idea is an inherently
-multi-particle concept, and we know from Chapter 4 that quantum field
-theory is a natural framework for describing multi-particle quantum
-states.  Let us therefore develop this theory.
+becomes more plausible if Dirac's single-particle Hamiltonian is
+reinterpreted as a special construction arising from a quantum field
+theory.  After all, the Dirac sea idea is an inherently multi-particle
+concept, and we know from Chapter 4 that quantum field theory is the
+natural framework for such ideas.
 
-Consider again the eigenstates of the single-particle Dirac
-Hamiltonian with definite momenta and energies.  Denote the
-positive-energy wavefunctions by
-\begin{equation}
-  \frac{u_{\mathbf{k}\sigma} \, e^{i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}}
-  = \langle \mathbf{r} | \mathbf{k}, +, \sigma\rangle,
-  \quad\mathrm{where}\;\;
-  \hat{H} |\mathbf{k}, +, \sigma\rangle
-  = \epsilon_{\mathbf{k}\sigma} |\mathbf{k}, +, \sigma\rangle.
-  \label{Diraces1}
-\end{equation}
-The negative-energy wavefunctions are
-\begin{equation}
-  \frac{v_{\mathbf{k}\sigma} \, e^{-i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}}
-  = \langle \mathbf{r} | \mathbf{k}, -, \sigma\rangle,
-  \quad\mathrm{where}\;\;
-  \hat{H} |\mathbf{k}, -, \sigma\rangle
-  = - \epsilon_{\mathbf{k}\sigma} |\mathbf{k}, -, \sigma\rangle.
-  \label{Diraces2}
-\end{equation}
-Note that $|\mathbf{k}, -, \sigma\rangle$ denotes a negative-energy
-eigenstate with momentum $-\hbar\mathbf{k}$, not $\hbar\mathbf{k}$.
-The reason for this notation, which uses different symbols to label
-the positive-energy and negative-energy states, will become clear
-later.  Each of the $u_{\mathbf{k}\sigma}$ and $v_{\mathbf{k}\sigma}$
-terms are four-component objects (spinors), and for any given
-$\mathbf{k}$, the set
-\begin{equation*}
-  \{ u_{\mathbf{k}\sigma}, v_{\mathbf{k},\sigma}\;\;  | \;\; \sigma = 1,2  \}
-\end{equation*}
-forms an orthonormal basis for the four-dimensional spinor space.
-Thus,
-\begin{equation}
-  \sum_{n} \left(u^n_{\mathbf{k}\sigma}\right)^* u^n_{\mathbf{k}\sigma'} = \delta_{\sigma\sigma'}, \;\;
-  \sum_{n} \left(u^n_{\mathbf{k}\sigma}\right)^* v^n_{\mathbf{k}\sigma'} = 0, \;\;
-  \textrm{etc.}
-  \label{uvorthog}
-\end{equation}
-Here we use the notation where $u^n_{\mathbf{k}\sigma}$ is the $n$-th
-component of the $u_{\mathbf{k}\sigma}$ spinor, and likewise for the
-$v$'s.
+For the single-particle Dirac Hamiltonian, let $|\mathbf{k}, +,
+\sigma\rangle$ denote a positive-energy state of momentum $\hbar
+\mathbf{k}$, where $\sigma = 1, 2$ indexes the spin degree of freedom
+(i.e., the two-fold degeneracy of each hyperbola).  On the other hand,
+let $|\mathbf{k}, -, \sigma\rangle$ denote a negative-energy state of
+momentum $-\hbar\mathbf{k}$ (not $\hbar\mathbf{k}$; we will justify
+this convention later).  Hence,
+\begin{align}
+  \hat{H} |\mathbf{k}, \pm, \sigma\rangle
+  = \pm E_{\mathbf{k}}\, |\mathbf{k}, \pm, \sigma\rangle,
+\end{align}
+where $E_{\mathbf{k}} = E_{-\mathbf{k}} > 0$ comes from the
+relativistic energy-mass-momentum relation \eqref{Erelativistic}.
 
-Following the second quantization procedure from Chapter 4, let us
-introduce a fermionic Fock space $\mathscr{H}_F$, as well as a set of
-creation/annihilation operators:
+Following the second quantization procedure from Chapter 4, we
+introduce a fermionic Fock space $\mathscr{H}^F_-$, and a set of
+creation/annihilation operators.  We will use different labels for the
+positive- and negative-energy states:
 \begin{align*}
   \hat{b}_{\mathbf{k}\sigma}^\dagger \;\; \mathrm{and} \;\; \hat{b}_{\mathbf{k}\sigma}
   &\;\;\mathrm{create/annihilate} \;\; |\mathbf{k}, +, \sigma\rangle\\
@@ -1045,62 +1017,33 @@ These obey the fermionic anticommutation relations
   \end{aligned}
   \label{Diracanticommutation0}
 \end{align}
-The Hamiltonian is
+We can then define the multi-particle Hamiltonian
 \begin{equation}
-  \hat{H} = \int d^3k \sum_\sigma \epsilon_{\mathbf{k}\sigma} \left(
+  \hat{H} = \int d^3k \sum_\sigma E_{\mathbf{k}} \left(
   \hat{b}^\dagger_{\mathbf{k}\sigma} \hat{b}_{\mathbf{k}\sigma}
   - \hat{d}^\dagger_{\mathbf{k}\sigma} \hat{d}_{\mathbf{k}\sigma}
   \right),
   \label{HDiracQFT0}
 \end{equation}
-and applying the annihilation operators to the vacuum state
-$|\varnothing\rangle$ gives zero:
+where the negative sign inside the integrand accounts for the negative
+energy of the $d$-type electrons.  We also have the vacuum state
+$|\varnothing\rangle$, which satisfies
 \begin{equation}
   \hat{b}_{\mathbf{k}\sigma} |\varnothing\rangle =
   \hat{d}_{\mathbf{k}\sigma} |\varnothing\rangle = 0.
+  \label{oldvacuum}
 \end{equation}
 
-When formulating bosonic field theory, we defined a local field
-annihilation operator that annihilates a particle at a given point
-$\mathbf{r}$.  In the infinite-system limit, this took the form
-\begin{equation}
-  \hat{\psi}(\mathbf{r})
-  = \int d^3k \; \varphi_{\mathbf{k}}(\mathbf{r}) \, \hat{a}_{\mathbf{k}},
-\end{equation}
-and the orthonormality of the $\varphi_{\mathbf{k}}$ wavefunctions
-implied that $[\hat{\psi}(\mathbf{r}),
-  \hat{\psi}^\dagger(\mathbf{r}')] =
-\delta^3(\mathbf{r}-\mathbf{r}')$.  Similarly, we can use the Dirac
-Hamiltonian's eigenfunctions \eqref{Diraces1}--\eqref{Diraces2} to
-define
-\begin{equation}
-  \hat{\psi}_n(\mathbf{r})
-  = \int \frac{d^3k}{(2\pi)^{3/2}} \; \sum_\sigma
-  \left(
-  u^n_{\mathbf{k}\sigma} e^{i\mathbf{k}\cdot\mathbf{r}} \, \hat{b}_{\mathbf{k}\sigma}
-  + v^n_{\mathbf{k}\sigma} e^{-i\mathbf{k}\cdot\mathbf{r}} \, \hat{d}_{\mathbf{k}\sigma}\right).
-  \label{Diracpsi0}
-\end{equation}
-Note that there are two terms in the parentheses because the
-positive-energy and negative-energy states are denoted by
-differently-labeled annihilation operators.  Moreover, since the
-wavefunctions are four-component spinors, the field operators have a
-spinor index $n$.  Using the spinor orthonormality conditions
-\eqref{uvorthog} and the anticommutation relations
-\eqref{Diracanticommutation0}, we can show that
-\begin{equation}
-  \left\{\hat{\psi}_n(\mathbf{r}), \hat{\psi}_{n'}^{\dagger}(\mathbf{r}')\right\}
-  = \delta_{nn'}\, \delta^3(\mathbf{r}-\mathbf{r}'),
-\end{equation}
-with all other anticommutators vanishing.  Hence,
-$\hat{\psi}_n(\mathbf{r})$ can be regarded as an operator that
-annihilates a four-component fermion at point $\mathbf{r}$.
-
-Now let us \textit{define} the operators
-\begin{equation}
-  \hat{c}_{\mathbf{k}\sigma} = \hat{d}^\dagger_{\mathbf{k}\sigma}.
-\end{equation}
-Using these, the fermionic anticommutation relations can be re-written as
+Next, let us define
+\begin{align}
+  \begin{aligned}
+  \hat{c}_{\mathbf{k}\sigma} &= \hat{d}^\dagger_{\mathbf{k}\sigma} \\
+  \hat{c}_{\mathbf{k}\sigma}^\dagger &= \hat{d}_{\mathbf{k}\sigma}.
+  \end{aligned}
+  \label{positron_ops}
+\end{align}
+Using these, we can rewrite the anticommutation relations
+\eqref{Diracanticommutation0} as
 \begin{align}
   \begin{aligned}
     \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'}^\dagger \}
@@ -1113,53 +1056,149 @@ Using these, the fermionic anticommutation relations can be re-written as
   \end{aligned}
   \label{Diracanticommutators}
 \end{align}
-Hence $\hat{c}^\dagger_{\mathbf{k}\sigma}$ and
-$\hat{c}_{\mathbf{k}\sigma}$ formally satisfy the criteria to be
-regarded as creation and annihilation operators.  The particle created
-by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ is called a \textbf{positron},
-and is equivalent to the \textit{absence} of a $d$-type particle
-(i.e., a negative-energy electron).
-
-The Hamiltonian \eqref{HDiracQFT0} can now be written as
-\begin{equation}
-  \hat{H} = \int d^3k \sum_\sigma \epsilon_{\mathbf{k}\sigma} \left(
+This means we can formally treat $\hat{c}^\dagger_{\mathbf{k}\sigma}$
+and $\hat{c}_{\mathbf{k}\sigma}$ as creation and annihilation
+operators in their own right, taking over from
+$\hat{d}_{\mathbf{k}\sigma}$ and $\hat{d}_{\mathbf{k}\sigma}^\dagger$.
+The particle created by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ is called
+a \textbf{positron}.  According to Eq.~\eqref{positron_ops}, the
+\textit{presence} of a positron is equivalent to the \textit{absence}
+of a negative-energy electron; hence, the positron must have
+\textit{positive} energy.  Indeed, by converting the $d$'s to $c$'s in
+Eq.~\eqref{HDiracQFT0}, we can rewrite the Hamiltonian as
+\begin{align}
+  \hat{H}   &= \int d^3k \sum_\sigma E_{\mathbf{k}} \left(
+  \hat{b}^\dagger_{\mathbf{k}\sigma} \hat{b}_{\mathbf{k}\sigma}
+  - \hat{c}_{\mathbf{k}\sigma} \hat{c}^\dagger_{\mathbf{k}\sigma}
+  \right) \\
+  &= \int d^3k \sum_\sigma E_{\mathbf{k}} \left(
   \hat{b}^\dagger_{\mathbf{k}\sigma} \hat{b}_{\mathbf{k}\sigma}
   + \hat{c}^\dagger_{\mathbf{k}\sigma} \hat{c}_{\mathbf{k}\sigma}
-  \right) \;\; + \;\; \textrm{constant},
+  \right) \;\; + \;\; \textrm{constant}.
   \label{HDiracQFT}
-\end{equation}
-which explicitly shows that the positrons have positive energies
-(i.e., the absence of a negative-energy particle is equivalent to the
-presence of a positive-energy particle).  With further analysis, which
-we will skip, it can be shown that the positron created by
-$\hat{c}^\dagger_{\mathbf{k}\sigma}$ has positive charge $e$ and
-momentum $\hbar\mathbf{k}$.  The latter is thanks to the definition
-adopted in Eq.~\eqref{Diraces2}; the absence of a momentum $-\hbar
-\mathbf{k}$ particle is equivalent to the presence of a momentum
-$\hbar \mathbf{k}$ particle.  As for the field annihilation operator
-\eqref{Diracpsi0}, it can be written as
-\begin{equation}
-  \hat{\psi}_n(\mathbf{r})
-  = \int \frac{d^3k}{(2\pi)^{3/2}} \; \sum_\sigma
-  \left(
-  u^n_{\mathbf{k}\sigma} e^{i\mathbf{k}\cdot\mathbf{r}} \, \hat{b}_{\mathbf{k}\sigma}
-  + v^n_{\mathbf{k}\sigma} e^{-i\mathbf{k}\cdot\mathbf{r}} \,
-  \hat{c}^\dagger_{\mathbf{k}\sigma}\right).
-  \label{Diracpsi}
-\end{equation}
+\end{align}
+(The constant is infinite, but this can be dealt with by standard
+regularization tricks.)  Now $\hat{H}$ describes two species of
+fermions---the $b$-type electrons, which we will simply call
+``electrons'', and the newly-defined positrons---both carrying
+positive energy.  We can also deduce, via similar reasoning, that the
+positron created by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ has momentum
+$\hbar \mathbf{k}$ (not $-\hbar \mathbf{k}$, thanks to how we defined
+$|\mathbf{k}, -, \sigma\rangle$ earlier), and a positive electric
+charge $+e$.
 
-The $c$-type annihilation operators do \textit{not} annihilate
-$|\varnothing\rangle$.  However, let us define
+The state $|\varnothing\rangle$, defined in Eq.~\eqref{oldvacuum}, no
+longer serves as the vacuum for this reinterpreted Hamiltonian.  We
+must identify a new vacuum state $|\varnothing'\rangle$ satisfying
+\begin{equation}
+  \hat{b}_{\mathbf{k}\sigma} |\varnothing'\rangle =
+  \hat{c}_{\mathbf{k}\sigma} |\varnothing'\rangle = 0.
+\end{equation}
+This can be accomplished by letting
 \begin{equation}
   |\varnothing'\rangle = \prod_{\mathbf{k}\sigma} \hat{d}_{\mathbf{k}\sigma}^\dagger
-  |\varnothing\rangle,
+  |\varnothing\rangle.
 \end{equation}
-which is evidently a formal description of the Dirac sea state.  Then
+In other words, $|\varnothing'\rangle$ is the ``Dirac sea'' formed by
+occupying all negative-energy states.
+
+The next step is to interpret the multi-particle system as a quantum
+field.  This must be done with some care, due to the peculiar
+relationship between the electron and positron operators.  When
+formulating bosonic field theory in Chapter 4, we defined a field
+operator
 \begin{equation}
-  \hat{c}_{\mathbf{k}\sigma} |\varnothing'\rangle = 
-  \hat{d}^\dagger_{\mathbf{k}\sigma} \prod_{\mathbf{k}'\sigma'}
-  \hat{d}_{\mathbf{k}'\sigma'}^\dagger |\varnothing\rangle = 0.
+  \hat{\psi}(\mathbf{r})
+  = \int d^3k \; \varphi_{\mathbf{k}}(\mathbf{r}) \, \hat{a}_{\mathbf{k}},
+  \label{psidef_old}
 \end{equation}
+where $\hat{a}_{\mathbf{k}}$ is a bosonic annihilation operator, and
+$\varphi_{\mathbf{k}}(\mathbf{r})$ denotes the corresponding
+single-particle wavefunction.
+
+In our case, the single-particle wavefunctions have the form
+\begin{align}
+  \langle \mathbf{r}, n | \mathbf{k}, +, \sigma\rangle
+  &= \frac{e^{i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}} \, u_{\mathbf{k}\sigma}^n
+  \label{Diraces1} \\
+  \langle \mathbf{r}, n | \mathbf{k}, -, \sigma\rangle
+  &= \frac{e^{-i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}} \, v_{-\mathbf{k},\sigma}^n
+  \label{Diraces2}
+\end{align}
+where $n = 1, \dots, 4$ indexes the spinor components.  In
+Eq.~\eqref{Diraces2}, the sign of the exponent corresponds to momentum
+$-\hbar\mathbf{k}$, matching our earlier definition.  For each
+$\mathbf{k}$, $u_{\mathbf{k}\sigma}$ and $v_{\mathbf{k},\sigma}$ are
+normalized eigenvectors of a single $4\times4$ Hamiltonian matrix, so
+they are orthogonal,
+\begin{align}
+  \sum_n \left(u_{\mathbf{k}\sigma}^n\right)^* u_{\mathbf{k}\sigma'}
+  = \delta_{\sigma\sigma'}, \quad
+  \sum_n \left(v_{\mathbf{k}\sigma}^n\right)^* v_{\mathbf{k}\sigma'}
+  = \delta_{\sigma\sigma'}, \quad
+  \sum_n \left(u_{\mathbf{k}\sigma}^n\right)^* v_{\mathbf{k}\sigma'}
+  = 0,
+\end{align} 
+as well as satisfying the resolution of the identity,
+\begin{equation}
+  \sum_\sigma \left[
+    u_{\mathbf{k}\sigma}^n \big(u_{\mathbf{k}\sigma}^{n'}\big)^*
+    + v_{\mathbf{k}\sigma}^n \big(v_{\mathbf{k}\sigma}^{n'}\big)^*\right]
+  = \delta_{nn'}.
+  \label{iresolv}
+\end{equation}
+
+By analogy with Eq.~\eqref{psidef_old}, we can use
+Eqs.~\eqref{Diraces1}--\eqref{Diraces2} to define the field operator
+\begin{equation}
+  \hat{\psi}_n(\mathbf{r})
+  = \int d^3k \sum_\sigma \;
+  \left[
+    \frac{e^{i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}} \, u_{\mathbf{k}\sigma}^n
+    \hat{b}_{\mathbf{k}\sigma}
+    +
+    \frac{e^{-i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}} \, v_{-\mathbf{k},\sigma}^n
+    \hat{d}_{\mathbf{k}\sigma}
+    \right].
+  \label{psin_d}
+\end{equation}
+Like the single-particle wavefunctions, the field operator at each
+point $\mathbf{r}$ has four components (i.e., it consists of four
+distinct operators), indexed by $n$.  We can manipulate the second
+term in the integrand by replacing the $d$ operators with positron
+creation/annihilation operators, and changing variables
+$k\rightarrow-k$, with the result
+\begin{equation}
+  \hat{\psi}_n(\mathbf{r})
+  = \int \frac{d^3k}{(2\pi)^{3/2}} \sum_\sigma \;
+  e^{i\mathbf{k}\cdot \mathbf{r}}
+  \left( u_{\mathbf{k}\sigma}^n \hat{b}_{\mathbf{k}\sigma}
+    + v_{\mathbf{k},\sigma}^n \hat{c}_{-\mathbf{k},\sigma}^\dagger
+    \right).
+  \label{psin_c}
+\end{equation}
+Using the electron and positron anticommutation relations
+\eqref{Diracanticommutators}, and the spinor property \eqref{iresolv},
+we can prove that
+\begin{align}
+  \Big\{\, \hat{\psi}_n(\mathbf{r}) \,,\,
+  \hat{\psi}_{n'}^{\dagger}(\mathbf{r}')\, \Big\}
+  &= \delta_{nn'}\, \delta^3(\mathbf{r}-\mathbf{r}'), \\
+  \Big\{\, \hat{\psi}_n(\mathbf{r}) \,,\, \hat{\psi}_{n'}(\mathbf{r}')\,\Big\}
+  &= \Big\{\,\hat{\psi}_n^{\dagger}(\mathbf{r}) \,,\,
+  \hat{\psi}_{n'}^{\dagger}(\mathbf{r}')\,\Big\} = 0.  
+\end{align}
+These imply that $\hat{\psi}_n(\mathbf{r})$ and
+$\hat{\psi}_n^\dagger(\mathbf{r})$ act as creation/annihilation
+operators at a local point $\mathbf{r}$.  The complication is that
+neither field operator acts on electrons or positrons alone:
+$\hat{\psi}_n(\mathbf{r})$ annihilates an electron or creates a
+positron [Eq.~\eqref{psin_c}], while
+$\hat{\psi}_n^\dagger(\mathbf{r})$ creates an electron or annihilates
+a positron.
+
+
+
 
 At the end of the day, we can regard the quantum field theory as being
 defined in terms of $b$-type and $c$-type operators, using the
