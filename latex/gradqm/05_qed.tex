@@ -975,10 +975,10 @@ positive-energy solutions.
 At first blush, the idea seems ridiculous; how can the vacuum contain
 an infinite number of particles?  However, we shall see that the idea
 becomes more plausible if Dirac's single-particle Hamiltonian is
-reinterpreted as a special construction arising from a quantum field
-theory.  After all, the Dirac sea idea is an inherently multi-particle
-concept, and we know from Chapter 4 that quantum field theory is the
-natural framework for such ideas.
+reinterpreted using quantum field theory.  After all, the Dirac sea
+idea is an inherently multi-particle concept, and we know from Chapter
+4 that quantum field theory is the natural framework for working with
+such ideas.
 
 For the single-particle Dirac Hamiltonian, let $|\mathbf{k}, +,
 \sigma\rangle$ denote a positive-energy state of momentum $\hbar
@@ -1008,10 +1008,10 @@ These obey the fermionic anticommutation relations
 \begin{align}
   \begin{aligned}
     \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'}^\dagger \}
-    = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'}, \quad
+    &= \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'}, \quad
     \{\hat{d}_{\mathbf{k}\sigma}, \hat{d}_{\mathbf{k}'\sigma'}^\dagger \}
     = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'} \\
-    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'} \} = 
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'} \} &= 
     \{\hat{b}_{\mathbf{k}\sigma}, \hat{d}_{\mathbf{k}'\sigma'} \} = 
     \{\hat{d}_{\mathbf{k}\sigma}, \hat{d}_{\mathbf{k}'\sigma'} \} = 0, \;\;\textrm{etc.}
   \end{aligned}
@@ -1047,25 +1047,25 @@ Using these, we can rewrite the anticommutation relations
 \begin{align}
   \begin{aligned}
     \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'}^\dagger \}
-    = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'}, \quad
+    &= \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'}, \quad
     \{\hat{c}_{\mathbf{k}\sigma}, \hat{c}_{\mathbf{k}'\sigma'}^\dagger \}
     = \delta^3(\mathbf{k}-\mathbf{k}') \, \delta_{\sigma\sigma'} \\
-    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'} \} = 
+    \{\hat{b}_{\mathbf{k}\sigma}, \hat{b}_{\mathbf{k}'\sigma'} \} &= 
     \{\hat{b}_{\mathbf{k}\sigma}, \hat{c}_{\mathbf{k}'\sigma'} \} = 
     \{\hat{c}_{\mathbf{k}\sigma}, \hat{c}_{\mathbf{k}'\sigma'} \} = 0, \;\;\textrm{etc.}
   \end{aligned}
   \label{Diracanticommutators}
 \end{align}
-This means we can formally treat $\hat{c}^\dagger_{\mathbf{k}\sigma}$
+This implies that we can treat $\hat{c}^\dagger_{\mathbf{k}\sigma}$
 and $\hat{c}_{\mathbf{k}\sigma}$ as creation and annihilation
 operators in their own right, taking over from
 $\hat{d}_{\mathbf{k}\sigma}$ and $\hat{d}_{\mathbf{k}\sigma}^\dagger$.
 The particle created by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ is called
-a \textbf{positron}.  According to Eq.~\eqref{positron_ops}, the
-\textit{presence} of a positron is equivalent to the \textit{absence}
-of a negative-energy electron; hence, the positron must have
-\textit{positive} energy.  Indeed, by converting the $d$'s to $c$'s in
-Eq.~\eqref{HDiracQFT0}, we can rewrite the Hamiltonian as
+a \textbf{positron}.  By definition, the \textit{presence} of a
+positron is equivalent to the \textit{absence} of a negative-energy
+electron; hence, the positron has \textit{positive} energy.  Indeed,
+by converting the $d$'s to $c$'s in Eq.~\eqref{HDiracQFT0}, we can
+rewrite the Hamiltonian as
 \begin{align}
   \hat{H}   &= \int d^3k \sum_\sigma E_{\mathbf{k}} \left(
   \hat{b}^\dagger_{\mathbf{k}\sigma} \hat{b}_{\mathbf{k}\sigma}
@@ -1079,28 +1079,32 @@ Eq.~\eqref{HDiracQFT0}, we can rewrite the Hamiltonian as
 \end{align}
 (The constant is infinite, but this can be dealt with by standard
 regularization tricks.)  Now $\hat{H}$ describes two species of
-fermions---the $b$-type electrons, which we will simply call
-``electrons'', and the newly-defined positrons---both carrying
-positive energy.  We can also deduce, via similar reasoning, that the
-positron created by $\hat{c}^\dagger_{\mathbf{k}\sigma}$ has momentum
-$\hbar \mathbf{k}$ (not $-\hbar \mathbf{k}$, thanks to how we defined
-$|\mathbf{k}, -, \sigma\rangle$ earlier), and a positive electric
-charge $+e$.
+fermions---$b$-type electrons, which we simply call ``electrons'', and
+positrons---both carrying positive energy.  We can also deduce, via
+similar reasoning, that the positron created by
+$\hat{c}^\dagger_{\mathbf{k}\sigma}$ has momentum $\hbar \mathbf{k}$
+(not $-\hbar \mathbf{k}$, due to how we defined $|\mathbf{k}, -,
+\sigma\rangle$), and a positive electric charge $+e$.
 
 The state $|\varnothing\rangle$, defined in Eq.~\eqref{oldvacuum}, no
-longer serves as the vacuum for this reinterpreted Hamiltonian.  We
-must identify a new vacuum state $|\varnothing'\rangle$ satisfying
+longer serves as the vacuum for this reinterpreted Hamiltonian.  Its
+vacuum state $|\varnothing'\rangle$ should satisfy
 \begin{equation}
   \hat{b}_{\mathbf{k}\sigma} |\varnothing'\rangle =
   \hat{c}_{\mathbf{k}\sigma} |\varnothing'\rangle = 0.
 \end{equation}
-This can be accomplished by letting
+Such a state can be constructed from $|\varnothing\rangle$ (or vice
+versa):
 \begin{equation}
-  |\varnothing'\rangle = \prod_{\mathbf{k}\sigma} \hat{d}_{\mathbf{k}\sigma}^\dagger
+  |\varnothing'\rangle
+  = \prod_{\mathbf{k}\sigma} \hat{c}_{\mathbf{k}\sigma} |\varnothing\rangle
+  = \prod_{\mathbf{k}\sigma} \hat{d}_{\mathbf{k}\sigma}^\dagger
   |\varnothing\rangle.
 \end{equation}
-In other words, $|\varnothing'\rangle$ is the ``Dirac sea'' formed by
-occupying all negative-energy states.
+Thus, from the viewpoint of the $b$, $d$ operators,
+$|\varnothing'\rangle$ is the ``Dirac sea'' state, formed by occupying
+all the negative-energy states.  From the viewpoint of the $b$, $c$
+operators, it is simply a state of no particles.
 
 The next step is to interpret the multi-particle system as a quantum
 field.  This must be done with some care, due to the peculiar
@@ -1114,9 +1118,8 @@ operator
 \end{equation}
 where $\hat{a}_{\mathbf{k}}$ is a bosonic annihilation operator, and
 $\varphi_{\mathbf{k}}(\mathbf{r})$ denotes the corresponding
-single-particle wavefunction.
-
-In our case, the single-particle wavefunctions have the form
+single-particle wavefunction.  In our case, the single-particle
+wavefunctions have the form
 \begin{align}
   \langle \mathbf{r}, n | \mathbf{k}, +, \sigma\rangle
   &= \frac{e^{i\mathbf{k}\cdot \mathbf{r}}}{(2\pi)^{3/2}} \, u_{\mathbf{k}\sigma}^n
@@ -1139,7 +1142,7 @@ they are orthogonal,
   \sum_n \left(u_{\mathbf{k}\sigma}^n\right)^* v_{\mathbf{k}\sigma'}
   = 0,
 \end{align} 
-as well as satisfying the resolution of the identity,
+and satisfy the resolution of the identity,
 \begin{equation}
   \sum_\sigma \left[
     u_{\mathbf{k}\sigma}^n \big(u_{\mathbf{k}\sigma}^{n'}\big)^*
@@ -1164,10 +1167,9 @@ Eqs.~\eqref{Diraces1}--\eqref{Diraces2} to define the field operator
 \end{equation}
 Like the single-particle wavefunctions, the field operator at each
 point $\mathbf{r}$ has four components (i.e., it consists of four
-distinct operators), indexed by $n$.  We can manipulate the second
-term in the integrand by replacing the $d$ operators with positron
-creation/annihilation operators, and changing variables
-$k\rightarrow-k$, with the result
+distinct operators), indexed by $n$.  Next, in the second term of the
+integrand, let us replace the $d$ operators with $c$ operators, and
+change variables $k\rightarrow-k$:
 \begin{equation}
   \hat{\psi}_n(\mathbf{r})
   = \int \frac{d^3k}{(2\pi)^{3/2}} \sum_\sigma \;
@@ -1179,7 +1181,7 @@ $k\rightarrow-k$, with the result
 \end{equation}
 Using the electron and positron anticommutation relations
 \eqref{Diracanticommutators}, and the spinor property \eqref{iresolv},
-we can prove that
+we can now prove that
 \begin{align}
   \Big\{\, \hat{\psi}_n(\mathbf{r}) \,,\,
   \hat{\psi}_{n'}^{\dagger}(\mathbf{r}')\, \Big\}
@@ -1190,33 +1192,28 @@ we can prove that
 \end{align}
 These imply that $\hat{\psi}_n(\mathbf{r})$ and
 $\hat{\psi}_n^\dagger(\mathbf{r})$ act as creation/annihilation
-operators at a local point $\mathbf{r}$.  The complication is that
-neither field operator acts on electrons or positrons alone:
+operators at a local point $\mathbf{r}$.  However, neither field
+operator acts on electrons or positrons alone:
 $\hat{\psi}_n(\mathbf{r})$ annihilates an electron or creates a
-positron [Eq.~\eqref{psin_c}], while
+positron [Eq.~\eqref{psin_c}], and conversely
 $\hat{\psi}_n^\dagger(\mathbf{r})$ creates an electron or annihilates
 a positron.
 
+The fermionic quantum field theory can thus be interpreted in two
+ways: (i) in terms of electrons and positrons carrying positive
+energies, with $|\varnothing'\rangle$ referring to a vacuum state of
+no particles, or (ii) in terms of electrons that can carry positive or
+negative energies, with $|\varnothing'\rangle$ referring to a Dirac
+sea in which all negative-energy states are filled.  The former
+picture is arguably theoretically ``cleaner'', whereas the latter
+picture has the advantage of mapping directly to Dirac's original
+single-particle theory.
 
-
-
-At the end of the day, we can regard the quantum field theory as being
-defined in terms of $b$-type and $c$-type operators, using the
-anticommutators \eqref{Diracanticommutators}, the Hamiltonian
-\eqref{HDiracQFT}, and the field operator \eqref{Diracpsi}, along with
-the vacuum state $|\varnothing'\rangle$.  The elementary particles in
-this theory are electrons and positrons with strictly positive
-energies.  The single-particle Dirac theory, with its quirky
-negative-energy states, can then be interpreted as a special construct
-that maps the quantum field theory into single-particle language.
-Even though we actually started from the single-particle description,
-it is the quantum field theory, and its vacuum state
-$|\varnothing'\rangle$, that is more fundamental.
-
-There are many more details about the Dirac theory that we will not
-discuss here.  One particularly important issue is how the particles
-transform under Lorentz boosts and other changes in coordinate system.
-For such details, the reader is referred to Ref.~[\ref{cite:dyson}].
+There are many more details about the Dirac field theory that we will
+not discuss here, including the expression of the Hamiltonian in terms
+of the field operators, and the issue of how the particles transform
+under Lorentz boosts and other changes in coordinate system.  For such
+matters, the reader is referred to Ref.~[\ref{cite:dyson}].
 
 \section{Quantizing the electromagnetic field}
 \label{sec:em_quantization}
