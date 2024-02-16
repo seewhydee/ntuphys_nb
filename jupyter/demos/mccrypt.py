@@ -272,7 +272,7 @@ def run_energy_demo():
     t2 = wg.Text(value="jtva", layout=wg.Layout(width="6em"))
     E1 = wg.Label(value=" energy = {}".format(string_energy(t1.value)))
     E2 = wg.Label(value=" energy = {}".format(string_energy(t2.value)))
-    display(s, wg.HBox([t1, E1]), wg.HBox([t2, E2]))
+    display(wg.HBox([t1, E1]), wg.HBox([t2, E2]))
 
     def on_change_1(change):
         if change["new"] != change["old"]:
