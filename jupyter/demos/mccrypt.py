@@ -1,5 +1,12 @@
-## Demo decryption of a substitution cipher by the Markov Chain Monte Carlo method.
-## Intended to be used with a Jupyter notebook (markov-chain-demo.ipynb)
+#!/usr/bin/python
+## Decrypt a substitution cipher by Markov Chain Monte Carlo method.
+## Call from console or via Jupyter notebook (markov-chain-demo.ipynb)
+
+## Console usage:
+# mccrypt encrypt [PLAINTEXT-FILE]
+# mccrypt decrypt [CIPHER-FILE]
+# mccrypt weights [SOURCE-FILE]
+
 ## Copyright (C) 2024 Chong Yidong
 
 ## This program is free software: you can redistribute it and/or modify
@@ -12,6 +19,9 @@
 ## MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ## GNU General Public License for more details.
 
+## Default plaintext file.
+plaintext_file = 'plaintext.txt'
+
 ## Default ciphertext file.
 cipher_file = 'ciphertext.txt'
 
@@ -19,22 +29,21 @@ cipher_file = 'ciphertext.txt'
 source_file = 'lesmiserables.txt'
 
 ## The name of the file to which we write the Markov chain matrix.
-weight_file = 'english'
+weight_file = 'mcweights.npy'
 
 import numpy as np
 import random
 import os.path
 import sys
 
-## Return a character corresponding to character code N (an integer).
+## Return character corresponding to character code N (an integer).
 ## Character codes 0-25 map to A-Z, and 26 maps to SPC.
-def mychr(n):
-    if n == 26: return '_'
-    return chr(n + 97) # code 97 is `a' in ASCII
+def char_idx(n):
+    return '_' if n == 26 else chr(n + 97) # 97 is `a' in ASCII
 
 ## Return a text string corresponding to an array of character codes.
 def text_to_string(int_array):
-    return ''.join(map(mychr, int_array.tolist()))
+    return ''.join(map(char_idx, int_array.tolist()))
 
 ## Return an array containing shuffled character codes 0-26.
 def random_key():
@@ -47,7 +56,7 @@ def random_key():
 ## character code a.  Save the resulting matrix to OUTFILE.
 def build_matrix(infile, outfile):
     print('Building weight matrix...')
-    W = zeros((27,27), dtype=uint64)
+    W = np.zeros((27,27), dtype=int)
     lastn, nelts = -1, 0
     with open(infile) as f:
         while True:
@@ -71,7 +80,7 @@ def build_matrix(infile, outfile):
             lastn = n
     print('Processed ' + str(nelts) + ' character pairs')
     ## Calculate a 2D array of probability weights
-    W2 = zeros((27,27), dtype=float)
+    W2 = np.zeros((27,27), dtype=float)
     for j in range(27):
         Wrow = np.copy(W[j,:]).astype(float)
         ## Avoid putting zeros in the matrix; apply some small
@@ -81,7 +90,8 @@ def build_matrix(infile, outfile):
                 Wrow[k] = 1.0e-6
         rowsum = sum(Wrow)
         W2[j,:] = Wrow / sum(Wrow)
-    save(outfile, W2)
+    np.save(outfile, W2)
+    print('Saved to {}'.format(outfile))
 
 ## Read the text in INFILE, and return its contents as a list of
 ## character codes.
@@ -148,45 +158,78 @@ def key_weight(key, ciphertext, weights):
 def mc_loop(N, ciphertext, weights, key):
     weight = key_weight(key, ciphertext, weights)
     for j in range(N):
-        ## Generate a new move and calculate its weight.
-        nkey    = key_fluctuate(key)
+        nkey    = key_fluctuate(key) # New move
         nweight = key_weight(nkey, ciphertext, weights)
         allow_flip = True
         if nweight < weight:
-            ## If the new weight is smaller than the old one, do the
-            ## Metropolis-Hastings move: accept the move with
-            ## probability prod M' / prod M.  The key weight
-            ## calculated earlier is log(prod M).
+            ## Metropolis-Hastings: if the new weight is smaller than
+            ## the old one, accept the move with probability
+            ## prod M' / prod M.
+            ## The key weight calculated earlier is log(prod M).
             p = np.exp(nweight - weight)
             if random.random() > p:
                 allow_flip = False
         if allow_flip:
             key = nkey
             weight = nweight
-        # if j % 1000 == 0:
-        #     print('Run ' + str(j) + ', Weight = ' + str(weight))
-        #     print(text_to_string(key[ciphertext]))
-        #     print('')
     return key
+
+def mc_demo_loop(ciphertext, weights):
+    N_outer = 50
+    N_inner = 4000
+    key = random_key()
+    for n in range(N_outer):
+        key = mc_loop(N_inner, ciphertext, weights, key)
+        wt  = key_weight(key, ciphertext, weights)
+        print("After {} steps, weight = {}".format((n+1)*N_inner, wt))
+        print(text_to_string(key[ciphertext]))
+        print("")
+
+def print_usage():
+    print("To encrypt:  mccrypt encrypt [PLAINTEXT-FILE [CIPHER-FILE]]")
+    print("To decrypt:  mccrypt decrypt [CIPHER-FILE]")
+    print("To regenerate weights:  mccrypt weights [SOURCE-FILE]")
+
+def encipher_file(infile, outfile):
+    plaintext  = read_filechars(infile)
+    key = random_key()
+    ciphertext = text_to_string(key[plaintext])
+    with open(outfile, 'w') as f:
+        f.write(ciphertext)
+    return ciphertext
 
 ## Run the Monte Carlo simulation and print the results after every
 ## 1000 steps.
 def main():
-    ## Ciphertext file
-    if len(sys.argv) > 1:
-        f = sys.argv[1]
+    argc = len(sys.argv)
+    if argc < 2 or argc > 4:
+        print_usage()
+    elif sys.argv[1] == 'encrypt':
+        f = plaintext_file if argc == 2 else sys.argv[2]
+        outf = cipher_file if argc < 4 else sys.argv[3]
+        ctxt = encipher_file(f, outf)
+        print("Ciphertext written to {}".format(outf))
+        if len(ctxt) < 2000:
+            print(ctxt)
+    elif sys.argv[1] == 'decrypt':
+        f = cipher_file if argc == 2 else sys.argv[2]
+        try:
+            weights = np.load(weight_file)
+        except FileNotFoundError:
+            print("Weight file {} not found.".format(weight_file))
+            print("To regen weights, run 'mccrypt weights [SOURCE-FILE]'")
+        ## Read the ciphertext, then run the MC loop.
+        ciphertext = read_filechars(f)
+        mc_demo_loop(ciphertext, weights)
+    elif sys.argv[1] == 'weights':
+        f = source_file if argc == 2 else sys.argv[2]
+        build_matrix(f, weight_file)
     else:
-        f = cipher_file
+        print_usage()
 
-    ## Regenerate the weight file if necessary.
-    if not os.path.isfile(weight_file + '.npy'):
-        build_matrix(source_file, weight_file)
-    weights = np.load(weight_file + '.npy')
 
-    ## Read the ciphertext, then run the MC loop.
-    ciphertext = read_filechars(f)
-    key = random_key()
-    key = mc_loop(50000, ciphertext, weights, key)
+if __name__ == '__main__':
+    main()
 
 #### DEMO using Jupyter Lab Widgets ######
 
