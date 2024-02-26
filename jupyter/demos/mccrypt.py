@@ -259,7 +259,7 @@ def run_demo():
     demo_n = 0
     demo_ciphertext = False
     if len(demo_weights) == 0:  # Reload the weights if necessary.
-        demo_weights = np.load(weight_file + '.npy')
+        demo_weights = np.load(weight_file)
 
     def init_mc(b):
         global demo_key, demo_n, demo_ciphertext
