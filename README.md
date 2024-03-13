@@ -13,10 +13,10 @@ This course introduces year-2 undergraduates to complex numbers and their applic
 
 This course covers advanced concepts in quantum mechanics, with a focus on foundational topics required for quantum field theory. It is meant for year-4 undergraduates or year-1 graduate students who have already taken introductory courses in quantum mechanics. Topics covered include scattering theory, quantum entanglement, identical particles, and quantum electrodynamics.
 
-* [latex/gradqm](latex/gradqm): course notes are in LaTeX format. Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
+* [latex/gradqm](latex/gradqm): course notes in LaTeX format. Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
 * [jupyter/gradqm](jupyter/gradqm): accompanying numerical exercises in [Jupyter notebook](https://jupyter.org/) format.
 
 ## Miscellaneous Documents
 
 * [latex/lab](latex/lab): Latex notes on error analysis and lab report standards.
-* [jupter/demos/markov-chain-monte-carlo.ipynb](markov-chain-monte-carlo.ipynb): Jupyter notebook demonstrating the use of the Markov Chain Monte Carlo method to decrypt a substitution cipher.
+* [markov-chain-monte-carlo.ipynb](jupter/demos/markov-chain-monte-carlo.ipynb): Jupyter notebook demonstrating the use of the Markov Chain Monte Carlo method to decrypt a substitution cipher.
