@@ -19,4 +19,4 @@ This course covers advanced concepts in quantum mechanics, with a focus on found
 ## Miscellaneous Documents
 
 * [latex/lab](latex/lab): Latex notes on error analysis and lab report standards.
-* [markov-chain-monte-carlo.ipynb](jupter/demos/markov-chain-monte-carlo.ipynb): Jupyter notebook demonstrating the use of the Markov Chain Monte Carlo method to decrypt a substitution cipher.
+* [markov-chain-monte-carlo.ipynb](jupyter/demos/markov-chain-monte-carlo.ipynb): Jupyter notebook demonstrating the use of the Markov Chain Monte Carlo method to decrypt a substitution cipher.
