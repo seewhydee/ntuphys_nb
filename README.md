@@ -4,44 +4,19 @@ This repository contains notes and exercises for some [physics courses](http://w
 
 ## Complex Methods for the Sciences (MH2801)
 
-This course introduces year-2 undergraduates to complex numbers and
-their applications in physics and other sciences. Topics covered include:
+This course introduces year-2 undergraduates to complex numbers and their applications in physics and other sciences. Topics covered include complex numbers, complex representations of waves and oscillations, complex calculus (derivatives and contour integrals), Fourier series and Fourier transforms, and Green's functions methods.
 
-* Complex numbers
-* Complex representations of waves and oscillations
-* Complex calculus (derivatives and contour integrals)
-* Fourier series and Fourier transforms
-* Green's functions methods.
+* [latex/complex](latex/complex): course notes as [LaTeX](https://www.latex-project.org/) documents. Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
+* [jupyter/complex](jupyter/complex): course notes in [Jupyter notebook](https://jupyter.org/) format, including interactive plots to help illustrate mathematical concepts.
 
-The course notes are maintained in two different formats:
+## Graduate Quantum Mechanics (PH7024)
 
-* [LaTeX](https://www.latex-project.org/) notes, located in [latex/complex](latex/complex). Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
-* [Jupyter](https://jupyter.org/) notebooks, located in [jupyter/complex](jupyter/complex).
+This course covers advanced concepts in quantum mechanics, with a focus on foundational topics required for quantum field theory. It is meant for year-4 undergraduates or year-1 graduate students who have already taken introductory courses in quantum mechanics. Topics covered include scattering theory, quantum entanglement, identical particles, and quantum electrodynamics.
 
-The two formats have similar contents, but the Jupyter notebooks contain interactive plots that help illustrate various mathematical concepts.
+* [latex/gradqm](latex/gradqm): course notes are in LaTeX format. Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
+* [jupyter/gradqm](jupyter/gradqm): accompanying numerical exercises in [Jupyter notebook](https://jupyter.org/) format.
 
-## Graduate Quantum Mechanics (PH4401/PAP777)
+## Miscellaneous Documents
 
-This course covers advanced concepts in quantum mechanics, with a focus on foundational topics required for quantum field theory. It is meant for year-4 undergraduates or year-1 graduate students who have already taken introductory courses in quantum mechanics. Topics covered include:
-
-* Scattering theory
-* Quantum entanglement
-* Identical particles
-* Quantum electrodynamics
-
-The course notes are in LaTeX format, located
-in [latex/gradqm](latex/gradqm). Compiled PDFs can be found on
-my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
-
-An accompanying set of [Jupyter](https://jupyter.org/) notebooks,
-located in [jupyter/gradqm](jupyter/gradqm), provides numerical
-exercises to accompany the course notes (e.g., computing the Born
-series using Monte Carlo integration).
-
-## Undergraduate Physics Laboratory (PH2198/PH2199)
-
-Introductory physics course with an emphasis on scientific report
-writing and error analysis.
-
-A set of notes on error analysis and lab report standards are
-maintained in [latex/lab](latex/lab).
+* [latex/lab](latex/lab): Latex notes on error analysis and lab report standards.
+* [jupter/demos/markov-chain-monte-carlo.ipynb](markov-chain-monte-carlo.ipynb): Jupyter notebook demonstrating the use of the Markov Chain Monte Carlo method to decrypt a substitution cipher.
