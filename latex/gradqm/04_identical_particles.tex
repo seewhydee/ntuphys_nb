@@ -1050,6 +1050,7 @@ fermion creation operator can be defined as follows:
 \begin{align}
   \begin{aligned}\hat{c}_\mu^\dagger |n_1, n_2, \dots, n_\mu,\dots\rangle &= \begin{cases}(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}} |n_1, n_2, \dots, n_{\mu-1}, 1, \dots\rangle & \mathrm{if} \; n_\mu = 0 \\ \;\;0 & \mathrm{if}\; n_\mu = 1.
     \end{cases} \\&= (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big|n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big\rangle. \end{aligned}
+  \label{fermiondef}
 \end{align}
 In other words, if state $\mu$ is unoccupied, then
 $\hat{c}_\mu^\dagger$ increments the occupation number to 1 and
@@ -1137,24 +1138,24 @@ conjugation).  This is, once again, by taking matrix elements:
   \end{aligned}
 \end{align*}
 The two equations differ by a factor of $-1$, so adding them gives
-zero.  Putting everything together, we conclude that
-$\big\{c_\mu,c_\nu^\dagger\big\} = \delta_{\mu\nu}$, as stated in
-\eqref{anticommutation}.
+zero.  (Note: had we omitted the $(-1)^{(\cdots)}$ factors in the
+definition \eqref{fermiondef}, this last bit would not work.  Instead,
+we would conclude that $\hat{c}_\mu$ commutes with
+$\hat{c}_\nu^\dagger$ for $\nu \ne \mu$, but \textit{anti}commutes
+with $\hat{c}_\mu^\dagger$.  So we end up with a more complicated set
+of rules for these operators.)
+
+Putting everything together, we end up with the anticommutation
+relation $\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\} = \delta_{\mu\nu}$.
+The rest of the anticommutation relations in \eqref{anticommutation}
+are derived similarly.
 
 As you can see, the derivation of the fermionic anticommutation
 relations is quite hairy, in large part due to the $(-1)^{(\cdots)}$
-factors in the definitions of the creation and annihilation operators.
-But once these relations have been derived, we can deal entirely with
-the creation and annihilation operators, without worrying about the
-underlying occupation number representation and its $(-1)^{(\cdots)}$
-factors.  By the way, if we had chosen to omit the $(-1)^{(\cdots)}$
-factors in the definitions, the creation and annihilation operators
-would still satisfy the anticommutation relation
-$\{\hat{c}_\mu,\hat{c}_\nu^\dagger\}=\delta_{\mu\nu}$, but two
-creation operators or two annihilation operators would
-\textit{commute} rather than \textit{anticommute}.  During subsequent
-calculations, the algebra of creation and annihilation operators ends
-up being much harder to deal with.
+factors from their definitions in terms of occupation number states.
+But once we have done these derivations, we can deal entirely with the
+creation and annihilation operators, and the simple anticommutation
+relations they obey!
 
 \subsection{Hamiltonians for non-interacting particles}
 \label{sec:second_quant_op}
