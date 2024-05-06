@@ -1078,21 +1078,21 @@ we sample \textit{pairs} of points, $(\mathbf{r}_1^{(n)},
 Eq.~\eqref{Iest} with $(2R)^6$.  The rest of the estimation procedure
 is the same.
 
-In the figure below, we compare the Born approximation to the exact
-solution \eqref{fresult_well}.  We plot $|f|^2$ versus the energy $E$
-at a $90^\circ$ scattering angle (i.e., $\mathbf{k}_f$ perpendicular
-to $\mathbf{k}_i$), for fixed well radius $R = 1$ and two well depths,
-$U = 0.1$ and $U = 1$.  We adopt computational units $\hbar = m = 1$,
-and compute each Monte Carlo integral using $3\times10^4$ samples.
+The figure below compares the Born approximation to the exact solution
+\eqref{fresult_well} for two well depths, $U = 0.1$ and $U = 1$, with
+the same radius $R = 1$.  We plot $|f|^2$ versus $E$ at a $90^\circ$
+scattering angle (i.e., $\mathbf{k}_f$ perpendicular to
+$\mathbf{k}_i$), using computational units $\hbar = m = 1$.  Each
+Monte Carlo integral is computed using $3\times10^4$ samples.
 
 \begin{figure}[h]
   \centering\includegraphics[width=0.97\textwidth]{spherical_well_scattering}
 \end{figure}
 
-The first thing to notice is that $|f|^2$ diminishes to zero for large
-$E$.  This makes sense: the scattering potential has some energy scale
-$\sim U$, so a particle with energy $E \gg U$ should simply zoom
-through, with little chance of being deflected.
+First, notice that $|f|^2$ diminishes to zero for large $E$.  This
+makes sense: the scattering potential has some energy scale $\sim U$,
+so a particle with energy $E \gg U$ should simply zoom through, with
+little chance of being deflected.
 
 Looking more closely, we see that for the shallower well ($U = 0.1$),
 the first Born approximation already agrees quite well with the exact
