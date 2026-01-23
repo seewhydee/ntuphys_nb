@@ -9,6 +9,8 @@ This course introduces year-2 undergraduates to complex numbers and their applic
 * [latex/complex](latex/complex): course notes as [LaTeX](https://www.latex-project.org/) documents. Compiled PDFs can be found on my [homepage](http://www1.spms.ntu.edu.sg/~ydchong/teaching.html).
 * [jupyter/complex](jupyter/complex): course notes in [Jupyter notebook](https://jupyter.org/) format, including interactive plots to help illustrate mathematical concepts.
 
+**Book Version**: An updated and greatly-expanded version of these notes is now available in book form: [Complex Methods for Scientists and Engineers](https://www.worldscientific.com/worldscibooks/10.1142/14680#t=aboutBook), published by World Scientific. The book provides more rigorous coverage of the mathematical topics, and describes many additional applications including coupled-mode theory, the propagation of light beams, diffraction, and more.
+
 ## Graduate Quantum Mechanics (PH7024)
 
 This course covers advanced concepts in quantum mechanics, with a focus on foundational topics required for quantum field theory. It is meant for year-4 undergraduates or year-1 graduate students who have already taken introductory courses in quantum mechanics. Topics covered include scattering theory, quantum entanglement, identical particles, and quantum electrodynamics.
