@@ -39,45 +39,50 @@ physics.
 
 ## The scattering problem
 
-We will focus on the non-relativistic scattering experiment depicted
-below:
+The figure below depicts the kind of scattering experiment we
+intend to study:
 
 ![](fig/scattering.png){fig-align="center" width="500" fig-alt="Schematic of a scattering experiment"}
 
-An unbounded $d$-dimensional space is described by coordinates
-$\mathbf{r}$, with a scatterer near $\mathbf{r} = 0$.  An incoming
-quantum particle, with energy $E$, is governed by the Hamiltonian
+In an unbounded $d$-dimensional space (typically, we will have $d=3$,
+but let us keep our options open), there is an object called a
+scatterer.  Without loss of generality, we assume the scatterer is
+placed near the coordinate origin, $\mathbf{r} = 0$.  We now shoot
+quantum particles of energy $E$ at the scatterer.
 
-$$\hat{H} = \hat{H}_0 + V(\hat{\mathbf{r}}),$$
+Let us assume that these particles do not interact with each other, in
+which case we can just analyze the behavior of an individual,
+representative, particle.  Moreover, let us assume that (i) this
+particle is non-relativistic, and (ii) the particle "sees" the
+scatterer as some potential energy function $V(\mathbf{r})$, called
+the **scattering potential**.  Thus, the particle is governed by the
+Hamiltonian
 
-where
+$$\hat{H} = \hat{H}_0 + V(\hat{\mathbf{r}}), \;\;\; \hat{H}_0 = \frac{\hat{\mathbf{p}}^2}{2m},$$
 
-$$\hat{H}_0 = \frac{\hat{\mathbf{p}}^2}{2m}$$
-
-describes the particle's kinetic energy, $m$ is the particle's mass,
-$\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the position and
-momentum operators, and $V$ is a **scattering potential**
-describing how the scatterer acts upon the particle.  We assume this
-potential vanishes far from the scatterer:
+where $m$ is the particle mass, and $\hat{\mathbf{r}}$ and
+$\hat{\mathbf{p}}$ are the position and momentum operators.  Outside
+the scatterer, we assume that space is empty, so the potential
+function vanishes at large distances:
 
 $$V(\mathbf{r}) \; \overset{|\mathbf{r}| \rightarrow \infty}{\longrightarrow}\; 0.$$
 
-How is the particle scattered by the potential?  In order to study
-this, we formulate the above description as the following mathematical
-problem:
+Next up, we need to formulate the mathematical problem whose solution
+will describe how the incident particle is affected by the scatterer.
+Let us state the formulation first, before elaborating on its meaning
+later.  It consists of the following pieces:
 
-1. A particle state $|\psi\rangle$ obeys the time-independent Schrödinger equation
+1. Define a particle state $|\psi\rangle$, called the **total state**, that obeys the time-independent Schrödinger equation
 $$\hat{H} |\psi\rangle = E |\psi\rangle,$$
 where $E$ is the incoming particle energy.
 
-2. The state $|\psi\rangle$ can be decomposed into two pieces,
+2. The total state $|\psi\rangle$ can be decomposed into two pieces,
 $$|\psi\rangle \,=\, |\psi_i\rangle \,+\, |\psi_s\rangle,$$
-where $|\psi_i\rangle$ is called the \textbf{incident state} and
-$|\psi_s\rangle$ is called the \textbf{scattered state}.
+where $|\psi_i\rangle$ is called the **incident state** and
+$|\psi_s\rangle$ is called the **scattered state**.
 
 3. The incident state is described by a plane wave, which is a
-simultaneous eigenstate of $\hat{H}_0$ (with energy $E$) and
-$\hat{\mathbf{p}}$ (with momentum $\mathbf{p}_i$):
+simultaneous eigenstate of $\hat{H}_0$ and $\hat{\mathbf{p}}$:
 $$\begin{cases}
 \hat{H}_0 |\psi_i\rangle &= \, E |\psi_i\rangle, \\
 \;\;\hat{\mathbf{p}} |\psi_i\rangle &= \, \mathbf{p}_i |\psi_i\rangle,
@@ -86,8 +91,8 @@ $$\begin{cases}
 \label{scatter3}
 $$
 
-4. The scattered state is an ``outgoing'' state.  What this means will
-be explained later.
+4. The scattered state is an "outgoing" state.  The meaning of this is
+a little subtle, so let us fill in this part later.
 
 We can interpret the above statements as follows.  Statement 1 says
 the scattering is elastic: the scatterer is described by a potential
