@@ -1,0 +1,21 @@
+project:
+  type: book
+
+book:
+  title: "Quantum Theory"
+  author: "Y. D. Chong"
+  date: "1/31/2026"
+  chapters:
+    - index.qmd
+    - basics.qmd
+    - scattering.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt

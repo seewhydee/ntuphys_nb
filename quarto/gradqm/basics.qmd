@@ -1,0 +1,107 @@
+# States and Observables
+
+## Wavefunctions
+
+## Position eigenstates
+Before proceeding, let us review the properties of a quantum particle
+in free space.  In a $d$-dimensional space, a coordinate vector
+$\mathbf{r}$ is a real vector with $d$ components.  We suppose there
+is a uncountably infinite set of position eigenstates,
+$\{|\mathbf{r}\rangle\}$, where each $|\mathbf{r}\rangle$ describes a
+particle with a definite position $\mathbf{r}$.  The position
+eigenstates are assumed to span the state space, such that the
+identity operator can be resolved as
+
+$$\hat{I} = \int d^dr \, |\mathbf{r}\rangle \langle\mathbf{r}|,$$
+
+with the integral is taken over all allowed $\mathbf{r}$ (e.g.,
+$\mathbf{r} \in \mathbb{R}^d$).  It follows that
+
+$$\langle \mathbf{r} | \mathbf{r}' \rangle = \delta^d(\mathbf{r}-\mathbf{r}').$$
+
+Thus, we say that the position eigenstates are *delta-normalized*,
+rather than being normalized to unity.  Here $\delta^d(\cdots)$
+denotes the $d$-dimensional delta function; e.g., in 2D,
+
+$$\langle x,y \,|\, x',y' \rangle = \delta(x-x') \, \delta(y-y').$$
+
+Moreover, the position operator $\hat{\mathbf{r}}$ is defined such
+that $\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\,
+|\mathbf{r}\rangle$.
+
+## Momentum eigenstates
+
+Momentum eigenstates are constructed from position eigenstates via
+Fourier transforms.  First, let us suppose $\mathbf{r}$ runs over a
+finite box of length $L$ on each side, with periodic boundary
+conditions.  For plane waves of the form
+$\exp(i\mathbf{k}\cdot\mathbf{r})$, where $\mathbf{k} = (k_1, \dots,
+k_d)$ is the wave-vector, the periodic boundary conditions are
+satisfied if and only if
+
+$$k_j = 2\pi m/L\;\;\mathrm{for} \;m\in\mathbb{Z}.$$
+
+Note that the set of allowed wave-vectors is discrete (i.e.,
+countable), with a discretization of $\Delta k = 2\pi/L$ in each
+direction.  Next, define
+
+$$|\mathbf{k}\rangle = \frac{1}{L^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle,$$
+
+where the integral is taken over the box.  We identify
+$|\mathbf{k}\rangle$ as a momentum eigenstate, i.e., a state with
+definite momentum $\hbar \mathbf{k}$.  We can now show
+that
+
+$$\langle\mathbf{k}|\mathbf{k}'\rangle = \delta_{\mathbf{k},\mathbf{k}'}, \quad \langle\mathbf{r}|\mathbf{k}\rangle = \frac{1}{L^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \sum_{\mathbf{k}} |\mathbf{k}\rangle\,\langle\mathbf{k}|.$$
+
+In particular, note that each momentum eigenstate is normalizable to
+unity.
+
+Now let us take $L \rightarrow \infty$.  In this limit, the
+wave-vector discretization $\Delta k = 2\pi / L$ goes to zero, so the
+momentum eigenvalues coalesce into a continuum.  To handle this, we
+redefine the momentum eigenstates as
+
+$$|\mathbf{k}\rangle^{(\textrm{new})} = \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle^{(\textrm{old})}.$$
+
+Then, by using the formula
+
+$$\int_{-\infty}^\infty dx\; \exp(ikx) \;=\; 2\pi\, \delta(k),$$
+
+we can show that the new momentum eigenstates are related to the
+position eigenstates by
+
+$$\begin{aligned}
+  |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \\
+  |\mathbf{r}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{-i\mathbf{k}\cdot\mathbf{r}} |\mathbf{k}\rangle. \end{aligned}$$
+  
+Position and momentum are now treated on similar footing, with the
+integrals over $\mathbf{r}$ and $\mathbf{k}$ both taken over infinite
+spaces.  Moreover, the momentum eigenstates now satisfy
+
+$$\begin{aligned}
+  I &= \int d^dk \;|\mathbf{k}\rangle\,\langle\mathbf{k}|, \label{Iresolk} \\
+  \langle\mathbf{k}|\mathbf{k}'\rangle &= \delta^d(\mathbf{k}-\mathbf{k}'), \\
+  \langle\mathbf{r}|\mathbf{k}\rangle &= \frac{e^{i\mathbf{k}\cdot\mathbf{r}}}{(2\pi)^{d/2}}.\end{aligned}$$
+  
+The first two equations are analogous to their position eigenstate
+counterparts.  In particular, the new $|\mathbf{k}\rangle$'s are
+delta-normalized.  The last equation can be interpreted as the
+wavefunction of the delta-normalized momentum eigenstate.
+
+The momentum operator $\hat{\mathbf{p}}$ is defined using the
+$|\mathbf{k}\rangle$'s as the eigenbasis:
+
+$$ \hat{\mathbf{p}} |\mathbf{k}\rangle \,=\, \hbar \mathbf{k}\,
+|\mathbf{k}\rangle.$$
+
+For any quantum state $|\psi\rangle$, whose wavefunction is
+$\psi(\mathbf{r}) = \langle \mathbf{r}|\psi\rangle$, we can show that
+the momentum operator acts on wavefunctions in the following way:
+
+$$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
+  &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \hat{\mathbf{p}} | \psi\rangle \\
+  &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; \hbar\mathbf{k} \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \\
+  &= -i \hbar\nabla \left[\frac{1}{(2\pi)^{d/2}} \, \int d^dk \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \right] \\
+  &= -i\hbar \nabla\psi(\mathbf{r}).
+  \end{aligned}$$
