@@ -6,9 +6,10 @@ A famous property of quantum mechanical particles is **wave-particle
 duality**, whose essential features can be succinctly described via
 the following thought experiment:
 
-Suppose a source emits electrons of energy $E$ toward a screen with a
-pair of slits, as shown below.  A movable detector, placed on the far
-side, measures the arrival rates at different positions.
+Suppose a source emits electrons of energy $E \in \mathbb{R}^+$ toward
+a screen with a pair of slits, as shown below.  A movable detector,
+placed on the far side, measures the arrival rates at different
+positions.
 
 ![](fig/doubleslit.png){fig-align="center" width="500" fig-alt="Schematic of a double-slit experiment"}
 
@@ -70,11 +71,13 @@ $$V(\mathbf{r}) \; \overset{|\mathbf{r}| \rightarrow \infty}{\longrightarrow}\; 
 Next up, we need to formulate the mathematical problem whose solution
 will describe how the incident particle is affected by the scatterer.
 Let us state the formulation first, before elaborating on its meaning
-later.  It consists of the following pieces:
+later.
+
+### Formulation of the scattering problem{#sec-scattering-formulation}
 
 1. Define a particle state $|\psi\rangle$, called the **total state**, that obeys the time-independent Schrödinger equation
 $$\hat{H} |\psi\rangle = E |\psi\rangle,$$
-where $E$ is the incoming particle energy.
+where $E \in \mathbb{R}^+$ is the incoming particle energy.
 
 2. The total state $|\psi\rangle$ can be decomposed into two pieces,
 $$|\psi\rangle \,=\, |\psi_i\rangle \,+\, |\psi_s\rangle,$$
@@ -96,13 +99,15 @@ a little subtle, so let us fill in this part later.
 
 We can interpret the above statements as follows.  Statement 1 says
 the scattering is elastic: the scatterer is described by a potential
-$V(\mathbf{r})$, so its interaction with the particle is conservative
-and $E$ is fixed.  Statement 2 says that the wavefunction
-$\psi(\mathbf{r}) = \langle \mathbf{r} |\psi\rangle$ is a
-superposition of an incoming wave and a scattered wave.  Statement 3
-defines the incoming wave as a plane wave with wavelength determined
-by $E$.  Statement 4 says the scattered wave moves outward to
-infinity, away from the scatterer.
+$V(\mathbf{r})$, so its interaction with the particle is
+energy-conserving and occurs with a fixed value of $E$.  Statement 2
+says that the total wavefunction
+$\psi(\mathbf{r}) = \langle \mathbf{r} |\psi\rangle$
+is a superposition of an incoming wave and a scattered wave.
+Statement 3 defines the incoming wave as a plane wave with a fixed
+wavelength (determined by $E$).  Statement 4 says the scattered wave
+moves outward to infinity, away from the scatterer (what this means,
+in practice, will become clearer later on).
 
 Note that Statements 1--4 do *not* define an eigenproblem!  Usually,
 we deal with the time-independent Schröodinger equation by finding
@@ -111,7 +116,7 @@ $E$, and $V(\mathbf{r})$, and want $|\psi_s\rangle$.  In particular,
 $E$ is an input to the calculation (a continuously variable
 parameter), not an output (an eigenvalue).
 
-## Scattering from a 1D delta function potential
+## Scattering from a 1D delta function potential {#sec-1d-scattering}
 
 We are now ready to solve a simple scattering problem.  Consider a 1D
 space with spatial coordinate $x$, and a scattering potential
@@ -123,108 +128,112 @@ The form of the prefactor $\hbar^2\gamma/2m$ is chosen for later
 convenience; the parameter $\gamma$, which has units of $[1/x]$,
 controls the strength of the scattering potential.
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.45\textwidth]{scattering1d} -->
-<!-- \end{figure} -->
+![](fig/scattering1d.png){fig-align="center" width="500" fig-alt="Setup for scattering from a 1D delta function potential"}
 
 The particle wavefunction $\psi(x)$ satisfies the 1D Schrödinger
 wave equation
 
-$$\left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x) \right] \psi(x) = E \psi(x).$$
+$$\left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \,\delta(x) \right] \psi(x) = E \psi(x).$$
 
-As this is a second-order differential equation, we normally require
-$\psi(x)$ to be continuous and to have well-defined first and second
-derivatives.  However, the delta function potential \eqref{Vdeltaf}
-relaxes these requirements in a peculiar way: at $x=0$, $\psi(x)$ must
-still be continuous, but its first derivative may now be discontinuous
-(and hence, its second derivative is singular).  To see this,
-integrate Eq.~\eqref{1dschrod} over an infinitesimal range around $x =
-0$:
+We can tidy this up by multipling both sides by $2m/\hbar^2$, and defining $k = \sqrt{2mE/\hbar^2} \in \mathbb{R}^+$:
 
-$$\begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; E \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left(-\frac{\hbar^2}{2m} \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right) + \frac{\hbar^2\gamma}{2m} \psi(0) &= 0.
+$$\left[- \frac{d^2}{dx^2} + \gamma \,\delta(x) \right] \psi(x) = k^2 \psi(x).$${#eq-scattering-1d}
+
+This is a second-order ordinary differential equation, which normally
+requires $\psi(x)$ to have a well-defined second derivative, which in
+turn implies that its first derivative is continuous.  However,
+because the delta function potential is singular at $x = 0$, this
+requirement is modified: at this point (and only this point),
+$\psi(x)$ may have a discontinuous first derivative (which makes the
+second derivative singular).  Specifically, let us integrate
+@eq-scattering-1d over an infinitesimal range around $x = 0$:
+
+$$\begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; \left[- \frac{d^2}{dx^2} + \gamma \delta(x)\right] \psi(x) &= \lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\varepsilon} dx\; k^2 \psi(x) \\ = \lim_{\varepsilon\rightarrow 0^+} \left(- \left[\frac{d\psi}{dx}\right]_{-\varepsilon}^{+\varepsilon} \right) + \gamma \psi(0) &= 0.
 \end{aligned}$$
 
-Therefore,
+Note that the right-hand side vanishes because the integration occurs
+over an infinitestimal interval, whereas the integrand is finite.
+Therefore, we find that
 
 $$\lim_{\varepsilon\rightarrow 0^+} \left(\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \;\; \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right) =  \gamma \,\psi(0).$$
 
-In accordance our previously-discussed formulation of the scattering
-problem, the total wavefunction is split into
+Next, we follow the formulation of the scattering problem
+(@sec-scattering-formulation), and split the total wavefunction into
+an incident part and a scattering part:
 
 $$\psi(x) = \psi_i(x) + \psi_s(x).$$
 
-Moreover, the incident state should be a momentum eigenstate.  But we
-will *not* let it be delta-normalized, as momentum eigenstates
-normally are.  Instead, we write
+The incident part should be a plane wave, which corresponds to a
+momentum eigenstate.  However, *we will normalize it in a special
+way*, instead of choosing the usual prefactor corresponding to
+delta-normalization.  Let us define
 
-$$\psi_i(x) = \Psi_i \, e^{ik x}, \;\;\;k = \sqrt{\frac{2mE}{\hbar^2}} > 0.$$
+$$\psi_i(x) = \Psi_i \, e^{ik x},$${#eq-planar-1d}
 
-The complex coefficient $\Psi_i$ is called the **incident amplitude**.
-Introducing $\Psi_i$ in this way emphasizes that the magnitude and
-phase of the incident wavefunction are, in principle, adjustable
-parameters in the scattering experiment.  In terms of the usual
-delta-normalized momentum eigenstates,
+where $\Psi_i \in \mathbb{C}$ is called the **incident amplitude**,
+which controls the magnitude and phase of the incident wavefunction,
+while $k$ is the usual wavenumber (determined by $E$).  In this way,
+@eq-scattering-1d reduces to
 
-$$|\psi_i\rangle = \sqrt{2\pi}\, \Psi_i |k\rangle.$$
+$$\left[- \frac{d^2}{dx^2} + \gamma \delta(x)\right] \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big) = k^2 \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).$$
 
-With this, the 1D Schrödinger equation becomes
+After cancelling a pair of equal terms and shuffling the rest around,
+this simplifies to
 
-$$\left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m}\delta(x)\right] \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big)
-  = E \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).$$
-
-
-Taking $E = \hbar^2k^2/2m$, and doing a bit of algebra, simplifies this to
-
-$$\left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x)
-  = \gamma \delta(x) \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).$$
+$$\left[ \frac{d^2}{dx^2} + k^2\right] \psi_s(x) = \gamma \delta(x) \Big(\Psi_i \, e^{ikx} + \psi_s(x) \Big).$${#eq-scattering-1d-2}
 
 We can construct the solution by separately considering the regions $x
-< 0$ and $x > 0$.  Within each half-space, $\delta(x)$ vanishes so
-Eq.~\eqref{deltaschrod} reduces to the Helmholtz equation
+< 0$ and $x > 0$.  In each half-space, $\delta(x)$ vanishes and
+@eq-scattering-1d-2 reduces to the Helmholtz equation
 
-$$\left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0.$$
+$$\left[\frac{d^2}{dx^2} + k^2\right] \psi_s(x) = 0\;\;\; (x \ne 0).$$
 
 This has the general solution
 
 $$\psi_s(x) = \Psi_i \left(f_R \, e^{ik x} + f_L \, e^{-ik x}\right),$$
 
-which is a superposition of right-moving ($e^{ikx}$) and left-moving
-($e^{-ikx}$) waves.  The complex parameters $f_1$ and $f_2$ can have
-different values in the $x < 0$ and $x > 0$ regions.
-
-We want the scattered wave to be an outgoing wave.  Thus, for $x < 0$,
-$\psi_s$ is purely left-moving, so $f_R = 0$; and for $x > 0$,
-$\psi_s$ is purely right-moving, so $f_L = 0$.  Therefore,
+which is a superposition of a right-moving with complex amplitude
+$f_R$, and a left-moving wave with complex amplitude $f_L$.  Note,
+however, that these amplitudes may have different values in the two
+distinct half-spaces.  According to our formulation of the scattering
+problem (@sec-scattering-formulation), the scattered wave should be
+*outgoing*.  Therefore, we specify that for $x < 0$, $\psi_s$ is
+purely left-moving, whereas for $x > 0$ it is purely right-moving:
 
 $$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ikx}, & x < 0 \\ f_+ \,e^{ikx}, & x > 0.\end{cases}$$
 
-The complex numbers $f_-$ and $f_+$ are called **scattering
-amplitudes**.  They parameterize the magnitude and phase of the
-scattered wavefunction moving outward from the scatterer.
+The parameters $f_-, f_+ \in \mathbb{C}$ describe the magnitude and
+phase of the outgoing wavefunction, and are called **scattering
+amplitudes**.
 
-Recall from the discussion at the beginning of this section that
-$\psi(x)$ must be continuous at $x = 0$.  This implies that
-$\psi_s(x)$ is also continuous, and therefore that
+Furthermore, $\psi(x)$ should be continuous at $x = 0$,^[This is
+because $\psi(x)$ is a solution to a second-order ordinary
+differential equation (ODE).  Normally, the solution must have a
+well-defined second derivative everywhere (otherwise the ODE isn't
+well-defined), which implies that the first derivative is well-defined
+and continuous, and, in turn, $\psi(x)$ is continuous.  As we've seen,
+in @eq-scattering-1d this condition is altered by the delta function
+in the ODE: the second derivative becomes singular at $x = 0$, so the
+first derivative is discontinuous.  However, the requirement that
+$\psi(x)$ be continuous remains in place.] so
 
-$$f_- = f_+ \;\;\;\Rightarrow \;\;\; \psi_s(x) = \Psi_i \,f_\pm\, e^{ik|x|}.$$
+$$f_- = f_+ \;\;\;\Rightarrow \;\;\; \psi_s(x) = \Psi_i \,f\, e^{ik|x|}.$$
 
-Plugging Eqs.~\eqref{psiin1d} and \eqref{psis1d} into
-Eq.~\eqref{delta_discontinuity} yields
+Plugging this into @eq-scattering-1d-2, and doing a bit of algebra, we
+obtain
 
-$$f_\pm = -\frac{\gamma}{\gamma - 2ik}.$$
+$$f = -\frac{\gamma}{\gamma - 2ik}.$$
 
 For now, let us focus on the magnitude of the scattering amplitude (in
 the next chapter, we will see that the phase also contains useful
-information).  The quantity $|f_\pm|^2$ describes the overall strength
-of the scattering process:
+information).  The quantity $|f|^2$ quantifies how much of the
+incident wave gets scattered:
 
-$$|f_\pm|^2 = \left[1 + \frac{8mE}{(\hbar\gamma)^2}\right]^{-1}.$$
+$$|f|^2 = \left[1 + \frac{8mE}{(\hbar\gamma)^2}\right]^{-1}.$$
 
 Its dependence on $E$ is plotted below:
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.5\textwidth]{scattering1df} -->
-<!-- \end{figure} -->
+![](fig/scattering1df.png){fig-align="center" width="500" fig-alt="Graph of the squared scattering amplitude for scattering from a 1D delta function"}
 
 The behavior matches our intuition.  For a given particle energy $E$,
 the scattering grows stronger as the potential strength parameter
@@ -235,45 +244,43 @@ attractive potentials ($\gamma < 0$) and repulsive potentials ($\gamma
 
 ## Scattering amplitude and scattering cross section
 
-In the 1D scattering problem of the previous section, the particle can
-only scatter in two directions: forward or backward.  In 2D and higher
-spatial dimensions, there is an important complication: the particle
-can also go sideways, and in fact there is a continuous set of
-directions for it to scatter into.  To deal with this, physicists have
-developed a systematic formalism for expressing the outcomes of
-scattering experiments using direction-dependent **scattering
-amplitudes**, which we will now describe.
+In @sec-1d-scattering, we saw that a particle in 1D can only scatter
+in two possible directions: forward or backward.  In 2D and higher
+spatial dimensions, however, a particle can also scatter *sideways*;
+in fact, there is a continuous set of possible scattering directions.
+To deal with this, we must develop a more systematic way to
+characterize the scattered wave.
 
-To begin, let us define the incident wavefunction as a plane wave in
-$d$ dimensions, by analogy with the 1D case [Eq.~\eqref{psiin1d}]:
+In $d$ spatial dimensions, we define the incident planar wavefunction
+as
 
 $$\psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}},
-\;\;\; |\mathbf{k}_i| = k = \sqrt{\frac{2mE}{\hbar^2}},$$
+\;\;\; |\mathbf{k}_i| = k = \sqrt{\frac{2mE}{\hbar^2}}.$$
 
-where $\mathbf{k}_i$ is the incident wave-vector and $\Psi_i \in
-\mathbb{C}$ is the incident amplitude.
+Similar to the 1D case (@eq-planar-1d), $\Psi_i \in \mathbb{C}$ is the
+**incident amplitude**, describing the magnitude and phase of the
+incident wave.  The incident wave-vector $\mathbf{k}_i$ can have any
+orientation, but its magnitude is fixed by the energy of the particle.
 
-The incident wavefunction generates a scattered wavefunction
-$\psi_s(\mathbf{r})$.  We can express the $\mathbf{r}$-dependence of
-this wavefunction using a coordinate system of the form $(r,\Omega)$,
-where $r$ is the distance from the origin and $\Omega$ denotes the
-other directional coordinates.  Specifically,
+What about the scattered wavefunction $\psi_s(\mathbf{r})$?  In
+general, we can express its $\mathbf{r}$-dependence using some
+coordinate system of the form $(r,\Omega)$, where $r = |\mathbf{r}|$
+is the distance from the origin and $\Omega$ denotes a set of other
+directional coordinates for the $d$-dimensional space.  For instance,
 
-* For $d = 2$, we use polar coordinates $(r,\phi)$, i.e.~$\Omega
-\equiv \phi$.
+* For $d = 2$, we can use polar coordinates $(r,\phi)$.
 
-* For $d = 3$, we use spherical coordinates $(r, \theta, \phi)$,
-  i.e.~$\Omega \equiv (\theta,\phi)$.
+* For $d = 3$, we can use spherical coordinates $(r, \theta, \phi)$.
 
-We can also wrangle the $d = 1$ case into this framework by letting
-  $\Omega \in \{+, -\}$, where $+$ denotes the forward ($+x$)
-  direction and $-$ denotes the backward ($-x$) direction.
+We can also fit the $d = 1$ case into this framework by letting
+$\Omega \in \{+, -\}$, where $+$ denotes the forward ($+x$) direction
+and $-$ denotes the backward ($-x$) direction.
 
 In a typical scattering experiment, the scattered wavefunction is
 detected at $r \rightarrow \infty$; i.e., at distances much longer
-than the size of the scatterer, the free-space wavelength, and any
-other relevant length scales.  In this regime, we assert that the
-scattered wavefunction must reduce to the form
+than the size of the scatterer, the free-space wavelength, or any
+other relevant length scales.  In this regime, the scattered
+wavefunction should reduce to the form
 
 $$\psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\Omega).$$
 
