@@ -242,7 +242,7 @@ higher-energy particle undergoes less scattering.  Note also that
 attractive potentials ($\gamma < 0$) and repulsive potentials ($\gamma
 > 0$) are equally effective at scattering.
 
-## Scattering amplitude and scattering cross section
+## Scattering amplitudes
 
 In @sec-1d-scattering, we saw that a particle in 1D can only scatter
 in two possible directions: forward or backward.  In 2D and higher
@@ -268,13 +268,12 @@ coordinate system of the form $(r,\Omega)$, where $r = |\mathbf{r}|$
 is the distance from the origin and $\Omega$ denotes a set of other
 directional coordinates for the $d$-dimensional space.  For instance,
 
-* For $d = 2$, we can use polar coordinates $(r,\phi)$.
+* For $d = 3$, we can use spherical coordinates $(r, \theta, \phi)$, so $\Omega = (\theta, \phi)$.
 
-* For $d = 3$, we can use spherical coordinates $(r, \theta, \phi)$.
+* For $d = 2$, we can use polar coordinates $(r,\phi)$, so $\Omega = \phi$.
 
-We can also fit the $d = 1$ case into this framework by letting
-$\Omega \in \{+, -\}$, where $+$ denotes the forward ($+x$) direction
-and $-$ denotes the backward ($-x$) direction.
+* For $d = 1$, we can let $\Omega \in \{+, -\}$, where $+$ denotes the
+rightward direction and $-$ denotes the leftward direction.
 
 In a typical scattering experiment, the scattered wavefunction is
 detected at $r \rightarrow \infty$; i.e., at distances much longer
@@ -282,58 +281,55 @@ than the size of the scatterer, the free-space wavelength, or any
 other relevant length scales.  In this regime, the scattered
 wavefunction should reduce to the form
 
-$$\psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\Omega).$$
+$$\psi_s(\mathbf{r})\;  \overset{r\rightarrow\infty}{\longrightarrow}\; \Psi_i \, r^{\frac{1-d}{2}} \, e^{ikr} \, f(\Omega).$${#eq-scattered-wave-form}
 
-To understand the reasoning behind this, let us go through the
-individual multiplicative factors on the right side of the equation.
+To understand why, let us go through the individual multiplicative
+factors on the right side of @eq-scattered-wave-form:
 
-The first factor $\Psi_i$ accounts for the fact that the Schrödinger
+* The first factor $\Psi_i$ accounts for the fact that the Schrödinger
 wave equation is linear.  If we vary the incident amplitude, the
 scattered wavefunction must vary proportionally.
 
-The next two factors, $r^{\frac{1-d}{2}} \, e^{ikr}$, give the
-$r$-dependence of a wave expanding radially from the origin in $d$
-dimensions.  The $e^{ikr}$ factor captures its outgoing nature (the
-wavefunction's phase increases along the direction of propagation,
-i.e., the direction of increasing $r$).  The other factor provides the
-$r$-scaling needed for probability conservation.  Note that the
-probability current density associated with the scattered wavefunction
-is
+* The next two factors, $r^{\frac{1-d}{2}} \, e^{ikr}$, give the
+$r$-dependence of a wave expanding radially from the origin.  The
+$e^{ikr}$ factor describes an outgoing wave.^[The wavefunction's phase
+increases along the direction of propagation, so $e^{ikr}$ means the
+wave propagates in the direction of increasing $r$] The other factor
+provides the $r$-scaling needed for probability conservation.  The probability current density for the scattered
+wavefunction is
+$$ \mathbf{J}_s = \frac{\hbar}{m} \mathrm{Im}\big[\psi_s^*\nabla\psi_s\big],$$
+and the radial component of this is
+$$\begin{aligned}J_{s}^r\; &= \frac{\hbar}{m}\,
+\mathrm{Im}\left[\psi_s^* \frac{\partial}{\partial r}\psi_s\right] \\
+&\overset{r\rightarrow\infty}{\longrightarrow}\;\, \left(\frac{\hbar}{m}\, |\Psi_i|^2\,|f|^2\right)\;
+\mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \frac{\partial}{\partial r} \left(r^{\frac{1-d}{2}} \,e^{ikr}\right)\right] \\
+&= \left(\frac{\hbar}{m} |\Psi_i|^2\, |f|^2\right)\; \mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \left(ik r^{\frac{1-d}{2}} \, e^{ikr} + \frac{1-d}{2} \, r^{\frac{-1-d}{2}} \, e^{ikr}\right)\right] \\
+&= \left(\frac{\hbar k}{m} \, |\Psi_i|^2 \, |f|^2\right) \, r^{1-d} \;+\;
+O(r^{-d}).\end{aligned}$${#eq-psiscat-r}
+In $d$ dimensions, the area of the surface at distance $r$ from the
+origin scales as $r^{d-1}$; hence, $J_{s}^r$ scales inversely with
+area, whereas the total flux (the area integral of $J_{s}^r$) is
+independent of $r$.
 
-$$ \mathbf{J}_s = \frac{\hbar}{m} \mathrm{Im}\big[\psi_s^*\nabla\psi_s\big].$$
+* The final factor, $f(\Omega)$, is called the **scattering
+amplitude**.  Since the other factors are completely determined (as we
+have just seen), only the scattering amplitude depends on the specific
+details of the scattering potential $V(\mathbf{r})$.  Hence, it is the
+main avenue by which we can gain information from a scattering
+experiment.
 
-Thus, its radial component is
-
-$$\begin{aligned}J_{s}^r\; &= \frac{\hbar}{m}\, \mathrm{Im}\left[\psi_s^* \frac{\partial}{\partial r}\psi_s\right] \\
-&\overset{r\rightarrow\infty}{\longrightarrow}\;\, \big(\cdots\big)
-\mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \frac{\partial}{\partial r} \left(r^{\frac{1-d}{2}} \, e^{ikr}\right)\right] \\
-&= \big(\cdots\big)\,
-\mathrm{Im}\left[\left(r^{\frac{1-d}{2}} \, e^{ikr}\right)^* \left(ik r^{\frac{1-d}{2}} \, e^{ikr} + \frac{1-d}{2} \, r^{\frac{-1-d}{2}} \, e^{ikr}\right)\right] \\
-&= \big(\cdots\big) \, r^{-(d-1)} + O(r^{-d}),\end{aligned}$$
-
-where $(\cdots)$ denotes $r$-independent terms.  In $d$ dimensions,
-the area of the surface at distance $r$ from the origin scales as
-$r^{d-1}$.  Hence, $J_{s}^r$ scales inversely with area, and the total
-flux obtained by integrating $J_{s}^r$ over the area is independent of
-$r$.
-
-The final factor, $f(\Omega)$, is called the \textbf{scattering
-amplitude}.  This complex function is typically the main avenue by
-which a scattering experiment reveals information about the scatterer.
-As noted in the previous paragraphs, in the large-$r$ limit, the other
-factors are determined by linearity, outgoing-ness, and flux
-conservation.  Hence, only $f$ is sensitive to the details of the
-scattering potential.
-
-Note that the scattering amplitude is a function of $\Omega$, i.e.,
-the direction of $\mathbf{r}$.  Sometimes, it is written using the
-alternative notation
+It is worth emphasizing that the scattering amplitude is a function of
+$\Omega$, i.e., the direction of the position $\mathbf{r}$ at which we
+are observing the scattered wavefunction.  We can also write it using
+the notation
 
 $$f(\mathbf{k}_i \rightarrow \mathbf{k}_f), \qquad \mathbf{k}_f = k\, \frac{\mathbf{r}}{|\mathbf{r}|}.$$
 
 This emphasizes that the particle is initially incident with
 wave-vector $\mathbf{k}_i$, then gets scattered elastically into a
 wave-vector $\mathbf{k}_f$ pointing in the direction of $\mathbf{r}$.
+
+### Scattering cross section
 
 From the scattering amplitude, we can define two other important
 quantities:
@@ -342,60 +338,58 @@ $$\begin{aligned}\frac{d\sigma}{d\Omega} &= \big|f(\Omega)\big|^2 \qquad\quad\qu
 
 Here, $\int d\Omega$ denotes the integral(s) over all the angle
 coordinates.  For 1D, this is replaced by a discrete sum over the
-forward and backward directions (see above).
+forward and backward directions, as we saw in @sec-1d-scattering.
 
 The term "cross section" comes from an analogy with the scattering of
-classical particles.  Imagine a stream of classical particles incident
-on a "hard-body" scatterer:
+classical particles.  Imagine a stream of *classical* particles
+incident on a "hard-body" scatterer:
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.44\textwidth]{crosssection} -->
-<!-- \end{figure} -->
+![](fig/crosssection.png){fig-align="center" width="500" fig-alt="Schematic of particles incident on a hard body with cross sectional area sigma"}
 
-Let the incident classical particles have the same flux as the
-incident wavefunction \eqref{psiin},
+Suppose these classical particles have the same flux as the incident
+wavefunction we were previously considering, i.e.,
 
-$$J_{i} = \frac{\hbar k}{m} \;|\Psi_i|^2.$$
+$$J_{i} = \frac{\hbar k}{m} \;|\Psi_i|^2.$${#eq-incident-flux}
 
-Note that this has units of $[x^{1-d}t^{-1}]$ (i.e., number per unit
-time per unit area in $d$ dimensions).  We assume the scatterer only
-interacts with the particles striking it directly, and the rate at
-which these strikes occur is
+Note that flux has units of $[x^{1-d}t^{-1}]$, or number per unit time
+per unit area (in $d$ dimensional space).  If we assume the scatterer
+only interacts with the particles striking it directly, then the rate
+at which these strikes occur is
 
-$$I_s = J_i \, \sigma,$$
+$$I_s = J_i \, \sigma,$${#eq-hard-scattering}
 
 where $\sigma$ is the exposed cross-sectional area of the scatterer,
-as shown in the figure.  This is the *total* rate at which scattering
+as shown in the figure.  This is the total rate at which scattering
 occurs, regardless of where the particles scatter to.
 
-Let us compare this to the quantum mechanical scattering rate.  Using
-Eq.~\eqref{psiscat}, we can repeat the calculation in \eqref{Jsrcalc}
-for the radial component of the probability current density:
+Let us compare this to the quantum mechanical scattering rate.  In
+@eq-psiscat-r, we found that the radial component of the probability
+current density is
 
 $$J_s^r \; \overset{r\rightarrow\infty}{\longrightarrow}\;
   \frac{\hbar \,k}{m}\; |\Psi_i|^2 \; |f(\Omega)|^2 \,r^{1-d}
   + O(r^{-d}).$$
 
-Hence, the total flux of outgoing probability is
+The total outgoing probability current is obtained by integrating the
+flux over an area of constant radius,
 
-$$I_s = \int d\Omega\; r^{d-1} \, J_{s,r}
-  = \left(\frac{\hbar k}{m} \;|\Psi_i|^2\right) \; \int d\Omega\; \big|f(\Omega)\big|^2.$$
+$$I_s = \int d\Omega\; r^{d-1} \, J_{s,r} = \left(\frac{\hbar k}{m} \;|\Psi_i|^2\right) \; \int d\Omega\; \big|f(\Omega)\big|^2.$$
 
-On the right side, the quantity in parentheses is the incident flux,
-Eq.~\eqref{incidentflux}.  Comparing Eq.~\eqref{scatterI} to
-Eq.~\eqref{scattersigma}, we see that
+On the right side, the quantity in parentheses equals the incident
+flux $J_i$ (@eq-incident-flux).  Thus, this result bears the same form
+as the classical hard body scattering relation, @eq-hard-scattering,
+with the quantity
 
-$$\sigma \equiv \int d\Omega \; \big|f(\Omega)\big|^2$$
+$$\sigma \equiv \int d\Omega \; \big|f(\Omega)\big|^2.$$
 
-is the quantity analogous to the exposed cross-sectional area of the
-classical hard-body.  We therefore call this the \textbf{total
-scattering cross section}.
+playing the role of the scatterer's cross-sectional area.  We
+therefore call this the **total scattering cross section**.
 
 Moreover, the integrand $|f|^2$ represents the rate, per unit of solid
 angle, at which particles are scattered in a given direction.  We call
-this the **differential scattering cross section**.  The total
-and differential scattering cross sections are the principal
-observable quantities typically obtained in scattering experiments.
+this the **differential scattering cross section**.  The total and
+differential scattering cross sections are the principal observable
+quantities typically obtained in scattering experiments.
 
 ## The Green's function
 
@@ -404,34 +398,34 @@ of analytical and numerical methods.  We will discuss one particularly
 important approach, based on a quantum variant of the Green's function
 technique for solving inhomogenous differential equations.
 
-Let us return to the previously-discussed formulation of the
-scattering problem:
+Let us return to the formulation of the scattering problem
+(@sec-scattering-formulation), which consists of the equations
 $$\begin{aligned} \hat{H} &= \hat{H}_0+\hat{V} \\ \hat{H} |\psi\rangle &= E |\psi\rangle \\ |\psi\rangle &= |\psi_i\rangle \,+\, |\psi_s\rangle \\ \hat{H}_0 |\psi_i\rangle &= E |\psi_i\rangle.\end{aligned}$$
 
-These equations can be combined as follows:
+These can be combined as follows:
 
 $$\begin{aligned}
   \left(\hat{H}_0 + \hat{V}\right) |\psi_i\rangle + \hat{H} |\psi_s\rangle &= E \left( |\psi_i\rangle + |\psi_s\rangle \right) \\
   \Rightarrow \quad \hat{V} |\psi_i\rangle + \hat{H} |\psi_s\rangle &= E |\psi_s\rangle  \\
-  \Rightarrow \quad\; \left(E - \hat{H}\right) |\psi_s\rangle & = \hat{V} |\psi_i\rangle \end{aligned}$$
+  \Rightarrow \quad\; \left(E - \hat{H}\right) |\psi_s\rangle & = \hat{V} |\psi_i\rangle \end{aligned}$${#eq-E-H-psis}
 
-To proceed, we define an operator called the **Green's function**:
+To proceed, let us define an operator called the **Green's function**:
 
 $$\hat{G}(E) = \big(E-\hat{H}\big)^{-1}.$$
 
-Note that $\hat{G}(E)$ depends parametrically on $E$.  We can now
-convert Eq.~\eqref{EmHeq} into
+Note that $\hat{G}(E)$ depends parametrically on $E$.  Using this, we
+can convert @eq-E-H-psis into
 
-$$|\psi_s\rangle = \hat{G} \hat{V} |\psi_i\rangle.$$
+$$|\psi_s\rangle = \hat{G} \hat{V} |\psi_i\rangle.$${#eq-scatterform}
 
 It will also be useful to define the Green's function for a free
 particle,
 
-$$\hat{G}_0(E)=\big(E-\hat{H}_0\big)^{-1}.$$
+$$\hat{G}_0(E)=\big(E-\hat{H}_0\big)^{-1}.$${#eq-G0-unregulated}
 
-As we shall see, $\hat{G}_0$ often can be calculated exactly, whereas
-$\hat{G}$ typically has no closed-form analytic expression.  Moreover,
-we can relate $G$ and $G_0$ as follows:
+As we shall see, it is often the case that $\hat{G}_0$ can be
+calculated exactly, whereas $\hat{G}$ has no closed-form analytic
+expression.  We can now relate $G$ and $G_0$ as follows:
 
 $$\begin{aligned}
 \hat{G}(E-\hat{H}_0 - \hat{V})\;\; &= I \;\;\;\mathrm{and}\;\; (E-\hat{H}_0 - \hat{V})\hat{G} = I \\ \Leftrightarrow \quad\qquad \hat{G} \hat{G}_0^{-1} - \hat{G}\hat{V} &= I \;\;\; \mathrm{and}\;\;\;\;\, \hat{G}_0^{-1} \hat{G} - \hat{V}\hat{G} \;\;\;= I.
@@ -449,8 +443,8 @@ $$\begin{aligned}
 These equations are *implicit*, as the unknown $\hat{G}$ appears on
 both the left and right sides.
 
-Applying the second Dyson equation, Eq.~\eqref{dyson2}, to the
-scattering problem \eqref{scatterform} gives
+Applying the second Dyson equation to the scattering problem
+@eq-scatterform gives
 
 $$\begin{aligned}
 |\psi_s\rangle
@@ -460,16 +454,18 @@ $$\begin{aligned}
 \label{psis_useful}
 \end{aligned}$$
 
-Using Eq.~\eqref{scatterform} again, we get
+Using @eq-scatterform again, we get
 
 $$|\psi_s\rangle = \hat{G}_0\hat{V} |\psi\rangle.$$
 
-This remains an implicit equation, but the unknown is $|\psi\rangle$
-rather than $\hat{G}$.  Note that the results up to this point have
-been approximation-free.
+This remains an implicit equation, but with the unknown expressed in
+$|\psi\rangle$ rather than $\hat{G}$.  Note, however, that the results
+up to this point have been approximation-free.
 
-One approach to solving Eq.~\eqref{psis_implicity} is to repeatedly
-plug its right side back into itself:
+### The Born series
+
+One way to solving the implicit equation is to repeatedly plug its
+right side back into itself:
 
 $$\begin{aligned}
 |\psi_s\rangle &= \hat{G}_0 \hat{V} \left(|\psi_i\rangle + \hat{G}_0 \hat{V}|\psi\rangle\right) \\
@@ -482,23 +478,18 @@ Or, equivalently,
 $$|\psi\rangle
 = \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.$$
 
-This infinite series is called the **Born series**.
+This infinite series is called the **Born series**.  To interpret this
+result, let us go to the position basis:
 
-To interpret this result, let us go to the position basis:
+$$\begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \;\; + \;\;\cdots\end{aligned}$${#eq-born-position}
 
-$$\begin{aligned}\psi(\mathbf{r}) = \psi_i(\mathbf{r}) &+ \int d^dr' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \psi_i(\mathbf{r}') \\ &+ \int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}'') \;\; + \;\;\cdots\end{aligned}$$
+This can be regarded as a multiple-scattering process.  The
+wavefunction consists of a superposition of terms involving zero, one,
+two, or more scattering events, as depicted below:
 
-This can be regarded as a description of **multiple scattering**.
-The wavefunction is a superposition of terms involving zero, one, two,
-or more scattering events, as shown below:
+![](fig/bornseries){fig-align="center" width="600" fig-alt="Schematic of the Born series as a multiple-scattering process"}
 
-<!-- \begin{figure}[h!] -->
-<!-- \centering\includegraphics[width=0.9\textwidth]{bornseries} -->
-<!-- \end{figure} -->
-
-Each successive term in the Born series involves more scattering
-events, i.e., higher multiples of $\hat{V}$.  For example, the
-second-order term is
+For example, the second-order term is
 
 $$\int d^dr' d^dr'' \langle \mathbf{r} | \hat{G}_0 |\mathbf{r}'\rangle\, V(\mathbf{r}') \, \langle \mathbf{r}' | \hat{G}_0 |\mathbf{r}''\rangle \, V(\mathbf{r}'') \psi_i(\mathbf{r}''),$$
 
@@ -512,48 +503,48 @@ with the strongest scattering potential contribute the most.
 
 For a sufficiently weak scatterer, it is often a good approximation to
 retain just the first few terms in the Born series.  The question of
-when $\hat{V}$ is ``sufficiently weak''---i.e., when the Born series
+when $\hat{V}$ is "sufficiently weak"---i.e., when the Born series
 converges---is a complex topic beyond the scope of our present
 discussion.
 
-## Green's function for a free particle
+### The free-particle Green's function
 
 In the position basis representation of the Born series,
-Eq.~\eqref{Bornposition}, a crucial role is played by the matrix
-elements $\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  We call
-this the \textbf{propagator}, as it describes how the particle
-propagates between discrete scattering events.
+@eq-born-position, a crucial role is played by the matrix elements
+$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle$.  We call this the
+**propagator**, as it describes how the particle propagates between
+discrete scattering events.
 
-Starting from the definition of $\hat{G}_0$ in
-Eq.~\eqref{G0unregulated}, we can evaluate it in the position basis:
+Starting from the definition of $\hat{G}_0$, @eq-G0-unregulated, we
+can evaluate it in the position basis:
 
 $$\begin{aligned}
 \langle\mathbf{r} |\big(E-\hat{H}_0\big) \hat{G}_0 |\mathbf{r}'\rangle &= \langle\mathbf{r}|\hat{I}|\mathbf{r}'\rangle \\
-= \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}')
+= \left(E + \frac{\hbar^2}{2m}\nabla^2 \right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle &= \delta^d(\mathbf{r}-\mathbf{r}').
 \end{aligned}$$
 
-Hence,
+This gives
 
-$$\left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}'),$$
+$$\left(\nabla^2 + k^2\right) \langle\mathbf{r} |\hat{G}_0 |\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \delta^d(\mathbf{r}-\mathbf{r}'),$${#eq-propagator}
 
-where
+where $k$, as usual, is the wavenumber corresponding to the particle
+energy $E$.  The left side of this equation is the same as the
+$d$-dimensional Helmholtz equation, with the $\nabla^2$ acting on the
+$\mathbf{r}$ coordinates (not $\mathbf{r}'$).  On the right side, we
+have a term proportional to a $d$-dimensional delta function at
+$\mathbf{r} = \mathbf{r}'$.  The propagator thus describes a wave at
+each position $\mathbf{r}$, emitted from a point source at
+$\mathbf{r}'$.
 
-$$k^2 = \frac{2mE}{\hbar^2}.$$
+@eq-propagator can be solved analytically for different values of the
+spatial dimension $d$.  In the following, we will work through the
+derivation for $d = 3$.  The derivations for $d = 1$ and $d = 2$ are
+left as exercises.
 
-The left side of this equation is the same as the $d$-dimensional
-Helmholtz equation, with the $\nabla^2$ acting on the $\mathbf{r}$
-coordinates (not $\mathbf{r}'$).  On the right side, we have a term
-proportional to a $d$-dimensional delta function at $\mathbf{r} =
-\mathbf{r}'$.  The propagator thus describes a wave at each position
-$\mathbf{r}$, emitted from a point source at $\mathbf{r}'$.
+### Derivation of the 3D propagator
 
-Eq.~\eqref{propagatoreq} can be solved analytically for different
-values of the spatial dimension $d$.  In the following, we will work
-through the derivation for $d = 3$.  The derivations for $d = 1$ and
-$d = 2$ are left as exercises.
-
-To derive the 3D propagator, we first re-express it using the momentum
-eigenbasis:
+To derive the propagator (or free-space Green's function) in 3D, let
+us re-express it using the momentum eigenbasis:
 
 $$\begin{aligned}
 \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle
@@ -570,11 +561,9 @@ $(k',\theta,\phi)$.  We are free to choose the $\theta=0$ axis so that
 it points in the direction of $\mathbf{r}-\mathbf{r}'$, as illustrated
 below:
 
-<!-- \begin{figure}[h] -->
-<!-- \centering\includegraphics[width=0.4\textwidth]{spherical_coords} -->
-<!-- \end{figure} -->
+![](fig/spherical_coords.png){fig-align="center" width="500" fig-alt="Diagram of 3D spherical coordinates for the k' vector"}
 
-Then,
+The spherical integral can then be calculated as follows:
 
 $$\begin{aligned}
 \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^3} \int d^3k' \; \frac{\exp\left[i\mathbf{k}'\cdot (\mathbf{r}-\mathbf{r}')\right]}{k^2-|\mathbf{k}'|^2} \nonumber \\
@@ -583,10 +572,11 @@ $$\begin{aligned}
 &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \int_0^\infty dk' \; \frac{ {k'}^2}{k^2-{k'}^2}\, \frac{\displaystyle \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right) - \exp\left(-ik'|\mathbf{r}-\mathbf{r}'|\right)}{ik'|\mathbf{r}-\mathbf{r}'|} \nonumber\\
 &= \frac{2m}{\hbar^2} \frac{1}{(2\pi)^2} \frac{i}{|\mathbf{r}-\mathbf{r}'|} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k'\, \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)}.\end{aligned}$$
 
-This looks like something we can handle via contour integration.  But
-there's a snag: the integration contour runs over the real $k'$ line,
-but since $k \in \mathbb{R}^+$ the poles at $\pm k$ lie on the
-contour.  The integral, as currently defined, is singular.
+The resulting definite integral looks like something we can handle via
+contour integration.  But there's a snag: the integration contour runs
+over the real $k'$ line, but since $k \in \mathbb{R}^+$ the poles at
+$\pm k$ lie on the contour.  The integral, as currently defined, is
+singular.
 
 To get a finite result, we must regularize the integral by adjusting
 its definition.  One way is to perturb the integrand and shift its
@@ -596,14 +586,11 @@ infinitesimally up or down.  It turns out that the appropriate choice
 is to shift the pole at $-k$ down, and shift the pole at $+k$ up, as
 illustrated by the red dots in the following figure:
 
-<!-- \begin{figure}[h!] -->
-<!-- \centering\includegraphics[width=0.34\textwidth]{greencontour} -->
-<!-- \end{figure} -->
+![](fig/greencontour.png){fig-align="center" width="500" fig-alt="Contour plot for performing the Green's function integral, with the contour closed in the upper half-plane"}
 
-This alters the denominator in the integrand of
-Eq.~\eqref{rGrintegrand} as follows:
+This modifies the denominator in the integrand to
 
-$$(k' - k)(k'+k) \;\rightarrow\; (k' - k - i\epsilon)(k'+k+i\epsilon) = {k'}^2 - (k+i\epsilon)^2,$$
+$$(k' - k)(k'+k) \;\rightarrow\; (k' - k - i\epsilon)(k'+k+i\epsilon) = {k'}^2 - (k+i\epsilon)^2,$${#eq-kregularization}
 
 where $\epsilon$ is a positive infinitesimal.  The implications of
 this adjustment will be discussed further below.  For now, let us
@@ -611,17 +598,17 @@ proceed to do the integral, which is no longer divergent:
 
 $$\begin{aligned}\int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k)(k'+k)} &\rightarrow \lim_{\varepsilon \rightarrow 0^+} \int_{-\infty}^\infty dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}\;\;\; (\text{regularize}) \\ &= \lim_{\varepsilon \rightarrow 0^+} \int_C dk' \; \frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)} \quad\;\;\; (\text{close contour above}) \\ &= 2\pi i \lim_{\varepsilon \rightarrow 0^+} \mathrm{Res}\left[\frac{\displaystyle k' \exp\left(ik'|\mathbf{r}-\mathbf{r}'|\right)}{(k' - k - i\varepsilon)(k'+k+i\varepsilon)}, \;k'=k+i\varepsilon^+\right] \\ &= \pi i \exp\left(ik|\mathbf{r}-\mathbf{r}'|\right).\end{aligned}$$
 
-Finally, plugging this into Eq.~\eqref{rGrintegrand} gives the result
+Finally, we obtain the result
 
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = -\frac{2m}{\hbar^2}
 \cdot \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}.$$
 
-The 3D propagator \eqref{3dprop} describes a spherical wave centered
-at the source $\mathbf{r}'$.  The wave is isotropic (i.e., independent
-of the direction of $\mathbf{r} - \mathbf{r}'$), consistent with the
-fact that the source, a delta function, has no preferred direction.
-The amplitude of the wave decreases inversely with $\Delta r =
-|\mathbf{r}-\mathbf{r}'|$, consistent with flux conservation in 3D.
+This describes a spherical wave centered at the source $\mathbf{r}'$.
+The wave is isotropic (i.e., independent of the direction of
+$\mathbf{r} - \mathbf{r}'$), consistent with the fact that the source,
+a delta function, has no preferred direction.  The amplitude of the
+wave decreases inversely with $\Delta r = |\mathbf{r}-\mathbf{r}'|$,
+consistent with flux conservation in 3D.
 
 Most importantly, the wave propagates \textit{outward} from
 $\mathbf{r}'$ (since the phase of the wavefunction increases with
@@ -629,11 +616,10 @@ $\Delta r$).  Such a propagator is said to be \textbf{causal}, a word
 based on the term ``cause and effect''---the wave travels from the
 source at $\mathbf{r}'$ (the \textit{cause}) to $\mathbf{r}$ (the
 \textit{effect}).  We can trace this behavior back to the
-regularization in Eq.~\eqref{kregularization}; other regularization
-choices can be shown to yield propagators with different properties
-(see \hyperref[ex:anticausal]{exercises}).  Our regularization
-\eqref{kregularization} can also be expressed as an infinitesimal
-shift in $E$, via Eq.~\eqref{keq}:
+regularization in @eq-kregularization; other regularization choices
+can be shown to yield propagators with different properties (see
+\hyperref[ex:anticausal]{exercises}).  This regularization procedure
+can also be expressed in terms of an infinitesimal shift in $E$,
 
 $$\frac{\hbar^2 k^2}{2m} = E
 \;\;\;\Rightarrow\;\;\;
@@ -642,14 +628,12 @@ $$\frac{\hbar^2 k^2}{2m} = E
 = E + i\varepsilon.$$
 
 In other words, we have swapped the original definition of the Green's
-function, Eq.~\eqref{G0unregulated}, for a **causal Green's
-function**
+function for a **causal Green's function**,
 
 $$\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.$$
 
-Based on Eq.~\eqref{G0regulated}, causal propagators can also be
-derived for other dimensions.  The results for $d = 1, 2,$
-and $3$ are summarized below:
+Similar causal propagators can also be derived for other dimensions.
+The results for $d = 1, 2,$ and $3$ are summarized below:
 
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \times \begin{cases} \Bigg.\displaystyle\frac{1}{2ik} \exp\left(ik|x-x'|\right),& d=1\\ \Bigg. \displaystyle\frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|), & d=2 \\ \displaystyle \Bigg. - \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}, & d = 3.  \end{cases}$$
 
