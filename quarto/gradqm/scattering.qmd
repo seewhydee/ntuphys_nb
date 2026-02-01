@@ -613,13 +613,11 @@ consistent with flux conservation in 3D.
 Most importantly, the wave propagates \textit{outward} from
 $\mathbf{r}'$ (since the phase of the wavefunction increases with
 $\Delta r$).  Such a propagator is said to be \textbf{causal}, a word
-based on the term ``cause and effect''---the wave travels from the
-source at $\mathbf{r}'$ (the \textit{cause}) to $\mathbf{r}$ (the
-\textit{effect}).  We can trace this behavior back to the
-regularization in @eq-kregularization; other regularization choices
-can be shown to yield propagators with different properties (see
-\hyperref[ex:anticausal]{exercises}).  This regularization procedure
-can also be expressed in terms of an infinitesimal shift in $E$,
+based on the term "cause and effect"---the wave travels from the
+source at $\mathbf{r}'$ (the cause) to $\mathbf{r}$ (the effect).  We
+can trace this behavior back to the regularization in
+@eq-kregularization.  Equivalently, we can express it as an
+infinitesimal shift in $E$,
 
 $$\frac{\hbar^2 k^2}{2m} = E
 \;\;\;\Rightarrow\;\;\;
@@ -627,8 +625,8 @@ $$\frac{\hbar^2 k^2}{2m} = E
 = \frac{\hbar^2}{2m} \left(k^2 + 2ik\epsilon + \cdots\right)
 = E + i\varepsilon.$$
 
-In other words, we have swapped the original definition of the Green's
-function for a **causal Green's function**,
+In other words, the original definition of the Green's function is
+replaced with a **causal Green's function**,
 
 $$\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.$$
 
