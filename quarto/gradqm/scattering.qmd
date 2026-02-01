@@ -255,7 +255,7 @@ In $d$ spatial dimensions, we define the incident planar wavefunction
 as
 
 $$\psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}},
-\;\;\; |\mathbf{k}_i| = k = \sqrt{\frac{2mE}{\hbar^2}}.$$
+\;\;\; |\mathbf{k}_i| = k = \sqrt{\frac{2mE}{\hbar^2}}.$${#eq-psiin}
 
 Similar to the 1D case (@eq-planar-1d), $\Psi_i \in \mathbb{C}$ is the
 **incident amplitude**, describing the magnitude and phase of the
@@ -437,8 +437,8 @@ by $\hat{G}_0$, we arrive at the following pair of equations, called
 
 $$\begin{aligned}
 \hat{G} \;&= \; \hat{G}_0 + \hat{G}\hat{V}\hat{G}_0 \\
-\hat{G} \;&=\; \hat{G}_0 + \hat{G}_0\hat{V}\hat{G} \label{dyson2}
-\end{aligned}$$
+\hat{G} \;&=\; \hat{G}_0 + \hat{G}_0\hat{V}\hat{G}
+\end{aligned}$${#eq-dyson}
 
 These equations are *implicit*, as the unknown $\hat{G}$ appears on
 both the left and right sides.
@@ -460,7 +460,7 @@ This remains an implicit equation, but with the unknown expressed in
 $|\psi\rangle$ rather than $\hat{G}$.  Note, however, that the results
 up to this point have been approximation-free.
 
-### The Born series
+### The Born series{#sec-born-series}
 
 One way to solving the implicit equation is to repeatedly plug its
 right side back into itself:
@@ -474,7 +474,7 @@ $$\begin{aligned}
 Or, equivalently,
 
 $$|\psi\rangle
-= \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.$$
+= \left[\hat{I} + \hat{G}_0 \hat{V} + (\hat{G}_0 \hat{V})^2 + (\hat{G}_0 \hat{V})^3 + \cdots\right]|\psi_i\rangle.$${#eq-bornseries}
 
 This infinite series is called the **Born series**.  To interpret this
 result, let us go to the position basis:
@@ -539,7 +539,7 @@ spatial dimension $d$.  In the following, we will work through the
 derivation for $d = 3$.  The derivations for $d = 1$ and $d = 2$ are
 left as exercises.
 
-### Derivation of the 3D propagator
+### Derivation of the 3D propagator{#sec-3d-propagator}
 
 To derive the propagator (or free-space Green's function) in 3D, let
 us re-express it using the momentum eigenbasis:
@@ -625,7 +625,7 @@ $$\frac{\hbar^2 k^2}{2m} = E
 Hence, the Green's function's original definition is replaced with a
 **causal Green's function**,
 
-$$\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.$$
+$$\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.$${#eq-causal-green}
 
 Similar causal propagators can also be derived for other dimensions.
 The results for $d = 1, 2,$ and $3$ are summarized below:
@@ -655,18 +655,17 @@ $$\psi_s(\mathbf{r})
 
 We want to use this to find the scattering amplitude $f$, which
 encodes the results of the scattering experiment in the large-$r$
-limit (see Sec.~\ref{sec:scattering_amplitude}).
+limit (see @sec-scattering-amplitudes).
 
 Let us work on the expression on the left first.  Using the position
 representation,
 
 $$\begin{aligned}
-\psi_s(\mathbf{r}) = \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \langle \mathbf{r}'| \big(\hat{I} + \hat{G} \hat{V}\big) |\psi_i\rangle.\end{aligned}$$
+\psi_s(\mathbf{r}) = \int d^3r'\; \langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle\, V(\mathbf{r}')\, \langle \mathbf{r}'| \big(\hat{I} + \hat{G} \hat{V}\big) |\psi_i\rangle.\end{aligned}$${#eq-psis_positionrep}
 
-From Eq.~\eqref{propagator_solutions}, the causal propagator in 3D is
+The causal propagator in 3D, which we derived in @sec-3d-propagator, is
 
-$$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle =
-- \frac{2m}{\hbar^2}
+$$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = - \frac{2m}{\hbar^2}
 \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}.$$
 
 In the $r\rightarrow\infty$ limit, this can be simplified using the
@@ -681,47 +680,48 @@ lowest order,
 
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle \overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2}\, \frac{e^{ikr}}{4\pi r}\; \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right).$$
 
-Applying this to Eq.~\eqref{psis_positionrep} gives
+Applying this to @eq-psis_positionrep gives
 
 $$\begin{aligned}\psi_s(\mathbf{r})
 &\overset{r\rightarrow\infty}{\longrightarrow} \, - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{4\pi r}\; \int d^3r' \exp\left(-ik \, \hat{\mathbf{r}} \cdot \mathbf{r}'\right)\, V(\mathbf{r}')\,
 \langle \mathbf{r}'| \big(\hat{I} + \hat{G} \hat{V}\big) |\psi_i\rangle \\
 &\;\;=\;\; - \frac{2m}{\hbar^2} \, \frac{e^{ikr}}{r} \sqrt{\frac{\pi}{2}} \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V} \hat{G} \hat{V}
-\big|\psi_i\big\rangle. \end{aligned}$$
+\big|\psi_i\big\rangle. \end{aligned}$$ {#eq-psis_intermediate}
 
 On the second line, we simplified the expression by introducing the
 momentum eigenstate with $\mathbf{k}_f \equiv k \hat{\mathbf{r}}$.
-This corresponds to the ``final'' momentum of the scattered particle,
+This corresponds to the "final" momentum of the scattered particle,
 measured when the particle is picked up by a detector placed in the
 $\hat{\mathbf{r}}$ direction relative to the origin.  Note that
 $|\mathbf{k}_f| = |\mathbf{k}_i| = k$, consistent with elastic
-scattering.  Similarly, we can express the incident state in terms of
-a momentum eigenstate, by comparing Eqs.~\eqref{kwavefun} to
-\eqref{psiin}:
+scattering.
+
+Likewise, we can relate the incident state, @eq-psiin, to a
+delta-normalized momentum eigenstate (see @sec-momentum-eigenstates):
 
 $$|\psi_i\rangle = \Psi_i (2\pi)^{3/2} |\mathbf{k}_i\rangle.$$
 
-Thus, Eq.~\eqref{psis_intermediate} becomes
+Then @eq-psis_intermediate becomes
 
 $$\begin{aligned}\psi_s(\mathbf{r}) \; &\overset{r\rightarrow\infty}{\longrightarrow} - \frac{2m}{\hbar^2} \, \Psi_i\, \frac{e^{ikr}}{r} \; 2\pi^2 \; \big\langle \mathbf{k}_f \big|\hat{V} + \hat{V}\hat{G}\hat{V}\big|\mathbf{k}_i\big\rangle.\end{aligned}$$
 
-Comparing this to the right side of Eq.~\eqref{psis_expansion}, we can
-read off the scattering amplitude:
+Comparing this to @eq-scattered-wave-form, we can read off the
+scattering amplitude:
 
 $$\begin{aligned}
 f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G} \hat{V} \big|\mathbf{k}_i\big\rangle \\
-&= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}_i\big\rangle.  \end{aligned}$$
+&= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}_i\big\rangle.  \end{aligned}$${#eq-fresult}
 
-As noted above, this result is subject to the elasticity constraint
-$|\mathbf{k}_i| = |\mathbf{k}_f|$.  To get the infinite series on the
-second line of Eq.~\eqref{fresult}, we have used
-Eq.~\eqref{bornseries}.
+As usual, this is subject to the elasticity constraint $|\mathbf{k}_i|
+= |\mathbf{k}_f|$.  We obtained the infinite series on the second line
+by applying Dyson's equations, @eq-dyson, repeatedly (i.e., this is
+the Born series; see @sec-born-series).
 
-Eq.~\eqref{fresult} is the culmination of numerous definitions and
-derivations from the preceding sections.  On the left side is the
-scattering amplitude, the fundamental quantity of interest in a
-scattering experiment.  The right side contains the various inputs to
-the scattering problem: the initial and final momenta, the scattering
+@eq-fresult is the culmination of numerous definitions and derivations
+from the preceding sections.  On the left side is the scattering
+amplitude, the fundamental quantity of interest in a scattering
+experiment.  The right side contains the various inputs to the
+scattering problem: the initial and final momenta, the scattering
 potential, and the Green's function.  Although this result was derived
 for the 3D case, very similar formulas hold for other dimensions, with
 the $2\pi^2$ factor replaced with other numerical factors.
@@ -737,10 +737,10 @@ $$V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
 
 As it turns out, this particular scattering problem can be solved
 exactly by exploiting the spherical symmetry of $V(\mathbf{r})$.  The
-solution method, called \textbf{partial wave analysis}, is explained
-in Appendix A.  Its result is
+solution method, called **partial wave analysis**, is explained in
+Appendix A.  Its result is
 
-$$\begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}$$
+$$\begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}$${#eq-fresult_well}
 
 The solution is expressed in terms of the special functions $j_\ell$
 (spherical Bessel function of the first kind), $h_\ell^+$ (spherical
@@ -749,66 +749,52 @@ polynomial).
 
 We will pit this against the Born series, which can be regarded as a
 more general method since it does not assume spherical symmetry.
-According to Eq.~\eqref{fresult}, the Born series gives
+According to @eq-fresult,
 
 $$f(\mathbf{k}_i\rightarrow \mathbf{k}_f) = - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \, \left[\big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle + \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle + \cdots \right].$$
 
 Evaluating the full infinite Born series is generally an intractable
-problem, but we can truncate it to get an approximation for $f$.  For
-example, if we keep only the first term, the result is called the
-\textbf{first Born approximation}; if we keep only the first two
-terms, we obtain the \textbf{second Born approximation}.  To evaluate
-the various bra-kets, we can use the position representation to
-express them as explicit integrals.  For example,
+problem, but we can truncate it to get an approximation for $f$.  If
+we keep only the first term, the result is called the **first Born
+approximation**; keeping only the first two terms yields the **second
+Born approximation**; and so forth.  To evaluate the various bra-kets,
+we can use the position representation to express them as explicit
+integrals.  For example,
 
 $$\begin{aligned}
 \big\langle \mathbf{k}_f\big| \hat{V}|\mathbf{k}_i\big\rangle
 &= \int d^3r_1\; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \, V(\mathbf{r}_1) \, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}}
  \\
-&= - \frac{U}{8\pi^3} \int_{|\mathbf{r}_1| \le R} d^3r_1 \; \exp\left[i(\mathbf{k}_i-\mathbf{k}_f)\, \cdot\, \mathbf{r}_1\right] \label{singleint}\\
+&= - \frac{U}{8\pi^3} \int_{|\mathbf{r}_1| \le R} d^3r_1 \; \exp\left[i(\mathbf{k}_i-\mathbf{k}_f)\, \cdot\, \mathbf{r}_1\right] \\
 \big\langle \mathbf{k}_f \big| \hat{V}\hat{G}_0 \hat{V} \big|\mathbf{k}_i\big\rangle &=
 \int d^3r_1 \!\! \int d^3r_2 \; \frac{\exp(-i\mathbf{k}_f \cdot \mathbf{r}_2)}{(2\pi)^{3/2}} \, V(\mathbf{r}_2) \, \langle\mathbf{r}_2|\hat{G}_0|\mathbf{r}_1 \rangle \, V(\mathbf{r}_1)\, \frac{\exp(i\mathbf{k}_i \cdot \mathbf{r}_1)}{(2\pi)^{3/2}} \\
 &= - \frac{U^2}{32\pi^4} \, \frac{2m}{\hbar^2}\, \int_{|\mathbf{r}_1|<R} d^3 r_1 \int_{|\mathbf{r}_2|<R} d^3 r_2 \; \frac{\exp\left[i(k|\mathbf{r}_1-\mathbf{r}_2| - \mathbf{k}_f \cdot \mathbf{r}_2 +\mathbf{k}_i \cdot \mathbf{r}_1)\right]}{|\mathbf{r}_1-\mathbf{r}_2|}.
 \end{aligned}$$
 
 To evaluate the integrals, an expedient approach is Monte Carlo
-integration.  For instance, the integral \eqref{singleint} has the
-form
+integration.  For instance, to approximate the integral
 
-$$I = \int_{|\mathrm{r}|<R} d^3r \, F(\mathbf{r}).$$
+$$I = \int_{|\mathrm{r}|<R} d^3r \, F(\mathbf{r}),$$
 
-To compute this, we randomly sample $N$ points within a cube of volume
-$(2R)^3$ centered at the origin.  Note that this cube encloses the
-radius-$R$ sphere over which is the integration region.  For each
-sampled point, $\mathbf{r}^{(n)}$, we take
+we randomly sample $N$ points within a cube of volume $V$ large enough
+to enclose the scatterer; for each sampled point, $\mathbf{r}_n$, we
+calculate $F_n = F(\mathbf{r}_n)$ (which is set to zero if
+$\mathbf{r}_n$ falls outside the scatterer); finally, we take
 
-$$F_n = \begin{cases}F(\mathbf{r}^{(n)}), & |\mathbf{r}^{(n)}| < R \\ 0, &\mathrm{otherwise},\end{cases}$$
+$$I \,\approx\, V \, \langle F_n\rangle \,=\, \frac{V}{N} \sum_{n=1}^N F_n,$$
 
-which drops contributions from points outside the sphere.  Then our
-estimate for $I$ is
+which converges to the true integral as $N\rightarrow\infty$.  The
+same procedure can also be used to calculate the integrals for
+higher-order terms in the Born series.
 
-$$I \,\approx\, (2R)^3 \, \langle F_n\rangle \,=\, \frac{(2R)^3}{N} \sum_{n=1}^N F_n.$$
-
-The estimate converges to the true value as $N\rightarrow\infty$.  In
-practice, $N \sim 10^4$ yields a good result for typical 3D integrals,
-and can be calculated in seconds on a modern computer.
-
-Similarly, to calculate a double integral like Eq.~\eqref{doubleint},
-we sample \textit{pairs} of points, $(\mathbf{r}_1^{(n)},
-\mathbf{r}_2^{(n)})$, and replace the volume factor $(2R)^3$ in
-Eq.~\eqref{Iest} with $(2R)^6$.  The rest of the estimation procedure
-is the same.
-
-The figure below compares the Born approximation to the exact solution
-\eqref{fresult_well} for two well depths, $U = 0.1$ and $U = 1$, with
-the same radius $R = 1$.  We plot $|f|^2$ versus $E$ at a $90^\circ$
-scattering angle (i.e., $\mathbf{k}_f$ perpendicular to
+The figure below compares the Born approximation to the exact
+solution, @eq-fresult_well}, for two well depths ($U = 0.1$ and $U =
+1$), with the same radius $R = 1$.  We plot $|f|^2$ versus $E$ at a
+$90^\circ$ scattering angle (i.e., $\mathbf{k}_f$ perpendicular to
 $\mathbf{k}_i$), using computational units $\hbar = m = 1$.  Each
 Monte Carlo integral is computed using $3\times10^4$ samples.
 
-<!-- \begin{figure}[h] -->
-<!-- \centering\includegraphics[width=0.97\textwidth]{spherical_well_scattering} -->
-<!-- \end{figure} -->
+![](fig/spherical_well_scattering.png){fig-align="center" width="500" fig-alt="Numerical results showing the differential scattering cross section, plotted against energy, for two spherical potential wells of different depths"}
 
 First, notice that $|f|^2$ diminishes to zero for large $E$.  This
 makes sense: the scattering potential has some energy scale $\sim U$,
@@ -824,27 +810,16 @@ For the deeper well ($U = 1$), neither the first nor second Born
 approximations do a good job.  Roughly speaking, for the deep
 potential well, we cannot neglect multiple-scattering events
 represented by higher terms in the Born series, whereby the particle
-bounces around many times before leaving the scatterer (see
-Sec.~\ref{sec:greensfun}).
-
-In fact, for very strong scattering potentials, even taking the Born
-approximation to high orders may not work, as the Born series may
-become non-convergent.  In such cases, different methods must be
-brought to bear.  We will see an example in the next chapter.
+bounces around many times before leaving the scatterer.  In fact, for
+very strong scattering potentials, even taking the Born approximation
+to high orders may not work, as the Born series may become
+non-convergent.  In such cases, different methods must be brought to
+bear.  We will see an example in the next chapter.
 
 ## Exercises
 
-1. In Sec.~\ref{sec:waves}, we derived the eigenstates of a
-particle in an empty infinite space by considering a box of length
-$L$ on each side, applying periodic boundary conditions, and taking
-$L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
-conditions (i.e., the wavefunction vanishes on the walls of the
-box).  Show that this gives rise to the same set of momentum
-eigenstates in the $L \rightarrow \infty$ limit.
-
-2. Using the results for the 1D delta-function scattering problem
-described in Section~\ref{sec:1dscatter}, calculate the probability
-current
+1. Using the results for the 1D delta-function scattering problem from
+@sec-1d-scattering, calculate the probability current
 
 $$J(x) = \frac{\hbar}{2mi}\left(\psi^*\frac{d\psi}{dx} - \psi\frac{d\psi^*}{dx}\right),$$
 
@@ -852,39 +827,34 @@ where $\psi(x)$ is the \textit{total} (incident + scattered)
 wavefunction.  Explain the relationship between the values of $J$ on
 the left and right side of the scatterer.
 
-3. Derive the causal 1D propagator:
+2. Derive the causal 1D propagator:
 
 $$\langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik_i} \exp\left(ik_i|x-x'|\right).$$
 
-4. Derive the causal 2D propagator:
+3. Derive the causal 2D propagator:
 
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2}\;
 \frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|).$$
 
 You should be able to adapt many of the steps in the 3D propagator
-derivation from Section~\ref{sec:freegreen}.  When evaluating the
-polar integral, you may want to refer to the discussion of Bessel
-and Hankel functions in Appendix A.  You may also need the following
-mathematical identity between the Hankel functions:
+derivation from @sec-3d-propagator.  When evaluating the polar
+integral, you may want to refer to the discussion of Bessel and Hankel
+functions in Appendix A.  You may also need the following mathematical
+identity between the Hankel functions:
 
 $$H_m^+(z) = - (-1)^m \, H_m^-(-z).$$
 
-5. In place of the causal Green's function defined in
-Eq.~\eqref{G0regulated}, consider an infinitesimal shift of the
-opposite sign:
-
+4. In place of the causal Green's function, @eq-causal-green, consider
+an **anticausal propagator** defined by using an infinitesimal
+imaginary energy shift of the opposite sign:
 $$\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 - i \varepsilon\big)^{-1}.$$
+    A. Whereas the causal propagators represent outgoing waves, explain
+why anticausal propagators represent incoming waves.
 
-  A. Whereas the causal propagators in Eq.~\eqref{propagator_solutions}
-represent outgoing waves, explain why Eq.~\eqref{G0anticausal} will
-give rise to propagators representing incoming waves.
+    B. By adapting the derivation in @sec-3d-propagator, derive the
+anticausal propagator in 3D space.  (Hint: you will need to change
+the contour integral.)
 
-  B.  In the derivation of the 3D propagator,
-Eqs.~\eqref{rGr}--\eqref{3dprop}, show mathematically how
-Eq.~\eqref{G0anticausal} changes the contour integration, resulting
-in an incoming-wave solution.
-
-6. In Section~\ref{sec:3damp}, the scattering amplitude
-$f(\mathrm{k}\rightarrow\mathrm{k}')$ for the 3D scattering problem
-was derived using the Born series.  Derive the corresponding
+5. @eq-fresult gives an expression for the scattering amplitude, but
+it applies specifically to 3D space.  Derive the corresponding
 expressions for 1D and 2D.

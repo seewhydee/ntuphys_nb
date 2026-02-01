@@ -29,7 +29,7 @@ Moreover, the position operator $\hat{\mathbf{r}}$ is defined such
 that $\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\,
 |\mathbf{r}\rangle$.
 
-## Momentum eigenstates
+## Momentum eigenstates{#sec-momentum-eigenstates}
 
 Momentum eigenstates are constructed from position eigenstates via
 Fourier transforms.  First, let us suppose $\mathbf{r}$ runs over a
@@ -105,3 +105,13 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
   &= -i \hbar\nabla \left[\frac{1}{(2\pi)^{d/2}} \, \int d^dk \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \right] \\
   &= -i\hbar \nabla\psi(\mathbf{r}).
   \end{aligned}$$
+
+## Exercises
+
+1. In @sec-momentum-eigenstates, we derived the eigenstates of a
+particle in an empty infinite space by considering a box of length
+$L$ on each side, applying periodic boundary conditions, and taking
+$L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
+conditions (i.e., the wavefunction vanishes on the walls of the
+box).  Show that this gives rise to the same set of momentum
+eigenstates in the $L \rightarrow \infty$ limit.
