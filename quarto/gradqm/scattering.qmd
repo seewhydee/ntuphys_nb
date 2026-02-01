@@ -242,7 +242,7 @@ higher-energy particle undergoes less scattering.  Note also that
 attractive potentials ($\gamma < 0$) and repulsive potentials ($\gamma
 > 0$) are equally effective at scattering.
 
-## Scattering amplitudes
+## Scattering amplitudes{#sec-scattering-amplitudes}
 
 In @sec-1d-scattering, we saw that a particle in 1D can only scatter
 in two possible directions: forward or backward.  In 2D and higher
@@ -450,9 +450,7 @@ $$\begin{aligned}
 |\psi_s\rangle
 &= \left(\hat{G}_0 + \hat{G}_0\hat{V}\hat{G}\right) \hat{V}
 \, |\psi_i\rangle \\
-&= \hat{G}_0 \hat{V} \left(\hat{I} + \hat{G} \hat{V}\right) |\psi_i\rangle.
-\label{psis_useful}
-\end{aligned}$$
+&= \hat{G}_0 \hat{V} \left(\hat{I} + \hat{G} \hat{V}\right) |\psi_i\rangle.\end{aligned}$${#eq-psis_useful}
 
 Using @eq-scatterform again, we get
 
@@ -603,21 +601,20 @@ Finally, we obtain the result
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = -\frac{2m}{\hbar^2}
 \cdot \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}.$$
 
-This describes a spherical wave centered at the source $\mathbf{r}'$.
-The wave is isotropic (i.e., independent of the direction of
-$\mathbf{r} - \mathbf{r}'$), consistent with the fact that the source,
-a delta function, has no preferred direction.  The amplitude of the
-wave decreases inversely with $\Delta r = |\mathbf{r}-\mathbf{r}'|$,
-consistent with flux conservation in 3D.
+This describes a **spherical wave** that is centered at the source
+$\mathbf{r}'$, and isotropic (i.e., independent of the direction of
+$\mathbf{r} - \mathbf{r}'$).  The wave amplitude decreases inversely
+with $\Delta r = |\mathbf{r}-\mathbf{r}'|$, consistent with flux
+conservation in 3D (see @sec-scattering-amplitudes).
 
-Most importantly, the wave propagates \textit{outward} from
-$\mathbf{r}'$ (since the phase of the wavefunction increases with
-$\Delta r$).  Such a propagator is said to be \textbf{causal}, a word
-based on the term "cause and effect"---the wave travels from the
-source at $\mathbf{r}'$ (the cause) to $\mathbf{r}$ (the effect).  We
-can trace this behavior back to the regularization in
-@eq-kregularization.  Equivalently, we can express it as an
-infinitesimal shift in $E$,
+Most importantly, we see from the $e^{ik|\mathbf{r}-\mathbf{r}'|}$
+factor that this spherical wave propagates \textit{outward} from
+$\mathbf{r}'$.  This propagator is thus said to be \textbf{causal}, a
+word based on the term "cause and effect": the wave travels from
+$\mathbf{r}'$ (the cause) to $\mathbf{r}$ (the effect).  We can trace
+this behavior back to the regularization in @eq-kregularization;
+equivalently, this regularization can be expressed as an infinitesimal
+shift in $E$,
 
 $$\frac{\hbar^2 k^2}{2m} = E
 \;\;\;\Rightarrow\;\;\;
@@ -625,8 +622,8 @@ $$\frac{\hbar^2 k^2}{2m} = E
 = \frac{\hbar^2}{2m} \left(k^2 + 2ik\epsilon + \cdots\right)
 = E + i\varepsilon.$$
 
-In other words, the original definition of the Green's function is
-replaced with a **causal Green's function**,
+Hence, the Green's function's original definition is replaced with a
+**causal Green's function**,
 
 $$\hat{G_0} = \lim_{\varepsilon\rightarrow 0^+} \big(E - \hat{H}_0 + i \varepsilon\big)^{-1}.$$
 
@@ -636,20 +633,16 @@ The results for $d = 1, 2,$ and $3$ are summarized below:
 $$\langle\mathbf{r}|\hat{G}_0|\mathbf{r}'\rangle = \frac{2m}{\hbar^2} \times \begin{cases} \Bigg.\displaystyle\frac{1}{2ik} \exp\left(ik|x-x'|\right),& d=1\\ \Bigg. \displaystyle\frac{1}{4i} H^+_0(k|\mathbf{r}-\mathbf{r'}|), & d=2 \\ \displaystyle \Bigg. - \frac{\exp\left(ik|\mathbf{r}-\mathbf{r}'|\right)}{4\pi|\mathbf{r}-\mathbf{r}'|}, & d = 3.  \end{cases}$$
 
 For each $d$, the causal propagator describes a wave propagating
-outward isotropically from $\mathbf{r}'$.  In 1D, this has the form of
-a plane wave on each side. In 2D, it is a circular wave ($H_0^+$
-denotes a Hankel function; see Appendix A), and in 3D it is a
-spherical wave.
+isotropically outward from $\mathbf{r}'$.  In 2D, the out-going
+circular wave is described by a Hankel function (see Appendix A).
 
 ## Scattering amplitudes in 3D
 
 We are now in a position to generate explicit solutions for the
-scattering problem by combining the results of
-Sections~\ref{sec:scattering_amplitude}--\ref{sec:freegreen}.  For
-ease of presentation, we will focus on the 3D case; the 1D and 2D
-cases are handled in a similar way.
+scattering problem.  For ease of presentation, we will focus on the 3D
+case; the 1D and 2D cases are handled in a similar way.
 
-Using Eqs.~\eqref{psiscat} and \eqref{psis_useful}, we can write the
+Using @eq-scattered-wave-form and @eq-psis_useful, we can write the
 scattered wavefunction as
 
 $$\psi_s(\mathbf{r})
