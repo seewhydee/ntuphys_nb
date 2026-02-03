@@ -27,118 +27,100 @@ and $\Theta$ denotes the step function (i.e., 1 if the input is
 positive, and 0 otherwise).  As shown below, the potential well has
 depth $U$ and width $2a$.
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.57\textwidth]{squarewell} -->
-<!-- \end{figure} -->
+![](fig/squarewell.png){fig-align="center" width="500" fig-alt="Potential energy function for a finite square well"}
 
-<!-- We can solve the time-independent Schr\"odinger wave equation for this -->
-<!-- Hamiltonian using a simple technique called the \textbf{transfer -->
-<!--   matrix method}.  Some key aspects of the calculation are described -->
-<!-- below; the rest of the details are given in \textbf{Appendix B}. -->
+We want to look for solutions to the time-independent Schrödinger
+equation. For $E < 0$, it is possible to find a set of normalizable
+solutions called **bound states**. To understand how such solutions
+arise, note that outside the potential well ($|x| > a$), the
+time-independent Schrödinger equation reduces to
 
-<!-- Outside the potential well, the Schr\"odinger wave equation reduces to -->
-<!-- \begin{equation} -->
-<!--   -\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x) -->
-<!--   \qquad (\text{for}\;\;|x| > a).   -->
-<!--   \label{eq:psioutside} -->
-<!-- \end{equation} -->
-<!-- For $E < 0$, we can find discrete solutions of the form -->
-<!-- \begin{equation} -->
-<!--   \psi(x) = c_\pm\, e^{\mp\kappa x},\;\;\;\mathrm{where}\;\; -->
-<!--   c_\pm \in \mathbb{C}, \;\; -->
-<!--   \kappa = \sqrt{-\frac{2mE}{\hbar^2}} \in \mathbb{R}^+. -->
-<!-- \end{equation} -->
-<!-- By choosing $e^{-\kappa x}$ for $x > a$, and $e^{+\kappa x}$ for $x < -->
-<!-- -a$, the wavefunction vanishes exponentially away from the potential -->
-<!-- well, so it is normalizable to unity.  These solutions are called -->
-<!-- bound states.  There is also a lower energy bound, $E \ge -U$, -->
-<!-- stemming from the variational principle.  Hence, the bound states form -->
-<!-- a discrete set of eigenenergies within the range -->
-<!-- \begin{equation} -->
-<!--   -U \le E < 0. -->
-<!-- \end{equation} -->
+$$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x) \qquad (\text{for}\;\;|x| > a).$$
 
-<!-- For $E > 0$, we cannot construct exponentially localized solutions. -->
-<!-- We instead consider -->
-<!-- \begin{equation} -->
-<!--   \psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a,\end{cases} -->
-<!--   \quad\mathrm{where}\;\;\; -->
-<!--   k = \sqrt{\frac{2mE}{\hbar^2}} \in \mathbb{R}^+. -->
-<!--   \label{psiwaves} -->
-<!-- \end{equation} -->
-<!-- Such a solution is called a free state.  It cannot be normalized to -->
-<!-- unity since $\int_{-\infty}^\infty |\psi(x)|^2 dx$ diverges.  However, -->
-<!-- it is ``almost normalizable'' in the sense that $|\psi|^2$ does not -->
-<!-- blow up as $|x| \rightarrow \pm\infty$.  We can thus treat it as a -->
-<!-- valid quantum wavefunction, on the same footing as plane waves (the -->
-<!-- wavefunctions for momentum eigenstates). -->
+Hence, the wavefunctions can be set to exponentials that decay away
+from the potential well:
 
-<!-- For each $E$, we can find coefficients $\alpha_\pm$ and $\beta_\pm$ -->
-<!-- for Eq.~\eqref{psiwaves} so as to satisfy the Schr\"odinger wave -->
-<!-- equation.  It turns out that these four coefficients are not -->
-<!-- independent; for example, if we fix $\alpha_\pm$, that uniquely -->
-<!-- determines $\beta_\pm$ (see Appendix B).  As this can be done for all -->
-<!-- $E \ge 0$, Eq.~\eqref{psiwaves} represents a continuous family of free -->
-<!-- state solutions. -->
+$$\psi(x) = c_\pm\, e^{\mp\kappa x},\;\;\;\mathrm{where}\;\;
+c_\pm \in \mathbb{C}, \;\; \kappa = \sqrt{-\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$$
 
-<!-- The following figure shows numerically obtained results for a square -->
-<!-- well with $U = 30$ and $a=1$ (in units where $\hbar = m =1$).  The -->
-<!-- energy spectrum is shown on the left side.  There are five discrete -->
-<!-- bound states; their plots of $|\psi|^2$ versus $x$ are shown on the -->
-<!-- right side.  These results were computed using the transfer matrix -->
-<!-- method described in Appendix B. -->
+By choosing $e^{-\kappa x}$ for $x > a$, and $e^{+\kappa x}$ for $x <
+-a$, the wavefunction vanishes exponentially away from the potential
+well, so it is normalizable to unity.  These solutions are called
+bound states.  There is also a lower energy bound, $E \ge -U$,
+stemming from the variational principle.  Hence, the bound states form
+a discrete set of eigenenergies within the range $-U \le E < 0$.
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.72\textwidth]{boundvsextended} -->
-<!-- \end{figure} -->
+For $E > 0$, we cannot construct exponentially localized solutions.
+We instead consider
 
-<!-- \clearpage -->
-<!-- The number of bound states is not fixed.  In the figure below, we vary -->
-<!-- the potential minimum $-U$ (with fixed $a = 1$), and plot the bound -->
-<!-- state energies: -->
+$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a,\end{cases}
+\quad\mathrm{where}\;\;\;
+k = \sqrt{\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$${#eq-psiwaves}
 
-<!-- \vskip 0.15in -->
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.68\textwidth]{boundstate1d} -->
-<!-- \end{figure} -->
+Such a solution is called a **free state**.  It cannot be normalized
+to unity since $\int_{-\infty}^\infty |\psi(x)|^2 dx$ diverges.
+However, it is *almost* normalizable in the sense that $|\psi|^2$ does
+not blow up as $|x| \rightarrow \pm\infty$.  We can thus treat it as a
+valid quantum wavefunction, on the same footing as plane waves (the
+wavefunctions for momentum eigenstates).
 
-<!-- \noindent -->
-<!-- For $U = 30$, there are five bound states.  As the well gets -->
-<!-- shallower, these disappear one by one, with only one surviving as $U -->
-<!-- \rightarrow 0$.  (There is a theorem stating that any 1D attractive -->
-<!-- potential, no matter how weak, supports at least one bound state; see -->
-<!-- \hyperref[ex:boundstate]{Exercise 1}.) -->
+For each $E$, we can find coefficients $\alpha_\pm$ and $\beta_\pm$
+for @eq-psiwaves so as to satisfy the Schrödinger wave equation.  It
+turns out that these four coefficients are not independent; for
+example, if we fix $\alpha_\pm$, that uniquely determines $\beta_\pm$.
+As this can be done for all $E \ge 0$, @eq-psiwaves represents a
+continuous family of free state solutions.
 
-<!-- Many features of this simple model are generalizable to more -->
-<!-- complicated cases, including higher spatial dimensions.  One notable -->
-<!-- difference is that in 3D, it is possible for an attractive potential -->
-<!-- to be too weak to support a bound state (i.e., its binding energy -->
-<!-- cannot overcome the zero-point energy of a prospective ground state). -->
-<!-- The figure below shows an example based on a uniform 3D spherically -->
-<!-- symmetric well (the $l$ labels are angular momentum quantum numbers). -->
-<!-- To learn more about this phenomenon, refer to -->
-<!-- \hyperref[ex:boundstate3d]{Exercise 2}. -->
+The following figure shows numerically obtained results for a square
+well with $U = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
+energy spectrum is shown on the left side.  There are five discrete
+bound states; their plots of $|\psi|^2$ versus $x$ are shown on the
+right side.  These results were computed using the transfer matrix
+method described in Appendix B.
 
-<!-- \vskip 0.15in -->
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.68\textwidth]{boundstate3d} -->
-<!-- \end{figure} -->
+<!-- We can solve the time-independent Schrödinger wave equation for this -->
+<!-- Hamiltonian using a simple technique called the **transfer matrix -->
+<!-- method**.  Some key aspects of the calculation are described below; -->
+<!-- the rest of the details are given in Appendix B. -->
 
-<!-- \section{Quasi-bound states and resonances} -->
+![](fig/boundvsextended.png){fig-align="center" width="600" fig-alt="Eigenenergies of the finite square well (left), and probability density plots for the bound states (right)"}
+
+The number of bound states is not fixed.  In the figure below, we vary
+the potential minimum $-U$, with fixed $a = 1$, and plot the bound
+state energies $E_n$:
+
+![](fig/boundstate1d.png){fig-align="center" width="500" fig-alt="Plot of the bound state energies E_n versus the 1D square well's potential minimum -U"}
+
+For $U = 30$, there are five bound states.  As we make the well
+shallower, these bound states disappear one by one, until there is
+only one left.  (This single bound state persists as $U \rightarrow
+0$; there is a theorem that any purely-attractive 1D potential must
+support at least one bound state.  See [Exercise
+1](#sec-resonances-exercises).)
+
+Many features of this simple model are generalizable to more
+complicated cases, including higher spatial dimensions.  However, in
+3D, an potential well that is too shallow might not support any bound
+states.  This can be seen in the figure below, where we plot the bound
+state energies for a 3D uniform spherical well of radius $R=1$ (the
+$l$ labels are angular momentum quantum numbers):
+
+![](fig/boundstate3d.png){fig-align="center" width="500" fig-alt="Plot of the bound state energies E_n versus the 3D square well's potential minimum -U"}
+
+## Quasi-bound states and resonances
 <!-- \label{sec:resonances} -->
 
-<!-- For the 1D finite square well, there is a clear distinction between -->
-<!-- bound and free states.  However, certain states, called -->
-<!-- ``\textbf{quasi-bound states}'', can straddle the two cases.  As we -->
-<!-- shall see, they play a particularly important important role in -->
-<!-- scattering experiments. -->
+For the 1D finite square well, there is a clear distinction between
+bound and free states.  However, certain states, called **quasi-bound
+states**, can straddle the two cases.  As we shall see, they play a
+particularly important important role in scattering experiments.
 
-<!-- The figure below shows an example of a potential function that hosts -->
-<!-- quasi-bound states.  In the exterior region $|x| > b$, the potential -->
-<!-- vanishes.  Between $x = -b$ and $x = b$, there is a barrier of height -->
-<!-- $V_b$, in the middle of which is a well of depth $U < V_b$ and width -->
-<!-- $2a$.  Since $V \ge 0$ everywhere, there are no bound states: all -->
-<!-- eigenstates must be free states. -->
+The figure below shows an example of a potential function that hosts
+quasi-bound states.  In the exterior region $|x| > b$, the potential
+vanishes.  Between $x = -b$ and $x = b$, there is a barrier of height
+$V_b$, in the middle of which is a well of depth $U < V_b$ and width
+$2a$.  Since $V \ge 0$ everywhere, there are no bound states: all
+eigenstates must be free states.
 
 <!-- \begin{figure}[h] -->
 <!--   \centering\includegraphics[width=0.62\textwidth]{resonancewell} -->
@@ -261,7 +243,7 @@ depth $U$ and width $2a$.
 <!-- the potential supports a continuum of free states $\{|\psi_k\rangle\}$ -->
 <!-- with energies $\{E_k\}$, where $k$ is some continuous index for -->
 <!-- labeling the free states (we will discuss what this index might -->
-<!-- represent later).  The states satisfy the Schr\"odinger equation -->
+<!-- represent later).  The states satisfy the Schrödinger equation -->
 <!-- \begin{align} -->
 <!--   \big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle, -->
 <!-- \end{align} -->
@@ -775,48 +757,35 @@ depth $U$ and width $2a$.
 <!-- golden rule provides a very convenient way to estimate the widths of -->
 <!-- resonance peaks. -->
 
-<!-- \section*{Exercises} -->
+## Exercises{#sec-resonances-exercises}
 
-<!-- \begin{enumerate} -->
-<!-- \item Use the variational theorem to prove that a 1D potential well -->
-<!--   has at least one bound state.  Assume that the potential $V(x)$ -->
-<!--   satisfies (i) $V(x) < 0$ for all $x$, and (ii) $V(x)\rightarrow 0$ -->
-<!--   for $x\rightarrow\pm\infty$.  The Hamiltonian is -->
-<!--   \begin{equation} -->
-<!--     \hat{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x). -->
-<!--   \end{equation} -->
-<!--   Consider a (real) trial wavefunction -->
-<!--   \begin{equation} -->
-<!--     \psi(x;\gamma) = \left(\frac{2\gamma}{\pi}\right)^{1/4} \,e^{-\gamma x^2}. -->
-<!--   \end{equation} -->
-<!--   Note that this can be shown to be normalized to unity, using Gauss' -->
-<!--   integral -->
-<!--   \begin{equation} -->
-<!--     \int_{-\infty}^{\infty} dx\; e^{-2\gamma x^2} = \sqrt{\frac{\pi}{2\gamma}}. -->
-<!--   \end{equation} -->
-<!--   Now prove that -->
-<!--   \begin{align} -->
-<!--     \begin{aligned} -->
-<!--       \langle E \rangle &= \int_{-\infty}^\infty dx \; \psi(x) \, \hat{H} \,\psi(x) \\ -->
-<!--       &= \frac{\hbar^2}{2m} \int_{-\infty}^\infty dx\, \left(\frac{d\psi}{dx}\right)^2 -->
-<!--       \;+\; \int_{-\infty}^\infty dx\; V(x) \,\psi^2(x) \\ -->
-<!--       &= A\sqrt{\gamma} \left[\sqrt{\gamma} -->
-<!--         \;+\, B \int_{-\infty}^\infty dx\; V(x) \;e^{-\gamma x^2} -->
-<!--         \right], -->
-<!--     \end{aligned} -->
-<!--   \end{align} -->
-<!--   where $A$ and $B$ are positive real constants to be determined.  By -->
-<!--   looking at the quantity in square brackets in the limit $\gamma -->
-<!--   \rightarrow 0$, argue that $\langle E \rangle < 0$ in this limit. -->
-<!--   Hence, explain why this implies the existence of a bound state. -->
+1. Use the variational theorem to prove that a 1D potential well has
+at least one bound state.  Assume that the potential $V(x)$ satisfies
+$V(x) < 0$ for all $x$, and $V(x)\rightarrow 0$ for
+$x\rightarrow\pm\infty$.  The Hamiltonian is
+$$\hat{H} = - \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x).$$
+Consider a (real) trial wavefunction
+$$\psi(x;\gamma) = \left(\frac{2\gamma}{\pi}\right)^{1/4} \,e^{-\gamma x^2}.$$
+Note that this is normalized to unity. Now, prove that
+$$\begin{aligned}
+  \langle E \rangle &= \int_{-\infty}^\infty dx \; \psi(x) \, \hat{H} \,\psi(x) \\
+  &= \frac{\hbar^2}{2m} \int_{-\infty}^\infty dx\, \left(\frac{d\psi}{dx}\right)^2
+  \;+\; \int_{-\infty}^\infty dx\; V(x) \,\psi^2(x) \\
+  &= A\sqrt{\gamma} \left[\sqrt{\gamma}
+  \;+\, B \int_{-\infty}^\infty dx\; V(x) \;e^{-\gamma x^2}
+  \right],
+\end{aligned}$$
+where $A$ and $B$ are positive real constants to be determined.  By
+looking at the quantity in square brackets in the limit $\gamma
+\rightarrow 0$, argue that $\langle E \rangle < 0$ in this limit.
+Hence, explain why this implies the existence of a bound state.
 
-<!--   Finally, try generalizing this approach to the case of a 2D -->
-<!--   radially-symmetric potential well $V(x,y) = V(r)$, where $r = -->
-<!--   \sqrt{x^2+y^2}$.  Identify which part of the argument fails in 2D. -->
-<!--        [For a discussion of certain 2D potential wells that -->
-<!--          \textit{do} always support bounds states, similar to 1D -->
-<!--          potential wells, see Ref.~[\ref{cite:simon}].] -->
-<!--   \label{ex:boundstate} -->
+    Finally, try generalizing this approach to the case of a 2D
+    radially-symmetric potential well $V(x,y) = V(r)$, where $r =
+    \sqrt{x^2+y^2}$.  Identify which part of the argument fails in 2D.
+    <!-- [For a discussion of certain 2D potential wells that \textit{do} -->
+    <!-- always support bounds states, similar to 1D potential wells, see -->
+    <!-- Ref.~[\ref{cite:simon}].]  \label{ex:boundstate} -->
 
 <!-- \item In this problem, you will investigate the existence of bound -->
 <!--   states in a 3D potential well that is finite, uniform, and -->
@@ -829,7 +798,7 @@ depth $U$ and width $2a$.
 <!--   way. -->
 
 <!--   The solution involves a variant of the partial wave analysis -->
-<!--   discussed in Appendix A.  For $E < 0$, the Schr\"odinger equation -->
+<!--   discussed in Appendix A.  For $E < 0$, the Schrödinger equation -->
 <!--   reduces to -->
 <!--   \begin{equation} -->
 <!--     \begin{cases}\Big(\nabla^2 + q^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; q = \sqrt{2m(E+U)/\hbar^2}, \;\;&\mathrm{for} \; r \le a \\ \Big(\nabla^2 - \gamma^2\Big) \psi(r,\theta,\phi) = 0 \;\;\mathrm{where}\;\; \gamma = \sqrt{-2mE/\hbar^2}, \;\;&\mathrm{for} \; r \ge a. \end{cases} -->
@@ -886,7 +855,7 @@ depth $U$ and width $2a$.
 
 <!--   Let $\varphi(x)$ be the bound state of a square well of width $2a$ -->
 <!--   and depth $U$, and let $E_0$ be the energy.  This state satisfies -->
-<!--   the 1D time-independent Schr\"odinger wave equation, -->
+<!--   the 1D time-independent Schrödinger wave equation, -->
 <!--   \begin{equation} -->
 <!--     \left[- \frac{\hbar^2}{2m} \frac{d^2}{dx^2} + V(x)\right] \varphi(x) -->
 <!--     = E_0\, \varphi(x), -->
@@ -956,23 +925,6 @@ depth $U$ and width $2a$.
 
 
 
-<!-- \section*{Further Reading} -->
-
-<!-- \begin{enumerate}[[1{]}] -->
-<!-- \item Bransden \& Joachain, \S4.4, 9.2--9.3, 13.4 -->
-<!-- \item Sakurai, \S5.6, 7.7--7.8 -->
-
-<!-- \item R.~Courant and D.~Hilbert, \textit{Methods of Mathematical -->
-<!--   Physics} vol.~1, Interscience (1953).  [\href{https://archive.org/details/MethodsOfMathematicalPhysicsVolume1/page/n337}{link}] -->
-<!--   \label{cite:CourantHilbert} -->
-
-<!-- \item B.~Simon, \textit{The bound state of weakly coupled -->
-<!--   Schr\"odinger operators in one and two dimensions}, Annals of -->
-<!--   Physics \textbf{97}, 279 (1976). [\href{https://doi.org/10.1016/0003-4916(76)90038-5}{link}] -->
-<!-- \label{cite:simon} -->
-<!-- \end{enumerate} -->
-
-<!-- \end{document} -->
 
 
 <!-- %% For decades after the discovery of quantum mechanics, the quantum -->
