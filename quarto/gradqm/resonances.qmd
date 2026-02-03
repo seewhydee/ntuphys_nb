@@ -31,24 +31,32 @@ depth $U$ and width $2a$.
 
 We want to look for solutions to the time-independent Schrödinger
 equation. For $E < 0$, it is possible to find a set of normalizable
-solutions called **bound states**. To understand how such solutions
-arise, note that outside the potential well ($|x| > a$), the
+solutions called **bound states**. To see how such solutions arise,
+observe that outside the potential well ($|x| > a$), the
 time-independent Schrödinger equation reduces to
 
 $$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x) \qquad (\text{for}\;\;|x| > a).$$
 
-Hence, the wavefunctions can be set to exponentials that decay away
-from the potential well:
+Hence, wavefunctions with $E < 0$ can be solved by exponentials that
+decay away from the potential well:
 
-$$\psi(x) = c_\pm\, e^{\mp\kappa x},\;\;\;\mathrm{where}\;\;
-c_\pm \in \mathbb{C}, \;\; \kappa = \sqrt{-\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$$
+$$\psi(x) = \begin{cases} c_1 \, e^{\kappa x}, & x<-a \\ c_2 \, e^{-\kappa x}, & x > a\end{cases}\;\;\;\mathrm{where}\;\; c_{1,2} \in \mathbb{C}, \;\; \kappa = \sqrt{-\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$$
 
-By choosing $e^{-\kappa x}$ for $x > a$, and $e^{+\kappa x}$ for $x <
--a$, the wavefunction vanishes exponentially away from the potential
-well, so it is normalizable to unity.  These solutions are called
-bound states.  There is also a lower energy bound, $E \ge -U$,
-stemming from the variational principle.  Hence, the bound states form
-a discrete set of eigenenergies within the range $-U \le E < 0$.
+This formula does not specify $\psi(x)$ within the well region (i.e.,
+the finite interval $-a \le x \le a$), but so long as that is
+non-singular, we can be assured that
+
+$$\int_{-\infty}^{\infty} dx\; |\psi(x)|^2 < \infty,$$
+
+so the state is normalizable to unity. With a bit more mathematical
+analysis, one can also prove that:
+
+* The bound states form a discrete set, with a discrete (though
+possibly degenerate) eigenenergies $\{E_0, E_1, E_2, \cdots\}$.
+
+* There is a lower energy bound of $-U$, stemming from the variational
+principle.  Hence, each bound state energy $E_n$ satisfies $-U \le E_n
+< 0$.
 
 For $E > 0$, we cannot construct exponentially localized solutions.
 We instead consider
@@ -91,21 +99,27 @@ state energies $E_n$:
 
 ![](fig/boundstate1d.png){fig-align="center" width="500" fig-alt="Plot of the bound state energies E_n versus the 1D square well's potential minimum -U"}
 
-For $U = 30$, there are five bound states.  As we make the well
-shallower, these bound states disappear one by one, until there is
-only one left.  (This single bound state persists as $U \rightarrow
-0$; there is a theorem that any purely-attractive 1D potential must
-support at least one bound state.  See [Exercise
+For instance, at $U = 30$, there are five bound states.  If we make
+the well shallower, the bound state energies increase until the
+largest one reaches zero, whereupon that bound state ceases to exist.
+As we proceed, the bound states continue to disappear one by one,
+until only one remains.  (This one remaining bound state persists as
+$U \rightarrow 0$; there is a theorem that any purely-attractive 1D
+potential must support at least one bound state.  See [Exercise
 1](#sec-resonances-exercises).)
 
 Many features of this simple model are generalizable to more
-complicated cases, including higher spatial dimensions.  However, in
-3D, an potential well that is too shallow might not support any bound
-states.  This can be seen in the figure below, where we plot the bound
-state energies for a 3D uniform spherical well of radius $R=1$ (the
-$l$ labels are angular momentum quantum numbers):
+complicated cases, including higher spatial dimensions.  For instance,
+the figure below shows the bound state energies for a 3D uniform
+spherical well of radius $R=1$ (the $l$ labels are angular momentum
+quantum numbers):
 
 ![](fig/boundstate3d.png){fig-align="center" width="500" fig-alt="Plot of the bound state energies E_n versus the 3D square well's potential minimum -U"}
+
+One interesting feature, different from the 1D case, is that a 3D
+potential well that is too shallow will not support any bound states.
+In nuclear physics, this mathematical phenomenon is used to explain
+why certain types of atomic nuclei are unstable.
 
 ## Quasi-bound states and resonances
 <!-- \label{sec:resonances} -->
