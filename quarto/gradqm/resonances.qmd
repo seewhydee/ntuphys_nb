@@ -58,15 +58,12 @@ possibly degenerate) eigenenergies $\{E_0, E_1, E_2, \cdots\}$.
 principle.  Hence, each bound state energy $E_n$ satisfies $-U \le E_n
 < 0$.
 
-For $E > 0$, we cannot construct exponentially localized solutions.
-We instead consider
+For $E > 0$, the situation is quite different.  Outside the well, any solutions must be a superposition of traveling waves,
 
-$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ (\mathrm{something}) , & -a < x < a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a,\end{cases}
-\quad\mathrm{where}\;\;\;
-k = \sqrt{\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$${#eq-psiwaves}
+$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a,\end{cases} \quad\mathrm{where}\;\;\;k = \sqrt{\frac{2mE}{\hbar^2}} \in \mathbb{R}^+,$${#eq-psiwaves}
 
-Such a solution is called a **free state**.  It cannot be normalized
-to unity since $\int_{-\infty}^\infty |\psi(x)|^2 dx$ diverges.
+for some $\alpha_\pm, \beta_\pm \in \mathbb{C}$. Such solutions include solutions to the scattering problem (@sec-scattering-theory), and they are called **free states**.  They are *not* normalizable, because the integral $\int_{-\infty}^\infty |\psi(x)|^2 \, dx$ diverges.^[For a nonzero superposition of traveling waves, $|\psi(x)|^2$ oscillates with $x$ with a nonzero average value.  Thus, when we evaluate $\int_{-\infty}^{-a} |\psi(x)|^2 \, dx$ or $\int_{a}^{\infty} |\psi(x)|^2 \, dx$, the integration range is infinite while the average value of the integrand is nonzero, so the integral diverges.  The only way for the integral not to vanish is if $\psi(x) = 0$ everywhere outside the potential well; this case corresponds to a scattering problem with zero inputs and outputs, implying that $\psi(x) = 0$ everywhere, which is not a valid quantum wavefunction.] In just the same way as we deal with momentum eigenstates (@sec-momentum-eigenstates), we can treat these solutions as generalized eigenstates of $\hat{H}$, even though they do not, strictly speaking, lie in the Hilbert space.
+
 However, it is *almost* normalizable in the sense that $|\psi|^2$ does
 not blow up as $|x| \rightarrow \pm\infty$.  We can thus treat it as a
 valid quantum wavefunction, on the same footing as plane waves (the
