@@ -608,8 +608,8 @@ with $\Delta r = |\mathbf{r}-\mathbf{r}'|$, consistent with flux
 conservation in 3D (see @sec-scattering-amplitudes).
 
 Most importantly, we see from the $e^{ik|\mathbf{r}-\mathbf{r}'|}$
-factor that this spherical wave propagates \textit{outward} from
-$\mathbf{r}'$.  This propagator is thus said to be \textbf{causal}, a
+factor that this spherical wave propagates *outward* from
+$\mathbf{r}'$.  This propagator is thus said to be **causal**, a
 word based on the term "cause and effect": the wave travels from
 $\mathbf{r}'$ (the cause) to $\mathbf{r}$ (the effect).  We can trace
 this behavior back to the regularization in @eq-kregularization;
@@ -636,7 +636,7 @@ For each $d$, the causal propagator describes a wave propagating
 isotropically outward from $\mathbf{r}'$.  In 2D, the out-going
 circular wave is described by a Hankel function (see Appendix A).
 
-## Scattering amplitudes in 3D
+## Scattering amplitudes in 3D {#sec-3d-scat}
 
 We are now in a position to generate explicit solutions for the
 scattering problem.  For ease of presentation, we will focus on the 3D
@@ -823,9 +823,9 @@ bear.  We will see an example in the next chapter.
 
 $$J(x) = \frac{\hbar}{2mi}\left(\psi^*\frac{d\psi}{dx} - \psi\frac{d\psi^*}{dx}\right),$$
 
-where $\psi(x)$ is the \textit{total} (incident + scattered)
-wavefunction.  Explain the relationship between the values of $J$ on
-the left and right side of the scatterer.
+where $\psi(x)$ is the *total* (incident + scattered) wavefunction.
+Explain the relationship between the values of $J$ on the left and
+right side of the scatterer.
 
 2. Derive the causal 1D propagator:
 

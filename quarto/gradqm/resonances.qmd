@@ -159,11 +159,11 @@ B).  The figure below shows numerical results obtained for $U =
 
 ![](fig/resonances.png){fig-align="center" width="500" fig-alt="Graph of transmittance through the potential barrier, versus energy E.  The curve exhibits a set of sharp peaks, which are indicated to occur near the bound state energies for another potential function V_alt"}
 
-The vertical axis shows the \textbf{transmittance} $|1+f_+|^2$, which
-is the probability for the particle to pass through the scatterer.
-The horizontal axis is the particle energy $E$.  Unsurprisingly, for
-$E < V_b-U$ the transmittance approaches zero, and for $E \gtrsim V_b$
-it approaches unity.  For $V_b-U < E \lesssim V_b$, the transmittance
+The vertical axis shows the **transmittance** $|1+f_+|^2$, which is
+the probability for the particle to pass through the scatterer.  The
+horizontal axis is the particle energy $E$.  Unsurprisingly, for $E <
+V_b-U$ the transmittance approaches zero, and for $E \gtrsim V_b$ it
+approaches unity.  For $V_b-U < E \lesssim V_b$, the transmittance
 forms a series of narrow peaks; for larger $b$ (i.e., when the central
 well is more isolated from the exterior space), the peaks are
 narrower.  At the top of the figure, we have also plotted the bound
@@ -234,17 +234,17 @@ with energies $\{E_k\}$, where $k$ is some continuous index for
 labeling the free states (we will discuss what this index might
 represent later).  The states satisfy the Schrödinger equation
 
-$$\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; = E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,$$
+$$\begin{aligned}\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,\end{aligned}$$
 
 along with the orthogonality and completeness relations
 
 $$\langle\varphi|\psi_k\rangle = 0, \;\;\quad |\varphi\rangle\langle\varphi|
-+ \sum_k \, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
++ \sum_k \, |\psi_k\rangle\langle\psi_k| = \hat{I},$$
 
-Here, $\sum_k$ represents a sum over all free states.  Since the free
-states form a continuum, this ought to be an integral, similar to how
-we treat momentum eigenstates (@sec-momentum-eigenstates).  For ease
-of presentation, however, we will write it as a sum for now.
+where $\sum_k$ denotes a sum over all free states.  Since the free
+states form a continuum, this really ought to be an integral, similar
+to how we treat momentum eigenstates (@sec-momentum-eigenstates).  For
+ease of presentation, however, we will write it as a sum for now.
 
 Let us treat $\hat{V}$ as a scattering potential, and compute the
 Green's function.  According to Dyson's equations, the Green's
@@ -260,146 +260,151 @@ is the causal Green's function.  Note that @eq-Gdyson is
 exact, not an approximation.  If we can obtain $\hat{G}(E)$, we can
 determine the scattering amplitudes.
 
-<!-- Let us find the matrix elements of $\hat{G}(E)$ by using -->
-<!-- $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a convenient basis. -->
-<!-- Note, however, that this is \textit{not} the energy eigenbasis of -->
-<!-- $\hat{H}$. -->
+Let us find the matrix elements of $\hat{G}(E)$ by using
+$|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a convenient basis.
+Note, however, that this is *not* the energy eigenbasis of
+$\hat{H}$.
 
-<!-- As usual when dealing with Dyson's equations, we must beware of the -->
-<!-- fact that $\hat{G}$ appears on both the left- and right-hand sides. -->
-<!-- We judiciously insert a resolution of the identity as follows: -->
-<!-- \begin{align} -->
-<!--   \begin{aligned} -->
-<!--     \hat{G} \;=\; \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 -->
-<!--     \;=\; \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi| -->
-<!--     + \sum_k\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. -->
-<!--   \end{aligned} -->
-<!-- \end{align} -->
-<!-- We then compute the matrix element -->
-<!-- $\langle\varphi|\cdots|\varphi\rangle$ for both sides: -->
-<!-- \begin{align} -->
-<!--     \langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\ -->
-<!--     \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \nonumber\\ -->
-<!--     \lim_{\varepsilon\rightarrow0^+} -->
-<!--     \langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E - E_0 + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E  - E_0 + i\varepsilon} \left(1+ \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right) \nonumber\\ -->
-<!--     \lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, & + i\varepsilon\Big) - \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1. \label{psiGphi} -->
-<!-- \end{align} -->
-<!-- Similarly, computing the matrix element -->
-<!-- $\langle\varphi|\cdots|\psi_k\rangle$ gives -->
-<!-- \begin{align*} -->
-<!--   \begin{aligned} -->
-<!-- \langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\ -->
-<!-- &= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1|\psi_k\rangle\right).\end{aligned} -->
-<!-- \end{align*} -->
+As usual when dealing with Dyson's equations, we must beware of the
+fact that $\hat{G}$ appears on both the left- and right-hand sides.
+We judiciously insert a resolution of the identity as follows:
 
-<!-- So far, the equations have been exact, but now we apply an -->
-<!-- approximation: in the last line of the above equation, let the factor -->
-<!-- of $\langle\varphi|G|\varphi\rangle$ be large, so that the first term -->
-<!-- in the sum is dominant.  It will be shown below that -->
-<!-- $\langle\varphi|G|\varphi\rangle$ being large is precisely the -->
-<!-- resonance condition, so this approximation will be self-consistent. -->
-<!-- Thus, we obtain -->
-<!-- \begin{equation} -->
-<!--   \langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}. -->
-<!--   \label{phiGpsi} -->
-<!-- \end{equation} -->
-<!-- Combining this with Eq.~\eqref{psiGphi} gives -->
-<!-- \begin{equation*} -->
-<!--   \lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \sum_k\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1. -->
-<!-- \end{equation*} -->
-<!-- We finally arrive at the result -->
-<!-- \begin{framed} -->
-<!--   \begin{align} -->
-<!--     \langle\varphi|\,\hat{G}(E)\,|\varphi\rangle -->
-<!--     &\approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} -->
-<!--     \label{phiGphi_result} \\ -->
-<!--     \mathrm{where}\quad -->
-<!--     \Sigma(E) &\equiv \lim_{\varepsilon\rightarrow0^+} -->
-<!--     \sum_k \, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}. -->
-<!--     \label{sigma} -->
-<!--   \end{align} -->
-<!-- \end{framed} -->
+$$\begin{aligned} \hat{G} \;=\; \hat{G}_0 + \hat{G} \hat{I} \hat{V}_1 \hat{G}_0 \;=\; \hat{G}_0 + \hat{G} \left(|\varphi\rangle\langle\varphi|
++ \sum_k\, |\psi_k\rangle\langle\psi_k|\right) \hat{V}_1 \hat{G}_0. \end{aligned}$$
 
-<!-- \section{The self energy} -->
+We then compute the matrix element
+$\langle\varphi|\cdots|\varphi\rangle$ for both sides:
+
+$$\begin{aligned}
+\langle\varphi|\hat{G}|\varphi\rangle = \langle\varphi|\hat{G}_0|\varphi\rangle &+ \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle + \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\
+\langle\varphi|\hat{G}|\varphi\rangle \left(1 - \langle\varphi|\hat{V}_1 \hat{G}_0|\varphi\rangle\right) &= \langle\varphi|\hat{G}_0|\varphi\rangle + \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1 \hat{G}_0|\varphi\rangle \\
+\lim_{\varepsilon\rightarrow0^+}
+\langle\varphi|\hat{G}|\varphi\rangle \left(1 - \frac{\langle\varphi|\hat{V}_1|\varphi\rangle}{E - E_0 + i\varepsilon}\right) &= \lim_{\varepsilon\rightarrow0^+} \frac{1}{E  - E_0 + i\varepsilon} \left(1+ \sum_k \, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle \right)\end{aligned}$$
+
+After multiplying both sides by $E - E_0 + i\varepsilon$, we arrive at
+
+$$\lim_{\varepsilon\rightarrow0^+} \langle\varphi|\hat{G}|\varphi\rangle \Big(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\Big) - \sum_k\, \langle\varphi|\hat{G}|\psi_k\rangle \, \langle\psi_k| \hat{V}_1|\varphi\rangle = 1.$$ {#eq-psiGphi}
+
+Similarly, computing the matrix element
+$\langle\varphi|\cdots|\psi_k\rangle$ gives
+
+$$\begin{aligned}
+\langle\varphi|\hat{G}|\psi_k\rangle &= \langle\varphi|\hat{G}_0|\psi_k\rangle + \langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1 \hat{G}_0|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1 \hat{G}_0|\psi_k\rangle \\
+&= \lim_{\varepsilon\rightarrow0^+} \left(E-E_k+i\varepsilon\right)^{-1} \left(\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle + \sum_{k'}\, \langle\varphi|\hat{G}|\psi_{k'}\rangle \, \langle\psi_{k'}| \hat{V}_1|\psi_k\rangle\right).\end{aligned}$$
+
+So far, the equations have all been exact, but now we apply an
+approximation.  In the last line of the above equation, let us assume
+the factor of $\langle\varphi|G|\varphi\rangle$ be large, so that the
+first term in the sum is dominant.  It will be shown below that
+$\langle\varphi|G|\varphi\rangle$ being large is precisely the
+resonance condition, so this approximation will be self-consistent.
+We then obtain
+
+$$\langle\varphi|\hat{G}|\psi_k\rangle \approx \lim_{\varepsilon\rightarrow0^+} \frac{\langle\varphi|\hat{G}|\varphi\rangle \, \langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon}.$$
+<!-- \label{phiGpsi} -->
+
+Combining this with @eq-psiGphi gives
+
+$$\lim_{\varepsilon\rightarrow0^+} \left[\langle\varphi|\hat{G}|\varphi\rangle \left(E - E_0 -\, \langle\varphi|\hat{V}_1|\varphi\rangle \, + i\varepsilon\right) - \sum_k\, \frac{\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}_1|\psi_k\rangle}{E-E_k+i\varepsilon} \, \langle\psi_k| \hat{V}_1|\varphi\rangle\right] \approx 1.$$
+
+After pulling out the common factor of
+$\langle\varphi|\hat{G}|\varphi\rangle$, and moving everything to the
+right side, we finally arrive at the result
+
+$$\begin{aligned}
+\langle\varphi|\,\hat{G}(E)\,|\varphi\rangle
+&\approx \frac{1}{\displaystyle E - E_0 - \langle\varphi|V_1|\varphi\rangle - \Sigma(E)} \\
+\mathrm{where}\quad
+\Sigma(E) &\equiv \lim_{\varepsilon\rightarrow0^+}
+\sum_k \, \frac{\displaystyle| \langle\psi_k| \hat{V}_1|\varphi\rangle|^2}{\displaystyle E-E_k+i\varepsilon}.
+\end{aligned}$$ {#eq-phiGphi_result}
+
+The enigmatic quantity $\Sigma(E)$ is called the **self energy**, and
+we will spend the next section investigating its meaning.
+
+## The self energy
 <!-- \label{sec:self_energy} -->
 
-<!-- The enigmatic $\Sigma(E)$ appearing in the denominator in -->
-<!-- Eq.~\eqref{phiGphi_result} is called the \textbf{self energy}.  If we -->
-<!-- put aside its dependence on $E$ and treat it as a constant, -->
-<!-- Eq.~\eqref{phiGphi_result} looks like the Green's function of a system -->
-<!-- with an energy eigenstate $|\varphi\rangle$ of energy -->
-<!-- \begin{equation*} -->
-<!--   E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \Sigma. -->
-<!-- \end{equation*} -->
-<!-- We can interpret this as the energy of the quasi-bound state.  The -->
-<!-- first term is the energy of the original bound state, the second term -->
-<!-- is a straightforward energy shift coming from the deconfining -->
-<!-- potential $\hat{V}_1$, and the third term is the self energy. -->
-<!-- According to Eq.~\eqref{sigma}, $\Sigma$ arises from the interplay -->
-<!-- between $|\varphi\rangle$ and the free states $\{|\psi_k\rangle\}$. -->
-<!-- The quasi-bound state disturbs the free states, which collectively -->
-<!-- exert a back-action that shifts its energy. -->
+Let us examine the expression for
+$\langle\varphi|\hat{G}|\varphi\rangle$ on the first line of
+@eq-phiGphi_result.  If we treat the self-energy $\Sigma$ as a
+constant rather than an $E$-dependent function, then this looks like
+the formula for the Green's function for a simple system: a single
+energy eigenstate $|\varphi\rangle$, whose eigenenergy is
 
-<!-- There is an important complication: $\Sigma$ turns out to be complex, -->
-<!-- not real!  From Eq.~\eqref{sigma}, -->
-<!-- \begin{align} -->
-<!--   \begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned} -->
-<!-- \end{align} -->
-<!-- The quantity in the square brackets is a Lorentzian function of -->
-<!-- width $\varepsilon$.  The area under the curve is $\pi$, independent -->
-<!-- of $\varepsilon$, so we can use the limiting expression -->
-<!-- \begin{equation} -->
-<!--   \lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x). -->
-<!-- \end{equation} -->
-<!-- Therefore, -->
-<!-- \begin{equation} -->
-<!--   \mathrm{Im}\big[\Sigma(E)\big] -->
-<!--   = - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2 -->
-<!--   \; \delta(E-E_k) < 0. -->
-<!--   \label{fermigr1} -->
-<!-- \end{equation} -->
-<!-- What does it mean for an energy to be complex?  If a quantum state has -->
-<!-- energy $E$, its time dependence goes as $\exp(-iE t/\hbar)$.  For $E = -->
-<!-- \mathcal{E} + i \Gamma$, the time evolution factor is -->
-<!-- \begin{equation*} -->
-<!--   e^{-i\mathcal{E} t/\hbar} \, e^{\Gamma t/\hbar}. -->
-<!-- \end{equation*} -->
-<!-- Since $\mathrm{Im}[\Sigma] < 0$, the quasi-bound state is decaying -->
-<!-- exponentially with time.  This matches our description of it as a -->
-<!-- localized state that is \textit{almost} an energy eigenstate, but not -->
-<!-- exactly one---so, after some time, it escapes the scatterer and -->
-<!-- disappears to infinity. -->
+$$E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \Sigma.$$
 
-<!-- \section{Scattering resonances} -->
+We can interpret this as the energy of the quasi-bound state.  The
+first term is the energy of the original bound state, and the second
+term is an energy shift coming from the deconfining potential
+$\hat{V}_1$.  This implies that the third term, the self energy
+$\Sigma$, is an extra contribution arising from the interplay between
+$|\varphi\rangle$ and the free states $\{|\psi_k\rangle\}$ (see the
+second line of @eq-phiGphi_result).  As the quasi-bound state disturbs
+the free states, the free states collectively act back upon it,
+shifting its energy.
+
+There is an important complication: $\Sigma$ turns out to be complex,
+not real!  From the second line of @eq-phiGphi_result, taking the
+imaginary part yields
+
+$$\begin{aligned}\mathrm{Im}\big[\Sigma(E)\big] &= \lim_{\varepsilon\rightarrow0^+} \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \mathrm{Im}\left( \frac{1}{\displaystyle E-E_k+i\varepsilon}\right) \\ &= - \sum_k\, \Big| \langle\psi_k| \hat{V}_1|\varphi\rangle\Big|^2 \; \left[ \lim_{\varepsilon\rightarrow0^+} \; \frac{\varepsilon}{\displaystyle (E-E_k)^2 + \varepsilon^2}\right].\end{aligned}$$
+
+The quantity in the square brackets is a Lorentzian function of
+width $\varepsilon$.  The area under the curve is $\pi$, independent
+of $\varepsilon$, so we can use the limiting expression
+
+$$\lim_{\varepsilon\rightarrow 0^+} \frac{\varepsilon}{x^2+\varepsilon^2} = \pi\delta(x).$$
+
+Therefore,
+
+$$\mathrm{Im}\big[\Sigma(E)\big]
+= - \pi \sum_k \; \big| \langle\psi_k| \hat{V}_1|\varphi\rangle\big|^2
+\; \delta(E-E_k) < 0.$$
+<!-- \label{fermigr1} -->
+
+What does it mean for an energy to be complex?  If a quantum state has
+energy $E$, its time dependence goes as $\exp(-iE t/\hbar)$.  For $E =
+\mathcal{E} + i \Gamma$, the time evolution factor is
+
+$$e^{-i\mathcal{E} t/\hbar} \, e^{\Gamma t/\hbar}.$$
+
+Since $\mathrm{Im}[\Sigma] < 0$, the quasi-bound state is decaying
+exponentially with time.  This matches our description of it as a
+localized state that is *almost*, but not exactly, an energy
+eigenstate.  Therefore, after some time, it escapes the scatterer and
+disappears to infinity.
+
+## Scattering resonances
 <!-- \label{sec:scattering_resonances} -->
 
-<!-- In Chapter 1, Sec.~1.7, we derived the following relationship between -->
-<!-- the Green's function and the scattering amplitude $f$: -->
-<!-- \begin{equation} -->
-<!--   f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle. -->
-<!-- \end{equation} -->
-<!-- Here, $|\mathbf{k}\rangle$ and $|\mathbf{k}'\rangle$ are incident and -->
-<!-- scattered plane wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$. -->
-<!-- The first term describes the lowest-order scattering process (the -->
-<!-- first Born approximation).  The second term contains second- and -->
-<!-- higher-order scattering processes. -->
+In @sec-3d-scat, we derived the following relationship between the
+Green's function and the scattering amplitude $f$:
 
-<!-- By inserting resolutions of the identity between each $\hat{V}$ and -->
-<!-- $\hat{G}$ operator in the second term, we find that $f$ contains a -->
-<!-- contribution of the form -->
-<!-- \begin{equation} -->
-<!--   \Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]}, -->
-<!--   \label{deltaf} -->
-<!-- \end{equation} -->
-<!-- where -->
-<!-- \begin{equation} -->
-<!--   E_{\mathrm{res}} \;\equiv\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big] \;\in\; \mathbb{R}. -->
-<!--   \label{Eres} -->
-<!-- \end{equation} -->
-<!-- At resonance, the denominator is small so $\Delta f$ is the dominant -->
-<!-- part of $f$.  It is worth noting that $\Delta f$ contains -->
-<!-- contributions from all terms in the Born series, not just low-order -->
-<!-- terms. -->
+$$f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\mathbf{k}\rangle + \langle \mathbf{k}'|\hat{V}\hat{G}\hat{V}|\mathbf{k}\rangle.$$
+
+Here, $|\mathbf{k}\rangle$ and $|\mathbf{k}'\rangle$ are incident and
+scattered plane wave states satisfying $|\mathbf{k}|=|\mathbf{k}'|$.
+The first term describes the lowest-order scattering process (the
+first Born approximation).  The second term contains second- and
+higher-order scattering processes.
+
+By inserting resolutions of the identity between each $\hat{V}$ and
+$\hat{G}$ operator in the second term, we find that $f$ contains a
+contribution of the form
+
+$$\Delta f(\mathbf{k}\rightarrow\mathbf{k}') \;\propto\; \langle \mathbf{k}'|\hat{V}|\varphi\rangle\langle\varphi|\hat{G}|\varphi\rangle\langle\varphi|\hat{V}|\mathbf{k}\rangle \;=\; \frac{\langle \mathbf{k}'|\hat{V}|\varphi\rangle \, \langle\varphi|\hat{V}|\mathbf{k}\rangle}{\displaystyle E - E_{\mathrm{res}} - i \mathrm{Im}[\,\Sigma\,]},$$
+<!-- \label{deltaf} -->
+
+where
+
+$$E_{\mathrm{res}} \;\equiv\; E_0 + \langle\varphi|\hat{V}_1|\varphi\rangle + \mathrm{Re}\big[\,\Sigma\,\big] \;\in\; \mathbb{R}.$$
+<!-- \label{Eres} -->
+
+At resonance, the denominator is small so $\Delta f$ is the dominant
+part of $f$.  It is worth noting that $\Delta f$ contains
+contributions from all terms in the Born series, not just low-order
+terms.
 
 <!-- The figure below shows the energy dependence of $\Delta f$, according -->
 <!-- to Eq.~\eqref{deltaf}: -->
