@@ -208,66 +208,57 @@ see in the next few sections.
 ## Green's function analysis
 <!-- \label{sec:green_resonances} -->
 
-<!-- The Green's function formalism from Chapter 1, Sec.~1.5, provides a -->
-<!-- powerful and general way to understand quasi-bound states and -->
-<!-- resonances.  Notably, this framework applies not only to 1D models, -->
-<!-- but works for higher dimensions as well. -->
+The Green's function (@sec-green-fun), provides a powerful and general
+way to understand quasi-bound states and resonances.  Notably, this
+framework applies not only to 1D models, but works for higher
+dimensions as well.
 
-<!-- Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system -->
-<!-- supporting resonances, where $\hat{T}$ is the kinetic energy operator -->
-<!-- and $\hat{V}$ is the potential operator.  We decompose the potential -->
-<!-- into -->
-<!-- \begin{equation} -->
-<!--   \hat{V} = \hat{V}_0 + \hat{V}_1, -->
-<!--   \label{Vdecomp} -->
-<!-- \end{equation} -->
-<!-- where $\hat{V}_0$ is a ``confining potential'' that supports a bound -->
-<!-- state, and $\hat{V}_1$ is a ``deconfining potential'' that turns the -->
-<!-- bound state into a quasi-bound state.  For example, the potential -->
-<!-- functions for the 1D model of the previous section are shown below: -->
+Let $\hat{H} = \hat{T} + \hat{V}$ be the Hamiltonian of a system
+supporting resonances, where $\hat{T}$ is the kinetic energy operator
+and $\hat{V}$ is the potential operator.  We decompose the potential
+into
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.95\textwidth]{resonancewell_decomp} -->
-<!-- \end{figure} -->
+$$\hat{V} = \hat{V}_0 + \hat{V}_1,$$
 
-<!-- \noindent -->
-<!-- (Note that this 1D case is just an illustration; Eq.~\eqref{Vdecomp} -->
-<!-- applies to higher dimensions too.) -->
+where $\hat{V}_0$ is a "confining potential" that supports a bound
+state, and $\hat{V}_1$ is a "deconfining potential" that turns the
+bound state into a quasi-bound state.  For example, the potential
+functions for the 1D model of the previous section are shown below:
 
-<!-- When the potential is just $\hat{V}_0$, let there be a bound state -->
-<!-- $|\varphi\rangle$ with energy $E_0$.  Furthermore, let us assume that -->
-<!-- the potential supports a continuum of free states $\{|\psi_k\rangle\}$ -->
-<!-- with energies $\{E_k\}$, where $k$ is some continuous index for -->
-<!-- labeling the free states (we will discuss what this index might -->
-<!-- represent later).  The states satisfy the Schrödinger equation -->
-<!-- \begin{align} -->
-<!--   \big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; &= E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle, -->
-<!-- \end{align} -->
-<!-- along with the orthogonality and completeness relations -->
-<!-- \begin{equation} -->
-<!--   \langle\varphi|\psi_k\rangle = 0, \;\;\quad |\varphi\rangle\langle\varphi| -->
-<!--   + \sum_k \, |\psi_k\rangle\langle\psi_k| = \hat{I}. -->
-<!-- \end{equation} -->
-<!-- Here, $\sum_k$ represents a sum over all free states.  Since the free -->
-<!-- states form a continuum, this ought to be expressed as an integral, -->
-<!-- similar to how we treat momentum eigenstates (see Chapter 1).  But, -->
-<!-- for the moment, we write it as a sum for ease of presentation. -->
+![](fig/resonancewell_decomp.png){fig-align="center" width="500" fig-alt="Graphs showing the decomposition of V into a barrier V_0 and a well V_1."}
 
-<!-- Let us treat $\hat{V}$ as a scattering potential, and compute the -->
-<!-- Green's function.  According to Dyson's equations, the Green's -->
-<!-- function for the full system is -->
-<!-- \begin{equation} -->
-<!--   \hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0, -->
-<!--   \label{Gdyson} -->
-<!-- \end{equation} -->
-<!-- where -->
-<!-- \begin{equation} -->
-<!--   \hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} -->
-<!--   \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1} -->
-<!-- \end{equation} -->
-<!-- is the causal Green's function.  Note that Eq.~\eqref{Gdyson} is -->
-<!-- exact, not an approximation.  If we can obtain $\hat{G}(E)$, we can -->
-<!-- determine the scattering amplitudes. -->
+When the potential is just $\hat{V}_0$, let there be a bound state
+$|\varphi\rangle$ with energy $E_0$.  Furthermore, let us assume that
+the potential supports a continuum of free states $\{|\psi_k\rangle\}$
+with energies $\{E_k\}$, where $k$ is some continuous index for
+labeling the free states (we will discuss what this index might
+represent later).  The states satisfy the Schrödinger equation
+
+$$\big(\hat{T} + \hat{V}_0\big) |\varphi\rangle \; = E_0 |\varphi\rangle \\ \big(\hat{T} + \hat{V}_0\big) |\psi_k\rangle &= E_k |\psi_k\rangle,$$
+
+along with the orthogonality and completeness relations
+
+$$\langle\varphi|\psi_k\rangle = 0, \;\;\quad |\varphi\rangle\langle\varphi|
++ \sum_k \, |\psi_k\rangle\langle\psi_k| = \hat{I}.$$
+
+Here, $\sum_k$ represents a sum over all free states.  Since the free
+states form a continuum, this ought to be an integral, similar to how
+we treat momentum eigenstates (@sec-momentum-eigenstates).  For ease
+of presentation, however, we will write it as a sum for now.
+
+Let us treat $\hat{V}$ as a scattering potential, and compute the
+Green's function.  According to Dyson's equations, the Green's
+function for the full system is
+
+$$\hat{G} = \hat{G}_0 + \hat{G} \hat{V}_1 \hat{G}_0,$${#eq-Gdyson}
+
+where
+
+$$\hat{G}_0(E) = \lim_{\varepsilon\rightarrow0^+} \Big(E - \hat{T} - \hat{V}_0 + i\varepsilon\Big)^{-1}$$
+
+is the causal Green's function.  Note that @eq-Gdyson is
+exact, not an approximation.  If we can obtain $\hat{G}(E)$, we can
+determine the scattering amplitudes.
 
 <!-- Let us find the matrix elements of $\hat{G}(E)$ by using -->
 <!-- $|\varphi\rangle$ and $\{|\psi_k\rangle\}$ as a convenient basis. -->
