@@ -8,7 +8,7 @@
 Galileo Galilei, *Two New Sciences*
 :::
 
-## Bound states and free states
+## Bound states and free states {#sec-bound-free-states}
 
 A curious feature of wavefunctions in infinite space is that they come
 in two distinct varieties: (i) **bound states** that are localized to
@@ -38,21 +38,18 @@ time-independent Schrödinger equation reduces to
 $$-\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} = E \psi(x) \qquad (\text{for}\;\;|x| > a).$$
 
 Hence, wavefunctions with $E < 0$ can be solved by exponentials that
-decay away from the potential well:
+decay on either side:
 
-$$\psi(x) = \begin{cases} c_1 \, e^{\kappa x}, & x<-a \\ c_2 \, e^{-\kappa x}, & x > a\end{cases}\;\;\;\mathrm{where}\;\; c_{1,2} \in \mathbb{C}, \;\; \kappa = \sqrt{-\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$$
+$$\psi(x) = \begin{cases} c_1 \, e^{\kappa x}, & x<-a, \\ c_2 \, e^{-\kappa x}, & x > a,\end{cases}\;\;\;\mathrm{where}\;\; c_{1,2} \in \mathbb{C}, \;\; \kappa = \sqrt{-\frac{2mE}{\hbar^2}} \in \mathbb{R}^+.$$
 
 This formula does not specify $\psi(x)$ within the well region (i.e.,
 the finite interval $-a \le x \le a$), but so long as that is
-non-singular, we can be assured that
+non-singular, we can be assured that the integral
+$\int_{-\infty}^{\infty} |\psi(x)|^2\, dx$ converges, so the state is
+normalizable to unity. With a bit more mathematical analysis, one can
+also prove that:
 
-$$\int_{-\infty}^{\infty} dx\; |\psi(x)|^2 < \infty,$$
-
-so the state is normalizable to unity. With a bit more mathematical
-analysis, one can also prove that:
-
-* The bound states form a discrete set, with a discrete (though
-possibly degenerate) eigenenergies $\{E_0, E_1, E_2, \cdots\}$.
+* The bound states form a discrete set, with eigenenergies $\{ E_1, E_2, \cdots \}$.
 
 * There is a lower energy bound of $-U$, stemming from the variational
 principle.  Hence, each bound state energy $E_n$ satisfies $-U \le E_n
@@ -60,21 +57,11 @@ principle.  Hence, each bound state energy $E_n$ satisfies $-U \le E_n
 
 For $E > 0$, the situation is quite different.  Outside the well, any solutions must be a superposition of traveling waves,
 
-$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a,\end{cases} \quad\mathrm{where}\;\;\;k = \sqrt{\frac{2mE}{\hbar^2}} \in \mathbb{R}^+,$${#eq-psiwaves}
+$$\psi(x) = \begin{cases} \alpha_-\, e^{ik x} + \beta_-\, e^{-ik x}, & \;\;\;x < -a,\\ \alpha_+\, e^{ik x} + \beta_+\, e^{-ik x} , & \;\;\,x > a,\end{cases} \quad\mathrm{where}\;\;\;k = \sqrt{\frac{2mE}{\hbar^2}} \in \mathbb{R}^+,$${#eq-psiwaves}
 
-for some $\alpha_\pm, \beta_\pm \in \mathbb{C}$. Such solutions include solutions to the scattering problem (@sec-scattering-theory), and they are called **free states**.  They are *not* normalizable, because the integral $\int_{-\infty}^\infty |\psi(x)|^2 \, dx$ diverges.^[For a nonzero superposition of traveling waves, $|\psi(x)|^2$ oscillates with $x$ with a nonzero average value.  Thus, when we evaluate $\int_{-\infty}^{-a} |\psi(x)|^2 \, dx$ or $\int_{a}^{\infty} |\psi(x)|^2 \, dx$, the integration range is infinite while the average value of the integrand is nonzero, so the integral diverges.  The only way for the integral not to vanish is if $\psi(x) = 0$ everywhere outside the potential well; this case corresponds to a scattering problem with zero inputs and outputs, implying that $\psi(x) = 0$ everywhere, which is not a valid quantum wavefunction.] In just the same way as we deal with momentum eigenstates (@sec-momentum-eigenstates), we can treat these solutions as generalized eigenstates of $\hat{H}$, even though they do not, strictly speaking, lie in the Hilbert space.
+for some $\alpha_\pm, \beta_\pm \in \mathbb{C}$. Such solutions include solutions to the scattering problem (@sec-scattering-theory), and are called **free states**.  They are *not* normalizable, since $\int_{-\infty}^\infty |\psi(x)|^2 \,dx$ diverges.^[For a nonzero superposition of traveling waves, $|\psi(x)|^2$ oscillates with $x$ with a nonzero average value.  Thus, when we evaluate $\int_{-\infty}^{-a} |\psi(x)|^2 \, dx$ or $\int_{a}^{\infty} |\psi(x)|^2 \, dx$, the integration range is infinite while the average value of the integrand is nonzero, so the integral diverges.  The only way for the integral not to vanish is if $\psi(x) = 0$ everywhere outside the potential well; this case corresponds to a scattering problem with zero inputs and outputs, implying that $\psi(x) = 0$ everywhere, which is not a valid quantum wavefunction.] In just the same way as we deal with momentum eigenstates (@sec-momentum-eigenstates), we can treat these free states as generalized eigenstates of $\hat{H}$, even though they do not properly exist in the Hilbert space.
 
-However, it is *almost* normalizable in the sense that $|\psi|^2$ does
-not blow up as $|x| \rightarrow \pm\infty$.  We can thus treat it as a
-valid quantum wavefunction, on the same footing as plane waves (the
-wavefunctions for momentum eigenstates).
-
-For each $E$, we can find coefficients $\alpha_\pm$ and $\beta_\pm$
-for @eq-psiwaves so as to satisfy the Schrödinger wave equation.  It
-turns out that these four coefficients are not independent; for
-example, if we fix $\alpha_\pm$, that uniquely determines $\beta_\pm$.
-As this can be done for all $E \ge 0$, @eq-psiwaves represents a
-continuous family of free state solutions.
+Thus, the spectrum of $\hat{H}$ consists of two parts: a discrete set of negative bound state energies $E_n < 0$, and a continuum of free state energies $E > 0$.
 
 The following figure shows numerically obtained results for a square
 well with $U = 30$ and $a=1$ (in units where $\hbar = m =1$).  The
@@ -96,13 +83,14 @@ state energies $E_n$:
 
 ![](fig/boundstate1d.png){fig-align="center" width="500" fig-alt="Plot of the bound state energies E_n versus the 1D square well's potential minimum -U"}
 
-For instance, at $U = 30$, there are five bound states.  If we make
-the well shallower, the bound state energies increase until the
-largest one reaches zero, whereupon that bound state ceases to exist.
-As we proceed, the bound states continue to disappear one by one,
-until only one remains.  (This one remaining bound state persists as
-$U \rightarrow 0$; there is a theorem that any purely-attractive 1D
-potential must support at least one bound state.  See [Exercise
+For instance, at $U = 30$ (the left edge of the graph), there are five
+bound states.  As we raise the potential minimum, making the well
+shallower, the bound state energies increase, until the largest one
+reaches zero and that bound state ceases to exist.  As we continue
+making the well shallower, the bound states disappear one by one,
+until only one remains.  (This last bound state persists as $U
+\rightarrow 0$, because there is a theorem that any purely-attractive
+1D potential must support at least one bound state.  See [Exercise
 1](#sec-resonances-exercises).)
 
 Many features of this simple model are generalizable to more
@@ -130,97 +118,94 @@ The figure below shows an example of a potential function that hosts
 quasi-bound states.  In the exterior region $|x| > b$, the potential
 vanishes.  Between $x = -b$ and $x = b$, there is a barrier of height
 $V_b$, in the middle of which is a well of depth $U < V_b$ and width
-$2a$.  Since $V \ge 0$ everywhere, there are no bound states: all
+$2a$.  Since $V \ge 0$ everywhere, there are no bound states, and all
 eigenstates must be free states.
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.62\textwidth]{resonancewell} -->
-<!-- \end{figure} -->
+![](fig/resonancewell.png){fig-align="center" width="500" fig-alt="Graph of a 1D potential function, consisting of a square barrier with a shallow well in its center; in the external region, the potential is zero."}
 
-<!-- There is something intriguing about the central well.  Consider an -->
-<!-- alternative potential -->
-<!-- \begin{equation} -->
-<!--   V_{\mathrm{alt}}(x) = \begin{cases}V_b - U, & |x| < a, \\ V_b, & \mathrm{otherwise},\end{cases} -->
-<!-- \end{equation} -->
-<!-- which is a finite square well.  This should have at least one bound -->
-<!-- state, whose energy lies in the range $V_b-U < E < V_b$, and whose -->
-<!-- wavefunction $\psi(x)$ decays exponentially away from the well.  Since -->
-<!-- $V_{\mathrm{alt}}$ differs from the original potential $V$ only in the -->
-<!-- region $|x| > b$, where $\psi(x)$ is small, this should also serve as -->
-<!-- an \textit{approximate} solution for $V$! -->
+But there is something intriguing about the central well.  Consider an
+alternative potential
 
-<!-- In the context of the original scattering potential $V$, such a -->
-<!-- solution is called a \textbf{quasi-bound state}.  It acts like a bound -->
-<!-- state, but is not actually a bound state for $V$ (since it is not an -->
-<!-- exact eigenstate).  In fact, as noted above, $V$ lacks true bound -->
-<!-- states. -->
+$$V_{\mathrm{alt}}(x) = \begin{cases}V_b - U, & |x| < a, \\ V_b, & \mathrm{otherwise},\end{cases}$$
 
-<!-- We can also analyze the situation using the scattering framework from -->
-<!-- Chapter 1.  Consider an incident particle of energy $E > 0$ whose -->
-<!-- wavefunction is -->
-<!-- \begin{equation} -->
-<!--   \psi_i(x) = \Psi_i \, e^{ik_i x}. -->
-<!-- \end{equation} -->
-<!-- This produces a scattered wavefunction, which takes the following form -->
-<!-- in the exterior region: -->
-<!-- \begin{equation} -->
-<!--   \psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases} -->
-<!-- \end{equation} -->
-<!-- We can obtain $f_\pm$ via the transfer matrix method (see Appendix B). -->
-<!-- The figure below shows numerical results obtained for $U = 20,\,V_b = -->
-<!-- 30,\,a=1$, and $b \in \{ 1.2, 1.4\}$, with $\hbar = m = 1$. -->
+which is a finite square well with external potential $V_b$ (rather
+than zero).  Based on what we discussed in @sec-bound-free-states,
+there should be at least one bound state somewhere in the energy range
+$[V_b-U, V_b]$, whose wavefunction $\psi(x)$ decays exponentially away
+from the well.  Since $V_{\mathrm{alt}}$ differs from the original
+potential $V$ only in the region $|x| > b$, where $\psi(x)$ is small,
+this bound state for $V_{\mathrm{alt}}$ should also serve as an
+*approximate* solution for $V$!
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.62\textwidth]{resonances} -->
-<!-- \end{figure} -->
+In the context of the original scattering potential $V$, such a
+solution is called a **quasi-bound state**.  It has the features of a
+bound state, but is not an actual bound state for $V$ (which, as we
+have noted, lacks true bound states).
 
-<!-- The vertical axis shows the \textbf{transmittance} $|1+f_+|^2$, which -->
-<!-- is the probability for the particle to pass through the scatterer. -->
-<!-- The horizontal axis is the particle energy $E$.  Unsurprisingly, for -->
-<!-- $E < V_b-U$ the transmittance approaches zero, and for $E \gtrsim V_b$ -->
-<!-- it approaches unity.  For $V_b-U < E \lesssim V_b$, the transmittance -->
-<!-- forms a series of narrow peaks; for larger $b$ (i.e., when the central -->
-<!-- well is more isolated from the exterior space), the peaks are -->
-<!-- narrower.  At the top of the figure, we have also plotted the bound -->
-<!-- state energies for the square well potential $V_{\mathrm{alt}}(x)$. -->
-<!-- These energies closely match the locations of the transmittance peaks! -->
+We can also analyze the situation using the scattering framework from
+@sec-scattering.  Consider an incident particle of energy $E > 0$
+whose wavefunction is
 
-<!-- Looking at the wavefunction reveals other interesting features. -->
-<!-- Below, we plot $|\psi(x)|^2$ versus $x$ at the energies of the first -->
-<!-- three transmittance peaks, along with the corresponding quasi-bound -->
-<!-- state wavefunctions.  At each peak, observe that: (i) $|\psi(x)|^2$ is -->
-<!-- very large in the potential region, and (ii) its shape is very similar -->
-<!-- to the corresponding quasi-bound state. -->
+$$\psi_i(x) = \Psi_i \, e^{ik_i x}.$$
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.83\textwidth]{resonancewavefunctions} -->
-<!-- \end{figure} -->
+This produces a scattered wavefunction, which takes the following form
+in the exterior region:
 
-<!-- \noindent -->
-<!-- We interpret the situation as follows: at certain energies, an -->
-<!-- incident particle ends up spending a long time trapped inside the -->
-<!-- scatterer, taking on many of the characteristics of a bound state. -->
-<!-- But unlike a true bound state, it is not trapped forever.  Eventually, -->
-<!-- it leaks out of the scatterer and escapes to infinity. -->
+$$\psi_s(x) = \Psi_i \times \begin{cases}f_- \,e^{-ik_ix}, & x \le -b \\ f_+ \,e^{ik_ix}, & x \ge b.\end{cases}$$
 
-<!-- The enhancement of $|\psi|^2$ by the presence of a quasi-bound state -->
-<!-- is called \textbf{resonance}, and it is closely analogous to the -->
-<!-- phenomenon of the same name in classical mechanics.  When a damped -->
-<!-- harmonic oscillator is subjected to a periodic driving force, it -->
-<!-- undergoes steady-state oscillation at the driving frequency.  If this -->
-<!-- matches the frequency of one of the oscillator's ``normal modes'', the -->
-<!-- oscillation amplitude grows large, as Galileo noted in the epigraph of -->
-<!-- this chapter. -->
+We can calculate $f_\pm$ via the transfer matrix method (see Appendix
+B).  The figure below shows numerical results obtained for $U =
+20,\,V_b = 30,\,a=1$, and $b \in \{ 1.2, 1.4\}$, with $\hbar = m = 1$.
 
-<!-- In the quantum scattering experiment, the incident wavefunction plays -->
-<!-- the role of the driving force, $E$ acts as the driving frequency, and -->
-<!-- quasi-bound states act like the normal modes.  Oftentimes, scattering -->
-<!-- experiments are conducted for the express purpose of locating and -->
-<!-- studying resonances.  When a resonance is found, it can be used to -->
-<!-- deduce various important information about the scatterer, as we shall -->
-<!-- see in the next few sections. -->
+![](fig/resonances.png){fig-align="center" width="500" fig-alt="Graph of transmittance through the potential barrier, versus energy E.  The curve exhibits a set of sharp peaks, which are indicated to occur near the bound state energies for another potential function V_alt"}
 
-<!-- \section{Green's function analysis of scattering resonances} -->
+The vertical axis shows the \textbf{transmittance} $|1+f_+|^2$, which
+is the probability for the particle to pass through the scatterer.
+The horizontal axis is the particle energy $E$.  Unsurprisingly, for
+$E < V_b-U$ the transmittance approaches zero, and for $E \gtrsim V_b$
+it approaches unity.  For $V_b-U < E \lesssim V_b$, the transmittance
+forms a series of narrow peaks; for larger $b$ (i.e., when the central
+well is more isolated from the exterior space), the peaks are
+narrower.  At the top of the figure, we have also plotted the bound
+state energies for the square well potential $V_{\mathrm{alt}}(x)$.
+These energies closely match the locations of the transmittance peaks!
+
+Looking at the wavefunction reveals other interesting features.
+Below, we plot $|\psi(x)|^2$ versus $x$ at the energies of the first
+three transmittance peaks, along with the corresponding quasi-bound
+state wavefunctions.
+
+![](fig/resonancewavefunctions.png){fig-align="center" width="500" fig-alt="A set of six graphs of probability density versus x.  The top row shows three different scattering states of V at resonance peaks; the bottom row shows the corresponding bound states of V_alt."}
+
+At each peak, observe that:
+
+* $|\psi(x)|^2$ is very large in the potential region.
+* Its shape is very similar to the corresponding quasi-bound state.
+
+We interpret the situation as follows: at certain energies, an
+incident particle ends up spending a long time trapped inside the
+scatterer, taking on many of the characteristics of a bound state.
+But unlike a true bound state, it is not trapped forever.  Eventually,
+it leaks out of the scatterer and escapes to infinity.
+
+The enhancement of $|\psi|^2$ by the presence of a quasi-bound state
+is called **resonance**, and it is closely analogous to the phenomenon
+of the same name in classical mechanics.  When a damped harmonic
+oscillator is subjected to a periodic driving force, it undergoes
+steady-state oscillation at the driving frequency.  If this matches
+the frequency of one of the oscillator's "normal modes", the
+oscillation amplitude grows large, as Galileo noted in the epigraph of
+this chapter.
+
+In the quantum scattering experiment, the incident wavefunction plays
+the role of the driving force, $E$ acts as the driving frequency, and
+quasi-bound states act like the normal modes.  Oftentimes, scattering
+experiments are conducted for the express purpose of locating and
+studying resonances.  When a resonance is found, it can be used to
+deduce various important information about the scatterer, as we shall
+see in the next few sections.
+
+## Green's function analysis
 <!-- \label{sec:green_resonances} -->
 
 <!-- The Green's function formalism from Chapter 1, Sec.~1.5, provides a -->
