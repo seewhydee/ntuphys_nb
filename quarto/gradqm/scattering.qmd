@@ -537,7 +537,7 @@ $\mathbf{r}'$.
 @eq-propagator can be solved analytically for different values of the
 spatial dimension $d$.  In the following, we will work through the
 derivation for $d = 3$.  The derivations for $d = 1$ and $d = 2$ are
-left as exercises.
+left as [exercises](#sec-scattering-exercises).
 
 ### Derivation of the 3D propagator{#sec-3d-propagator}
 
@@ -713,9 +713,9 @@ f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi
 &= - \frac{2m}{\hbar^2} \,\cdot \, 2\pi^2 \; \big\langle \mathbf{k}_f\big| \hat{V} + \hat{V}\hat{G}_0 \hat{V} + \hat{V} \hat{G}_0 \hat{V} \hat{G}_0\hat{V} + \cdots \big|\mathbf{k}_i\big\rangle.  \end{aligned}$${#eq-fresult}
 
 As usual, this is subject to the elasticity constraint $|\mathbf{k}_i|
-= |\mathbf{k}_f|$.  We obtained the infinite series on the second line
-by applying Dyson's equations, @eq-dyson, repeatedly (i.e., this is
-the Born series; see @sec-born-series).
+= |\mathbf{k}_f|$.  The infinite series, on the second line, is
+obtained from the first line by applying Dyson's equations repeatedly
+to form the Born series (see @sec-born-series).
 
 @eq-fresult is the culmination of numerous definitions and derivations
 from the preceding sections.  On the left side is the scattering
@@ -723,8 +723,9 @@ amplitude, the fundamental quantity of interest in a scattering
 experiment.  The right side contains the various inputs to the
 scattering problem: the initial and final momenta, the scattering
 potential, and the Green's function.  Although this result was derived
-for the 3D case, very similar formulas hold for other dimensions, with
-the $2\pi^2$ factor replaced with other numerical factors.
+for the 3D case, it also holds for other dimensions, the only
+difference being that the $2\pi^2$ is replaced by other numerical
+factors.
 
 ### Example: uniform spherical well in 3D
 
@@ -794,7 +795,7 @@ $90^\circ$ scattering angle (i.e., $\mathbf{k}_f$ perpendicular to
 $\mathbf{k}_i$), using computational units $\hbar = m = 1$.  Each
 Monte Carlo integral is computed using $3\times10^4$ samples.
 
-![](fig/spherical_well_scattering.png){fig-align="center" width="500" fig-alt="Numerical results showing the differential scattering cross section, plotted against energy, for two spherical potential wells of different depths"}
+![](fig/spherical_well_scattering.png){fig-align="center" width="600" fig-alt="Numerical results showing the differential scattering cross section, plotted against energy, for two spherical potential wells of different depths"}
 
 First, notice that $|f|^2$ diminishes to zero for large $E$.  This
 makes sense: the scattering potential has some energy scale $\sim U$,
@@ -816,7 +817,7 @@ to high orders may not work, as the Born series may become
 non-convergent.  In such cases, different methods must be brought to
 bear.  We will see an example in the next chapter.
 
-## Exercises
+## Exercises{#sec-scattering-exercises}
 
 1. Using the results for the 1D delta-function scattering problem from
 @sec-1d-scattering, calculate the probability current
