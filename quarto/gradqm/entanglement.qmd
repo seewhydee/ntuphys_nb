@@ -329,22 +329,20 @@ For simplicity, let the eigenvalues $\{q\}$ be non-degenerate.  Let
 the system initially be in a quantum state $|\psi\rangle$, which can
 be expanded in terms of the eigenbasis of $\hat{Q}$:
 
-$$|\psi\rangle = \sum_q |q\rangle \psi_q, \;\;\mathrm{where}\;\, \psi_q = \langle q|\psi\rangle.$$
-<!-- \label{psiexpansion} -->
+$$|\psi\rangle = \sum_q |q\rangle \psi_q, \;\;\mathrm{where}\;\, \psi_q = \langle q|\psi\rangle.$$ {#eq-psiexpansion}
 
 The measurement postulate of quantum mechanics states that if we
 measure $Q$, then:
 
 * The probability of obtaining each possible outcome $q$ is
-$P(q) = |\psi_q|^2.$<!-- \label{Pq} -->
+$$P(q) = |\psi_q|^2.$$ {#eq-Pq}
 * Upon obtaining this outcome, the system collapses into state
 $|q\rangle$.
 
 Mathematically, these two rules can be summarized using the projection
 operator
 
-$$\hat{\Pi}(q) = |q\rangle\langle q|.$$
-<!-- \label{project} -->
+$$\hat{\Pi}(q) = |q\rangle\langle q|.$$ {#eq-project}
 
 Applying this operator to $|\psi\rangle$ gives the non-normalized
 state vector
@@ -353,144 +351,125 @@ $$|\psi'\rangle = \hat{\Pi}(q) |\psi\rangle = |q\rangle \langle q|\psi\rangle.$$
 
 And from $|\psi'\rangle$, we can obtain:
 
-<!-- \begin{itemize} -->
-<!-- \item The probability of obtaining this outcome, which is -->
-<!-- $P(q) = \langle\psi'|\psi'\rangle = |\langle q|\psi\rangle|^2$. -->
+* The probability of obtaining this outcome, which is $P(q) = \langle\psi'|\psi'\rangle = |\langle q|\psi\rangle|^2$.
 
-<!-- \item The post-measurement state, which is obtained by renormalizing -->
-<!--   $|\psi'\rangle$ to $|q\rangle$. -->
-<!-- \end{itemize} -->
+* The post-measurement state, which is obtained by renormalizing
+$|\psi'\rangle$ to $|q\rangle$.
 
-<!-- For combined systems (e.g., systems of multiple particles), there is a -->
-<!-- new complication: \textit{what if a measurement is performed on just -->
-<!--   one subsystem}? -->
 
-<!-- Suppose once again that we have two subsystems $A$ and $B$, whose -->
-<!-- combined Hillbert space is $\mathscr{H}_A \otimes \mathscr{H}_B$.  Let -->
-<!-- us perform a measurement on $A$, corresponding to a Hermitian operator -->
-<!-- acting upon $\mathscr{H}_A$ whose eigenstates are -->
-<!-- \begin{equation*} -->
-<!--   \big\{\;|\alpha\rangle\; \big\}, \quad -->
-<!--   \mathrm{where}~\alpha = 1, 2, \dots, \mathrm{dim}\left[\mathscr{H}_A\right]. -->
-<!-- \end{equation*} -->
-<!-- To form a basis for $\mathscr{H}_A \otimes \mathscr{H}_B$, let us take -->
-<!-- tensor products of these $A$ eigenstates with an arbitrary basis for -->
-<!-- $B$, denoted by $\{|\beta\rangle\}$.  Any state $|\psi\rangle \in -->
-<!-- \mathscr{H}_A \otimes \mathscr{H}_B$ can be expressed as -->
-<!-- \begin{align} -->
-<!--   |\psi\rangle &= \sum_{\alpha\beta} -->
-<!--   \psi_{\alpha\beta}\, |\alpha\rangle |\beta\rangle \\ -->
-<!--   &= \sum_\alpha |\alpha\rangle \underbrace{\left( \sum_\beta \psi_{\alpha\beta}\,|\beta\rangle\right)}_{\displaystyle \equiv |\varphi_\alpha\rangle}. -->
-<!--   \label{psi_twop} -->
-<!-- \end{align} -->
-<!-- Note that $|\varphi_\alpha\rangle$ lies in $\mathscr{H}_B$; there is -->
-<!-- one such vector for each choice of $\alpha$. -->
+For combined systems (e.g., systems of multiple particles), there is a
+new complication: *what if a measurement is performed on just one
+subsystem*?
 
-<!-- Comparing Eq.~\eqref{psi_twop} with Eq.~\eqref{psiexpansion}, we see -->
-<!-- that $|\varphi_\alpha\rangle$ in \eqref{psi_twop} plays a role similar -->
-<!-- to $\psi_q$ in \eqref{psiexpansion}, though the former is a vector and -->
-<!-- the latter is a scalar.  Proceeding by analogy with Eq.~\eqref{Pq}, -->
-<!-- the probability for measurement outcome $\alpha$ should be -->
-<!-- \begin{equation} -->
-<!--   P(\alpha) = \langle\varphi_\alpha|\varphi_\alpha\rangle -->
-<!--   = \sum_\beta |\psi_{\alpha\beta}|^2. -->
-<!--   \label{Palpha0} -->
-<!-- \end{equation} -->
+Suppose, once again, that we have two subsystems $A$ and $B$, whose
+combined Hillbert space is $\mathscr{H}_A \otimes \mathscr{H}_B$.  Let
+us perform a measurement on $A$, corresponding to a Hermitian operator
+acting upon $\mathscr{H}_A$ whose eigenstates are
 
-<!-- To make this prediction more solid, recall how we previously showed -->
-<!-- that each measurement outcome is associated with a projection -->
-<!-- operator, Eq.~\eqref{project}.  For a partial measurement, we can -->
-<!-- accordingly define the \textbf{partial projector} -->
-<!-- \begin{equation} -->
-<!--   \hat{\Pi}(\alpha) \,=\, |\alpha\rangle\langle \alpha| \otimes  \hat{I}. -->
-<!-- \end{equation} -->
-<!-- The $A$ slot contains the projection operator associated with the -->
-<!-- measurement outcome $\alpha$, similar to Eq.~\eqref{project}.  The $B$ -->
-<!-- slot contains the identity operator for $\mathscr{H}_B$, indicating -->
-<!-- that no measurement is being done on $B$.  Applying this partial -->
-<!-- projector to Eq.~\eqref{psi_twop} gives -->
-<!-- \begin{equation} -->
-<!--   |\psi'\rangle \,=\, \hat{\Pi}(\alpha)\, |\psi\rangle -->
-<!--   \,=\, |\alpha\rangle |\varphi_\alpha\rangle. -->
-<!-- \end{equation} -->
-<!-- Then, following the same rules as before, the probability for the -->
-<!-- $\alpha$ outcome is -->
-<!-- \begin{equation} -->
-<!--   P(\alpha) = \langle\psi'|\psi'\rangle -->
-<!--   = \langle \alpha|\alpha\rangle\, \langle \varphi_\alpha|\varphi_\alpha\rangle -->
-<!--   = \sum_\beta |\psi_{\alpha\beta}|^2, -->
-<!-- \end{equation} -->
-<!-- in agreement with Eq.~\eqref{Palpha0}.  The post-measurement state is -->
-<!-- found by re-normalizing $|\psi'\rangle$: -->
-<!-- \begin{equation} -->
-<!--   \frac{1}{\sqrt{\langle\psi'|\psi'\rangle}} |\psi'\rangle -->
-<!--   = -->
-<!--   \frac{1}{\sqrt{\sum_{\beta'} |\psi_{\alpha\beta'}|^2}}\; -->
-<!--   \sum_{\beta} \psi_{\alpha\beta} |\alpha\rangle |\beta\rangle. -->
-<!-- \end{equation} -->
+$$\big\{\;|\alpha\rangle\; \big\}, \quad
+\mathrm{where}~\alpha = 1, 2, \dots, \mathrm{dim}\left[\mathscr{H}_A\right].$$
 
-<!-- \begin{framed} -->
-<!-- \noindent -->
-<!-- \textit{Example}---A system of two spin-$1/2$ particles is in -->
-<!-- the ``singlet state'' -->
-<!-- \begin{equation} -->
-<!--   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big). -->
-<!-- \end{equation} -->
-<!-- As usual, $|\!\uparrow\rangle$ and $|\!\downarrow\rangle$ are the -->
-<!-- eigenstates of the spin operator $\hat{S}_z$, corresponding to the -->
-<!-- eigenvalues $+\hbar/2$ and $-\hbar/2$ respectively. -->
+To form a basis for $\mathscr{H}_A \otimes \mathscr{H}_B$, let us take
+tensor products of these $A$ eigenstates with an arbitrary basis for
+$B$, denoted by $\{|\beta\rangle\}$.  Any state $|\psi\rangle \in
+\mathscr{H}_A \otimes \mathscr{H}_B$ can be expressed as
 
-<!-- If we measure $S_z$ on $A$, what is the probability of each outcome, -->
-<!-- and the post-measurement state? -->
+$$\begin{aligned}
+|\psi\rangle &= \sum_{\alpha\beta}
+\psi_{\alpha\beta}\, |\alpha\rangle |\beta\rangle \\
+&= \sum_\alpha |\alpha\rangle \underbrace{\left( \sum_\beta \psi_{\alpha\beta}\,|\beta\rangle\right)}_{\displaystyle \equiv |\varphi_\alpha\rangle}.\end{aligned}$$ {#eq-psi_twop}
 
-<!-- \begin{itemize} -->
-<!--   \label{box:eproutcomes} -->
-<!-- \item \textbf{First outcome: $+\hbar/2$}. -->
-<!--   \begin{itemize} -->
-<!--   \item The projected state is $\displaystyle |\psi'\rangle = \left(|\!\uparrow\rangle\langle\uparrow| \otimes \hat{I}\right)|\psi\rangle =  -->
-<!--     \frac{1}{\sqrt{2}}\,|\!\uparrow\rangle|\!\downarrow\rangle$. -->
-<!--   \item The outcome probability is $\displaystyle -->
-<!--     P(+) = \langle \psi'|\psi'\rangle = \frac{1}{2}$. -->
-<!--   \item The post-collapse state is $\displaystyle |\!\uparrow\rangle |\!\downarrow\rangle$ -->
-<!--   \end{itemize} -->
+Evidently, the vector $|\varphi_\alpha\rangle \in \mathscr{H}_B$
+appearing in this equation plays a role similar to $\psi_q$ in
+@eq-psiexpansion, except that the former is a vector and the latter is
+a scalar.  By analogy with the probability rule from @eq-Pq, the
+probability for measurement outcome $\alpha$ ought to be
 
-<!-- \item \textbf{Second outcome: $-\hbar/2$}. -->
-<!--   \begin{itemize} -->
-<!--   \item The projected state is $\displaystyle |\psi'\rangle = \left(|\!\downarrow\rangle\langle\downarrow| \otimes \hat{I}\right)|\psi\rangle =  -->
-<!--     -\frac{1}{\sqrt{2}}\,|\!\downarrow\rangle|\!\uparrow\rangle$. -->
-<!--   \item The outcome probability is $\displaystyle P(-) = \langle \psi'|\psi'\rangle = -->
-<!--     \frac{1}{2}$. -->
-<!--   \item The post-collapse state is $\displaystyle |\!\downarrow\rangle |\!\uparrow\rangle$. -->
-<!--   \end{itemize} -->
-<!-- \end{itemize} -->
-<!-- The two possible outcomes are equally probable.  Either way, the state -->
-<!-- collapses so that $A$ and $B$ have opposite spins.  Note that $A$ and -->
-<!-- $B$ are not entangled after the collapse. -->
-<!-- \end{framed} -->
+$$P(\alpha) = \langle\varphi_\alpha|\varphi_\alpha\rangle
+= \sum_\beta |\psi_{\alpha\beta}|^2.$$ {#eq-Palpha0}
 
-<!-- \section{The Einstein-Podolsky-Rosen ``paradox''} -->
+To make this prediction more solid, recall how we previously showed
+that each measurement outcome is associated with a projection operator
+as given by @eq-project.  For a partial measurement, we can
+accordingly define the **partial projector**
 
-<!-- In 1935, Einstein, Podolsky, and Rosen (EPR) formulated a thought -->
-<!-- experiment, now called the \textbf{EPR paradox}, highlighting the -->
-<!-- counter-intuitive features of quantum entanglement [\ref{cite:epr}]. -->
-<!-- They intended for this to show that quantum theory cannot be a -->
-<!-- fundamental description of reality.  Subsequently, it was shown that -->
-<!-- the EPR paradox is not an actual paradox---physical systems -->
-<!-- \textit{really do} behave like the thought experiment!  Nowadays, the -->
-<!-- EPR ``paradox'' is regarded not as an argument against quantum -->
-<!-- mechanics, but as an important tool for thinking about quantum -->
-<!-- entanglement. -->
+$$\hat{\Pi}(\alpha) \,=\, |\alpha\rangle\langle \alpha| \otimes  \hat{I}.$$
 
-<!-- Consider, once again, two spin-$1/2$ particles in the singlet state -->
-<!-- \begin{equation} -->
-<!--   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big), -->
-<!--   \label{eprsinglet} -->
-<!-- \end{equation} -->
-<!-- where subsystems $A$ and $B$ correspond to the left and right slots of -->
-<!-- the tensor product respectively.  We could prepare the state -->
-<!-- $|\psi\rangle$ in a laboratory on Earth, and subsequently transport -->
-<!-- $A$ to Alice in the Alpha Centauri star system, and $B$ to Bob in the -->
-<!-- Betelgeuse system: -->
+The $A$ slot contains the projection operator associated with the
+measurement outcome $\alpha$.  The $B$ slot contains the identity
+operator for $\mathscr{H}_B$, indicating that no measurement is being
+done on $B$.  Applying this partial projector to @eq-psi_twop gives
+
+$$|\psi'\rangle \,=\, \hat{\Pi}(\alpha)\, |\psi\rangle
+\,=\, |\alpha\rangle |\varphi_\alpha\rangle.$$
+
+Then, following the same rules as before, the probability for the
+$\alpha$ outcome is
+
+$$P(\alpha) = \langle\psi'|\psi'\rangle
+= \langle \alpha|\alpha\rangle\, \langle \varphi_\alpha|\varphi_\alpha\rangle
+= \sum_\beta |\psi_{\alpha\beta}|^2,$$
+
+in agreement with @eq-Palpha0.  The post-measurement state is found by
+re-normalizing $|\psi'\rangle$:
+
+$$\frac{1}{\sqrt{\langle\psi'|\psi'\rangle}} |\psi'\rangle
+= \frac{1}{\sqrt{\sum_{\beta'} |\psi_{\alpha\beta'}|^2}}\;
+\sum_{\beta} \psi_{\alpha\beta} |\alpha\rangle |\beta\rangle.$$
+
+### Example: a singlet state
+
+Suppose a system of two spin-$1/2$ particles is in a so-called
+**singlet state**,
+
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).$$
+
+As usual, $|\!\uparrow\rangle$ and $|\!\downarrow\rangle$ are the
+eigenstates of the spin operator $\hat{S}_z$, corresponding to the
+eigenvalues $+\hbar/2$ and $-\hbar/2$ respectively.
+
+If we measure $S_z$ on $A$, what is the probability of each outcome,
+and the post-measurement state?  Based on our preceding discussion,
+the options are as follows:
+
+* **First outcome**: $+\hbar/2$.
+    * The projected state is $\displaystyle |\psi'\rangle = \left(|\!\uparrow\rangle\langle\uparrow| \otimes \hat{I}\right)|\psi\rangle =
+\frac{1}{\sqrt{2}}\,|\!\uparrow\rangle|\!\downarrow\rangle$.
+    * The outcome probability is $\displaystyle
+P(+) = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
+    * The post-collapse state is $\displaystyle |\!\uparrow\rangle |\!\downarrow\rangle$
+* **Second outcome**: $-\hbar/2$}.
+    * The projected state is $\displaystyle |\psi'\rangle = \left(|\!\downarrow\rangle\langle\downarrow| \otimes \hat{I}\right)|\psi\rangle =
+-\frac{1}{\sqrt{2}}\,|\!\downarrow\rangle|\!\uparrow\rangle$.
+    * The outcome probability is $\displaystyle P(-) = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
+    * The post-collapse state is $\displaystyle |\!\downarrow\rangle |\!\uparrow\rangle$.
+
+The two possible outcomes are equally probable.  Either way, the state
+collapses so that $A$ and $B$ have opposite spins.  Note that $A$ and
+$B$ are no longer entangled after the collapse.
+
+## The Einstein-Podolsky-Rosen paradox
+
+In 1935, Einstein, Podolsky, and Rosen (EPR) formulated a thought
+experiment, now called the **EPR paradox**, highlighting the
+counter-intuitive features of quantum entanglement.  They intended for
+this to show that quantum theory cannot be a fundamental description
+of reality.  Subsequently, it was shown that the EPR paradox is not an
+actual paradox---physical systems *really do* behave like the thought
+experiment!  Nowadays, the EPR "paradox" is regarded not as an
+argument against quantum mechanics, but as an important tool for
+thinking about quantum entanglement.
+
+Consider, once again, two spin-$1/2$ particles in the singlet state
+
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big),$$
+<!-- \label{eprsinglet} -->
+
+where subsystems $A$ and $B$ correspond to the left and right slots of
+the tensor product respectively.  We could prepare the state
+$|\psi\rangle$ in a laboratory on Earth, and subsequently transport
+$A$ to Alice in the Alpha Centauri star system, and $B$ to Bob in the
+Betelgeuse system:
 
 <!-- \begin{figure}[h] -->
 <!--   \centering\includegraphics[width=0.6\textwidth]{epr} -->
