@@ -417,7 +417,7 @@ $$\frac{1}{\sqrt{\langle\psi'|\psi'\rangle}} |\psi'\rangle
 = \frac{1}{\sqrt{\sum_{\beta'} |\psi_{\alpha\beta'}|^2}}\;
 \sum_{\beta} \psi_{\alpha\beta} |\alpha\rangle |\beta\rangle.$$
 
-### Example: a singlet state
+### Example: a singlet state {#sec-singlet}
 
 Suppose a system of two spin-$1/2$ particles is in a so-called
 **singlet state**,
@@ -471,159 +471,151 @@ $|\psi\rangle$ in a laboratory on Earth, and subsequently transport
 $A$ to Alice in the Alpha Centauri star system, and $B$ to Bob in the
 Betelgeuse system:
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.6\textwidth]{epr} -->
-<!-- \end{figure} -->
+![](fig/epr.png){fig-align="center" width="500" fig-alt="Schematic of an EPR experiment, showing how a singlet state's two spins are transported to different star systems light years apart"}
 
-<!-- \noindent -->
-<!-- In principle, this can be done carefully enough to avoid disturbing -->
-<!-- the two-particle state. -->
+In principle, this can be done carefully enough to avoid disturbing
+the two-particle state.
 
-<!-- At a pre-scheduled time, Alice measures $S_z$ on $A$.  As we saw -->
-<!-- \hyperref[box:eproutcomes]{in the previous section}, her measurement -->
-<!-- yields two equally probable outcomes.  If the result is $+\hbar/2$, -->
-<!-- the combined state collapses to $|\!\uparrow\rangle -->
-<!-- |\!\downarrow\rangle$; if the result is $-\hbar/2$, the combined state -->
-<!-- collapses to $|\!\downarrow\rangle|\!\uparrow\rangle$.  Immediately -->
-<!-- after Alice's scheduled measurement, Bob measures $\hat{S}_z$ on $B$. -->
-<!-- He obtains, with 100\% probability, the result opposite to Alice's. -->
+At a pre-scheduled time, Alice measures $S_z$ on $A$.  As we saw
+in @sec-singlet, her measurement
+yields two equally probable outcomes.  If the result is $+\hbar/2$,
+the combined state collapses to $|\!\uparrow\rangle
+|\!\downarrow\rangle$; if the result is $-\hbar/2$, the combined state
+collapses to $|\!\downarrow\rangle|\!\uparrow\rangle$.  Immediately
+after Alice's scheduled measurement, Bob measures $\hat{S}_z$ on $B$.
+He obtains, with 100% probability---the result opposite to Alice's.
 
-<!-- Notice that this thought experiment dispels some commonsensical but -->
-<!-- mistaken explanations for state collapse.  For instance, it is -->
-<!-- sometimes claimed that in order to measure a particle's position, we -->
-<!-- must do something like shining light on it, which disturbs the -->
-<!-- particle's state.  The EPR paradox shows that such stories do not -->
-<!-- capture the full weirdness of quantum measurement.  We can collapse a -->
-<!-- particle's quantum state without interacting directly with it, by -->
-<!-- doing a measurement on another particle far away. -->
+Notice that this thought experiment dispels some commonsensical but
+mistaken explanations for state collapse.  For instance, it is
+sometimes claimed that in order to measure a particle's position, we
+must do something like shining light on it, which disturbs the
+particle's state.  The EPR paradox shows that such stories do not
+capture the full weirdness of quantum measurement.  We can collapse a
+particle's quantum state without interacting directly with it, by
+doing a measurement on another particle far away.
 
-<!-- The postulates of quantum mechanics seem to indicate that the state -->
-<!-- collapses instantaneously.  Alice and Bob are light years distant from -->
-<!-- each other, so during the time interval between their measurements, no -->
-<!-- classical signal could have passed between them, even at light speed. -->
-<!-- Yet Alice's measurement evidently affects Bob's measurement.  Could -->
-<!-- this be a violation of the theory of relativity? -->
+The postulates of quantum mechanics seem to indicate that the state
+collapses instantaneously.  Alice and Bob are light years distant from
+each other, so during the time interval between their measurements, no
+classical signal could have passed between them, even at light speed.
+Yet Alice's measurement evidently affects Bob's measurement.  Could
+this be a violation of the theory of relativity?
 
-<!-- Not so fast: to achieve an actual violation of relativity, Alice and -->
-<!-- Bob must find a way to use the state collapse to perform superluminal -->
-<!-- communication.  It is the combination of superluminal communication -->
-<!-- with relativity that generates cause-and-effect inconsistencies, such -->
-<!-- as the -->
-<!-- \href{https://en.wikipedia.org/wiki/Temporal_paradox#Grandfather_paradox}{grandfather -->
-<!--   paradox}.  In the present setup, Alice and Bob individually see a -->
-<!-- statistical distribution of measurement outcomes equivalent to a coin -->
-<!-- flip (i.e., 50\% chance of getting $+\hbar/2$, and 50\% chance of -->
-<!-- getting $-\hbar/2$).  Even if they repeat the experiment many times -->
-<!-- with many independently-prepared singlet states, each of them only -->
-<!-- receives a string of random bits, which carries no information. -->
+Not so fast: to achieve an actual violation of relativity, Alice and
+Bob must find a way to use the state collapse to perform superluminal
+communication.  It is the combination of superluminal communication
+with relativity that generates cause-and-effect inconsistencies, such
+as the [grandfather
+paradox](https://en.wikipedia.org/wiki/Temporal_paradox#Grandfather_paradox).  In the present setup, Alice and Bob individually see a statistical
+distribution of measurement outcomes equivalent to a coin flip (i.e.,
+50% chance of getting $+\hbar/2$, and 50% chance of getting
+$-\hbar/2$).  Even if they repeat the experiment many times with many
+independently-prepared singlet states, each of them only receives a
+string of random bits, which carries no information.
 
-<!-- Alice and Bob might try to get around this by varying their choice of -->
-<!-- measurement.  For instance, instead of always measuring $S_z$, Alice -->
-<!-- might choose to measure $S_x$.  This would cause the two-particle -->
-<!-- state to collapse to something like -->
-<!-- \begin{align*} -->
-<!--   |\!\rightarrow\rangle \otimes |\!\leftarrow\rangle &\qquad(\textrm{if Alice got $S_x = +\hbar/2$}) \\ -->
-<!--   |\!\leftarrow\rangle \otimes |\!\rightarrow\rangle &\qquad(\textrm{if Alice got $S_x = -\hbar/2$}), -->
-<!-- \end{align*} -->
-<!-- instead of $|\!\uparrow\rangle |\!\downarrow\rangle$ and -->
-<!-- $|\!\downarrow\rangle |\!\uparrow\rangle$.  If Bob could thereby -->
-<!-- determine whether Alice had measured $S_x$ or $S_z$, this would be a -->
-<!-- way to transmit one bit of information (e.g., $S_x$ means 1 and $S_z$ -->
-<!-- means 0) from Alice to Bob.  This would work even if the determination -->
-<!-- is only statistical (e.g., if Bob can figure out that Alice picked -->
-<!-- $S_x$ instead of $S_z$ with $50.1\%$ probability), since Alice and Bob -->
-<!-- can simply repeat the experiment many times to reduce the uncertainty. -->
+Alice and Bob might try to get around this by varying their choice of
+measurement.  For instance, instead of always measuring $S_z$, Alice
+might choose to measure $S_x$.  This would cause the two-particle
+state to collapse to something like
 
-<!-- Upon closer inspection, it turns out that such schemes do \textit{not} -->
-<!-- allow Alice and Bob to communicate.  The key point is that quantum -->
-<!-- states themselves cannot be measured; only observables are measured. -->
-<!-- By calculating the various measurement probabilities, we can prove the -->
-<!-- following (see \hyperref[ex:singletproperties]{Exercise 1}): -->
+$$\begin{aligned}
+|\!\rightarrow\rangle \otimes |\!\leftarrow\rangle &\qquad(\textrm{if Alice got $S_x = +\hbar/2$}) \\
+|\!\leftarrow\rangle \otimes |\!\rightarrow\rangle &\qquad(\textrm{if Alice got $S_x = -\hbar/2$}),\end{aligned}$$
 
-<!-- \begin{itemize} -->
-<!-- \item -->
-<!--   If Alice measures along axis $n$, and Bob then measures along axis -->
-<!--   $n'$, the overall probability for Bob to get either result (i.e., -->
-<!--   $+\hbar/2$ or $-\hbar/2$) is 0.5, regardless of the choices of $n$ -->
-<!--   and $n'$. -->
+instead of $|\!\uparrow\rangle |\!\downarrow\rangle$ and
+$|\!\downarrow\rangle |\!\uparrow\rangle$.  If Bob could thereby
+determine whether Alice had measured $S_x$ or $S_z$, this would be a
+way to transmit one bit of information (e.g., $S_x$ means 1 and $S_z$
+means 0) from Alice to Bob.  This would work even if the determination
+is only statistical (e.g., if Bob can figure out that Alice picked
+$S_x$ instead of $S_z$ with $50.1%$ probability), since Alice and Bob
+can simply repeat the experiment many times to reduce the uncertainty.
 
-<!-- \item If $n = n'$, Bob always gets the opposite of Alice's result. -->
-<!-- \end{itemize} -->
+Upon closer inspection, it turns out that such schemes do \textit{not}
+allow Alice and Bob to communicate.  The key point is that quantum
+states themselves cannot be measured; only observables are measured.
+By calculating the various measurement probabilities, we can prove the
+following (see [Exercise 1](#sec-entanglement-exercises)):
 
-<!-- Since Bob always has equal probability to get either outcome, he is -->
-<!-- unable to extract any information from the state collapse induced by -->
-<!-- Alice.  This implies that the EPR thought experiment does not -->
-<!-- contradict relativity.  Nonetheless, EPR argued that the situation is -->
-<!-- unsatisfactory.  A central element of quantum theory---i.e., the -->
-<!-- quantum state---is changing faster than the speed of light.  Even if -->
-<!-- that change cannot be directly measured or used to transmit -->
-<!-- information, this seems to violate the \textit{spirit} of relativity. -->
+* If Alice measures along axis $n$, and Bob then measures along axis
+$n'$, the overall probability for Bob to get either result (i.e.,
+$+\hbar/2$ or $-\hbar/2$) is 0.5, regardless of the choices of $n$
+and $n'$.
 
-<!-- EPR suggested an alternative: maybe quantum mechanics is an -->
-<!-- approximation of some deeper theory, whose details are currently -->
-<!-- unknown.  Such a \textbf{hidden-variable theory} could give the -->
-<!-- appearance of quantum state collapse, but without any -->
-<!-- faster-than-light changes actually happening. -->
+* If $n = n'$, Bob always gets the opposite of Alice's result.
 
-<!-- Suppose, contrary to quantum theory, that each particle has a definite -->
-<!-- value of $S_z$, i.e., $S_z = +\hbar/2$ or $-\hbar/2$.  For simplicity, -->
-<!-- let us denote these options as $+$ or $-$.  Let us hypothesize that -->
-<!-- the two-particle quantum state $|\psi\rangle$ is actually a -->
-<!-- statistical distribution of two kinds of ``\textbf{hidden-variable -->
-<!--   states}'': $\hvbox[+]{-}$ (i.e., $S_z = +\hbar/2$ for $A$ and $S_z = -->
-<!-- -\hbar/2$ for $B$), or $\hvbox[-]{+}$ (vice versa).  When the state -->
-<!-- $|\psi\rangle$ is prepared, one of these hidden-variable states is -->
-<!-- randomly drawn from the distribution, but its contents are initially -->
-<!-- hidden. -->
+Since Bob always has equal probability to get either outcome, he
+cannot extract any information from the state collapse induced by
+Alice.  This implies that the EPR thought experiment does not
+contradict relativity.  Nonetheless, EPR argued that the situation is
+unsatisfactory.  A central element of quantum theory---i.e., the
+quantum state---is changing faster than the speed of light.  Even if
+that change cannot be directly measured or used to transmit
+information, this seems to violate the *spirit* of relativity.
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.7\textwidth]{hiddenvariables} -->
-<!-- \end{figure} -->
+EPR suggested an alternative: maybe quantum mechanics is an
+approximation of some deeper theory, whose details are currently
+unknown.  Such a **hidden-variable theory** could give the appearance
+of quantum state collapse, but without any faster-than-light changes
+actually happening.
 
-<!-- When Alice measures $S_z$, the hidden variable is revealed.  If she -->
-<!-- got $+$, that means the hidden-variable state must have been -->
-<!-- $\hvbox[+]{-}$, whereas if she got $-z$, the hidden-variable state was -->
-<!-- $\hvbox[-]{+}$.  When Bob subsequently measures $S_z$, his result will -->
-<!-- be the opposite of Alice's.  These outcomes were predetermined when -->
-<!-- the hidden-variable state was drawn, so there is no physical effect -->
-<!-- traveling between Alice and Bob akin to the instantaneous state -->
-<!-- collapse of quantum theory. -->
+Suppose, contrary to quantum theory, that each particle has a definite
+value of $S_z$, i.e., $S_z = +\hbar/2$ or $-\hbar/2$.  For simplicity,
+let us denote these options as $+$ or $-$.  Let us hypothesize that
+the two-particle quantum state $|\psi\rangle$ is actually a
+statistical distribution of two kinds of **hidden-variable states**:
+$[+|-]$ (i.e., $S_z = +\hbar/2$ for $A$ and $S_z = -\hbar/2$ for $B$),
+or $[-|+]$ (vice versa).  When the state $|\psi\rangle$ is prepared,
+one of these hidden-variable states is randomly drawn from the
+distribution, but its contents are initially hidden.
 
-<!-- Clearly, there are many theoretical details missing.  The -->
-<!-- hidden-variable theory would need to replicate all the successful -->
-<!-- predictions made by quantum theory.  Trying to come up with a suitable -->
-<!-- theory of this sort seems like a tall order, but with enough hard -->
-<!-- work, might it be doable? -->
+![](fig/hiddenvariables.png){fig-align="center" width="500" fig-alt="Cartoon showing a singlet by drawing from a distribution of up/down and down/up hidden-variable states"}
 
-<!-- Well, no. -->
+When Alice measures $S_z$, the hidden variable is revealed.  If she
+got $+$, that means the hidden-variable state must have been $[+|-]$,
+whereas if she got $-z$, the hidden-variable state was $[-|+]$.  When
+Bob subsequently measures $S_z$, his result will be the opposite of
+Alice's.  These outcomes were predetermined when the hidden-variable
+state was drawn, so there is no physical effect traveling between
+Alice and Bob akin to the instantaneous state collapse of quantum
+theory.
 
-<!-- \section{Bell's theorem} -->
+Clearly, there are many theoretical details missing.  The
+hidden-variable theory would need to replicate all the successful
+predictions made by quantum theory.  Trying to come up with a suitable
+theory of this sort seems like a tall order, but with enough hard
+work, might it be doable?
+
+Well, no.
+
+## Bell's theorem
 <!-- \label{sec:bell} -->
 
-<!-- In 1964, Bell published a bombshell paper showing that the predictions -->
-<!-- of quantum theory are inherently inconsistent with hidden-variable -->
-<!-- theories [\ref{cite:bell}].  The amazing thing about this proof, which -->
-<!-- is called \textbf{Bell's theorem}, is that it requires no knowledge -->
-<!-- about the details of the hidden-variable theory, merely the fact that -->
-<!-- it is deterministic and local.  Here, we present a simplified version -->
-<!-- of Bell's theorem due to Mermin [\ref{cite:mermin}]. -->
+In 1964, J. S. Bell published a bombshell paper showing that the
+predictions of quantum theory are inherently inconsistent with
+hidden-variable theories.  The amazing thing about this proof, which
+is called **Bell's theorem**, is that it requires no knowledge about
+the details of the hidden-variable theory, merely the fact that it is
+deterministic and local.  Here, we present a streamlined version of
+Bell's theorem due to Mermin.
 
-<!-- Yet again, we consider pairs of spin-1/2 particles, with particle $A$ -->
-<!-- sent to Alice and particle $B$ to Bob, with the two-particle state -->
-<!-- \begin{equation} -->
-<!--   |\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big). -->
-<!--   \label{bellsinglet} -->
-<!-- \end{equation} -->
-<!-- In each round of the thought experiment, Alice and Bob are each -->
-<!-- allowed to measure their particle's spin along one of three possible -->
-<!-- spin axes, whose observables are denoted by $S_1$, $S_2$, $S_3$ (we'll -->
-<!-- specify the directions of these spin axes later).  Each -->
-<!-- experimentalist chooses $S_1$, $S_2$, or $S_3$, \textit{randomly and -->
-<!--   with equal probabilities}. -->
+Yet again, we consider pairs of spin-1/2 particles, with particle $A$
+sent to Alice and particle $B$ to Bob, with the two-particle singlet
+state
 
-<!-- Many rounds of the experiment are conducted.  Afterwards, we bring -->
-<!-- together Alice's and Bob's experimental records, and examine their -->
-<!-- axis choices and results.  For example: -->
+$$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle \,-\, |\!\downarrow\rangle|\!\uparrow\rangle\Big).$$
+<!-- \label{bellsinglet} -->
+
+In each round of the thought experiment, Alice and Bob are each
+allowed to measure their particle's spin along one of three possible
+spin axes, whose observables are denoted by $S_1$, $S_2$, $S_3$ (we'll
+specify the directions of these spin axes later).  Each
+experimentalist chooses $S_1$, $S_2$, or $S_3$, *randomly and
+with equal probabilities*.
+
+Many rounds of the experiment are conducted.  Afterwards, we bring
+together Alice's and Bob's experimental records, and examine their
+axis choices and results.  For example:
 
 <!-- \begin{figure}[h] -->
 <!--   \centering\includegraphics[width=0.6\textwidth]{bell} -->
@@ -1565,7 +1557,7 @@ Betelgeuse system:
 <!-- different theories. -->
 
 
-<!-- \section*{Exercises} -->
+## Exercises {#sec-entanglement-exercises}
 
 <!-- \begin{enumerate} -->
 
