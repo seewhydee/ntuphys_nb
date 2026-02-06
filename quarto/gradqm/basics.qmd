@@ -68,7 +68,19 @@ To operationalize these definitions, two further axioms are applied:
 
 ## Wavefunctions
 
+A wavefunction is a particular type of quantum state defined as a
+complex function of a continuous real variable (or variables).  Such
+functions obey the usual axioms governing vectors.  For example, for
+functions of a single continuous real variable $x\in\mathbb{R}$, we
+can construct linear combinations
+
+$$A_1 \psi_1(x) + A_2 \psi_2(x),$$
+
+where $A_1, A_2 \in \mathbb{C}$.
+
+
 ## Position eigenstates
+
 Before proceeding, let us review the properties of a quantum particle
 in free space.  In a $d$-dimensional space, a coordinate vector
 $\mathbf{r}$ is a real vector with $d$ components.  We suppose there
