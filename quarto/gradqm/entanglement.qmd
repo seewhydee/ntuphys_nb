@@ -428,17 +428,23 @@ As usual, $|\!\uparrow\rangle$ and $|\!\downarrow\rangle$ are the
 eigenstates of the spin operator $\hat{S}_z$, corresponding to the
 eigenvalues $+\hbar/2$ and $-\hbar/2$ respectively.
 
+::: {.callout-note}
+In the rest of this chapter, unless stated otherwise, we will report
+the spin-1/2 eigenvalues $+\hbar/2$ and $-\hbar/2$ as $+$ and $-$
+respectively.  In other words, we won't write the $\hbar/2$.
+:::
+
 If we measure $S_z$ on $A$, what is the probability of each outcome,
 and the post-measurement state?  Based on our preceding discussion,
 the options are as follows:
 
-* **First outcome**: $+\hbar/2$.
+* **First outcome**: $+$.
     * The projected state is $\displaystyle |\psi'\rangle = \left(|\!\uparrow\rangle\langle\uparrow| \otimes \hat{I}\right)|\psi\rangle =
 \frac{1}{\sqrt{2}}\,|\!\uparrow\rangle|\!\downarrow\rangle$.
     * The outcome probability is $\displaystyle
 P(+) = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
     * The post-collapse state is $\displaystyle |\!\uparrow\rangle |\!\downarrow\rangle$
-* **Second outcome**: $-\hbar/2$}.
+* **Second outcome**: $-$.
     * The projected state is $\displaystyle |\psi'\rangle = \left(|\!\downarrow\rangle\langle\downarrow| \otimes \hat{I}\right)|\psi\rangle =
 -\frac{1}{\sqrt{2}}\,|\!\downarrow\rangle|\!\uparrow\rangle$.
     * The outcome probability is $\displaystyle P(-) = \langle \psi'|\psi'\rangle = \frac{1}{2}$.
@@ -466,108 +472,107 @@ $$|\psi\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle|\!\downarrow\rangle 
 <!-- \label{eprsinglet} -->
 
 where subsystems $A$ and $B$ correspond to the left and right slots of
-the tensor product respectively.  We could prepare the state
-$|\psi\rangle$ in a laboratory on Earth, and subsequently transport
-$A$ to Alice in the Alpha Centauri star system, and $B$ to Bob in the
-Betelgeuse system:
+the tensor product respectively.  We prepare $|\psi\rangle$ in a
+laboratory on Earth.  Then, *very carefully* (so as not to disturb the
+singlet state), we transport particle $A$ to Alice in the Alpha
+Centauri star system, and particle $B$ to Bob in the Betelgeuse
+system:
 
 ![](fig/epr.png){fig-align="center" width="500" fig-alt="Schematic of an EPR experiment, showing how a singlet state's two spins are transported to different star systems light years apart"}
 
-In principle, this can be done carefully enough to avoid disturbing
-the two-particle state.
+At a pre-scheduled time, Alice measures $S_z$ on her particle $A$.  As
+we saw in @sec-singlet, her measurement yields two equally probable
+outcomes.  If her result is $+$, the singlet state collapses to
+$|\!\uparrow\rangle |\!\downarrow\rangle$; if her result is $-$, the
+singlet state collapses to $|\!\downarrow\rangle|\!\uparrow\rangle$.
+The postulates of quantum mechanics indicate that this collapse occurs
+instantaneously.  Immediately afterward, Bob measures $\hat{S}_z$ on
+his particle $B$.  He then obtains, with 100% probability, the result
+opposite to Alice's.
 
-At a pre-scheduled time, Alice measures $S_z$ on $A$.  As we saw
-in @sec-singlet, her measurement
-yields two equally probable outcomes.  If the result is $+\hbar/2$,
-the combined state collapses to $|\!\uparrow\rangle
-|\!\downarrow\rangle$; if the result is $-\hbar/2$, the combined state
-collapses to $|\!\downarrow\rangle|\!\uparrow\rangle$.  Immediately
-after Alice's scheduled measurement, Bob measures $\hat{S}_z$ on $B$.
-He obtains, with 100% probability---the result opposite to Alice's.
-
-Notice that this thought experiment dispels some commonsensical but
-mistaken explanations for state collapse.  For instance, it is
-sometimes claimed that in order to measure a particle's position, we
-must do something like shining light on it, which disturbs the
-particle's state.  The EPR paradox shows that such stories do not
-capture the full weirdness of quantum measurement.  We can collapse a
-particle's quantum state without interacting directly with it, by
-doing a measurement on another particle far away.
-
-The postulates of quantum mechanics seem to indicate that the state
-collapses instantaneously.  Alice and Bob are light years distant from
-each other, so during the time interval between their measurements, no
+During the time interval between Alice's and Bob's measurements, no
 classical signal could have passed between them, even at light speed.
-Yet Alice's measurement evidently affects Bob's measurement.  Could
-this be a violation of the theory of relativity?
+Yet Alice's measurement evidently affects Bob's.  Could this be a
+violation of the theory of relativity?
 
-Not so fast: to achieve an actual violation of relativity, Alice and
-Bob must find a way to use the state collapse to perform superluminal
-communication.  It is the combination of superluminal communication
-with relativity that generates cause-and-effect inconsistencies, such
-as the [grandfather
-paradox](https://en.wikipedia.org/wiki/Temporal_paradox#Grandfather_paradox).  In the present setup, Alice and Bob individually see a statistical
-distribution of measurement outcomes equivalent to a coin flip (i.e.,
-50% chance of getting $+\hbar/2$, and 50% chance of getting
-$-\hbar/2$).  Even if they repeat the experiment many times with many
-independently-prepared singlet states, each of them only receives a
-string of random bits, which carries no information.
+Before answering, let us pause to note that this thought experiment
+dispels some commonsensical but mistaken explanations for state
+collapse.  For instance, it is sometimes claimed that in order to
+measure a particle's position, we must do something like shining light
+on it, which disturbs the particle's state.  The EPR thought
+experiment shows that such stories do not capture the full weirdness
+of quantum measurement.  We can collapse a particle's quantum state
+without interacting directly with it, but by doing a measurement on
+*another* particle far away!
+
+Now, let us get back to the question of whether Alice and Bob have
+violated relativity.  Before concluding that a violation has occurred,
+we must prove that Alice and Bob can use state collapse to send
+signals to each other.  After all, it is *faster-than-light
+communication* that generates cause-and-effect inconsistencies in
+relativity, like the [grandfather
+paradox](https://en.wikipedia.org/wiki/Temporal_paradox#Grandfather_paradox).
+In the present scenario, Alice and Bob each experiences a 50-50
+probability distribution (i.e., a coin flip) for the $+$ and $-$
+outcomes.  Even if the experiment is repeated many times with many
+independent singlet states, each participant just receives a string of
+random bits, which carries no information and cannot be used for
+communication.
 
 Alice and Bob might try to get around this by varying their choice of
-measurement.  For instance, instead of always measuring $S_z$, Alice
-might choose to measure $S_x$.  This would cause the two-particle
-state to collapse to something like
+measurement.  For instance, Alice might try to send a signal by
+choosing to measure either $S_z$ (as before), or $S_x$ .  The latter
+would collapse the singlet state as follows:
 
 $$\begin{aligned}
-|\!\rightarrow\rangle \otimes |\!\leftarrow\rangle &\qquad(\textrm{if Alice got $S_x = +\hbar/2$}) \\
-|\!\leftarrow\rangle \otimes |\!\rightarrow\rangle &\qquad(\textrm{if Alice got $S_x = -\hbar/2$}),\end{aligned}$$
+|\!\rightarrow\rangle \otimes |\!\leftarrow\rangle &\qquad(\textrm{if Alice got $S_x = +$}) \\
+|\!\leftarrow\rangle \otimes |\!\rightarrow\rangle &\qquad(\textrm{if Alice got $S_x = -$}).\end{aligned}$$
 
-instead of $|\!\uparrow\rangle |\!\downarrow\rangle$ and
-$|\!\downarrow\rangle |\!\uparrow\rangle$.  If Bob could thereby
-determine whether Alice had measured $S_x$ or $S_z$, this would be a
-way to transmit one bit of information (e.g., $S_x$ means 1 and $S_z$
-means 0) from Alice to Bob.  This would work even if the determination
-is only statistical (e.g., if Bob can figure out that Alice picked
-$S_x$ instead of $S_z$ with $50.1%$ probability), since Alice and Bob
-can simply repeat the experiment many times to reduce the uncertainty.
+Suppose there is a way for Bob to figure out, from this, that Alice
+measured $S_x$ rather than $S_z$ (the method could even be
+probabilistic, by having the two parties repeat the procedure on many
+singlet states).  Then Alice would have successfully transmitted one
+bit of information---i.e., the choice between $S_x$ and $S_z$.
 
-Upon closer inspection, it turns out that such schemes do \textit{not}
-allow Alice and Bob to communicate.  The key point is that quantum
-states themselves cannot be measured; only observables are measured.
-By calculating the various measurement probabilities, we can prove the
-following (see [Exercise 1](#sec-entanglement-exercises)):
+Upon closer inspection, however, it turns out this scheme is *not*
+workable.  The reason is that quantum states themselves cannot be
+measured; only observables are measured.  By calculating the various
+measurement probabilities, we can prove the following (see [Exercise
+1](#sec-entanglement-exercises)):
 
 * If Alice measures along axis $n$, and Bob then measures along axis
-$n'$, the overall probability for Bob to get either result (i.e.,
-$+\hbar/2$ or $-\hbar/2$) is 0.5, regardless of the choices of $n$
-and $n'$.
+$n'$, the overall probability for Bob to get either result (i.e., $+$
+or $-$) is 0.5, regardless of the choices of $n$ and $n'$.
 
 * If $n = n'$, Bob always gets the opposite of Alice's result.
 
-Since Bob always has equal probability to get either outcome, he
-cannot extract any information from the state collapse induced by
-Alice.  This implies that the EPR thought experiment does not
-contradict relativity.  Nonetheless, EPR argued that the situation is
-unsatisfactory.  A central element of quantum theory---i.e., the
-quantum state---is changing faster than the speed of light.  Even if
-that change cannot be directly measured or used to transmit
-information, this seems to violate the *spirit* of relativity.
+Either way, Bob always has equal probability to get $+$ or $-$, and he
+cannot squeeze out any additional information about what Alice did.
+The two participants therefore cannot set up a grandfather paradox,
+nor any of the other strange scenarios enabled by faster-than-light
+communication.
 
-EPR suggested an alternative: maybe quantum mechanics is an
+Still, Einstein, Podolsky, and Rosen were dissatisfied.  They argued
+that the situation violates the *spirit* of relativity, if not the
+letter.  After all, a central element of the theory---the quantum
+state---is changing faster than the speed of light, even if that
+change is not directly measurable.
+
+They suggested an alternative: maybe quantum mechanics is an
 approximation of some deeper theory, whose details are currently
 unknown.  Such a **hidden-variable theory** could give the appearance
 of quantum state collapse, but without any faster-than-light changes
 actually happening.
 
 Suppose, contrary to quantum theory, that each particle has a definite
-value of $S_z$, i.e., $S_z = +\hbar/2$ or $-\hbar/2$.  For simplicity,
-let us denote these options as $+$ or $-$.  Let us hypothesize that
-the two-particle quantum state $|\psi\rangle$ is actually a
-statistical distribution of two kinds of **hidden-variable states**:
-$[+|-]$ (i.e., $S_z = +\hbar/2$ for $A$ and $S_z = -\hbar/2$ for $B$),
-or $[-|+]$ (vice versa).  When the state $|\psi\rangle$ is prepared,
-one of these hidden-variable states is randomly drawn from the
-distribution, but its contents are initially hidden.
+value of $S_z$, i.e., $+$ or $-$.  For simplicity, let us denote these
+options as $+$ or $-$.  Let us hypothesize that the two-particle
+quantum state $|\psi\rangle$ is actually a statistical distribution of
+two kinds of **hidden-variable states**: $[+|-]$ (i.e., $S_z = +$ for
+$A$ and $S_z = -$ for $B$), or $[-|+]$ (vice versa).  When the state
+$|\psi\rangle$ is prepared, one of these hidden-variable states is
+randomly drawn from the distribution, but its contents are initially
+hidden.
 
 ![](fig/hiddenvariables.png){fig-align="center" width="500" fig-alt="Cartoon showing a singlet by drawing from a distribution of up/down and down/up hidden-variable states"}
 
@@ -615,135 +620,170 @@ with equal probabilities*.
 
 Many rounds of the experiment are conducted.  Afterwards, we bring
 together Alice's and Bob's experimental records, and examine their
-axis choices and results.  For example:
+axis choices and results.  Here is an example:
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.6\textwidth]{bell} -->
-<!-- \end{figure} -->
+```{=html}
+<table>
+    <tr>
+	  <th rowspan="2"></th>
+	  <th colspan="2" style="text-align: center; color: #1445a0">Alice</th>
+	  <th colspan="2" style="text-align: center; color: #aa5800">Bob</th>
+    </tr>
+    <tr>
+	  <th>Axis</th>
+	  <th>Result</th>
+	  <th>Axis</th>
+	  <th>Result</th>
+    </tr>
+    <tr>
+	  <td>Round 1</td>
+	  <td style="color: #1445a0"><em>S</em><sub>1</sub></td>
+	  <td style="color: #1445a0; font-size: 120%">&minus;</td>
+	  <td style="color: #aa5800"><em>S</em><sub>2</sub></td>
+	  <td style="color: #aa5800; font-size: 120%">+</td>
+    </tr>
+    <tr>
+	  <td>Round 2</td>
+	  <td style="color: #1445a0"><em>S</em><sub>3</sub></td>
+	  <td style="color: #1445a0; font-size: 120%">+</td>
+	  <td style="color: #aa5800"><em>S</em><sub>2</sub></td>
+	  <td style="color: #aa5800; font-size: 120%">+</td>
+    </tr>
+    <tr>
+	  <td>Round 3</td>
+	  <td style="color: #1445a0"><em>S</em><sub>2</sub></td>
+	  <td style="color: #1445a0; font-size: 120%">+</td>
+	  <td style="color: #aa5800"><em>S</em><sub>1</sub></td>
+	  <td style="color: #aa5800; font-size: 120%">&minus;</td>
+    </tr>
+    <tr>
+	  <td>Round 4</td>
+	  <td style="color: #1445a0"><em>S</em><sub>3</sub></td>
+	  <td style="color: #1445a0; font-size: 120%">&minus;</td>
+	  <td style="color: #aa5800"><em>S</em><sub>3</sub></td>
+	  <td style="color: #aa5800; font-size: 120%">+</td>
+    </tr>
+    <tr>
+	  <td>Round 5</td>
+	  <td style="color: #1445a0"><em>S</em><sub>3</sub></td>
+	  <td style="color: #1445a0; font-size: 120%">&minus;</td>
+	  <td style="color: #aa5800"><em>S</em><sub>1</sub></td>
+	  <td style="color: #aa5800; font-size: 120%">&minus;</td>
+    </tr>
+    <tr>
+	  <td>&vellip;</td>
+	  <td>&vellip;</td>
+	  <td>&vellip;</td>
+	  <td>&vellip;</td>
+	  <td>&vellip;</td>
+    </tr>
+</table>
+```
 
-<!-- \noindent -->
-<!-- If the results are consistent with quantum theory, whenever Alice and -->
-<!-- Bob chose the same axis (by random chance), they must have obtained -->
-<!-- opposite results.  For example, in the above records, they both chose -->
-<!-- axis $S_3$ during Round 4; Alice got $-$, and Bob got $+$. -->
+If the results are consistent with quantum theory, whenever Alice and
+Bob chose the same axis (by random chance), they must have obtained
+opposite results.  For example, in the above records, they both chose
+axis $S_3$ during Round 4, and Alice got $-$, while Bob got $+$.
 
-<!-- Can a hidden-variable theory reproduce such behavior?  In a -->
-<!-- hidden-variable theory, each particle has a definite value for each -->
-<!-- spin observable.  For example, $A$ might have $S_1 = +\hbar/2, \, S_2 -->
-<!-- = +\hbar/2, \, S_3 = -\hbar/2$, which we can denote more concisely as -->
-<!-- `$++-$'.  For every spin axis, the two particles' hidden variables -->
-<!-- must have opposite values.  Hence, there are $8$ possible -->
-<!-- hidden-variable states, which we can denote like this: -->
-<!-- \begin{align*} -->
-<!--   \begin{aligned} -->
-<!--     \hvbox[+++]{---} \;\;\; -->
-<!--     \hvbox[++-]{--+} \;\;\; -->
-<!--     \hvbox[+-+]{-+-} \;\;\; -->
-<!--     \hvbox[+--]{-++}\\ -->
-<!--     \hvbox[-++]{+--} \;\;\; -->
-<!--     \hvbox[-+-]{+-+} \;\;\; -->
-<!--     \hvbox[--+]{++-} \;\;\; -->
-<!--     \hvbox[---]{+++} -->
-<!--   \end{aligned} -->
-<!-- \end{align*} -->
-<!-- For instance, $\hvbox[++-]{--+}$ indicates that $A$ has $S_1 = S_2 = -->
-<!-- +\hbar/2$ and $S_3 = -\hbar/2$, while $B$ has $S_1 = S_2 = -\hbar/2$ -->
-<!-- and $S_3 = +\hbar/2$.  The hidden-variable theory postulates that the -->
-<!-- two-particle state \eqref{bellsinglet} is actually some kind of -->
-<!-- statistical distribution involving 8 hidden-variable states: -->
-<!-- \begin{equation*} -->
-<!--   \Big\{ P\big(\hvbox[+++]{---}\,\big), \;P\big(\hvbox[++-]{--+}\,\big), -->
-<!--   \dots, P\big(\hvbox[---]{+++}\,\big) \Big\}. -->
-<!-- \end{equation*} -->
+Suppose a hidden-variable theory aims to reproduce this behavior.  For
+instance, a hidden-variable state might consist of $A$ having the spin
+observables $S_1 = +$, $S_2 = +$, and $S_3 = -$, while $B$ has the
+corresponding opposite values; we can denote this state as
+$[++-|--+]$.  In total, there are eight possible hidden-variable
+states:
 
-<!-- Let us focus on the rounds in which Alice and Bob \textit{chose -->
-<!--   different spin axes}.  Within this subset, what is the probability -->
-<!-- \textit{for their measurement results to have opposite signs}?  To -->
-<!-- answer this question, we first consider these 6 hidden-variable -->
-<!-- states: -->
-<!-- \begin{align*} -->
-<!--   \begin{aligned} -->
-<!--     \hvbox[++-]{--+} \;\;\; -->
-<!--     \hvbox[+-+]{-+-} \;\;\; -->
-<!--     \hvbox[+--]{-++}\\ -->
-<!--     \hvbox[-++]{+--} \;\;\; -->
-<!--     \hvbox[-+-]{+-+} \;\;\; -->
-<!--     \hvbox[--+]{++-} -->
-<!--   \end{aligned} -->
-<!-- \end{align*} -->
-<!-- These are the cases for which each particle's spin variables are not -->
-<!-- all $+$ or all $-$.  Take the first case, $\hvbox[++-]{--+}$.  Under -->
-<!-- our assumption that Alice and Bob chose different measurement axes, -->
-<!-- there are two choices that give opposite signs for the measurement -->
-<!-- results: $(S_1,S_2)$ or $(S_2,S_1)$.  Conversely, there are four -->
-<!-- choices that give the same sign: $(S_1,S_3)$, $(S_2,S_3)$, $(S_3,S_1)$ -->
-<!-- and $(S_3, S_2)$.  Since the axis choices are totally random, the -->
-<!-- probability of obtaining opposite signs for this hidden-variable state -->
-<!-- is 1/3.  Going through the rest of the 6 hidden-variable states listed -->
-<!-- above, we find that the probability to get opposite signs is likewise -->
-<!-- 1/3.  In the notation of conditional probabilities, -->
-<!-- \begin{equation} -->
-<!--   P\big(\textrm{opp.} | \hvbox[++-]{--+}\,\big) = -->
-<!--   P\big(\textrm{opp.} | \hvbox[+-+]{-+-}\,\big) = \cdots = \frac{1}{3}, -->
-<!--   \label{bell1} -->
-<!-- \end{equation} -->
-<!-- where ``opp.''~stands for opposite signs being obtained in the two -->
-<!-- measurement results. -->
++:-----------:+:-----------:+:-----------:+:-----------:+
+| $[+++|---]$ | $[++-|--+]$ | $[+-+|-+-]$ | $[+--|-++]$ |
++-------------+-------------+-------------+-------------+
+| $[-++|+--]$ | $[-+-|+-+]$ | $[--+|++-]$ | $[---|+++]$ |
++-------------+-------------+-------------+-------------+
 
-<!-- Now look at the remaining 2 hidden-variable states: -->
-<!-- \begin{equation*} -->
-<!--     \hvbox[+++]{---} \;\;\; -->
-<!--     \hvbox[---]{+++} -->
-<!-- \end{equation*} -->
-<!-- For these, the conditional probabilities are -->
-<!-- \begin{equation} -->
-<!--   P\big(\textrm{opp.} | \hvbox[+++]{---}\,\big) = -->
-<!--   P\big(\textrm{opp.} | \hvbox[---]{+++}\,\big) = 1. -->
-<!--   \label{bell2} -->
-<!-- \end{equation} -->
-<!-- By the law of conditional probabilities, the probability for the -->
-<!-- ``opposite signs'' outcome is -->
-<!-- \begin{align} -->
-<!--   \begin{aligned} -->
-<!--     P\big(\textrm{opp.}\big) &= \;\;\; -->
-<!--     P\big(\textrm{opp.} | \hvbox[++-]{--+}\,\big) -->
-<!--     P\big(\hvbox[++-]{--+}\,\big) \\ -->
-<!--     &\quad+ P\big(\textrm{opp.} | \hvbox[+-+]{-+-}\,\big) -->
-<!--     P\big(\hvbox[+-+]{-+-}\,\big) \\ -->
-<!--     &\quad+ \quad \cdots \\ -->
-<!--     &\quad+ P\big(\textrm{opp.} | \hvbox[---]{+++}\,\big) -->
-<!--     P\big(\hvbox[---]{+++}\,\big), -->
-<!--   \end{aligned} -->
-<!-- \end{align} -->
-<!-- where the sum runs over all 8 possibilities (hidden-variable states). -->
-<!-- We can use Eqs.~\eqref{bell1} and \eqref{bell2} to insert the -->
-<!-- conditional probabilities, resulting in -->
-<!-- \begin{align} -->
-<!--   \begin{aligned} -->
-<!--     P\big(\textrm{opp.}\big) &= -->
-<!--     \frac{1}{3} \Big[\underbrace{P\big(\hvbox[++-]{--+}\,\big) -->
-<!--       + P\big(\hvbox[+-+]{-+-}\,\big) -->
-<!--       + \cdots + P\big(\hvbox[--+]{++-}\,\big)}_{\textrm{6 hidden-variable states -->
-<!-- obeying Eq.~\eqref{bell1}}}\Big] \\ -->
-<!--     &\quad + \underbrace{P\big(\hvbox[+++]{---}\,\big) -->
-<!--     + P\big(\hvbox[---]{+++}\,\big)}_{\textrm{2 hidden-variable states obeying \eqref{bell2}}}. -->
-<!--   \end{aligned} -->
-<!-- \end{align} -->
-<!-- It follows that -->
-<!-- \begin{equation} -->
-<!--   P\big(\textrm{opp.}\big) \ge -->
-<!--   \frac{1}{3} \Big[\underbrace{P\big(\hvbox[++-]{--+}\,\big) -->
-<!--       + \cdots + P\big(\hvbox[---]{+++}\,\big)}_{\textrm{all 8 hidden-variable states}} -->
-<!--     \Big]. -->
-<!--   \label{bellprob} -->
-<!-- \end{equation} -->
-<!-- The probabilities in the square brackets must sum to one.  Therefore, -->
-<!-- \begin{equation} -->
-<!--   P\big(\textrm{opp.}\big) \ge \frac{1}{3}. -->
-<!--   \label{bellresult} -->
-<!-- \end{equation} -->
-<!-- This result, called \textbf{Bell's inequality}, can be summarized as -->
-<!-- follows: -->
+The hidden-variable theory postulates that the two-particle singlet
+state is actually some kind of statistical distribution involving
+these eight states:
+
+$$\Big\{ P\big([+++|---]\,\big),
+\;P\big([++-|--+]\,\big), \dots, P\big([---|+++]\,\big)
+\Big\}.$$
+
+Let us focus on the rounds in which Alice and Bob *chose different
+spin axes*.  Within this subset, what is the probability *for their
+measurement results to have opposite signs*?  To answer this question,
+we first consider the following six states:
+
++:-----------:+:-----------:+:-----------:+
+| $[++-|--+]$ | $[+-+|-+-]$ | $[+--|-++]$ |
++-------------+-------------+-------------+
+| $[-++|+--]$ | $[-+-|+-+]$ | $[--+|++-]$ | 
++-------------+-------------+-------------+
+
+These are the cases for which each particle's spins are not all $+$ or
+all $-$.  Take the first case, $[++-|--+]$.  Under our assumption that
+Alice and Bob chose different measurement axes, there are two choices
+that give opposite measurement signs: $(S_1,S_2)$ or $(S_2,S_1)$.
+Conversely, there are four choices that give the same sign:
+$(S_1,S_3)$, $(S_2,S_3)$, $(S_3,S_1)$ and $(S_3, S_2)$.  Since the
+axis choices are random, the probability to obtain opposite signs is
+1/3.  Going through the rest of the six hidden-variable states listed
+above, we find that the probability to get opposite signs is also 1/3
+for each of those cases.  In the notation of conditional
+probabilities,
+
+$$P\big(\textrm{opp.} | [++-|--+]\,\big) =
+  P\big(\textrm{opp.} | [+-+|-+-]\,\big) = \cdots
+  = \frac{1}{3},$$ {#eq-bell1}
+
+where "opp." stands for opposite signs being obtained in the two
+measurement results.
+
+Next, consider the two remaining hidden-variable states,
+
++:-----------:+:-----------:+
+| $[+++|---]$ | $[---|+++]$ |
++-------------+-------------+
+
+For these, the conditional probabilities are
+
+$$P\big(\textrm{opp.} | [+++|---]\,\big) =
+P\big(\textrm{opp.} | [---|+++]\,\big) = 1.$$ {#eq-bell2}
+
+By the law of conditional probabilities, the probability for the
+"opposite signs" outcome is
+
+$$\begin{aligned}
+P\big(\textrm{opp.}\big) &= \;\,
+P\big(\textrm{opp.} | [++-|--+]\,\big)
+P\big([++-|--+]\,\big) \\
+&\quad+ P\big(\textrm{opp.} | [+-+|-+-]\,\big)
+P\big([+-+|-+-]\,\big) \\
+&\quad+ \quad \cdots \\
+&\quad+ P\big(\textrm{opp.} | [---|+++]\,\big)
+P\big([---|+++]\,\big),
+\end{aligned}$$
+
+where the sum runs over all 8 possibile hidden-variable states.  We
+can use @eq-bell1 and @eq-bell2 to insert the conditional
+probabilities, resulting in
+
+$$\begin{aligned}
+P\big(\textrm{opp.}\big) &=
+\frac{1}{3} \Big[\underbrace{P\big([++-|--+]\,\big)
++ P\big([+-+|-+-]\,\big)
++ \cdots + P\big([--+|++-]\,\big)}_{\textrm{First 6 hidden-variable states}}\Big] \\
+&\quad + \underbrace{P\big([+++|---]\,\big)
++ P\big([---|+++]\,\big)}_{\textrm{Last 2 hidden-variable states}} \\
+&\ge
+\frac{1}{3} \Big[\underbrace{P\big([++-|--+]\,\big)
++ \cdots + P\big([---|+++]\,\big)}_{\textrm{all 8 hidden-variable states}} \Big].\end{aligned}$$
+<!-- \label{bellprob} -->
+
+The probabilities in the square brackets must sum to one, so
+
+$$P\big(\textrm{opp.}\big) \ge \frac{1}{3}.$$
+<!-- \label{bellresult} -->
+
+This result is called **Bell's inequality**.  It can be summarized as
+follows:
 
 <!-- \begin{framed} -->
 <!-- \noindent -->
