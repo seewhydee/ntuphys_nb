@@ -1,4 +1,70 @@
-# States and Observables
+# Basics of Quantum Theory
+
+Quantum theory, or quantum mechanics, is the fundamental physical
+framework that describes all objects of microscopic size---and, so far as
+we know, larger objects too.  It was developed, in fits and starts,
+over several decades in the first half of the 20th century, beginning
+with [Max Planck's](https://en.wikipedia.org/wiki/Max_Planck) 1900
+proposal that the energy in radiation is packaged into discrete
+"quanta", and approaching its modern form with the formulation of wave
+mechanics
+by
+[Erwin Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger) in
+1926 and matrix mechanics
+by
+[Werner Heisenberg](https://en.wikipedia.org/wiki/Werner_Heisenberg)
+in 1928.  The mathematical formulation of quantum mechanics most
+physicists use today is based on the **Dirac–von Neumann axioms**, put
+together in the 1930s
+by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac)
+and
+[John von Neumann](https://en.wikipedia.org/wiki/John_von_Neumann),
+which unifies and systematizes the Schrödinger and Heisenberg theories
+using the mathematical language of linear algebra.
+
+In this chapter, we review the basic principles of quantum theory.
+This is a summary, not a pedagogical introduction; the reader is
+assumed to possess some familiarity with quantum mechanics, based on
+prior reading or coursework.
+
+## States and Observables
+
+The central idea that underlies quantum theory is the distinction
+between **states** and **observables**.  A state describes *how a
+system currently is*, while an observable represents one of its
+*measurable properties*.  In classical physics, a state may be defined
+by a complete set of observables: for instance, if you know the
+position and momentum of a point particle of given mass, then you know
+everything about it, including the values of all other observables
+(energy, orbital angular momentum, etc.).  Quantum theory, however,
+draws a bright line between these two concepts.
+
+In the Dirac–von Neumann axioms,
+
+1. A system's state is a vector $|\psi\rangle \in \mathscr{H}$, where
+  $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
+  vector space with an inner product, plus the property of
+  "completeness".  Completeness means, roughly, that infinite
+  series are well-defined: if we construct a convergent infinite sum
+  of vectors from $\mathscr{H}$, the result remains in
+  $\mathscr{H}$.  By analogy, consider the Leibniz series for $\pi$:
+  $$\pi = 4\left(1-\frac{1}{3}+\frac{1}{5} - \cdots\right).$$  The series on
+  the right can be constructed entirely from rational numbers, but the
+  result is irrational.  By contrast, the set of real numbers
+  $\mathbb{R}$ is complete---a convergent infinite series of reals
+  remains in $\mathbb{R}$.  The Hilbert space concept applies the same
+  property to vectors.]  The choice of Hilbert space, including
+  its dimension, is system-specific.
+
+2. An observable is a linear operator, $\hat{A}$, acting on state
+  vectors.  This operator is Hermitian, or self-adjoint: $\hat{A} =
+  \hat{A}^{\dagger}$.
+
+To operationalize these definitions, two further axioms are applied:
+
+3. ...
+
+
 
 ## Wavefunctions
 
