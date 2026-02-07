@@ -82,9 +82,12 @@ introduced:
    **state collapse**.
 
 From these postulates flow all the celebrated successes of quantum
-mechanics, including our modern understanding of chemistry, materials
-science, nuclear physics, etc.  However, there are a couple of aspects
-that can be forseen to spell trouble:
+theory, which underlies our modern understanding of chemistry,
+materials science, nuclear physics, etc.  Many pieces of modern
+technology that we rely on everyday, like lasers, LEDs, and computers,
+are built upon *quantitative* calculations enabled by quantum theory.
+Despite these successes, however, it is possible to spot a couple of
+problems lurking in the postulates:
 
 * In postulate 3, the Schrödinger equation gives a privileged role to
   the time variable $t$.  This seems to run counter to (i) special
@@ -97,7 +100,7 @@ that can be forseen to spell trouble:
   time](https://en.wikipedia.org/wiki/Problem_of_time).
 
 * There is a tension between postulates 3 and 4.  Postulate 3
-  describes the state evolving smoothly, according to a
+  describes the state evolving smoothly according to a
   *deterministic* differential equation (the Schrödinger equation).
   However, postulate 4 describes a *probabilitic* jump to another
   state, occurring abruptly when a measurement is performed.  Thus,
@@ -105,9 +108,13 @@ that can be forseen to spell trouble:
   mechanics.  This has surprising (and possibly troubling)
   consequences, as we shall see in @sec-chapter-entanglement.
 
+In the remainder of this chapter, we will use the quantum postulates
+to develop a few simple but important theoretical models: two-level
+systems, particles on lattices, and wavefunctions.
+
 ## Wavefunctions
 
-## Position eigenstates
+### Position eigenstates
 Before proceeding, let us review the properties of a quantum particle
 in free space.  In a $d$-dimensional space, a coordinate vector
 $\mathbf{r}$ is a real vector with $d$ components.  We suppose there
@@ -134,7 +141,7 @@ Moreover, the position operator $\hat{\mathbf{r}}$ is defined such
 that $\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\,
 |\mathbf{r}\rangle$.
 
-## Momentum eigenstates{#sec-momentum-eigenstates}
+### Momentum eigenstates{#sec-momentum-eigenstates}
 
 Momentum eigenstates are constructed from position eigenstates via
 Fourier transforms.  First, let us suppose $\mathbf{r}$ runs over a
