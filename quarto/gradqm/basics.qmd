@@ -81,13 +81,29 @@ introduced:
    $|n\rangle$ matching the measurement outcome.  This is called
    **state collapse**.
 
-There is a tension between postulates 3 and 4.  Postulate 3 describes
-the state evolving smoothly, according to a *deterministic*
-differential equation (the Schrödinger equation).  However, postulate
-4 describes a *probabilitic* jump to another state, occurring abruptly
-when a measurement is performed.  Thus, the act of measurement plays a
-special role in quantum mechanics.  We will revisit this issue in
-@sec-chapter-entanglement.
+From these postulates flow all the celebrated successes of quantum
+mechanics, including our modern understanding of chemistry, materials
+science, nuclear physics, etc.  However, there are a couple of things
+that can be forseen to spell trouble:
+
+* In postulate 3, the Schrödinger equation gives a privileged role to
+  the time variable $t$.  This seems to run counter to (i) special
+  relativity's demands that time and space be treated on equal
+  footing, and (ii) general relativity's demands that time (and space)
+  be dynamical quantities. The first conflict can be resolved by a
+  class of quantum theories called quantum field theories, but the
+  second remains an important unsolved problem.  This theoretical
+  difficulty has a cool name: it is called the [problem of
+  time](https://en.wikipedia.org/wiki/Problem_of_time).
+
+* There is a tension between postulates 3 and 4.  Postulate 3
+  describes the state evolving smoothly, according to a
+  *deterministic* differential equation (the Schrödinger equation).
+  However, postulate 4 describes a *probabilitic* jump to another
+  state, occurring abruptly when a measurement is performed.  Thus,
+  the act of measurement seems to play a special role in quantum
+  mechanics.  This has many surprising (and possibly troubling)
+  consequences, as we shall see in @sec-chapter-entanglement.
 
 ## Wavefunctions
 
