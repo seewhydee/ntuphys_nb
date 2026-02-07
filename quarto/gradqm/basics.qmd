@@ -39,7 +39,8 @@ everything about it, including the values of all other observables
 (energy, orbital angular momentum, etc.).  Quantum theory, however,
 draws a bright line between these two concepts.
 
-In the Dirac–von Neumann axioms,
+The Dirac–von Neumann axiomatization of quantum mechanics starts with
+the following postulates:
 
 1. A system's state is a vector $|\psi\rangle \in \mathscr{H}$, where
   $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
@@ -58,13 +59,33 @@ In the Dirac–von Neumann axioms,
 
 2. An observable is a linear operator, $\hat{A}$, acting on state
   vectors.  This operator is Hermitian, or self-adjoint: $\hat{A} =
-  \hat{A}^{\dagger}$.
+  \hat{A}^{\dagger}$.  The eigenvalues of the observable correspond to
+  the possible measurement results; the corresponding eigenvectors are
+  referred to as **eigenstates** of $\hat{A}$.
 
-To operationalize these definitions, two further axioms are applied:
+To operationalize these concepts, two further postulates are
+introduced:
 
-3. ...
+3. The time-dependence of a system's state, $|\psi(t)\rangle$, is
+   determined by an observable called the **Hamiltonian**, $\hat{H}$,
+   according to the **Schrödinger equation**:
+   $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle.$$
+   Note that the Hamiltonian itself may be time-dependent.
 
+4. If an observable $\hat{A} is measured on a state $|\psi(t)\rangle$,
+   the result is drawn probabilistically from one of the eigenvalues
+   $\{a_n\}$.  The probability to obtain a result $a_n$, which
+   corresponds to an eigenstate $|n\rangle$, is
+   $$P_n = |\langle n|\psi\rangle|^2.$$
+   After the measurement, the state instantly changes, from whatever
+   it was before to the eigenstate $|a_n\rangle$ matching the outcome.
+   This is called **state collapse**.
 
+There is a subtle distinction between postulates 3 and 4.  Postulate 3
+describes the state evolving in a smooth and deterministic manner,
+following a differential equation (the Schrödinger equation).
+However, postulate 4 describes an abrupt jump from one state to
+another, when a measurement is performed.
 
 ## Wavefunctions
 
