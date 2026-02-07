@@ -1,7 +1,7 @@
 # Basics of Quantum Theory
 
 Quantum theory, or quantum mechanics, is the fundamental physical
-framework that describes all objects of microscopic size---and, so far as
+framework describing all objects of microscopic size---and, so far as
 we know, larger objects too.  It was developed, in fits and starts,
 over several decades in the first half of the 20th century, beginning
 with [Max Planck's](https://en.wikipedia.org/wiki/Max_Planck) 1900
@@ -22,22 +22,22 @@ and
 which unifies and systematizes the Schrödinger and Heisenberg theories
 using the mathematical language of linear algebra.
 
-In this chapter, we review the basic principles of quantum theory.
+In this chapter, we review the basic principles of the theory.
 This is a summary, not a pedagogical introduction; the reader is
 assumed to possess some familiarity with quantum mechanics, based on
 prior reading or coursework.
 
 ## States and Observables
 
-The central idea that underlies quantum theory is the distinction
-between **states** and **observables**.  A state describes *how a
-system currently is*, while an observable represents one of its
+The central idea underlying quantum theory is that there is a
+distinction between **states** and **observables**.  A state describes
+*how a system currently is*, while observables represent its
 *measurable properties*.  In classical physics, a state may be defined
-by a complete set of observables: for instance, if you know the
-position and momentum of a point particle of given mass, then you know
+by a complete set of observables: for instance, if we know the
+position and momentum of a point particle of given mass, then we know
 everything about it, including the values of all other observables
 (energy, orbital angular momentum, etc.).  Quantum theory, however,
-draws a bright line between these two concepts.
+draws a bright line between the two concepts.
 
 The Dirac–von Neumann axiomatization of quantum mechanics starts with
 the following postulates:
@@ -59,33 +59,35 @@ the following postulates:
 
 2. An observable is a linear operator, $\hat{A}$, acting on state
   vectors.  This operator is Hermitian, or self-adjoint: $\hat{A} =
-  \hat{A}^{\dagger}$.  The eigenvalues of the observable correspond to
-  the possible measurement results; the corresponding eigenvectors are
-  referred to as **eigenstates** of $\hat{A}$.
+  \hat{A}^{\dagger}$.  The eigenvalues correspond to the observable's
+  possible measurement results, and the associated eigenvectors are
+  called **eigenstates**.
 
 To operationalize these concepts, two further postulates are
 introduced:
 
-3. The time-dependence of a system's state, $|\psi(t)\rangle$, is
-   determined by an observable called the **Hamiltonian**, $\hat{H}$,
-   according to the **Schrödinger equation**:
+3. **The Schrödinger equation**---The time-dependence of a system's
+   state, $|\psi(t)\rangle$, is determined by an observable called the
+   **Hamiltonian**, $\hat{H}$, according to
    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle.$$
    Note that the Hamiltonian itself may be time-dependent.
 
-4. If an observable $\hat{A} is measured on a state $|\psi(t)\rangle$,
-   the result is drawn probabilistically from one of the eigenvalues
-   $\{a_n\}$.  The probability to obtain a result $a_n$, which
-   corresponds to an eigenstate $|n\rangle$, is
+4. **The measurement postulate**---If an observable $\hat{A}$ is measured
+   on a state $|\psi(t)\rangle$, the result is drawn probabilistically
+   from one of the eigenvalues $\{a_n\}$.  The probability to obtain a
+   result $a_n$, which corresponds to an eigenstate $|n\rangle$, is
    $$P_n = |\langle n|\psi\rangle|^2.$$
-   After the measurement, the state instantly changes, from whatever
-   it was before to the eigenstate $|a_n\rangle$ matching the outcome.
-   This is called **state collapse**.
+   Afterwards, the system's state instantly switches to the eigenstate
+   $|n\rangle$ matching the measurement outcome.  This is called
+   **state collapse**.
 
-There is a subtle distinction between postulates 3 and 4.  Postulate 3
-describes the state evolving in a smooth and deterministic manner,
-following a differential equation (the Schrödinger equation).
-However, postulate 4 describes an abrupt jump from one state to
-another, when a measurement is performed.
+There is a tension between postulates 3 and 4.  Postulate 3 describes
+the state evolving smoothly, according to a *deterministic*
+differential equation (the Schrödinger equation).  However, postulate
+4 describes a *probabilitic* jump to another state, occurring abruptly
+when a measurement is performed.  Thus, the act of measurement plays a
+special role in quantum mechanics.  We will revisit this issue in
+@sec-chapter-entanglement.
 
 ## Wavefunctions
 
