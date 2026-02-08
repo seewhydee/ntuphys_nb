@@ -42,50 +42,83 @@ draws a bright line between the two concepts.
 The Dirac–von Neumann axiomatization of quantum mechanics starts with
 the following postulates:
 
-1. A system's state is a vector $|\psi\rangle \in \mathscr{H}$, where
-  $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
-  vector space with an inner product, plus the property of
-  "completeness".  Completeness means, roughly, that infinite
-  series are well-defined: if we construct a convergent infinite sum
-  of vectors from $\mathscr{H}$, the result remains in
-  $\mathscr{H}$.  By analogy, consider the Leibniz series for $\pi$:
-  $$\pi = 4\left(1-\frac{1}{3}+\frac{1}{5} - \cdots\right).$$  The series on
-  the right can be constructed entirely from rational numbers, but the
-  result is irrational.  By contrast, the set of real numbers
-  $\mathbb{R}$ is complete---a convergent infinite series of reals
-  remains in $\mathbb{R}$.  The Hilbert space concept applies the same
-  property to vectors.]  The choice of Hilbert space, including
-  its dimension, is system-specific.
+1.  **States**---A system's state is a vector $|\psi\rangle \in \mathscr{H}$, where
+    $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
+    vector space with an inner product, plus the property of
+    "completeness".  Completeness means, roughly, that infinite series
+    are well-defined: if we construct a convergent infinite sum of
+    vectors from $\mathscr{H}$, the result remains in $\mathscr{H}$.
+    By analogy, consider the Leibniz series for $\pi$: $$\pi =
+    4\left(1-\frac{1}{3}+\frac{1}{5} - \cdots\right).$$ The series on
+    the right can be constructed entirely from rational numbers, but
+    the result is irrational.  By contrast, the set of real numbers
+    $\mathbb{R}$ is complete---a convergent infinite series of reals
+    remains in $\mathbb{R}$.  The Hilbert space concept applies the
+    same property to vectors.]  The choice of Hilbert space, including
+    its dimension, is system-specific.
+  
+    It is customary to subject state vectors to **normalization to
+    unity**, by scaling them so that
+    $$\langle \psi|\psi\rangle = 1.$$
+    The reason we do this is that the rest of the theory only cares
+    about the "direction" of $|\psi\rangle$, not its overall magnitude
+    or phase (see postulates 3 and 4 below).
 
-2. An observable is a linear operator, $\hat{A}$, acting on state
-  vectors.  This operator is Hermitian, or self-adjoint: $\hat{A} =
-  \hat{A}^{\dagger}$.  The eigenvalues correspond to the observable's
-  possible measurement results, and the associated eigenvectors are
-  called **eigenstates**.
+2.  **Observables**---An observable is a linear operator, $\hat{A}$,
+    acting on state vectors.^[We will use hats, $\hat{\cdots}$, to
+    denote operators---both Hermitian operators (observables) and
+    non-Hermitian ones.] This operator is Hermitian, or self-adjoint:
+    $\hat{A} = \hat{A}^{\dagger}$.  The eigenvalues correspond to the
+    observable's possible measurement results.  The normalized
+    eigenvectors associated with these eigenvalues are called
+    **eigenstates**.
 
 To operationalize these concepts, two further postulates are
 introduced:
 
-3. **The Schrödinger equation**---The time-dependence of a system's
-   state, $|\psi(t)\rangle$, is determined by an observable called the
-   **Hamiltonian**, $\hat{H}$, according to
-   $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle.$$
-   Note that the Hamiltonian itself may be time-dependent.
+3.  **The Schrödinger equation**---A system's state,
+    $|\psi(t)\rangle$, may vary with time $t$.  This time-dependence
+    is described by an observable $\hat{H}(t)$ called the
+    **Hamiltonian** (which may also be time-dependent), according to
+    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle.$$
+    Note that this time-evolution is norm-preserving, or "unitary":
+$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[Proof: by
+    the product rule of derivatives,
+    $$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 
+	\langle\psi(t)|\left(\frac{d}{dt}|\psi(t)\rangle\right)
+	+\left(\frac{d}{dt}\langle\psi(t)|\right)|\psi(t)\rangle.$$
+    The two terms are complex conjugates of each other.
+    Using the Schrödinger equation, the first term becomes
+    $$\frac{1}{i\hbar}\langle\psi(t)|\hat{H}(t)|\psi(t)\rangle.$$
+    The second term, which is its complex conjugate, is
+	$$- \frac{1}{i\hbar}\langle\psi(t)|\hat{H}^\dagger(t)|\psi(t)\rangle.$$
+    If the Hamiltonian is Hermitian ($\hat{H} = \hat{H}^\dagger$), the
+    two terms cancel. QED.]
 
-4. **The measurement postulate**---If an observable $\hat{A}$ is measured
-   on a state $|\psi(t)\rangle$, the result is drawn probabilistically
-   from one of the eigenvalues $\{a_n\}$.  The probability to obtain a
-   result $a_n$, which corresponds to an eigenstate $|n\rangle$, is
-   $$P_n = |\langle n|\psi\rangle|^2.$$
-   Afterwards, the system's state instantly switches to the eigenstate
-   $|n\rangle$ matching the measurement outcome.  This is called
-   **state collapse**.
+4.  **The measurement postulate**---If an observable $\hat{A}$ is
+    measured on a state $|\psi\rangle$, the result is drawn
+    probabilistically from one of the eigenvalues of $\hat{A}$.  The
+    probability to obtain any result $a_n$, which corresponds to a
+    normalized eigenstate $|n\rangle$, is given by the **Born rule**,
+	$$P_n = \left|\langle n|\psi\rangle\right|^2.$${#eq-measurement}
+    After the measurement, the system's state switches, or
+    "collapses", to the eigenstate $|n\rangle$ matching the
+    measurement outcome.
+	
+	Note that @eq-measurement is insensitive to the overall phase of
+    the initial state: $e^{i\phi}|\psi\rangle$ (for any phase
+    $\phi\in\mathbb{R}$) gives the same measurement probabilities as
+    $|\psi\rangle$.  For the same reason, the post-collapse
+    eigenstate's phase is also irrelevant.
 
-From these postulates flow all the celebrated successes of quantum
-theory, which underlies our modern understanding of chemistry,
-materials science, nuclear physics, etc.  Many pieces of modern
-technology that we rely on everyday, like lasers, LEDs, and computers,
-are built upon *quantitative* calculations enabled by quantum theory.
+From these postulates flow all the predictions of quantum mechanics,
+which is possibly the most successful scientific theory of all time.
+Highly-accurate quantum mechanical calculations form the basis for our
+modern understanding of chemistry, materials science, nuclear physics,
+and many other fields, and are crucial of the functioning of many
+pieces of modern technology that we rely on everyday---lasers, LEDs,
+computers, and more.
+
 Despite these successes, however, it is possible to spot a couple of
 problems lurking in the postulates:
 
@@ -93,24 +126,60 @@ problems lurking in the postulates:
   the time variable $t$.  This seems to run counter to (i) special
   relativity's demands that time and space be treated on equal
   footing, and (ii) general relativity's demands that time (and space)
-  be dynamical quantities. The first conflict can be resolved by a
-  class of quantum theories called quantum field theories, but the
-  second remains unresolved.  This theoretical difficulty has a cool
-  name: it is called the [problem of
+  be dynamical quantities, not just passive coordinates. The first
+  conflict can be resolved by a class of quantum theories called
+  quantum field theories.  The second, however, remains unresolved;
+  this theoretical difficulty is called the [problem of
   time](https://en.wikipedia.org/wiki/Problem_of_time).
 
 * There is a tension between postulates 3 and 4.  Postulate 3
-  describes the state evolving smoothly according to a
-  *deterministic* differential equation (the Schrödinger equation).
-  However, postulate 4 describes a *probabilitic* jump to another
-  state, occurring abruptly when a measurement is performed.  Thus,
-  the act of measurement seems to play a special role in quantum
-  mechanics.  This has surprising (and possibly troubling)
-  consequences, as we shall see in @sec-chapter-entanglement.
+  describes the state evolving smoothly according to a *deterministic*
+  differential equation (the Schrödinger equation).  However,
+  postulate 4 describes a *probabilitic* jump to another state that
+  occurs abruptly when a measurement is performed.  Thus, the act of
+  measurement seems to play a special role in quantum mechanics.  This
+  has surprising (and possibly troubling) consequences, as we shall
+  see in @sec-chapter-entanglement.
 
 In the remainder of this chapter, we will use the quantum postulates
 to develop a few simple but important theoretical models: two-level
 systems, particles on lattices, and wavefunctions.
+
+## Two-level systems
+
+Different quantum systems can have different state spaces.  The
+simplest nontrivial complex Hilbert space is the space of
+two-component complex vectors, which mathematicians denote as
+$\mathbb{C}^2$.  Any vector in this space can be written as
+
+$$|\psi\rangle = \psi_+ |+\rangle + \psi_-|-\rangle \;\;\;\leftrightarrow\;\;\;\begin{pmatrix}\psi_+ \\ \psi_-\end{pmatrix},$$
+
+where $|+\rangle \leftrightarrow \begin{pmatrix}1\\0\end{pmatrix}$ and
+$|-\rangle \leftrightarrow \begin{pmatrix}0\\1\end{pmatrix}$ are two
+orthonormal basis vectors.  Here, we use $\leftrightarrow$ to denote
+the representation of an abstract vector in a given basis.
+
+### Pauli matrices {#sec-Pauli-matrices}
+
+What observables can such a quantum system have?  Observables for
+$\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, and
+it can be shown that any such matrix can be written as a superposition
+
+$$\hat{A} = \alpha_0 \hat{\sigma}_0 + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
+
+where $\hat{\sigma}_0 = \hat{I} =
+\begin{pmatrix}1&0\\0&1\end{pmatrix}$ is the $2\times2$ identity
+matrix, and $\sigma_1, \dots, \sigma_3$ are the **Pauli matrices**:
+
+$$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
+\hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
+\hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$
+
+Note that the coefficients in @eq-pauli-superposition are real; were
+we to take a *complex* linear combination, the result is not be
+guaranteed to be Hermitian.  The identity and Pauli matrices thus form
+a basis for the observables of $\mathbb{C}^2$.
+
 
 ## Wavefunctions
 
