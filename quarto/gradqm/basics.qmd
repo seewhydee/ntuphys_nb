@@ -46,16 +46,17 @@ the following postulates:
     $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
     vector space with an inner product, plus the property of
     "completeness".  Completeness means, roughly, that infinite series
-    are well-defined: if we construct a convergent infinite sum of
+    are well-behaved: if we construct a convergent infinite sum of
     vectors from $\mathscr{H}$, the result remains in $\mathscr{H}$.
-    By analogy, consider the Leibniz series for $\pi$: $$\pi =
-    4\left(1-\frac{1}{3}+\frac{1}{5} - \cdots\right).$$ The series on
-    the right can be constructed entirely from rational numbers, but
-    the result is irrational.  By contrast, the set of real numbers
-    $\mathbb{R}$ is complete---a convergent infinite series of reals
-    remains in $\mathbb{R}$.  The Hilbert space concept applies the
-    same property to vectors.]  The choice of Hilbert space, including
-    its dimension, is system-specific.
+    To understand what this means, we can use an analogy with the theory of numbers.  Consider the Leibniz series for $\pi$: $$\pi =
+    4\left(1-\frac{1}{3}+\frac{1}{5} - \frac{1}{7} + \cdots\right).$$ 
+	The series on the right is formed from rational numbers,
+    but the result of the infinite series is irrational; hence, the
+    rationals do not form a complete number system.  By contrast, the
+    real numbers ($\mathbb{R}$) are complete---every convergent
+    infinite series of reals remains in $\mathbb{R}$.  The Hilbert
+    space concept applies the same concept to vectors.]  The choice
+    of Hilbert space, including its dimension, is system-specific.
   
     It is customary to subject state vectors to **normalization to
     unity**, by scaling them so that
@@ -93,7 +94,9 @@ $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[Proof: by
     The second term, which is its complex conjugate, is
 	$$- \frac{1}{i\hbar}\langle\psi(t)|\hat{H}^\dagger(t)|\psi(t)\rangle.$$
     If the Hamiltonian is Hermitian ($\hat{H} = \hat{H}^\dagger$), the
-    two terms cancel. QED.]
+    two terms cancel. QED.]  We interpret $\hat{H}$ as the observable
+    corresponding to the total energy of the system; its eigenvalues
+    are called energy eigenvalues, or eigenenergies.
 
 4.  **The measurement postulate**---If an observable $\hat{A}$ is
     measured on a state $|\psi\rangle$, the result is drawn
@@ -162,8 +165,12 @@ the representation of an abstract vector in a given basis.
 ### Pauli matrices {#sec-Pauli-matrices}
 
 What observables can such a quantum system have?  Observables for
-$\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, and
-it can be shown that any such matrix can be written as a superposition
+$\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, which
+are characterized by exactly four real parameters---the diagonal
+elements must be real (which gives 2 independent real parameters), and
+the off-diagonal elements are conjugates of each other (giving
+another 2 independent real parameters).  We can write any
+such matrix as
 
 $$\hat{A} = \alpha_0 \hat{\sigma}_0 + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
 
@@ -175,11 +182,28 @@ $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
 \hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$
 
-Note that the coefficients in @eq-pauli-superposition are real; were
-we to take a *complex* linear combination, the result is not be
-guaranteed to be Hermitian.  The identity and Pauli matrices thus form
-a basis for the observables of $\mathbb{C}^2$.
+The identity and Pauli matrices are Hermitian (i.e., observables), so
+we can regard them as a basis for constructing all other observables.
+Note that the four coefficients in @eq-pauli-superposition must be
+real; were we to use a complex linear combination, the resulting
+operator may not be Hermitian.
 
+The identity and Pauli matrices are not the only possible basis for
+the observables of $\mathbb{C}^2$, but they have some unique
+advantages:
+
+* They are linearly independent: each matrix cannot be written as any
+  linear combination of the others.
+  
+* The leading term, $\alpha_0\hat{\sigma}_0$, represents a trivial
+  term, in the sense that it can be taken out of the eigenproblem for
+  $\hat{A}$:
+  $$\begin{aligned}&\hat{A} |\psi\rangle \;=\; \lambda |\psi\rangle \\
+&= \left(\alpha_0 \hat{\sigma}_0 + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle \\ \Leftrightarrow \;\;\;&
+\left(\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle = \left(\lambda - \alpha_0\right) |\psi\rangle.\end{aligned}$$
+  In other words, only the Pauli matrix terms determine the
+  eigenstates of $\hat{A}$, while $\alpha_0$ merely shifts the
+  eigenvalues (e.g., shifting the zero of energy for the Hamiltonian).
 
 ## Wavefunctions
 
