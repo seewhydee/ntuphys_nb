@@ -342,20 +342,26 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
    After splitting off a term
    $\frac{1}{2}\mathrm{Tr}(\hat{A})\,\hat{I}$, which does not affect
    the eigenvectors, we are left with traceless Hermitian matrices
-   characterized by three real parameters.  We thus seek a linear
+   characterized by three real parameters.  We seek a linear
    decomposition
    $$\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\; \alpha_i \in \mathbb{R},$$
-   where each $\hat{\sigma}_i$ is some traceless Hermitian matrix.
+   where each $\hat{\sigma}_i$ is a traceless Hermitian matrix.
 
-    A. Explain why we may choose each $\hat{\sigma}_i$
-    so that its eigenvalues are $\{1, -1\}$.
+    A. Explain why we may choose each $\hat{\sigma}_i$ so that its
+    eigenvalues are $\{1, -1\}$.  Hence, prove that each matrix
+    squares to the identity: $$\hat{\sigma}_i^2 = \hat{I}.$$
+    Note that this implies $\hat{\sigma}_i$ is a unitary (not just
+    Hermitian) matrix with determinant $-1$.
+
+    B. Let us require that any two different matrices $\hat{\sigma}_i$
+    and $\hat{\sigma}_j$ are orthogonal in the [Hilbert--Schmidt inner product](https://en.wikipedia.org/wiki/Hilbert%E2%80%93Schmidt_operator)
+	(a natural way to take the inner product of two operators):
+    $$\mathrm{Tr}(\hat{\sigma}_i\hat{\sigma}_j)=0\;\;\mathrm{for}\;\;i\ne j.$$
+    Then using the results of part A, prove that
+    $$(\hat{\sigma}_i\hat{\sigma}_j)^2=-\hat{I}\;\;\mathrm{for}\;\;i\ne j.$$
 	
-    B. Prove that each matrix therefore satisfies $\hat{\sigma}_i^2 = \hat{I}$.
-
-    C. Consider the commutator between any two of these matrices,
-	$$[\hat{\sigma}_i, \hat{\sigma}_j] = \hat{\sigma}_i \hat{\sigma}_j - \hat{\sigma}_j \hat{\sigma}_i, \;\;\;i\ne j.$$
-    Explain why this is automatically (i) traceless, and (ii)
-    anti-Hermitian (i.e., $i$ times some Hermitian matrix).
+	C. Using the results of A and B, derive the anticommutation relation
+	$$\left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}.$$
 
 2. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
