@@ -83,7 +83,7 @@ introduced:
     **Hamiltonian** (which may also be time-dependent), according to
     $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle.$$
     Note that this time-evolution is norm-preserving, or "unitary":
-$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[Proof: by
+$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: by
     the product rule of derivatives,
     $$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 
 	\langle\psi(t)|\left(\frac{d}{dt}|\psi(t)\rangle\right)
@@ -172,11 +172,10 @@ the off-diagonal elements are conjugates of each other (giving
 another 2 independent real parameters).  We can write any
 such matrix as
 
-$$\hat{A} = \alpha_0 \hat{\sigma}_0 + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
+$$\hat{A} = \alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
 
-where $\hat{\sigma}_0 = \hat{I} =
-\begin{pmatrix}1&0\\0&1\end{pmatrix}$ is the $2\times2$ identity
-matrix, and $\sigma_1, \dots, \sigma_3$ are the **Pauli matrices**:
+where $\hat{I}$ is the $2\times2$ identity matrix, and $\sigma_1,
+\dots, \sigma_3$ are the **Pauli matrices**:
 
 $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
@@ -184,26 +183,54 @@ $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 
 The identity and Pauli matrices are Hermitian (i.e., observables), so
 we can regard them as a basis for constructing all other observables.
-Note that the four coefficients in @eq-pauli-superposition must be
-real; were we to use a complex linear combination, the resulting
-operator may not be Hermitian.
+Note that these matrices are linearly independent (i.e., each cannot
+be written as a linear combination of the others).  Also, the four
+coefficients $\alpha_0, \dots, \alpha_3$ must be real; were we to use
+a complex linear combination, the resulting operator is not guaranteed
+to be Hermitian.
 
-The identity and Pauli matrices are not the only possible basis for
-the observables of $\mathbb{C}^2$, but they have some unique
-advantages:
+@eq-pauli-superposition is not the only possible basis decomposition
+for the observables of $\mathbb{C}^2$, but it has some particularly
+nice properties:
 
-* They are linearly independent: each matrix cannot be written as any
-  linear combination of the others.
+* The leading term, $\alpha_0\hat{I}$, represents the "trivial" part
+  of the matrix.  Given any $2\times2$ Hermitian matrix $\hat{A}$, we
+  can always split off such a term, with coefficient $\alpha_0 =
+  \mathrm{Tr}(\hat{A})/2$.  This term has the same trace as $\hat{A}$.
+  Then the remainder of the matrix (i) is traceless, and (ii)
+  satisfies the following reduced eigenvalue equation:
+  $$\begin{aligned}\hat{A} |\psi\rangle
+  = \left(\alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \lambda |\psi\rangle \\
+  \Rightarrow \qquad\qquad\qquad
+  \left(\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \left(\lambda - \alpha_0\right) |\psi\rangle.\end{aligned}$$
+  In other words, only the Pauli matrix terms determine the form of
+  the eigenstates, while $\alpha_0 = \mathrm{Tr}(\hat{A})/2$ merely
+  shifts the eigenvalues (e.g., shifting the zero of energy for a
+  Hamiltonian).
+
+* Given that each Pauli matrix is traceless and Hermitian, its
+  eigenvalues are two real numbers that sum to zero.  We scale the
+  matrix so that these eigenvalues are 1 and -1, which implies that:^[*Proof*: let $|+\rangle$ and $|-\rangle$ denote the eigenstates of $\hat{\sigma}_i$, with eigenvalues +1 and -1 respectively.  By the spectral theorem, these eigenstates are orthonormal, and the eigenbasis decomposition of the matrix is$$\hat{\sigma}_i = |+\rangle\langle+| \,-\, |-\rangle\langle-|.$$ It follows that $$\hat{\sigma}_i^2 = |+\rangle\langle+| \,+\, |-\rangle\langle-| = \hat{I}.$$The last step is the "resolution of the identity", i.e., the statement that the identity is equivalent to a sum of projectors taken over an orthonormal basis.]
+  $$\hat{\sigma}_i^2 = \hat{I}, \;\; i=1,2,3.$$
+  Moreover, products of *different* Pauli matrices satisfy
+  $$\begin{aligned}
+  \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 &= i\hat{\sigma}_3 \\
+  \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 &= i\hat{\sigma}_1 \\
+  \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 &= i\hat{\sigma}_2.
+  \end{aligned}$$
+  This set of algebraic relations is called the Pauli algebra, and is
+  an instance of a **Lie algebra**.
   
-* The leading term, $\alpha_0\hat{\sigma}_0$, represents a trivial
-  term, in the sense that it can be taken out of the eigenproblem for
-  $\hat{A}$:
-  $$\begin{aligned}&\hat{A} |\psi\rangle \;=\; \lambda |\psi\rangle \\
-&= \left(\alpha_0 \hat{\sigma}_0 + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle \\ \Leftrightarrow \;\;\;&
-\left(\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle = \left(\lambda - \alpha_0\right) |\psi\rangle.\end{aligned}$$
-  In other words, only the Pauli matrix terms determine the
-  eigenstates of $\hat{A}$, while $\alpha_0$ merely shifts the
-  eigenvalues (e.g., shifting the zero of energy for the Hamiltonian).
+  set of relations is called the Pauli algebra, 
+
+  Moreover, we choose the three matrices so that they mutually
+  anticommute:
+  $$\left\{ \hat{\sigma}_i, \hat{\sigma}_j \right\} \equiv
+  \hat{\sigma}_i \hat{\sigma}_j + \hat{\sigma}_j \hat{\sigma}_i = 0,
+  \;\;\;i\ne j.$$
+  The above two relations can be combined into the anticommutation relation
+  $$\left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} = 2\delta_{ij}, \;\;\;i,j \in \{1,2,3\}.$$
+
 
 ## Wavefunctions
 
