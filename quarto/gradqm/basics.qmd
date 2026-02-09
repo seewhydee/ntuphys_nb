@@ -335,33 +335,50 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
 
 ## Exercises {#sec-basics-exercises}
 
-1. In this exercise, we work through a line of reasoning that gives
-   rise to the Pauli matrix algebra, @eq-pauli-algebra.  We begin with
-   the observation that $2\times2$ Hermitian matrices are
-   characterized by four real parameters (see @sec-Pauli-matrices).
-   After splitting off a term
-   $\frac{1}{2}\mathrm{Tr}(\hat{A})\,\hat{I}$, which does not affect
-   the eigenvectors, we are left with traceless Hermitian matrices
-   characterized by three real parameters.  We seek a linear
-   decomposition
-   $$\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\; \alpha_i \in \mathbb{R},$$
-   where each $\hat{\sigma}_i$ is a traceless Hermitian matrix.
+1. In this exercise, we work through a line of reasoning that yields
+   the Pauli matrix algebra, @eq-pauli-algebra.  As discussed in
+   @sec-Pauli-matrices, $2\times2$ Hermitian matrices are
+   characterized by four real parameters, and we can always split off
+   a term $\frac{1}{2}\mathrm{Tr}(\hat{A})\,\hat{I}$, which does not
+   affect the eigenvectors.  This leaves three real
+   parameters to characterize traceless $2\times2$ Hermitian matrices.
+   
+   We seek a linear decomposition
+   $$\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\; \alpha_i \in \mathbb{R},$$ {#eq-traceless-basis}
+   where $\hat{\sigma}_1, \hat{\sigma}_2, \hat{\sigma}_3$ are traceless
+   Hermitian matrices that we seek to find.
 
     A. Explain why we may choose each $\hat{\sigma}_i$ so that its
     eigenvalues are $\{1, -1\}$.  Hence, prove that each matrix
     squares to the identity: $$\hat{\sigma}_i^2 = \hat{I}.$$
-    Note that this implies $\hat{\sigma}_i$ is a unitary (not just
-    Hermitian) matrix with determinant $-1$.
+    Note that this implies $\hat{\sigma}_i$ is unitary (not just
+    Hermitian) and has determinant $-1$.
 
     B. Let us require that any two different matrices $\hat{\sigma}_i$
     and $\hat{\sigma}_j$ are orthogonal in the [Hilbert--Schmidt inner product](https://en.wikipedia.org/wiki/Hilbert%E2%80%93Schmidt_operator)
 	(a natural way to take the inner product of two operators):
     $$\mathrm{Tr}(\hat{\sigma}_i\hat{\sigma}_j)=0\;\;\mathrm{for}\;\;i\ne j.$$
-    Then using the results of part A, prove that
+    Using this, along with the results of part A, prove that
     $$(\hat{\sigma}_i\hat{\sigma}_j)^2=-\hat{I}\;\;\mathrm{for}\;\;i\ne j.$$
 	
 	C. Using the results of A and B, derive the anticommutation relation
-	$$\left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}.$$
+	$$\left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} = 2\delta_{ij} \hat{I}.$$
+	
+	D. Consider $\hat{M} = i \sigma_1\sigma_2$.  Prove that this
+    matrix is Hermitian and traceless.  Thus, it too can be expanded
+    in the basis of @eq-traceless-basis:
+	$$\hat{M} = \beta_1 \hat{\sigma}_1 + \beta_2 \hat{\sigma}_2 + \beta_3 \hat{\sigma}_3.$$
+	Show that $\hat{M}$ anticommutes with both $\hat{\sigma}_1$ and
+    $\hat{\sigma}_2$, and hence that
+	$$\hat{M} = i \hat{\sigma}_1\hat{\sigma}_2 = \pm \hat{\sigma}_3.$$
+	
+	E. From the previous step, pick the sign choice $i
+    \hat{\sigma}_1\hat{\sigma}_2 = - \hat{\sigma}_3.$ From this, derive the
+    commutation relations
+	$$\left[\hat{\sigma}_i, \hat{\sigma}_j\right] = 2i\epsilon_{ijk}\, \hat{\sigma}_k.$$
+    Hence, work out the Pauli algebra relations in @eq-pauli-algebra.
+    (You may also show that the other sign choice is nothing but a
+    permutation of the matrix labels.)
 
 2. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
