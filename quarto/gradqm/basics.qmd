@@ -7,17 +7,14 @@ over several decades in the first half of the 20th century, beginning
 with [Max Planck's](https://en.wikipedia.org/wiki/Max_Planck) 1900
 proposal that the energy in radiation is packaged into discrete
 "quanta", and approaching its modern form with the formulation of wave
-mechanics
-by
+mechanics by
 [Erwin Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger) in
-1926 and matrix mechanics
-by
+1926 and matrix mechanics by
 [Werner Heisenberg](https://en.wikipedia.org/wiki/Werner_Heisenberg)
 in 1928.  The mathematical formulation of quantum mechanics most
 physicists use today is based on the **Dirac–von Neumann axioms**, put
 together in the 1930s
-by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac)
-and
+by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac) and
 [John von Neumann](https://en.wikipedia.org/wiki/John_von_Neumann),
 which unifies and systematizes the Schrödinger and Heisenberg theories
 using the mathematical language of linear algebra.
@@ -29,15 +26,14 @@ prior reading or coursework.
 
 ## States and Observables
 
-The central idea underlying quantum theory is that there is a
-distinction between **states** and **observables**.  A state describes
-*how a system currently is*, while observables represent its
-*measurable properties*.  In classical physics, a state may be defined
-by a complete set of observables: for instance, if we know the
-position and momentum of a point particle of given mass, then we know
-everything about it, including the values of all other observables
-(energy, orbital angular momentum, etc.).  Quantum theory, however,
-draws a bright line between the two concepts.
+The central idea in quantum theory is the distinction between
+**states** and **observables**.  A state describes *how a system
+currently is*, while observables represent its *measurable
+properties*.  In classical physics, a state may be defined by a
+complete set of observables: knowing the position and momentum of a
+point particle of given mass, we know everything about it, including
+the values of all other observables (energy, orbital angular momentum,
+etc.).  Quantum theory, however, treats them fundamentally differently.
 
 The Dirac–von Neumann axiomatization of quantum mechanics starts with
 the following postulates:
@@ -58,32 +54,31 @@ the following postulates:
     space concept applies the same concept to vectors.]  The choice
     of Hilbert space, including its dimension, is system-specific.
   
-    It is customary to subject state vectors to **normalization to
-    unity**, by scaling them so that
+    It is customary to normalize state vectors to unity, by
+    scaling them so that
     $$\langle \psi|\psi\rangle = 1.$$
-    The reason we do this is that the rest of the theory only cares
-    about the "direction" of $|\psi\rangle$, not its overall magnitude
-    or phase (see postulates 3 and 4 below).
+    We do this because the rest of the theory only cares about the
+    "direction" of $|\psi\rangle$, not its overall magnitude or phase
+    (see postulates 3 and 4 below).
 
 2.  **Observables**---An observable is a linear operator, $\hat{A}$,
-    acting on state vectors.^[We will use hats, $\hat{\cdots}$, to
+    acting on state vectors.^[We use hats, $\hat{\cdots}$, to
     denote operators---both Hermitian operators (observables) and
     non-Hermitian ones.] This operator is Hermitian, or self-adjoint:
-    $\hat{A} = \hat{A}^{\dagger}$.  The eigenvalues correspond to the
-    observable's possible measurement results.  The normalized
-    eigenvectors associated with these eigenvalues are called
-    **eigenstates**.
+    $\hat{A} = \hat{A}^{\dagger}$.  Its eigenvalues are the
+    observable's possible measurement results.  The corresponding
+    normalized eigenvectors are called **eigenstates**.
 
 To operationalize these concepts, two further postulates are
 introduced:
 
 3.  **The Schrödinger equation**---A system's state,
-    $|\psi(t)\rangle$, may vary with time $t$.  This time-dependence
-    is described by an observable $\hat{H}(t)$ called the
-    **Hamiltonian** (which may also be time-dependent), according to
-    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle.$$
-    Note that this time-evolution is norm-preserving, or "unitary":
-$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: by
+    $|\psi(t)\rangle$, varies with time $t$ according to the vectorial
+    differential equation
+    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle,$$
+    where $\hat{H}(t)$ is an observable called the **Hamiltonian**
+    (which itself may also be time-dependent).  This time-variation is
+    norm-preserving, or "unitary": $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: by
     the product rule of derivatives,
     $$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 
 	\langle\psi(t)|\left(\frac{d}{dt}|\psi(t)\rangle\right)
@@ -94,33 +89,34 @@ $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: by
     The second term, which is its complex conjugate, is
 	$$- \frac{1}{i\hbar}\langle\psi(t)|\hat{H}^\dagger(t)|\psi(t)\rangle.$$
     If the Hamiltonian is Hermitian ($\hat{H} = \hat{H}^\dagger$), the
-    two terms cancel. QED.]  We interpret $\hat{H}$ as the observable
-    corresponding to the total energy of the system; its eigenvalues
-    are called energy eigenvalues, or eigenenergies.
+    two terms cancel. QED.]
+	
+	We interpret $\hat{H}$ as the observable corresponding to the
+    total energy of the system; its eigenvalues are called energy
+    eigenvalues, or eigenenergies.
 
 4.  **The measurement postulate**---If an observable $\hat{A}$ is
     measured on a state $|\psi\rangle$, the result is drawn
-    probabilistically from one of the eigenvalues of $\hat{A}$.  The
-    probability to obtain any result $a_n$, which corresponds to a
+    probabilistically from the eigenvalues of $\hat{A}$.  The
+    probability to obtain a result $a_n$, which corresponds to a
     normalized eigenstate $|n\rangle$, is given by the **Born rule**,
-	$$P_n = \left|\langle n|\psi\rangle\right|^2.$${#eq-measurement}
-    After the measurement, the system's state switches, or
-    "collapses", to the eigenstate $|n\rangle$ matching the
-    measurement outcome.
+    $$P_n = \left|\langle n|\psi\rangle\right|^2.$${#eq-measurement}
+    After the measurement, the system's state abruptly switches, or
+    "collapses", to $|n\rangle$.
 	
 	Note that @eq-measurement is insensitive to the overall phase of
     the initial state: $e^{i\phi}|\psi\rangle$ (for any phase
     $\phi\in\mathbb{R}$) gives the same measurement probabilities as
-    $|\psi\rangle$.  For the same reason, the post-collapse
-    eigenstate's phase is also irrelevant.
+    $|\psi\rangle$.  For the same reason, the choice of phase for the
+    eigenstate (i.e., the post-collapse phase) is also irrelevant.
 
 From these postulates flow all the predictions of quantum mechanics,
-which is possibly the most successful scientific theory of all time.
-Highly-accurate quantum mechanical calculations form the basis for our
-modern understanding of chemistry, materials science, nuclear physics,
-and many other fields, and are crucial of the functioning of many
-pieces of modern technology that we rely on everyday---lasers, LEDs,
-computers, and more.
+which are possibly the most successful set of scientific results of
+all time.  Highly-accurate quantum mechanical calculations form the
+basis for our modern understanding of chemistry, materials science,
+nuclear physics, and many other fields, and are crucial of the
+functioning of many pieces of modern technology that we rely on
+everyday---lasers, LEDs, computers, and more.
 
 Despite these successes, however, it is possible to spot a couple of
 problems lurking in the postulates:
@@ -131,9 +127,9 @@ problems lurking in the postulates:
   footing, and (ii) general relativity's demands that time (and space)
   be dynamical quantities, not just passive coordinates. The first
   conflict can be resolved by a class of quantum theories called
-  quantum field theories.  The second, however, remains unresolved;
-  this theoretical difficulty is called the [problem of
-  time](https://en.wikipedia.org/wiki/Problem_of_time).
+  quantum field theories.  The second, however, is a fundamental
+  unsolved problem.  This theoretical difficulty is called the
+  [problem of time](https://en.wikipedia.org/wiki/Problem_of_time).
 
 * There is a tension between postulates 3 and 4.  Postulate 3
   describes the state evolving smoothly according to a *deterministic*
@@ -141,12 +137,12 @@ problems lurking in the postulates:
   postulate 4 describes a *probabilitic* jump to another state that
   occurs abruptly when a measurement is performed.  Thus, the act of
   measurement seems to play a special role in quantum mechanics.  This
-  has surprising (and possibly troubling) consequences, as we shall
+  has surprising and possibly troubling consequences, as we shall
   see in @sec-chapter-entanglement.
 
 In the remainder of this chapter, we will use the quantum postulates
-to develop a few simple but important theoretical models: two-level
-systems, particles on lattices, and wavefunctions.
+to develop some important elementary models: two-level systems,
+particles on lattices, and wavefunctions.
 
 ## Two-level systems
 
