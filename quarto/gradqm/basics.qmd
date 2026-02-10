@@ -166,10 +166,9 @@ the representation of an abstract vector in a given basis.
 
 What observables can such a quantum system have?  Observables for
 $\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, which
-are characterized by exactly four real parameters---the diagonal
-elements must be real (which gives 2 independent real parameters), and
-the off-diagonal elements are conjugates of each other (giving
-another 2 independent real parameters).  We can write any
+are characterized by four real parameters (the diagonal elements are
+real, which gives two parameters, and the off-diagonal elements are
+conjugates of each other, which gives another two).  We can write any
 such matrix as
 
 $$\hat{A} = \alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
@@ -179,55 +178,77 @@ where $\hat{I}$ is the $2\times2$ identity matrix, and $\sigma_1,
 
 $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
-\hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$
+\hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$ {#eq-pauli}
 
 The identity and Pauli matrices are Hermitian (i.e., observables), so
 we can regard them as a basis for constructing all other observables.
 Note that these matrices are linearly independent (i.e., each cannot
-be written as a linear combination of the others).  Also, the four
+be written as a linear combination of the others).  The four
 coefficients $\alpha_0, \dots, \alpha_3$ must be real; were we to use
-a complex linear combination, the resulting operator is not guaranteed
-to be Hermitian.
+a complex linear combination, $\hat{A}$ would not be guaranteed to be
+Hermitian.
 
-@eq-pauli-superposition is not the only possible basis decomposition
-for the observables of $\mathbb{C}^2$, but it has some particularly
-nice properties:
+@eq-pauli-superposition is not the only possible parameterization for
+observables of $\mathbb{C}^2$, but it has some particularly nice
+properties:
 
 * The leading term, $\alpha_0\hat{I}$, represents the "trivial" part
-  of the matrix.  Given any $2\times2$ Hermitian matrix $\hat{A}$, we
-  can always split off such a term, with coefficient $\alpha_0 =
-  \mathrm{Tr}(\hat{A})/2$.  This term has the same trace as $\hat{A}$.
-  Then the remainder of the matrix (i) is traceless, and (ii)
-  satisfies the following reduced eigenvalue equation:
+  of the matrix.  We can always split off such a term from any
+  $2\times2$ Hermitian matrix $\hat{A}$, using the coefficient
+  $\alpha_0 = \mathrm{Tr}(\hat{A})/2$.  This term has the same trace
+  as $\hat{A}$, so the remaining part of the matrix (i) is traceless,
+  and (ii) satisfies a simplified eigenvalue equation:
   $$\begin{aligned}\hat{A} |\psi\rangle
   = \left(\alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \lambda |\psi\rangle \\
   \Rightarrow \qquad\qquad\qquad
   \left(\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \left(\lambda - \alpha_0\right) |\psi\rangle.\end{aligned}$$
-  In other words, only the Pauli matrix terms determine the form of
-  the eigenstates, while $\alpha_0 = \mathrm{Tr}(\hat{A})/2$ merely
-  shifts the eigenvalues (e.g., shifting the zero of energy for a
+  In other words, only the Pauli matrix terms determine the
+  eigenstates of $\hat{A}$, while the $\alpha_0$ part merely shifts
+  the eigenvalues (e.g., shifting the zero of energy for a
   Hamiltonian).
 
-* Each Pauli matrix is traceless and Hermitian, and products of them
-  satisfy the following multiplication table:
+* The Pauli matrices are traceless, Hermitian, and satisfy the
+  following anticommutation and commutation relations:
   $$\begin{aligned}
-  \hat{\sigma}_i^2 &= \hat{I}, \;\; i=1,2,3 \\
-  \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 = i\hat{\sigma}_3 \\
-  \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 = i\hat{\sigma}_1 \\
-  \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2.
-  \end{aligned}$$ {#eq-pauli-algebra}
+  \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
+  \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j\in\{1,2,3\}.$$ {#eq-Lie-commutators}
 
-  These relations constitute a so-called **Lie algebra** called the
-  Pauli algebra.  They follow from a set of reasonable choices about
-  how to organize a basis for $2\times2$ traceless Hermitian matrices
-  (see [Exercise 1](#sec-basics-exercises)).  They can also be
-  equivalently stated using the following pair of commutation and
-  anticommutation relations:
-  $$\begin{aligned}\left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i\epsilon_{ijk}\, \hat{\sigma}_k \\
-  \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I},\end{aligned}$$
-  where $\epsilon_{ijk}$ is the Levi-Civita symbol.
+  Here, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  These
+  algebraic relations are no accident: they can be derived from a
+  minimal set of reasonable assumptions about how to form an
+  "orthonormal basis" of $2\times2$ traceless Hermitian matrices, as
+  shown in [Exercise 1](#sec-basics-exercises).  The Pauli matrices
+  then arise as a particular convenient representation for the
+  algebra.  Often, when manipulating formulas containing Pauli
+  matrices, it is advantageous to use @eq-Lie-commutators instead of
+  working with the explicit matrices.
 
-## Wavefunctions
+### Connection to spin
+
+The commutation relation in the second line of @eq-Lie-commutators
+defines a so-called **Lie algebra**, $\mathfrak{su}(2)$.  Notably,
+this Lie algebra also appears in the quantum theory of angular
+momentum in 3D space.  If $\hat{J}_i$ denotes the angular momentum
+operator in direction $i \in \{1,2,3\}$, one can show that
+
+$$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$
+
+We can derive this most directly using wavefunctions
+(@sec-wavefunctions), in which case $\hat{J}_i$ refers to *orbital*
+angular momentum (i.e., angular momentum tied to the motion of a
+particle).
+
+  
+  
+  <!-- From them, we can derive the multiplication table -->
+  <!-- $$\begin{aligned} -->
+  <!-- \hat{\sigma}_i^2 &= \hat{I}, \;\; i=1,2,3 \\ -->
+  <!-- \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 = i\hat{\sigma}_3 \\ -->
+  <!-- \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 = i\hat{\sigma}_1 \\ -->
+  <!-- \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2. -->
+  <!-- \end{aligned}$$ {#eq-pauli-algebra} -->
+
+## Wavefunctions {#sec-wavefunctions}
 
 ### Position eigenstates
 Before proceeding, let us review the properties of a quantum particle
@@ -336,7 +357,7 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
 ## Exercises {#sec-basics-exercises}
 
 1. In this exercise, we work through a line of reasoning that yields
-   the Pauli matrix algebra, @eq-pauli-algebra.  As discussed in
+   the Pauli algebra relations, @eq-Lie-commutators.  As discussed in
    @sec-Pauli-matrices, $2\times2$ Hermitian matrices are
    characterized by four real parameters, and we can always split off
    a term $\frac{1}{2}\mathrm{Tr}(\hat{A})\,\hat{I}$, which does not
@@ -373,12 +394,10 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
 	$$\hat{M} = i \hat{\sigma}_1\hat{\sigma}_2 = \pm \hat{\sigma}_3.$$
 	
 	E. From the previous step, pick the sign choice $i
-    \hat{\sigma}_1\hat{\sigma}_2 = - \hat{\sigma}_3.$ From this, derive the
-    commutation relations
+    \hat{\sigma}_1\hat{\sigma}_2 = - \hat{\sigma}_3.$ Hence, prove that
 	$$\left[\hat{\sigma}_i, \hat{\sigma}_j\right] = 2i\epsilon_{ijk}\, \hat{\sigma}_k.$$
-    Hence, work out the Pauli algebra relations in @eq-pauli-algebra.
-    (You may also show that the other sign choice is nothing but a
-    permutation of the matrix labels.)
+    You may also show that the other sign choice is nothing but a
+    permutation of the matrix labels.
 
 2. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
