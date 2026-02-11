@@ -176,13 +176,13 @@ $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
 \hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$ {#eq-pauli}
 
-The identity and Pauli matrices are Hermitian (i.e., observables), so
-we can regard them as a basis for constructing all other observables.
-Note that these matrices are linearly independent (i.e., each cannot
-be written as a linear combination of the others).  The four
-coefficients $\alpha_0, \dots, \alpha_3$ must be real; were we to use
-a complex linear combination, $\hat{A}$ would not be guaranteed to be
-Hermitian.
+Note that the identity and Pauli matrices are Hermitian (i.e.,
+observables), and linearly independent (i.e., each cannot be written
+as a linear combination of the others).  Thus, @eq-pauli-superposition
+is essentially using these matrices as a linear basis for constructing
+all possible observables for $\mathbb{C}^2$.  The four coefficients
+$\alpha_0, \dots, \alpha_3$ must be real; were we to use a complex
+linear combination, $\hat{A}$ would not be guaranteed to be Hermitian.
 
 @eq-pauli-superposition is not the only possible parameterization for
 observables of $\mathbb{C}^2$, but it has some particularly nice
@@ -219,7 +219,7 @@ properties:
   matrices, it is advantageous to use @eq-Lie-commutators instead of
   working with the explicit matrices.
 
-### Connection to spin
+### Spin mapping
 
 The commutation relation in the second line of @eq-Lie-commutators
 defines a so-called **Lie algebra**, $\mathfrak{su}(2)$.  Notably,
@@ -227,22 +227,44 @@ this Lie algebra also appears in the quantum theory of angular
 momentum in 3D space.  If $\hat{J}_i$ denotes the angular momentum
 operator in direction $i \in \{1,2,3\}$, one can show that
 
-$$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$
+$$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$ {#eq-Lie-algebra}
 
-We can derive this most directly using wavefunctions
-(@sec-wavefunctions), in which case $\hat{J}_i$ refers to *orbital*
-angular momentum (i.e., angular momentum tied to the motion of a
-particle).
+This can be derived for wavefunctions (@sec-wavefunctions), by using
+position and momentum operators to construct angular momentum
+operators, which describe *orbital* angular momentum.  More generally,
+the $\mathfrak{su}(2)$ Lie algebra applies to any angular momentum
+tied to 3D rotations---not just orbital angular momentum but also
+*spin* angular momentum, a form of internal angular momentum that
+particles can carry (even point particles like electrons, which have
+no internal structure as far as we know).
+
+Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
+matrices form a 2D representation^[The dimension of the representation
+refers the size of the matrices; the Pauli matrices are $2\times2$, so
+the representation is 2D.  The Lie algebra $\mathfrak{su}(2)$, defined
+by the angular momentum commutation relations (@eq-Lie-algebra), also
+has higher-dimensional representations, such as the 3D representation
+($3\times3$ matrices) of orbital angular momentum.  Note that this 3D
+representation is a representation for $\mathfrak{su}(2)$---not
+$\mathfrak{su}(3)$, which refers to another Lie algebra with different
+commutation relations.] of $\mathfrak{su}(2)$, according to the
+mapping
+
+$$\hat{J_i} = \frac{\hbar}{2}\, \hat{\sigma}_i.$$
+
+Due to the $\hbar/2$ prefactor, the Pauli matrices describe a
+so-called spin-1/2 system.  We can thus re-interpret the basis
+expansion of a general observables, @eq-pauli-superposition, in
+angular momentum terms.  The expansion has the same form as the
+Hamiltonian for a magnetic dipole in a magnetic field $\mathbf{B}$:
+
+$$\hat{A} = \alpha_0 + \sum_{i=1}^3 \alpha_i \hat{\sigma}_i \;\;\;\leftrightarrow\;\;\;
+\hat{H} = E_0 + \lambda \sum_{i=1}^3 B_i \hat{S}_i = E_0 + \lambda \, \mathbf{B} \cdot \hat{\mathbf{S}}.$$
+
+Here, $E_0$ is a baseline energy, and $\lambda \hat{\mathbf{S}}$ is a
+magnetic moment operator (which is proportional to the spin).
 
   
-  
-  <!-- From them, we can derive the multiplication table -->
-  <!-- $$\begin{aligned} -->
-  <!-- \hat{\sigma}_i^2 &= \hat{I}, \;\; i=1,2,3 \\ -->
-  <!-- \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 = i\hat{\sigma}_3 \\ -->
-  <!-- \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 = i\hat{\sigma}_1 \\ -->
-  <!-- \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2. -->
-  <!-- \end{aligned}$$ {#eq-pauli-algebra} -->
 
 ## Wavefunctions {#sec-wavefunctions}
 
@@ -394,6 +416,14 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
 	$$\left[\hat{\sigma}_i, \hat{\sigma}_j\right] = 2i\epsilon_{ijk}\, \hat{\sigma}_k.$$
     You may also show that the other sign choice is nothing but a
     permutation of the matrix labels.
+  
+  <!-- From them, we can derive the multiplication table -->
+  <!-- $$\begin{aligned} -->
+  <!-- \hat{\sigma}_i^2 &= \hat{I}, \;\; i=1,2,3 \\ -->
+  <!-- \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 = i\hat{\sigma}_3 \\ -->
+  <!-- \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 = i\hat{\sigma}_1 \\ -->
+  <!-- \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2. -->
+  <!-- \end{aligned}$$ {#eq-pauli-algebra} -->
 
 2. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
