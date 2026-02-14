@@ -235,8 +235,8 @@ operators, which describe *orbital* angular momentum.  More generally,
 the $\mathfrak{su}(2)$ Lie algebra applies to any angular momentum
 tied to 3D rotations---not just orbital angular momentum but also
 *spin* angular momentum, a form of internal angular momentum that
-particles can carry (even point particles like electrons, which have
-no internal structure as far as we know).
+particles can carry (including point particles like electrons, which
+have no internal structure as far as we know).
 
 Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
 matrices form a 2D representation^[The dimension of the representation
@@ -250,21 +250,54 @@ $\mathfrak{su}(3)$, which refers to another Lie algebra with different
 commutation relations.] of $\mathfrak{su}(2)$, according to the
 mapping
 
-$$\hat{J_i} = \frac{\hbar}{2}\, \hat{\sigma}_i.$$
+$$\hat{J}_i \equiv \hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
 
 Due to the $\hbar/2$ prefactor, the Pauli matrices describe a
-so-called spin-1/2 system.  We can thus re-interpret the basis
-expansion of a general observables, @eq-pauli-superposition, in
-angular momentum terms.  The expansion has the same form as the
-Hamiltonian for a magnetic dipole in a magnetic field $\mathbf{B}$:
+so-called "spin-1/2 degree of freedom".^[By convention, spin operators
+are denoted specifically by $\hat{S}_i$.]  In this context, the basis
+expansion for a general observables (@eq-pauli-superposition)
+evidently has the same form as the Hamiltonian for a magnetic dipole
+in a magnetic field $\mathbf{B}$:
 
 $$\hat{A} = \alpha_0 + \sum_{i=1}^3 \alpha_i \hat{\sigma}_i \;\;\;\leftrightarrow\;\;\;
-\hat{H} = E_0 + \lambda \sum_{i=1}^3 B_i \hat{S}_i = E_0 + \lambda \, \mathbf{B} \cdot \hat{\mathbf{S}}.$$
+\hat{H} = E_0 - \lambda \sum_{i=1}^3 B_i \hat{S}_i = E_0 - \lambda \, \mathbf{B} \cdot \hat{\mathbf{S}}.$$
 
-Here, $E_0$ is a baseline energy, and $\lambda \hat{\mathbf{S}}$ is a
-magnetic moment operator (which is proportional to the spin).
+Here, $E_0$ is a baseline energy, and $\lambda$ is defined so that
+$\lambda \hat{\mathbf{S}}$ represents the magnetic dipole moment
+(which follows the spin).  The real coefficients in
+@eq-pauli-superposition are thus imbued with concrete physical
+meanings; in particular, we see that the real coefficients $\alpha_1,
+\dots, \alpha_3$ represent the components of a magnetic field vector.
 
-  
+It is also common to use this mapping to interpret two-level quantum
+systems in terms of spin-1/2 degrees of freedom *even if they're not
+spins*.  For example, consider an atom with a ground state $|g\rangle$
+and an excited state $|e\rangle$, whose energies differ by
+$\hbar\Delta \omega$.  The atom is illuminated by an electromagnetic
+wave, or "driving field", that induces transitions between the ground
+state and the excited state.  The Hamiltonian has the form
+
+$$\hat{H} = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g|
++ \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| + \frac{\hbar \Omega_L}{2} \Big(e^{-i\omega_L t} |g\rangle\langle e| + e^{i\omega_L t} |e\rangle\langle g|\Big),$$
+
+where $E_0$ is a baseline energy, $\Omega_L$ is the so-called Rabi
+frequency (a frequency that characterizes how strong the driving field
+is), and $\omega_L$ is the frequency of the driving field.  Using the
+basis $\{|g\rangle, |e\rangle\}$, this Hamiltonian can be rewritten as
+
+$$\hat{H} = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 + \frac{\hbar\Omega_L}{2}\left[\cos(\omega_L t) \hat{\sigma}_1 + \sin(\omega_L t) \hat{\sigma}_2\right].$$
+
+If we redefine the Pauli matrices as spin via @eq-spin-map, this
+becomes
+
+$$\hat{H} = E_0 - \lambda \mathbf{B} \cdot \hat{\mathbf{S}}, \;\;\;
+\lambda \mathbf{B} = \begin{pmatrix}\Omega_L\cos(\omega_Lt)\\ \Omega_L\sin(\omega_Lt) \\ \Delta \omega\end{pmatrix}.$$
+
+In other words, the illuminated two-level atom has the same dynamics
+as a spin subjected to a static magnetic field along $z$ and a
+rotating magnetic field in the $x$-$y$ plane.
+
+## Lattices
 
 ## Wavefunctions {#sec-wavefunctions}
 
