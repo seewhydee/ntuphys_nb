@@ -290,11 +290,13 @@ cleanly to the coefficients of the linear expansion in
 ## Lattices
 
 Lattice models are another useful class of quantum models, which allow
-us to develop the concept of position without the complications
-imposed by continuous variables.  Let suppose that a particle is
-constrained to discrete points in a 1D or higher-dimensional space,
+us to introduce the concept of position coordinates without the extra
+complications accompanying continuous variables (which we will handle
+in @sec-wavefunctions).  Suppose a particle is constrained to discrete
+points, or **sites**, arranged in a 1D or higher-dimensional grid
 called a **lattice**:
 
+![](fig/lattices.png){fig-align="center" width="500" fig-alt="Diagrams showing representative 1D, 2D, and 3D lattices, each consisting of interconnected discrete sites."}
 
 
 
