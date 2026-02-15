@@ -33,13 +33,13 @@ properties*.  In classical physics, a state may be defined by a
 complete set of observables: knowing the position and momentum of a
 point particle of given mass, we know everything about it, including
 the values of all other observables (energy, orbital angular momentum,
-etc.).  Quantum theory, however, treats them fundamentally differently.
+etc.).  Not so in quantum theory.
 
 The Dirac–von Neumann axiomatization of quantum mechanics starts with
-the following postulates:
+these postulates:
 
-1.  **States**---A system's state is a vector $|\psi\rangle \in \mathscr{H}$, where
-    $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
+1.  **States**---A system's state is a vector $|\psi\rangle$ in a
+    complex Hilbert space $\mathscr{H}$.^[A Hilbert space is a
     vector space with an inner product, plus the property of
     "completeness".  Completeness means, roughly, that infinite series
     are well-behaved: if we construct a convergent infinite sum of
@@ -53,32 +53,30 @@ the following postulates:
     infinite series of reals remains in $\mathbb{R}$.  The Hilbert
     space concept applies the same concept to vectors.]  The choice
     of Hilbert space, including its dimension, is system-specific.
-  
-    It is customary to normalize state vectors to unity, by
-    scaling them so that
+    State vectors are customarily **normalized to unity**, i.e.,
     $$\langle \psi|\psi\rangle = 1.$$
     We do this because the rest of the theory only cares about the
     "direction" of $|\psi\rangle$, not its overall magnitude or phase
     (see postulates 3 and 4 below).
 
 2.  **Observables**---An observable is a linear operator, $\hat{A}$,
-    acting on state vectors.^[We use hats, $\hat{\cdots}$, to
-    denote operators---both Hermitian operators (observables) and
-    non-Hermitian ones.] This operator is Hermitian, or self-adjoint:
-    $\hat{A} = \hat{A}^{\dagger}$.  Its eigenvalues are the
-    observable's possible measurement results.  The corresponding
+    acting on state vectors.^[We use hats, $\hat{\cdots}$, to denote
+    operators---both Hermitian operators (observables) and
+    non-Hermitian ones.] This operator is Hermitian or self-adjoint,
+    $\hat{A} = \hat{A}^{\dagger}$, which
+    [implies](https://en.wikipedia.org/wiki/Spectral_theorem) that its
+    eigenvalues are real.  These eigenvalues correspond to the
+    observable's possible measurement results, and the associated
     normalized eigenvectors are called **eigenstates**.
 
-To operationalize these concepts, two further postulates are
-introduced:
+To operationalize these concepts, two more postulates are added:
 
 3.  **The Schrödinger equation**---A system's state,
-    $|\psi(t)\rangle$, varies with time $t$ according to the vectorial
-    differential equation
+    $|\psi(t)\rangle$, varies with time $t$ according to
     $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle,$$
     where $\hat{H}(t)$ is an observable called the **Hamiltonian**
-    (which itself may also be time-dependent).  This time-variation is
-    norm-preserving, or "unitary": $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: by
+    (which also may be time-dependent).  The Schrödinger equation is
+    norm-preserving, or "unitary": $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: By
     the product rule of derivatives,
     $$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 
 	\langle\psi(t)|\left(\frac{d}{dt}|\psi(t)\rangle\right)
@@ -91,9 +89,9 @@ introduced:
     If the Hamiltonian is Hermitian ($\hat{H} = \hat{H}^\dagger$), the
     two terms cancel. QED.]
 	
-	We interpret $\hat{H}$ as the observable corresponding to the
-    total energy of the system; its eigenvalues are called energy
-    eigenvalues, or eigenenergies.
+    We interpret $\hat{H}$ as the observable corresponding to the
+    total energy of the system; its eigenvalues are called
+    **eigenenergies**.
 
 4.  **The measurement postulate**---If an observable $\hat{A}$ is
     measured on a state $|\psi\rangle$, the result is drawn
@@ -101,55 +99,57 @@ introduced:
     probability to obtain a result $a_n$, which corresponds to a
     normalized eigenstate $|n\rangle$, is given by the **Born rule**,
     $$P_n = \left|\langle n|\psi\rangle\right|^2.$${#eq-measurement}
-    After the measurement, the system's state abruptly switches, or
-    "collapses", to $|n\rangle$.
+    After the measurement, the system's state abruptly switches to
+    $|n\rangle$.  This is called **state collapse**.
 	
 	Note that @eq-measurement is insensitive to the overall phase of
     the initial state: $e^{i\phi}|\psi\rangle$ (for any phase
     $\phi\in\mathbb{R}$) gives the same measurement probabilities as
     $|\psi\rangle$.  For the same reason, the choice of phase for the
-    eigenstate (i.e., the post-collapse phase) is also irrelevant.
+    post-collapse eigenstate is also irrelevant.
 
 From these postulates flow all the predictions of quantum mechanics,
-which are possibly the most successful set of scientific results of
-all time.  Highly-accurate quantum mechanical calculations form the
-basis for our modern understanding of chemistry, materials science,
-nuclear physics, and many other fields, and are crucial of the
-functioning of many pieces of modern technology that we rely on
-everyday---lasers, LEDs, computers, and more.
+collectively representing the most accurate and successful set of
+scientific results of all time.  Quantum mechanical calculations form
+the basis for our modern understanding of chemistry, materials
+science, nuclear physics, and many other fields, and are crucial of
+the functioning of many pieces of modern technology that we rely on
+everyday, including lasers, LEDs, computers, and more.
 
-Despite these successes, however, it is possible to spot a couple of
-problems lurking in the postulates:
+However, it is possible to spot some problems lurking in the
+postulates:
 
 * In postulate 3, the Schrödinger equation gives a privileged role to
-  the time variable $t$.  This seems to run counter to (i) special
-  relativity's demands that time and space be treated on equal
-  footing, and (ii) general relativity's demands that time (and space)
-  be dynamical quantities, not just passive coordinates. The first
-  conflict can be resolved by a class of quantum theories called
-  quantum field theories.  The second, however, is a fundamental
-  unsolved problem.  This theoretical difficulty is called the
-  [problem of time](https://en.wikipedia.org/wiki/Problem_of_time).
+  the time variable $t$.  This seems to run counter to (i) [special relativity's](https://en.wikipedia.org/wiki/Special_relativity)
+  demands that time and space be treated on equal footing, and (ii)
+  [general relativity's](https://en.wikipedia.org/wiki/General_relativity)
+  demands that time (and space) be dynamical quantities, not just
+  passive coordinates. The first conflict can be resolved by a class
+  of quantum theories called quantum field theories.  The second,
+  however, is a fundamental unsolved issue called the [problem of
+  time](https://en.wikipedia.org/wiki/Problem_of_time).
 
 * There is a tension between postulates 3 and 4.  Postulate 3
   describes the state evolving smoothly according to a *deterministic*
   differential equation (the Schrödinger equation).  However,
-  postulate 4 describes a *probabilitic* jump to another state that
-  occurs abruptly when a measurement is performed.  Thus, the act of
-  measurement seems to play a special role in quantum mechanics.  This
-  has surprising and possibly troubling consequences, as we shall
-  see in @sec-chapter-entanglement.
+  postulate 4 describes a *probabilitic* jump to another state
+  occurring abruptly when a measurement is done.  The special role of
+  measurement in quantum mechanics has surprising and troubling
+  consequences, as we shall see in @sec-chapter-entanglement.
 
-In the remainder of this chapter, we will use the quantum postulates
-to develop some important elementary models: two-level systems,
-particles on lattices, and wavefunctions.
+These are foundational problems that continue to dog quantum theory to
+this day, despite all its undeniable successes.  Still, let us put
+these qualms aside for now.  In the remainder of this chapter, we will
+use the quantum postulates to develop some important elementary models
+describing two-level systems, particles in discrete space, and
+particles in continuous space.
 
 ## Two-level systems
 
 Different quantum systems can have different state spaces.  The
 simplest nontrivial complex Hilbert space is the space of
-two-component complex vectors, which mathematicians denote as
-$\mathbb{C}^2$.  Any vector in this space can be written as
+two-component complex vectors, denoted by $\mathbb{C}^2$.  Such
+vectors can be written as
 
 $$|\psi\rangle = \psi_+ |+\rangle + \psi_-|-\rangle \;\;\;\leftrightarrow\;\;\;\begin{pmatrix}\psi_+ \\ \psi_-\end{pmatrix},$$
 
@@ -177,47 +177,47 @@ $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$ {#eq-pauli}
 
 Note that the identity and Pauli matrices are Hermitian (i.e.,
-observables), and linearly independent (i.e., each cannot be written
-as a linear combination of the others).  Thus, @eq-pauli-superposition
-is essentially using these matrices as a linear basis for constructing
-all possible observables for $\mathbb{C}^2$.  The four coefficients
-$\alpha_0, \dots, \alpha_3$ must be real; were we to use a complex
-linear combination, $\hat{A}$ would not be guaranteed to be Hermitian.
+observables), and linearly independent, meaning that each cannot be
+written as a linear combination of the others.  Thus, in
+@eq-pauli-superposition we are using these matrices as a linear basis
+to construct all other observables.  The coefficients $\alpha_0,
+\dots, \alpha_3$ are the four real parameters required for a general
+observable in $\mathbb{C}^2$; since they are real, the linear
+combination is guaranteed to be Hermitian.
 
 @eq-pauli-superposition is not the only possible parameterization for
 observables of $\mathbb{C}^2$, but it has some particularly nice
 properties:
 
-* The leading term, $\alpha_0\hat{I}$, represents the "trivial" part
+* The leading term, $\alpha_0\hat{I}$, is the "trivial" part
   of the matrix.  We can always split off such a term from any
   $2\times2$ Hermitian matrix $\hat{A}$, using the coefficient
   $\alpha_0 = \mathrm{Tr}(\hat{A})/2$.  This term has the same trace
-  as $\hat{A}$, so the remaining part of the matrix (i) is traceless,
-  and (ii) satisfies a simplified eigenvalue equation:
+  as $\hat{A}$, so the remaining part of the matrix is traceless
+  and satisfies a simplified eigenvalue equation:
   $$\begin{aligned}\hat{A} |\psi\rangle
   = \left(\alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \lambda |\psi\rangle \\
   \Rightarrow \qquad\qquad\qquad
   \left(\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \left(\lambda - \alpha_0\right) |\psi\rangle.\end{aligned}$$
-  In other words, only the Pauli matrix terms determine the
-  eigenstates of $\hat{A}$, while the $\alpha_0$ part merely shifts
-  the eigenvalues (e.g., shifting the zero of energy for a
-  Hamiltonian).
+  In other words, the Pauli matrix terms determine the
+  eigenstates of $\hat{A}$, while $\alpha_0$ merely shifts
+  the eigenvalues.
 
-* The Pauli matrices are traceless, Hermitian, and satisfy the
-  following anticommutation and commutation relations:
+* The three remaining matrices are $2\times2$, traceless, and
+  Hermitian.  If we try to form an "orthonormal basis" of such
+  matrices, then a set of reasonable choices
+  (see [Exercise 1](#sec-basics-exercises)) leads to the
+  anticommutation and commutation relations
+  
   $$\begin{aligned}
   \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
-  \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j\in\{1,2,3\}.$$ {#eq-Lie-commutators}
+  \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j\in\{1,2,3\},$$ {#eq-Lie-commutators}
 
-  Here, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  These
-  algebraic relations are no accident: they can be derived from a
-  minimal set of reasonable assumptions about how to form an
-  "orthonormal basis" of $2\times2$ traceless Hermitian matrices, as
-  shown in [Exercise 1](#sec-basics-exercises).  The Pauli matrices
-  then arise as a particular convenient representation for the
-  algebra.  Often, when manipulating formulas containing Pauli
-  matrices, it is advantageous to use @eq-Lie-commutators instead of
-  working with the explicit matrices.
+  where, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
+  matrices listed in @eq-pauli indeed satisfy @eq-Lie-commutators.
+  Often, when manipulating formulas containing Pauli matrices, it is
+  advantageous to use these algebraic relations instead of working
+  with the explicit matrices.
 
 ### Spin mapping
 
