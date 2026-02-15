@@ -137,12 +137,11 @@ postulates:
   measurement in quantum mechanics has surprising and troubling
   consequences, as we shall see in @sec-chapter-entanglement.
 
-These are foundational problems that continue to dog quantum theory to
-this day, despite all its undeniable successes.  Still, let us put
-these qualms aside for now.  In the remainder of this chapter, we will
-use the quantum postulates to develop some important elementary models
-describing two-level systems, particles in discrete space, and
-particles in continuous space.
+These are foundational problems that dog quantum theory to this day.
+However, let us put such worries aside for now.  In the rest of this
+chapter, we will use the quantum postulates to develop some important
+elementary models describing two-level systems, particles in discrete
+space, and particles in continuous space.
 
 ## Two-level systems
 
@@ -165,7 +164,7 @@ $\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, which
 are characterized by four real parameters (the diagonal elements are
 real, which gives two parameters, and the off-diagonal elements are
 conjugates of each other, which gives another two).  We can write any
-such matrix as
+such matrix as the linear combination
 
 $$\hat{A} = \alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
 
@@ -176,18 +175,16 @@ $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
 \hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$ {#eq-pauli}
 
-Note that the identity and Pauli matrices are Hermitian (i.e.,
-observables), and linearly independent, meaning that each cannot be
-written as a linear combination of the others.  Thus, in
-@eq-pauli-superposition we are using these matrices as a linear basis
-to construct all other observables.  The coefficients $\alpha_0,
-\dots, \alpha_3$ are the four real parameters required for a general
-observable in $\mathbb{C}^2$; since they are real, the linear
-combination is guaranteed to be Hermitian.
+In @eq-pauli-superposition, the identity and Pauli matrices serve as a
+linear basis for observables.  Note that these matrices are Hermitian
+(i.e., observables), and linearly independent, meaning that each
+cannot be written as a linear combination of the others.  The
+coefficients $\alpha_0, \dots, \alpha_3$ are the four real parameters
+required for a general observable in $\mathbb{C}^2$; since they are
+real, the linear combination is guaranteed to be Hermitian.
 
-@eq-pauli-superposition is not the only possible parameterization for
-observables of $\mathbb{C}^2$, but it has some particularly nice
-properties:
+This is not the only possible parameterization for observables of
+$\mathbb{C}^2$, but it has some particularly nice properties:
 
 * The leading term, $\alpha_0\hat{I}$, is the "trivial" part
   of the matrix.  We can always split off such a term from any
@@ -205,37 +202,36 @@ properties:
 
 * The three remaining matrices are $2\times2$, traceless, and
   Hermitian.  If we try to form an "orthonormal basis" of such
-  matrices, then a set of reasonable choices
-  (see [Exercise 1](#sec-basics-exercises)) leads to the
-  anticommutation and commutation relations
+  matrices, a set of reasonable choices (see [Exercise 1](#sec-basics-exercises)) leads to the anticommutation and
+  commutation relations
   
   $$\begin{aligned}
   \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
   \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j\in\{1,2,3\},$$ {#eq-Lie-commutators}
 
   where, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
-  matrices listed in @eq-pauli indeed satisfy @eq-Lie-commutators.
-  Often, when manipulating formulas containing Pauli matrices, it is
-  advantageous to use these algebraic relations instead of working
-  with the explicit matrices.
+  matrices listed in @eq-pauli indeed satisfy these algebraic
+  relations.  Often, when manipulating formulas containing Pauli
+  matrices, it is advantageous to use these relations instead of
+  working with the explicit matrices.
 
 ### Spin mapping
 
 The commutation relation in the second line of @eq-Lie-commutators
-defines a so-called **Lie algebra**, $\mathfrak{su}(2)$.  Notably,
-this Lie algebra also appears in the quantum theory of angular
-momentum in 3D space.  If $\hat{J}_i$ denotes the angular momentum
-operator in direction $i \in \{1,2,3\}$, one can show that
+defines a specific **Lie algebra**, $\mathfrak{su}(2)$.  This Lie
+algebra also appears in the quantum theory of 3D angular momentum.  If
+$\hat{J}_i$ denotes the angular momentum operator in direction $i \in
+\{1,2,3\}$, one can show that the three operators together satisfy
 
 $$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$ {#eq-Lie-algebra}
 
-This can be derived for wavefunctions (@sec-wavefunctions), by using
-position and momentum operators to construct angular momentum
-operators, which describe *orbital* angular momentum.  More generally,
+This commutation relation can be derived for wavefunctions, by using
+the position and momentum operators to construct so-called *orbital*
+angular momentum operators (see @sec-wavefunctions).  More generally,
 the $\mathfrak{su}(2)$ Lie algebra applies to any angular momentum
 tied to 3D rotations---not just orbital angular momentum but also
 *spin* angular momentum, a form of internal angular momentum that
-particles can carry (including point particles like electrons, which
+particles can possess (including point particles like electrons, which
 have no internal structure as far as we know).
 
 Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
@@ -252,50 +248,44 @@ mapping
 
 $$\hat{J}_i \equiv \hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
 
-Due to the $\hbar/2$ prefactor, the Pauli matrices describe a
-so-called "spin-1/2 degree of freedom".^[By convention, spin operators
-are denoted specifically by $\hat{S}_i$.]  In this context, the basis
-expansion for a general observables (@eq-pauli-superposition)
-evidently has the same form as the Hamiltonian for a magnetic dipole
-in a magnetic field $\mathbf{B}$:
+(By convention, spin operators are denoted by $\hat{S}_i$.)  Due to
+the $\hbar/2$ prefactor, the Pauli matrices describe a so-called
+"spin-1/2 degree of freedom".
 
-$$\hat{A} = \alpha_0 + \sum_{i=1}^3 \alpha_i \hat{\sigma}_i \;\;\;\leftrightarrow\;\;\;
-\hat{H} = E_0 - \lambda \sum_{i=1}^3 B_i \hat{S}_i = E_0 - \lambda \, \mathbf{B} \cdot \hat{\mathbf{S}}.$$
-
-Here, $E_0$ is a baseline energy, and $\lambda$ is defined so that
-$\lambda \hat{\mathbf{S}}$ represents the magnetic dipole moment
-(which follows the spin).  The real coefficients in
-@eq-pauli-superposition are thus imbued with concrete physical
-meanings; in particular, we see that the real coefficients $\alpha_1,
-\dots, \alpha_3$ represent the components of a magnetic field vector.
-
-It is also common to use this mapping to interpret two-level quantum
-systems in terms of spin-1/2 degrees of freedom *even if they're not
-spins*.  For example, consider an atom with a ground state $|g\rangle$
-and an excited state $|e\rangle$, whose energies differ by
-$\hbar\Delta \omega$.  The atom is illuminated by an electromagnetic
-wave, or "driving field", that induces transitions between the ground
-state and the excited state.  The Hamiltonian has the form
+As a consequence, it is common to see two-level quantum systems
+visualized or interpreted in terms of spin-1/2 degrees of freedom,
+*even if they aren't actually spins*.  As an example, suppose we have
+an atom with a ground state $|g\rangle$ and an excited state
+$|e\rangle$, whose energies differ by $\hbar\Delta \omega$.  The atom
+is illuminated by an electromagnetic wave, or "driving field", that
+induces transitions between the ground state and the excited state.
+The Hamiltonian has the form
 
 $$\hat{H} = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g|
-+ \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| + \frac{\hbar \Omega_L}{2} \Big(e^{-i\omega_L t} |g\rangle\langle e| + e^{i\omega_L t} |e\rangle\langle g|\Big),$$
++ \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| + \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |g\rangle\langle e| + e^{i\omega_d t} |e\rangle\langle g|\Big),$$
 
-where $E_0$ is a baseline energy, $\Omega_L$ is the so-called Rabi
-frequency (a frequency that characterizes how strong the driving field
-is), and $\omega_L$ is the frequency of the driving field.  Using the
-basis $\{|g\rangle, |e\rangle\}$, this Hamiltonian can be rewritten as
+where $E_0$ is a baseline energy, $\Omega_d$ is the so-called Rabi
+frequency (which quantifies the strength of the driving field), and
+$\omega_d$ is the frequency of the driving field.  Using the basis
+$\{|g\rangle, |e\rangle\}$, we can write $\hat{H}$ as
 
-$$\hat{H} = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 + \frac{\hbar\Omega_L}{2}\left[\cos(\omega_L t) \hat{\sigma}_1 + \sin(\omega_L t) \hat{\sigma}_2\right].$$
+$$\hat{H} = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 + \frac{\hbar\Omega_d}{2}\left[\cos(\omega_d t) \hat{\sigma}_1 + \sin(\omega_d t) \hat{\sigma}_2\right].$$
 
-If we redefine the Pauli matrices as spin via @eq-spin-map, this
-becomes
+Next, we can use @eq-spin-map to map $\hat{H}$ into
 
-$$\hat{H} = E_0 - \lambda \mathbf{B} \cdot \hat{\mathbf{S}}, \;\;\;
-\lambda \mathbf{B} = \begin{pmatrix}\Omega_L\cos(\omega_Lt)\\ \Omega_L\sin(\omega_Lt) \\ \Delta \omega\end{pmatrix}.$$
+$$\hat{H} = E_0 - \lambda \mathbf{B}(t) \cdot \hat{\mathbf{S}}, \;\;\;
+\lambda \mathbf{B}(t) = \begin{pmatrix}-\Omega_d\cos(\omega_dt)\\ -\Omega_d\sin(\omega_dt) \\ \Delta \omega\end{pmatrix},$$
 
-In other words, the illuminated two-level atom has the same dynamics
-as a spin subjected to a static magnetic field along $z$ and a
-rotating magnetic field in the $x$-$y$ plane.
+where $\lambda \hat{\mathbf{S}}$ denotes a magnetic dipole moment
+(which follows the spin).  Hence, the driven two-level atom maps to a
+spin in a magnetic field $\mathbf{B}(t)$ consisting of (i) a static
+magnetic along $z$, plus (ii) a rotating field in the $x$-$y$ plane.
+
+![](fig/magdipole.png){fig-align="center" width="500" fig-alt="Diagram of a two-level quantum system (left) and the corresponding magnetic dipole in a magnetic field (right)."}
+
+Note how the spin model's parameters $\{E_0, B_1, B_2, B_3\}$ map
+cleanly to the coefficients of the linear expansion in
+@eq-pauli-superposition.
 
 ## Lattices
 
