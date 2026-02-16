@@ -353,6 +353,19 @@ a discrete version of the wavefunctions we will discuss in
 
 ### Momentum eigenstates
 
+As a further simplification, let us turn the 1D lattice into a ring:
+
+This is equivalent to applying **periodic boundary conditions** on a
+finite lattice of $N$ sites (e.g., site $N+1$ is treated as
+*equivalent* to site $1$).  The position eigenstates and their various
+relationships remain the same as before, except that the $n$ labels
+now only run over a finite range.  For instance, the resolution of the
+identity is
+
+$$\hat{I} = \sum_{n=1}^N |n\rangle\langle n|.$$
+
+The Hilbert space is now $\mathscr{H} = \mathbb{C}^N$, which is
+finite-dimensional.
 
 ## Wavefunctions {#sec-wavefunctions}
 
