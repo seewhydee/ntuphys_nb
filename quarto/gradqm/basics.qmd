@@ -154,8 +154,12 @@ $$|\psi\rangle = \psi_+ |+\rangle + \psi_-|-\rangle \;\;\;\leftrightarrow\;\;\;\
 
 where $|+\rangle \leftrightarrow \begin{pmatrix}1\\0\end{pmatrix}$ and
 $|-\rangle \leftrightarrow \begin{pmatrix}0\\1\end{pmatrix}$ are two
-orthonormal basis vectors.  Here, we use $\leftrightarrow$ to denote
-the representation of an abstract vector in a given basis.
+orthonormal basis vectors.  (Here, we use $\leftrightarrow$ to denote
+the representation of an abstract vector in a given basis.)  These
+basis vectors can be used for **resolution of the identity**,
+i.e., writing the identity operator as
+
+$$\hat{I} = |+\rangle \, \langle +| \;+\; |-\rangle \, \langle -|$$
 
 ### Pauli matrices {#sec-Pauli-matrices}
 
@@ -289,15 +293,65 @@ cleanly to the coefficients of the linear expansion in
 
 ## Lattices
 
-Lattice models are another useful class of quantum models, which allow
-us to introduce the concept of position coordinates without the extra
-complications accompanying continuous variables (which we will handle
-in @sec-wavefunctions).  Suppose a particle is constrained to discrete
-points, or **sites**, arranged in a 1D or higher-dimensional grid
-called a **lattice**:
+Lattice models are a useful class of quantum models describing
+particles on discrete spatial grids.  They provide a useful way to
+accommodate the concept of *spatial position* in quantum mechanics,
+without the complications of continuous variables (which we will
+handle in @sec-wavefunctions).  Lattice models are also commonly used
+in condensed matter physics to describe electrons moving in
+crystalline solids (i.e., materials whose atoms are arranged in
+discrete, regularly-spaced patterns).
+
+Let us consider a particle that can exist on certain discrete points,
+or **sites**, arranged in a 1D or higher-dimensional grid called a
+**lattice**:
 
 ![](fig/lattices.png){fig-align="center" width="500" fig-alt="Diagrams showing representative 1D, 2D, and 3D lattices, each consisting of interconnected discrete sites."}
 
+For simplicity, let us first focus on the 1D lattice shown on the left.
+
+### Position eigenstates
+
+The sites of the 1D lattice lie along a line, so we can label them by
+an integer $n \in \mathbb{Z}$.  We then define a set of **position
+eigenstates**,
+
+$$\big\{\dots, |\!-\!2\rangle,\; |\!-\!1\rangle,\; |0\rangle,\; |1\rangle,\; |2\rangle,\; \dots \big\},$$
+
+where $|n\rangle$ means the particle is located precisely on site $n$.
+These eigenstates are normalized to unity and mutually orthogonal,
+i.e.,
+
+$$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in\mathbb{Z}.$$
+
+We assume the position eigenstates form a complete orthonormal basis
+for the Hilbert space, $\mathscr{H}$.  It follows that $\mathscr{H}$
+is an *infinite-dimensional* space (since the number of basis vectors
+is infinite).  We can also use the position eigenstates for the
+resolution of the identity, which yields the following infinite sum of
+outer products:
+
+$$\hat{I} = \sum_{n\in\mathbb{Z}} |n\rangle\langle n|.$$
+
+Bear in mind that $\mathscr{H}$ serves as the Hilbert space for a
+*single* particle, albeit one that can occupy a superposition of
+different lattice sites.  Any state $|\psi\rangle \in \mathscr{H}$ can
+be decomposed as
+
+$$|\psi\rangle = \sum_{n\in\mathbb{Z}} \psi_n |n\rangle, \;\;\;\psi_n \in \mathbb{C}.$$
+
+In other words, it can be specified by the complex numbers $\psi_n$,
+which constitute a **discrete wavefunction** for the particle (this is
+a discrete version of the wavefunctions we will discuss in
+@sec-wavefunctions).  It follows that:
+
+* The state $|\psi\rangle$ is normalized if and only if
+    $$\sum_{n\in\mathbb{Z}} \left|\psi_n\right|^2 = 1.$$
+* The inner product between $|\psi\rangle$ and another state
+    $|\varphi\rangle$ (with discrete wavefunction $\varphi_n$) is
+    $$\langle\varphi|\psi\rangle = \sum_{n\in\mathbb{Z}} \varphi^*_n\psi_n.$$
+
+### Momentum eigenstates
 
 
 ## Wavefunctions {#sec-wavefunctions}
