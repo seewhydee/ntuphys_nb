@@ -240,15 +240,16 @@ have no internal structure as far as we know).
 
 Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
 matrices form a 2D representation^[The dimension of the representation
-refers the size of the matrices; the Pauli matrices are $2\times2$, so
-the representation is 2D.  The Lie algebra $\mathfrak{su}(2)$, defined
-by the angular momentum commutation relations (@eq-Lie-algebra), also
-has higher-dimensional representations, such as the 3D representation
-($3\times3$ matrices) of orbital angular momentum.  Note that this 3D
-representation is a representation for $\mathfrak{su}(2)$---not
-$\mathfrak{su}(3)$, which refers to another Lie algebra with different
-commutation relations.] of $\mathfrak{su}(2)$, according to the
-mapping
+refers the size of the matrices.  Thus, the Pauli matrices, which are
+$2\times2$, form a 2D representation of the Lie algebra
+$\mathfrak{su}(2)$, which is defined by the angular momentum
+commutation relations (@eq-Lie-algebra).  This Lie algebra has other
+representations as well; for example, *orbital* angular momentum
+yields a 3D representation based on $3\times3$ matrices.  Note that
+this 3D representation is a representation for $\mathfrak{su}(2)$,
+*not* $\mathfrak{su}(3)$.  The latter refers to another Lie algebra
+with different commutation relations.] of $\mathfrak{su}(2)$,
+according to the mapping
 
 $$\hat{J}_i \equiv \hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
 
@@ -319,34 +320,33 @@ limit $N\rightarrow \infty$.
 
 ### Position eigenstates
 
-The sites of the 1D lattice, which lie along a ring, can be labeled by
-an integer $n \in [1, N]$.  We wish to consider a *single* particle
-existing within the lattice.  Let us define a set of **position
-eigenstates**,
+The sites on the ring can be labeled by an integer $n \in [1, N]$.  We
+wish to consider a *single* particle existing within the lattice.  Let
+us define a set of **position eigenstates**, denoted by
 
 $$\big\{|1\rangle,\; |2\rangle,\; \dots |N\rangle \big\},$$
 
-with $|n\rangle$ meaning that the particle is located precisely on
-site $n$.  These eigenstates are normalized to unity and mutually
-orthogonal:
+such that a particle in state $|n\rangle$ is located entirely on site
+$n$.  We postulate that these eigenstates are normalized to unity and
+mutually orthogonal:
 
 $$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [1,N].$$
 
-We assume the position eigenstates form a complete orthonormal basis
+Let the position eigenstates form a complete orthonormal basis
 for the particle's Hilbert space, $\mathscr{H} = \mathbb{C}^N$.
 <!-- Thus, we can use them to resolve the identity: -->
 <!-- $$\hat{I} = \sum_{n=1}^N |n\rangle\langle n|.$$ -->
-We can also use them to explicitly construct a position
-observable
+We can then also use them to construct a position
+observable,
 
 $$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|,
-\;\;\;\mathrm{where}\;\;x_n \equiv na \\
+\;\;\;\mathrm{where}\;\;x_n \equiv na. \\
 \Rightarrow\;\; \hat{x} |n\rangle &= x_n |n\rangle.\end{aligned}$$
 
 Here, $a$ is a length unit representing the equal spacings between
-lattice sites.  (Strictly speaking, we could just set $a = 1$, but it
-is convenient to keep it around for dimensional analysis.)  Thus, the
-position eigenvalues are $\{ x_1, x_2, \dots, x_N\}$.
+lattice sites.  (Strictly speaking, we can set $a = 1$, but it is nice
+to keep it around so that our formulas are dimensionally consistent.)
+Thus, the position eigenvalues are $\{ x_1, x_2, \dots, x_N\}$.
 
 A general state $|\psi\rangle \in \mathscr{H}$ can be written in the
 position basis as
@@ -367,26 +367,26 @@ discussed in @sec-wavefunctions).  It follows that:
 
 ### Momentum eigenstates
 
-Consider the following states on the 1D ring lattice:
+Consider the following states on the ring lattice:
 
-$$|k_n\rangle = \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_n x_m} |m\rangle,$$ {#eq-discrete-k-state}
+$$|k_n\rangle = \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_n x_m} |m\rangle.$$ {#eq-discrete-k-state}
 
-where, as before, $x_m \equiv ma$.  These states' discrete
-wavefunctions are plane waves in 1D---i.e., functions of the form
-$e^{ikx}$, with $x_m$ playing the role of the position $x$.  Rather
-than letting the wavenumber $k$ be arbitrary, we allow only
+As before, $x_m \equiv ma$ denotes positions along the ring.  These
+states' discrete wavefunctions are familiar-looking 1D waves of the
+form $e^{ikx}$, sampled at discrete points $x = x_m$.  But rather than
+allowing arbitrary wavenumbers, let us take
 
 $$k_n = \frac{2\pi n}{Na}, \;\; n \in [1,N].$$
 
-This ensures that the waves satisfy the periodicity of the ring: e.g.,
-putting $m = N+1$ into the wavefunction yields
+This ensures that the waves satisfy the periodicity of the ring.  For
+instance, putting $m = N+1$ into the wavefunction yields
 
 $$\begin{aligned}\exp(ik_n x_{N+1}) &= \exp\left[i \left(\frac{2\pi n}{Na}\right) (N+1)a\right] \\ &= e^{2\pi i n}\, \exp(ik_n a) \\ &= \exp(ik_n x_1), \end{aligned}$$ {#eq-discrete-wave-periodicity}
 
-consistent with the requirement that site $N+1$ be equivalent to site
-1 on the ring.  Similarly, the wavenumber is defined modulo $2\pi/a$:
-i.e., if we increment or decrement $k_n$ by multiples of $2\pi/a$,
-@eq-discrete-k-state is left unchanged.
+which is consistent with the requirement that site $N+1$ is equivalent
+to site 1 on the ring.  For the same reason, we see that the
+wavenumber $k_n$ is defined modulo $2\pi/a$: i.e., shifting it by
+multiples of $2\pi/a$ leaves @eq-discrete-k-state unchanged.
 
 By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), 
 we can show that:^[*Proof*: Starting from @eq-discrete-k-state,
@@ -410,21 +410,21 @@ $$\langle k_n | k_{n'} \rangle = \delta_{nn'},\;\;\;\mathrm{where}\;\;n,n' \in [
 Thus, the $N$ distinct states $\{|k_1\rangle,\dots,|k_N\rangle\}$ form an
 orthonormal basis for $\mathscr{H}$.
 
-These states take on a special significance when we consider
-translation operators along the 1D ring lattice.  Let us define a
-**translation operator** $\hat{T}_q$, where $q \in \mathbb{Z}$, such
-that
+What is the physical meaning of the $|k_n\rangle$ states?  To
+understand this, let us look at translations on the ring lattice.  We
+can define **translation operators** $\hat{T}_q$, where $q \in
+\mathbb{Z}$, such that
 
 $$\hat{T}_q |m\rangle = |(m+q)\rangle,$$
 
-with the understanding that the $(m+q)$ on the right-hand side is
-taken modulo $N$.  In other words, $\hat{T}_q$ shifts each position
-eigenstate by $q$ places along the ring:
+with the understanding that $(m+q)$ on the right-hand side is taken
+modulo $N$, due to the periodicity of the ring.  In other words,
+$\hat{T}_q$ shifts positions by $q$ sites along the ring:
 
 ![](fig/lattice_translation.png){fig-align="center" width="500" fig-alt="Diagrams showing representative translations along a ring lattice, by +1 site (left) and -2 sites (right)."}
 
-Evidently, such an operator is norm-preserving (i.e., unitary).  When
-it is applied to a $|k_{n}\rangle$ state, we get
+Evidently, such an operator is norm-preserving (i.e., unitary).
+Applying it to a $|k_{n}\rangle$ state gives
 
 $$\begin{aligned}\hat{T}_q |k_{n}\rangle
 &= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} \hat{T}_q |m\rangle \\
@@ -436,24 +436,30 @@ $$\begin{aligned}\hat{T}_q |k_{n}\rangle
 
 In the third step, we made use of the discrete wavefunction's
 periodicity (see @eq-discrete-wave-periodicity).  We thus obtain the
-result that every $|k_{n}\rangle$ is an eigenstate of every
-translation operator.  Consequently, any observable with
-$\{|k_{n}\rangle\}$ as its eigenbasis must be conserved under
-translations.
+result that $\hat{T}_q$ leaves $|k_{n}\rangle$ unchanged except for a
+phase factor $e^{-ik_{n} qa}$ (and this holds for every $q$ and $n$).
+
 In the context of classical mechanics,
 [Noether's theorem](https://en.wikipedia.org/wiki/Noether%27s_theorem)
 states that spatial translation symmmetry is associated with a
-conserved physical quantity called momentum.  Drawing on this analogy,
-we identify identify the $|k_{n}\rangle$ states as **momentum
-eigenstates**.
-
-We can use the momentum eigenstates to construct the momentum
-observable,
+conserved physical quantity called momentum.  Drawing on this
+association, we identify the $|k_{n}\rangle$ states as **momentum
+eigenstates**.  We can also use them to construct a momentum
+observable like this:
 
 $$\hat{p} = \sum_{n=1}^N |k_{n}\rangle \, \hbar k_n \, \langle k_{n}|.$$
 
 The factor of $\hbar$ is inserted simply so that $\hat{p}$ has units
-of momentum (note that $k_n$ has units of inverse length).
+of momentum (note that $k_n$ has units of inverse length).  The
+momentum eigenvalues are thus $\{\hbar k_1, \dots, \hbar k_N\}$.
+However, as noted above, $k_n$ is actually defined modulo $2\pi/a$, so
+the momentum is likewise defined modulo $2\pi\hbar/a$.  (In
+condensed-matter physics, this sort of periodic momentum is sometimes
+called **crystal momentum**, to distinguish it from the non-periodic
+momentum observables we will see in @sec-wavefunctions.)
+
+### Quantum walks
+
 
 ## Wavefunctions {#sec-wavefunctions}
 
