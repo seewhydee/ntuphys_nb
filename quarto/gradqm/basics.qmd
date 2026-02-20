@@ -1,72 +1,470 @@
 # Basics of Quantum Theory
 
 Quantum theory, or quantum mechanics, is the fundamental physical
-framework that describes all objects of microscopic size---and, so far as
+framework describing all objects of microscopic size---and, so far as
 we know, larger objects too.  It was developed, in fits and starts,
 over several decades in the first half of the 20th century, beginning
 with [Max Planck's](https://en.wikipedia.org/wiki/Max_Planck) 1900
 proposal that the energy in radiation is packaged into discrete
 "quanta", and approaching its modern form with the formulation of wave
-mechanics
-by
+mechanics by
 [Erwin Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger) in
-1926 and matrix mechanics
-by
+1926 and matrix mechanics by
 [Werner Heisenberg](https://en.wikipedia.org/wiki/Werner_Heisenberg)
 in 1928.  The mathematical formulation of quantum mechanics most
 physicists use today is based on the **Dirac–von Neumann axioms**, put
 together in the 1930s
-by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac)
-and
+by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac) and
 [John von Neumann](https://en.wikipedia.org/wiki/John_von_Neumann),
 which unifies and systematizes the Schrödinger and Heisenberg theories
 using the mathematical language of linear algebra.
 
-In this chapter, we review the basic principles of quantum theory.
+In this chapter, we review the basic principles of the theory.
 This is a summary, not a pedagogical introduction; the reader is
 assumed to possess some familiarity with quantum mechanics, based on
 prior reading or coursework.
 
 ## States and Observables
 
-The central idea that underlies quantum theory is the distinction
-between **states** and **observables**.  A state describes *how a
-system currently is*, while an observable represents one of its
-*measurable properties*.  In classical physics, a state may be defined
-by a complete set of observables: for instance, if you know the
-position and momentum of a point particle of given mass, then you know
-everything about it, including the values of all other observables
-(energy, orbital angular momentum, etc.).  Quantum theory, however,
-draws a bright line between these two concepts.
+The central idea in quantum theory is the distinction between
+**states** and **observables**.  A state describes *how a system
+currently is*, while observables represent its *measurable
+properties*.  In classical physics, a state may be defined by a
+complete set of observables: knowing the position and momentum of a
+point particle of given mass, we know everything about it, including
+the values of all other observables (energy, orbital angular momentum,
+etc.).  Not so in quantum theory.
 
-In the Dirac–von Neumann axioms,
+The Dirac–von Neumann axiomatization of quantum mechanics starts with
+these postulates:
 
-1. A system's state is a vector $|\psi\rangle \in \mathscr{H}$, where
-  $\mathscr{H}$ is a complex Hilbert space.^[A Hilbert space is a
-  vector space with an inner product, plus the property of
-  "completeness".  Completeness means, roughly, that infinite
-  series are well-defined: if we construct a convergent infinite sum
-  of vectors from $\mathscr{H}$, the result remains in
-  $\mathscr{H}$.  By analogy, consider the Leibniz series for $\pi$:
-  $$\pi = 4\left(1-\frac{1}{3}+\frac{1}{5} - \cdots\right).$$  The series on
-  the right can be constructed entirely from rational numbers, but the
-  result is irrational.  By contrast, the set of real numbers
-  $\mathbb{R}$ is complete---a convergent infinite series of reals
-  remains in $\mathbb{R}$.  The Hilbert space concept applies the same
-  property to vectors.]  The choice of Hilbert space, including
-  its dimension, is system-specific.
+1.  **States**---A system's state is a vector $|\psi\rangle$ in a
+    complex Hilbert space $\mathscr{H}$.^[A Hilbert space is a
+    vector space with an inner product, plus the property of
+    "completeness".  Completeness means, roughly, that infinite series
+    are well-behaved: if we construct a convergent infinite sum of
+    vectors from $\mathscr{H}$, the result remains in $\mathscr{H}$.
+    To understand what this means, we can use an analogy with the theory of numbers.  Consider the Leibniz series for $\pi$: $$\pi =
+    4\left(1-\frac{1}{3}+\frac{1}{5} - \frac{1}{7} + \cdots\right).$$ 
+	The series on the right is formed from rational numbers,
+    but the result of the infinite series is irrational; hence, the
+    rationals do not form a complete number system.  By contrast, the
+    real numbers ($\mathbb{R}$) are complete---every convergent
+    infinite series of reals remains in $\mathbb{R}$.  The Hilbert
+    space concept applies the same concept to vectors.]  The choice
+    of Hilbert space, including its dimension, is system-specific.
+    State vectors are customarily **normalized to unity**, i.e.,
+    $$\langle \psi|\psi\rangle = 1.$$
+    We do this because the rest of the theory only cares about the
+    "direction" of $|\psi\rangle$, not its overall magnitude or phase
+    (see postulates 3 and 4 below).
 
-2. An observable is a linear operator, $\hat{A}$, acting on state
-  vectors.  This operator is Hermitian, or self-adjoint: $\hat{A} =
-  \hat{A}^{\dagger}$.
+2.  **Observables**---An observable is a linear operator, $\hat{A}$,
+    acting on state vectors.^[We use hats, $\hat{\cdots}$, to denote
+    operators---both Hermitian operators (observables) and
+    non-Hermitian ones.] This operator is Hermitian or self-adjoint,
+    $\hat{A} = \hat{A}^{\dagger}$, which
+    [implies](https://en.wikipedia.org/wiki/Spectral_theorem) that its
+    eigenvalues are real.  These eigenvalues correspond to the
+    observable's possible measurement results, and the associated
+    normalized eigenvectors are called **eigenstates**.
 
-To operationalize these definitions, two further axioms are applied:
+To operationalize these concepts, two more postulates are added:
 
-3. ...
+3.  **The Schrödinger equation**---A system's state,
+    $|\psi(t)\rangle$, varies with time $t$ according to
+    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle,$$
+    where $\hat{H}(t)$ is an observable called the **Hamiltonian**
+    (which also may be time-dependent).  The Schrödinger equation is
+    norm-preserving, or "unitary": $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: By
+    the product rule of derivatives,
+    $$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 
+	\langle\psi(t)|\left(\frac{d}{dt}|\psi(t)\rangle\right)
+	+\left(\frac{d}{dt}\langle\psi(t)|\right)|\psi(t)\rangle.$$
+    The two terms are complex conjugates of each other.
+    Using the Schrödinger equation, the first term becomes
+    $$\frac{1}{i\hbar}\langle\psi(t)|\hat{H}(t)|\psi(t)\rangle.$$
+    The second term, which is its complex conjugate, is
+	$$- \frac{1}{i\hbar}\langle\psi(t)|\hat{H}^\dagger(t)|\psi(t)\rangle.$$
+    If the Hamiltonian is Hermitian ($\hat{H} = \hat{H}^\dagger$), the
+    two terms cancel. QED.]
+	
+    We interpret $\hat{H}$ as the observable corresponding to the
+    total energy of the system; its eigenvalues are called
+    **eigenenergies**.
+
+4.  **The measurement postulate**---If an observable $\hat{A}$ is
+    measured on a state $|\psi\rangle$, the result is drawn
+    probabilistically from the eigenvalues of $\hat{A}$.  The
+    probability to obtain a result $a_n$, which corresponds to a
+    normalized eigenstate $|n\rangle$, is given by the **Born rule**,
+    $$P_n = \left|\langle n|\psi\rangle\right|^2.$${#eq-measurement}
+    After the measurement, the system's state abruptly switches to
+    $|n\rangle$.  This is called **state collapse**.
+	
+	Note that @eq-measurement is insensitive to the overall phase of
+    the initial state: $e^{i\phi}|\psi\rangle$ (for any phase
+    $\phi\in\mathbb{R}$) gives the same measurement probabilities as
+    $|\psi\rangle$.  For the same reason, the choice of phase for the
+    post-collapse eigenstate is also irrelevant.
+
+From these postulates flow all the predictions of quantum mechanics,
+collectively representing the most accurate and successful set of
+scientific results of all time.  Quantum mechanical calculations form
+the basis for our modern understanding of chemistry, materials
+science, nuclear physics, and many other fields, and are crucial of
+the functioning of many pieces of modern technology that we rely on
+everyday, including lasers, LEDs, computers, and more.
+
+However, it is possible to spot some problems lurking in the
+postulates:
+
+* In postulate 3, the Schrödinger equation gives a privileged role to
+  the time variable $t$.  This seems to run counter to (i) [special relativity's](https://en.wikipedia.org/wiki/Special_relativity)
+  demands that time and space be treated on equal footing, and (ii)
+  [general relativity's](https://en.wikipedia.org/wiki/General_relativity)
+  demands that time (and space) be dynamical quantities, not just
+  passive coordinates. The first conflict can be resolved by a class
+  of quantum theories called quantum field theories.  The second,
+  however, is a fundamental unsolved issue called the [problem of
+  time](https://en.wikipedia.org/wiki/Problem_of_time).
+
+* There is a tension between postulates 3 and 4.  Postulate 3
+  describes the state evolving smoothly according to a *deterministic*
+  differential equation (the Schrödinger equation).  However,
+  postulate 4 describes a *probabilitic* jump to another state
+  occurring abruptly when a measurement is done.  The special role of
+  measurement in quantum mechanics has surprising and troubling
+  consequences, as we shall see in @sec-chapter-entanglement.
+
+These are foundational problems that dog quantum theory to this day.
+However, let us put such worries aside for now.  In the rest of this
+chapter, we will use the quantum postulates to develop some important
+elementary models describing two-level systems, particles in discrete
+space, and particles in continuous space.
+
+## Two-level systems
+
+Different quantum systems can have different state spaces.  The
+simplest nontrivial complex Hilbert space is the space of
+two-component complex vectors, denoted by $\mathbb{C}^2$.  Such
+vectors can be written as
+
+$$|\psi\rangle = \psi_+ |+\rangle + \psi_-|-\rangle \;\;\;\leftrightarrow\;\;\;\begin{pmatrix}\psi_+ \\ \psi_-\end{pmatrix},$$
+
+where $|+\rangle \leftrightarrow \begin{pmatrix}1\\0\end{pmatrix}$ and
+$|-\rangle \leftrightarrow \begin{pmatrix}0\\1\end{pmatrix}$ are two
+orthonormal basis vectors.  (Here, we use $\leftrightarrow$ to denote
+the representation of an abstract vector in a given basis.)  These
+basis vectors can be used for **resolution of the identity**,
+i.e., writing the identity operator as
+
+$$\hat{I} = |+\rangle \, \langle +| \;+\; |-\rangle \, \langle -|$$
+
+### Pauli matrices {#sec-Pauli-matrices}
+
+What observables can such a quantum system have?  Observables for
+$\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, which
+are characterized by four real parameters (the diagonal elements are
+real, which gives two parameters, and the off-diagonal elements are
+conjugates of each other, which gives another two).  We can write any
+such matrix as the linear combination
+
+$$\hat{A} = \alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
+
+where $\hat{I}$ is the $2\times2$ identity matrix, and $\sigma_1,
+\dots, \sigma_3$ are the **Pauli matrices**:
+
+$$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
+\hat{\sigma}_2 = \begin{pmatrix}0&-i\\ i&0\end{pmatrix}, \,
+\hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$ {#eq-pauli}
+
+In @eq-pauli-superposition, the identity and Pauli matrices serve as a
+linear basis for observables.  Note that these matrices are Hermitian
+(i.e., observables), and linearly independent, meaning that each
+cannot be written as a linear combination of the others.  The
+coefficients $\alpha_0, \dots, \alpha_3$ are the four real parameters
+required for a general observable in $\mathbb{C}^2$; since they are
+real, the linear combination is guaranteed to be Hermitian.
+
+This is not the only possible parameterization for observables of
+$\mathbb{C}^2$, but it has some particularly nice properties:
+
+* The leading term, $\alpha_0\hat{I}$, is the "trivial" part
+  of the matrix.  We can always split off such a term from any
+  $2\times2$ Hermitian matrix $\hat{A}$, using the coefficient
+  $\alpha_0 = \mathrm{Tr}(\hat{A})/2$.  This term has the same trace
+  as $\hat{A}$, so the remaining part of the matrix is traceless
+  and satisfies a simplified eigenvalue equation:
+  $$\begin{aligned}\hat{A} |\psi\rangle
+  = \left(\alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \lambda |\psi\rangle \\
+  \Rightarrow \qquad\qquad\qquad
+  \left(\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3\right)|\psi\rangle &= \left(\lambda - \alpha_0\right) |\psi\rangle.\end{aligned}$$
+  In other words, the Pauli matrix terms determine the
+  eigenstates of $\hat{A}$, while $\alpha_0$ merely shifts
+  the eigenvalues.
+
+* The three remaining matrices are $2\times2$, traceless, and
+  Hermitian.  If we try to form an "orthonormal basis" of such
+  matrices, a set of reasonable choices (see [Exercise 1](#sec-basics-exercises)) leads to the anticommutation and
+  commutation relations
+  
+  $$\begin{aligned}
+  \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
+  \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j\in\{1,2,3\},$$ {#eq-Lie-commutators}
+
+  where, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
+  matrices listed in @eq-pauli indeed satisfy these algebraic
+  relations.  Often, when manipulating formulas containing Pauli
+  matrices, it is advantageous to use these relations instead of
+  working with the explicit matrices.
+
+### Spin mapping
+
+The commutation relation in the second line of @eq-Lie-commutators
+defines a specific **Lie algebra**, $\mathfrak{su}(2)$.  This Lie
+algebra also appears in the quantum theory of 3D angular momentum.  If
+$\hat{J}_i$ denotes the angular momentum operator in direction $i \in
+\{1,2,3\}$, one can show that the three operators together satisfy
+
+$$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$ {#eq-Lie-algebra}
+
+This commutation relation can be derived for wavefunctions, by using
+the position and momentum operators to construct so-called *orbital*
+angular momentum operators (see @sec-wavefunctions).  More generally,
+the $\mathfrak{su}(2)$ Lie algebra applies to any angular momentum
+tied to 3D rotations---not just orbital angular momentum but also
+*spin* angular momentum, a form of internal angular momentum that
+particles can possess (including point particles like electrons, which
+have no internal structure as far as we know).
+
+Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
+matrices form a 2D representation^[The dimension of the representation
+refers the size of the matrices.  Thus, the Pauli matrices, which are
+$2\times2$, form a 2D representation of the Lie algebra
+$\mathfrak{su}(2)$, which is defined by the angular momentum
+commutation relations (@eq-Lie-algebra).  This Lie algebra has other
+representations as well; for example, *orbital* angular momentum
+yields a 3D representation based on $3\times3$ matrices.  Note that
+this 3D representation is a representation for $\mathfrak{su}(2)$,
+*not* $\mathfrak{su}(3)$.  The latter refers to another Lie algebra
+with different commutation relations.] of $\mathfrak{su}(2)$,
+according to the mapping
+
+$$\hat{J}_i \equiv \hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
+
+(By convention, spin operators are denoted by $\hat{S}_i$.)  Due to
+the $\hbar/2$ prefactor, the Pauli matrices describe a so-called
+"spin-1/2 degree of freedom".
+
+As a consequence, it is common to see two-level quantum systems
+visualized or interpreted in terms of spin-1/2 degrees of freedom,
+*even if they aren't actually spins*.  As an example, suppose we have
+an atom with a ground state $|g\rangle$ and an excited state
+$|e\rangle$, whose energies differ by $\hbar\Delta \omega$.  The atom
+is illuminated by an electromagnetic wave, or "driving field", that
+induces transitions between the ground state and the excited state.
+The Hamiltonian has the form
+
+$$\hat{H} = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g|
++ \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| + \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |g\rangle\langle e| + e^{i\omega_d t} |e\rangle\langle g|\Big),$$
+
+where $E_0$ is a baseline energy, $\Omega_d$ is the so-called Rabi
+frequency (which quantifies the strength of the driving field), and
+$\omega_d$ is the frequency of the driving field.  Using the basis
+$\{|g\rangle, |e\rangle\}$, we can write $\hat{H}$ as
+
+$$\hat{H} = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 + \frac{\hbar\Omega_d}{2}\left[\cos(\omega_d t) \hat{\sigma}_1 + \sin(\omega_d t) \hat{\sigma}_2\right].$$
+
+Next, we can use @eq-spin-map to map $\hat{H}$ into
+
+$$\hat{H} = E_0 - \lambda \mathbf{B}(t) \cdot \hat{\mathbf{S}}, \;\;\;
+\lambda \mathbf{B}(t) = \begin{pmatrix}-\Omega_d\cos(\omega_dt)\\ -\Omega_d\sin(\omega_dt) \\ \Delta \omega\end{pmatrix},$$
+
+where $\lambda \hat{\mathbf{S}}$ denotes a magnetic dipole moment
+(which follows the spin).  Hence, the driven two-level atom maps to a
+spin in a magnetic field $\mathbf{B}(t)$ consisting of (i) a static
+magnetic along $z$, plus (ii) a rotating field in the $x$-$y$ plane.
+
+![](fig/magdipole.png){fig-align="center" width="500" fig-alt="Diagram of a two-level quantum system (left) and the corresponding magnetic dipole in a magnetic field (right)."}
+
+Note how the spin model's parameters $\{E_0, B_1, B_2, B_3\}$ map
+cleanly to the coefficients of the linear expansion in
+@eq-pauli-superposition.
+
+## Lattices
+
+Lattice models are a useful class of quantum models describing
+particles on discrete spatial grids.  They provide a useful way to
+accommodate the concept of *spatial position* in quantum mechanics,
+without the complications of continuous variables (which we will
+handle in @sec-wavefunctions).  Lattice models are also commonly used
+in condensed matter physics to describe electrons moving in
+crystalline solids (i.e., materials whose atoms are arranged in
+discrete, regularly-spaced patterns).
+
+Let us consider a particle that can exist on certain discrete points,
+or **sites**, arranged in a 1D or higher-dimensional grid called a
+**lattice**:
+
+![](fig/lattices.png){fig-align="center" width="500" fig-alt="Diagrams showing representative 1D, 2D, and 3D lattices, each consisting of interconnected discrete sites."}
+
+Let us focus on the 1D lattice on the left.  As a further
+simplification, we will roll the 1D lattice into a ring:
+
+![](fig/lattice_ring.png){fig-align="center" width="500" fig-alt="Diagram of a 1D rolled up into a ring, which contains N distinct sites sites."}
+
+As a result, the number of sites is a finite integer $N$.  This lets
+us postpone the mathematical complications that come with having an
+infinite number of sites.
+
+### Position eigenstates
+
+The sites on the ring can be labeled by an integer $n \in [1, N]$.  We
+wish to consider a *single* particle existing within the lattice.  Let
+us define a set of **position eigenstates**, denoted by
+
+$$\big\{|1\rangle,\; |2\rangle,\; \dots |N\rangle \big\},$$
+
+such that a particle in state $|n\rangle$ is located entirely on site
+$n$.  We postulate that these eigenstates are normalized to unity and
+mutually orthogonal,
+
+$$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [1,N],$$
+
+and that they form a complete orthonormal basis for the particle's
+Hilbert space.  Thus, the Hilbert space is $\mathscr{H} =
+\mathbb{C}^N$ (the space of $N$-component complex vectors).
+<!-- Thus, we can use them to resolve the identity: -->
+<!-- $$\hat{I} = \sum_{n=1}^N |n\rangle\langle n|.$$ -->
+We can also use the position eigenstates to construct a position
+observable,
+
+$$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|,
+\;\;\;\mathrm{where}\;\;x_n \equiv na. \\
+\Rightarrow\;\; \hat{x} |n\rangle &= x_n |n\rangle.\end{aligned}$$
+
+Here, $a$ is a length unit representing the equal spacings between
+lattice sites.  Strictly speaking, we can set $a = 1$, but it is nice
+to retain it so that our formulas are dimensionally consistent.  Thus,
+the position eigenvalues are $\{ x_1, x_2, \dots, x_N\}$ (which
+explicitly have units of length).
+
+A general state $|\psi\rangle \in \mathscr{H}$ can be written in the
+position basis as
+
+$$|\psi\rangle = \sum_{n=1}^N \psi_n |n\rangle, \;\;\;\psi_n \in \mathbb{C}.$$
+
+This describes a particle (and remember, we are dealing with a
+*single* particle) which occupies a superposition of different sites.
+The complex numbers $\psi_n$ constitute a **discrete wavefunction**
+for the particle (a discrete version of the wavefunctions to be
+discussed in @sec-wavefunctions).  It follows that:
+
+* The state $|\psi\rangle$ is normalized if and only if
+    $$\sum_{n=1}^N \left|\psi_n\right|^2 = 1.$$
+* The inner product between $|\psi\rangle$ and another state
+    $|\varphi\rangle$ (with discrete wavefunction $\varphi_n$) is
+    $$\langle\varphi|\psi\rangle = \sum_{n=1}^N \varphi^*_n\psi_n.$${#eq-discrete-wavefunction-product}
+
+### Momentum eigenstates
+
+Consider the following states on the ring lattice:
+
+$$|k_n\rangle = \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_n x_m} |m\rangle.$$ {#eq-discrete-k-state}
+
+As before, $x_m \equiv ma$ denotes positions along the ring.  These
+states' discrete wavefunctions are familiar-looking 1D waves of the
+form $e^{ikx}$, sampled at discrete points $x = x_m$.  But rather than
+allowing arbitrary wavenumbers, let us take
+
+$$k_n = \frac{2\pi n}{Na}, \;\; n \in [1,N].$$
+
+This ensures that the waves satisfy the periodicity of the ring.  For
+instance, putting $m = N+1$ into the wavefunction yields
+
+$$\begin{aligned}\exp(ik_n x_{N+1}) &= \exp\left[i \left(\frac{2\pi n}{Na}\right) (N+1)a\right] \\ &= e^{2\pi i n}\, \exp(ik_n a) \\ &= \exp(ik_n x_1), \end{aligned}$$ {#eq-discrete-wave-periodicity}
+
+which is consistent with the requirement that site $N+1$ is equivalent
+to site 1 on the ring.  For the same reason, we see that the
+wavenumber $k_n$ is defined modulo $2\pi/a$: i.e., shifting it by
+multiples of $2\pi/a$ leaves @eq-discrete-k-state unchanged.
+
+By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), we can show that:^[*Proof*: Using the discrete wavefunction from
+@eq-discrete-k-state, along with the inner product rule in
+@eq-discrete-wavefunction-product,
+$$\begin{aligned}\langle k_n | k_{n'} \rangle
+&= \frac{1}{N} \sum_{m=1}^N e^{-ik_n x_m} \, e^{ik_{n'}x_m} \\
+&= \frac{1}{N} \sum_{m=1}^N \exp\left[\frac{2\pi i (n'-n) m}{N}\right].
+\end{aligned}$$
+If $n \ne n'$, we can use the geometric series formula.  Writing $\Delta n = n'-n$,
+$$\begin{aligned}\sum_{m=1}^N \exp\left[\frac{2\pi i \,\Delta n\, m}{N}\right]
+&= \frac{e^{2\pi i \Delta n/N} \left[\left(e^{2\pi i \Delta n/N}\right)^N - 1\right]}{ e^{2\pi i \Delta n/N} - 1} \\
+&= \frac{e^{2\pi i \Delta n/N} \left(1 - 1\right)}{ e^{2\pi i \Delta n/N} - 1} \;\;\;= \;\;\;0.
+\end{aligned}$$
+If $n = n'$, we cannot use the geometric series (since the numerator
+and denominator in the formula are both zero).  In this case, though,
+each term in the sum is $1$, so the result is $(1/N)\cdot N = 1$.
+Combining the two cases, we arrive at
+@eq-k-discrete-ortho.]
+
+$$\langle k_n | k_{n'} \rangle = \delta_{nn'},\;\;\;\mathrm{where}\;\;n,n' \in [1,N].$$ {#eq-k-discrete-ortho}
+
+Thus, the $N$ distinct states $\{|k_1\rangle,\dots,|k_N\rangle\}$ form an
+orthonormal basis for $\mathscr{H}$.
+
+What is the physical meaning of the $|k_n\rangle$ states?  To
+understand this, let us look at translations on the ring lattice.  We
+can define **translation operators** $\hat{T}_q$, where $q \in
+\mathbb{Z}$, such that
+
+$$\hat{T}_q |m\rangle = |(m+q)\rangle,$$
+
+with the understanding that $(m+q)$ on the right-hand side is taken
+modulo $N$, due to the periodicity of the ring.  In other words,
+$\hat{T}_q$ shifts positions by $q$ sites along the ring:
+
+![](fig/lattice_translation.png){fig-align="center" width="500" fig-alt="Diagrams showing representative translations along a ring lattice, by +1 site (left) and -2 sites (right)."}
+
+Evidently, such an operator is norm-preserving (i.e., unitary).
+Applying it to a $|k_{n}\rangle$ state gives
+
+$$\begin{aligned}\hat{T}_q |k_{n}\rangle
+&= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} \hat{T}_q |m\rangle \\
+&= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} |(m+q)\rangle \\
+&= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} (m-q) a} |m\rangle \\
+&= e^{-ik_{n} qa} \, |k_{n}\rangle.
+\end{aligned}$$
+
+In the third step, we made use of the discrete wavefunction's
+periodicity (see @eq-discrete-wave-periodicity).  We thus obtain the
+result that $\hat{T}_q$ leaves $|k_{n}\rangle$ unchanged except for a
+phase factor $e^{-ik_{n} qa}$.  Note that this holds for every $q$ and
+$n$.
+
+In the context of classical mechanics,
+[Noether's theorem](https://en.wikipedia.org/wiki/Noether%27s_theorem)
+states that spatial translation symmmetry is associated with a
+conserved physical quantity called momentum.  Drawing on this
+association, we identify the $|k_{n}\rangle$ states as **momentum
+eigenstates**.  We can also use them to construct a momentum
+observable like this:
+
+$$\hat{p} = \sum_{n=1}^N |k_{n}\rangle \, \hbar k_n \, \langle k_{n}|.$$
+
+The factor of $\hbar$ is inserted simply so that $\hat{p}$ has units
+of momentum (whereas $k_n$ has units of inverse length).  The momentum
+eigenvalues are thus $\{\hbar k_1, \dots, \hbar k_N\}$.  However, as
+noted above, $k_n$ is defined modulo $2\pi/a$, so the momentum is
+likewise defined modulo $2\pi\hbar/a$.  In condensed-matter physics,
+this kind of periodic momentum variable is sometimes called
+**quasimomentum**, to distinguish it from the non-periodic momentum we
+will study in @sec-wavefunctions.
+
+### Quantum walks
 
 
-
-## Wavefunctions
+## Wavefunctions {#sec-wavefunctions}
 
 A wavefunction is a particular type of quantum state defined as a
 complex function of a continuous real variable (or variables).  Such
@@ -78,8 +476,7 @@ $$A_1 \psi_1(x) + A_2 \psi_2(x),$$
 
 where $A_1, A_2 \in \mathbb{C}$.
 
-
-## Position eigenstates
+### Position eigenstates
 
 Before proceeding, let us review the properties of a quantum particle
 in free space.  In a $d$-dimensional space, a coordinate vector
@@ -107,7 +504,7 @@ Moreover, the position operator $\hat{\mathbf{r}}$ is defined such
 that $\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\,
 |\mathbf{r}\rangle$.
 
-## Momentum eigenstates{#sec-momentum-eigenstates}
+### Momentum eigenstates{#sec-momentum-eigenstates}
 
 Momentum eigenstates are constructed from position eigenstates via
 Fourier transforms.  First, let us suppose $\mathbf{r}$ runs over a
@@ -184,9 +581,60 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
   &= -i\hbar \nabla\psi(\mathbf{r}).
   \end{aligned}$$
 
-## Exercises
+## Exercises {#sec-basics-exercises}
 
-1. In @sec-momentum-eigenstates, we derived the eigenstates of a
+1. In this exercise, we work through a line of reasoning that yields
+   the Pauli algebra relations, @eq-Lie-commutators.  As discussed in
+   @sec-Pauli-matrices, $2\times2$ Hermitian matrices are
+   characterized by four real parameters, and we can always split off
+   a term $\frac{1}{2}\mathrm{Tr}(\hat{A})\,\hat{I}$, which does not
+   affect the eigenvectors.  This leaves three real
+   parameters to characterize traceless $2\times2$ Hermitian matrices.
+   
+   We seek a linear decomposition
+   $$\alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\; \alpha_i \in \mathbb{R},$$ {#eq-traceless-basis}
+   where $\hat{\sigma}_1, \hat{\sigma}_2, \hat{\sigma}_3$ are traceless
+   Hermitian matrices that we seek to find.
+
+    A. Explain why we may choose each $\hat{\sigma}_i$ so that its
+    eigenvalues are $\{1, -1\}$.  Hence, prove that each matrix
+    squares to the identity: $$\hat{\sigma}_i^2 = \hat{I}.$$
+    Note that this implies $\hat{\sigma}_i$ is unitary (not just
+    Hermitian) and has determinant $-1$.
+
+    B. Let us require that any two different matrices $\hat{\sigma}_i$
+    and $\hat{\sigma}_j$ are orthogonal in the [Hilbert--Schmidt inner product](https://en.wikipedia.org/wiki/Hilbert%E2%80%93Schmidt_operator)
+	(a natural way to take the inner product of two operators):
+    $$\mathrm{Tr}(\hat{\sigma}_i\hat{\sigma}_j)=0\;\;\mathrm{for}\;\;i\ne j.$$
+    Using this, along with the results of part A, prove that
+    $$(\hat{\sigma}_i\hat{\sigma}_j)^2=-\hat{I}\;\;\mathrm{for}\;\;i\ne j.$$
+	
+	C. Using the results of A and B, derive the anticommutation relation
+	$$\left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} = 2\delta_{ij} \hat{I}.$$
+	
+	D. Consider $\hat{M} = i \sigma_1\sigma_2$.  Prove that this
+    matrix is Hermitian and traceless.  Thus, it too can be expanded
+    in the basis of @eq-traceless-basis:
+	$$\hat{M} = \beta_1 \hat{\sigma}_1 + \beta_2 \hat{\sigma}_2 + \beta_3 \hat{\sigma}_3.$$
+	Show that $\hat{M}$ anticommutes with both $\hat{\sigma}_1$ and
+    $\hat{\sigma}_2$, and hence that
+	$$\hat{M} = i \hat{\sigma}_1\hat{\sigma}_2 = \pm \hat{\sigma}_3.$$
+	
+	E. From the previous step, pick the sign choice $i
+    \hat{\sigma}_1\hat{\sigma}_2 = - \hat{\sigma}_3.$ Hence, prove that
+	$$\left[\hat{\sigma}_i, \hat{\sigma}_j\right] = 2i\epsilon_{ijk}\, \hat{\sigma}_k.$$
+    You may also show that the other sign choice is nothing but a
+    permutation of the matrix labels.
+  
+  <!-- From them, we can derive the multiplication table -->
+  <!-- $$\begin{aligned} -->
+  <!-- \hat{\sigma}_i^2 &= \hat{I}, \;\; i=1,2,3 \\ -->
+  <!-- \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 = i\hat{\sigma}_3 \\ -->
+  <!-- \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 = i\hat{\sigma}_1 \\ -->
+  <!-- \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2. -->
+  <!-- \end{aligned}$$ {#eq-pauli-algebra} -->
+
+2. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
 $L$ on each side, applying periodic boundary conditions, and taking
 $L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
