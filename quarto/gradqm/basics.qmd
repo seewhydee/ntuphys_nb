@@ -235,12 +235,20 @@ The commutation relation in the second line of @eq-Lie-commutators
 defines a **Lie algebra** called $\mathfrak{su}(2)$.  Remarkably, this
 Lie algebra also pops up in the quantum theory of 3D angular momentum.
 
-Here is a brief summary/recap of the angular momentum story.  We start
-by looking at wavefunctions (see @sec-wavefunctions), and how they
-transform under various coordinate rotations.  We find that these
-transformations can be formulated with the aid of three so-called
-**orbital angular momentum** observables, $\hat{J}_1$, $\hat{J}_2$,
-and $\hat{J}_3$ (one for each spatial axis), which satisfy
+Here is a brief summary of this topic, which requires jumping ahead a
+bit to the concept of wavefunctions (to be covered in
+@sec-wavefunctions).  Suppose we look at a wavefunction
+$\psi(\mathbf{r})$, where $\mathbf{r}$ is a 3D position vector, and
+ask how it transforms under the various possible coordinate rotations
+that are possible in 3D.  One finds that rotation by an angle $\phi$
+(anticlockwise), around each Cartesian axis $i \in \{1,2,3\}$, is
+given by a unitary operator of the form
+
+$$\hat{U}_i(\phi) = e^{i\phi\hat{J}_i/\hbar},$$
+
+where $\hat{J}_1$, $\hat{J}_2$, and $\hat{J}_3$ are so-called
+**orbital angular momentum** observables that must satisfy the
+commutation relation
 
 $$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$ {#eq-Lie-algebra}
 
