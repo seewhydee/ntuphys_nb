@@ -314,9 +314,9 @@ simplification, we will roll the 1D lattice into a ring:
 
 ![](fig/lattice_ring.png){fig-align="center" width="500" fig-alt="Diagram of a 1D rolled up into a ring, which contains N distinct sites sites."}
 
-Thus, the number of sites is some finite integer $N$.  This allows us
-to postpone the mathematical complications that come with taking the
-limit $N\rightarrow \infty$.
+As a result, the number of sites is a finite integer $N$.  This lets
+us postpone the mathematical complications that come with having an
+infinite number of sites.
 
 ### Position eigenstates
 
@@ -328,15 +328,16 @@ $$\big\{|1\rangle,\; |2\rangle,\; \dots |N\rangle \big\},$$
 
 such that a particle in state $|n\rangle$ is located entirely on site
 $n$.  We postulate that these eigenstates are normalized to unity and
-mutually orthogonal:
+mutually orthogonal,
 
-$$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [1,N].$$
+$$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [1,N],$$
 
-Let the position eigenstates form a complete orthonormal basis
-for the particle's Hilbert space, $\mathscr{H} = \mathbb{C}^N$.
+and that they form a complete orthonormal basis for the particle's
+Hilbert space.  Thus, the Hilbert space is $\mathscr{H} =
+\mathbb{C}^N$ (the space of $N$-component complex vectors).
 <!-- Thus, we can use them to resolve the identity: -->
 <!-- $$\hat{I} = \sum_{n=1}^N |n\rangle\langle n|.$$ -->
-We can then also use them to construct a position
+We can also use the position eigenstates to construct a position
 observable,
 
 $$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|,
@@ -344,9 +345,10 @@ $$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|,
 \Rightarrow\;\; \hat{x} |n\rangle &= x_n |n\rangle.\end{aligned}$$
 
 Here, $a$ is a length unit representing the equal spacings between
-lattice sites.  (Strictly speaking, we can set $a = 1$, but it is nice
-to keep it around so that our formulas are dimensionally consistent.)
-Thus, the position eigenvalues are $\{ x_1, x_2, \dots, x_N\}$.
+lattice sites.  Strictly speaking, we can set $a = 1$, but it is nice
+to retain it so that our formulas are dimensionally consistent.  Thus,
+the position eigenvalues are $\{ x_1, x_2, \dots, x_N\}$ (which
+explicitly have units of length).
 
 A general state $|\psi\rangle \in \mathscr{H}$ can be written in the
 position basis as
@@ -354,7 +356,7 @@ position basis as
 $$|\psi\rangle = \sum_{n=1}^N \psi_n |n\rangle, \;\;\;\psi_n \in \mathbb{C}.$$
 
 This describes a particle (and remember, we are dealing with a
-*single* particle) that occupies a superposition of different sites.
+*single* particle) which occupies a superposition of different sites.
 The complex numbers $\psi_n$ constitute a **discrete wavefunction**
 for the particle (a discrete version of the wavefunctions to be
 discussed in @sec-wavefunctions).  It follows that:
@@ -363,7 +365,7 @@ discussed in @sec-wavefunctions).  It follows that:
     $$\sum_{n=1}^N \left|\psi_n\right|^2 = 1.$$
 * The inner product between $|\psi\rangle$ and another state
     $|\varphi\rangle$ (with discrete wavefunction $\varphi_n$) is
-    $$\langle\varphi|\psi\rangle = \sum_{n=1}^N \varphi^*_n\psi_n.$$
+    $$\langle\varphi|\psi\rangle = \sum_{n=1}^N \varphi^*_n\psi_n.$${#eq-discrete-wavefunction-product}
 
 ### Momentum eigenstates
 
@@ -388,10 +390,11 @@ to site 1 on the ring.  For the same reason, we see that the
 wavenumber $k_n$ is defined modulo $2\pi/a$: i.e., shifting it by
 multiples of $2\pi/a$ leaves @eq-discrete-k-state unchanged.
 
-By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), 
-we can show that:^[*Proof*: Starting from @eq-discrete-k-state,
-$$\begin{aligned}\langle k_n | k_{n'} \rangle &= \frac{1}{N} \sum_{m=1}^N \sum_{m'=1}^N e^{-ik_n ma} \, e^{ik_{n'}m' a} \langle m| m'\rangle \\
-&= \frac{1}{N} \sum_{m=1}^N e^{-ik_n m a} \, e^{ik_{n'}m a} \\
+By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), we can show that:^[*Proof*: Using the discrete wavefunction from
+@eq-discrete-k-state, along with the inner product rule in
+@eq-discrete-wavefunction-product,
+$$\begin{aligned}\langle k_n | k_{n'} \rangle
+&= \frac{1}{N} \sum_{m=1}^N e^{-ik_n x_m} \, e^{ik_{n'}x_m} \\
 &= \frac{1}{N} \sum_{m=1}^N \exp\left[\frac{2\pi i (n'-n) m}{N}\right].
 \end{aligned}$$
 If $n \ne n'$, we can use the geometric series formula.  Writing $\Delta n = n'-n$,
@@ -402,7 +405,7 @@ $$\begin{aligned}\sum_{m=1}^N \exp\left[\frac{2\pi i \,\Delta n\, m}{N}\right]
 If $n = n'$, we cannot use the geometric series (since the numerator
 and denominator in the formula are both zero).  In this case, though,
 each term in the sum is $1$, so the result is $(1/N)\cdot N = 1$.
-Combining the two cases, we arrive at the orthonormality relations
+Combining the two cases, we arrive at
 @eq-k-discrete-ortho.]
 
 $$\langle k_n | k_{n'} \rangle = \delta_{nn'},\;\;\;\mathrm{where}\;\;n,n' \in [1,N].$$ {#eq-k-discrete-ortho}
@@ -430,14 +433,14 @@ $$\begin{aligned}\hat{T}_q |k_{n}\rangle
 &= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} \hat{T}_q |m\rangle \\
 &= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} |(m+q)\rangle \\
 &= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} (m-q) a} |m\rangle \\
-&= \frac{e^{-ik_{n} q a}}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} m a} |m\rangle \\
 &= e^{-ik_{n} qa} \, |k_{n}\rangle.
 \end{aligned}$$
 
 In the third step, we made use of the discrete wavefunction's
 periodicity (see @eq-discrete-wave-periodicity).  We thus obtain the
 result that $\hat{T}_q$ leaves $|k_{n}\rangle$ unchanged except for a
-phase factor $e^{-ik_{n} qa}$ (and this holds for every $q$ and $n$).
+phase factor $e^{-ik_{n} qa}$.  Note that this holds for every $q$ and
+$n$.
 
 In the context of classical mechanics,
 [Noether's theorem](https://en.wikipedia.org/wiki/Noether%27s_theorem)
@@ -450,13 +453,13 @@ observable like this:
 $$\hat{p} = \sum_{n=1}^N |k_{n}\rangle \, \hbar k_n \, \langle k_{n}|.$$
 
 The factor of $\hbar$ is inserted simply so that $\hat{p}$ has units
-of momentum (note that $k_n$ has units of inverse length).  The
-momentum eigenvalues are thus $\{\hbar k_1, \dots, \hbar k_N\}$.
-However, as noted above, $k_n$ is actually defined modulo $2\pi/a$, so
-the momentum is likewise defined modulo $2\pi\hbar/a$.  (In
-condensed-matter physics, this sort of periodic momentum is sometimes
-called **crystal momentum**, to distinguish it from the non-periodic
-momentum observables we will see in @sec-wavefunctions.)
+of momentum (whereas $k_n$ has units of inverse length).  The momentum
+eigenvalues are thus $\{\hbar k_1, \dots, \hbar k_N\}$.  However, as
+noted above, $k_n$ is defined modulo $2\pi/a$, so the momentum is
+likewise defined modulo $2\pi\hbar/a$.  In condensed-matter physics,
+this kind of periodic momentum variable is sometimes called
+**quasimomentum**, to distinguish it from the non-periodic momentum we
+will study in @sec-wavefunctions.
 
 ### Quantum walks
 
