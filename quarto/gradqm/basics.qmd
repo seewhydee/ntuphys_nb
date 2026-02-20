@@ -1,8 +1,8 @@
 # Basics of Quantum Theory
 
 Quantum theory, or quantum mechanics, is the fundamental physical
-framework describing all objects of microscopic size---and, so far as
-we know, larger objects too.  It was developed, in fits and starts,
+framework describing all objects of microscopic size (and, so far as
+we know, larger objects too).  It was developed, in fits and starts,
 over several decades in the first half of the 20th century, beginning
 with [Max Planck's](https://en.wikipedia.org/wiki/Max_Planck) 1900
 proposal that the energy in radiation is packaged into discrete
@@ -19,10 +19,10 @@ by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac) and
 which unifies and systematizes the Schrödinger and Heisenberg theories
 using the mathematical language of linear algebra.
 
-In this chapter, we review the basic principles of the theory.
-This is a summary, not a pedagogical introduction; the reader is
-assumed to possess some familiarity with quantum mechanics, based on
-prior reading or coursework.
+In this chapter, we review the basic principles of the theory.  This
+is a summary, not a pedagogical introduction; the reader is assumed to
+possess some familiarity with quantum mechanics from prior reading or
+coursework.
 
 ## States and Observables
 
@@ -90,7 +90,7 @@ To operationalize these concepts, two more postulates are added:
     two terms cancel. QED.]
 	
     We interpret $\hat{H}$ as the observable corresponding to the
-    total energy of the system; its eigenvalues are called
+    total energy of the system, and its eigenvalues are called
     **eigenenergies**.
 
 4.  **The measurement postulate**---If an observable $\hat{A}$ is
@@ -138,32 +138,42 @@ postulates:
   consequences, as we shall see in @sec-chapter-entanglement.
 
 These are foundational problems that dog quantum theory to this day.
-However, let us put such worries aside for now.  In the rest of this
-chapter, we will use the quantum postulates to develop some important
-elementary models describing two-level systems, particles in discrete
-space, and particles in continuous space.
+However, let us put them aside for now.  In the rest of this chapter,
+we will use the quantum postulates to develop some elementary models
+to describe two-level systems, particles in discrete space, and
+particles in continuous space.
 
 ## Two-level systems
 
 Different quantum systems can have different state spaces.  The
 simplest nontrivial complex Hilbert space is the space of
 two-component complex vectors, denoted by $\mathbb{C}^2$.  Such
-vectors can be written as
+systems are generically called **two-level systems**.^[This is because
+each observable (including the Hamiltonian) is a $2\times2$ matrix,
+and has two eigenvalues.]
+
+Let us choose an arbitrary basis for the Hilbert space, consisting of
+the orthonormal basis vectors
+
+$$|+\rangle \leftrightarrow \begin{pmatrix}1\\0\end{pmatrix}, \quad
+|-\rangle \leftrightarrow \begin{pmatrix}0\\1\end{pmatrix}.$$
+
+(Here, we use $\leftrightarrow$ to denote the representation of an
+abstract vector in a given basis.)  Then any vector in $\mathbb{C}^2$
+can be written as
 
 $$|\psi\rangle = \psi_+ |+\rangle + \psi_-|-\rangle \;\;\;\leftrightarrow\;\;\;\begin{pmatrix}\psi_+ \\ \psi_-\end{pmatrix},$$
 
-where $|+\rangle \leftrightarrow \begin{pmatrix}1\\0\end{pmatrix}$ and
-$|-\rangle \leftrightarrow \begin{pmatrix}0\\1\end{pmatrix}$ are two
-orthonormal basis vectors.  (Here, we use $\leftrightarrow$ to denote
-the representation of an abstract vector in a given basis.)  These
-basis vectors can be used for **resolution of the identity**,
-i.e., writing the identity operator as
+for some pair of coefficients $\psi_\pm \in \mathbb{C}.$ The basis
+vectors can also be employed in the **resolution of the identity**, by
+writing the identity operator as
 
-$$\hat{I} = |+\rangle \, \langle +| \;+\; |-\rangle \, \langle -|$$
+$$\hat{I} = |+\rangle \, \langle +| \;+\; |-\rangle \, \langle -| \;\;\leftrightarrow \;\;
+\begin{pmatrix}1&0\\0&1\end{pmatrix}.$$
 
 ### Pauli matrices {#sec-Pauli-matrices}
 
-What observables can such a quantum system have?  Observables for
+What observables can a two-level system have?  Observables for
 $\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, which
 are characterized by four real parameters (the diagonal elements are
 real, which gives two parameters, and the off-diagonal elements are
@@ -180,12 +190,12 @@ $$\hat{\sigma}_1 = \begin{pmatrix}0&1\\1&0\end{pmatrix}, \,
 \hat{\sigma}_3 = \begin{pmatrix}1&0\\ 0&-1\end{pmatrix}.$$ {#eq-pauli}
 
 In @eq-pauli-superposition, the identity and Pauli matrices serve as a
-linear basis for observables.  Note that these matrices are Hermitian
-(i.e., observables), and linearly independent, meaning that each
-cannot be written as a linear combination of the others.  The
-coefficients $\alpha_0, \dots, \alpha_3$ are the four real parameters
-required for a general observable in $\mathbb{C}^2$; since they are
-real, the linear combination is guaranteed to be Hermitian.
+linear basis for observables; these matrices are Hermitian (i.e.,
+observables), and linearly independent, meaning that each cannot be
+written as a linear combination of the others.  In this way, $\alpha_0,
+\dots, \alpha_3$ supply the four real parameters required to describe
+a general observable in $\mathbb{C}^2$; since they are real, the
+linear combination is guaranteed to be Hermitian.
 
 This is not the only possible parameterization for observables of
 $\mathbb{C}^2$, but it has some particularly nice properties:
@@ -222,49 +232,53 @@ $\mathbb{C}^2$, but it has some particularly nice properties:
 ### Spin mapping
 
 The commutation relation in the second line of @eq-Lie-commutators
-defines a specific **Lie algebra**, $\mathfrak{su}(2)$.  This Lie
-algebra also appears in the quantum theory of 3D angular momentum.  If
-$\hat{J}_i$ denotes the angular momentum operator in direction $i \in
-\{1,2,3\}$, one can show that the three operators together satisfy
+defines a **Lie algebra** called $\mathfrak{su}(2)$.  Remarkably, this
+Lie algebra also pops up in the quantum theory of 3D angular momentum.
+
+Here is a brief summary/recap of the angular momentum story.  We start
+by looking at wavefunctions (see @sec-wavefunctions), and how they
+transform under various coordinate rotations.  We find that these
+transformations can be formulated with the aid of three so-called
+**orbital angular momentum** observables, $\hat{J}_1$, $\hat{J}_2$,
+and $\hat{J}_3$ (one for each spatial axis), which satisfy
 
 $$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$ {#eq-Lie-algebra}
 
-This commutation relation can be derived for wavefunctions, by using
-the position and momentum operators to construct so-called *orbital*
-angular momentum operators (see @sec-wavefunctions).  More generally,
-the $\mathfrak{su}(2)$ Lie algebra applies to any angular momentum
-tied to 3D rotations---not just orbital angular momentum but also
-*spin* angular momentum, a form of internal angular momentum that
-particles can possess (including point particles like electrons, which
-have no internal structure as far as we know).
+Next, we take a conceptual leap and postulate that any set of angular
+momentum observables tied to 3D rotations must also satisfy
+@eq-Lie-algebra.  This opens the door to another form of angular
+momentum: **spin angular momentum**, which is intrinsically possessed
+by a particle independent of its motion (remarkably, even point
+particles like electrons, which have no internal structure as far as
+we know, can carry spin).
 
 Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
 matrices form a 2D representation^[The dimension of the representation
 refers the size of the matrices.  Thus, the Pauli matrices, which are
 $2\times2$, form a 2D representation of the Lie algebra
-$\mathfrak{su}(2)$, which is defined by the angular momentum
-commutation relations (@eq-Lie-algebra).  This Lie algebra has other
-representations as well; for example, *orbital* angular momentum
-yields a 3D representation based on $3\times3$ matrices.  Note that
-this 3D representation is a representation for $\mathfrak{su}(2)$,
-*not* $\mathfrak{su}(3)$.  The latter refers to another Lie algebra
-with different commutation relations.] of $\mathfrak{su}(2)$,
-according to the mapping
+$\mathfrak{su}(2)$.  The Lie algebra can have other representations as
+well; for example, *orbital* angular momentum leads to a 3D
+representation.  Note: that 3D representation refers to a
+representation for $\mathfrak{su}(2)$, *not* $\mathfrak{su}(3)$.  The
+latter refers to another Lie algebra with different commutation
+relations.] of $\mathfrak{su}(2)$, according to the mapping
 
 $$\hat{J}_i \equiv \hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
 
 (By convention, spin operators are denoted by $\hat{S}_i$.)  Due to
-the $\hbar/2$ prefactor, the Pauli matrices describe a so-called
+the $\hbar/2$ prefactor, the Pauli matrices are said to describe a
 "spin-1/2 degree of freedom".
 
-As a consequence, it is common to see two-level quantum systems
-visualized or interpreted in terms of spin-1/2 degrees of freedom,
-*even if they aren't actually spins*.  As an example, suppose we have
-an atom with a ground state $|g\rangle$ and an excited state
-$|e\rangle$, whose energies differ by $\hbar\Delta \omega$.  The atom
-is illuminated by an electromagnetic wave, or "driving field", that
-induces transitions between the ground state and the excited state.
-The Hamiltonian has the form
+### Rabi oscillations
+
+Due to the relationship between Pauli matrices and spin, it is common
+for two-level quantum systems to be interpreted in terms of spin-1/2
+degrees of freedom, *even if they aren't really spins*.  As an
+example, consider a **two-level atom**, which has a ground state
+$|g\rangle$ and an excited state $|e\rangle$ whose energies differ by
+$\hbar\Delta \omega$.  The atom is illuminated by an electromagnetic
+wave, or "driving field", that induces transitions between the ground
+state and the excited state.  The Hamiltonian has the form
 
 $$\hat{H} = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g|
 + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| + \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |g\rangle\langle e| + e^{i\omega_d t} |e\rangle\langle g|\Big),$$
