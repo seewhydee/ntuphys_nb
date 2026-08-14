@@ -90,7 +90,7 @@ def build_matrix(infile, outfile):
                 Wrow[k] = 1.0e-6
         rowsum = sum(Wrow)
         W2[j,:] = Wrow / sum(Wrow)
-    np.save(outfile, W2)
+    np.save(outfile, W2, allow_pickle=False)
     print('Saved to {}'.format(outfile))
 
 ## Read the text in INFILE, and return its contents as a list of
@@ -214,7 +214,7 @@ def main():
     elif sys.argv[1] == 'decrypt':
         f = cipher_file if argc == 2 else sys.argv[2]
         try:
-            weights = np.load(weight_file)
+            weights = np.load(weight_file, allow_pickle=False)
         except FileNotFoundError:
             print("Weight file {} not found.".format(weight_file))
             print("To regen weights, run 'mccrypt weights [SOURCE-FILE]'")
@@ -259,7 +259,7 @@ def run_demo():
     demo_n = 0
     demo_ciphertext = False
     if len(demo_weights) == 0:  # Reload the weights if necessary.
-        demo_weights = np.load(weight_file)
+        demo_weights = np.load(weight_file, allow_pickle=False)
 
     def init_mc(b):
         global demo_key, demo_n, demo_ciphertext
@@ -305,7 +305,7 @@ def run_energy_demo():
 
     global demo_weights
     if len(demo_weights) == 0:
-        demo_weights = np.load(weight_file + '.npy')
+        demo_weights = np.load(weight_file + '.npy', allow_pickle=False)
 
     def string_energy(string):
         p = string_to_chars(string)

@@ -100,17 +100,17 @@ The exchange operator has the following properties:
    two particles on equal footing, like the Hamiltonian in
    @eq-ip-exampleH (see [Exercise 2](#sec-identical-particles-exercises)).
 
-According to Noether's theorem, any symmetry implies a conservation
-law.  The exchange operator $\hat{P}$ is both Hermitian *and*
-unitary, so we can take the conserved quantity to be its eigenvalue,
-$p$, which is called the **exchange parity**.  Since $\hat{P}^2 =
-\hat{I}$, the possibilities are:
-$$p = \begin{cases}+1 & \textrm{("symmetric\;state")}, \;\;\textrm{or} \\ -1 & \textrm{("antisymmetric\;state").}\end{cases}$$
-If the 2-particle system is initially in an eigenstate of $\hat{P}$
-with exchange parity $p$, and the Hamiltonian $\hat{H}$ commutes with
-$\hat{P}$ (as it should), then $p$ is conserved for all time.
+A symmetry implies a conservation law; since the exchange operator
+$\hat{P}$ is both Hermitian *and* unitary, let us take the conserved
+quantity to be its eigenvalue, $p$, called the **exchange parity**.
+Since $\hat{P}^2 = \hat{I}$, the possibilities are: $$p =
+\begin{cases}+1 & \textrm{("symmetric\;state")}, \;\;\textrm{or} \\ -1
+& \textrm{("antisymmetric\;state").}\end{cases}$$ If the 2-particle
+system is initially in an eigenstate of $\hat{P}$ with exchange parity
+$p$, and the Hamiltonian $\hat{H}$ commutes with $\hat{P}$ (as it
+should), then $p$ is conserved for all time.
 
-The exchange symmetry concept generalize to systems of more than two
+The exchange symmetry concept generalizes to systems of more than two
 particles.  For $N$ particles, we can define a set of exchange
 operators $\hat{P}_{ij}$ such that
 $$\hat{P}_{ij} \; |\mu\rangle \cdots \underbrace{|\nu\rangle}_{\mathrm{slot}~i} \cdots \underbrace{|\lambda\rangle}_{\mathrm{slot}~j} \cdots
@@ -498,7 +498,7 @@ discussed earlier [see @eq-ip-bosorthog].
 ### Distinguishing particles {#sec-distinguishability}
 
 It might have struck you that the requirement of particle
-indistinguishbility, introduced in @sec-exchange, could
+indistinguishability, introduced in @sec-exchange, could
 undermine what we said about partial measurements and entanglement
 from Chapter 3.  For example, in the EPR thought experiment, we used
 the singlet state
@@ -669,7 +669,7 @@ $$|1,1,1,0,\dots\rangle \in
 where $\mathscr{H}^{(3)}_\pm$ is the space of 3-particle states with
 exchange parity +1 or -1, respectively.
 
-Thus far, if two state have different total particle number $N = n_1 +
+Thus far, if two states have different total particle number $N = n_1 +
 n_2 + \cdots$, they are regarded as lying in different spaces.  We can
 consolidate them by defining the space of all multi-particle states
 regardless of $N$, called the **Fock space**.  In the formal
@@ -956,7 +956,7 @@ can interpret as transferring a particle from $\nu$ to $\mu$.  These
 processes, as well as the omitted higher-order terms, leave the total
 particle number unchanged.  In fact, we can formally show that the
 total particle number is conserved:
-$$[\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.$${#eq-ip-Hdiag}
+$$[\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger \hat{a}_\mu.$${#eq-ip-Hdiag}
 This proof is left as an exercise (see
 [Exercise 6](#sec-identical-particles-exercises)).
 
@@ -1163,7 +1163,7 @@ These are just like the original bosonic commutation relations
 positions, and the Kronecker delta is replaced by a delta function.
 We can therefore interpret $\hat{\psi}^\dagger(\mathbf{r})$ and
 $\hat{\psi}(\mathbf{r})$ as spatially localized creation and
-annihhilation operators: $\hat{\psi}^\dagger(\mathbf{r})$ creates a
+annihilation operators: $\hat{\psi}^\dagger(\mathbf{r})$ creates a
 particle at $\mathbf{r}$, while $\hat{\psi}(\mathbf{r})$ annihilates a
 particle at $\mathbf{r}$.  For fermions, the above commutators are
 simply replaced by anticommutators.
@@ -1238,7 +1238,7 @@ use creation and annihilation operators to construct observables that
 do not commute with the total particle number.  One example is
 $$\psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger.$$
 More generally, we can come up with observables of the form
-$$F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),$${#eq-ip-fieldop}
+$$F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}') + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),$${#eq-ip-fieldop}
 where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  We will
 shortly see that observables of this sort are used in the quantum
 generalization of classical field variables, like the electric field
@@ -1403,14 +1403,13 @@ Each normal mode carries energy.  By analogy with the classical
 harmonic oscillator---see @eq-ip-xtc2 and @eq-ip-Eclassical---we
 assume that the energy per unit length is proportional to the square
 of the field variable.  Let it have the form
-$$U(x) = 2 \rho \sum_n|\mathcal{A}_n|^2 \, |\varphi_n(x)|^2,$${#eq-ip-Edensity}
-where $\rho$ is some parameter that has to be derived from the
-underlying physical context.  For example, for acoustic modes, $\rho$
-is the mass density of the underlying acoustic medium.  In the next
-chapter, we will see another example involving the energy density of
-an electromagnetic mode.  From @eq-ip-Edensity, we can express
-the total energy of the system as
-$$E = \int_0^L dx \; U(x) = 2  \rho \sum_n |\mathcal{A}_n|^2.$${#eq-ip-classical-energy}
+$$U(x) = 2 \sum_n \rho_n |\mathcal{A}_n|^2 \, |\varphi_n(x)|^2,$${#eq-ip-Edensity}
+where each $\rho_n$ is a parameter (which may depend on the mode $n$)
+that has to be derived from the underlying physical context.  In the
+next chapter, we will see a concrete example involving the energy
+density of an electromagnetic mode.  From @eq-ip-Edensity, we can
+express the total energy of the system as
+$$E = \int_0^L dx \; U(x) = 2 \sum_n \rho_n |\mathcal{A}_n|^2.$${#eq-ip-classical-energy}
 
 To quantize the classical field, we treat each normal mode as an
 independent oscillator, with creation and annihilation operators
@@ -1453,24 +1452,24 @@ $\alpha_n^*$ respectively.  Hence, we identify $\mathcal{C}_n
 @eq-ip-classical-energy to match the coherent state energy
 @eq-ip-Ecoherent-field,
 $$\begin{aligned}
-  2\rho |\mathcal{A}_n|^2 &= 2 \rho |\mathcal{C}_n\alpha_n|^2
+  2\rho_n |\mathcal{A}_n|^2 &= 2 \rho_n |\mathcal{C}_n\alpha_n|^2
   = \hbar \omega_n |\alpha_n|^2 \\ \Rightarrow \qquad
-  \mathcal{C}_n &= \sqrt{\frac{\hbar\omega_n}{2\rho}}.
+  \mathcal{C}_n &= \sqrt{\frac{\hbar\omega_n}{2\rho_n}}.
 \end{aligned}$$
 We thus conclude that the appropriate field operator is
-$$\hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho}}
+$$\hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n}}
   \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
   + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).$$
 Returning to the Schrödinger picture, and using the explicit mode
 profiles from @eq-ip-classical-modes,
-$$\hat{f}(x) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho L}}
+$$\hat{f}(x) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho_n L}}
   \Big(\hat{a}_n e^{ik_n x}
   + \hat{a}_n^\dagger e^{-ik_n x} \Big).$$
 
 Finally, if we are interested in the infinite-$L$ limit, we can
 convert the sum over $n$ into an integral.
 The result is
-$$\hat{f}(x) = \int dk\; \sqrt{\frac{\hbar\omega(k)}{4\pi\rho}}
+$$\hat{f}(x) = \int dk\; \sqrt{\frac{\hbar\omega(k)}{4\pi\rho(k)}}
   \Big(\hat{a}(k)\, e^{ik x} + \hat{a}^\dagger(k)\, e^{-ik x} \Big),$$
 where $\hat{a}(k)$ denotes a rescaled annihilation operator defined by
 $\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
@@ -1497,15 +1496,14 @@ quarks) that interact with one another.  Quantum field theory is also
 widely used in condensed matter physics, since it is the natural
 framework for dealing with systems of many particles.
 
-Wilczek has pointed out that the modern
-picture of fundamental physics bears a striking resemblence to the old
-idea of the "luminiferous ether": a medium that fills all of space
-and time, whose vibrations are physically-observable light waves.  The
-key difference is that this ether is not a classical medium, but one
-obeying the rules of quantum mechanics.  (Another difference is that
-is that the fundamental quantum fields obey relativistic symmetries,
-so that their behavior is invariant under a change of reference
-frame.)
+Wilczek has pointed out that the modern picture of fundamental physics
+bears a striking resemblance to the old idea of the "luminiferous
+ether": a medium that fills all of space and time, whose vibrations
+are physically-observable light waves.  The key difference is that
+this ether is not a classical medium, but one obeying the rules of
+quantum mechanics.  (Another difference is that the fundamental
+quantum fields obey relativistic symmetries, so that their behavior is
+invariant under a change of reference frame.)
 
 It is interesting to contemplate the idea of fields, not individual
 particles, as the fundamental objects in the universe.  This would
