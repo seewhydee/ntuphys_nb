@@ -1,0 +1,198 @@
+# Numerical Tensor Products {#sec-appendix-d}
+
+This appendix discusses how tensor products are handled in numerical
+linear algebra software.  We will focus on Python with the
+[Numeric Python (numpy)](https://numpy.org/) module.  The
+discussion is also applicable, with minor modifications, to GNU Octave
+or Matlab.  We assume the reader is familiar with the
+[basics of Python/Numpy](https://docs.scipy.org/doc/numpy/user/quickstart.html), e.g.~how vectors can be represented by 1D arrays,
+linear operators (matrices) can be represented by 2D arrays, etc.
+
+Tensor products are implemented by the [`numpy.kron`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html)
+function, which performs an operation called a **Kronecker
+  product**.  The function takes two inputs, which can be 1D arrays, 2D
+arrays, or even higher-dimensional arrays (which we won't discuss).
+It returns a new array representing the tensor product of the inputs,
+whose dimensionality depends on that of the inputs.  The function can
+be used to compute products of vectors ($|a\rangle\otimes|b\rangle$),
+products of operators ($\hat{O}_A\otimes \hat{O}_B$), etc.  It can
+even compute "mixed" products like $|a\rangle\otimes\hat{O}_B$,
+which is useful for calculating partial projections and partial
+traces.
+
+In the next few sections, we will prove that the various tensor
+products of bras, kets, and operators can be represented using the
+following Numpy expressions involving [`numpy.kron`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html):
+
+$$\begin{aligned}
+    |a\rangle\otimes|b\rangle &\;\;\leftrightarrow\;
+    \texttt{kron(a, b)} &
+    \langle a | \otimes \langle b| &\;\;\leftrightarrow\;
+    \texttt{kron(a.conj(), b.conj())} \\
+    \hat{A}\otimes\hat{B} &\;\;\leftrightarrow\;
+    \texttt{kron(A, B)} \\
+    |a\rangle \otimes \hat{B} &\;\;\leftrightarrow\;
+    \texttt{kron(a, B.T).T} &
+    \langle a| \otimes \hat{B} &\;\;\leftrightarrow\;
+    \texttt{kron(a.conj(), B)} \\
+    \hat{A} \otimes | b\rangle &\;\;\leftrightarrow\;
+    \texttt{kron(A.T, b).T} &
+    \hat{A} \otimes \langle b| &\;\;\leftrightarrow\;
+    \texttt{kron(A, b.conj())}
+  \end{aligned}$$
+
+## Products of vectors
+
+Suppose $a$ and $b$ are both 1D arrays, of length $M$ and $N$
+respectively; let their components be $(a_0, a_1, \dots, a_{M-1})$ and
+$(b_0, b_1, \dots, b_{N-1})$.  Following Numpy conventions, we do not
+explicitly distinguish between "row vectors" and "column vectors",
+and component indices start from 0.  The Kronecker product between $a$
+and $b$ generates the following 1D array:
+$$\texttt{kron}(a, b) = \Big(a_0b_0,\,\dots,\, a_0 b_{N-1},\, a_1 b_0,\, \dots,\, a_1 b_{N-1},\, \dots,\, a_{M-1}b_{N-1}\Big).$${#eq-appD-kronabdef1}
+We can think of this as *taking each component of $a$, and
+  multiplying it by the entire $b$ array*:
+$$\texttt{kron}(a, b) = \Big(a_0b,\, a_1 b,\, \dots,\, a_{M-1}b\Big).$${#eq-appD-kronabdef2}
+As we shall see, this description of the Kronecker product extends to
+higher-dimensional arrays as well.  In the present case, $a$ and $b$
+are both 1D, and the result is a 1D array of $MN$ components, which
+can be described compactly in index notation by
+$$\big[\, \texttt{kron}(a, b) \,\big]_{\mu} = a_m \, b_n \;\;\;\mathrm{where}\;\;\;\mu = mN+n.$${#eq-appD-kronab}
+The index $\mu$ is defined so that as we sweep through $m =
+0,\dots,M-1$ and $n = 0,\dots,N-1$, $\mu$ runs through the values
+$0,1,\dots,MN-1$ without duplication.  Note, by the way, that the
+order of inputs into $\texttt{kron}$ is important:
+$\texttt{kron}(a,b)$ is not the same as $\texttt{kron}(b,a)$!  The
+asymmetry between $a$ and $b$ is apparent in the definitions
+@eq-appD-kronabdef1 and @eq-appD-kronabdef2.
+
+In terms of abstract linear algebra (as used in quantum theory), let
+$\mathscr{H}_A$ be an $M$-dimensional space with basis
+$\{|m\rangle\}$, and $\mathscr{H}_B$ be an $N$-dimensional space with
+basis $\{|n\rangle\}$.  Any two vectors $|a\rangle \in \mathscr{H}_A$
+and $|b\rangle \in \mathscr{H}_B$ can be written as
+$$|a\rangle = \sum_{m=0}^{M-1} a_m |m\rangle, \quad |b\rangle = \sum_{n=0}^{N-1} b_n |n\rangle.$$
+A natural basis for the product space $\mathscr{H}_A\otimes
+\mathscr{H}_B$ is
+$$\Big\{|\mu\rangle \equiv |m\rangle |n\rangle\Big\}
+  \;\;\;\mathrm{where} \;
+  \begin{cases}
+    \mu\!\!\!\! &= mN+n \\
+    m \!\!\!\!&= 0,1,\dots,M-1 \\
+    n \!\!\!\!&= 0,1, \dots, N-1.
+  \end{cases}$${#eq-appD-mubasis}
+Using @eq-appD-kronab, we can show that
+$$|a\rangle\otimes|b\rangle
+  = \sum_{mn} a_m b_n |m\rangle |n\rangle
+  = \sum_{\mu=0}^{MN-1} \big[\texttt{kron}(a,b)\big]_\mu \; |\mu\rangle.$$
+Therefore, we need only remember that the tensor product of two
+kets is represented by
+$$|a\rangle\otimes|b\rangle \;\;\leftrightarrow\;\;
+  \texttt{kron}(a,b).$${#eq-appD-result1}
+Likewise, for bras,
+$$\langle a| \otimes \langle b| \;\;\leftrightarrow\;\;
+  \texttt{kron}(a^*,b^*).$${#eq-appD-result1a}
+
+## Products of matrices
+
+Let $A$ and $B$ be 2D arrays of size $M\times M$ and $N\times N$
+respectively:
+$$A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\;
+  B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.$$
+Then the Kronecker product of $A$ and $B$ is an $MN\times MN$ array of
+the form
+$$\texttt{kron}(A,B) = \begin{bmatrix} A_{00}B & \cdots & A_{0,M-1}B \\ \vdots & \ddots & \vdots \\ A_{M-1,0}B & \cdots & A_{M-1,M-1}B\end{bmatrix}.$${#eq-appD-kronAB-explicit}
+As before, this can be interpreted as taking each component of $A$,
+and multiplying it by $B$.  The result can be written using index
+notation as
+$$\big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} = A_{mm'} B_{nn'}\;\;\;\mathrm{where}\;\;\;\mu = mN+n, \; \mu' = m'N+n'.$${#eq-appD-kronAB}
+
+In the language of abstract linear algebra, let $\mathscr{H}_A$ and
+$\mathscr{H}_B$ again be spaces with bases $\{|m\rangle\}$ and
+$\{|n\rangle\}$.  Consider two linear operators $\hat{A}$ and
+$\hat{B}$ acting respectively on these spaces:
+$$\hat{A} = \sum_{m,m'=0}^{M-1}  |m\rangle A_{mm'} \langle m'|, \quad \hat{B} = \sum_{n,n'=0}^{N-1} |n\rangle B_{nn'}\langle n'|.$$
+Then we can show using @eq-appD-kronAB that
+$$\begin{aligned}
+  \hat{A}\otimes\hat{B} &=
+  \sum_{mm'nn'} |m\rangle|n\rangle\,A_{mm'} B_{nn'}\,\langle m'| \langle n'| \\
+  &= \sum_{\mu,\mu'} |\mu\rangle \;
+  \big[\,\texttt{kron}(A,B)\,\big]_{\mu\mu'} \; \langle\mu'|,
+\end{aligned}$$
+where $\big\{|\mu\rangle\big\}$ is the basis for
+$\mathscr{H}_A\otimes\mathscr{H}_B$ previously defined in
+@eq-appD-mubasis.  Thus,
+$$\hat{A}\otimes\hat{B} \;\;\leftrightarrow\;\;
+  \texttt{kron}(A,B).$${#eq-appD-result2}
+This result, like @eq-appD-result1, is nice because it means that
+we can relegate the handling of tensor product components entirely to
+the \texttt{kron} function.  So long as we make a particular basis
+choice for the spaces $\mathscr{H}_A$ and $\mathscr{H}_B$, and keep to
+that choice, \texttt{kron} will return the vector products and
+operator products expressed using an appropriate and natural basis for
+$\mathscr{H}_A\otimes\mathscr{H}_B$ [i.e., the basis defined in
+  @eq-appD-mubasis].
+
+## Mixed products
+
+For "mixed" products of operators with bras or kets, the
+representation using \texttt{kron} is more complicated, but only
+slightly.  First, consider the 1D array $a$ and 2D array $B$:
+$$a = (a_0, \dots, a_{M-1}), \;\;\;
+  B = \begin{bmatrix}B_{00} & \cdots & B_{0,N-1} \\ \vdots & \ddots & \vdots \\  B_{N-1,0} & \cdots & B_{N-1,N-1} \end{bmatrix}.$$
+Then the Kronecker product between the two is
+$$\texttt{kron}(a, B) = (a_0 B, a_1 B, \dots, a_{M-1} B).$$
+Note that $a$ is explicitly treated as a row vector.  In component
+terms,
+$$[\texttt{kron}(a, B)]_{n\mu'} = a_{m'} B_{nn'}, \;\;\;\mathrm{where}\;\;\;
+  \mu' = m'N+n'.$${#eq-appD-kronaB}
+In linear algebraic terms, let
+$$|a\rangle = \sum_m a_m |m\rangle, \;\;\; \hat{B} = \sum_{nn'}
+  |n\rangle B_{nn'} \langle n'|.$$
+Then
+$$|a\rangle \otimes \hat{B} = \sum_{\mu n'} |\mu\rangle \,
+  a_m B_{nn'} \, \langle n'|, \qquad \mu = mN + n.$${#eq-appD-aBprod}
+This does not quite match @eq-appD-kronaB!  The basic problem is
+that the Kronecker product treats $a$ a row vector.  However, we can
+patch things up by massaging @eq-appD-kronaB a bit:
+$$\begin{aligned}
+    \left.[\right.\texttt{kron}(a, B^T)^T]_{\mu n'} &=
+    [\texttt{kron}(a, B^T)]_{n' \mu} \\
+    &= a_{m} (B^T)_{n'n} \quad\;\;\mathrm{where}\;\; \mu' = m'N + n' \\
+    &= a_{m} B_{nn'}.
+  \end{aligned}$$
+This is an appropriate match for @eq-appD-aBprod, so we conclude
+that
+$$|a\rangle \otimes \hat{B} \;\;\leftrightarrow\;\;
+  \texttt{kron}(a, B^T)^T.$$
+To take the product using the bra $\langle a|$, we replace
+@eq-appD-aBprod by
+$$\langle a| \otimes \hat{B} = \sum_{n\mu'} |n\rangle \,
+  a_{m'}^* B_{nn'} \, \langle \mu'|, \qquad \mu' = m'N + n'.$$
+Comparing this to @eq-appD-kronaB yields
+$$\langle a| \otimes \hat{B} \;\;\leftrightarrow\;\;
+  \texttt{kron}(a^*, B).$$
+
+Likewise, consider the 2D array $A$ and 1D array $b$:
+$$A = \begin{bmatrix}A_{00} & \cdots & A_{0,M-1} \\ \vdots & \ddots & \vdots \\ A_{M-1,0} & \cdots & A_{M-1,M-1} \end{bmatrix}, \;\;\;
+  b = (b_0, \dots, b_{N-1}).$$
+Then the Kronecker product is
+$$\texttt{kron}(A, b) =
+  \begin{bmatrix}
+    A_{00} b & \cdots & A_{0,M-1} b \\
+    \vdots & \ddots & \vdots \\
+    A_{M-1,0} b & \cdots & A_{M-1,M-1} b
+  \end{bmatrix}.$$
+Similar to before, $b$ is treated as a row vector.  In component
+terms,
+$$[\texttt{kron}(A, b)]_{m\mu'} = A_{mm'} b_{n'}, \;\;\;\mathrm{where}\;\;\;
+  \mu' = m'N+n'.$$
+Using the same procedure as before, we can straightforwardly show that
+$$\begin{aligned}
+  \hat{A} \otimes | b\rangle &=
+  \sum_{\mu m'} |\mu\rangle \, [\texttt{kron}(A^T, b)^T]_{\mu m'}
+  \, \langle m'| && \leftrightarrow \;\; \texttt{kron}(A^T, b)^T\\
+  \hat{A} \otimes \langle b| &=
+  \sum_{m\mu'} |m\rangle \, [\texttt{kron}(A, b^*)]_{m\mu'}
+  \,  \langle \mu'| && \leftrightarrow \;\; \texttt{kron}(A, b^*).
+\end{aligned}$$

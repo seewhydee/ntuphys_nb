@@ -1,0 +1,1581 @@
+# Identical Particles {#sec-identical-particles}
+
+::: {.border style="padding: 1em 1em 1em 4em; font-size: 90%; margin-bottom: 2em"}
+*These our actors,*\
+*As I foretold you, were all spirits and*\
+*Are melted into air, into thin air:*\
+*And, like the baseless fabric of this vision,*\
+*The cloud-capp'd towers, the gorgeous palaces,*\
+*The solemn temples, the great globe itself,*\
+*Yea, all which it inherit, shall dissolve*\
+*And, like this insubstantial pageant faded,*\
+*Leave not a rack behind.*
+
+William Shakespeare, *The Tempest*
+:::
+
+## Quantum states of identical particles
+
+In the previous chapter, we discussed how quantum theory applies to
+systems of multiple particles.  That discussion omitted an important
+feature of multi-particle systems, namely the fact that particles of
+the same type have absolutely identical properties.  It turns out that
+indistinguishability imposes a strong constraint on multi-particle
+quantum mechanics.  Exploring this idea will lead us to a fundamental
+re-interpretation of what "particles" are.
+
+### Indistinguishability and exchange symmetry {#sec-exchange}
+
+Suppose we have two particles of the same type, e.g.~two electrons.
+It is a fact of Nature that all electrons have identical physical
+properties: the same mass, same charge, same total spin, etc.  As a
+consequence, the single-particle Hilbert spaces of the two electrons
+must be mathematically identical.  If the single-electron Hilbert
+space is $\mathscr{H}^{(1)}$, the two-electron Hilbert space should be
+$$\mathscr{H}^{(2)} = \mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}.$${#eq-ip-2h}
+Since the two electrons have identical properties, any Hamiltonian
+must treat them on the same footing.  An example of such a Hamiltonian
+is
+$$\hat{H} = \frac{1}{2m_e} \Big(|\hat{\mathbf{p}}_1|^2 + |\hat{\mathbf{p}}_2|^2\Big) + \frac{e^2}{4\pi\varepsilon_0|\hat{\mathbf{r}}_1 - \hat{\mathbf{r}}_2|},$${#eq-ip-exampleH}
+consisting of the non-relativistic kinetic energies and the Coulomb
+potential energy.  Operators $\hat{\mathbf{p}}_1$ and
+$\hat{\mathbf{r}}_1$ act on electron 1, while $\hat{\mathbf{p}}_2$ and
+$\hat{\mathbf{r}}_2$ act on electron 2.  Swapping $\hat{\mathbf{p}}_1
+\leftrightarrow \hat{\mathbf{p}}_2$ and $\hat{\mathbf{r}}_1
+\leftrightarrow \hat{\mathbf{r}}_2$ leaves $\hat{H}$ unchanged.
+
+From our present understanding of multi-particle quantum mechanics,
+the tensor product space @eq-ip-2h allows for the definition of
+observables and states that single out individual slots in the tensor
+product.  For example, we can write down an observable
+$$\hat{p}_{z,1} = \hat{p}_z \otimes \hat{I}$$
+that singles out the momentum of the particle in slot 1.  Likewise, we
+can define a state
+$$|\mathbf{r}_1\rangle |\mathbf{r}_2\rangle,$$
+which says that the particle in slot 1 is at position $\mathbf{r}_1$,
+and the particle in slot 2 is in a different position $\mathbf{r}_2$.
+If such observables and states are allowed, then the slot number has
+physical meaning.  In principle, we can construct experiments that can
+identify a given particle as being in slot 1 or slot 2.
+
+Now, let us take the point of view of fundamental physics, and imagine
+that the universe contains only these two particles.  From this
+fundamental perspective, what we call slot 1 or slot 2 should just be
+a matter of convention, not a physically meaningful (i.e., observable)
+degree of freedom.  Contrary to the previous paragraph, it seems
+reasonable to demand that the particles are
+**indistinguishable**, in the sense that there is no physically
+possible method to perform a measurement to ascertain whether a given
+particle occupies slot 1 or slot 2.
+
+How might indistinguishability be imposed on the theory?  To help
+figure this out, let us first introduce a symmetry called
+**exchange symmetry**, which refers to the exchange of the slots
+in the tensor product.  The Hamiltonian @eq-ip-exampleH evidently
+possess this symmetry.  To formulate this more rigorously, we define
+the **exchange operator**, $\hat{P}$, as follows.  Let
+$\{|\mu\rangle\}$ be a basis for $\mathscr{H}^{(1)}$, so that tensor
+products of the form $|\mu\rangle |\nu\rangle$ (constructed from
+vectors both drawn from that basis) form a basis for
+$\mathscr{H}^{(2)}$.  Then $\hat{P}$ is the linear operator satisfying
+$$\hat{P} |\mu\rangle |\nu\rangle = |\nu\rangle|\mu\rangle$$
+for all $\mu, \nu$.  Thus, when applied to general vectors,
+$$\begin{aligned}\hat{P} \Big (\sum_{\mu\nu}
+    \psi_{\mu\nu} |\mu\rangle|\nu\rangle \Big)
+    \;&=  \sum_{\mu\nu} \psi_{\mu\nu} |\nu\rangle|\mu\rangle \\
+    &= \sum_{\mu\nu} \psi_{\nu\mu} |\mu\rangle|\nu\rangle
+    \;\;\;\textrm{(interchanging $\mu\leftrightarrow \nu$
+      in the double sum).}\end{aligned}$$
+
+The exchange operator has the following properties:
+
+1. $\hat{P}^2 = \hat{I},$ where $\hat{I}$ is the identity operator.
+
+2. $\hat{P}$ is both unitary and Hermitian (see [Exercise 1](#sec-identical-particles-exercises)).
+
+3. The "slot-swapping" effect of $\hat{P}$ is independent of the
+   basis of $\mathscr{H}^{(1)}$ (see [Exercise 1](#sec-identical-particles-exercises)).
+
+4. $\hat{P}$ commutes with any 2-particle operator that treats the
+   two particles on equal footing, like the Hamiltonian in
+   @eq-ip-exampleH (see [Exercise 2](#sec-identical-particles-exercises)).
+
+According to Noether's theorem, any symmetry implies a conservation
+law.  The exchange operator $\hat{P}$ is both Hermitian *and*
+unitary, so we can take the conserved quantity to be its eigenvalue,
+$p$, which is called the **exchange parity**.  Since $\hat{P}^2 =
+\hat{I}$, the possibilities are:
+$$p = \begin{cases}+1 & \textrm{("symmetric\;state")}, \;\;\textrm{or} \\ -1 & \textrm{("antisymmetric\;state").}\end{cases}$$
+If the 2-particle system is initially in an eigenstate of $\hat{P}$
+with exchange parity $p$, and the Hamiltonian $\hat{H}$ commutes with
+$\hat{P}$ (as it should), then $p$ is conserved for all time.
+
+The exchange symmetry concept generalize to systems of more than two
+particles.  For $N$ particles, we can define a set of exchange
+operators $\hat{P}_{ij}$ such that
+$$\hat{P}_{ij} \; |\mu\rangle \cdots \underbrace{|\nu\rangle}_{\mathrm{slot}~i} \cdots \underbrace{|\lambda\rangle}_{\mathrm{slot}~j} \cdots
+  = |\mu\rangle \cdots \underbrace{|\lambda\rangle}_{\mathrm{slot}~i} \cdots \underbrace{|\nu\rangle}_{\mathrm{slot}~j} \cdots,$$
+where $i,j\in\{1,2,\dots,N\}$ and $i < j$.  Note that the subscripts
+in $\hat{P}_{ij}$ refer to the slots being swapped, not matrix
+indices.
+
+We now postulate that for any system of $N$ identical particles,
+
+1. Any physically valid quantum states must be an eigenstate of
+   every $\hat{P}_{ij}$.
+
+2. The exchange parities $p_{ij}$ are all $+1$, or all $-1$.  The
+   value is determined by the particle type; for example, photons
+   always have $p_{ij} = 1$.
+
+3. Any physically valid observable, including the Hamiltonian,
+   commutes with every $\hat{P}_{ij}$.
+
+If these statements hold, then we will have achieved our
+previously-stated goal of making the particles indistinguishable.  At
+any time, the $N$-particle state is an eigenstate of every
+$\hat{P}_{ij}$, so no slot in the tensor product is singled out.  The
+Hamiltonian commutes with every $\hat{P}_{ij}$, so this property is
+conserved under time evolution.  Moreover, no observable is allowed to
+treat the slots on unequal footing.
+
+Let us henceforth assume that these postulates are true facts about
+Nature.  Later, we will circle back to examine the condition of
+particle distinguishability, which motivated these developments, from
+a different point of view (see @sec-outlook).  In
+@sec-distinguishability, we will discuss the
+circumstances under which particles can be treated as distinguishable,
+despite being indistinguishable at a fundamental level.
+
+The second postulate, in the above list, stated that the particle type
+determines the exchange parity.  There are two cases:
+
+- Particles with exchange parity $+1$ are called **bosons**.
+  They include the elementary particles that carry the fundamental
+  forces: photons (carriers of the electromagnetic force), gluons
+  (carriers of the strong nuclear force), and $W$ and $Z$ bosons
+  (carriers of the weak nuclear force).  Bosons that are composite
+  particles (particles made of smaller particles) include alpha
+  particles (helium-4 nuclei) and phonons (particles of sound).
+
+- Particles with exchange parity $-1$ are called
+  **fermions**.  These include the elementary particles making up
+  ordinary matter: electrons and quarks, as well as protons and
+  neutrons, which are composite particles made of three quarks each.
+  There are many other elementary fermions including positrons, muons,
+  and neutrinos.
+
+Whether a particle type is bosonic or fermionic is often referred to
+as the choice of "**particle statistics**".  This is because
+the exchange parity affects the statistical behavior of large
+ensembles of particles: bosons obey the Bose-Einstein distribution,
+while fermions obey the Fermi-Dirac distribution.  This has profound
+implications for statistical mechanics, falling outside the scope of
+this course.
+
+For elementary particles, the **spin-statistics theorem** states
+that particles with integer spin (i.e., total spin equal to an integer
+multiple of $\hbar$) are bosons, whereas particles with half-integer
+spin are fermions.  For instance, photons are spin-1 bosons, and
+electrons are spin-1/2 fermions.  Though the spin-statistics theorem
+is simple to state, its proof is surprisingly
+complicated, seeming to require at minimum the combination of quantum
+mechanics with relativity.  In non-relativistic settings, the
+spin-statistics theorem holds in the vast majority of cases (e.g.,
+electronic quasiparticles in ordinary solid-state materials are
+spin-1/2 fermions, like elementary electrons), but it lacks the status
+of a rigorous theorem and is violable.  The development of materials
+containing emergent particles that violate the spin-statistics theorem
+is an active area of research in condensed matter physics.
+
+Incidentally, exchange operators are not the only way to formulate
+particle indistinguishability.  Leinaas and
+  Myrheim developed an interesting alternative description of
+indistinguishable particles based on a redefinition of the quantum
+wavefunction.  Normally, a multi-particle wavefunction
+$\Psi(\mathbf{r}_1, \dots, \mathbf{r}_N)$ is a function that maps a
+vector $(\mathbf{r}_1, \dots, \mathbf{r}_N)$ to a complex number.  In
+Leinaas and Myrheim's view, for identical particles the input is not a
+vector, but a more complicated mathematical object with built-in
+invariance under slot exchange: $(\dots, \mathbf{r}_i, \dots,
+\mathbf{r}_j,\dots ) \equiv (\dots, \mathbf{r}_j, \dots,
+\mathbf{r}_i,\dots )$.  By analyzing the properties of such functions,
+bosonic or fermionic wavefunctions can be constructed.  One startling
+outcome of this analysis is that the distinction between fermions and
+bosons is not absolute.  In two spatial dimensions, there is the
+fascinating possibility of particles called **anyons**, which are
+intermediate between fermions and bosons.  A proper discussion of
+anyons requires knowledge about magnetic vector potentials in quantum
+mechanics, which will be discussed in Chapter 5; after having gone
+through that chapter, you may refer to Appendix F, which gives a brief
+introduction to the theory of anyons.
+
+### Bosons {#sec-bosons}
+
+A state of $N$ bosons must be symmetric under every possible exchange
+operator:
+$$\hat{P}_{ij}\; |\psi\rangle = |\psi\rangle.$${#eq-ip-sym}
+There is a standard way to construct multi-particle states obeying
+this symmetry condition.  First, consider a two-boson system ($N =
+2$).  If both bosons occupy the same single-particle state,
+$|\mu\rangle \in \mathscr{H}^{(1)}$, @eq-ip-sym can be satisfied
+using the two-boson state
+$$|\mu,\mu\rangle = |\mu\rangle  |\mu\rangle.$${#eq-ip-mumu}
+Next, suppose the bosons occupy two single-particle states,
+$|\mu\rangle$ and $|\nu\rangle$, which are orthonormal.  The two-boson
+state cannot be $|\mu\rangle |\nu\rangle$, as this fails to satisfy
+@eq-ip-sym.  Instead, let
+$$|\mu,\nu\rangle = \frac{1}{\sqrt{2}} \Big( |\mu\rangle |\nu\rangle +
+  |\nu\rangle |\mu\rangle\Big).$${#eq-ip-bosonmunu}
+You can check that $1/\sqrt{2}$ is the right normalization factor.
+This state has the right exchange symmetry:
+$$\hat{P}_{12}\,|\mu,\nu\rangle \;=\; \frac{1}{\sqrt{2}}
+  \Big( |\nu\rangle  |\mu\rangle + |\mu\rangle  |\nu\rangle\Big)
+  \,=\, |\mu, \nu\rangle.$$
+
+We can generalize the above construction to $N$ bosons, using the $N$
+single-particle states
+$$|\phi_1\rangle, \, |\phi_2\rangle, \, |\phi_3\rangle, \, \dots, |\phi_N\rangle.$$
+Each $|\phi_j\rangle$ is drawn from an orthonormal basis
+$\{|\mu\rangle\}$ for $\mathscr{H}^{(1)}$.  Duplicate draws are
+allowed, meaning that it is okay for two or more $|\phi_j\rangle$'s to
+be drawn from the same basis state.  Then the $N$-boson state is
+$$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p
+  \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots
+  |\phi_{p(N)}\rangle\Big).$${#eq-ip-nbosons}
+The sum is taken over all $N!$ permutations of $(1,2,\dots,N)$, with
+$p(j)$ denoting what $j$ is permuted to.  The normalization constant
+$\mathcal{N}$ will be discussed later.
+
+**Example**---Consider a system of $N = 3$ bosons, with two
+particles in single-particle state $|\mu\rangle$ and one in an
+orthogonal single-particle state $|\nu\rangle$.  That is to say,
+$$\begin{aligned}
+    |\phi_1\rangle &= |\phi_2\rangle = |\mu\rangle, \\
+    |\phi_3\rangle &= |\nu\rangle.
+  \end{aligned}$$
+To get the 3-boson state, we plug this into @eq-ip-nbosons.  The
+sum has one term for each permutation of the sequence $(1,2,3)$, and
+there are $3! = 6$ such permutations:
+$$\begin{aligned}
+    &(1,2,3), \;\; (2,3,1), \;\;(3,1,2) \\
+    &(1,3,2), \;\; (3,2,1), \;\;(2,1,3).
+  \end{aligned}$$
+Hence we get (we'll discuss the normalization later):
+$$\begin{aligned}
+    |\phi_1,\phi_2,\phi_3\rangle &= \frac{1}{\sqrt{12}} \Big( \;
+    |\phi_1\rangle|\phi_2\rangle|\phi_3\rangle +
+    |\phi_2\rangle|\phi_3\rangle|\phi_1\rangle +
+    |\phi_3\rangle|\phi_1\rangle|\phi_2\rangle \\
+    &\qquad\quad\, +
+    |\phi_1\rangle|\phi_3\rangle|\phi_2\rangle +
+    |\phi_3\rangle|\phi_2\rangle|\phi_1\rangle +
+    |\phi_2\rangle|\phi_1\rangle|\phi_3\rangle\Big) \\
+    &= \frac{1}{\sqrt{3}} \;\, \Big(\;
+    |\mu\rangle|\mu\rangle|\nu\rangle +
+    |\mu\rangle|\nu\rangle|\mu\rangle +
+    |\nu\rangle|\mu\rangle|\mu\rangle\Big).
+  \end{aligned}$$
+We can verify that this is an eigenstate of every exchange symmetry
+operator:
+$$\begin{aligned}
+  \hat{P}_{12}|\phi_1,\phi_2,\phi_3\rangle
+    &= \frac{1}{\sqrt{3}} \Big(
+  |\mu\rangle|\mu\rangle|\nu\rangle +
+  |\nu\rangle|\mu\rangle|\mu\rangle +
+  |\mu\rangle|\nu\rangle|\mu\rangle\Big)
+  = |\phi_1,\phi_2,\phi_3\rangle \\
+  \hat{P}_{23}|\phi_1,\phi_2,\phi_3\rangle
+  &= \frac{1}{\sqrt{3}} \Big(
+  |\mu\rangle|\nu\rangle|\mu\rangle +
+  |\mu\rangle|\mu\rangle|\nu\rangle +
+  |\nu\rangle|\mu\rangle|\mu\rangle\Big)
+  = |\phi_1,\phi_2,\phi_3\rangle\\
+  \hat{P}_{13}|\phi_1,\phi_2,\phi_3\rangle
+  &= \frac{1}{\sqrt{3}} \Big(
+  |\nu\rangle|\mu\rangle|\mu\rangle +
+  |\mu\rangle|\nu\rangle|\mu\rangle +
+  |\mu\rangle|\mu\rangle|\nu\rangle\Big)
+  = |\phi_1,\phi_2,\phi_3\rangle.
+\end{aligned}$$
+
+To see why the state $|\phi_1,\dots,\phi_N\rangle$ defined in
+@eq-ip-nbosons is symmetric under every exchange operator,
+consider a representative term in the sum, corresponding to a
+permutation $p$.  When an exchange operator $\hat{P}_{ij}$ acts on it,
+the single-particle states in slots $i$ and $j$ swap places:
+$$\hat{P}_{ij} \Big(\cdots  \underbrace{|\phi_{p(i)}\rangle}_{\mathrm{slot}\,i}  \cdots  \underbrace{|\phi_{p(j)}\rangle}_{\mathrm{slot}\,j}\cdots\Big) = \Big(\cdots  \underbrace{|\phi_{p(j)}\rangle}_{\mathrm{slot}\,i}  \cdots  \underbrace{|\phi_{p(i)}\rangle}_{\mathrm{slot}\,j}\cdots\Big).$${#eq-ip-pboson}
+The tensor product on the right represents a different permutation of
+$(1, \dots, N)$, which we denote by $p'$.  The $p'$ permutation occurs
+as another term in $|\phi_1,\dots,\phi_N\rangle$, and applying
+$\hat{P}_{ij}$ turns this term into the $p$ term.  Thus,
+$\hat{P}_{ij}$ merely swaps two terms in the sum, without affecting
+the overall sum.  This holds for every $p$, so $\hat{P}_{ij}$ leaves
+$|\phi_1,\dots,\phi_N\rangle$ unchanged.
+
+If the preceding paragraph is unclear, try tracing its logic using
+the three equations in the preceding example.
+
+As for the normalization constant in @eq-ip-nbosons, it can be
+shown that
+$$\mathcal{N} = \sqrt{\frac{1}{N!\, \prod_\mu n_\mu!}},$${#eq-ip-bosonnorm}
+where $n_\mu$ denotes the number of particles occupying the
+single-particle basis state $|\varphi_\mu\rangle$, such that $\sum_\mu
+n_\mu = N$.  The proof of @eq-ip-bosonnorm is left as an exercise
+([Exercise 3](#sec-identical-particles-exercises)).
+
+In place of @eq-ip-nbosons, $N$-boson states can alternatively be
+expressed as
+$$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{M} \; \sum_{p,\,\textrm{no dupes}}\,
+  \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots
+  |\phi_{p(N)}\rangle\Big),$${#eq-ip-nbosons2}
+where the sum omits duplicate permutations (i.e., those yielding the
+same tensor product).  For instance, in the previous example of
+$|\phi_1\rangle = |\phi_2\rangle = |\mu\rangle$ and $|\phi_3\rangle =
+|\nu\rangle$, instead of having $|\phi_1 \rangle |\phi_2 \rangle
+|\phi_3 \rangle$ and $|\phi_2 \rangle |\phi_1 \rangle |\phi_3 \rangle$
+appear separately in the sum, we only write it once, as both
+permutations ultimately refer to $|\mu \rangle |\mu \rangle |\nu
+\rangle$.  If we adopt this convention, the normalization condition
+@eq-ip-bosonnorm is replaced by
+$$\mathcal{M} = \sqrt{\frac{\prod_\mu n_\mu!}{N!}}.$$
+
+The $N$-boson states constructed using @eq-ip-nbosons---or, if
+you prefer, @eq-ip-nbosons2---have an important property: if we
+build two such states from different sets of single-particle states,
+they are orthogonal.  To prove this, take two sets of single-particle
+states, $\{\phi_1,\dots,\phi_N\}$ and $\{\phi_1,\dots,\phi_N'\}$.  The
+two $N$-boson states, constructed by @eq-ip-nbosons, have the
+inner product
+$$\langle \phi_1, \dots, \phi_N | \phi_1',\dots, \phi_N'\rangle
+  = \mathcal{NN'}
+  \sum_{pp'} \langle \phi_{p(1)} | \phi'_{p'(1)}\rangle \dots
+  \langle \phi_{p(N)} | \phi'_{p'(N)}\rangle.$${#eq-ip-bosorthog}
+Take each term in the double sum, involving permutations $p$ and $p'$.
+If *every* bra $\langle \phi_{p(j)}|$ matches the corresponding
+ket $|\phi_{p'(j)}\rangle$, the term is unity; otherwise it is zero
+since at least one of the bra-kets in the product vanishes.  There is
+some $p, p'$ achieving this condition if and only if the two sets of
+single-particle states are equivalent: i.e., $(\phi_1,\dots, \phi_N)
+\equiv (\phi_1',\dots, \phi_N')$ up to a permutation, in which case $|
+\phi_1, \dots, \phi_N \rangle$ and $| \phi_1',\dots, \phi_N'\rangle$
+refer to the same state.
+
+### Fermions {#sec-fermions}
+
+A state of $N$ fermions must be antisymmetric under every exchange
+operator $\hat{P}_{ij}$:
+$$\hat{P}_{ij}\; |\psi\rangle = -|\psi\rangle.$$
+Similar to the bosonic case, we can construct $N$-fermion states from
+a set of single-particle states.  First, consider $N=2$.  If the
+fermions occupy the single-particle states $|\mu\rangle$ and
+$|\nu\rangle$, which are orthonormal, then the appropriate 2-fermion
+state is
+$$|\mu,\nu\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\mu\rangle|\nu\rangle - |\nu\rangle|\mu\rangle\Big).$${#eq-ip-two-fermions}
+We can easily check that this is antisymmetric:
+$$\hat{P}_{12} |\mu,\nu\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\nu\rangle|\mu\rangle - |\mu\rangle|\nu\rangle\Big)
+  = - |\mu,\nu\rangle.$$
+If $|\mu\rangle$ and $|\nu\rangle$ are the same single-particle state,
+@eq-ip-two-fermions doesn't work, since the two terms would
+cancel to give the zero vector, which is not a valid quantum state.
+This is a manifestation of the **Pauli exclusion principle**,
+which states that two fermions cannot occupy the same single-particle
+state.
+
+To generalize this, let $|\phi_1\rangle$, $|\phi_2\rangle$, $\dots,
+|\phi_N\rangle$ be a set of $N$ orthonormal single-particle states,
+which are occupied by identical fermions.  Then the $N$-fermion state
+is
+$$|\phi_1,\dots,\phi_N\rangle = \frac{1}{\sqrt{N!}} \sum_p s(p)\, |\phi_{p(1)}\rangle |\phi_{p(2)}\rangle \cdots |\phi_{p(N)}\rangle.$${#eq-ip-Nfermions}
+Here, the sum is taken over every permutation $p$ of the sequence
+$\{1,2,\dots,N\}$, and each term in the sum has a coefficient $s(p) =
+\pm1$ denoting the **parity** of permutation $p$, defined below.
+The $1/\sqrt{N!}$ prefactor can be shown to normalize
+$|\phi_1,\dots,\phi_N\rangle$ to unity.
+
+Any permutation $p$ can be generated by starting from the trivial
+sequence $(1, 2, \dots, N)$, and repeatedly applying transpositions
+(i.e., choosing two slots and swapping them).  The parity $s(p)$ is
+defined as $+1$ if $p$ is generated by an even number of
+transpositions, and $-1$ if it is generated by an odd number of
+transpositions.  Although it is generally possible to generate $p$
+from different sequences of transpositions, a result called the
+"parity theorem" states that these all give the same $s(p)$.  In
+other words, $s(p)$ is a property of $p$ itself.
+
+Let's look at a couple of examples.
+
+**Example**---Consider $N=2$.  The sequence $(1,2)$
+has two permutations:
+$$\begin{aligned}
+    p_1 : (1,2) &\rightarrow (1,2), \;\;\;s = +1 \\ p_2 : (1,2) &\rightarrow (2,1), \;\;\;s = -1.\end{aligned}$$
+Plugging these into @eq-ip-Nfermions yields
+$$|\phi_1,\phi_2\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\phi_1\rangle|\phi_2\rangle - |\phi_2\rangle|\phi_1\rangle\Big),$$
+which is equivalent to the previously-discussed example
+@eq-ip-two-fermions.
+
+**Example**---For $N=3$, the sequence $(1,2,3)$ has $3!=6$ permutations:
+$$\begin{aligned}
+  p_1 : (1,2,3) &\rightarrow (1,2,3), \;\;\;s = +1 \\
+  p_2 : (1,2,3) &\rightarrow (2,1,3), \;\;\;s = -1 \\
+  p_3 : (1,2,3) &\rightarrow (2,3,1), \;\;\;s = +1 \\
+  p_4 : (1,2,3) &\rightarrow (3,2,1), \;\;\;s = -1 \\
+  p_5 : (1,2,3) &\rightarrow (3,1,2), \;\;\;s = +1 \\
+  p_6 : (1,2,3) &\rightarrow (1,3,2), \;\;\;s = -1.\end{aligned}$$
+In this list, we start from $(1,2,3)$ and apply one transposition at a
+time to generate the next line.  Hence, the signs of $s(p)$ alternate.
+This sequence of transpositions is not unique; for example, we can
+generate $p_4$ by starting from $(1,2,3)$ and transposing 1 and 3.
+This involves one transposition, rather than three transpositions as
+in the above list.  But both routes give the same parity, $s(p_4) =
+-1$.
+
+Plugging these permutations into @eq-ip-Nfermions, we obtain the
+3-fermion state
+$$\begin{aligned}
+    |\phi_1, \phi_2, \phi_3\rangle
+    &= \frac{1}{\sqrt{6}} \Big(
+    |\phi_1\rangle |\phi_2\rangle |\phi_3\rangle
+    - |\phi_2\rangle |\phi_1\rangle |\phi_3\rangle
+    + |\phi_2\rangle |\phi_3\rangle |\phi_1\rangle \\
+    & \qquad\;
+    - |\phi_3\rangle |\phi_2\rangle |\phi_1\rangle
+    + |\phi_3\rangle |\phi_1\rangle |\phi_2\rangle
+    - |\phi_1\rangle |\phi_3\rangle |\phi_2\rangle \Big).
+  \end{aligned}$$
+
+Let us examine the properties of the $N$-fermion states constructed
+from @eq-ip-Nfermions.
+
+Firstly, the $N$-fermion state obeys the Pauli exclusion principle: it
+is valid only if the single-particle states used to construct it,
+$\{|\phi_1\rangle, \dots, |\phi_N\rangle\}$, contain no duplicates.
+If there is a duplicate, then each term in the sum within
+@eq-ip-Nfermions must contain, somewhere in the tensor product,
+two kets referring to the same single-particle state $|\mu\rangle$,
+say in slots $i$ and $j$:
+$$s(p)\big( \cdots
+      \underbrace{|\phi_{p(i)}\rangle}_{= |\mu\rangle} \cdots
+      \underbrace{|\phi_{p(j)}\rangle}_{= |\mu\rangle} \cdots \big).$$
+But there is another permutation, $p'$, which is the same as $p$
+except with the $i$ and $j$ slots transposed.  That term appears with
+a parity of the opposite sign.  This implies that the terms in the sum
+cancel pair-wise, so $|\phi_1,\dots,\phi_N\rangle = 0$, which is not a
+valid quantum state.
+
+Secondly, we can verify that the $N$-fermion state is totally
+antisymmetric.  Consider what happens when we apply an exchange
+operator $\hat{P}_{ij}$ to a term in the sum in @eq-ip-Nfermions:
+$$\begin{aligned}
+    \hat{P}_{ij} \Big[s(p)\big( \cdots
+      \underbrace{|\phi_{p(i)}\rangle}_{\textrm{slot}\,i} \cdots
+      \underbrace{|\phi_{p(j)}\rangle}_{\textrm{slot}\,j} \cdots \big)\Big]
+    = s(p)\big( \cdots
+      \underbrace{|\phi_{p(j)}\rangle}_{\textrm{slot}\,i} \cdots
+      \underbrace{|\phi_{p(i)}\rangle}_{\textrm{slot}\,j} \cdots \big)
+  \end{aligned}$${#eq-ip-fermionswap}
+The single-particle states for $p(i)$ and $p(j)$ have exchanged
+places.  This yields a new sequence of state labels, corresponding to
+a new permutation which we call $p'$.  Since $p'$ differs from $p$ by
+a single transposition (of slots $i$ and $j$), $s(p') = - s(p)$.
+Hence, @eq-ip-fermionswap is the negative of another term in
+@eq-ip-Nfermions.  By the same logic, applying $\hat{P}_{ij}$ to
+the $p'$ term yields the negative of the $p$ term.  We thereby
+conclude that
+$$\hat{P}_{ij} |\phi_1,\dots,\phi_N\rangle = - |\phi_1,\dots,\phi_N\rangle.$$
+
+Thirdly, two $N$-fermion states constructed using
+@eq-ip-Nfermions are orthogonal unless they consist of identical
+sets of single-particle states.  In other words, $\langle \phi_1,
+\dots, \phi_N| \phi_1', \dots, \phi_N'\rangle = 0$ unless $(\phi_1,
+\dots, \phi_N) \equiv (\phi_1', \dots, \phi_N')$ are equivalent up to
+a permutation.  The proof follows the same logic as the $N$-boson case
+discussed earlier [see @eq-ip-bosorthog].
+
+### Distinguishing particles {#sec-distinguishability}
+
+It might have struck you that the requirement of particle
+indistinguishbility, introduced in @sec-exchange, could
+undermine what we said about partial measurements and entanglement
+from Chapter 3.  For example, in the EPR thought experiment, we used
+the singlet state
+$$|\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
+  - |\!\downarrow\rangle |\!\uparrow\rangle \Big),$${#eq-ip-EPR}
+which looks like an antisymmetric state.  Does this mean we can only
+prepare this state with fermions?  More disturbingly, measuring
+${S}_z$ on one particle collapses the 2-particle state into
+$|\!\uparrow\rangle |\!\downarrow\rangle$ or $|\!\downarrow\rangle
+|\!\uparrow\rangle$, which are not eigenstates of $\hat{P}_{12}$.  Is
+this now forbidden?
+
+The answer to each question is no.  The confusion arises because
+identical particles are only indistinguishable at a
+*fundamental* level, meaning when all degrees of freedom are
+accounted for.  If we deal with a restricted set of degrees of
+freedom, like @eq-ip-EPR which only involves the particles'
+spins, then particles *can* be distinguished from each other.
+
+As an illustration, let us see how the EPR thought experiment is done
+with two identical bosons.  Apart from the spin degree of freedom, the
+particles must also have a position degree of freedom; that's how we
+can assign one particle to each location (Alpha Centauri and
+Betelgeuse).  This means the single-particle Hilbert space has the
+form
+$$\mathscr{H}^{(1)} = \mathscr{H}_{\mathrm{spin}} \otimes \mathscr{H}_{\mathrm{position}}.$$
+For simplicity, let us treat position as a twofold degree of freedom,
+treating $\mathscr{H}_{\mathrm{position}}$ as a 2D space spanned by
+the basis $\{|A\rangle, |B\rangle\}$.
+
+Previously, we used $|\!\uparrow\rangle |\!\downarrow\rangle$ to
+denote a spin-up particle at $A$ and a spin-down particle at $B$.
+This implicitly assumed that $A$ refers to the left slot of the tensor
+product, and $B$ refers to the right slot.  Using the position degrees
+of freedom, we can instead write this as
+$$|\uparrow, A;\; \downarrow, B\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
+  + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \Big),$${#eq-ip-asym1}
+where the kets are written in the following order:
+$$\Big[
+    (\textrm{spin 1}) \otimes (\textrm{position 1}) \Big]
+  \otimes
+  \Big[
+    (\textrm{spin 2}) \otimes (\textrm{position 2}) \Big].$${#eq-ip-order1}
+The exchange operator $\hat{P}_{12}$ swaps the two particles' Hilbert
+spaces, which includes both position and spin.  Hence,
+@eq-ip-asym1 is explicitly symmetric:
+$$\begin{aligned}
+  \hat{P}_{12} \, |\uparrow, A\,;\, \downarrow, B\rangle &= \frac{1}{\sqrt{2}}
+  \Big(|\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle
+  + |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle \Big) \\
+  &= |\uparrow, A\,;\, \downarrow, B\rangle.
+  \end{aligned}$$
+Likewise, if there is a spin-down particle at $A$ and a spin-up
+particle at $B$, the bosonic 2-particle state is
+$$|\downarrow, A\,;\, \uparrow, B\rangle = \frac{1}{\sqrt{2}}
+  \Big(|\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
+  + |\!\uparrow\rangle|B\rangle |\!\downarrow\rangle|A\rangle \Big).$${#eq-ip-asym2}
+Using @eq-ip-asym1 and @eq-ip-asym2, we can rewrite the EPR
+singlet state @eq-ip-EPR as
+$$\begin{aligned}
+    |\psi_{\mathrm{EPR}}\rangle &= \frac{1}{\sqrt{2}} \Big(
+    |\!\uparrow, A\,;\, \downarrow, B\rangle - |\downarrow, A\,;\, \uparrow, B\rangle \Big)\\
+    &= \frac{1}{2} \Big(\,
+    |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
+    + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle
+    - |\!\downarrow\rangle|A\rangle |\!\uparrow\rangle|B\rangle
+    - |\!\uparrow\rangle|B\rangle |\!\downarrow\rangle|A\rangle \Big).\end{aligned}$${#eq-ip-epr1}
+
+@eq-ip-epr1 can be further simplified by re-ordering the tensor
+product slots.  In place of @eq-ip-order1, let us order by spins and
+then positions:
+$$\Big[
+    (\textrm{spin 1}) \otimes (\textrm{spin 2}) \Big]
+  \otimes
+  \Big[
+    (\textrm{position 1}) \otimes (\textrm{position 2}) \Big].$${#eq-ip-order2}
+With this convention, @eq-ip-epr1 becomes
+$$|\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(
+  |\!\uparrow\rangle |\!\downarrow\rangle - |\!\downarrow\rangle |\!\uparrow\rangle \Big)  
+  \otimes \frac{1}{\sqrt{2}} \Big(
+  |A\rangle |B\rangle - |B\rangle |A\rangle \Big).$${#eq-ip-eprsplit}
+The spin degrees of freedom indeed form an antisymmetric combination,
+as described by @eq-ip-EPR.  But the position degrees of freedom,
+which we previously did not explicit monitor, are also antisymmetric.
+The overall state is therefore symmetric, consistent with the two
+particles being identical bosons.
+
+Now suppose we measure $S_z$ on the particle at $A$, and find that it
+is spin-up.  This measurement outcome is associated with a projector,
+which in the ordering convention @eq-ip-order1 can be written as
+$$\hat{\Pi} = \Big(|\!\uparrow\rangle \langle\uparrow\!| \otimes |A\rangle \langle A|\Big)
+  \otimes\Big( \hat{I} \otimes \hat{I}\Big)
+  + \Big(\hat{I} \otimes \hat{I} \Big) \otimes \Big(
+  |\!\uparrow\rangle \langle\uparrow\!| \otimes |A\rangle \langle A| \Big).$$
+This operator treats the two particles on equal footing, and commutes
+with $\hat{P}_{12}$.  Applying it to the EPR state, and renormalizing,
+yields the post-collapse state
+$$|\psi'\rangle \;=\;
+  \frac{1}{\sqrt{2}} \Big(
+    |\!\uparrow\rangle|A\rangle |\!\downarrow\rangle|B\rangle
+    + |\!\downarrow\rangle|B\rangle |\!\uparrow\rangle|A\rangle \Big).$$
+This is precisely the bosonic state $|\uparrow,A;\downarrow,B\rangle$
+defined in @eq-ip-asym1, which is equivalent to the singlet state
+@eq-ip-epr1.
+
+From this discussion, we conclude that exchange symmetry is compatible
+with all our previous discussions about partial measurements,
+entanglement, etc.
+
+## Second quantization {#sec-secondquant}
+
+In the usual tensor product notation, symmetric and antisymmetric
+states become quite cumbersome to deal with when the number of
+particles is large.  We will now introduce a formalism called
+**second quantization**, which greatly simplifies manipulations
+of such multi-particle states.  (The reason for the name "second
+quantization" will not be apparent until later; it is a bad name,
+but one we are stuck with for historical reasons.)
+
+We start by introducing a convenient way to specify multi-particle
+states, called the **occupation number representation**.  Suppose
+$\{|1\rangle, |2\rangle, |3\rangle, \cdots\}$ is an orthonormal basis
+for the single-particle Hilbert space $\mathscr{H}^{(1)}$.  From
+@sec-bosons and @sec-fermions, we know how to use
+the single-particle states to construct $N$-particle bosonic or
+fermionic states.  Letting $n_j$ denote the occupancy number of state
+$|j\rangle$, we define
+$$|n_1,n_2,n_3,\dots\rangle$$
+as the multi-particle state constructed by @eq-ip-nbosons for
+bosons, or @eq-ip-Nfermions for fermions.
+
+**Example**---The 2-particle state $|0,2,0,0,\dots\rangle$ has
+both particles in the single-particle state $|2\rangle$ (which is only
+possible if the particles are bosons):
+$$|0,2,0,0,\dots\rangle \equiv |2\rangle|2\rangle.$$
+
+**Example**---The 3-particle state $|1,1,1,0,0,\dots\rangle$ has
+one particle each occupying $|1\rangle$, $|2\rangle$, and $|3\rangle$.
+If the particles are bosons, this corresponds to the symmetric state
+$$\begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}}\Big(|1\rangle|2\rangle|3\rangle + |3\rangle|1\rangle|2\rangle + |2\rangle|3\rangle|1\rangle \\&\;\qquad+ |1\rangle|3\rangle|2\rangle + |2\rangle|1\rangle|3\rangle + |3\rangle|2\rangle|1\rangle \Big).
+  \end{aligned}$$
+And if the particles are fermions,
+$$\begin{aligned}|1,1,1,0,0,\dots\rangle &\equiv \frac{1}{\sqrt{6}} \Big(|1\rangle|2\rangle|3\rangle + |3\rangle|1\rangle|2\rangle + |2\rangle|3\rangle|1\rangle \\&\;\qquad - |1\rangle|3\rangle|2\rangle - |2\rangle|1\rangle|3\rangle - |3\rangle|2\rangle|1\rangle\Big).
+  \end{aligned}$$
+
+### Fock space
+
+There is a subtle point we have glossed over: what Hilbert space do
+these state vectors reside in?  For instance, the state
+$|0,2,0,0,\dots\rangle$ is a bosonic 2-particle state, which is a
+vector in the 2-particle Hilbert space:
+$$|0,2,0,0,\dots\rangle \in \mathscr{H}^{(2)} = \mathscr{H}^{(1)}\otimes
+\mathscr{H}^{(1)}.$$
+However, this statement is over-broad, since $\mathscr{H}^{(2)}$ also
+contains 2-particle states that do not satisfy the bosonic exchange
+symmetry.  To be more precise, we can shrink the Hilbert space to the
+space of 2-particle state vectors with exchange parity +1, denoted by
+$\mathscr{H}^{(2)}_+$:
+$$|0,2,0,0,\dots\rangle \in \mathscr{H}^{(2)}_+.$$
+In a similar fashion, for the 3-particle state
+$|1,1,1,0,\dots\rangle$, we can write
+$$|1,1,1,0,\dots\rangle \in
+  \begin{cases}
+    \mathscr{H}^{(3)}_+ & \textrm{(for bosons)} \\
+    \mathscr{H}^{(3)}_- & \textrm{(for fermions)},
+  \end{cases}$$
+where $\mathscr{H}^{(3)}_\pm$ is the space of 3-particle states with
+exchange parity +1 or -1, respectively.
+
+Thus far, if two state have different total particle number $N = n_1 +
+n_2 + \cdots$, they are regarded as lying in different spaces.  We can
+consolidate them by defining the space of all multi-particle states
+regardless of $N$, called the **Fock space**.  In the formal
+language of linear algebra, this extended space is
+$$\mathscr{H}_\pm^F = \mathscr{H}^{(0)} \oplus \mathscr{H}^{(1)} \oplus \mathscr{H}^{(2)}_\pm \oplus \mathscr{H}^{(3)}_\pm \oplus \mathscr{H}^{(4)}_\pm \oplus \cdots,$${#eq-ip-fock}
+where the $\pm$ subscripts specify whether we are dealing with bosons
+($+$) or fermions ($-$).  The $\oplus$ symbol denotes the
+**direct sum** operation, which combines vector spaces by
+grouping their basis vectors into a larger basis set.  For example,
+$$\begin{aligned}
+    &\mathscr{H}_1~\textrm{has basis}~\big\{ |a\rangle, |b\rangle \big\}, \\
+    &\mathscr{H}_2~\textrm{has basis}~\big\{ |c\rangle, |d\rangle, |e\rangle \big\}
+  \end{aligned}
+  \;\;\Rightarrow\;\;\;
+\mathscr{H}_1 \oplus \mathscr{H}_2~\textrm{has basis}~\big\{ |a\rangle, |b\rangle, |c\rangle, |d\rangle, |e\rangle \big\}.$${#eq-ip-directsum-ex}
+The direct sum should not be confused with the tensor product
+introduced in Chapter 3.  In particular, we can see from
+@eq-ip-directsum-ex that
+$$\mathrm{dim}\left[\mathscr{H}_1 \oplus \mathscr{H}_2\right]
+  = \mathrm{dim}\left[\mathscr{H}_1\right] +
+  \mathrm{dim}\left[\mathscr{H}_2\right].$$
+By contrast, for the tensor product,
+$$\mathrm{dim}\left[\mathscr{H}_1 \otimes \mathscr{H}_2\right]
+  = \mathrm{dim}\left[\mathscr{H}_1\right] 
+  \mathrm{dim}\left[\mathscr{H}_2\right].$$
+
+In @eq-ip-fock, the first term of the direct sum,
+$\mathscr{H}^{(0)}$, is the Hilbert space of 0 particles.  This
+Hilbert space contains only one distinct state vector, denoted by
+$$|\varnothing\rangle \equiv |0,0,0,0,\dots\rangle.$$
+This called the **vacuum state**.  Note that
+$|\varnothing\rangle$ is *not* the same thing as a zero vector;
+it has the standard normalization
+$$\langle\varnothing|\varnothing\rangle = 1.$$
+The concept of "a state of zero particles" may seem silly, but we
+will see that there are very good reasons to include it in the
+formalism.
+
+Now that we have defined the Fock space, any state written using the
+occupation number representation, $|n_1,n_2,n_3,\dots\rangle$, can be
+regarded as a vector in $\mathscr{H}_\pm^F$, regardless of its total
+particle number.  Such states moreover form a complete basis for
+$\mathscr{H}^{F}_\pm$.
+
+A subtle consequence of the Fock space concept is that we can now
+define quantum states that do not have a definite number of particles.
+For example,
+$$\frac{1}{\sqrt{2}} \Big(|1,0,0,0,0,\dots\rangle + |1,1,1,0,0,\dots\rangle\Big)
+  \in \mathscr{H}^F_\pm$$
+is neither a 1-particle state nor a 3-particle state, but a
+superposition of the two.  We will discuss the significance of states
+with indefinite particle number later.
+
+### Second quantization for bosons {#sec-second-quantized-bosons}
+
+After this lengthy prelude, we are ready to introduce the formalism of
+second quantization.  Let us concentrate on bosons first.  We define a
+**boson creation operator**, denoted by $\hat{a}_\mu^\dagger$ and
+acting in the following way:
+$$\hat{a}_\mu^\dagger \big|n_1, n_2, \dots, n_\mu, \dots\big\rangle = \sqrt{n_\mu+1} \; \big|n_1, n_2, \dots, n_\mu + 1, \dots\big\rangle.$${#eq-ip-amu}
+In this definition, there is one particle creation operator for each
+state in the single-particle basis
+$\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$.  Each creation operator is
+defined as an operator acting on state vectors in the Fock space
+$\mathscr{H}^F_S$, and has the effect of incrementing the occupation
+number of its single-particle state by one.  The prefactor of
+$\sqrt{n_\mu+1}$ is defined for later convenience.
+
+Applying a creation operator to the vacuum state yields a
+single-particle state:
+$$\hat{a}_\mu^\dagger |\varnothing\rangle \, = \, |0,\dots,0, 1, 0, 0, \dots\rangle,$$
+where the $1$ is in the $\mu$-th position.
+
+The creation operator's Hermitian conjugate, $\hat{a}_\mu$, is the
+**boson annihilation operator**.  To characterize it, first take
+the Hermitian conjugate of @eq-ip-amu:
+$$\big\langle n_1, n_2, \dots\big| \hat{a}_\mu = \sqrt{n_\mu+1} \; \big\langle n_1, n_2, \dots, n_\mu + 1, \dots\big|.$$
+Right-multiplying by another occupation number state
+$|n_1',n_2',\dots\rangle$ results in
+$$\begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \big|n_1',n_2',\dots\big\rangle &= \sqrt{n_\mu+1} \; \big\langle \dots, n_\mu + 1, \dots\big| \dots, n_\mu',\dots\big\rangle \\&= \sqrt{n_\mu+1}\; \delta^{n_1}_{n_1'}\; \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu+1}_{n_\mu'} \dots \\  &= \sqrt{n_\mu'}\; \delta^{n_1}_{n_1'}\; \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu+1}_{n_\mu'}\cdots\end{aligned}$$
+From this, we can deduce that
+$$\hat{a}_\mu \big|n_1', n_2', \dots, n_\mu', \dots\big\rangle = \begin{cases} \sqrt{n_\mu'} \; \big|n_1', n_2', \dots, n_\mu' - 1, \dots\big\rangle, & \mathrm{if}\; n_\mu' > 0 \\ 0, & \mathrm{if}\; n_\mu' = 0.\end{cases}$$
+In other words, the annihilation operator decrements the occupation
+number of a specific single-particle state by one (hence its name).
+As a special exception, if the given single-particle state is
+unoccupied ($n_\mu = 0$), applying $\hat{a}_\mu$ results in a zero
+vector (note that this is *not* the same thing as the vacuum
+state $|\varnothing\rangle$).
+
+The boson creation/annihilation operators obey the following
+commutation relations:
+$$\,[\hat{a}_\mu,\hat{a}_\nu] = [\hat{a}_\mu^\dagger,\hat{a}_\nu^\dagger] = 0,
+    \qquad [\hat{a}_\mu,\hat{a}_\nu^\dagger] = \delta_{\mu\nu}.$${#eq-ip-commutations}
+These can be derived by taking the matrix elements with respect to the
+occupation number basis.  We will go through the derivation of the
+last commutation relation; the others are left as an exercise
+([Exercise 5](#sec-identical-particles-exercises)).
+
+To prove that $[\hat{a}_\mu,\hat{a}_\nu^\dagger] = \delta_{\mu\nu}$,
+first consider the case where the creation/annihilation operators act
+on the same single-particle state:
+$$\begin{aligned}\big\langle n_1, n_2, \dots \big| \hat{a}_\mu \hat{a}_\mu^\dagger \big| n_1', n_2'\dots\big\rangle &= \sqrt{(n_\mu+1)(n_\mu'+1)}\; \big\langle \dots, n_\mu+1, \dots \big| \dots, n_\mu'+1, \dots\big\rangle \\ &= \sqrt{(n_\mu+1)(n_\mu'+1)} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu+1}_{n_\mu'+1}\cdots \\ &= (n_\mu+1) \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \\ \big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle &= \sqrt{n_\mu n_\mu'}\; \big\langle \dots, n_\mu-1, \dots \big| \dots, n_\mu'-1, \dots\big\rangle \\&= \sqrt{n_\mu n_\mu'} \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu-1}_{n_\mu'-1}\cdots \\ &= n_\mu \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots \end{aligned}$$
+In the second equation, we were a bit sloppy in handling the $n_\mu =
+0$ and $n_\mu' = 0$ cases, but you can check for yourself that the
+result on the last line remains correct.  Upon taking the
+difference of the two equations, we get
+$$\big\langle n_1, n_2, \dots \big| \left(\hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu\right) \big| n_1', n_2'\dots\big\rangle = \delta^{n_1}_{n_1'} \; \delta^{n_2}_{n_2'} \; \cdots \delta^{n_\mu}_{n_\mu'}\cdots = \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.$$
+Since the occupation number states form a basis for $\mathscr{H}^F_S$,
+we conclude that
+$$\hat{a}_\mu \hat{a}_\mu^\dagger - \hat{a}_\mu^\dagger \hat{a}_\mu = \hat{I}.$$
+Next, consider the case where $\mu \ne \nu$:
+$$\begin{aligned}\big\langle n_1, \dots \big| \hat{a}_\mu \hat{a}_\nu^\dagger \big| n_1', \dots\big\rangle &= \sqrt{(n_\mu+1)(n_\nu'+1)}\, \langle \dots, n_\mu+1, \dots, n_\nu, \dots | \dots, n_\mu', \dots, n_\nu'+1, \dots\rangle \\ &= \sqrt{n_\mu' n_\nu} \;\, \delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu+1}_{n_\mu'} \cdots \delta^{n_\nu}_{n_\nu' + 1}\cdots \\ \big\langle n_1, \dots \big| \hat{a}_\nu^\dagger \hat{a}_\mu \big| n_1', \dots\big\rangle &= \sqrt{n_\mu' n_\nu}\, \langle \dots, n_\mu, \dots,n_\nu-1,\dots | \dots, n_\mu'-1, \dots, n_\nu'\dots\rangle \\&= \sqrt{n_\mu' n_\nu} \;\delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu}_{n_\mu'-1}\cdots \delta^{n_\nu-1}_{n_\nu'} \cdots \\ &= \sqrt{n_\mu' n_\nu} \; \delta^{n_1}_{n_1'} \; \cdots \delta^{n_\mu+1}_{n_\mu'}\cdots \delta^{n_\nu}_{n_\nu'+1} \cdots\end{aligned}$$
+Hence,
+$$\hat{a}_\mu \hat{a}_\nu^\dagger - \hat{a}_\nu^\dagger \hat{a}_\mu = 0 \;\;\;\mathrm{for}\;\;\mu\ne\nu.$$
+Combining these two results gives the desired commutation relation,
+$[\hat{a}_\mu, \hat{a}_\nu^\dagger] = \delta_{\mu\nu}$.
+
+Another useful result which emerges from the first part of this proof
+is that
+$$\big\langle n_1, n_2, \dots \big| \hat{a}_\mu^\dagger \hat{a}_\mu \big| n_1', n_2'\dots\big\rangle = n_\mu \big\langle n_1, n_2, \dots \big| n_1', n_2'\dots\big\rangle.$$
+Hence, we can define an observable corresponding to the occupation
+number of single-particle state $\mu$:
+$$\hat{n}_\mu \equiv \hat{a}_\mu^\dagger \hat{a}_\mu.$${#eq-ip-numberop}
+
+If you are familiar with the method of ladder operators for solving
+the quantum harmonic oscillator, you will have noticed the striking
+similarity to the creation and annihilation operators for bosons.
+This is no mere coincidence.  We will examine the relationship between
+harmonic oscillators and bosons in @sec-ho.
+
+### Second quantization for fermions {#sec-second-quantized-fermions}
+
+For fermions, the multi-particle states are antisymmetric.  The
+fermion creation operator can be defined as follows:
+$$\begin{aligned}\hat{c}_\mu^\dagger |n_1, n_2, \dots, n_\mu,\dots\rangle &= \begin{cases}(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}} |n_1, n_2, \dots, n_{\mu-1}, 1, \dots\rangle & \mathrm{if} \; n_\mu = 0 \\ \;\;0 & \mathrm{if}\; n_\mu = 1.
+    \end{cases} \\&= (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big|n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big\rangle. \end{aligned}$${#eq-ip-fermiondef}
+In other words, if state $\mu$ is unoccupied, then
+$\hat{c}_\mu^\dagger$ increments the occupation number to 1 and
+introduces a factor of $(-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}$ (i.e,
+$+1$ if there is an even number of occupied states preceding $\mu$,
+and $-1$ if there is an odd number).  The role of this factor will be
+apparent later.  Note that this definition requires the
+single-particle states to be ordered in some way; otherwise, it would
+not make sense to speak of the states "preceding" $\mu$.  It does
+not matter which ordering we choose, so long as we make *some*
+choice and stick to it consistently.
+
+If $\mu$ is occupied, applying $\hat{c}_\mu^\dagger$ gives the zero
+vector.  The occupation numbers are therefore forbidden from being
+larger than 1, consistent with the Pauli exclusion principle.
+
+The conjugate operator, $\hat{c}_\mu$, is the fermion annihilation
+operator.  To see what it does, take the Hermitian conjugate of the
+definition of the creation operator:
+$$\langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu  =
+  (-1)^{n_1 + n_2 + \cdots + n_{\mu-1}}\; \delta^{n_\mu}_0\, \big\langle n_1, n_2, \dots, n_{\mu-1}, 1, \dots\big|.$$
+Right-multiplying this by $|n_1',n_2',\dots\rangle$ gives
+$$\langle n_1, n_2, \dots, n_\mu,\dots| \hat{c}_\mu |n_1', n_2', \dots\rangle  = (-1)^{n_1 + \cdots + n_{\mu-1}} \;\delta^{n_1}_{n_1'} \cdots \;\delta^{n_{\mu-1}}_{n_{\mu-1}'} \left(\delta^{n_\mu}_0 \delta^1_{n_\mu'} \right) \delta^{n_{\mu+1}}_{n_{\mu+1}'} \dots$$
+Hence, we deduce that
+$$\begin{aligned}\hat{c}_\mu |n_1', \dots, n_\mu',\dots\rangle &= \begin{cases} \;\;0 & \mathrm{if}\; n_\mu' = 0 \\ (-1)^{n_1' + \cdots + n_{\mu-1}'} |n_1', \dots, n_{\mu-1}', 0, \dots\rangle & \mathrm{if} \; n_\mu' = 1. \end{cases} \\ &= (-1)^{n_1' + \cdots + n_{\mu-1}'} \; \delta^1_{n_\mu'} \, \big|n_1', \dots, n_{\mu-1}', 0, \dots\big\rangle.\end{aligned}$$
+In other words, if state $\mu$ is unoccupied, then applying
+$\hat{c}_\mu$ gives the zero vector; if state $\mu$ is occupied,
+applying $\hat{c}_\mu$ decrements the occupation number to $0$, and
+multiplies the state by the aforementioned factor of $\pm 1$.
+
+With these definitions, the fermion creation/annihilation operators
+can be shown to obey the following *anticommutation* relations:
+$$\big\{\hat{c}_\mu,\hat{c}_\nu\big\} = \big\{\hat{c}_\mu^\dagger,\hat{c}_\nu^\dagger\big\} = 0, \qquad \big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} = \delta_{\mu\nu}.$${#eq-ip-anticommutation}
+Here, $\{\cdot,\cdot\}$ denotes an anticommutator, which is defined by
+$$\left\{\hat{A},\hat{B}\right\} \equiv \hat{A}\hat{B} + \hat{B}\hat{A}.$$
+
+Similar to the bosonic commutation relations @eq-ip-commutations, the
+anticommutation relations @eq-ip-anticommutation can be derived by
+taking matrix elements with occupation number states.  We will only go
+over the last one, $\big\{\hat{c}_\mu,\hat{c}_\nu^\dagger\big\} =
+\delta_{\mu\nu}$; the others are left for the reader to verify.
+
+First, consider creation/annihilation operators acting on the same
+single-particle state $\mu$:
+$$\begin{aligned}\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu \hat{c}_\mu^\dagger \big|\dots, n_\mu', \dots\big\rangle &= (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\mu'} \\ &\quad\times \big\langle n_1,\dots,n_{\mu-1}, 1, \dots\big| n_1',\dots,n_{\mu-1}', 1, \dots \big\rangle \\ &= \delta^0_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots\end{aligned}$$
+By a similar calculation,
+$$\big\langle \dots,n_\mu,\dots \big| \hat{c}_\mu^\dagger \hat{c}_\mu \big|\dots, n_\mu', \dots\big\rangle = \delta^1_{n_\mu'} \; \cdot \; \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \delta^{n_\mu}_{n_\mu'} \cdots$$
+By adding these two equations, and using the fact that
+$\delta^0_{n_\mu'} + \delta^1_{n_\mu'} = 1$, we get
+$$\big\langle \dots,n_\mu,\dots \big| \left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} \big|\dots, n_\mu', \dots\big\rangle = \big\langle \dots,n_\mu,\dots \big|\dots, n_\mu', \dots\big\rangle$$
+And hence,
+$$\left\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\right\} = \hat{I}.$$
+
+Next, we must prove that $\left\{ \hat{c}_\mu,
+\hat{c}_\nu^\dagger\right\} = 0$ for $\mu \ne \nu$.  We will show this
+for $\mu < \nu$ (the $\mu > \nu$ case follows by Hermitian
+conjugation).  This is, once again, by taking matrix elements:
+$$\begin{aligned}\big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\mu \hat{c}_\nu^\dagger \big| & \dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\mu-1}} (-1)^{n_1'+\cdots+n_{\nu-1}'} \,\delta^{n_\mu}_0 \delta^0_{n_\nu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, 1, \dots, n_\nu,\dots\big| \dots,n_{\mu}', \dots,1, \dots \big\rangle \\ &\qquad\quad = (-1)^{n_\mu'+\cdots+n_{\nu-1}'}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'}\right) \cdots \\
+&\qquad\quad = (-1)^{1 + n_{\mu+1} + \cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^0_{n_\mu}\delta^1_{n_\mu'}\right) \cdots \left(\delta^0_{n_\nu'} \delta^1_{n_\nu}\right) \cdots \\
+  \big\langle \dots,n_\mu,\dots, n_\nu,\dots \big| \hat{c}_\nu^\dagger \hat{c}_\mu \big| &\dots, n_\mu', \dots, n_\nu',\dots\big\rangle = (-1)^{n_1+\cdots+n_{\nu-1}} (-1)^{n_1'+\cdots+n_{\mu-1}'} \,\delta^{n_\nu}_1 \delta^1_{n_\mu'} \\ &\qquad\qquad\qquad\qquad\qquad\times \big\langle \dots, n_\mu, \dots, 0,\dots\big| \dots,0, \dots,n_\nu', \dots \big\rangle \\ &\qquad\quad= (-1)^{n_{\mu}+\cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1 \delta^0_{n_\nu'} \right) \cdots \\ &\qquad\quad= (-1)^{0 + n_{\mu+1}+\cdots+n_{\nu-1}}\, \delta^{n_1}_{n_1'} \, \delta^{n_2}_{n_2'} \cdots \left(\delta^{n_\mu}_0\delta^1_{n_\mu'}\right) \cdots \left(\delta^{n_\nu}_1\delta^0_{n_\nu'}\right) \cdots
+  \end{aligned}$$
+The two equations differ by a factor of $-1$, so adding them gives
+zero.  (Note: had we omitted the $(-1)^{(\cdots)}$ factors in the
+definition @eq-ip-fermiondef, this last bit would not work.  Instead,
+we would conclude that $\hat{c}_\mu$ commutes with
+$\hat{c}_\nu^\dagger$ for $\nu \ne \mu$, but *anti*commutes
+with $\hat{c}_\mu^\dagger$.  So we end up with a more complicated set
+of rules for these operators.)
+
+Putting everything together, we end up with the anticommutation
+relation $\{ \hat{c}_\mu, \hat{c}_\mu^\dagger\} = \delta_{\mu\nu}$.
+The rest of the anticommutation relations in @eq-ip-anticommutation
+are derived similarly.
+
+As you can see, the derivation of the fermionic anticommutation
+relations is quite hairy, in large part due to the $(-1)^{(\cdots)}$
+factors from their definitions in terms of occupation number states.
+But once we have done these derivations, we can deal entirely with the
+creation and annihilation operators, and the simple anticommutation
+relations they obey!
+
+### Hamiltonians for non-interacting particles {#sec-second-quantized-operators}
+
+Second quantization provides a powerful way to express quantum
+operators, such as the Hamiltonian, for multi-particle systems.  The
+basic idea is to use creation and annihilation operators as the basic
+building blocks for constructing all other operators.
+
+Suppose the Hamiltonian for a single-particle ($N=1$) system is
+$\hat{H}^{(1)}$.  This is a Hermitian operator acting on the
+single-particle Hilbert space $\mathscr{H}^{(1)}$.  For general $N$,
+the Hamiltonian $\hat{H}$ should be a Hermitian operator acting on the
+Fock space $\mathscr{H}^F$.  What is this operator, and how is it
+related to $\hat{H}^{(1)}$?
+
+Let us assume, for specificity, that the particles are bosons.  We
+assert that if the particles are *non-interacting* (the precise
+meaning of which will be discussed shortly), the multi-particle
+Hamiltonian is
+$$\hat{H} = \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu,$${#eq-ip-twobosonH}
+where $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ are the boson creation
+and annihilation operators, defined using any orthonormal basis for
+$\mathscr{H}^{(1)}$, and
+$$H_{\mu\nu} = \langle\mu|\hat{H}^{(1)}|\nu\rangle$${#eq-ip-Hmunu}
+are the single-particle Hamiltonian's matrix elements in that basis.
+
+To justify @eq-ip-twobosonH, consider how it acts on various
+states in $\mathscr{H}^F$.  For the vacuum state,
+$$\hat{H}|\varnothing\rangle = 0,$$
+so $|\varnothing\rangle$ is an energy eigenstate with zero energy, as
+expected.  For single-particle states,
+$$\begin{aligned}
+  \hat{H} |n_\nu = 1\rangle
+  &= \sum_{\mu\nu'} \hat{a}^\dagger_{\mu} H_{\mu\nu'} \hat{a}_{\nu'}\,
+  \hat{a}_\nu^\dagger | \varnothing\rangle \\
+  &= \sum_{\mu} H_{\mu\nu} \hat{a}^\dagger_{\mu} |\varnothing\rangle.
+      \end{aligned}$${#eq-ip-hn}
+In going from the first line to the second, we used the commutation
+relation $\hat{a}_{\nu'} \hat{a}_\nu^\dagger = \delta_{\nu\nu'} +
+\hat{a}_\nu^\dagger \hat{a}_{\nu'}$, and the fact that
+$\hat{a}_{\nu'}|\varnothing\rangle = 0$.  We see that the second line
+exactly matches what we get from the single-particle Hamiltonian
+defined in @eq-ip-Hmunu:
+$$\hat{H}^{(1)} = \sum_{\mu\nu} |\mu\rangle H_{\mu\nu} \langle \nu|
+  \;\;\;\Rightarrow\;\;\;
+  \hat{H}^{(1)} |\nu\rangle = \sum_\mu H_{\mu\nu} |\mu\rangle.$$
+As a final justification, suppose the single-particle basis states are
+eigenstates of $\hat{H}^{(1)}$:
+$$\hat{H}^{(1)}|\mu\rangle = E_\mu |\mu\rangle
+  \;\;\;\Rightarrow\;\;\;
+  \hat{H} = \sum_{\mu} E_\mu \, \hat{a}^\dagger_\mu \hat{a}_\mu
+  = \sum_{\mu} E_\mu \hat{n}_\mu,$$
+where $\hat{n}_\mu$ is the number operator defined in
+@eq-ip-numberop.  Thus, the total energy of the system is the sum
+of the energies of the individual particles, as we expect for
+particles not interacting with one another.
+
+It is interesting to interpret @eq-ip-twobosonH in light of the
+Hamiltonian's role as the generator of time evolution.  During an
+infinitesimal time step, the evolution operator is
+$$\begin{aligned}
+  \hat{U}(\delta t) &\approx
+  \hat{I} - \frac{i \delta t}{\hbar} \hat{H} \\
+  &= \hat{I} - \frac{i \delta t}{\hbar} \sum_{\mu\nu} \hat{a}^\dagger_\mu H_{\mu\nu} \hat{a}_\nu.
+\end{aligned}$$
+The evolution includes processes whereby a particle is annihilated in
+state $\nu$, and then immediately re-created in state $\mu$, which we
+can interpret as transferring a particle from $\nu$ to $\mu$.  These
+processes, as well as the omitted higher-order terms, leave the total
+particle number unchanged.  In fact, we can formally show that the
+total particle number is conserved:
+$$[\hat{H}, \hat{N}] = 0, \;\;\;\mathrm{where}\;\;\hat{N} \equiv \sum_\mu \hat{a}_\mu^\dagger a_\mu.$${#eq-ip-Hdiag}
+This proof is left as an exercise (see
+[Exercise 6](#sec-identical-particles-exercises)).
+
+Other multi-particle observables can be expressed similarly.  Given
+any single-particle observable $\hat{A}^{(1)}$, we can define an
+observable for the "total $A$" of a multi-particle system:
+$$\hat{A} = \sum_{\mu\nu} \hat{a}^\dagger_\mu A_{\mu\nu} \hat{a}_\nu, \;\;\; \mathrm{where}\;\; A_{\mu\nu} = \langle\mu|\hat{A}^{(1)}|\nu\rangle.$${#eq-ip-Aop}
+Similar to @eq-ip-Hdiag, the $\hat{A}$ operator commutes with the
+total particle number operator $\hat{N}$.  It is also worth noting
+that the form of @eq-ip-Aop is independent of the choice of
+single-particle basis.  Suppose we replace the $\{|\mu\rangle,
+|\nu\rangle, \dots\}$ basis with a new basis $\{|p\rangle, |q\rangle,
+\dots\}$, related to the old basis states by some linear
+transformation
+$$|p\rangle = \sum_\mu U_{p\mu} |\mu\rangle,$${#eq-ip-alphabasis}
+where $U$ is unitary: $U^*_{p \mu} = (U^{-1})_{\mu p}$.  We can write
+@eq-ip-alphabasis in second quantized form as
+$$\hat{a}_p^\dagger|\varnothing\rangle = \sum_\mu U_{p\mu}
+  \hat{a}_\mu^\dagger |\varnothing\rangle,$$
+where $\hat{a}_p^\dagger$ is the creation operator defined in the new
+basis.  We thereby deduce that
+$$\begin{aligned}
+  \hat{a}_p^\dagger &= \sum_\mu U_{p\mu} \hat{a}_\mu^\dagger \\
+  \hat{a}_p &= \sum_\mu U_{p\mu}^* \hat{a}_\mu. \end{aligned}$${#eq-ip-ap}
+Using the unitarity of $U_{\alpha\mu}$, we can verify that the new
+$\hat{a}_p$ and $\hat{a}_p^\dagger$ operators satisfy the bosonic
+commutation relations.  We can also invert
+@eq-ip-ap to obtain
+$$\begin{aligned}
+  \hat{a}_\mu^\dagger &= \sum_p U_{p\mu}^* \hat{a}_p^\dagger\\
+  \hat{a}_\mu &= \sum_p U_{p\mu} \hat{a}_p.
+\end{aligned}$$
+Plugging these into the multi-particle observable @eq-ip-Aop yields
+$$\begin{aligned}
+  \hat{A} &= \sum_{\mu\nu pq}
+  \hat{a}^\dagger_p U_{p\mu}^* A_{\mu\nu} U_{q\nu} \hat{a}_q \\
+  &= \sum_{pq}
+  \hat{a}^\dagger_p A_{pq} \hat{a}_q,
+\end{aligned}$$
+where
+$$A_{pq} = U_{p\mu}^* A_{\mu\nu} U_{q\nu}
+  = \langle p | \hat{A}^{(1)} |q\rangle.$$
+In other words, adopting a different single-particle basis simply
+alters the single-particle state labels in @eq-ip-Aop.
+
+For fermions, all of the above holds true with the $a$ operators
+replaced by $c$ operators.  For example, the Hamiltonian for a system
+of non-interacting fermions is
+$$\hat{H} = \sum_{\mu\nu} \hat{c}^\dagger_\mu H_{\mu\nu} \hat{c}_\nu,$${#eq-ip-twofermionH}
+where the $\hat{c}_\nu$ and $\hat{c}_\mu^\dagger$ operators obey the
+anticommutation relations @eq-ip-anticommutation.
+
+### Particle interactions
+
+There are other ways to combine creation and annihilation operators
+into multi-particle observables.  For example, a pairwise potential
+for a system of bosons has the form
+$$\hat{V} = \frac{1}{2}
+  \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\mu \hat{a}^\dagger_\nu \,
+  V_{\mu\nu\lambda\sigma}\, \hat{a}_\sigma \hat{a}_\lambda.$${#eq-ip-Vop}
+The prefactor of $1/2$ is conventional.  If such an operator is placed
+into the Hamiltonian, then during each infinitesimal time step it
+induces the annihilation and immediate re-creation of a pair of
+particles, which can be interpreted as a two-particle interaction.
+The total particle number is conserved during this process.
+
+The coefficients $\{ V_{\mu\nu\lambda\sigma} \}$ in @eq-ip-Vop
+can be determined from the 2-particle form of the potential operator.
+First, note that we want $\hat{V}$ to be Hermitian, so
+$$\hat{V}^\dagger = \frac{1}{2}
+  \sum_{\mu\nu\lambda\sigma} \hat{a}^\dagger_\lambda \hat{a}^\dagger_\sigma
+  \, V_{\mu\nu\lambda\sigma}^* \, \hat{a}_\nu \hat{a}_\mu = \hat{V}.$$
+Comparing this to @eq-ip-Vop, we see that Hermiticity can be
+achieved by requiring that
+$$V_{\lambda\sigma\mu \nu}^* = V_{\mu\nu\lambda\sigma}.$$
+Now, let $\hat{V}^{(2)}$ be the potential operator in the 2-particle
+Hilbert space $\mathscr{H}^{(2)}$.  We can compare the matrix elements
+for $\hat{V}$ and $\hat{V}^{(2)}$.  For example, consider the 2-boson
+states
+$$\begin{aligned}
+    |n_\mu = 1, n_\nu = 1\rangle &= \frac{1}{\sqrt{2}}
+      \Big(|\mu\rangle|\nu\rangle + |\nu\rangle|\mu\rangle \Big), \\
+    |n_\lambda = 1, n_\sigma = 1\rangle &= \frac{1}{\sqrt{2}}
+      \Big(|\lambda\rangle|\sigma\rangle + |\sigma\rangle|\lambda\rangle \Big),
+  \end{aligned}$$
+where $\mu \ne \nu$ and $\lambda \ne \sigma$.  The matrix elements of
+$\hat{V}^{(2)}$ are
+$$\langle n_\mu = 1, n_\nu = 1 | \hat{V}^{(2)} |n_\lambda = 1, n_\sigma = 1\rangle
+  = \frac{1}{2} \Big(
+  \langle\mu|\langle\nu|\hat{V}^{(2)}|\lambda\rangle|\sigma\rangle
+  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\lambda\rangle|\sigma\rangle
+  + \langle\mu|\langle\nu|\hat{V}^{(2)}|\sigma\rangle|\lambda\rangle
+  + \langle\nu|\langle\mu|\hat{V}^{(2)}|\sigma\rangle|\lambda\rangle
+  \Big).$${#eq-ip-mat0}
+On the other hand, the matrix elements of $\hat{V}$ are
+$$\begin{aligned}
+  \langle n_\mu = 1, n_\nu = 1 | \hat{V} |n_\lambda = 1, n_\sigma = 1\rangle
+  &= \sum_{\mu'\nu'\lambda'\sigma'} V_{\mu'\nu'\lambda'\sigma'}
+  \langle \varnothing | \hat{a}_\nu \hat{a}_\mu \hat{a}_{\mu'}^\dagger
+  \hat{a}_{\nu'}^\dagger \hat{a}_{\sigma'} \hat{a}_{\lambda'}
+  \hat{a}_\lambda^\dagger \hat{a}_\sigma^\dagger |\varnothing\rangle \\
+  &= \frac{1}{2} \left(V_{\mu\nu\lambda\sigma}
+  + V_{\mu\nu\sigma\lambda}
+  + V_{\nu\mu\lambda\sigma}
+  + V_{\nu\mu\sigma\lambda} \right).\end{aligned}$${#eq-ip-mat2}
+In going from the first equation to the second, we use the bosonic
+commutation relations repeatedly to "push" the annihilation
+operators to the right (so that they can act upon
+$|\varnothing\rangle$), and to push the creation operators to the left
+(so that they can act upon $\langle\varnothing|$).  Comparing
+@eq-ip-mat0 to @eq-ip-mat2, we see that the matrix elements
+match if we simply take
+$$V_{\mu\nu\lambda\sigma} = \langle\mu|\langle\nu|\hat{V}^{(2)}
+  |\lambda\rangle|\sigma\rangle.$$
+For instance, if the bosons have a position representation, we would
+have something like
+$$V_{\mu\nu\lambda\sigma} =
+  \int d^d r_1 \int d^d r_2\;
+  \varphi_\mu^*(r_1) \,\varphi_\nu^*(r_2) \, V(r_1, r_2) \,
+  \varphi_\lambda(r_1) \, \varphi_\sigma(r_2).$$
+The appropriate coefficients for $\mu = \nu$ and/or $\lambda =
+\sigma$, and for the fermionic case, are left for the reader to work
+out.
+
+### Particle non-conserving observables {#sec-particle-nonconserving}
+
+Another way to build an observable from creation and annihilation
+operators is
+$$\hat{A} = \sum_\mu \left(\alpha_\mu \hat{a}_\mu^\dagger + \alpha^*_\mu \hat{a}_\mu\right).$$
+If such a term is added to a Hamiltonian, it breaks the conservation
+of total particle number $N$.  Each infinitesimal time step will
+involve processes that decrement $N$ (due to $\hat{a}_\mu$), and
+processes that increment $N$ (due to $\hat{a}_\mu^\dagger$).  Thus,
+even if the initial state has definite $N$, it subsequently evolves
+into a state of indefinite $N$, consisting of a superposition of state
+vectors with different $N$.
+
+Such operators are physically relevant.  For example, we will see that
+in quantum electrodynamics (Chapter 5), this sort of number
+non-conserving operator is responsible for the emission and absorption
+of photons.
+
+## Quantum field theory {#sec-qft}
+
+### Field operators
+
+So far, we have been agnostic about the choice of single-particle
+basis states used in defining creation and annihilation operators.
+Let us now consider the common situation where the single-particle
+Hilbert space $\mathscr{H}^{(1)}$ has a position basis.
+
+Assume, as before, that $\{|\mu\rangle\}$ is some discrete orthonormal
+basis for $\mathscr{H}^{(1)}$, from which are defined the creation and
+annihilation operators $\hat{a}_\mu^\dagger$ and $\hat{a}_\mu$ (we
+will adopt the notation for bosons, but most of this discussion
+applies without modification to fermions).  Now, let
+$\mathscr{H}^{(1)}$ also have a position basis
+$\{|\mathbf{r}\rangle\}$, where the position eigenstates are indexed
+by $d$-dimensional position vectors $\mathbf{r}$.  For each
+$|\mu\rangle$, we have a wavefunction defined by
+$$\varphi_\mu(\mathbf{r}) = \langle\mathbf{r}|\mu\rangle.$$
+Since the $|\mu\rangle$'s are orthonormal, the wavefunctions have the
+following completeness and orthonormality properties:
+$$\begin{aligned}
+  \int d^dr \; \varphi_\mu^*(\mathbf{r})\, \varphi_\nu(\mathbf{r}) &= \delta_{\mu\nu}, \\
+  \sum_\mu \varphi_\mu^*(\mathbf{r}) \varphi_\mu(\mathbf{r}') &=
+  \delta^d(\mathbf{r}-\mathbf{r}').
+  \end{aligned}$${#eq-ip-wfn}
+Now consider the following "**field operators**":
+$$\begin{aligned}
+  \hat{\psi}(\mathbf{r}) &= \sum_\mu \varphi_\mu(\mathbf{r}) \, \hat{a}_\mu \\
+  \hat{\psi}^\dagger(\mathbf{r}) &= \sum_\mu \varphi_\mu^*(\mathbf{r}) \, \hat{a}_\mu^\dagger.
+  \end{aligned}$${#eq-ip-psir}
+These are Fock space operators, and they depend parametrically on
+$\mathbf{r}$, just as $\hat{a}_\mu$ and $\hat{a}_\mu^\dagger$ depend
+on the choice of $\mu$.
+
+In classical physics, a field is something that maps the position
+$\mathbf{r}$ to one or more numbers, like the components of the
+electric field vector $\mathbf{E}(\mathbf{r})$.  Here we have
+$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$, which
+map $\mathbf{r}$ to operators, rather than numbers.  This can
+therefore be regarded as a quantum generalization of the classical
+notion of a field.  A quantum theory involving such
+position-to-operator mappings is called a **quantum field
+  theory**.
+
+To understand the meaning of these field operators, let us use
+@eq-ip-psir, along with the second of @eq-ip-wfn, to
+derive the commutation relations
+$$\begin{aligned}
+  \big[\hat{\psi}(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\big]
+  &= \sum_{\mu\nu} \varphi_\mu(\mathbf{r}) \varphi_\nu^*(\mathbf{r}')
+  \left[\hat{a}_\mu, \hat{a}_\nu^\dagger\right] \\
+  &= \sum_{\mu} \varphi_\mu(\mathbf{r}) \varphi_\mu^*(\mathbf{r}') \\
+  &= \delta^d(\mathbf{r}-\mathbf{r}').
+\end{aligned}$$
+Similarly, we can show that
+$$\big[\hat{\psi}(\mathbf{r}), \hat{\psi}(\mathbf{r}')\big]
+  = \big[\hat{\psi}^\dagger(\mathbf{r}), \hat{\psi}^\dagger(\mathbf{r}')\big]
+  = 0.$$
+These are just like the original bosonic commutation relations
+@eq-ip-commutations, except that the state labels replaced by
+positions, and the Kronecker delta is replaced by a delta function.
+We can therefore interpret $\hat{\psi}^\dagger(\mathbf{r})$ and
+$\hat{\psi}(\mathbf{r})$ as spatially localized creation and
+annihhilation operators: $\hat{\psi}^\dagger(\mathbf{r})$ creates a
+particle at $\mathbf{r}$, while $\hat{\psi}(\mathbf{r})$ annihilates a
+particle at $\mathbf{r}$.  For fermions, the above commutators are
+simply replaced by anticommutators.
+
+These field operators supply the motivation for the term "second
+quantization", introduced in @sec-secondquant to refer
+to the use of creation and annihilation operators for multi-particle
+quantum systems.  The idea is that single-particle quantum mechanics
+is derived by quantizing classical mechanics, which involves
+converting numbers like $\mathbf{r}$ and $\mathbf{p}$ into operators
+like $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$.  The subsequent
+extension of single-particle quantum mechanics to multi-particle
+quantum mechanics involves creation and annihilation operators like
+$\hat{\psi}^\dagger(\mathbf{r})$ and $\hat{\psi}(\mathbf{r})$, whose
+definitions in @eq-ip-psir are based on the
+single-particle wavefunctions.  This can be viewed as a second
+quantization step, whereby the single-particle wavefunction
+$\varphi_\mu(\mathbf{r})$ is converted into a quantum field.  Still,
+"second quantization" is not entirely satisfactory terminology,
+because quantum field theories are not necessarily derived using this
+two-step procedure.  In @sec-scalar-boson, we will see an
+example of deriving field operators directly from a classical field
+theory.
+
+Physically relevant observables can be expressed using the field
+operators $\hat{\psi}(\mathbf{r})$ and
+$\hat{\psi}^\dagger(\mathbf{r})$.  As discussed in
+@sec-second-quantized-operators, given a single-particle observable
+$\hat{A}^{(1)}$ we can define a Fock space observable $\hat{A}$
+corresponding to the "total $A$" of a multi-particle system:
+$$\hat{A} = \sum_{\mu\nu} \hat{a}_\mu^\dagger \,
+  \langle\mu|\hat{A}^{(1)}|\nu\rangle \, \hat{a}_\nu.$${#eq-ip-Ainitial}
+We can re-express such an operator using the field operators.  First,
+using @eq-ip-wfn, we derive the inverse relations
+$$\begin{aligned}
+  \hat{a}_\mu &= \int d^dr \; \varphi_\mu^*(\mathbf{r}) \, \hat{\psi}(\mathbf{r}) \\
+  \hat{a}_\mu^\dagger &= \int d^dr \; \varphi_\mu(\mathbf{r}) \, \hat{\psi}^\dagger(\mathbf{r}).
+\end{aligned}$$
+Plugging these into @eq-ip-Ainitial yields
+$$\hat{A} = \int d^dr \,d^dr' \;\hat{\psi}^\dagger(\mathbf{r})
+  \;\langle \mathbf{r}|\hat{A}^{(1)}|\mathbf{r}'\rangle \; \hat{\psi}(\mathbf{r}').$${#eq-ip-Arecipe}
+For example, the single-particle Hamiltonian for a particle in a
+potential $V$ is
+$$\hat{H}^{(1)} = \frac{|\hat{\mathbf{p}}|^2}{2m} + V(\hat{\mathbf{r}}),$${#eq-ip-Hsinglep}
+where $\hat{\mathbf{r}}$ and $\hat{\mathbf{p}}$ are the
+single-particle position and momentum operators.  We can convert the
+kinetic energy and potential energy terms to second quantized form
+using @eq-ip-Arecipe.  The expression for the kinetic energy
+operator can be further simplified by integrating by parts twice,
+which yields
+$$\hat{T} = \frac{\hbar^2}{2m} \int d^d r\; \nabla \hat{\psi}^\dagger
+  (\mathbf{r}) \, \cdot \, \nabla \hat{\psi}(\mathbf{r}).$${#eq-ip-Top}
+The potential energy operator, meanwhile, simplifies to
+$$\hat{V} = \int d^dr \;\hat{\psi}^\dagger(\mathbf{r}) \;V(\mathbf{r}) \; \hat{\psi}(\mathbf{r}).$${#eq-ip-Vhatop}
+Note that the $\hat{\mathbf{r}}$ in @eq-ip-Hsinglep is an
+operator, whereas the the $\mathbf{r}$ in @eq-ip-Top and
+@eq-ip-Vhatop are vectors (i.e., arrays of numbers).  In a quantum
+field theory, the position serves as an index for the various field
+operators, and is not itself an observable.
+
+@eq-ip-Top and @eq-ip-Vhatop are strongly reminiscent of the
+expectation values for the kinetic and potential energy in
+single-particle quantum mechanics:
+$$\langle T\rangle = \frac{\hbar^2}{2m} \int d^d r \left|\nabla\psi(\mathbf{r})\right|^2, \;\;\; \langle V\rangle = \int d^dr \; V(\mathbf{r}) \; |\psi(\mathbf{r})|^2,$$
+where $\psi(\mathbf{r})$ is the single-particle wavefunction.  This
+accords with the aforementioned hand-waving interpretation of
+$\hat{\psi}(\mathbf{r})$ and $\hat{\psi}^\dagger(\mathbf{r})$ as being
+derived by "quantizing" the wavefunction.
+
+As mentioned in @sec-particle-nonconserving, we can also
+use creation and annihilation operators to construct observables that
+do not commute with the total particle number.  One example is
+$$\psi(\mathbf{r}) + \psi(\mathbf{r})^\dagger.$$
+More generally, we can come up with observables of the form
+$$F(\mathbf{r}) = \int d^dr' \Big(f(\mathbf{r},\mathbf{r}') \hat{\psi}(\mathbf{r}) + f^*(\mathbf{r},\mathbf{r}') \hat{\psi}^\dagger(\mathbf{r}') \Big),$${#eq-ip-fieldop}
+where $f(\mathbf{r},\mathbf{r}')$ is some complex function.  We will
+shortly see that observables of this sort are used in the quantum
+generalization of classical field variables, like the electric field
+$\mathbf{E}(\mathbf{r})$ or the magnetic field
+$\mathbf{B}(\mathbf{r})$.
+
+In the next two sections, we will try to get a better understanding of
+the relationship between classical fields and bosonic quantum fields.
+(The situation for fermionic quantum fields is more complicated; these
+cannot be related to classical fields of the sort we are familiar
+with, for reasons that lie outside the scope of this course.)
+
+### Revisiting the harmonic oscillator {#sec-ho}
+
+Before delving into the links between classical fields and bosonic
+quantum fields, let us first revisit the harmonic oscillator.  Our
+objective is to see how the concept of a **normal mode** carries
+over from classical to quantum mechanics.
+
+A classical 1D harmonic oscillator is described by the Hamiltonian
+$$H(x,p) = \frac{p^2}{2m} + \frac{1}{2}m\omega^2x^2,$${#eq-ip-Hclass}
+where $x$ is the oscillator's position variable, $p$ is the
+corresponding momentum variable, $m$ is the mass, and $\omega$ is the
+natural frequency of oscillation.  We know that the classical
+equations of motion have solutions of the form
+$$x(t) = \mathcal{A}\, e^{-i\omega t} + \mathcal{A}^*\, e^{i\omega t}.$${#eq-ip-xt0}
+Such a solution describes an oscillation of frequency $\omega$, and is
+parameterized by the **mode amplitude** $\mathcal{A}$, a complex
+number determining the magnitude and phase of the oscillation.
+
+For the quantum harmonic oscillator, $x$ and $p$ are replaced by the
+observables $\hat{x}$ and $\hat{p}$.  From these, we can define the
+**ladder operators** $\hat{a}$ and $\hat{a}^\dagger$:
+$$\left\{
+  \begin{aligned}
+  \hat{a} &= \sqrt{\frac{m\omega}{2\hbar}} \left(\hat{x} + \frac{i\hat{p}}{m\omega}\right), \\
+  \hat{a}^\dagger &= \sqrt{\frac{m\omega}{2\hbar}} \left(\hat{x} - \frac{i\hat{p}}{m\omega}\right).
+  \end{aligned}\right. \quad
+  \Leftrightarrow\quad\left\{
+  \begin{aligned}
+    \hat{x} &= \;\;\;\;\sqrt{\frac{\hbar}{2m\omega}}
+    \, \left(\hat{a}+\hat{a}^\dagger\right) \\
+    \hat{p} &= -i \sqrt{\frac{m\omega\hbar}{2}}
+    \, \left(\hat{a}-\hat{a}^\dagger\right).
+  \end{aligned}\right.$${#eq-ip-create-annihilate}
+It can be shown that
+$$\left[\,\hat{a}\,,\,\hat{a}^\dagger\,\right] = 1, \;\;\;
+  \hat{H} = \hbar\omega\left(\hat{a}^\dagger\hat{a}+\frac{1}{2}\right).$${#eq-ip-create-annihilate-qho}
+Furthermore, we can use the ladder operators to derive the energy
+spectrum.  The details should have been covered in an earlier course.
+
+How do the ladder operators relate to the dynamics of the quantum
+harmonic oscillator?  Let us go to the Heisenberg picture, with $t =
+0$ as the reference time.  The Heisenberg picture position operator is
+$$\hat{x}(t) = \hat{U}^\dagger(t) \,\hat{x}\, \hat{U}(t),$$
+where
+$$\hat{U}(t) \equiv \exp\left(-\frac{i}{\hbar}\hat{H}t\right).$$
+We will adopt the convention that all operators written with an
+explicit $t$-dependence refer to Heisenberg picture operators, while
+those written without a $t$-dependence are Schrödinger picture
+operators.  For example, $\hat{x} \equiv \hat{x}(0)$.  Now, referring
+to @eq-ip-create-annihilate, we see that $\hat{x}(t)$ is related
+to the Heisenberg picture ladder operators by
+$$\hat{x}(t) = \sqrt{\frac{\hbar}{2m\omega}} \, \Big(\hat{a}(t)+\hat{a}^\dagger(t)\Big).$${#eq-ip-xt1}
+The Heisenberg equation for the annihilation operator is
+$$\begin{aligned}
+  \frac{d\hat{a}(t)}{dt} &= \frac{i}{\hbar} \big[\hat{H},\hat{a}(t)\big] \\
+  &= \frac{i}{\hbar} \,\hat{U}^\dagger(t) \big[\hat{H},\hat{a}\big] \hat{U}(t) \\
+  &= \frac{i}{\hbar} \,\hat{U}^\dagger(t) \Big(-\hbar\omega \hat{a}\Big) \hat{U}(t) \\
+  &= -i\omega \hat{a}(t).
+  \end{aligned}$${#eq-ip-heisenbergeq}
+Hence,
+$$\hat{a}(t) = \hat{a} \, e^{-i\omega t}.$${#eq-ip-at}
+We can apply this, along with its Hermitian conjugate, to
+@eq-ip-xt1, obtaining
+$$\hat{x}(t) = \sqrt{\frac{\hbar}{2m\omega}} \,
+  \Big(\hat{a} \,e^{-i\omega t} \,+\,
+  \hat{a}^\dagger\, e^{i\omega t}\Big).$${#eq-ip-xtquantum}
+This has exactly the same form as the classical oscillatory solution
+@eq-ip-xt0!  Comparing the two, we see that $\hat{a}$ times the scale
+factor $\sqrt{\hbar/2m\omega}$ plays the role of the mode amplitude
+$\mathcal{A}$.
+
+Now, suppose we come at things from the opposite direction.  We start
+with a pair of ladder operators that satisfy
+@eq-ip-create-annihilate-qho, from which
+@eq-ip-heisenbergeq and @eq-ip-at follow.  We then want to
+construct an observable corresponding to a classical oscillator
+variable.  A natural Hermitian ansatz is
+$$\hat{x}(t) = 
+  \mathcal{C} \left(\hat{a} \,e^{-i\omega t} \,+\,
+  \hat{a}^\dagger\, e^{i\omega t}\right),$${#eq-ip-xtc}
+where $\mathcal{C}$ is a constant that is conventionally taken to be
+real.
+
+How might $\mathcal{C}$ be chosen?  To figure this out, we can study
+the behavior *in the classical limit*.  The classical limit of
+a quantum harmonic oscillator is described by a **coherent
+  state**.  The details of how this state is defined need not concern
+us for now (see Appendix E).  The most important things to know are
+that (i) it can be denoted by $|\alpha\rangle$ where $\alpha \in
+\mathbb{C}$, (ii) it is an eigenstate of the annihilation operator:
+$$\hat{a}|\alpha\rangle = \alpha|\alpha\rangle.$${#eq-ip-coherent}
+Also, (iii) its energy expectation value is
+$$\langle E\rangle = \ \langle\alpha|\hat{H}|\alpha\rangle = \hbar
+  \omega \left(|\alpha|^2 + \frac{1}{2}\right)
+  \overset{|\alpha|^2\rightarrow\infty}{\longrightarrow} \hbar \omega
+  |\alpha|^2.$${#eq-ip-Havg1}
+When the system is in a coherent state, we can effectively substitute
+the $\hat{a}$ and $\hat{a}^\dagger$ operators in @eq-ip-xtc with
+the complex numbers $\alpha$ and $\alpha^*$, which gives a classical
+trajectory
+$$x_{\mathrm{classical}}(t) = \mathcal{C} \left(\alpha \,e^{-i\omega t} \,+\,
+  \alpha^*\, e^{i\omega t}\right).$${#eq-ip-xtc2}
+This has amplitude $2\mathcal{C}|\alpha|$.  At maximum displacement,
+the classical momentum is zero, so the total energy of the classical
+oscillator must be
+$$E_{\mathrm{classical}}
+  = \frac{1}{2} m\omega^2 \Big(2\mathcal{C}|\alpha|\Big)^2
+  = 2m\omega^2 \mathcal{C}^2 |\alpha|^2.$${#eq-ip-Eclassical}
+Equating the classical energy @eq-ip-Eclassical to the coherent state
+energy @eq-ip-Havg1 gives
+$$\begin{aligned}
+  2m\omega^2 \mathcal{C}^2 |\alpha|^2 &= \hbar \omega
+  |\alpha|^2 \\ \Rightarrow \qquad
+  \mathcal{C} &= \sqrt{\frac{\hbar}{2m\omega}}.
+\end{aligned}$$
+This exactly matches the factor in @eq-ip-xtquantum.
+
+### A scalar boson field {#sec-scalar-boson}
+
+We now have the basic ingredients for understanding the connection
+between a classical field and its quantum counterpart.  Consider a
+classical scalar field variable $f(x,t)$, defined in 1D space, whose
+classical equation of motion is the wave equation:
+$$\frac{\partial^2\! f(x,t)}{\partial x^2}
+  = \frac{1}{c^2} \frac{\partial^2\! f(x,t)}{\partial t^2}.$${#eq-ip-waveeqn}
+The constant $c$ is a wave speed.  @eq-ip-waveeqn arises in many
+physical contexts, including the propagation of sound through air, in
+which case $c$ is the speed of sound.
+
+Let us first consider the case where the field is defined in a finite
+interval of length $L$, with the periodic boundary conditions $f(x,t)
+\equiv f(x+L, t)$.  @eq-ip-waveeqn possesses solutions of the
+form
+$$f(x,t) = \sum_n \left( \mathcal{A}_n\, \varphi_n(x) \, e^{-i\omega_n t}
+  + \mathcal{A}_n^*\, \varphi_n^*(x) \, e^{i\omega_n t}\right),$${#eq-ip-fnorm}
+which corresponds to a superposition of **normal modes**.  Each
+normal mode (labelled $n$) varies harmonically in time with a mode
+frequency $\omega_n$, and varies in space according to a complex mode
+profile $\varphi_n(x)$; its overall magnitude and phase is specified
+by the mode amplitude $\mathcal{A}_n$.  The mode profiles are
+normalized according to some fixed convention, e.g.
+$$\int_0^L dx \, |\varphi_n(x)|^2 = 1.$$
+Substituting @eq-ip-fnorm into @eq-ip-waveeqn, and using the
+periodic boundary conditions, gives
+$$\varphi_n(x) = \frac{1}{\sqrt{L}}\, \exp\left(ik_n x\right), \;\;\;
+  \omega_n = c k_n = \frac{2\pi c n}{L}, \;\;\; n \in \mathbb{Z}.$${#eq-ip-classical-modes}
+These mode profiles are orthonormal:
+$$\int_0^L dx \, \varphi_m^*(x) \, \varphi_n(x) = \delta_{mn}.$$
+Each normal mode carries energy.  By analogy with the classical
+harmonic oscillator---see @eq-ip-xtc2 and @eq-ip-Eclassical---we
+assume that the energy per unit length is proportional to the square
+of the field variable.  Let it have the form
+$$U(x) = 2 \rho \sum_n|\mathcal{A}_n|^2 \, |\varphi_n(x)|^2,$${#eq-ip-Edensity}
+where $\rho$ is some parameter that has to be derived from the
+underlying physical context.  For example, for acoustic modes, $\rho$
+is the mass density of the underlying acoustic medium.  In the next
+chapter, we will see another example involving the energy density of
+an electromagnetic mode.  From @eq-ip-Edensity, we can express
+the total energy of the system as
+$$E = \int_0^L dx \; U(x) = 2  \rho \sum_n |\mathcal{A}_n|^2.$${#eq-ip-classical-energy}
+
+To quantize the classical field, we treat each normal mode as an
+independent oscillator, with creation and annihilation operators
+$\hat{a}_n^\dagger$ and $\hat{a}_n$ satisfying
+$$\big[\,\hat{a}_m\,,\, \hat{a}_n^\dagger\big] = \delta_{mn}, \;\;\;
+  \big[\,\hat{a}_m\,,\, \hat{a}_n\big] =
+  \big[\,\hat{a}_m^\dagger\,,\, \hat{a}_n^\dagger\big] = 0.$$
+We then take the Hamiltonian to be that of a set of independent
+harmonic oscillators:
+$$\hat{H} = \sum_n \hbar \omega_n \hat{a}_n^\dagger \hat{a}_n + E_0,$$
+where $E_0$ is the ground-state energy.  Just as in
+@sec-ho, the Heisenberg picture annihilation operator has
+the following solution:
+$$\hat{a}_n(t) = \hat{a}_n e^{-i\omega_n t}.$$
+As previously noted, we can use the creation and annihilation
+operators to construct observables.  In the Schrödinger picture,
+consider an observable of the form
+$$\hat{f}(x) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x)
+  + \hat{a}_n^\dagger \varphi_n^*(x) \Big),$$
+involving some real constant $\mathcal{C}_n$ for each normal mode $n$.
+In the Heisenberg picture,
+$$\hat{f}(x,t) = \sum_n \mathcal{C}_n \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
+  + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).$${#eq-ip-fxt}
+This is evidently the quantum version of the classical solution
+@eq-ip-fnorm.
+
+To determine the $\mathcal{C}_n$ factors, we consider the classical
+limit and follow the same procedure as @sec-ho.  Let
+$|\alpha\rangle$ be a coherent state for all the normal modes; i.e.,
+for each $n$,
+$$\hat{a}_n |\alpha\rangle = \alpha_n |\alpha\rangle$$
+for some $\alpha_n \in \mathbb{C}$.  Then the expectation value for
+the total energy is
+$$\langle E\rangle = \sum_n \hbar \omega_n |\alpha_n|^2.$${#eq-ip-Ecoherent-field}
+In the coherent state, the $\hat{a}_n$ and $\hat{a}_n^\dagger$
+operators in @eq-ip-fxt can be replaced with $\alpha_n$ and
+$\alpha_n^*$ respectively.  Hence, we identify $\mathcal{C}_n
+\alpha_n$ as the classical mode amplitude $\mathcal{A}_n$ in
+@eq-ip-fnorm.  In order for the classical energy
+@eq-ip-classical-energy to match the coherent state energy
+@eq-ip-Ecoherent-field,
+$$\begin{aligned}
+  2\rho |\mathcal{A}_n|^2 &= 2 \rho |\mathcal{C}_n\alpha_n|^2
+  = \hbar \omega_n |\alpha_n|^2 \\ \Rightarrow \qquad
+  \mathcal{C}_n &= \sqrt{\frac{\hbar\omega_n}{2\rho}}.
+\end{aligned}$$
+We thus conclude that the appropriate field operator is
+$$\hat{f}(x,t) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho}}
+  \Big(\hat{a}_n \varphi_n(x) \,e^{-i\omega_nt}
+  + \hat{a}_n^\dagger \varphi_n^*(x) \, e^{i\omega_nt} \Big).$$
+Returning to the Schrödinger picture, and using the explicit mode
+profiles from @eq-ip-classical-modes,
+$$\hat{f}(x) = \sum_n \sqrt{\frac{\hbar\omega_n}{2\rho L}}
+  \Big(\hat{a}_n e^{ik_n x}
+  + \hat{a}_n^\dagger e^{-ik_n x} \Big).$$
+
+Finally, if we are interested in the infinite-$L$ limit, we can
+convert the sum over $n$ into an integral.
+The result is
+$$\hat{f}(x) = \int dk\; \sqrt{\frac{\hbar\omega(k)}{4\pi\rho}}
+  \Big(\hat{a}(k)\, e^{ik x} + \hat{a}^\dagger(k)\, e^{-ik x} \Big),$$
+where $\hat{a}(k)$ denotes a rescaled annihilation operator defined by
+$\hat{a}_n \rightarrow \sqrt{2\pi/L}\; \hat{a}(k)$, satisfying
+$$\big[\,\hat{a}(k)\,,\, \hat{a}^\dagger(k')\,\big] = \delta(k-k').$$
+
+### Looking ahead {#sec-outlook}
+
+In the next chapter, we will see how quantum field theory can be used
+to formulate a quantum theory of electrodynamics.  The electromagnetic
+field will be described by a boson field, whose $\hat{a}^\dagger$ and
+$\hat{a}$ operators create and annihilate photons, or particles of
+light.  We will see how to define observables that correspond to the
+classical electromagnetic field variables, and how the quantum
+dynamics of the electromagnetic field reduces to Maxwell's equations
+in the classical limit.  The electromagnetic field interacts with
+electrons, which are in turn described using a fermion field.
+
+Quantum electrodynamics is only one example of the importance of
+quantum field theory.  In fundamental physics, all currently-known
+elementary particles can be described using a quantum field theory
+called the Standard Model, which incorporates numerous boson fields
+(e.g., photons and gluons) and fermion fields (e.g., electrons and
+quarks) that interact with one another.  Quantum field theory is also
+widely used in condensed matter physics, since it is the natural
+framework for dealing with systems of many particles.
+
+Wilczek has pointed out that the modern
+picture of fundamental physics bears a striking resemblence to the old
+idea of the "luminiferous ether": a medium that fills all of space
+and time, whose vibrations are physically-observable light waves.  The
+key difference is that this ether is not a classical medium, but one
+obeying the rules of quantum mechanics.  (Another difference is that
+is that the fundamental quantum fields obey relativistic symmetries,
+so that their behavior is invariant under a change of reference
+frame.)
+
+It is interesting to contemplate the idea of fields, not individual
+particles, as the fundamental objects in the universe.  This would
+explain, in a sense, why all particles of the same type have identical
+properties---why, for example, all electrons have exactly the same
+mass and charge.  Individual particles have no distinguishing
+properties since they are not themselves fundamental, but merely
+excitations of underlying entities---quantum fields!
+
+## Exercises {#sec-identical-particles-exercises}
+
+1. Consider a system of two identical particles.  Each
+   single-particle Hilbert space $\mathscr{H}^{(1)}$ is spanned by a
+   basis $\{|\mu_i\}$.  The exchange operator is defined on
+   $\mathscr{H}^{(1)} \otimes \mathscr{H}^{(1)}$ by
+   $$P \Big (\sum_{ij} \psi_{ij} |\mu_i\rangle|\mu_j\rangle \Big)
+    \;\equiv\;  \sum_{ij} \psi_{ij} |\mu_j\rangle|\mu_i\rangle.$$
+   Prove that $\hat{P}$ is linear, unitary, and Hermitian.  Moreover,
+   prove that the operation is basis-independent: i.e., given any other
+   basis $\{\nu_j\}$ that spans $\mathscr{H}^{(1)}$,
+   $$P \Big (\sum_{ij} \varphi_{ij} |\nu_i\rangle|\nu_j\rangle \Big)
+    \;=\;  \sum_{ij} \varphi_{ij} |\nu_j\rangle|\nu_i\rangle.$$
+
+2. Prove that the exchange operator commutes with the Hamiltonian
+   $$\hat{H} = - \frac{\hbar^2}{2m_e} \Big(\nabla_1^2 + \nabla^2_2\Big) + \frac{e^2}{4\pi\varepsilon_0|\mathbf{r}_1 - \mathbf{r}_2|}.$$
+
+3. An $N$-boson state can be written as
+   $$|\phi_1,\phi_2,\dots,\phi_N\rangle = \mathcal{N} \sum_p \Big(|\phi_{p(1)}\rangle  |\phi_{p(2)}\rangle  |\phi_{p(3)}\rangle  \cdots  |\phi_{p(N)}\rangle\Big).$$
+   Prove that the normalization constant is
+   $$\mathcal{N} = \sqrt{\frac{1}{N!\prod_\mu n_\mu!}},$$
+   where $n_\mu$ denotes the number of particles occupying the
+   single-particle state $\mu$.
+
+4. $\mathscr{H}_{+}^{(N)}$ and $\mathscr{H}_{-}^{(N)}$ denote the
+   Hilbert spaces of $N$-particle states that are totally symmetric and
+   totally antisymmetric under exchange, respectively.  Prove that
+   $$\begin{aligned}
+    \mathrm{dim}\left(\mathscr{H}_{+}^{(N)}\right) &= \frac{(d+N-1)!}{N!(d-1)!}, \\
+    \mathrm{dim}\left(\mathscr{H}_{-}^{(N)}\right) &= \frac{d!}{N!(d-N)!}.
+  \end{aligned}$$
+
+5. Prove that for boson creation and annihilation operators, $[\hat{a}_\mu,\hat{a}_\nu] = [\hat{a}_\mu^\dagger,\hat{a}_\nu^\dagger] = 0$.
+
+6. Let $\hat{A}_1$ be an observable (Hermitian operator) for
+   single-particle states.  Given a single-particle basis
+   $\{|\varphi_1\rangle,|\varphi_2\rangle,\dots\}$, define the
+   bosonic multi-particle observable
+   $$\hat{A} = \sum_{\mu\nu} \,a^\dagger_\mu \; \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle \; a_\nu,$$
+   where $a_\mu^\dagger$ and $a_\mu$ are creation and annihilation
+   operators satisfying the usual bosonic commutation relations,
+   $[a_\mu,a_\nu] = 0$ and $[a_\mu,a_\nu^\dagger] = \delta_{\mu\nu}$.
+   Prove that $\hat{A}$ commutes with the total number operator:
+   $$\Big[\hat{A}, \sum_\mu a^\dagger_\mu a_\mu \Big] = 0.$$
+   Next, repeat the proof for a fermionic multi-particle observable
+   $$\hat{A} = \sum_{\mu\nu} \,c^\dagger_\mu \; \langle\varphi_\mu|\hat{A}_1|\varphi_\nu\rangle \; c_\nu,$$
+   where $c_\mu^\dagger$ and $c_\mu$ are creation and annihilation
+   operators satisfying the fermionic anticommutation relations,
+   $\{c_\mu,c_\nu\} = 0$ and $\{c_\mu,c_\nu^\dagger\} = \delta_{\mu\nu}$.
+   In this case, prove that
+   $$\Big[\hat{A}, \sum_\mu c^\dagger_\mu c_\mu \Big] = 0.$$
+
+<!-- Further Reading -->
+<!--
+1. Bransden \& Joachain, \S10.1--10.5
+
+2. Sakurai, \S6
+
+3. I. Duck and E. C. G. Sundarshan, *Pauli and the Spin-Statistics Theorem*, World Scientific (1998).
+
+4. J. M. Leinaas and J. Myrheim, *On the Theory of Identical Particles*, Nuovo Cimento B **37**, 1 (1977).
+
+5. F. Wilczek, *The Persistence of Ether*, Physics Today **52**, 11 (1999).
+-->
