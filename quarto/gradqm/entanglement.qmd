@@ -18,7 +18,7 @@ mathematically distinct; for example, they may have different
 dimensions.  Obviously, the combined system of $A$ and $B$ should also
 be describable by quantum mechanics.  What is its Hilbert space?
 
-In linear algebra, there is an concept called the **tensor product**
+In linear algebra, there is a concept called the **tensor product**
 that happens to be exactly what we need.  Given $|a\rangle \in
 \mathscr{H}_A$ and $|b\rangle \in \mathscr{H}_B$, consider an ordered
 pair of these two vectors, which we call "the tensor product of
@@ -362,7 +362,7 @@ new complication: *what if a measurement is performed on just one
 subsystem*?
 
 Suppose, once again, that we have two subsystems $A$ and $B$, whose
-combined Hillbert space is $\mathscr{H}_A \otimes \mathscr{H}_B$.  Let
+combined Hilbert space is $\mathscr{H}_A \otimes \mathscr{H}_B$.  Let
 us perform a measurement on $A$, corresponding to a Hermitian operator
 acting upon $\mathscr{H}_A$ whose eigenstates are
 
@@ -492,7 +492,7 @@ opposite to Alice's.
 
 During the time interval between Alice's and Bob's measurements, no
 classical signal could have passed between them, even at light speed.
-Yet Alice's measurement evidently affects Bob's.  Could this be a
+Yet Alice's measurement apparently affects Bob's.  Could this be a
 violation of the theory of relativity?
 
 Before answering, let us pause to note that this thought experiment
@@ -512,7 +512,7 @@ signals to each other.  After all, it is *faster-than-light
 communication* that generates cause-and-effect inconsistencies in
 relativity, like the [grandfather
 paradox](https://en.wikipedia.org/wiki/Temporal_paradox#Grandfather_paradox).
-In the present scenario, Alice and Bob each experiences a 50-50
+In the present scenario, Alice and Bob each experience a 50-50
 probability distribution (i.e., a coin flip) for the $+$ and $-$
 outcomes.  Even if the experiment is repeated many times with many
 independent singlet states, each participant just receives a string of
@@ -578,7 +578,7 @@ hidden.
 
 When Alice measures $S_z$, the hidden variable is revealed.  If she
 got $+$, that means the hidden-variable state must have been $[+|-]$,
-whereas if she got $-z$, the hidden-variable state was $[-|+]$.  When
+whereas if she got $-$, the hidden-variable state was $[-|+]$.  When
 Bob subsequently measures $S_z$, his result will be the opposite of
 Alice's.  These outcomes were predetermined when the hidden-variable
 state was drawn, so there is no physical effect traveling between
@@ -761,7 +761,7 @@ P\big([+-+|-+-]\,\big) \\
 P\big([---|+++]\,\big),
 \end{aligned}$$
 
-where the sum runs over all 8 possibile hidden-variable states.  We
+where the sum runs over all 8 possible hidden-variable states.  We
 can use @eq-bell1 and @eq-bell2 to insert the conditional
 probabilities, resulting in
 
@@ -785,113 +785,91 @@ $$P\big(\textrm{opp.}\big) \ge \frac{1}{3}.$$
 This result is called **Bell's inequality**.  It can be summarized as
 follows:
 
-<!-- \begin{framed} -->
-<!-- \noindent -->
-<!-- \textit{In a hidden-variable theory, for the rounds where Alice and -->
-<!--   Bob choose different spin axes, their measurement results have -->
-<!--   opposite signs with probability $\ge 1/3$.} -->
-<!-- \end{framed} -->
+::: {.callout-note}
+**Bell's inequality.** In a hidden-variable theory, for the rounds where Alice and Bob choose different spin axes, their measurement results have opposite signs with probability $\ge 1/3$.
+:::
 
-<!-- If we can find a situation where quantum theory predicts a violation -->
-<!-- of Bell's inequality, that would prove quantum theory is inconsistent -->
-<!-- with a broad class of hidden-variable theories.  It would not matter -->
-<!-- how complicated the inner workings of the hidden-variable theory are, -->
-<!-- so long as it meets the modest assumptions presented above (e.g., -->
-<!-- there are local deterministic hidden variables for each measurement, -->
-<!-- the hidden-variable states are associated with probabilities summing -->
-<!-- to one, etc.). -->
+If we can find a situation where quantum theory predicts a violation
+of Bell's inequality, that would prove quantum theory is inconsistent
+with a broad class of hidden-variable theories.  It would not matter
+how complicated the inner workings of the hidden-variable theory are,
+so long as it meets the modest assumptions presented above (e.g.,
+there are local deterministic hidden variables for each measurement,
+the hidden-variable states are associated with probabilities summing
+to one, etc.).
 
-<!-- Thus, we seek a set of spin operators $\{S_1, S_2, S_3\}$ such that -->
-<!-- quantum theory violates Bell's inequality.  One way to accomplish this -->
-<!-- is to align $S_1$ with the $z$ axis, and place $S_2$ and $S_3$ in the -->
-<!-- $x$-$z$ plane at $120^\circ$ ($2\pi/3$ radians) from $S_1$, as shown -->
-<!-- below: -->
+Thus, we seek a set of spin operators $\{S_1, S_2, S_3\}$ such that
+quantum theory violates Bell's inequality.  One way to accomplish this
+is to align $S_1$ with the $z$ axis, and place $S_2$ and $S_3$ in the
+$x$-$z$ plane at $120^\circ$ ($2\pi/3$ radians) from $S_1$, as shown
+below:
 
-<!-- \begin{figure}[h] -->
-<!--   \centering\includegraphics[width=0.25\textwidth]{bellaxes} -->
-<!-- \end{figure} -->
+![](fig/bellaxes.png){fig-align="center" width="250" fig-alt="Three spin measurement axes S1, S2, and S3 in the x-z plane, separated by 120 degrees"}
 
-<!-- \noindent -->
-<!-- Referring to this diagram, we can express the three spin operators as -->
-<!-- \begin{align} -->
-<!--   \begin{aligned} -->
-<!--     \hat{S}_1 &= \frac{\hbar}{2} \, \hat{\sigma}_3 -->
-<!--     && = \hat{S}_z -->
-<!--     \\ -->
-<!--     \hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 + \sin(2\pi/3)\hat{\sigma}_1\right] &&= \hat{U}^\dagger \hat{S}_z \hat{U} -->
-<!--     \\ -->
-<!--     \hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 - \sin(2\pi/3)\hat{\sigma}_1\right] &&= \hat{U} \hat{S}_z \hat{U}^\dagger, -->
-<!--   \end{aligned} -->
-<!-- \end{align} -->
-<!-- where $\hat{U}$ is the following unitary rotation operator: -->
-<!-- \begin{equation} -->
-<!--   \hat{U} = e^{(i\pi/3) \hat{\sigma}_2} -->
-<!--   = \begin{pmatrix} 1/2 & \sqrt{3}/2\\ -->
-<!--     -\sqrt{3}/2 & 1/2 -->
-<!--   \end{pmatrix}. -->
-<!--   \label{Uform} -->
-<!-- \end{equation} -->
+Referring to this diagram, we can express the three spin operators as
 
-<!-- Suppose Alice chooses $S_1$, while Bob chooses $S_2$.  Note that the -->
-<!-- eigenstates of $\hat{S}_2$ are -->
-<!-- \begin{equation} -->
-<!--   |\!\pm \!s_2\rangle = \hat{U}^\dagger |\!\updownarrow\rangle, -->
-<!--   \label{s2eigs} -->
-<!-- \end{equation} -->
-<!-- since -->
-<!-- \begin{equation} -->
-<!--   \hat{S}_2 \left(\hat{U}^\dagger |\!\updownarrow\rangle\right) -->
-<!--   = -->
-<!--   \hat{U}^\dagger \hat{S}_z \hat{U} \left(\hat{U}^\dagger |\!\updownarrow\rangle\right) -->
-<!--   = \pm \frac{\hbar}{2} \; \hat{U}^\dagger |\!\updownarrow\rangle. -->
-<!-- \end{equation} -->
-<!-- The probability that Alice and Bob obtain opposite results, for this -->
-<!-- choice of axes, can be written in the form -->
-<!-- \begin{equation} -->
-<!--   P(\textrm{opp}.) = P(A_+) P(B_-|A_+) +  P(A_+) P(B_-|A_+). -->
-<!-- \end{equation} -->
-<!-- For example, $P(A_+)$ denotes the probability of Alice obtaining $+$, -->
-<!-- whereupon Bob performs his measurement on the $|\!\downarrow\rangle$ -->
-<!-- state; and we want the probability of Bob obtaining $-$, corresponding -->
-<!-- to the eigenstate $|\!-s_2\rangle$.  Therefore, -->
-<!-- \begin{align} -->
-<!--   P(\textrm{opp}.) &= \frac{1}{2} \, \big|\langle -s_2 | \!\downarrow\rangle\big|^2 -->
-<!--   + \frac{1}{2} \, \big|\langle +s_2 | \!\uparrow\rangle\big|^2 \\ -->
-<!--   &= \frac{1}{2} \left( -->
-<!--     \big|\langle \downarrow\! | \hat{U} | \!\downarrow\rangle\big|^2 -->
-<!--     + \big|\langle \uparrow \!| \hat{U} | \!\uparrow\rangle\big|^2 -->
-<!--     \right) \label{Popp3}\\ -->
-<!--     &= \frac{1}{4}. \label{Bobresult} -->
-<!-- \end{align} -->
-<!-- In obtaining Eq.~\eqref{Popp3}, we have used Eq.~\eqref{s2eigs}, and -->
-<!-- in obtaining Eq.~\eqref{Bobresult}, we have used Eq.~\eqref{Uform}. -->
+$$\begin{aligned}
+\hat{S}_1 &= \frac{\hbar}{2} \, \hat{\sigma}_3 &&= \hat{S}_z \\
+\hat{S}_2 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 + \sin(2\pi/3)\hat{\sigma}_1\right] &&= \hat{U}^\dagger \hat{S}_z \hat{U} \\
+\hat{S}_3 &= \frac{\hbar}{2} \, \left[\cos(2\pi/3) \hat{\sigma}_3 - \sin(2\pi/3)\hat{\sigma}_1\right] &&= \hat{U} \hat{S}_z \hat{U}^\dagger,
+\end{aligned}$$ {#eq-bell-axes}
 
-<!-- In a similar fashion, we can work through all the other possible -->
-<!-- choices of spin axes (subject to the over-arching constraint that -->
-<!-- Alice and Bob pick different axes).  All the cases yield the same -->
-<!-- result as Eq.~\eqref{Bobresult}.  In other words, the probability for -->
-<!-- Alice and Bob obtain opposite results is $1/4$, so Bell's inequality -->
-<!-- is violated! -->
+where $\hat{U}$ is the following unitary rotation operator:
 
-<!-- Last of all, we must consult Nature.  Is it possible to experimentally -->
-<!-- observe a violation of Bell's inequality?  In the decades following -->
-<!-- Bell's paper, many experiments were performed to answer this question. -->
-<!-- These experiments are all substantially more complicated than the -->
-<!-- above toy model, and are subject to various real-world imperfections. -->
-<!-- But in the end, the experimental consensus is a clear \textit{yes}: -->
-<!-- Nature agrees with quantum mechanics, not the hidden-variable -->
-<!-- theories!  The experimental evidence is reviewed in a paper by Aspect -->
-<!-- [\ref{cite:aspect}]. -->
+$$\hat{U} = e^{(i\pi/3) \hat{\sigma}_2} = \begin{pmatrix} 1/2 & \sqrt{3}/2\\ -\sqrt{3}/2 & 1/2 \end{pmatrix}.$$ {#eq-Uform}
+
+Suppose Alice chooses $S_1$, while Bob chooses $S_2$.  Note that the
+eigenstates of $\hat{S}_2$ are
+
+$$|\!\pm \!s_2\rangle = \hat{U}^\dagger |\!\updownarrow\rangle,$$ {#eq-s2eigs}
+
+since
+
+$$\hat{S}_2 \left(\hat{U}^\dagger |\!\updownarrow\rangle\right) = \hat{U}^\dagger \hat{S}_z \hat{U} \left(\hat{U}^\dagger |\!\updownarrow\rangle\right) = \pm \frac{\hbar}{2} \; \hat{U}^\dagger |\!\updownarrow\rangle.$$
+
+The probability that Alice and Bob obtain opposite results, for this
+choice of axes, can be written in the form
+
+$$P(\textrm{opp}.) = P(A_+) P(B_-|A_+) + P(A_-) P(B_+|A_-).$$
+
+For example, $P(A_+)$ denotes the probability of Alice obtaining $+$,
+whereupon Bob performs his measurement on the $|\!\downarrow\rangle$
+state; and we want the probability of Bob obtaining $-$, corresponding
+to the eigenstate $|\!-s_2\rangle$.  Therefore,
+
+$$\begin{aligned}
+P(\textrm{opp}.) &= \frac{1}{2} \, \big|\langle -s_2 | \!\downarrow\rangle\big|^2 + \frac{1}{2} \, \big|\langle +s_2 | \!\uparrow\rangle\big|^2 \\
+&= \frac{1}{2} \left( \big|\langle \downarrow\! | \hat{U} | \!\downarrow\rangle\big|^2 + \big|\langle \uparrow \!| \hat{U} | \!\uparrow\rangle\big|^2 \right) \\
+&= \frac{1}{4}.
+\end{aligned}$$ {#eq-bell-opp}
+
+In the second line, we have used @eq-s2eigs, and in the final line we
+have used @eq-Uform.
+
+In a similar fashion, we can work through all the other possible
+choices of spin axes (subject to the over-arching constraint that
+Alice and Bob pick different axes).  All the cases yield the same
+result as @eq-bell-opp.  In other words, the probability for Alice and
+Bob to obtain opposite results is $1/4$, so Bell's inequality is
+violated!
+
+Last of all, we must consult Nature.  Is it possible to experimentally
+observe a violation of Bell's inequality?  In the decades following
+Bell's paper, many experiments were performed to answer this question.
+These experiments are all substantially more complicated than the
+above toy model, and are subject to various real-world imperfections.
+But in the end, the experimental consensus is a clear *yes*: Nature
+agrees with quantum mechanics, not the hidden-variable theories!  The
+experimental evidence is reviewed in [a paper by Aspect](https://www.nature.com/articles/18296).
 
 ## Quantum cryptography
 
 One of the most remarkable consequences of Bell's thought experiment
 is that it provides a way to perform cryptography that is more secure,
-in certain respects, than conventional cryptography.  The possibility
-of **quantum cryptography** is poised to be one of the most
-important technological applications of quantum entanglement.  Here,
-we describe one of the earliest quantum cryptography schemes, devised
-by Ekert in 1991.
+in certain respects, than conventional cryptography.  **Quantum
+cryptography** is poised to be one of the most important technological
+applications of quantum entanglement.  Here, we describe one of the
+earliest quantum cryptography schemes, devised by Ekert in 1991.
 
 Ekert's scheme allows two participants, Alice and Bob, to share with
 each other a string of random binary digits (0 or 1), called a
@@ -934,7 +912,8 @@ To check for Eve's tampering, Alice and Bob can publicly announce
 their measurement results for the rounds in which their axes were
 different.  (Remember, these rounds are not needed for the secret
 key.)  Each of them can then check for a violation of Bell's
-inequality, which would guarantee no eavesdropping has taken place.
+inequality, which would provide evidence that no eavesdropping has
+taken place.
 
 Alternatively, Eve might duplicate or "clone" the quantum state of
 $B$ before it goes to Bob.  Then she can wait for Bob to announce his
@@ -1135,8 +1114,7 @@ $|\psi\rangle\langle\psi|$, which we started with back in
 @eq-rho-pure, is the special case of an ensemble of one
 quantum state $|\psi\rangle$ with probability $P = 1$.  We call such
 an ensemble a **pure state**.  If an ensemble is not a pure
-state, we call it a **mixed state**, and this implies that the
-system is entangled with something else.
+state, we call it a **mixed state**.
 
 Using @eq-rhoform, we can show that the density matrix
 $\hat{\rho}_A$ (be it for a pure state or a mixed state) has the
@@ -1462,7 +1440,7 @@ vast multitude.
 
 It is up to you to decide whether this conception of reality seems
 reasonable.  It is essentially a matter of preference, because the
-Copenhangen Interpretation and the Many Worlds Interpretation have
+Copenhagen Interpretation and the Many Worlds Interpretation have
 identical physical consequences---which is why they are referred to as
 different "interpretations" of quantum mechanics, rather than
 different theories.
@@ -1502,24 +1480,20 @@ $$\begin{aligned}
 regardless of $n$.  Optional: generalize this to any $B$ measurement
 axis.
 
-2. Consider two spin-1/2 subsystems, with the density operator
+2. A spin-1/2 system, which is a subsystem of a larger entity, is
+described by the density operator
 $$\hat{\rho} = \frac{1}{2} |\!\uparrow\rangle \langle\uparrow\!|
   \,+\, \frac{1}{2} |\!\rightarrow\rangle \langle\rightarrow\!|,$$
 where
-$$|\!\rightarrow\rangle = \frac{1}{\sqrt{2}} \left(|\!\uparrow\rangle +
-  |\!\downarrow\rangle\right).$$
-Find the entanglement entropy.
+$$|\!\rightarrow\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle +
+  |\!\downarrow\rangle\Big).$$
+Find the entropy of entanglement.
 
 3. Consider two distinguishable particles, $A$ and $B$.  The 2D Hilbert
-  space of $A$ is spanned by $\{|m\rangle, |n\rangle\}$, and the
+  space of $A$ is spanned by $\{|m\rangle, |n\rangle\}$ and the
   3D Hilbert space of $B$ is spanned by $\{|p\rangle, |q\rangle,
   |r\rangle\}$.  The two-particle state is
-$$|\psi\rangle = \frac{1}{3} \, |m\rangle|p\rangle
-+ \frac{1}{\sqrt{6}} \, |m\rangle|q\rangle
-+ \frac{1}{\sqrt{18}} \, |m\rangle|r\rangle
-+ \frac{\sqrt{2}}{3} \, |n\rangle|p\rangle
-+ \frac{1}{\sqrt{3}} \, |n\rangle|q\rangle
-+ \frac{1}{3} \, |n\rangle|r\rangle.$$
+$$|\psi\rangle = \frac{1}{3} \, |m\rangle|p\rangle + \frac{1}{\sqrt{6}} \, |m\rangle|q\rangle + \frac{1}{\sqrt{18}} \, |m\rangle|r\rangle + \frac{\sqrt{2}}{3} \, |n\rangle|p\rangle + \frac{1}{\sqrt{3}} \, |n\rangle|q\rangle + \frac{1}{3} \, |n\rangle|r\rangle.$$
 Find the entanglement entropy.
 
 <!-- Further Reading -->
