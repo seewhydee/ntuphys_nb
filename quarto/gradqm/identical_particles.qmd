@@ -1404,11 +1404,10 @@ harmonic oscillator---see @eq-ip-xtc2 and @eq-ip-Eclassical---we
 assume that the energy per unit length is proportional to the square
 of the field variable.  Let it have the form
 $$U(x) = 2 \sum_n \rho_n |\mathcal{A}_n|^2 \, |\varphi_n(x)|^2,$${#eq-ip-Edensity}
-where each $\rho_n$ is a parameter (which may depend on the mode $n$)
-that has to be derived from the underlying physical context.  In the
-next chapter, we will see a concrete example involving the energy
-density of an electromagnetic mode.  From @eq-ip-Edensity, we can
-express the total energy of the system as
+where each $\rho_n$ is a parameter, possibly depending on the mode
+index $n$, that has to be derived from the underlying physical context
+(we will see a concrete example in the next chapter).  From
+@eq-ip-Edensity, we can express the total energy of the system as
 $$E = \int_0^L dx \; U(x) = 2 \sum_n \rho_n |\mathcal{A}_n|^2.$${#eq-ip-classical-energy}
 
 To quantize the classical field, we treat each normal mode as an
