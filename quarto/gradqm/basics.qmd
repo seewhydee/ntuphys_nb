@@ -25,7 +25,7 @@ is a summary, not a pedagogical introduction; the reader is assumed to
 possess some familiarity with quantum mechanics from prior reading or
 coursework.
 
-## States and Observables
+## States and Observables {#sec-states-and-observables}
 
 The central idea in quantum theory is the distinction between
 **states** and **observables**.  A state describes *how a system
@@ -74,10 +74,10 @@ To operationalize these concepts, two more postulates are added:
 
 3.  **The Schrödinger equation**---A system's state,
     $|\psi(t)\rangle$, varies with time $t$ according to
-    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle,$$
+    $$i\hbar \frac{d}{dt}|\psi(t)\rangle = \hat{H}(t) \, |\psi(t)\rangle,$${#eq-schrodinger}
     where $\hat{H}(t)$ is an observable called the **Hamiltonian**
     (which also may be time-dependent).  The Schrödinger equation is
-    norm-preserving, or "unitary": $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: By
+    norm-preserving: $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.^[*Proof*: By
     the product rule of derivatives,
     $$\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 
 	\langle\psi(t)|\left(\frac{d}{dt}|\psi(t)\rangle\right)
@@ -154,8 +154,8 @@ particles in continuous space.
 The **expectation value** for an observable $\hat{A}$ with a state
 $|\psi\rangle$ refers to the mean result obtained by repeatedly
 measuring $\hat{A}$ over a statistical ensemble of systems, each
-prepared in state $|\psi\rangle$.  Using the Born rule, we derive
-this as
+prepared in state $|\psi\rangle$.  Using the Born rule,
+@eq-measurement, we derive this as
 $$\begin{aligned}\langle A\rangle &= \sum_n a_n\, P_n \\ &= \sum_n a_n\,\big|\langle n|\psi\rangle\big|^2 \\ &= \sum_n a_n \, \langle \psi| n \rangle \, \langle n|\psi_n\rangle \\ &= \sum_n \langle \psi| \hat{A} | n \rangle \, \langle n|\psi_n\rangle \\&= \langle\psi|\,\hat{A}\,|\psi\rangle.\end{aligned}$$
 Since the eigenvalues $\{a_n\}$ and probabilities $P_n$ are real,
 $\langle A\rangle$ is real.  Note that in the next-to-last step, we
@@ -164,35 +164,36 @@ whereby the identity operator is expressed as a sum of projectors
 using the eigenstates of $\hat{A}$: $$\hat{I} = \sum_n
 |n\rangle\, \langle n |.$$ This works because $\hat{A}$ is Hermitian, so by the [spectral theorem](https://en.wikipedia.org/wiki/Spectral_theorem) its eigenstates form an orthonormal basis for the Hilbert space.  Non-Hermitian operators need not satisfy this property.
 
-## Time evolution and energy eigenstates
+### Time evolution {#sec-time-evolution}
 
-**[DRAFT — point form; expand into prose before finalizing]**
+The Schrödinger equation, @eq-schrodinger, is a first-order homogenous
+linear differential equation.  Therefore, if we specify an initial
+state $|\psi(t')\rangle$, the state at any other time,
+$|\psi(t)\rangle$, is uniquely determined (assuming no measurement
+process occurring in the interim).  Formally, we can write
+$$|\psi(t)\rangle = \hat{U}(t,t')\,|\psi(t')\rangle,$$
+where $\hat{U}$ is called the **time-evolution operator**.  Because the
+Schrödinger equation is norm-preserving, it follows that
+$\hat{U}$ is a **unitary operator** (see [Exercise 1](#sec-basics-exercises)), i.e.,
+$$\hat{U}(t,t')^\dagger = \hat{U}(t,t')^{-1}\;\;\textrm{for any}\;\;t,t'.$$
 
-- Postulate 3 (the Schrödinger equation) says
-  $i\hbar\,\frac{d}{dt}|\psi(t)\rangle=\hat{H}|\psi(t)\rangle$.  For a
-  time-independent $\hat{H}$, its formal solution is
-  $$|\psi(t)\rangle = \hat{U}(t)\,|\psi(0)\rangle, \qquad \hat{U}(t) \equiv \exp\!\left(-\frac{i}{\hbar}\hat{H}t\right),$$
-  where $\hat{U}(t)$ is the unitary **time-evolution operator**.
-- **Stationary states.** If $\hat{H}|n\rangle=E_n|n\rangle$ and
-  $|\psi(0)\rangle=|n\rangle$, then
-  $$|\psi(t)\rangle = e^{-iE_nt/\hbar}\,|n\rangle:$$
-  the state merely accumulates a phase $e^{-iE_nt/\hbar}$, and every
-  measurement probability stays constant in time.
-- General state: expand $|\psi(0)\rangle=\sum_n c_n|n\rangle$; then
-  $|\psi(t)\rangle=\sum_n c_n\,e^{-iE_nt/\hbar}|n\rangle$.  Relative
-  phases evolve, producing interference (what the Rabi model below
-  exhibits).
-- **Time-independent Schrödinger equation (TISE):**
-  $\hat{H}|\psi\rangle=E|\psi\rangle$.  Finding eigenstates and
-  eigenenergies is the central task of the later chapters: bound vs.
-  free states (@sec-bound-free-states), scattering states
-  (@sec-scattering-theory), etc.
-- Brief note: for a *time-dependent* $\hat{H}(t)$ (e.g. the driven
-  two-level atom), $e^{-i\hat{H}t/\hbar}$ is replaced by a
-  time-ordered exponential; we sidestep this by going to a rotating
-  frame.
-
-**[END DRAFT]**
+Let us suppose the system has a time-independent Hamiltonian
+$\hat{H}$.  Then it can be shown that
+$$\hat{U}(t, t') = \exp\!\left(-\frac{i}{\hbar}\hat{H} \cdot (t-t')\right),$$
+where “$\exp$” denotes an operator exponential.^[If the Hamiltonian is
+time-dependent, the relation between $\hat{U}(t,t')$ and
+$\hat{H}(t)$ becomes more complicated.  The main difficulty is that
+$\hat{H}(t)$ at different times may not commute, and this may be resolved
+by introducing a so-called “time-ordered exponential”.  The details
+will not concern us here.]  Consequently, if we prepare the system at time $t'$ in an energy eigenstate $|n\rangle$, with eigenenergy $E_n$, then
+$$|\psi(t)\rangle = e^{-iE_n(t-t')/\hbar}|n\rangle.$$
+This implies that an enery eigenstate of a time-independent
+Hamiltonian is a “stationary” state: as time progresses, the state
+vector accumulates a phase $\Delta\phi = E_n(t-t')/\hbar$, but it
+remains an energy eigenstate with the same eigenenergy.  If we
+subsequently perform any measurement on the system, the outcome
+probabilities do not depend on $t$ or $t'$.  (*After* the measurement,
+of course, it undergoes state collapse in the usual way).
 
 ## Two-level systems
 
@@ -267,7 +268,7 @@ $\mathbb{C}^2$, but it has some particularly nice properties:
 
 * The three remaining matrices are $2\times2$, traceless, and
   Hermitian.  If we try to form an "orthonormal basis" of such
-  matrices, a set of reasonable choices (see [Exercise 1](#sec-basics-exercises)) leads to the anticommutation and
+  matrices, a set of reasonable choices (see [Exercise 2](#sec-basics-exercises)) leads to the anticommutation and
   commutation relations
   
   $$\begin{aligned}
@@ -823,7 +824,17 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
 
 ## Exercises {#sec-basics-exercises}
 
-1. In this exercise, we work through a line of reasoning that yields
+1. In @sec-states-and-observables, we noted that the Schrödinger
+   equation is norm-preserving (given that the Hamiltonian is
+   Hermitian): i.e., any solution $|\psi(t)\rangle$ satisfies
+   $\frac{d}{dt}\langle\psi(t)|\psi(t)\rangle = 0$.  In
+   @sec-time-evolution, we further defined the time evolution operator
+   $\hat{U}$: if $|\psi(t)\rangle$ is a solution to the Schrödinger
+   equation, then
+   $$|\psi(t)\rangle = \hat{U}(t,t')\,|\psi(t')\rangle$$
+   for any $t,t'$.  Prove that $\hat{U}(t,t')$ is a unitary operator.
+
+2. In this exercise, we work through a line of reasoning that yields
    the Pauli algebra relations, @eq-Lie-commutators.  As discussed in
    @sec-Pauli-matrices, $2\times2$ Hermitian matrices are
    characterized by four real parameters, and we can always split off
@@ -874,7 +885,7 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
   <!-- \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2. -->
   <!-- \end{aligned}$$ {#eq-pauli-algebra} -->
 
-2. In @sec-momentum-eigenstates, we derived the eigenstates of a
+3. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
 $L$ on each side, applying periodic boundary conditions, and taking
 $L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
@@ -884,7 +895,7 @@ eigenstates in the $L \rightarrow \infty$ limit.
 
 **[DRAFT — point form; expand into prose before finalizing]**
 
-3. (Time evolution) For a two-level system with
+4. (Time evolution) For a two-level system with
    $\hat{H}=\frac{\hbar\omega_0}{2}\hat{\sigma}_3$ and initial state
    $|\psi(0)\rangle=\frac{1}{\sqrt2}\big(|+\rangle+|-\rangle\big)$, find
    $|\psi(t)\rangle$, and compute
@@ -892,12 +903,12 @@ eigenstates in the $L \rightarrow \infty$ limit.
    $\langle\hat{\sigma}_3\rangle(t)$.  Interpret the result as
    precession.
 
-4. (Probability current) Compute $J(x)$ for (a)
+5. (Probability current) Compute $J(x)$ for (a)
    $\psi=\Psi_i e^{ikx}$; (b) a standing wave
    $\psi=\sqrt{2/L}\,\sin(n\pi x/L)$.  Explain why a real wavefunction
    carries no net current.
 
-5. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
+6. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
    and re-derive $E_n=\hbar\omega(n+\tfrac12)$ from
    $\hat{H}=\hbar\omega(a^\dagger a+\tfrac12)$.  Find $\psi_0(x)$ from
    $a|0\rangle=0$.
