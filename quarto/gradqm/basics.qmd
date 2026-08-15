@@ -11,13 +11,14 @@ mechanics by
 [Erwin Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger) in
 1926 and matrix mechanics by
 [Werner Heisenberg](https://en.wikipedia.org/wiki/Werner_Heisenberg)
-in 1928.  The mathematical formulation of quantum mechanics most
-physicists use today is based on the **Dirac–von Neumann axioms**, put
-together in the 1930s
-by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac) and
-[John von Neumann](https://en.wikipedia.org/wiki/John_von_Neumann),
-which unifies and systematizes the Schrödinger and Heisenberg theories
-using the mathematical language of linear algebra.
+in 1928.
+
+The mathematical formulation of quantum mechanics most physicists use
+today is based on the **Dirac–von Neumann axioms**, put together in
+the 1930s by [Paul Dirac](https://en.wikipedia.org/wiki/Paul_Dirac)
+and [John von Neumann](https://en.wikipedia.org/wiki/John_von_Neumann), which
+unifies and systematizes the Schrödinger and Heisenberg theories using
+the mathematical language of linear algebra.
 
 In this chapter, we review the basic principles of the theory.  This
 is a summary, not a pedagogical introduction; the reader is assumed to
@@ -29,10 +30,10 @@ coursework.
 The central idea in quantum theory is the distinction between
 **states** and **observables**.  A state describes *how a system
 currently is*, while observables represent its *measurable
-properties*.  In classical physics, a state may be defined by a
-complete set of observables: knowing the position and momentum of a
-point particle of given mass, we know everything about it, including
-the values of all other observables (energy, orbital angular momentum,
+properties*.  In classical physics, a state is defined by a complete
+set of observables: knowing the position and momentum of a point
+particle of given mass, we know everything about it, including the
+values of all other observables (energy, orbital angular momentum,
 etc.).  Not so in quantum theory.
 
 The Dirac–von Neumann axiomatization of quantum mechanics starts with
@@ -55,9 +56,9 @@ these postulates:
     of Hilbert space, including its dimension, is system-specific.
     State vectors are customarily **normalized to unity**, i.e.,
     $$\langle \psi|\psi\rangle = 1.$$
-    We do this because the rest of the theory only cares about the
-    "direction" of $|\psi\rangle$, not its overall magnitude or phase
-    (see postulates 3 and 4 below).
+    We normalize state vectors because the rest of the theory only
+    cares about the "direction" of $|\psi\rangle$, not its overall
+    magnitude or phase (see postulates 3 and 4 below).
 
 2.  **Observables**---An observable is a linear operator, $\hat{A}$,
     acting on state vectors.^[We use hats, $\hat{\cdots}$, to denote
@@ -90,44 +91,46 @@ To operationalize these concepts, two more postulates are added:
     two terms cancel. QED.]
 	
     We interpret $\hat{H}$ as the observable corresponding to the
-    total energy of the system, and its eigenvalues are called
+    total energy of the system.  Its eigenvalues are called
     **eigenenergies**.
 
 4.  **The measurement postulate**---If an observable $\hat{A}$ is
     measured on a state $|\psi\rangle$, the result is drawn
     probabilistically from the eigenvalues of $\hat{A}$.  The
-    probability to obtain a result $a_n$, which corresponds to a
-    normalized eigenstate $|n\rangle$, is given by the **Born rule**,
+    probability to obtain any given result $a_n$, corresponding to a
+    normalized eigenstate $|n\rangle$, is given by the **Born rule**:
     $$P_n = \left|\langle n|\psi\rangle\right|^2.$${#eq-measurement}
     After the measurement, the system's state abruptly switches to
     $|n\rangle$.  This is called **state collapse**.
 	
 	Note that @eq-measurement is insensitive to the overall phase of
-    the initial state: $e^{i\phi}|\psi\rangle$ (for any phase
-    $\phi\in\mathbb{R}$) gives the same measurement probabilities as
+    the initial state: $e^{i\phi}|\psi\rangle$, for any phase
+    $\phi\in\mathbb{R}$, gives the same measurement probabilities as
     $|\psi\rangle$.  For the same reason, the choice of phase for the
     post-collapse eigenstate is also irrelevant.
 
 From these postulates flow all the predictions of quantum mechanics,
-collectively representing the most accurate and successful set of
-scientific results of all time.  Quantum mechanical calculations form
-the basis for our modern understanding of chemistry, materials
-science, nuclear physics, and many other fields, and are crucial of
-the functioning of many pieces of modern technology that we rely on
-everyday, including lasers, LEDs, computers, and more.
+which collectively represent the most accurate and successful set of
+scientific results known to humanity.  Quantum mechanical calculations
+form the basis for our modern understanding of chemistry, materials
+science, nuclear physics, and many other fields; they are also crucial
+to the functioning of many technological devices we rely on everyday,
+including lasers, LEDs, and electronic computers.
 
-However, it is possible to spot some problems lurking in the
-postulates:
+But even at this early point, it is possible to spot some issues
+lurking in the postulates:
 
 * In postulate 3, the Schrödinger equation gives a privileged role to
-  the time variable $t$.  This seems to run counter to (i) [special relativity's](https://en.wikipedia.org/wiki/Special_relativity)
-  demands that time and space be treated on equal footing, and (ii)
+  the time variable $t$.  This seems to run counter to
+  [special relativity's](https://en.wikipedia.org/wiki/Special_relativity)
+  demands that time and space be treated on equal footing, not to
+  mention
   [general relativity's](https://en.wikipedia.org/wiki/General_relativity)
   demands that time (and space) be dynamical quantities, not just
   passive coordinates. The first conflict can be resolved by a class
-  of quantum theories called quantum field theories.  The second,
-  however, is a fundamental unsolved issue called the [problem of
-  time](https://en.wikipedia.org/wiki/Problem_of_time).
+  of quantum theories called relativistic quantum field theories.  The
+  second, however, is a fundamental unsolved theoretical problem,
+  referred to as the [problem of time](https://en.wikipedia.org/wiki/Problem_of_time).
 
 * There is a tension between postulates 3 and 4.  Postulate 3
   describes the state evolving smoothly according to a *deterministic*
@@ -137,11 +140,59 @@ postulates:
   measurement in quantum mechanics has surprising and troubling
   consequences, as we shall see in @sec-chapter-entanglement.
 
-These are foundational problems that dog quantum theory to this day.
-However, let us put them aside for now.  In the rest of this chapter,
-we will use the quantum postulates to develop some elementary models
-to describe two-level systems, particles in discrete space, and
+These are not minor theoretical quirks, but foundational problems that
+physicists have attempted (and failed) to resolve for decades.
+However, their presence does not invalidate the power and utility of
+quantum theory as a whole, so let us put aside our doubts for now.  In
+the rest of this chapter, we will review how to use the quantum
+postulates in calculations, as well as elementary models of two-level
+systems, particles in discrete space, one-dimensional potentials, and
 particles in continuous space.
+
+### Expectation values
+
+The **expectation value** for an observable $\hat{A}$ with a state
+$|\psi\rangle$ refers to the mean result obtained by repeatedly
+measuring $\hat{A}$ over a statistical ensemble of systems, each
+prepared in state $|\psi\rangle$.  Using the Born rule, we derive
+this as
+$$\begin{aligned}\langle A\rangle &= \sum_n a_n\, P_n \\ &= \sum_n a_n\,\big|\langle n|\psi\rangle\big|^2 \\ &= \sum_n a_n \, \langle \psi| n \rangle \, \langle n|\psi_n\rangle \\ &= \sum_n \langle \psi| \hat{A} | n \rangle \, \langle n|\psi_n\rangle \\&= \langle\psi|\,\hat{A}\,|\psi\rangle.\end{aligned}$$
+Since the eigenvalues $\{a_n\}$ and probabilities $P_n$ are real,
+$\langle A\rangle$ is real.  Note that in the next-to-last step, we
+used a common maneuver called the **resolution of the identity**,
+whereby the identity operator is expressed as a sum of projectors
+using the eigenstates of $\hat{A}$: $$\hat{I} = \sum_n
+|n\rangle\, \langle n |.$$ This works because $\hat{A}$ is Hermitian, so by the [spectral theorem](https://en.wikipedia.org/wiki/Spectral_theorem) its eigenstates form an orthonormal basis for the Hilbert space.  Non-Hermitian operators need not satisfy this property.
+
+## Time evolution and energy eigenstates
+
+**[DRAFT — point form; expand into prose before finalizing]**
+
+- Postulate 3 (the Schrödinger equation) says
+  $i\hbar\,\frac{d}{dt}|\psi(t)\rangle=\hat{H}|\psi(t)\rangle$.  For a
+  time-independent $\hat{H}$, its formal solution is
+  $$|\psi(t)\rangle = \hat{U}(t)\,|\psi(0)\rangle, \qquad \hat{U}(t) \equiv \exp\!\left(-\frac{i}{\hbar}\hat{H}t\right),$$
+  where $\hat{U}(t)$ is the unitary **time-evolution operator**.
+- **Stationary states.** If $\hat{H}|n\rangle=E_n|n\rangle$ and
+  $|\psi(0)\rangle=|n\rangle$, then
+  $$|\psi(t)\rangle = e^{-iE_nt/\hbar}\,|n\rangle:$$
+  the state merely accumulates a phase $e^{-iE_nt/\hbar}$, and every
+  measurement probability stays constant in time.
+- General state: expand $|\psi(0)\rangle=\sum_n c_n|n\rangle$; then
+  $|\psi(t)\rangle=\sum_n c_n\,e^{-iE_nt/\hbar}|n\rangle$.  Relative
+  phases evolve, producing interference (what the Rabi model below
+  exhibits).
+- **Time-independent Schrödinger equation (TISE):**
+  $\hat{H}|\psi\rangle=E|\psi\rangle$.  Finding eigenstates and
+  eigenenergies is the central task of the later chapters: bound vs.
+  free states (@sec-bound-free-states), scattering states
+  (@sec-scattering-theory), etc.
+- Brief note: for a *time-dependent* $\hat{H}(t)$ (e.g. the driven
+  two-level atom), $e^{-i\hat{H}t/\hbar}$ is replaced by a
+  time-ordered exponential; we sidestep this by going to a rotating
+  frame.
+
+**[END DRAFT]**
 
 ## Two-level systems
 
@@ -221,7 +272,7 @@ $\mathbb{C}^2$, but it has some particularly nice properties:
   
   $$\begin{aligned}
   \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
-  \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j\in\{1,2,3\},$$ {#eq-Lie-commutators}
+  \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j,k\in\{1,2,3\},$$ {#eq-Lie-commutators}
 
   where, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
   matrices listed in @eq-pauli indeed satisfy these algebraic
@@ -233,41 +284,61 @@ $\mathbb{C}^2$, but it has some particularly nice properties:
 
 The commutation relation in the second line of @eq-Lie-commutators
 defines a **Lie algebra** called $\mathfrak{su}(2)$.  Remarkably, this
-Lie algebra also pops up in the quantum theory of 3D angular momentum.
+Lie algebra also pops up in the quantum theory of angular momentum in three-dimensional space.
 
-Here is a brief summary/recap of the angular momentum story.  We start
-by looking at wavefunctions (see @sec-wavefunctions), and how they
-transform under various coordinate rotations.  We find that these
-transformations can be formulated with the aid of three so-called
-**orbital angular momentum** observables, $\hat{J}_1$, $\hat{J}_2$,
-and $\hat{J}_3$ (one for each spatial axis), which satisfy
+To properly understand the angular momentum story, we need to discuss
+wavefunctions, which will be covered in @sec-wavefunctions, with the
+theory of angular momentum being derived in
+@sec-orbital-angular-momentum.  However, let us skip ahead and present
+a summary:
 
-$$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k.$$ {#eq-Lie-algebra}
+When studying how wavefunctions transform under coordinate rotations,
+we are led to define three observables $\hat{J}_1$, $\hat{J}_2$, and
+$\hat{J}_3$, which correspond to the **angular momentum** around each
+of the spatial coordinate axes.  Roughly speaking, these describe how
+the wavefunction rotates, or orbits, around each axis, which is why
+the observables are more precisely referred to as **orbital angular
+momentum**.  They can be shown to satisfy the commutation relations
 
-Next, we take a conceptual leap and postulate that any set of angular
-momentum observables tied to 3D rotations must also satisfy
-@eq-Lie-algebra.  This opens the door to another form of angular
-momentum: **spin angular momentum**, which is intrinsically possessed
-by a particle independent of its motion (remarkably, even point
-particles like electrons, which have no internal structure as far as
-we know, can carry spin).
+$$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k,\qquad i,j,k\in\{1,2,3\}.$$ {#eq-Lie-algebra}
 
-Comparing @eq-Lie-algebra to @eq-Lie-commutators, we see that Pauli
-matrices form a 2D representation^[The dimension of the representation
-refers the size of the matrices.  Thus, the Pauli matrices, which are
+We then take a conceptual leap by postulating that @eq-Lie-algebra
+*defines* the set of angular momentum observables tied to 3D
+rotations; in other words, it is the commutation relations that are
+fundamental, not the specific operators we had used to derive them.
+This opens the door to other, non-orbital forms of angular momentum!
+In particular, there turns out to be a form of angular momentum called
+**spin**, which can be possessed by particles like the electron (which
+as far as we know is a "point particle" that has no internal
+structure, and thus cannot be thought of as "rotating" in the usual
+sense).
+
+The Pauli matrices play a key role in describing this.  Comparing
+@eq-Lie-algebra to @eq-Lie-commutators, we realize that Pauli matrices
+form a 2D representation^[The dimension of the representation refers
+the size of the matrices.  Thus, the Pauli matrices, which are
 $2\times2$, form a 2D representation of the Lie algebra
 $\mathfrak{su}(2)$.  The Lie algebra can have other representations as
 well; for example, *orbital* angular momentum leads to a 3D
-representation.  Note: that 3D representation refers to a
-representation for $\mathfrak{su}(2)$, *not* $\mathfrak{su}(3)$.  The
-latter refers to another Lie algebra with different commutation
-relations.] of $\mathfrak{su}(2)$, according to the mapping
+representation.  (By the way, that 3D representation is a
+representation for $\mathfrak{su}(2)$ and *not* $\mathfrak{su}(3)$.
+The latter refers to another Lie algebra with different commutation
+relations.)] of $\mathfrak{su}(2)$, according to the mapping
 
-$$\hat{J}_i \equiv \hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
+$$\hat{S}_i = \frac{\hbar}{2}\, \hat{\sigma}_i.$$ {#eq-spin-map}
 
-(By convention, spin operators are denoted by $\hat{S}_i$.)  Due to
-the $\hbar/2$ prefactor, the Pauli matrices are said to describe a
-"spin-1/2 degree of freedom".
+Here, we follow the standard convention of denoting spin angular
+momentum operators as $\hat{S}_i \equiv \hat{J}_i$.  Based on this
+mapping, the operator corresponding to the square of the total angular
+momentum is
+
+$$\begin{aligned}\hat{\mathbf{S}}^2 &\equiv \hat{S}_1^2 + \hat{S}_2^2 + \hat{S}_3^2 \\ &= \left(\frac{\hbar}{2}\right)^2 \big(\hat{\sigma_1}^2 + \hat{\sigma_2}^2 + \hat{\sigma_3}^2\big) \\&= \left(\frac{\hbar}{2}\right)^2 \cdot 3 \\&= \hbar^2 s(s+1), \;\;\textrm{for}\;s = \frac{1}{2},\end{aligned}$$
+
+where $s = 1/2$ is called the total angular momentum quantum number.
+By contrast, the corresponding quantum number for orbital angular
+momentum is restricted to non-negative integers, $\ell = 0, 1, 2,
+\dots$ (see @sec-orbital-angular-momentum).  Consequently, the Pauli
+matrices are said to describe a **spin-1/2 degree of freedom**.
 
 ### Rabi oscillations
 
@@ -477,6 +548,46 @@ will study in @sec-wavefunctions.
 
 ### Quantum walks
 
+**[DRAFT — point form; expand into prose before finalizing]**
+
+- A **quantum walk** is time evolution on the lattice: the discrete
+  counterpart of a moving particle (and of the continuous wavefunctions
+  below).
+- Hopping (tight-binding) Hamiltonian on the ring, with
+  $|N{+}1\rangle\equiv|1\rangle$:
+  $$\hat{H} = -J\sum_{n=1}^N\Big(|n\rangle\langle n{+}1| + |n{+}1\rangle\langle n|\Big),$$
+  where $J>0$ is the hopping energy.
+- The momentum states diagonalize it (translation symmetry,
+  $[\hat{H},\hat{T}_q]=0$):
+  $$\hat{H}|k_n\rangle = E(k_n)\,|k_n\rangle, \qquad E(k_n) = -2J\cos(k_n a).$$
+- Time evolution (using the section above):
+  $|\psi(t)\rangle=\sum_n c_n\,e^{-iE(k_n)t/\hbar}|k_n\rangle$.
+- **Group velocity** of a wavepacket peaked near $k$:
+  $v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka)$.  This
+  is what makes the walk move.
+- Optional hook: replace one site by a defect (a different on-site
+  energy) and the ring becomes a 1D scatterer; transmission/reflection
+  amplitudes are the subject of Chapter 2.
+
+**[END DRAFT]**
+
+### Probability conservation on the lattice
+
+**[DRAFT — point form; expand into prose before finalizing]**
+
+- Site probabilities $P_n(t)=|\psi_n(t)|^2$ sum to one:
+  $\sum_n P_n=1$ at all $t$.
+- With the hopping Hamiltonian, probability flows between neighboring
+  sites.  Define the discrete current
+  $$J_{n\to n+1} = \frac{2J}{\hbar}\,\mathrm{Im}\!\big[\psi_n^*\,\psi_{n+1}\big],$$
+  then the Schrödinger equation implies the discrete continuity
+  equation
+  $$\frac{dP_n}{dt} = -\big(J_{n\to n+1} - J_{n-1\to n}\big).$$
+- This is the lattice version of the continuous continuity equation in
+  the next section.
+
+**[END DRAFT]**
+
 
 ## Wavefunctions {#sec-wavefunctions}
 
@@ -595,6 +706,121 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
   &= -i\hbar \nabla\psi(\mathbf{r}).
   \end{aligned}$$
 
+### Probability current and continuity
+
+**[DRAFT — point form; expand into prose before finalizing]**
+
+- Probability density $\rho(\mathbf{r},t)=|\psi(\mathbf{r},t)|^2$
+  obeys the continuity equation
+  $$\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{J} = 0,$$
+  with probability current density
+  $$\mathbf{J} = \frac{\hbar}{m}\,\mathrm{Im}\big[\psi^*\nabla\psi\big] = \frac{\hbar}{2mi}\Big(\psi^*\nabla\psi - \psi\,\nabla\psi^*\Big).$$
+- Derivation sketch: from the TDSE (with real $V$),
+  $\partial_t|\psi|^2=\psi^*\partial_t\psi+\psi\,\partial_t\psi^*$;
+  substitute
+  $\partial_t\psi=\frac{i\hbar}{2m}\nabla^2\psi-\frac{i}{\hbar}V\psi$
+  and identify the divergence.
+- Consequence: $\int d^dr\,|\psi|^2=1$ is constant in time.
+- Plane-wave check: $\psi=\Psi_i e^{ikx}$ gives
+  $J=\frac{\hbar k}{m}|\Psi_i|^2$ — the incident flux used throughout
+  Chapter 2 (cross sections).
+
+**[END DRAFT]**
+
+### Orbital angular momentum  {#sec-orbital-angular-momentum}
+
+**[DRAFT — point form; expand into prose before finalizing]**
+
+- The recap above hides the standard angular-momentum results we will
+  lean on later.  Filling them in:
+  - $\hat{\mathbf{J}}^2$ and $\hat{J}_z$ commute, with joint
+    eigenstates $|j,m\rangle$:
+    $$\hat{\mathbf{J}}^2|j,m\rangle = j(j+1)\hbar^2\,|j,m\rangle, \qquad \hat{J}_z|j,m\rangle = m\hbar\,|j,m\rangle,$$
+    where $j\in\{0,\tfrac12,1,\tfrac32,\dots\}$ and
+    $m\in\{-j,-j+1,\dots,+j\}$.
+  - Ladder operators $\hat{J}_\pm=\hat{J}_x\pm i\hat{J}_y$ satisfy
+    $\hat{J}_\pm|j,m\rangle=\hbar\sqrt{j(j+1)-m(m\pm1)}\,|j,m\pm1\rangle$.
+  - *Orbital* angular momentum: $j=\ell\in\{0,1,2,\dots\}$; the
+    eigenfunctions are spherical harmonics $Y_{\ell m}(\theta,\phi)$.
+    The radial part and the special functions show up in partial-wave
+    scattering (Appendix A).
+  - *Spin*: $j=s=\tfrac12$ is the 2D representation here,
+    $\hat{S}_i=\frac{\hbar}{2}\hat{\sigma}_i$, with $\hat{S}_z$
+    eigenstates $|\!\uparrow\rangle,|\!\downarrow\rangle$ and
+    eigenvalues $\pm\hbar/2$.
+- **Rotation operators.** A rotation by angle $\theta$ about the unit
+  axis $\mathbf{n}$ is generated by
+  $$\hat{U}(\theta) = \exp\!\left(-\frac{i}{\hbar}\,\theta\,\mathbf{n}\cdot\hat{\mathbf{S}}\right).$$
+  - For spin-1/2 this is $\hat{U}=\exp\!\left(-i\theta\,\mathbf{n}\cdot\hat{\boldsymbol{\sigma}}/2\right)$, a $2\times2$ unitary.
+  - The spin component along $\mathbf{n}$ is
+    $\hat{S}_n=\mathbf{n}\cdot\hat{\mathbf{S}}=\hat{U}^\dagger\hat{S}_z\hat{U}$,
+    with eigenstates $|\pm n\rangle=\hat{U}^\dagger|\!\updownarrow\rangle$.
+  - This is exactly the machinery used for Bell's theorem in @sec-bell:
+    e.g. $\hat{S}_2=\hat{U}^\dagger\hat{S}_z\hat{U}$ with
+    $\hat{U}=e^{(i\pi/3)\hat{\sigma}_2}$.
+
+**[END DRAFT]**
+
+## One-dimensional potentials
+
+**[DRAFT — point form; expand into prose before finalizing]**
+
+- Now we have the tools to solve the TISE for canonical 1D potentials;
+  Chapters 2–3 take these solutions for granted.
+- General facts for piecewise-constant $V(x)$:
+  - $\psi$ and $\psi'$ are continuous at each interface (unless $V$
+    contains a $\delta$-singularity, where $\psi'$ jumps; see Chapter 2).
+  - Bound states ($E$ below the potential at infinity) are normalizable
+    and discrete; scattering states are non-normalizable and continuous
+    — this is developed in Chapter 3.
+
+### Infinite square well
+
+- $V=0$ for $0<x<L$, $V=\infty$ otherwise; $\psi(0)=\psi(L)=0$.
+- Solutions: $\psi_n(x)=\sqrt{\frac2L}\,\sin\!\left(\frac{n\pi x}{L}\right)$, $\quad E_n=\frac{\pi^2\hbar^2n^2}{2mL^2}$, $\;n=1,2,3,\dots$.
+- Discrete spectrum; the zero-point energy $E_1>0$ is a consequence of
+  confinement (there is no $n=0$ state).
+
+### Finite square well (recap only)
+
+- $V(x)=-U$ for $|x|<a$, $V=0$ otherwise.  Bound states are even or odd,
+  with tails $e^{\mp\kappa|x|}$ outside; matching $\psi,\psi'$ at
+  $|x|=a$ fixes the discrete energies.
+- Full treatment (bound vs. free spectra, counting, numerics) is in
+  Chapter 3.
+
+### Harmonic oscillator via ladder operators
+
+- $\hat{H}=\frac{\hat{p}^2}{2m}+\frac12 m\omega^2\hat{x}^2$.
+- Define $a=\sqrt{\frac{m\omega}{2\hbar}}\big(\hat{x}+\frac{i\hat{p}}{m\omega}\big)$, $a^\dagger=\sqrt{\frac{m\omega}{2\hbar}}\big(\hat{x}-\frac{i\hat{p}}{m\omega}\big)$; from $[\hat{x},\hat{p}]=i\hbar$ one gets $[a,a^\dagger]=1$.
+- Invert: $\hat{x}=\sqrt{\frac{\hbar}{2m\omega}}(a+a^\dagger)$, $\hat{p}=-i\sqrt{\frac{m\omega\hbar}{2}}(a-a^\dagger)$.
+- $\hat{H}=\hbar\omega\big(a^\dagger a+\frac12\big)$; number operator $\hat{N}=a^\dagger a$.
+- Spectrum: $E_n=\hbar\omega(n+\frac12)$, $n=0,1,2,\dots$; ladder rules $a|n\rangle=\sqrt n\,|n{-}1\rangle$, $a^\dagger|n\rangle=\sqrt{n{+}1}\,|n{+}1\rangle$; the ground state $a|0\rangle=0$ gives the Gaussian $\psi_0(x)\propto e^{-m\omega x^2/2\hbar}$.
+- This is the template for boson operators (Chapter 5) and coherent
+  states (Appendix E).
+
+### Tunneling
+
+- Rectangular barrier with $E<V_0$: the wavefunction decays
+  exponentially inside the barrier but is nonzero on the far side —
+  transmission with no classical counterpart.
+- The simplest solvable case (a $\delta$-potential) is worked out fully
+  as a scattering problem in Chapter 2.
+
+### Variational principle
+
+- Statement: for any normalized trial state $\psi$,
+  $$\langle\psi|\hat{H}|\psi\rangle \;\ge\; E_0,$$
+  where $E_0$ is the ground-state energy; equality iff $\psi$ is
+  proportional to the ground state.
+- Proof sketch: expand $\psi=\sum_n c_n|n\rangle$ in the eigenbasis, so
+  $\langle H\rangle=\sum_n|c_n|^2E_n\ge E_0\sum_n|c_n|^2=E_0$.
+- Used in Chapter 3 to prove the existence of bound states and to
+  estimate energies; e.g. a Gaussian trial for the oscillator recovers
+  $\langle H\rangle\ge\frac12\hbar\omega$.
+
+**[END DRAFT]**
+
 ## Exercises {#sec-basics-exercises}
 
 1. In this exercise, we work through a line of reasoning that yields
@@ -655,3 +881,36 @@ $L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
 conditions (i.e., the wavefunction vanishes on the walls of the
 box).  Show that this gives rise to the same set of momentum
 eigenstates in the $L \rightarrow \infty$ limit.
+
+**[DRAFT — point form; expand into prose before finalizing]**
+
+3. (Time evolution) For a two-level system with
+   $\hat{H}=\frac{\hbar\omega_0}{2}\hat{\sigma}_3$ and initial state
+   $|\psi(0)\rangle=\frac{1}{\sqrt2}\big(|+\rangle+|-\rangle\big)$, find
+   $|\psi(t)\rangle$, and compute
+   $\langle\hat{\sigma}_1\rangle(t)$, $\langle\hat{\sigma}_2\rangle(t)$,
+   $\langle\hat{\sigma}_3\rangle(t)$.  Interpret the result as
+   precession.
+
+4. (Probability current) Compute $J(x)$ for (a)
+   $\psi=\Psi_i e^{ikx}$; (b) a standing wave
+   $\psi=\sqrt{2/L}\,\sin(n\pi x/L)$.  Explain why a real wavefunction
+   carries no net current.
+
+5. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
+   and re-derive $E_n=\hbar\omega(n+\tfrac12)$ from
+   $\hat{H}=\hbar\omega(a^\dagger a+\tfrac12)$.  Find $\psi_0(x)$ from
+   $a|0\rangle=0$.
+
+6. (Variational principle) Use the normalized Gaussian trial state
+   $\psi(x;\gamma)=\left(\frac{2\gamma}{\pi}\right)^{1/4}e^{-\gamma x^2}$
+   for the oscillator; compute $\langle H\rangle$ as a function of
+   $\gamma$ and minimize it.  (This is the same trick used in
+   Chapter 3.)
+
+7. (Quantum walk) Verify that $|k_n\rangle$ are eigenstates of the
+   hopping Hamiltonian with $E(k_n)=-2J\cos(k_n a)$; compute the group
+   velocity; and describe qualitatively how a state initially localized
+   at a single site spreads in time.
+
+**[END DRAFT]**
