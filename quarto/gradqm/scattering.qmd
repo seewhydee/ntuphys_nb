@@ -110,7 +110,7 @@ moves outward to infinity, away from the scatterer (what this means,
 in practice, will become clearer later on).
 
 Note that Statements 1--4 do *not* define an eigenproblem!  Usually,
-we deal with the time-independent Schröodinger equation by finding
+we deal with the time-independent Schrödinger equation by finding
 eigenvalues and eigenstates.  But here we are given $|\psi_i\rangle$,
 $E$, and $V(\mathbf{r})$, and want $|\psi_s\rangle$.  In particular,
 $E$ is an input to the calculation (a continuously variable
@@ -135,7 +135,7 @@ wave equation
 
 $$\left[-\frac{\hbar^2}{2m} \frac{d^2}{dx^2} + \frac{\hbar^2\gamma}{2m} \,\delta(x) \right] \psi(x) = E \psi(x).$$
 
-We can tidy this up by multipling both sides by $2m/\hbar^2$, and defining $k = \sqrt{2mE/\hbar^2} \in \mathbb{R}^+$:
+We can tidy this up by multiplying both sides by $2m/\hbar^2$, and defining $k = \sqrt{2mE/\hbar^2} \in \mathbb{R}^+$:
 
 $$\left[- \frac{d^2}{dx^2} + \gamma \,\delta(x) \right] \psi(x) = k^2 \psi(x).$${#eq-scattering-1d}
 
@@ -152,7 +152,7 @@ $$\begin{aligned}\lim_{\varepsilon\rightarrow 0^+} \int_{-\varepsilon}^{+\vareps
 \end{aligned}$$
 
 Note that the right-hand side vanishes because the integration occurs
-over an infinitestimal interval, whereas the integrand is finite.
+over an infinitesimal interval, whereas the integrand is finite.
 Therefore, we find that
 
 $$\lim_{\varepsilon\rightarrow 0^+} \left(\; \left.\frac{d\psi}{dx}\right|_{x = +\varepsilon} - \;\; \left.\frac{d\psi}{dx}\right|_{x = -\varepsilon}\; \right) =  \gamma \,\psi(0).$$
@@ -192,7 +192,7 @@ This has the general solution
 
 $$\psi_s(x) = \Psi_i \left(f_R \, e^{ik x} + f_L \, e^{-ik x}\right),$$
 
-which is a superposition of a right-moving with complex amplitude
+which is a superposition of a right-moving wave with complex amplitude
 $f_R$, and a left-moving wave with complex amplitude $f_L$.  Note,
 however, that these amplitudes may have different values in the two
 distinct half-spaces.  According to our formulation of the scattering
@@ -734,14 +734,14 @@ scattering potential that consists of a uniform spherical well of
 depth $U > 0$ and radius $R$:
 
 $$V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
-& |\mathbf{r}| > 0. \end{cases}$$
+& |\mathbf{r}| > R. \end{cases}$$
 
 As it turns out, this particular scattering problem can be solved
 exactly by exploiting the spherical symmetry of $V(\mathbf{r})$.  The
 solution method, called **partial wave analysis**, is explained in
 Appendix A.  Its result is
 
-$$\begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}$${#eq-fresult_well}
+$$\begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}$${#eq-fresult_well}
 
 The solution is expressed in terms of the special functions $j_\ell$
 (spherical Bessel function of the first kind), $h_\ell^+$ (spherical
@@ -789,7 +789,7 @@ same procedure can also be used to calculate the integrals for
 higher-order terms in the Born series.
 
 The figure below compares the Born approximation to the exact
-solution, @eq-fresult_well}, for two well depths ($U = 0.1$ and $U =
+solution, @eq-fresult_well, for two well depths ($U = 0.1$ and $U =
 1$), with the same radius $R = 1$.  We plot $|f|^2$ versus $E$ at a
 $90^\circ$ scattering angle (i.e., $\mathbf{k}_f$ perpendicular to
 $\mathbf{k}_i$), using computational units $\hbar = m = 1$.  Each
@@ -830,7 +830,7 @@ right side of the scatterer.
 
 2. Derive the causal 1D propagator:
 
-$$\langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik_i} \exp\left(ik_i|x-x'|\right).$$
+$$\langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik} \exp\left(ik|x-x'|\right).$$
 
 3. Derive the causal 2D propagator:
 

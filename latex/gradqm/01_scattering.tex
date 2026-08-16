@@ -375,8 +375,8 @@ This has the general solution
 \begin{equation}
   \psi_s(x) = \Psi_i \left(f_R \, e^{ik x} + f_L \, e^{-ik x}\right),
 \end{equation}
-which is a superposition of right-moving ($e^{ikx}$) and left-moving
-($e^{-ikx}$) waves.  The complex parameters $f_1$ and $f_2$ can
+which is a superposition of a right-moving wave ($e^{ikx}$) and a left-moving
+wave ($e^{-ikx}$).  The complex parameters $f_1$ and $f_2$ can
 have different values in the $x < 0$ and $x > 0$ regions.
 
 We want the scattered wave to be an outgoing wave.  Thus, for $x < 0$,
@@ -1007,7 +1007,7 @@ scattering potential that consists of a uniform spherical well of
 depth $U > 0$ and radius $R$:
 \begin{equation}
   V(\mathbf{r}) = \begin{cases}-U, & |\mathbf{r}| \le R \\ \;\;\;\,0,
-    & |\mathbf{r}| > 0. \end{cases}
+    & |\mathbf{r}| > R. \end{cases}
 \end{equation}
 
 As it turns out, this particular scattering problem can be solved
@@ -1015,7 +1015,7 @@ exactly by exploiting the spherical symmetry of $V(\mathbf{r})$.  The
 solution method, called \textbf{partial wave analysis}, is explained
 in \textbf{Appendix A}.  Its result is
 \begin{equation}
-  \begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} + \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}
+  \begin{aligned}f(\mathbf{k}_i \rightarrow \mathbf{k}_f) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{k}}_f), \\ \mathrm{where}\;\; \delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k {h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right], \\ q &= \sqrt{2m(E+U)/\hbar^2} \\ k &\equiv |\mathbf{k}_i| = |\mathbf{k}_f|.\end{aligned}
   \label{fresult_well}
 \end{equation}
 The solution is expressed in terms of the special functions $j_\ell$
@@ -1135,7 +1135,7 @@ brought to bear.  We will see an example in the next chapter.
 \item \label{ex:1dpropagator}
   Derive the causal 1D propagator:
   \begin{equation}
-    \langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik_i} \exp\left(ik_i|x-x'|\right).
+    \langle x|\hat{G}_0|x'\rangle = \frac{2m}{\hbar^2} \cdot \frac{1}{2ik} \exp\left(ik|x-x'|\right).
   \end{equation}
 
 \item \label{ex:2dpropagator}

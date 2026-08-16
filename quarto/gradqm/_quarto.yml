@@ -11,6 +11,15 @@ book:
     - scattering.qmd
     - resonances.qmd
     - entanglement.qmd
+    - identical_particles.qmd
+    - qed.qmd
+  appendices:
+    - appendix_a_circular_waves.qmd
+    - appendix_b_transfer_matrix.qmd
+    - appendix_c_entropy.qmd
+    - appendix_d_entanglement_numerics.qmd
+    - appendix_e_coherent_states.qmd
+    - appendix_f_anyons.qmd
 
 bibliography: references.bib
 
