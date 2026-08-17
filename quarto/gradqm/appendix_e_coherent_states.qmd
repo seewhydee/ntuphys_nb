@@ -35,15 +35,15 @@ bosonic particle.
 Returning to the Hamiltonian @eq-appE-hsho, suppose we add a term
 proportional to $\hat{x}$:
 $$\hat{H}' = \frac{\hat{p}^2}{2} + \frac{\hat{x}^2}{2} - \sqrt{2}\alpha_1\hat{x}.$${#eq-appE-hshift}
-The coefficient of $-\sqrt{2}\alpha_1$, where $\alpha_1 \in
-\mathbb{R}$, is for later convenience.  By completing the square, we
+We have chosen the coefficient to be $-\sqrt{2}\alpha_1$, where $\alpha_1 \in
+\mathbb{R}$, for later convenience.  By completing the square, we
 see that this additional term corresponds to a shift in the center of
 the potential, plus an energy shift:
 $$\hat{H}' = \frac{\hat{p}^2}{2} + \frac{1}{2}\left(\hat{x} - \sqrt{2}\alpha_1\right)^2 - \alpha_1^2.$$
 Let $|\alpha_1\rangle$ denote the ground state for the shifted
 harmonic oscillator.
 
-![](fig/coherent_state.png){fig-align="center" width="600" fig-alt="Plot of the harmonic oscillator potential energy function, along with the ground state wavefunction, before and after a shift in the center of the potential"}
+![](fig/coherent_state.png){fig-align="center" fig-alt="Plot of the harmonic oscillator potential energy function, along with the ground state wavefunction, before and after a shift in the center of the potential"}
 
 By analogy with how we solved the original harmonic oscillator
 problem, let us define a new annihilation operator with displaced $x$:
@@ -187,7 +187,7 @@ This looks more complicated than it actually is.  Dividing both sides by
 $\alpha \alpha^*$ gives
 $$\frac{1}{2}\, \left(\frac{i\dot{\alpha}}{\alpha} + \left[\frac{i\dot{\alpha}}{\alpha}\right]^*\right) = \mathrm{Re}\left[\frac{i\dot{\alpha}}{\alpha}\right] = 1.$$
 This reduces to
-$$\dot{\alpha} = \big[-i + \gamma(t)\big] \alpha(t), \;\;\; \mathrm{\gamma}\in\mathbb{R},$$
+$$\dot{\alpha} = \big[-i + \gamma(t)\big] \alpha(t), \;\;\; \gamma\in\mathbb{R},$$
 which is the equation of motion for a complex harmonic oscillator with
 an arbitrary damping or amplification factor $\gamma$.  For $\gamma =
 0$, the oscillator is energy-conserving and the solutions are

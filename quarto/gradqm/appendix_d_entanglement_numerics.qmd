@@ -2,10 +2,10 @@
 
 This appendix discusses how tensor products are handled in numerical
 linear algebra software.  We will focus on Python with the
-[Numeric Python (numpy)](https://numpy.org/) module.  The
+[NumPy](https://numpy.org/) module.  The
 discussion is also applicable, with minor modifications, to GNU Octave
-or Matlab.  We assume the reader is familiar with the
-[basics of Python/Numpy](https://docs.scipy.org/doc/numpy/user/quickstart.html), e.g.~how vectors can be represented by 1D arrays,
+or MATLAB.  We assume the reader is familiar with the
+[basics of Python/NumPy](https://docs.scipy.org/doc/numpy/user/quickstart.html), e.g.~how vectors can be represented by 1D arrays,
 linear operators (matrices) can be represented by 2D arrays, etc.
 
 Tensor products are implemented by the [`numpy.kron`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html)
@@ -22,7 +22,7 @@ traces.
 
 In the next few sections, we will prove that the various tensor
 products of bras, kets, and operators can be represented using the
-following Numpy expressions involving [`numpy.kron`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html):
+following NumPy expressions involving [`numpy.kron`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.kron.html):
 
 $$\begin{aligned}
     |a\rangle\otimes|b\rangle &\;\;\leftrightarrow\;
@@ -45,7 +45,7 @@ $$\begin{aligned}
 
 Suppose $a$ and $b$ are both 1D arrays, of length $M$ and $N$
 respectively; let their components be $(a_0, a_1, \dots, a_{M-1})$ and
-$(b_0, b_1, \dots, b_{N-1})$.  Following Numpy conventions, we do not
+$(b_0, b_1, \dots, b_{N-1})$.  Following NumPy conventions, we do not
 explicitly distinguish between "row vectors" and "column vectors",
 and component indices start from 0.  The Kronecker product between $a$
 and $b$ generates the following 1D array:
@@ -153,12 +153,12 @@ Then
 $$|a\rangle \otimes \hat{B} = \sum_{\mu n'} |\mu\rangle \,
   a_m B_{nn'} \, \langle n'|, \qquad \mu = mN + n.$${#eq-appD-aBprod}
 This does not quite match @eq-appD-kronaB!  The basic problem is
-that the Kronecker product treats $a$ a row vector.  However, we can
+that the Kronecker product treats $a$ as a row vector.  However, we can
 patch things up by massaging @eq-appD-kronaB a bit:
 $$\begin{aligned}
     \left.[\right.\texttt{kron}(a, B^T)^T]_{\mu n'} &=
     [\texttt{kron}(a, B^T)]_{n' \mu} \\
-    &= a_{m} (B^T)_{n'n} \quad\;\;\mathrm{where}\;\; \mu' = m'N + n' \\
+    &= a_{m} (B^T)_{n'n} \quad\;\;\mathrm{where}\;\; \mu = mN + n \\
     &= a_{m} B_{nn'}.
   \end{aligned}$$
 This is an appropriate match for @eq-appD-aBprod, so we conclude
