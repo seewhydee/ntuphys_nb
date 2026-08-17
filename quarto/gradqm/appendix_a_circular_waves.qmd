@@ -7,7 +7,7 @@ spherical waves, and their uses in 2D and 3D scattering problems.
 
 Consider a non-relativistic particle moving in $d$-dimensional space
 with zero potential.  This is the case, for example, in a scattering
-problem at positions far from the scatterer (Chapter 1).  The
+problem at positions far from the scatterer (@sec-scattering).  The
 time-independent Schrödinger equation is
 $$-\frac{\hbar^2}{2m}\nabla^2 \psi(\mathbf{r}) = E \psi(\mathbf{r}),$${#eq-appA-tise}
 where $\nabla^2$ denotes the $d$-dimensional Laplacian and $E > 0$ is
@@ -23,16 +23,14 @@ $$\psi(\mathbf{r}) = \psi_0 \, \exp\left(i\mathbf{k}\cdot\mathbf{r}\right),$${#e
 where $\psi_0 \in \mathbb{C}$ and $\mathbf{k}$ is a $d$-component
 wave-vector with $|\mathbf{k}| = k$.
 
-When studying the scattering problem in Chapter 1, we saw that
+When studying the scattering problem in @sec-scattering, we saw that
 scattered wavefunctions should be "outgoing"---i.e., they should
 propagate outward from the scatterer, to infinity.  However, a plane
 wave like @eq-appA-planewaves is neither outgoing, nor incoming.  This
 indicates that we should look for a different type of solution to
-@eq-appA-helmholtz.  In
-[@sec-circular-waves]--[@sec-spherical-waves], we will discuss the
-nature of these solutions for the $d=2$ and $d=3$ cases, and in
-[@sec-partial-waves]--[@sec-sphere] we will talk about how
-they can used to solve scattering problems.
+@eq-appA-helmholtz.  Let us go over these solutions for the $d=2$ and
+$d=3$ cases, before discussing how they can be used to solve scattering
+problems.
 
 ## Circular Waves in 2D {#sec-circular-waves}
 
@@ -44,7 +42,7 @@ direction, $\psi(r,\phi + 2\pi) = \psi(r, \phi)$.  Hence, we can
 express the $\phi$-dependence via the Fourier basis, and focus on
 solutions of the form
 $$\psi(r,\phi) = \Psi_m(r)\, e^{im\phi}, \;\;\;m \in\mathbb{Z}.$${#eq-appA-psi-circular}
-These is called a **circular wave**, and the integer $m$
+This is called a **circular wave**, and the integer $m$
 describes its angular momentum.  For example, for $m > 0$, the phase
 of $\psi$ increases with $\phi$, so the wave rotates in the $+\phi$
 direction.
@@ -125,12 +123,12 @@ the real and imaginary parts for $m = 0, 1, 2, 3$:
 
 ![](fig/besselh.png){fig-align="center" width="600" fig-alt="Plots of the real and imaginary parts of the Hankel functions H_m^+ for m = 0, 1, 2, 3, versus kr"}
 
-For large $kr$, the functions behave as decaying complex sinuoidals,
+For large $kr$, the functions behave as decaying complex sinusoidals,
 in accordance with @eq-appA-Jasymptote.  In the asymptotic form
 @eq-appA-Jasymptote, the decay factor of $1/\sqrt{r}$ satisfies the
-conservation of flux in the $r$ direction in 2D (see Chapter 1,
-Sec.~1.4); moreover, the Hankel functions for different $m$'s are all
-normalized to carry the same flux.
+conservation of flux in the $r$ direction in 2D (see
+@sec-scattering-amplitudes); moreover, the Hankel functions for
+different $m$'s are all normalized to carry the same flux.
 
 For small $kr$, the value of $H_m^+(kr)$ diverges (specifically, its
 imaginary part, which is $Y_m$).  This is also consistent with flux
@@ -188,7 +186,7 @@ momentum and the $z$-component of the angular momentum, respectively.
 If we take
 $$\ell \ge 0 \;\;\mathrm{and}\; -\ell\le m \le \ell,$${#eq-appA-ellm}
 it can be shown that $Y_{\ell m}(\theta,\phi)$ is a well-behaved
-function of the anglular coordinates $\theta$ and $\phi$; i.e.,
+function of the angular coordinates $\theta$ and $\phi$; i.e.,
 periodic in $\phi$ and regular at the coordinate poles $\theta = \{0,
 \pi\}$.
 
@@ -295,8 +293,8 @@ conservation, the scattering matrix must be unitary:
 $$\left(S^{-1}\right)_{mm'} = S_{m'm}^*.$${#eq-appA-Sunitary}
 
 Do not confuse the "incoming" and "outgoing" waves of
-@eq-appA-psirdecomp with the "incident" and "scattered" waves
-defined in the scattering problem.  As discussed in Chapter 1, a
+@eq-appA-psirdecomp with the "incident" and "scattered" waves defined
+in the scattering problem.  As discussed in @sec-scattering, a
 scattering experiment typically has an incident wave that is a plane
 wave, of the form
 $$\psi_i(\mathbf{r}) = \Psi_i \, e^{i\mathbf{k}_i\cdot\mathbf{r}} \;\;\;
@@ -320,9 +318,9 @@ cases, the incident plane wave is evidently a superposition of
 incoming *and* outgoing waves.
 
 Using @eq-appA-psii-2d and @eq-appA-psii-3d, we can relate the
-scattering matrix to the formulation of the scattering problem
-discussed in Chapter 1.  Let us go through the details for 3D, leaving
-the 2D case as an [exercise](#sec-appendix-a-exercises).
+scattering matrix to the formulation of the scattering problem.  Let
+us go through the details for 3D, leaving the 2D case as an
+[exercise](#sec-appendix-a-exercises).
 
 Focusing on 3D, a comparison of @eq-appA-psirdecomp and
 @eq-appA-psii-3d allows us to determine the spherical wave coefficients
@@ -347,8 +345,7 @@ $$\begin{aligned}\psi_s(\mathbf{r}) &= \sum_{\ell m} c^+_{s,\ell m} h_{\ell}^+(k
 For large $r$, we can simplify the spherical Hankel functions using
 @eq-appA-sphJasymptote, obtaining
 $$\psi_s(\mathbf{r}) \overset{r\rightarrow\infty}{\longrightarrow} \, \Psi_i \frac{e^{ikr}}{r} \; \left[ \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}})\right].$$
-The quantity in square brackets is the scattering amplitude (Section
-1.5):
+The quantity in square brackets is the scattering amplitude (@sec-scattering-amplitudes):
 $$f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) =  \frac{2 \pi}{ik}\, \sum_{\ell m} \sum_{\ell' m'} \Big(S_{\ell m, \ell' m'} - \delta_{\ell \ell'}\delta_{mm'}\Big) \, e^{-i(\ell-\ell')\pi/2} \, Y_{\ell' m'}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$${#eq-appA-3dfrelation}
 
 ## Scattering from a uniform sphere {#sec-sphere}
@@ -362,7 +359,7 @@ where $R$ is the radius of the well and $U$ is its depth.  For
 simplicity, we assume an attractive potential, $U > 0$.  (The
 interested reader can work through the repulsive case, $U < 0$, which
 is almost the same, except that the wavefunction inside the scatterer
-is an evanescent wave.)
+can be an evanescent wave.)
 
 This scattering potential is isotropic, so angular momentum is
 conserved.  There must therefore exist solutions where both the
@@ -379,9 +376,9 @@ $$S_{\ell m, \ell' m'} \,=\, s_{\ell} \; \delta_{\ell \ell'} \, \delta_{mm'}.$${
 We also know from @eq-appA-Sunitary that the scattering matrix is
 unitary.  For a matrix that is both diagonal and unitary, each
 diagonal matrix element must have magnitude 1.  Hence,
-$$s_{\ell} = e^{i\Delta_{\ell}},$${#eq-appA-sell}
+$$s_{\ell} = e^{2i\Delta_{\ell}},$${#eq-appA-sell}
 for some real phase $\Delta_{\ell}$.  This has a simple physical
-intepretation: since each scattering channel is independent and
+interpretation: since each scattering channel is independent and
 flux-conserving, the outgoing wave in that channel must have the same
 magnitude as the incoming wave.  It can only vary by a phase shift.
 
@@ -405,7 +402,7 @@ relation @eq-appA-srelation.  The fact that $A_{\ell}$ does not depend
 on $m$ justifies our prior assertion, in @eq-appA-Sdiagonal, that
 the scattering matrix entries do not depend on $m$.  Using
 @eq-appA-Sdiagonal and @eq-appA-sell, we can simplify this to
-$$A_\ell(r) = c^-_\ell \Big(h^-_\ell(kr) + e^{i\Delta_\ell}\, h^+_\ell(kr)\Big),
+$$A_\ell(r) = c^-_\ell \Big(h^-_\ell(kr) + e^{2i\Delta_\ell}\, h^+_\ell(kr)\Big),
    \quad \textrm{for}\,\;r > R.$${#eq-appA-Aoutside}
 
 Next, consider the region inside the scatterer, $r < R$.  Here, the
@@ -428,14 +425,14 @@ interior solution @eq-appA-Ainside at $r = R$.  Matching both the
 wavefunction and its first derivative, we obtain two equations:
 $$\begin{aligned} \alpha_\ell\, j_\ell(qR)
     &=\;\; c^-_\ell \Big(h^-_\ell(kR) \,
-    + e^{i\Delta_\ell} h^+_\ell(kR)\Big) \\
+    + e^{2i\Delta_\ell} h^+_\ell(kR)\Big) \\
     \alpha_\ell\, q j_\ell'(qR)
-    &= c^-_\ell k \Big({h^-_\ell}'(kR) + e^{i\Delta_\ell} {h^+_\ell}'(kR)\Big).\end{aligned}$$
+    &= c^-_\ell k \Big({h^-_\ell}'(kR) + e^{2i\Delta_\ell} {h^+_\ell}'(kR)\Big).\end{aligned}$$
 Here, $j_\ell'$ denotes the derivative of the spherical Bessel
 function, and likewise for ${h_\ell^\pm}'$.  Taking the ratio of these
 two equations eliminates $\alpha_\ell$ and $c_\ell^-$.  Then a bit of
 rearrangement yields
-$$e^{i\Delta_\ell} = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.$$
+$$e^{2i\Delta_\ell} = - \frac{k{h_\ell^-}'(kR) j_\ell(qR) - qh_\ell^-(kR)j_\ell'(qR)}{k{h_\ell^+}'(kR) j_\ell(qR) - qh_\ell^+(kR)j_\ell'(qR)}.$$
 On the right-hand side, the numerator and denominator are complex
 conjugates of one another, since $j_\ell$ is real and $(h_\ell^+)^* =
 h_\ell^-$; hence, the expression has magnitude 1, matching the
@@ -448,7 +445,7 @@ This result can then be plugged into the scattering amplitude formula
 $$f(\mathbf{k}_i\rightarrow k\hat{\mathbf{r}}) = \frac{2 \pi}{ik}\, \sum_{\ell =0}^\infty \big(e^{2i\Delta_\ell} - 1\big) \, \sum_{m=-\ell}^\ell \,Y_{\ell m}^*(\hat{\mathbf{k}}_i)\; Y_{\ell m}(\hat{\mathbf{r}}).$$
 This can be further simplified with the aid of the following addition
 theorem for spherical harmonics:
-$$P_\ell(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_2) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\hat{\mathbf{r}}_1) Y_{\ell m}(\hat{\mathbf{r}}_2).$$
+$$P_\ell(\hat{\mathbf{r}}_1\cdot\hat{\mathbf{r}}_2) = \frac{4\pi}{2\ell+1} \sum_{m=-\ell}^{\ell} Y_{\ell m}^*(\hat{\mathbf{r}}_1) Y_{\ell m}(\hat{\mathbf{r}}_2),$$
 where $P_\ell(\cdots)$ denotes a [Legendre polynomial](https://en.wikipedia.org/wiki/Legendre_polynomials).  Finally, we obtain
 $$\begin{aligned}f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}}) &= \frac{1}{2ik}\, \sum_{\ell =0}^\infty \big(e^{2i\Delta_\ell} - 1\big) \big(2\ell+1\big)\, P_{\ell}(\hat{\mathbf{k}}_i\cdot \hat{\mathbf{r}}) \\ \Delta_\ell &= \frac{\pi}{2} - \mathrm{arg}\!\left[k{h_\ell^+}'(kR) \, j_\ell(qR) - qh_\ell^+(kR)\, j_\ell'(qR)\right] \\ k &= |\mathbf{k}_i| = \sqrt{2mE/\hbar^2}, \;\; q = \sqrt{2m(E+U)/\hbar^2}.\end{aligned}$${#eq-appA-fresult}
 Evidently, $f(\mathbf{k}_i \rightarrow k\hat{\mathbf{r}})$ depends on
@@ -457,7 +454,7 @@ two variables: $E$, the conserved particle energy, and $\Delta \theta
 angle between the incident and scattered directions.
 
 The formulas in @eq-appA-fresult are used to generate the exact
-scattering amplitude plots shown in Chapter 1, Section 1.8.
+scattering amplitude plots shown @sec-uniform-spherical-well.
 
 ## Exercises {#sec-appendix-a-exercises}
 

@@ -224,10 +224,10 @@ obtain
 
 $$f = -\frac{\gamma}{\gamma - 2ik}.$$
 
-For now, let us focus on the magnitude of the scattering amplitude (in
-the next chapter, we will see that the phase also contains useful
-information).  The quantity $|f|^2$ quantifies how much of the
-incident wave gets scattered:
+For now, let us focus on the magnitude of $f$ (in the next chapter, we
+will see that the phase also contains useful information).  The
+quantity $|f|^2$ quantifies how much of the incident wave gets
+scattered:
 
 $$|f|^2 = \left[1 + \frac{8mE}{(\hbar\gamma)^2}\right]^{-1}.$$
 
@@ -727,7 +727,7 @@ for the 3D case, it also holds for other dimensions, the only
 difference being that the $2\pi^2$ is replaced by other numerical
 factors.
 
-### Example: uniform spherical well in 3D
+### Example: uniform spherical well in 3D {#sec-uniform-spherical-well}
 
 Let us test the Born series with a simple scatterer.  Consider a
 scattering potential that consists of a uniform spherical well of
