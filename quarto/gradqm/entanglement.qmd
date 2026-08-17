@@ -458,7 +458,7 @@ $B$ are no longer entangled after the collapse.
 
 In 1935, Einstein, Podolsky, and Rosen (EPR) formulated a thought
 experiment, now called the **EPR paradox**, highlighting the
-counter-intuitive features of quantum entanglement.  They intended for
+counter-intuitive features of quantum entanglement [@epr].  They intended for
 this to show that quantum theory cannot be a fundamental description
 of reality.  Subsequently, it was shown that the EPR paradox is not an
 actual paradox---physical systems *really do* behave like the thought
@@ -598,11 +598,11 @@ Well, no.
 
 In 1964, J. S. Bell published a bombshell paper showing that the
 predictions of quantum theory are inherently inconsistent with
-hidden-variable theories.  The amazing thing about this proof, which
+hidden-variable theories [@bell].  The amazing thing about this proof, which
 is called **Bell's theorem**, is that it requires no knowledge about
 the details of the hidden-variable theory, merely the fact that it is
 deterministic and local.  Here, we present a streamlined version of
-Bell's theorem due to Mermin.
+Bell's theorem due to Mermin [@mermin].
 
 Yet again, we consider pairs of spin-1/2 particles, with particle $A$
 sent to Alice and particle $B$ to Bob, with the two-particle singlet
@@ -860,7 +860,7 @@ These experiments are all substantially more complicated than the
 above toy model, and are subject to various real-world imperfections.
 But in the end, the experimental consensus is a clear *yes*: Nature
 agrees with quantum mechanics, not the hidden-variable theories!  The
-experimental evidence is reviewed in [a paper by Aspect](https://www.nature.com/articles/18296).
+experimental evidence is reviewed in a paper by Aspect [@aspect].
 
 ## Quantum cryptography
 
@@ -869,7 +869,7 @@ is that it provides a way to perform cryptography that is more secure,
 in certain respects, than conventional cryptography.  **Quantum
 cryptography** is poised to be one of the most important technological
 applications of quantum entanglement.  Here, we describe one of the
-earliest quantum cryptography schemes, devised by Ekert in 1991.
+earliest quantum cryptography schemes, devised by Ekert in 1991 [@ekert].
 
 Ekert's scheme allows two participants, Alice and Bob, to share with
 each other a string of random binary digits (0 or 1), called a
@@ -1292,7 +1292,7 @@ for a state to change.
   interacts with a particle, what determines whether it acts via the
   Schrödinger equation, or performs a measurement?
 
-The Many Worlds Interpretation of quantum mechanics seeks to resolve
+The Many Worlds Interpretation of quantum mechanics [@everett] seeks to resolve
 these problems by positing that the measurement postulate is
 *not* a fundamental postulate of quantum mechanics.  It says
 that the key features of quantum measurement---e.g., the randomness of
@@ -1302,7 +1302,7 @@ Schrödinger equation.  They can be derived, rather than posited, by
 adopting quantum descriptions for both the system being measured
 *and* the system doing the measurement.
 
-We can use a toy model to illustrate this idea.
+We can use a toy model to illustrate this idea [@albrecht].
 Suppose we have (i) a spin-$1/2$ particle, whose Hilbert space is
 $\mathscr{H}_S$, and (ii) an apparatus that measures $S_z$ on that
 particle, whose Hilbert space is $\mathscr{H}_A$.  The apparatus has a
@@ -1399,7 +1399,7 @@ $$\hat{V} = \frac{1}{2\sqrt{d_A}} \left(\hat{A} + \hat{A}^\dagger\right),
 (The prefactor of $1/2\sqrt{d_A}$ is unimportant for our present
 discussion; it simply ensures that the eigenvalues of $\hat{V}$ lie in
 the range $[-2,2]$ rather than scaling with $d_A$, according to the
-theory of random matrices.)  In this example, we
+theory of random matrices [@edelman].)  In this example, we
 will choose $d_A = 100$.
 
 Now we simply have to pick the inital state (say, $a_1 = 0.7$ and $a_2
@@ -1496,25 +1496,4 @@ Find the entropy of entanglement.
 $$|\psi\rangle = \frac{1}{3} \, |m\rangle|p\rangle + \frac{1}{\sqrt{6}} \, |m\rangle|q\rangle + \frac{1}{\sqrt{18}} \, |m\rangle|r\rangle + \frac{\sqrt{2}}{3} \, |n\rangle|p\rangle + \frac{1}{\sqrt{3}} \, |n\rangle|q\rangle + \frac{1}{3} \, |n\rangle|r\rangle.$$
 Find the entanglement entropy.
 
-<!-- Further Reading -->
-<!--
-1. Bransden \& Joachain, \S14.1---14.4, \S17.1--17.5
-
-2. Sakurai, \S3.9
-
-3. A. Einstein, B. Podolsky, and N. Rosen, *Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?*, Physical Review **47**, 777 (1935).
-
-4. J. S. Bell, *On the Einstein-Podolsky-Rosen paradox*, Physics **1**, 195 (1964).
-
-5. N. D. Mermin, *Bringing home the atomic world: Quantum mysteries for anybody*, American Journal of Physics **49**, 940 (1981).
-
-6. A. Aspect, *Bell's inequality test: more ideal than ever*, Nature (News and Views) **398**, 189 (1999).
-
-7. A. K. Ekert, *Quantum Cryptography Based on Bell's Theorem*, Physical Review Letters **67**, 661 (1991).
-
-8. H. Everett, III, *The Theory of the Universal Wave Function* (PhD thesis), Princeton University (1956).
-
-9. A. Albrecht, *Following a "collapsing" wave function*, Physical Review D **48**, 3768 (1993).
-
-10. A. Edelman and N. R. Rao, *Random matrix theory*, Acta Numerica **14**, 233 (2005).
--->
+---

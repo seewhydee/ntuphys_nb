@@ -1498,11 +1498,11 @@ framework for dealing with systems of many particles.
 Wilczek has pointed out that the modern picture of fundamental physics
 bears a striking resemblance to the old idea of the "luminiferous
 ether": a medium that fills all of space and time, whose vibrations
-are physically-observable light waves.  The key difference is that
-this ether is not a classical medium, but one obeying the rules of
-quantum mechanics.  (Another difference is that the fundamental
-quantum fields obey relativistic symmetries, so that their behavior is
-invariant under a change of reference frame.)
+are physically-observable light waves [@wilczek-ether].  The key
+difference is that this ether is not a classical medium, but one
+obeying the rules of quantum mechanics.  (Another difference is that
+the fundamental quantum fields obey relativistic symmetries, so that
+their behavior is invariant under a change of reference frame.)
 
 It is interesting to contemplate the idea of fields, not individual
 particles, as the fundamental objects in the universe.  This would
@@ -1564,15 +1564,4 @@ excitations of underlying entities---quantum fields!
    In this case, prove that
    $$\Big[\hat{A}, \sum_\mu c^\dagger_\mu c_\mu \Big] = 0.$$
 
-<!-- Further Reading -->
-<!--
-1. Bransden \& Joachain, \S10.1--10.5
-
-2. Sakurai, \S6
-
-3. I. Duck and E. C. G. Sundarshan, *Pauli and the Spin-Statistics Theorem*, World Scientific (1998).
-
-4. J. M. Leinaas and J. Myrheim, *On the Theory of Identical Particles*, Nuovo Cimento B **37**, 1 (1977).
-
-5. F. Wilczek, *The Persistence of Ether*, Physics Today **52**, 11 (1999).
--->
+---

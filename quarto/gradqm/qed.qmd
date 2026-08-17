@@ -14,8 +14,8 @@ can be accommodated with quantum theory.
 
 Quantum electrodynamics is an extremely rich and intricate theory, and
 we will leave out many important topics.  Interested readers are
-referred to Dyson's 1951 lecture notes on quantum electrodynamics, and
-Zee's textbook *Quantum Field Theory in a Nutshell*.
+referred to Dyson's 1951 lecture notes on quantum electrodynamics [@dyson], and
+Zee's textbook *Quantum Field Theory in a Nutshell* [@zee].
 
 ## Quantization of the Lorentz Force Law
 
@@ -424,7 +424,7 @@ hypothetical particle that produces a magnetic field $\mathbf{B} =
 be a multiple of $h/e$.  Conversely, if there exists a single magnetic
 monopole of charge $\mu$ anywhere in the universe, electric charges
 must come in multiples of $h/\mu$, which could be regarded as an
-explanation for the quantization of electric charge.
+explanation for the quantization of electric charge [@monopole].
 
 ## Dirac's Theory of the Electron
 
@@ -589,7 +589,7 @@ In the relativistic regime, $|\mathbf{p}| \sim |E| \gg mc^2$,
 $|\psi_A| \sim |\psi_B|$ for both positive-energy and negative-energy
 eigenstates.  (There does exist a way to make the upper/lower spinor
 components correspond rigorously to positive/negative $E$, but this
-requires adopting a more complicated matrix representation.)
+requires adopting a more complicated matrix representation [@foldy].)
 
 ### Dirac electron in an electromagnetic field {#sec-diracem}
 
@@ -703,13 +703,13 @@ electronic and electromagnetic quantum fields.  Using the full theory
 of quantum electrodynamics, that "anomalous magnetic moment" can
 also be calculated and matches experiment to around one part in
 $10^{12}$, making it one of the most precise theoretical predictions in
-physics!
+physics [@zee]!
 
 It is noteworthy that we did not set out to include spin in the
 theory, yet it arose, seemingly unavoidably, as a by-product of
 formulating a relativistic theory of the electron.  This is a
 manifestation of the principle that relativistic quantum theory is
-more constrained than non-relativistic quantum theory.  To satisfy the
+more constrained than non-relativistic quantum theory [@dyson].  To satisfy the
 relativistic symmetries,
 spin cannot be an optional part of the theory---it must be built-in at
 a fundamental level.
@@ -927,7 +927,7 @@ single-particle theory.
 There are many more details about the Dirac field theory that we will
 not discuss here, including the expression of the Hamiltonian in terms
 of the field operators, and the issue of how the particles transform
-under Lorentz boosts and other changes in coordinate system.
+under Lorentz boosts and other changes in coordinate system [@dyson].
 
 ## Quantizing the electromagnetic field {#sec-em-quantization}
 
@@ -1318,13 +1318,4 @@ Golden Rule are within striking distance of the experimental values.
    accounting for the polarizations.  Prove that
    $$\mathcal{D}(E) = \frac{E^2}{\pi^2\hbar^3c^3}.$$
 
-<!-- Further Reading -->
-<!--
-1. F. J. Dyson, *1951 Lectures on Advanced Quantum Mechanics Second Edition*, arxiv:quant-ph/0608140.
-
-2. A. Zee, *Quantum Field Theory in a Nutshell* (Princeton University Press, 2010).
-
-3. P. A. M. Dirac, *Quantized singularities in the electromagnetic field*, Proceedings of the Royal Society (London) **133**, 60 (1931).
-
-4. L. L. Foldy and S. A. Wouthuysen, *On the Dirac Theory of Spin 1/2 Particles and Its Non-Relativistic Limit*, Physical Review **78**, 29 (1950).
--->
+---
