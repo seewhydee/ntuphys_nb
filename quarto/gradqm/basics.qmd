@@ -345,38 +345,79 @@ matrices are said to describe a **spin-1/2 degree of freedom**.
 
 Due to the relationship between Pauli matrices and spin, it is common
 for two-level quantum systems to be interpreted in terms of spin-1/2
-degrees of freedom, *even if they aren't really spins*.  As an
-example, consider a **two-level atom**, which has a ground state
-$|g\rangle$ and an excited state $|e\rangle$ whose energies differ by
-$\hbar\Delta \omega$.  The atom is illuminated by an electromagnetic
-wave, or "driving field", that induces transitions between the ground
-state and the excited state.  The Hamiltonian has the form
+degrees of freedom, *even if they aren't really spins*.
 
-$$\hat{H} = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g|
-+ \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| + \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |g\rangle\langle e| + e^{i\omega_d t} |e\rangle\langle g|\Big),$$
+As an example, consider the following model of a **two-level atom**,
+consisting of a ground state $|g\rangle$ and an excited state
+$|e\rangle$, whose energies differ by $\hbar\Delta \omega$.  If the
+atom is illuminated by an electromagnetic wave, called a “driving
+field”, its Hamiltonian takes the form
+$$\hat{H}(t) = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g| + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| - \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |e\rangle\langle g| + e^{i\omega_d t} |g\rangle\langle e| \Big),$$
+where $E_0$ is a baseline energy, $\omega_d$ is the angular frequency
+of the driving field, and $\Omega_d$ is a parameter quantifying the
+strength of the driving field, expressed as a frequency unit and
+called the **Rabi frequency**.  Thus, the third term in this
+Hamiltonian (the one proportional to $\Omega_d$) describes the effect
+of the driving field; we will skip over its derivation, but you can
+convince yourself that it is reasonable, since it (i) is Hermitian,
+(ii) is time-dependent with angular frequency $\omega_d$, and (iii)
+induces transitions between the ground state and the excited state.
 
-where $E_0$ is a baseline energy, $\Omega_d$ is the so-called Rabi
-frequency (which quantifies the strength of the driving field), and
-$\omega_d$ is the frequency of the driving field.  Using the basis
-$\{|g\rangle, |e\rangle\}$, we can write $\hat{H}$ as
+Using the basis $\{|g\rangle, |e\rangle\}$, we can write the
+Hamiltonian as
+$$\hat{H}(t) = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2}\left[\cos(\omega_d t) \hat{\sigma}_1 - \sin(\omega_d t) \hat{\sigma}_2\right].$$ {#eq-rabi-time-dependent}
+If we introduce the spin operator from @eq-spin-map, the Hamiltonian
+maps into
+$$\hat{H}(t) = E_0 - \lambda \mathbf{B}(t) \cdot \hat{\mathbf{S}}, \;\;\mathrm{where}\;\; \lambda \mathbf{B}(t) = \begin{pmatrix}\Omega_d\cos(\omega_dt)\\ -\Omega_d\sin(\omega_dt) \\ \Delta \omega\end{pmatrix}.$$
+This is equivalent to the Hamiltonian for a magnetic dipole moment
+$\lambda \hat{\mathbf{S}}$ (the spin times a scaling factor), embedded
+in a magnetic field $\mathbf{B}(t)$ that is rotating around the $z$
+axis (i.e., the field has a static piece oriented along $z$, and a
+time-dependent piece that rotates in the $x$-$y$ plane with
+angular frequency $\omega_d$).
 
-$$\hat{H} = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 + \frac{\hbar\Omega_d}{2}\left[\cos(\omega_d t) \hat{\sigma}_1 + \sin(\omega_d t) \hat{\sigma}_2\right].$$
-
-Next, we can use @eq-spin-map to map $\hat{H}$ into
-
-$$\hat{H} = E_0 - \lambda \mathbf{B}(t) \cdot \hat{\mathbf{S}}, \;\;\;
-\lambda \mathbf{B}(t) = \begin{pmatrix}-\Omega_d\cos(\omega_dt)\\ -\Omega_d\sin(\omega_dt) \\ \Delta \omega\end{pmatrix},$$
-
-where $\lambda \hat{\mathbf{S}}$ denotes a magnetic dipole moment
-(which follows the spin).  Hence, the driven two-level atom maps to a
-spin in a magnetic field $\mathbf{B}(t)$ consisting of (i) a static
-magnetic along $z$, plus (ii) a rotating field in the $x$-$y$ plane.
 
 ![](fig/magdipole.png){fig-align="center" width="500" fig-alt="Diagram of a two-level quantum system (left) and the corresponding magnetic dipole in a magnetic field (right)."}
 
-Note how the spin model's parameters $\{E_0, B_1, B_2, B_3\}$ map
-cleanly to the coefficients of the linear expansion in
-@eq-pauli-superposition.
+Next, we want to solve the Schrödinger equation for this Hamiltonian.
+To do this, it is convenient to move to a frame that co-rotates with
+the magnetic field, with the same angular frequency $\omega_d$.  Let
+us define the following unitary rotation operator around the $z$ axis
+(remember, this is a rotation in an *abstract* space defined by the
+spin mapping, not a physical space):
+$$\hat{U}_R(\theta) = e^{-i\theta\,\hat{\sigma}_3/2}.$$
+The Pauli matrices can be shown to satisfy the identity
+$$\hat{U}_R^\dagger(\theta) \,\hat{\sigma}_1\, \hat{U}_R(\theta) = \hat{\sigma}_1\cos\theta - \hat{\sigma}_2\sin\theta.$$
+Hence, the Hamiltonian in @eq-rabi-time-dependent can be rewritten as
+$$\hat{H}(t) = \hat{U}_R^\dagger(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) \hat{U}_R(\omega_d t).$$ {#eq-rabi-rotated-h}
+Note that the factor in the center is independent of $t$.  We then define the co-rotating state vector
+$$|\psi_R(t)\rangle = \hat{U}_R(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_R^\dagger(\omega_d t)\,|\psi_R(t)\rangle.$$
+The Schrödinger equation, @eq-schrodinger, can be re-written as
+$$i\hbar\frac{d}{dt}\left(\hat{U}_R^\dagger(\omega_d t)\,|\psi_R(t)\rangle\right) 
+= i\hbar \left(\frac{d\hat{U}_R^\dagger(\omega_d t)}{dt} + \hat{U}_R^\dagger(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle = \hat{H}(t) \hat{U}_R^\dagger(\omega_d t) |\psi_R(t)\rangle.$$
+Noting that $(d/dt)\hat{U}_R^\dagger(\omega_d t) = (i\omega_d/2) \, \hat{\sigma}_3 \, \hat{U}_R^\dagger(\omega_d t)$, and making use of @eq-rabi-rotated-h on the right-hand side, we obtain
+$$i \hbar \frac{d}{dt} |\psi_R(t)\rangle
+= \left(E_0 + \frac{\hbar(\omega_d - \Delta \omega)}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle.$$
+
+
+- Interpretation: in this frame the rotating transverse field is frozen (along $x$), and the **detuning** $\delta$ survives as a residual static field along $z$.  The driven atom has become a spin in a *static* effective field.
+
+- Start the atom in $|g\rangle$ at $t=0$.  The state then precesses about the effective field, giving
+  $$P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 = \frac{\Omega_d^2}{\Omega_R^2}\,\sin^2\!\left(\frac{\Omega_R\,t}{2}\right).$$
+- On resonance ($\delta = 0$, i.e. $\omega_d = \Delta\omega$): $\Omega_R = \Omega_d$, so
+  $$P_e(t) = \sin^2\!\left(\frac{\Omega_d\,t}{2}\right) = \frac{1 - \cos(\Omega_d t)}{2}.$$
+  The atom oscillates *fully* between $|g\rangle$ and $|e\rangle$ at the **Rabi frequency** $\Omega_d$.
+- Off resonance ($\delta \ne 0$): the oscillation is faster ($\Omega_R > \Omega_d$) but incomplete — the maximum excited-state population is $(\Omega_d/\Omega_R)^2 < 1$, so the atom never quite reaches $|e\rangle$.
+
+**Why the spin analogy is useful (the punchline).**
+- A messy time-dependent two-level problem collapsed to plain **Larmor precession** about a fixed axis: the entire dynamics is just a rotation.
+- Geometric picture: every spin-1/2 state is a point on the unit sphere (the **Bloch sphere**); time evolution rotates that point about the effective-field axis $\mathbf{n} = (\Omega_d, 0, -\delta)/\Omega_R$.  On resonance the trajectory is a great circle through the two poles (full transfer); off resonance it is a smaller circle (incomplete transfer).
+- Concrete utility — pulses as gates:
+  - $\Omega_d t = \pi$ ("$\pi$-pulse") swaps $|g\rangle \leftrightarrow |e\rangle$: a NOT gate.
+  - $\Omega_d t = \pi/2$ ("$\pi/2$-pulse") makes an equal superposition $(|g\rangle \pm |e\rangle)/\sqrt2$: a Hadamard-like gate.
+  - This is exactly how qubits are manipulated in quantum computing.
+- Same mathematics as NMR/MRI: a resonant radio-frequency pulse flips a spin at the Larmor frequency, and the detuning limits how far the flip can go.
+- Hook: this is a first, elementary **resonance** — a strong response when the drive matches the system's natural frequency — developed in full generality in Chapter 3.
 
 ## Lattices
 
