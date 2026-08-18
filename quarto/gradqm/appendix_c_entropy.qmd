@@ -3,19 +3,20 @@
 "Entropy" is a concept used in multiple fields of science and
 mathematics to quantify one's lack of knowledge about a complex
 system.  In physics, its most commonly-encountered form is
-**thermodynamic entropy**, which describes the uncertainty about
-the microscopic configuration, or "microstate", of a large physical
+**thermodynamic entropy**, which describes the uncertainty about the
+microscopic configuration, or "microstate", of a large physical
 system.  In the field of mathematics known as information theory,
-**information entropy** (also called **Shannon entropy**
-after its inventor C.~Shannon) describes the uncertainty about the
-contents of a transmitted message.  One of the most profound
-developments in theoretical physics in the 20th century was the
-discovery by E.~T.~Jaynes that statistical mechanics can be formulated
-in terms of information theory; hence, the thermodynamics-based and
-information-based concepts of entropy are one and the same.  For
-details about this connection, see Jaynes (1957) and Jaynes (1957a).  This appendix
-summarizes the definition of entropy in classical physics, and how it
-is related to other physical quantities.
+**information entropy** (also called Shannon entropy after its
+inventor, Claude Shannon) describes the uncertainty about the contents
+of a transmitted message.  One of the most profound developments in
+theoretical physics in the 20th century was the discovery by
+E. T. Jaynes that statistical mechanics can be formulated in terms of
+information theory; hence, the thermodynamics-based and
+information-based concepts of entropy are one and the same [@jaynes;
+@jaynes2].
+
+This appendix summarizes the definition of entropy in classical
+physics, and how it is related to other physical quantities.
 
 ## Definition {#sec-entropy-definition}
 
@@ -131,7 +132,7 @@ constraints are the given value of $\langle E \rangle$ and
 conservation of probability:
 $$\langle E \rangle = \sum_i E_i \,p_i, \quad
   \sum_i p_i = 1.$$
-We thus introduce two Lagrange multiplers, $\lambda_1$ and
+We thus introduce two Lagrange multipliers, $\lambda_1$ and
 $\lambda_2$.  For every microstate $i$, we require
 $$\begin{aligned}
   \frac{\partial S}{\partial p_i} + \lambda_1 \frac{\partial}{\partial
@@ -143,12 +144,7 @@ $$\begin{aligned}
 Upon taking $\lambda_1 = - 1/T$ as the *definition* of the
 temperature $T$, we obtain the celebrated **Boltzmann
   distribution**:
-$$p_i = \frac{e^{-E/k_bT}}{Z}, \;\;\;\mathrm{where}\;\;
-  Z = \sum_i e^{-E/k_b T}.$$
+$$p_i = \frac{e^{-E_i/k_bT}}{Z}, \;\;\;\mathrm{where}\;\;
+  Z = \sum_i e^{-E_i/k_b T}.$$
 
-<!-- Further Reading -->
-<!--
-- E. T. Jaynes, *Information theory and statistical mechanics*, Physical Review **106**, 620 (1957).
-
-- E. T. Jaynes, *Information theory and statistical mechanics. ii*, Physical Review **108**, 171 (1957).
--->
+---

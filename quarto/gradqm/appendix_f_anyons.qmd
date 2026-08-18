@@ -12,17 +12,17 @@ bosonic cases.
 ## Bound Flux Tubes
 
 The theory of anyons created by vector potentials was developed by
-Wilczek (1982).  He considered a scenario
-with set of identical particles moving in 2D (the $x$-$y$ plane), with
+Wilczek [@wilczek-anyons].  He considered a scenario
+with a set of identical particles moving in 2D (the $x$-$y$ plane), with
 each particle carrying a "flux tube" pointing along $z$, as shown in
 the figure below:
 
 ![](fig/anyons.png){fig-align="center" width="600" fig-alt="Two identical particles in 2D, each carrying a flux tube pointing out of the plane, and the vector potential it generates"}
 
 Each flux tube is an infinitely thin concentration of magnetic flux
-$\Phi_B$, which can be described by a singular vector potential (as
-discussed in Chapter 5, Section I.C).  If $\mathbf{r}_n$ is the center
-of the $n$-th particle, its vector potential is
+$\Phi_B$, which can be described by a singular vector potential (see
+@sec-aharonov–bohm-effect).  If $\mathbf{r}_n$ is the center of the
+$n$-th particle, its vector potential is
 $$\mathbf{A}^{(n)}(\mathbf{r}) = \frac{\Phi_B}{2\pi
     |\mathbf{r}-\mathbf{r}_n|} \; \mathbf{e}_\phi^{(n)}(\mathbf{r}),$${#eq-appF-Asolenoid}
 where $\mathbf{e}_\phi^{(n)}(\mathbf{r})$ denotes the azimuthal unit
@@ -104,7 +104,7 @@ $(x_1, y_1, x_2, y_2)$.  But we can also express them using a mix of
 center-of-mass coordinates and relative polar coordinates, $(X, Y,
 \mathscr{r}\,,\, \phi)$, as shown in this figure:
 
-![](fig/anyon-coordinates.png){fig-align="center" width="400" fig-alt="Diagram showing the center-of-mass coordinates (X, Y) and the relative polar coordinates (r, phi) of two particles"}
+![](fig/anyon-coordinates.png){fig-align="center" width="200" fig-alt="Diagram showing the center-of-mass coordinates (X, Y) and the relative polar coordinates (r, phi) of two particles"}
 
 The two coordinate systems are related by
 $$\begin{aligned}

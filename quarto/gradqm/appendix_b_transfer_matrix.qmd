@@ -30,14 +30,14 @@ exponentially toward the right ($+$) or toward the left ($-$).
 We can re-write the two terms on the right-hand side as
 $$\psi(x) = \psi_+(x) + \psi_-(x).$$
 At each position $x$, the complex quantities $\psi_\pm(x)$ are called
-the **wave components** .
+the **wave components**.
 
 The problem statement for the transfer matrix method is as follows.
 Suppose we have a **piecewise-constant potential function**
 $V(x)$, which takes on values $\{V_1, V_2, V_3, \dots\}$ in different
 regions of space, as shown in the figure below:
 
-![](fig/transfer_matrix_setup.png){fig-align="center" width="600" fig-alt="Diagram of a piecewise-constant 1D potential, with wave components psi_plus and psi_minus at two positions x_a and x_b"}
+![](fig/transfer_matrix_setup.png){fig-align="center" fig-alt="Diagram of a piecewise-constant 1D potential, with wave components psi_plus and psi_minus at two positions x_a and x_b"}
 
 Given the wave components $\{\psi_+(x_a),\psi_-(x_a)\}$ at one
 position $x_a$, we seek to compute the wave components
@@ -61,7 +61,7 @@ throughout this region takes the form
 $$\psi(x) = A e^{ik x} + B e^{-ik x}, \;\;\; \mathrm{where}\;\; k = \sqrt{\frac{2m(E-V)}{\hbar^2}},$$
 for some $A, B\in\mathbb{C}$.  The wave components at the two
 positions are
-$$\Psi_a = \begin{bmatrix} A e^{ik x_a} \\ B e^{ikx_a} \end{bmatrix}, \;\; \Psi_b = \begin{bmatrix} A e^{ik x_b} \\ B e^{ikx_b} \end{bmatrix}.$$
+$$\Psi_a = \begin{bmatrix} A e^{ik x_a} \\ B e^{-ikx_a} \end{bmatrix}, \;\; \Psi_b = \begin{bmatrix} A e^{ik x_b} \\ B e^{-ikx_b} \end{bmatrix}.$$
 Each component of $\Psi_b$ is $\exp[ik(x_b-x_a)]$ times the
 corresponding component of $\Psi_a$.  We can therefore eliminate $A$
 and $B$, and write
@@ -74,7 +74,7 @@ potential $V$), and its second input is the segment length.
 Next, consider a potential step at some position $x_0$, as shown in
 the figure below:
 
-![](fig/transfer_step.png){fig-align="center" width="500" fig-alt="Diagram of a potential step at position x_0, with potential V_minus to the left and V_plus to the right"}
+![](fig/transfer_step.png){fig-align="center" fig-alt="Diagram of a potential step at position x_0, with potential V_minus to the left and V_plus to the right"}
 
 Let $x_a$ and $x_b$ be two points that are infinitesimally close to
 the potential step on either side (i.e., $x_a = x_0 - 0^+$ and $x_b =
@@ -89,7 +89,7 @@ be continuous everywhere (otherwise, the Schrödinger equation would
 not be well-defined); this includes the point $x_0$, so
 $$\psi_+(x_a) + \psi_-(x_a) = \psi_+(x_b) + \psi_-(x_b).$$
 
-Secondly, since the potential is non-singular at $x_0$ the derivative
+Secondly, since the potential is non-singular at $x_0$, the derivative
 of the wavefunction should be continuous at that point (this can be
 shown formally by integrating the Schrödinger across an
 infinitesimal interval around $x_0$).  Hence,
@@ -108,7 +108,7 @@ piecewise-constant potential.  Consider the potential function shown
 below.  It consists of segments of length $L_1, L_2, \dots L_N$, with
 potential $V_1, V_2, \dots, V_N$; outside, the potential is $V_0$:
 
-![](fig/transfer_matrix_setup2.png){fig-align="center" width="600" fig-alt="Diagram of a piecewise-constant potential consisting of N segments of lengths L_1, ..., L_N and potentials V_1, ..., V_N, surrounded by a region of potential V_0"}
+![](fig/transfer_matrix_setup2.png){fig-align="center" fig-alt="Diagram of a piecewise-constant potential consisting of N segments of lengths L_1, ..., L_N and potentials V_1, ..., V_N, surrounded by a region of potential V_0"}
 
 Let $x_a$ and $x_b$ lie right beyond the first and last segments
 (where $V = V_0$), with $x_b > x_a$.  We can compute $\Psi_b$ by
@@ -158,9 +158,9 @@ waves *relative* to $\Psi_i$.  Note also that there is no
 $\psi_-$ wave component at $x_b$, as the scattered wavefunction
 must be purely outgoing.
 
-![](fig/transfer_matrix_setup3.png){fig-align="center" width="600" fig-alt="Diagram of a 1D scattering setup, showing an incident wave from the left, a reflected wave, and a transmitted wave to the right"}
+![](fig/transfer_matrix_setup3.png){fig-align="center" fig-alt="Diagram of a 1D scattering setup, showing an incident wave from the left, a reflected wave, and a transmitted wave to the right"}
 
-From the reflection and transmisison coefficients, we can also define
+From the reflection and transmission coefficients, we can also define
 the real quantities
 $$R = |r|^2, \;\;\; T = |t|^2,$$
 which are called the **reflectance** and **transmittance**
@@ -171,4 +171,4 @@ According to the transfer matrix relation,
 $$\begin{bmatrix}\,t\, \\ 0 \end{bmatrix} = \mathbf{M}(x_b,x_a) \begin{bmatrix}\,1\, \\ r \end{bmatrix}.$$
 Hence, $r$ and $t$ can be expressed in terms of the components of the
 transfer matrix:
-$$r = \frac{M_{21}}{M_{22}}, \quad t = \frac{M_{11} M_{22} - M_{12}M_{21}}{M_{22}} = \frac{\det(\mathbf{M})}{M_{22}}.$$
+$$r = -\frac{M_{21}}{M_{22}}, \quad t = \frac{M_{11} M_{22} - M_{12}M_{21}}{M_{22}} = \frac{\det(\mathbf{M})}{M_{22}}.$$

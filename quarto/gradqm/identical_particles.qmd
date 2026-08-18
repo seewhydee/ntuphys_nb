@@ -206,7 +206,7 @@ bosons is not absolute.  In two spatial dimensions, there is the
 fascinating possibility of particles called **anyons**, which are
 intermediate between fermions and bosons.  A proper discussion of
 anyons requires knowledge about magnetic vector potentials in quantum
-mechanics, which will be discussed in Chapter 5; after having gone
+mechanics, which will be discussed in @sec-qed; after having gone
 through that chapter, you may refer to Appendix F, which gives a brief
 introduction to the theory of anyons.
 
@@ -498,10 +498,10 @@ discussed earlier [see @eq-ip-bosorthog].
 ### Distinguishing particles {#sec-distinguishability}
 
 It might have struck you that the requirement of particle
-indistinguishability, introduced in @sec-exchange, could
-undermine what we said about partial measurements and entanglement
-from Chapter 3.  For example, in the EPR thought experiment, we used
-the singlet state
+indistinguishability, introduced in @sec-exchange, could undermine
+what we said about partial measurements and entanglement from
+@sec-chapter-entanglement.  For example, in the EPR thought
+experiment, we used the singlet state
 $$|\psi_{\mathrm{EPR}}\rangle = \frac{1}{\sqrt{2}} \Big(|\!\uparrow\rangle |\!\downarrow\rangle
   - |\!\downarrow\rangle |\!\uparrow\rangle \Big),$${#eq-ip-EPR}
 which looks like an antisymmetric state.  Does this mean we can only
@@ -686,8 +686,8 @@ $$\begin{aligned}
   \;\;\Rightarrow\;\;\;
 \mathscr{H}_1 \oplus \mathscr{H}_2~\textrm{has basis}~\big\{ |a\rangle, |b\rangle, |c\rangle, |d\rangle, |e\rangle \big\}.$${#eq-ip-directsum-ex}
 The direct sum should not be confused with the tensor product
-introduced in Chapter 3.  In particular, we can see from
-@eq-ip-directsum-ex that
+introduced in @sec-chapter-entanglement.  In particular, we can see
+from @eq-ip-directsum-ex that
 $$\mathrm{dim}\left[\mathscr{H}_1 \oplus \mathscr{H}_2\right]
   = \mathrm{dim}\left[\mathscr{H}_1\right] +
   \mathrm{dim}\left[\mathscr{H}_2\right].$$
@@ -1095,7 +1095,7 @@ into a state of indefinite $N$, consisting of a superposition of state
 vectors with different $N$.
 
 Such operators are physically relevant.  For example, we will see that
-in quantum electrodynamics (Chapter 5), this sort of number
+in quantum electrodynamics (@sec-qed), this sort of number
 non-conserving operator is responsible for the emission and absorption
 of photons.
 
@@ -1498,11 +1498,11 @@ framework for dealing with systems of many particles.
 Wilczek has pointed out that the modern picture of fundamental physics
 bears a striking resemblance to the old idea of the "luminiferous
 ether": a medium that fills all of space and time, whose vibrations
-are physically-observable light waves.  The key difference is that
-this ether is not a classical medium, but one obeying the rules of
-quantum mechanics.  (Another difference is that the fundamental
-quantum fields obey relativistic symmetries, so that their behavior is
-invariant under a change of reference frame.)
+are physically-observable light waves [@wilczek-ether].  The key
+difference is that this ether is not a classical medium, but one
+obeying the rules of quantum mechanics.  (Another difference is that
+the fundamental quantum fields obey relativistic symmetries, so that
+their behavior is invariant under a change of reference frame.)
 
 It is interesting to contemplate the idea of fields, not individual
 particles, as the fundamental objects in the universe.  This would
@@ -1564,15 +1564,4 @@ excitations of underlying entities---quantum fields!
    In this case, prove that
    $$\Big[\hat{A}, \sum_\mu c^\dagger_\mu c_\mu \Big] = 0.$$
 
-<!-- Further Reading -->
-<!--
-1. Bransden \& Joachain, \S10.1--10.5
-
-2. Sakurai, \S6
-
-3. I. Duck and E. C. G. Sundarshan, *Pauli and the Spin-Statistics Theorem*, World Scientific (1998).
-
-4. J. M. Leinaas and J. Myrheim, *On the Theory of Identical Particles*, Nuovo Cimento B **37**, 1 (1977).
-
-5. F. Wilczek, *The Persistence of Ether*, Physics Today **52**, 11 (1999).
--->
+---
