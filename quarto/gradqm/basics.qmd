@@ -195,42 +195,38 @@ subsequently perform any measurement on the system, the outcome
 probabilities do not depend on $t$ or $t'$.  (*After* the measurement,
 of course, it undergoes state collapse in the usual way).
 
-## Two-level systems
+## Qubits
 
 Different quantum systems can have different state spaces.  The
 simplest nontrivial complex Hilbert space is the space of
 two-component complex vectors, denoted by $\mathbb{C}^2$.  Such
 systems are generically called **two-level systems**.^[This is because
 each observable (including the Hamiltonian) is a $2\times2$ matrix,
-and has two eigenvalues.]
+and has two eigenvalues.]  Nowadays, with the advent of quantum
+computing, they are also commonly referred to as **qubits** (i.e.,
+quantum bits); we will adopt this term.
 
-Let us choose an arbitrary basis for the Hilbert space, consisting of
+Let us choose an arbitrary basis for the 2D Hilbert space, consisting of
 the orthonormal basis vectors
-
 $$|+\rangle \leftrightarrow \begin{pmatrix}1\\0\end{pmatrix}, \quad
 |-\rangle \leftrightarrow \begin{pmatrix}0\\1\end{pmatrix}.$$
-
-(Here, we use $\leftrightarrow$ to denote the representation of an
-abstract vector in a given basis.)  Then any vector in $\mathbb{C}^2$
-can be written as
-
+(Here, $\leftrightarrow$ denotes the representation of an abstract
+vector in a given basis.)  Any vector in $\mathbb{C}^2$ can be written
+as
 $$|\psi\rangle = \psi_+ |+\rangle + \psi_-|-\rangle \;\;\;\leftrightarrow\;\;\;\begin{pmatrix}\psi_+ \\ \psi_-\end{pmatrix},$$
-
 for some pair of coefficients $\psi_\pm \in \mathbb{C}.$ The basis
-vectors can also be employed in the **resolution of the identity**, by
-writing the identity operator as
-
+vectors can also be employed in the resolution of the identity:
 $$\hat{I} = |+\rangle \, \langle +| \;+\; |-\rangle \, \langle -| \;\;\leftrightarrow \;\;
 \begin{pmatrix}1&0\\0&1\end{pmatrix}.$$
 
 ### Pauli matrices {#sec-Pauli-matrices}
 
-What observables can a two-level system have?  Observables for
-$\mathbb{C}^2$ are represented by $2\times2$ Hermitian matrices, which
-are characterized by four real parameters (the diagonal elements are
-real, which gives two parameters, and the off-diagonal elements are
-conjugates of each other, which gives another two).  We can write any
-such matrix as the linear combination
+What observables can a qubit have?  Its observables consist of
+$2\times2$ Hermitian matrices, which are characterized by four real
+parameters (the diagonal elements are real, which gives two
+parameters, and the off-diagonal elements are conjugates of each
+other, which gives another two).  We can write any such matrix as the
+linear combination
 
 $$\hat{A} = \alpha_0 \hat{I} + \alpha_1 \hat{\sigma}_1 + \alpha_2 \hat{\sigma}_2 + \alpha_3 \hat{\sigma}_3,\;\;\;\alpha_{n} \in \mathbb{R},$$ {#eq-pauli-superposition}
 
@@ -250,7 +246,7 @@ a general observable in $\mathbb{C}^2$; since they are real, the
 linear combination is guaranteed to be Hermitian.
 
 This is not the only possible parameterization for observables of
-$\mathbb{C}^2$, but it has some particularly nice properties:
+$\mathbb{C}^2$, but it has some very nice properties:
 
 * The leading term, $\alpha_0\hat{I}$, is the "trivial" part
   of the matrix.  We can always split off such a term from any
@@ -281,47 +277,38 @@ $\mathbb{C}^2$, but it has some particularly nice properties:
   matrices, it is advantageous to use these relations instead of
   working with the explicit matrices.
 
-### Spin mapping
+### Pauli matrices and spin
 
 The commutation relation in the second line of @eq-Lie-commutators
 defines a **Lie algebra** called $\mathfrak{su}(2)$.  Remarkably, this
 Lie algebra also pops up in the quantum theory of angular momentum in three-dimensional space.
 
-Here is a brief summary of this topic, which requires jumping ahead a
-bit to the concept of wavefunctions (to be covered in
-@sec-wavefunctions).  Suppose we look at a wavefunction
-$\psi(\mathbf{r})$, where $\mathbf{r}$ is a 3D position vector, and
-ask how it transforms under the various possible coordinate rotations
-that are possible in 3D.  One finds that rotation by an angle $\phi$
-(anticlockwise), around each Cartesian axis $i \in \{1,2,3\}$, is
-given by a unitary operator of the form
+Here is a brief summary of this topic, which requires jumping ahead to
+the concept of wavefunctions (covered in @sec-wavefunctions).  Suppose
+we look at a wavefunction $\psi(\mathbf{r})$, where $\mathbf{r}$ is a
+position vector, and ask how it transforms under the various
+coordinate rotations possible in 3D.  One finds that rotation by an
+angle $\phi$ anticlockwise, around each Cartesian axis $i \in
+\{1,2,3\}$, is given by a unitary operator of the form
 
-$$\hat{U}_i(\phi) = e^{i\phi\hat{J}_i/\hbar},$$
+$$\hat{U}_i(\phi) = e^{i\phi\hat{J}_i/\hbar},$$ {#eq-rotation-operator}
 
 where $\hat{J}_1$, $\hat{J}_2$, and $\hat{J}_3$ are so-called
-**orbital angular momentum** observables that must satisfy the
-commutation relation
-
-When studying how wavefunctions transform under coordinate rotations,
-we are led to define three observables $\hat{J}_1$, $\hat{J}_2$, and
-$\hat{J}_3$, which correspond to the **angular momentum** around each
-of the spatial coordinate axes.  Roughly speaking, these describe how
-the wavefunction rotates, or orbits, around each axis, which is why
-the observables are more precisely referred to as **orbital angular
-momentum**.  They can be shown to satisfy the commutation relations
+**angular momentum** observables satisfying the commutation relation
 
 $$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k,\qquad i,j,k\in\{1,2,3\}.$$ {#eq-Lie-algebra}
 
 We then take a conceptual leap by postulating that @eq-Lie-algebra
 *defines* the set of angular momentum observables tied to 3D
 rotations; in other words, it is the commutation relations that are
-fundamental, not the specific operators we had used to derive them.
-This opens the door to other, non-orbital forms of angular momentum!
-In particular, there turns out to be a form of angular momentum called
-**spin**, which can be possessed by particles like the electron (which
-as far as we know is a "point particle" that has no internal
-structure, and thus cannot be thought of as "rotating" in the usual
-sense).
+fundamental, not the wavefunctions (and the specific operators acting
+on those wavefunctions) we used in deriving them.
+
+This opens the door to other forms of angular momentum!  In
+particular, particles like the electron can possess a type of angular
+momentum called **spin**, which is distinct from orbital angular
+momentum (so far as we know, the electron is a point particle, with no
+internal structure that can "rotate" in the usual sense).
 
 The Pauli matrices play a key role in describing this.  Comparing
 @eq-Lie-algebra to @eq-Lie-commutators, we realize that Pauli matrices
@@ -342,7 +329,7 @@ momentum operators as $\hat{S}_i \equiv \hat{J}_i$.  Based on this
 mapping, the operator corresponding to the square of the total angular
 momentum is
 
-$$\begin{aligned}\hat{\mathbf{S}}^2 &\equiv \hat{S}_1^2 + \hat{S}_2^2 + \hat{S}_3^2 \\ &= \left(\frac{\hbar}{2}\right)^2 \big(\hat{\sigma_1}^2 + \hat{\sigma_2}^2 + \hat{\sigma_3}^2\big) \\&= \left(\frac{\hbar}{2}\right)^2 \cdot 3 \\&= \hbar^2 s(s+1), \;\;\textrm{for}\;s = \frac{1}{2},\end{aligned}$$
+$$\begin{aligned}\hat{\mathbf{S}}^2 \equiv \hat{S}_1^2 + \hat{S}_2^2 + \hat{S}_3^2 &= \left(\frac{\hbar}{2}\right)^2 \big(\hat{\sigma_1}^2 + \hat{\sigma_2}^2 + \hat{\sigma_3}^2\big) \\ &= \left(\frac{\hbar}{2}\right)^2 \cdot 3 \\&= \hbar^2 s(s+1),\end{aligned}$$
 
 where $s = 1/2$ is called the total angular momentum quantum number.
 By contrast, the corresponding quantum number for orbital angular
@@ -353,80 +340,85 @@ matrices are said to describe a **spin-1/2 degree of freedom**.
 ### Rabi oscillations
 
 Due to the relationship between Pauli matrices and spin, it is common
-for two-level quantum systems to be interpreted in terms of spin-1/2
-degrees of freedom, *even if they aren't really spins*.
+to interpret qubits as spin-1/2 degrees of freedom, even if they
+aren't really *actually* spin.
 
-As an example, consider the following model of a **two-level atom**,
-consisting of a ground state $|g\rangle$ and an excited state
-$|e\rangle$, whose energies differ by $\hbar\Delta \omega$.  If the
-atom is illuminated by an electromagnetic wave, called a “driving
-field”, its Hamiltonian takes the form
-$$\hat{H}(t) = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g| + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| - \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |e\rangle\langle g| + e^{i\omega_d t} |g\rangle\langle e| \Big),$$
-where $E_0$ is a baseline energy, $\omega_d$ is the angular frequency
-of the driving field, and $\Omega_d$ is a parameter quantifying the
-strength of the driving field, expressed as a frequency unit and
-called the **Rabi frequency**.  Thus, the third term in this
-Hamiltonian (the one proportional to $\Omega_d$) describes the effect
-of the driving field; we will skip over its derivation, but you can
-convince yourself that it is reasonable, since it (i) is Hermitian,
-(ii) is time-dependent with angular frequency $\omega_d$, and (iii)
-induces transitions between the ground state and the excited state.
+An important example of this practice can be found in the theory of a
+**two-level atom**.  Suppose an atom has a ground state $|g\rangle$
+and an excited state $|e\rangle$, whose energies differ by
+$\hbar\Delta \omega$.  Its Hamiltonian is
+$$\hat{H}_0 = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g| + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| = E_0 - \frac{\hbar \Delta\omega}{2} \hat{\sigma}_3,$$
+where $E_0$ is the average energy of the two states.  Next, suppose
+this atom is illuminated by an electromagnetic wave, which functions
+as a “driving field” that induces transitions from the ground state to
+the excited state or vice versa.  The Hamiltonian then becomes
+$$\hat{H}(t) = \hat{H}_0 - \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |e\rangle\langle g| + e^{i\omega_d t} |g\rangle\langle e| \Big).$$
+Here, $\omega_d$ is the angular frequency of the driving field, and
+$\Omega_d$ quantifies the strength of the driving field, expressed as
+a frequency unit and called the **Rabi frequency**.  We will skip over
+the derivation of how this new term in the Hamiltonian arises from the
+driving field, but you can convince yourself that it makes sense,
+since it has the right features: (i) it is Hermitian, (ii) it is
+time-dependent with angular frequency $\omega_d$, and (iii) it induces
+transitions between the two atomic states.
 
 Using the basis $\{|g\rangle, |e\rangle\}$, we can write the
 Hamiltonian as
 $$\hat{H}(t) = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2}\left[\cos(\omega_d t) \hat{\sigma}_1 - \sin(\omega_d t) \hat{\sigma}_2\right].$$ {#eq-rabi-time-dependent}
 If we introduce the spin operator from @eq-spin-map, the Hamiltonian
 maps into
-$$\hat{H}(t) = E_0 - \lambda \mathbf{B}(t) \cdot \hat{\mathbf{S}}, \;\;\mathrm{where}\;\; \lambda \mathbf{B}(t) = \begin{pmatrix}\Omega_d\cos(\omega_dt)\\ -\Omega_d\sin(\omega_dt) \\ \Delta \omega\end{pmatrix}.$$
+$$\hat{H}(t) = E_0 - \begin{pmatrix}\Omega_d\cos(\omega_dt)\\ -\Omega_d\sin(\omega_dt) \\ \Delta \omega\end{pmatrix} \cdot\, \hat{\mathbf{S}}.$$ {#eq-rotating-field}
 This is equivalent to the Hamiltonian for a magnetic dipole moment
-$\lambda \hat{\mathbf{S}}$ (the spin times a scaling factor), embedded
-in a magnetic field $\mathbf{B}(t)$ that is rotating around the $z$
-axis (i.e., the field has a static piece oriented along $z$, and a
-time-dependent piece that rotates in the $x$-$y$ plane with
-angular frequency $\omega_d$).
-
+(consisting of the spin $\hat{\mathbf{S}}$ times some scale factor) in
+a *rotating* magnetic field.  As depicted below, the magnetic field
+has a static part pointing along $z$, and a time-dependent part that
+rotates with angular frequency $\omega_d$ in the $x$-$y$
+plane.
 
 ![](fig/magdipole.png){fig-align="center" width="500" fig-alt="Diagram of a two-level quantum system (left) and the corresponding magnetic dipole in a magnetic field (right)."}
 
-Next, we want to solve the Schrödinger equation for this Hamiltonian.
-To do this, it is convenient to move to a frame that co-rotates with
-the magnetic field, with the same angular frequency $\omega_d$.  Let
-us define the following unitary rotation operator around the $z$ axis
-(remember, this is a rotation in an *abstract* space defined by the
-spin mapping, not a physical space):
-$$\hat{U}_R(\theta) = e^{-i\theta\,\hat{\sigma}_3/2}.$$
-The Pauli matrices can be shown to satisfy the identity
-$$\hat{U}_R^\dagger(\theta) \,\hat{\sigma}_1\, \hat{U}_R(\theta) = \hat{\sigma}_1\cos\theta - \hat{\sigma}_2\sin\theta.$$
-Hence, the Hamiltonian in @eq-rabi-time-dependent can be rewritten as
-$$\hat{H}(t) = \hat{U}_R^\dagger(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) \hat{U}_R(\omega_d t).$$ {#eq-rabi-rotated-h}
-Note that the factor in the center is independent of $t$.  We then define the co-rotating state vector
-$$|\psi_R(t)\rangle = \hat{U}_R(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_R^\dagger(\omega_d t)\,|\psi_R(t)\rangle.$$
-The Schrödinger equation, @eq-schrodinger, can be re-written as
-$$i\hbar\frac{d}{dt}\left(\hat{U}_R^\dagger(\omega_d t)\,|\psi_R(t)\rangle\right) 
-= i\hbar \left(\frac{d\hat{U}_R^\dagger(\omega_d t)}{dt} + \hat{U}_R^\dagger(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle = \hat{H}(t) \hat{U}_R^\dagger(\omega_d t) |\psi_R(t)\rangle.$$
-Noting that $(d/dt)\hat{U}_R^\dagger(\omega_d t) = (i\omega_d/2) \, \hat{\sigma}_3 \, \hat{U}_R^\dagger(\omega_d t)$, and making use of @eq-rabi-rotated-h on the right-hand side, we obtain
+This insight can be used to solve the Schrödinger equation for this
+system: since the magnetic field is rotating (albeit in the abstract
+space defined by the spin mapping, not a physical space), we should go
+to a co-rotating frame!  Using @eq-rotation-operator, we define the
+rotation operator
+$$\hat{U}_3(\theta) = e^{i\theta\,\hat{\sigma}_3/2}.$$
+  It can be shown that the Pauli
+matrices satisfy the identity
+$$\hat{U}_3(\theta) \,\hat{\sigma}_1\, \hat{U}_3^\dagger(\theta) = \hat{\sigma}_1\cos\theta - \hat{\sigma}_2\sin\theta.$$
+Hence, @eq-rabi-time-dependent can be rewritten as
+$$\hat{H}(t) = \hat{U}_3(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) \hat{U}_3^\dagger(\omega_d t).$$ {#eq-rabi-rotated-h}
+Note that the factor in the center is independent of $t$.  Next, define the state vector in the co-rotating frame, $|\psi_R\rangle$, by
+$$|\psi_R(t)\rangle = \hat{U}_3^\dagger(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle.$$ {#eq-co-rotating-state}
+Using this, the Schrödinger equation, @eq-schrodinger, can
+be re-written as
+$$i\hbar\frac{d}{dt}\left(\hat{U}_R(\omega_d t)\,|\psi_R(t)\rangle\right) 
+= i\hbar \left(\frac{d\hat{U}_3(\omega_d t)}{dt} + \hat{U}_3(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle = \hat{H}(t) \hat{U}_3(\omega_d t) |\psi_R(t)\rangle.$$
+Taking $(d/dt)\hat{U}_3(\omega_d t) = (i\omega_d/2) \,
+\hat{\sigma}_3 \, \hat{U}_3(\omega_d t)$, along with
+@eq-rabi-rotated-h on the right side, we obtain
 $$i \hbar \frac{d}{dt} |\psi_R(t)\rangle
-= \left(E_0 + \frac{\hbar(\omega_d - \Delta \omega)}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle.$$
+= \left(E_0 + \frac{\hbar \delta\omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle, \quad \delta\omega \equiv \omega_d - \Delta \omega.$$ {#eq-static-field-hamiltonian}
+Thus, the co-rotating frame features a static magnetic field pointing
+in the $x$-$z$ plane; the exact direction depends on $\Omega_d$ and
+the “frequency detuning” $\delta\omega$.  We will skip the remaining
+steps in solving @eq-static-field-hamiltonian, except to note that the
+solution can be obtained analytically, and we can then use
+@eq-co-rotating-state to retrieve the state in the original
+(non-co-rotating) frame.  If the atom is prepared in $|g\rangle$ at
+$t=0$, the analytic solution yields
+$$P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{\Omega_R\,t}{2}\right).$$
+Thus, the occupation probability for the ground state varies
+sinusoidally.  This is called **Rabi oscillation**.
 
-
-- Interpretation: in this frame the rotating transverse field is frozen (along $x$), and the **detuning** $\delta$ survives as a residual static field along $z$.  The driven atom has become a spin in a *static* effective field.
-
-- Start the atom in $|g\rangle$ at $t=0$.  The state then precesses about the effective field, giving
-  $$P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 = \frac{\Omega_d^2}{\Omega_R^2}\,\sin^2\!\left(\frac{\Omega_R\,t}{2}\right).$$
-- On resonance ($\delta = 0$, i.e. $\omega_d = \Delta\omega$): $\Omega_R = \Omega_d$, so
-  $$P_e(t) = \sin^2\!\left(\frac{\Omega_d\,t}{2}\right) = \frac{1 - \cos(\Omega_d t)}{2}.$$
-  The atom oscillates *fully* between $|g\rangle$ and $|e\rangle$ at the **Rabi frequency** $\Omega_d$.
-- Off resonance ($\delta \ne 0$): the oscillation is faster ($\Omega_R > \Omega_d$) but incomplete — the maximum excited-state population is $(\Omega_d/\Omega_R)^2 < 1$, so the atom never quite reaches $|e\rangle$.
-
-**Why the spin analogy is useful (the punchline).**
-- A messy time-dependent two-level problem collapsed to plain **Larmor precession** about a fixed axis: the entire dynamics is just a rotation.
-- Geometric picture: every spin-1/2 state is a point on the unit sphere (the **Bloch sphere**); time evolution rotates that point about the effective-field axis $\mathbf{n} = (\Omega_d, 0, -\delta)/\Omega_R$.  On resonance the trajectory is a great circle through the two poles (full transfer); off resonance it is a smaller circle (incomplete transfer).
-- Concrete utility — pulses as gates:
-  - $\Omega_d t = \pi$ ("$\pi$-pulse") swaps $|g\rangle \leftrightarrow |e\rangle$: a NOT gate.
-  - $\Omega_d t = \pi/2$ ("$\pi/2$-pulse") makes an equal superposition $(|g\rangle \pm |e\rangle)/\sqrt2$: a Hadamard-like gate.
-  - This is exactly how qubits are manipulated in quantum computing.
-- Same mathematics as NMR/MRI: a resonant radio-frequency pulse flips a spin at the Larmor frequency, and the detuning limits how far the flip can go.
-- Hook: this is a first, elementary **resonance** — a strong response when the drive matches the system's natural frequency — developed in full generality in Chapter 3.
+Aside from atomic physics, this two-level model and its associated
+spin interpretation are frequently employed in quantum computing.  For
+example, qubits based on superconducting circuits are commonly
+manipulated by radio-frequency pulses, which function as the driving
+field in the model.  By adjusting the pulse duration and/or the
+qubit's $\delta\omega$ and $\Omega_R$ parameters, it is possible to
+rotate the spin in various directions, corresponding to various kinds
+of quantum logic gates.
 
 ## Lattices
 
