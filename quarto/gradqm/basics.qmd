@@ -463,13 +463,10 @@ $$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [1,N],$$
 and that they form a complete orthonormal basis for the particle's
 Hilbert space.  Thus, the Hilbert space is $\mathscr{H} =
 \mathbb{C}^N$ (the space of $N$-component complex vectors).
-<!-- Thus, we can use them to resolve the identity: -->
-<!-- $$\hat{I} = \sum_{n=1}^N |n\rangle\langle n|.$$ -->
-We can also use the position eigenstates to construct a position
+We can use the position eigenstates to construct a position
 observable,
 
-$$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|,
-\;\;\;\mathrm{where}\;\;x_n \equiv na. \\
+$$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|, \;\;\;\mathrm{where}\;\;x_n \equiv na. \\
 \Rightarrow\;\; \hat{x} |n\rangle &= x_n |n\rangle.\end{aligned}$$
 
 Here, $a$ is a length unit representing the equal spacings between
@@ -495,7 +492,7 @@ discussed in @sec-wavefunctions).  It follows that:
     $|\varphi\rangle$ (with discrete wavefunction $\varphi_n$) is
     $$\langle\varphi|\psi\rangle = \sum_{n=1}^N \varphi^*_n\psi_n.$${#eq-discrete-wavefunction-product}
 
-### Momentum eigenstates
+### Momentum eigenstates {#sec-lattice-momentum}
 
 Consider the following states on the ring lattice:
 
@@ -594,11 +591,14 @@ will study in @sec-wavefunctions.
 The time-evolution of a particle on a lattice is typically governed by
 a “hopping” Hamiltonian that describes how the particle transitions to
 neighboring sites.  For instance, on a 1D lattice, take
-$$\hat{H} = - J \sum_n \big(|n\rangle \, \langle n+1| \, + \, |n+1\rangle \, \langle n| \big),$$
-where $J$ is some energy scale (the minus sign is customary).  We can
-understand this Hamiltonian by considering how it would act on a
-particle initialized in a position eigenstate $|n'\rangle$ at time $t
-= 0$:
+$$\hat{H} = - J \sum_{n = 1}^N \big(|n\rangle \, \langle n+1| \, + \, |n+1\rangle \, \langle n| \big),$$ {#eq-hamiltonian-1dring}
+where $J$ is some energy scale (the minus sign is customary), and
+$``\pm 1''$ is taken modulo $N$ to account for the lattice being a
+ring: i.e., $|0\rangle \equiv |N\rangle$.
+
+We can understand this Hamiltonian by considering how it would act on
+a particle initialized in a position eigenstate $|n'\rangle$ at time
+$t = 0$:
 
 * The first term in the parentheses, acting on $|n'\rangle$, gives
   $-J|n'+1\rangle$, coming from the term with $n+1=n'$; all other
@@ -617,21 +617,19 @@ the initial site $n'$.  As $t$ further increases, the particle
 continues “hopping” to sites further from $n'$.  Such a process is
 called a **quantum walk**.
 
+In fact, we can solve the Schrödinger equation by making use of the fact that the Hamiltonian is translationally symmetric.  Applying @eq-hamiltonian-1dring  to the momentum eigenstates from @sec-lattice-momentum gives
+$$\begin{aligned}\hat{H} |k_n\rangle &= - \frac{J}{\sqrt{N}} \sum_{m,q=1}^N e^{ik_n x_m} \big(|q\rangle \, \langle q+1 | m\rangle  + |q+1\rangle \, \langle q | m\rangle \big) \\ &= - \frac{J}{\sqrt{N}} \sum_{q=1}^N \big( e^{ik_n x_{q+1}} + e^{ik_n x_{q-1}} \big) |q\rangle \\ &= - 2J \, \cos(k_n a) \, |k_n\rangle.
+\end{aligned}$$
+Hence, each momentum eigenstate is simultaneously an energy eigenstate, with eigenenergy
+$$E_n = - 2J \, \cos(k_n a), \;\;\; k_n = \frac{2\pi n}{Na}.$$
+
+
 
 
 **[DRAFT — point form; expand into prose before finalizing]**
-- The momentum states diagonalize it (translation symmetry,
-  $[\hat{H},\hat{T}_q]=0$):
-  $$\hat{H}|k_n\rangle = E(k_n)\,|k_n\rangle, \qquad E(k_n) = -2J\cos(k_n a).$$
-- Time evolution (using the section above):
-  $|\psi(t)\rangle=\sum_n c_n\,e^{-iE(k_n)t/\hbar}|k_n\rangle$.
 - **Group velocity** of a wavepacket peaked near $k$:
   $v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka)$.  This
   is what makes the walk move.
-- Optional hook: replace one site by a defect (a different on-site
-  energy) and the ring becomes a 1D scatterer; transmission/reflection
-  amplitudes are the subject of Chapter 2.
-
 **[END DRAFT]**
 
 ### Probability conservation on the lattice
