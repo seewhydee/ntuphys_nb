@@ -591,15 +591,35 @@ will study in @sec-wavefunctions.
 
 ### Quantum walks
 
-**[DRAFT — point form; expand into prose before finalizing]**
+The time-evolution of a particle on a lattice is typically governed by
+a “hopping” Hamiltonian that describes how the particle transitions to
+neighboring sites.  For instance, on a 1D lattice, take
+$$\hat{H} = - J \sum_n \big(|n\rangle \, \langle n+1| \, + \, |n+1\rangle \, \langle n| \big),$$
+where $J$ is some energy scale (the minus sign is customary).  We can
+understand this Hamiltonian by considering how it would act on a
+particle initialized in a position eigenstate $|n'\rangle$ at time $t
+= 0$:
 
-- A **quantum walk** is time evolution on the lattice: the discrete
-  counterpart of a moving particle (and of the continuous wavefunctions
-  below).
-- Hopping (tight-binding) Hamiltonian on the ring, with
-  $|N{+}1\rangle\equiv|1\rangle$:
-  $$\hat{H} = -J\sum_{n=1}^N\Big(|n\rangle\langle n{+}1| + |n{+}1\rangle\langle n|\Big),$$
-  where $J>0$ is the hopping energy.
+* The first term in the parentheses, acting on $|n'\rangle$, gives
+  $-J|n'+1\rangle$, coming from the term with $n+1=n'$; all other
+  terms (with $n+1\ne n'$) vanish.
+
+* The second term in the parentheses is the Hermitian conjugate of the
+  first, ensuring that $\hat{H}$ is Hermitian. Applied to the state
+  $|n'\rangle$, it yields $-J|n'- 1\rangle$ (from the $n = n'$ term).
+
+Thus, when the particle evolves under the Schrödinger equation
+@eq-schrodinger, its state after time $\delta t$ is
+$$\begin{aligned}|\psi(\delta t)\rangle &= |n'\rangle + \frac{\delta t}{i\hbar} \hat{H} |\psi(0)\rangle + O(\delta t^2) \\ &= |n'\rangle - \frac{J \delta t}{i\hbar}\big(|n'+1\rangle + |n'-1\rangle\big) + O(\delta t^2).\end{aligned}$$
+This leaves the particle in a superposition of different sites, with
+part of its quantum state involving “hops” to the left and right of
+the initial site $n'$.  As $t$ further increases, the particle
+continues “hopping” to sites further from $n'$.  Such a process is
+called a **quantum walk**.
+
+
+
+**[DRAFT — point form; expand into prose before finalizing]**
 - The momentum states diagonalize it (translation symmetry,
   $[\hat{H},\hat{T}_q]=0$):
   $$\hat{H}|k_n\rangle = E(k_n)\,|k_n\rangle, \qquad E(k_n) = -2J\cos(k_n a).$$
