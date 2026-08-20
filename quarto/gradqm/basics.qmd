@@ -630,24 +630,6 @@ $$\begin{aligned}|\psi(t)\rangle &= \frac{1}{\sqrt{N}} \sum_{p} \Psi_p
 where $\mathrm{IDFT}(\cdots)$ denotes the
 [inverse discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform).
 
-### Probability conservation on the lattice
-
-**[DRAFT — point form; expand into prose before finalizing]**
-
-- Site probabilities $P_n(t)=|\psi_n(t)|^2$ sum to one:
-  $\sum_n P_n=1$ at all $t$.
-- With the hopping Hamiltonian, probability flows between neighboring
-  sites.  Define the discrete current
-  $$J_{n\to n+1} = \frac{2J}{\hbar}\,\mathrm{Im}\!\big[\psi_n^*\,\psi_{n+1}\big],$$
-  then the Schrödinger equation implies the discrete continuity
-  equation
-  $$\frac{dP_n}{dt} = -\big(J_{n\to n+1} - J_{n-1\to n}\big).$$
-- This is the lattice version of the continuous continuity equation in
-  the next section.
-
-**[END DRAFT]**
-
-
 ## Wavefunctions {#sec-wavefunctions}
 
 A wavefunction is a particular type of quantum state defined as a
@@ -948,7 +930,17 @@ $$\hat{U}_3(\theta) \,\hat{\sigma}_1\, \hat{U}_3^\dagger(\theta) = \hat{\sigma}_
 
 5. (Quantum walk) Derive the group velocity of a wavepacket in the lattice.
 
-6. In @sec-momentum-eigenstates, we derived the eigenstates of a
+6. Probability conservation on the lattice
+
+  Site probabilities $P_n(t)=|\psi_n(t)|^2$ sum to one:
+  $\sum_n P_n=1$ at all $t$. With the hopping Hamiltonian, probability flows between neighboring
+  sites.  Define the discrete current
+  $$J_{n\to n+1} = \frac{2J}{\hbar}\,\mathrm{Im}\!\big[\psi_n^*\,\psi_{n+1}\big],$$
+  then the Schrödinger equation implies the discrete continuity
+  equation
+  $$\frac{dP_n}{dt} = -\big(J_{n\to n+1} - J_{n-1\to n}\big).$$
+
+7. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
 $L$ on each side, applying periodic boundary conditions, and taking
 $L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
@@ -957,7 +949,7 @@ box).  Show that this gives rise to the same set of momentum
 eigenstates in the $L \rightarrow \infty$ limit.
 
 
-7. (Time evolution) For a two-level system with
+8. (Time evolution) For a two-level system with
    $\hat{H}=\frac{\hbar\omega_0}{2}\hat{\sigma}_3$ and initial state
    $|\psi(0)\rangle=\frac{1}{\sqrt2}\big(|+\rangle+|-\rangle\big)$, find
    $|\psi(t)\rangle$, and compute
@@ -966,17 +958,17 @@ eigenstates in the $L \rightarrow \infty$ limit.
    precession.
 
 
-8. (Probability current) Compute $J(x)$ for (a)
+9. (Probability current) Compute $J(x)$ for (a)
    $\psi=\Psi_i e^{ikx}$; (b) a standing wave
    $\psi=\sqrt{2/L}\,\sin(n\pi x/L)$.  Explain why a real wavefunction
    carries no net current.
 
-9. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
+10. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
    and re-derive $E_n=\hbar\omega(n+\tfrac12)$ from
    $\hat{H}=\hbar\omega(a^\dagger a+\tfrac12)$.  Find $\psi_0(x)$ from
    $a|0\rangle=0$.
 
-10. (Variational principle) Use the normalized Gaussian trial state
+11. (Variational principle) Use the normalized Gaussian trial state
    $\psi(x;\gamma)=\left(\frac{2\gamma}{\pi}\right)^{1/4}e^{-\gamma x^2}$
    for the oscillator; compute $\langle H\rangle$ as a function of
    $\gamma$ and minimize it.  (This is the same trick used in
