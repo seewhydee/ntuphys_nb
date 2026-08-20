@@ -158,11 +158,15 @@ prepared in state $|\psi\rangle$.  Using the Born rule,
 @eq-measurement, we derive this as
 $$\begin{aligned}\langle A\rangle &= \sum_n a_n\, P_n \\ &= \sum_n a_n\,\big|\langle n|\psi\rangle\big|^2 \\ &= \sum_n a_n \, \langle \psi| n \rangle \, \langle n|\psi_n\rangle \\ &= \sum_n \langle \psi| \hat{A} | n \rangle \, \langle n|\psi_n\rangle \\&= \langle\psi|\,\hat{A}\,|\psi\rangle.\end{aligned}$$
 Since the eigenvalues $\{a_n\}$ and probabilities $P_n$ are real,
-$\langle A\rangle$ is real.  Note that in the next-to-last step, we
+$\langle A\rangle$ is real.  In the next-to-last step, we
 used a common maneuver called the **resolution of the identity**,
 whereby the identity operator is expressed as a sum of projectors
-using the eigenstates of $\hat{A}$: $$\hat{I} = \sum_n
-|n\rangle\, \langle n |.$$ This works because $\hat{A}$ is Hermitian, so by the [spectral theorem](https://en.wikipedia.org/wiki/Spectral_theorem) its eigenstates form an orthonormal basis for the Hilbert space.  Non-Hermitian operators need not satisfy this property.
+using the eigenstates of $\hat{A}$:
+$$\hat{I} = \sum_n |n\rangle\, \langle n |.$$
+This works because $\hat{A}$ is Hermitian, so by the [spectral
+theorem](https://en.wikipedia.org/wiki/Spectral_theorem) its
+eigenstates form an orthonormal basis for the Hilbert space (the
+“eigenbasis of $\hat{A}$”).
 
 ### Time evolution {#sec-time-evolution}
 
@@ -283,26 +287,26 @@ The commutation relation in the second line of @eq-Lie-commutators
 defines a **Lie algebra** called $\mathfrak{su}(2)$.  Remarkably, this
 Lie algebra also pops up in the quantum theory of angular momentum in three-dimensional space.
 
-Here is a brief summary of this topic, which requires jumping ahead to
-the concept of wavefunctions (covered in @sec-wavefunctions).  Suppose
-we look at a wavefunction $\psi(\mathbf{r})$, where $\mathbf{r}$ is a
-position vector, and ask how it transforms under the various
-coordinate rotations possible in 3D.  One finds that rotation by an
-angle $\phi$ anticlockwise, around each Cartesian axis $i \in
-\{1,2,3\}$, is given by a unitary operator of the form
+Here is a brief sketch of this topic, which requires jumping ahead to
+the concept of wavefunctions (covered in @sec-wavefunctions).  Given a
+wavefunction $\psi(\mathbf{r})$, where $\mathbf{r}$ is a 3D position
+vector, suppose we ask how it transforms under coordinate rotations.
+After analyzing this systematically, we find that a rotation around
+each Cartesian axis $i \in \{1,2,3\}$, by an anticlockwise angle
+$\phi$, is described by a unitary operator of the form
 
 $$\hat{U}_i(\phi) = e^{i\phi\hat{J}_i/\hbar},$$ {#eq-rotation-operator}
 
-where $\hat{J}_1$, $\hat{J}_2$, and $\hat{J}_3$ are so-called
-**angular momentum** observables satisfying the commutation relation
+where $\hat{J}_1$, $\hat{J}_2$, and $\hat{J}_3$ are **angular
+momentum** observables that satisfy the following commutation relations
+(see @sec-orbital-angular-momentum):
 
 $$\left[\hat{J}_i, \hat{J}_j\right] = i\hbar \sum_{k=1}^3 \epsilon_{ijk} \, \hat{J}_k,\qquad i,j,k\in\{1,2,3\}.$$ {#eq-Lie-algebra}
 
-We then take a conceptual leap by postulating that @eq-Lie-algebra
+Now, we take a conceptual leap by postulating that @eq-Lie-algebra
 *defines* the set of angular momentum observables tied to 3D
-rotations; in other words, it is the commutation relations that are
-fundamental, not the wavefunctions (and the specific operators acting
-on those wavefunctions) we used in deriving them.
+rotations.  In other words, these commutation relations are more
+fundamental than the wavefunctions we used to derive them.
 
 This opens the door to other forms of angular momentum!  In
 particular, particles like the electron can possess a type of angular
@@ -348,7 +352,7 @@ An important example of this practice can be found in the theory of a
 and an excited state $|e\rangle$, whose energies differ by
 $\hbar\Delta \omega$.  Its Hamiltonian is
 $$\hat{H}_0 = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g| + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| = E_0 - \frac{\hbar \Delta\omega}{2} \hat{\sigma}_3,$$
-where $E_0$ is the average energy of the two states.  Next, suppose
+where $E_0$ is the average energy of the two states.  Now suppose
 this atom is illuminated by an electromagnetic wave, which functions
 as a “driving field” that induces transitions from the ground state to
 the excited state or vice versa.  The Hamiltonian then becomes
@@ -363,7 +367,7 @@ time-dependent with angular frequency $\omega_d$, and (iii) it induces
 transitions between the two atomic states.
 
 Using the basis $\{|g\rangle, |e\rangle\}$, we can write the
-Hamiltonian as
+full Hamiltonian as
 $$\hat{H}(t) = E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2}\left[\cos(\omega_d t) \hat{\sigma}_1 - \sin(\omega_d t) \hat{\sigma}_2\right].$$ {#eq-rabi-time-dependent}
 If we introduce the spin operator from @eq-spin-map, the Hamiltonian
 maps into
@@ -383,42 +387,41 @@ space defined by the spin mapping, not a physical space), we should go
 to a co-rotating frame!  Using @eq-rotation-operator, we define the
 rotation operator
 $$\hat{U}_3(\theta) = e^{i\theta\,\hat{\sigma}_3/2}.$$
-  It can be shown that the Pauli
-matrices satisfy the identity
+It can be shown that the Pauli matrices satisfy the following identity
+(see [Exercise 3](#sec-basics-exercises)):
 $$\hat{U}_3(\theta) \,\hat{\sigma}_1\, \hat{U}_3^\dagger(\theta) = \hat{\sigma}_1\cos\theta - \hat{\sigma}_2\sin\theta.$$
 Hence, @eq-rabi-time-dependent can be rewritten as
 $$\hat{H}(t) = \hat{U}_3(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) \hat{U}_3^\dagger(\omega_d t).$$ {#eq-rabi-rotated-h}
 Note that the factor in the center is independent of $t$.  Next, define the state vector in the co-rotating frame, $|\psi_R\rangle$, by
 $$|\psi_R(t)\rangle = \hat{U}_3^\dagger(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle.$$ {#eq-co-rotating-state}
-Using this, the Schrödinger equation, @eq-schrodinger, can
-be re-written as
+Therefore we can rewrite the Schrödinger equation, @eq-schrodinger, as
 $$i\hbar\frac{d}{dt}\left(\hat{U}_R(\omega_d t)\,|\psi_R(t)\rangle\right) 
 = i\hbar \left(\frac{d\hat{U}_3(\omega_d t)}{dt} + \hat{U}_3(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle = \hat{H}(t) \hat{U}_3(\omega_d t) |\psi_R(t)\rangle.$$
-Taking $(d/dt)\hat{U}_3(\omega_d t) = (i\omega_d/2) \,
-\hat{\sigma}_3 \, \hat{U}_3(\omega_d t)$, along with
-@eq-rabi-rotated-h on the right side, we obtain
+Taking $(d/dt)\hat{U}_3(\omega_d t) = (i\omega_d/2) \, \hat{\sigma}_3
+\, \hat{U}_3(\omega_d t)$, along with @eq-rabi-rotated-h on the right
+side, we arrive at a transformed Schrödinger equation for the
+co-rotating frame:
 $$i \hbar \frac{d}{dt} |\psi_R(t)\rangle
 = \left(E_0 + \frac{\hbar \delta\omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle, \quad \delta\omega \equiv \omega_d - \Delta \omega.$$ {#eq-static-field-hamiltonian}
-Thus, the co-rotating frame features a static magnetic field pointing
-in the $x$-$z$ plane; the exact direction depends on $\Omega_d$ and
-the “frequency detuning” $\delta\omega$.  We will skip the remaining
-steps in solving @eq-static-field-hamiltonian, except to note that the
-solution can be obtained analytically, and we can then use
-@eq-co-rotating-state to retrieve the state in the original
-(non-co-rotating) frame.  If the atom is prepared in $|g\rangle$ at
-$t=0$, the analytic solution yields
+This features a static magnetic field pointing in the $x$-$z$ plane,
+with the exact direction depending on $\Omega_d$ and the “frequency
+detuning” $\delta\omega$.  We will skip the remaining steps in solving
+@eq-static-field-hamiltonian, which can be accomplished analytically;
+afterwards, we can use @eq-co-rotating-state to retrieve the state in
+the original (non-co-rotating) frame.  If the atom is prepared in
+$|g\rangle$ at $t=0$, the analytic solution shows that the occupation
+probability for the ground state varies sinusoidally:
 $$P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{\Omega_R\,t}{2}\right).$$
-Thus, the occupation probability for the ground state varies
-sinusoidally.  This is called **Rabi oscillation**.
+This phenomenon is called **Rabi oscillation**.  The full derivation
+is worked through in [Exercise 4](#sec-basis-exercises).
 
 Aside from atomic physics, this two-level model and its associated
 spin interpretation are frequently employed in quantum computing.  For
 example, qubits based on superconducting circuits are commonly
-manipulated by radio-frequency pulses, which function as the driving
-field in the model.  By adjusting the pulse duration and/or the
-qubit's $\delta\omega$ and $\Omega_R$ parameters, it is possible to
-rotate the spin in various directions, corresponding to various kinds
-of quantum logic gates.
+manipulated by radio-frequency pulses, which act as driving fields.
+By adjusting the pulse duration and/or the qubit's $\delta\omega$ and
+$\Omega_R$ parameters, it is possible to rotate the spin in various
+directions, corresponding to various kinds of quantum logic gates.
 
 ## Lattices
 
@@ -442,109 +445,99 @@ simplification, we will roll the 1D lattice into a ring:
 
 ![](fig/lattice_ring.png){fig-align="center" width="500" fig-alt="Diagram of a 1D rolled up into a ring, which contains N distinct sites sites."}
 
-As a result, the number of sites is a finite integer $N$.  This lets
-us postpone the mathematical complications that come with having an
-infinite number of sites.
+The sites on the ring are indexed by an integer $n \in [0, N-1]$ (we
+start from 0 for later convenience), with $N$ sites in total.  The
+fact that the number of sites is finite lets us postpone the
+mathematical complications that come with having an
+infinite-dimensional Hilbert space.
 
 ### Position eigenstates
 
-The sites on the ring can be labeled by an integer $n \in [1, N]$.  We
-wish to consider a *single* particle existing within the lattice.  Let
-us define a set of **position eigenstates**, denoted by
+We wish to consider a *single* particle existing within the lattice.
+Let us define a set of **position eigenstates**, denoted by
 
-$$\big\{|1\rangle,\; |2\rangle,\; \dots |N\rangle \big\},$$
+$$\big\{|0\rangle,\; |1\rangle,\; \dots |N-1\rangle \big\},$$
 
 such that a particle in state $|n\rangle$ is located entirely on site
 $n$.  We postulate that these eigenstates are normalized to unity and
 mutually orthogonal,
 
-$$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [1,N],$$
+$$\langle m|n\rangle = \delta_{mn}, \;\;\; m,n\in [0,N-1],$$
 
 and that they form a complete orthonormal basis for the particle's
 Hilbert space.  Thus, the Hilbert space is $\mathscr{H} =
-\mathbb{C}^N$ (the space of $N$-component complex vectors).
-We can use the position eigenstates to construct a position
-observable,
+\mathbb{C}^N$ (the space of $N$-component complex vectors).  We can
+use the position eigenstates to construct a position observable,
 
-$$\begin{aligned}\hat{x} &\equiv \sum_{n=1}^N |n\rangle \,x_n\, \langle n|, \;\;\;\mathrm{where}\;\;x_n \equiv na. \\
+$$\begin{aligned}\hat{x} &\equiv \sum_{n} |n\rangle \,x_n\, \langle n|, \;\;\;\mathrm{where}\;\;x_n \equiv na. \\
 \Rightarrow\;\; \hat{x} |n\rangle &= x_n |n\rangle.\end{aligned}$$
 
-Here, $a$ is a length unit representing the equal spacings between
-lattice sites.  Strictly speaking, we can set $a = 1$, but it is nice
-to retain it so that our formulas are dimensionally consistent.  Thus,
-the position eigenvalues are $\{ x_1, x_2, \dots, x_N\}$ (which
-explicitly have units of length).
+To keep the notation clean, we will omit the bounds of the sum over
+$n$; unless explicitly stated, such sums are always implicitly assumed
+to run from $0$ to $N-1$.  The variable $a$ is a length unit we have
+introduced to represent the equal spacings between lattice sites.
+Strictly speaking, we could take $a = 1$, but it is nice to retain it
+so that the formulas are dimensionally consistent; thus, the position
+eigenvalues are $x_n \equiv n a$, with explicit units of length.
 
 A general state $|\psi\rangle \in \mathscr{H}$ can be written in the
 position basis as
-
-$$|\psi\rangle = \sum_{n=1}^N \psi_n |n\rangle, \;\;\;\psi_n \in \mathbb{C}.$$
-
-This describes a particle (and remember, we are dealing with a
-*single* particle) which occupies a superposition of different sites.
-The complex numbers $\psi_n$ constitute a **discrete wavefunction**
-for the particle (a discrete version of the wavefunctions to be
-discussed in @sec-wavefunctions).  It follows that:
+$$|\psi\rangle = \sum_{n} \psi_n |n\rangle, \;\;\;\psi_n \in \mathbb{C},$$
+and describes a *single* particle that occupies a superposition of
+different sites.  The complex numbers $\psi_n$ constitute the
+particle's **discrete wavefunction**—a discrete version of the
+wavefunctions to be discussed in @sec-wavefunctions.  It follows that:
 
 * The state $|\psi\rangle$ is normalized if and only if
-    $$\sum_{n=1}^N \left|\psi_n\right|^2 = 1.$$
+    $$\sum_{n} \left|\psi_n\right|^2 = 1.$$
 * The inner product between $|\psi\rangle$ and another state
     $|\varphi\rangle$ (with discrete wavefunction $\varphi_n$) is
-    $$\langle\varphi|\psi\rangle = \sum_{n=1}^N \varphi^*_n\psi_n.$${#eq-discrete-wavefunction-product}
+    $$\langle\varphi|\psi\rangle = \sum_{n} \varphi^*_n\psi_n.$${#eq-discrete-wavefunction-product}
 
 ### Momentum eigenstates {#sec-lattice-momentum}
 
 Consider the following states on the ring lattice:
 
-$$|k_n\rangle = \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_n x_m} |m\rangle.$$ {#eq-discrete-k-state}
+$$|k_p\rangle = \frac{1}{\sqrt{N}} \sum_{n} e^{ik_p x_n} |n\rangle.$$ {#eq-discrete-k-state}
 
-As before, $x_m \equiv ma$ denotes positions along the ring.  These
-states' discrete wavefunctions are familiar-looking 1D waves of the
-form $e^{ikx}$, sampled at discrete points $x = x_m$.  But rather than
-allowing arbitrary wavenumbers, let us take
+As before, $x_n \equiv na$ denotes positions along the ring.  These
+states' discrete wavefunctions are simple waves of the form $e^{ikx}$,
+sampled at discrete points $x = x_n$.  But rather than allowing
+arbitrary wavenumbers, we should take
 
-$$k_n = \frac{2\pi n}{Na}, \;\; n \in [1,N].$$
+$$k_p = \frac{2\pi p}{Na}, \;\; p = 0, 2, \dots, N-1,$$ {#eq-k-quantization}
 
-This ensures that the waves satisfy the periodicity of the ring.  For
-instance, putting $m = N+1$ into the wavefunction yields
+in order to ensure that the waves satisfy the periodicity of the ring.
+To see why, consider putting $n = N$ into the wavefunction; if
+@eq-k-quantization holds, then
 
-$$\begin{aligned}\exp(ik_n x_{N+1}) &= \exp\left[i \left(\frac{2\pi n}{Na}\right) (N+1)a\right] \\ &= e^{2\pi i n}\, \exp(ik_n a) \\ &= \exp(ik_n x_1), \end{aligned}$$ {#eq-discrete-wave-periodicity}
+$$\begin{aligned}\exp(ik_p x_{N}) &= \exp\left[i \left(\frac{2\pi p}{Na}\right) Na\right] \\ &= e^{2\pi i p} \\ &= 1 \quad =\; \exp(ik_p x_0). \end{aligned}$$ {#eq-discrete-wave-periodicity}
 
-which is consistent with the requirement that site $N+1$ is equivalent
-to site 1 on the ring.  For the same reason, we see that the
-wavenumber $k_n$ is defined modulo $2\pi/a$: i.e., shifting it by
-multiples of $2\pi/a$ leaves @eq-discrete-k-state unchanged.
+Thus, site $N$ is equivalent to site 0, as we require.  For the same
+reason, we see that the wavenumber $k_p$ is defined modulo $2\pi/a$:
+shifting it by multiples of $2\pi/a$ leaves @eq-discrete-k-state
+unchanged.
 
-By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), we can show that:^[*Proof*: Using the discrete wavefunction from
-@eq-discrete-k-state, along with the inner product rule in
-@eq-discrete-wavefunction-product,
-$$\begin{aligned}\langle k_n | k_{n'} \rangle
-&= \frac{1}{N} \sum_{m=1}^N e^{-ik_n x_m} \, e^{ik_{n'}x_m} \\
-&= \frac{1}{N} \sum_{m=1}^N \exp\left[\frac{2\pi i (n'-n) m}{N}\right].
-\end{aligned}$$
-If $n \ne n'$, we can use the geometric series formula.  Writing $\Delta n = n'-n$,
-$$\begin{aligned}\sum_{m=1}^N \exp\left[\frac{2\pi i \,\Delta n\, m}{N}\right]
-&= \frac{e^{2\pi i \Delta n/N} \left[\left(e^{2\pi i \Delta n/N}\right)^N - 1\right]}{ e^{2\pi i \Delta n/N} - 1} \\
-&= \frac{e^{2\pi i \Delta n/N} \left(1 - 1\right)}{ e^{2\pi i \Delta n/N} - 1} \;\;\;= \;\;\;0.
-\end{aligned}$$
-If $n = n'$, we cannot use the geometric series (since the numerator
-and denominator in the formula are both zero).  In this case, though,
-each term in the sum is $1$, so the result is $(1/N)\cdot N = 1$.
-Combining the two cases, we arrive at
-@eq-k-discrete-ortho.]
+By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), we can show that:^[*Proof*: Using the discrete wavefunction from @eq-discrete-k-state, along with the inner product rule in @eq-discrete-wavefunction-product,
+$$\begin{aligned}\langle k_n | k_{n'} \rangle &= \frac{1}{N} \sum_{m} e^{-ik_n x_m} \, e^{ik_{n'}x_m} \\ &= \frac{1}{N} \sum_{m=0}^{N-1} \exp\left[\frac{2\pi i (n'-n) m}{N}\right].\end{aligned}$$
+If $n \ne n'$, we can use the geometric series formula.  Writing $\Delta n = n'-n$, we find that the sum goes to zero:
+$$\sum_{m=0}^{N-1} \exp\left[\frac{2\pi i \,\Delta n\, m}{N}\right]
+= \frac{\left[\left(e^{2\pi i \Delta n/N}\right)^N - 1\right]}{ e^{2\pi i \Delta n/N} - 1} = \frac{1-1}{(\cdots)} = 0.$$
+If $n = n'$, we cannot use the geometric series formula because the
+numerator and denominator are both zero.  In this case, though, each
+term in the sum is $1$, so the result is $(1/N)\cdot N = 1$.
+Combining the two cases, we arrive at @eq-k-discrete-ortho.]
 
-$$\langle k_n | k_{n'} \rangle = \delta_{nn'},\;\;\;\mathrm{where}\;\;n,n' \in [1,N].$$ {#eq-k-discrete-ortho}
+$$\langle k_n | k_{n'} \rangle = \delta_{nn'},\;\;\;\mathrm{where}\;\;n,n' = 0, \dots, N-1.$$ {#eq-k-discrete-ortho}
 
 Thus, the $N$ distinct states $\{|k_1\rangle,\dots,|k_N\rangle\}$ form an
 orthonormal basis for $\mathscr{H}$.
 
 What is the physical meaning of the $|k_n\rangle$ states?  To
-understand this, let us look at translations on the ring lattice.  We
-can define **translation operators** $\hat{T}_q$, where $q \in
+understand this, we look at translations on the ring lattice.  Let us
+define **translation operators** $\hat{T}_q$, where $q \in
 \mathbb{Z}$, such that
-
 $$\hat{T}_q |m\rangle = |(m+q)\rangle,$$
-
 with the understanding that $(m+q)$ on the right-hand side is taken
 modulo $N$, due to the periodicity of the ring.  In other words,
 $\hat{T}_q$ shifts positions by $q$ sites along the ring:
@@ -552,85 +545,90 @@ $\hat{T}_q$ shifts positions by $q$ sites along the ring:
 ![](fig/lattice_translation.png){fig-align="center" width="500" fig-alt="Diagrams showing representative translations along a ring lattice, by +1 site (left) and -2 sites (right)."}
 
 Evidently, such an operator is norm-preserving (i.e., unitary).
-Applying it to a $|k_{n}\rangle$ state gives
+Applying it to $|k_p\rangle$ gives
 
-$$\begin{aligned}\hat{T}_q |k_{n}\rangle
-&= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} \hat{T}_q |m\rangle \\
-&= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} x_m} |(m+q)\rangle \\
-&= \frac{1}{\sqrt{N}} \sum_{m=1}^N e^{ik_{n} (m-q) a} |m\rangle \\
-&= e^{-ik_{n} qa} \, |k_{n}\rangle.
+$$\begin{aligned}\hat{T}_q |k_p\rangle
+&= \frac{1}{\sqrt{N}} \sum_{n} e^{ik_p x_n} \hat{T}_q |n\rangle \\
+&= \frac{1}{\sqrt{N}} \sum_{n} e^{ik_p x_n} |n+q\rangle \\
+&= \frac{1}{\sqrt{N}} \sum_{n} e^{ik_p (n-q) a} |n\rangle \\
+&= \exp(-ik_p qa) \, |k_p\rangle.
 \end{aligned}$$
 
 In the third step, we made use of the discrete wavefunction's
-periodicity (see @eq-discrete-wave-periodicity).  We thus obtain the
-result that $\hat{T}_q$ leaves $|k_{n}\rangle$ unchanged except for a
-phase factor $e^{-ik_{n} qa}$.  Note that this holds for every $q$ and
-$n$.
-
-In the context of classical mechanics,
+periodicity (see @eq-discrete-wave-periodicity).  We discover that
+$\hat{T}_q$ leaves $|k_p\rangle$ unchanged except for a phase factor
+$e^{-ik_p qa}$, for any $q$ and $n$.  In classical mechanics,
 [Noether's theorem](https://en.wikipedia.org/wiki/Noether%27s_theorem)
 states that spatial translation symmmetry is associated with a
 conserved physical quantity called momentum.  Drawing on this
-association, we identify the $|k_{n}\rangle$ states as **momentum
-eigenstates**.  We can also use them to construct a momentum
-observable like this:
-
-$$\hat{p} = \sum_{n=1}^N |k_{n}\rangle \, \hbar k_n \, \langle k_{n}|.$$
-
-The factor of $\hbar$ is inserted simply so that $\hat{p}$ has units
-of momentum (whereas $k_n$ has units of inverse length).  The momentum
-eigenvalues are thus $\{\hbar k_1, \dots, \hbar k_N\}$.  However, as
-noted above, $k_n$ is defined modulo $2\pi/a$, so the momentum is
-likewise defined modulo $2\pi\hbar/a$.  In condensed-matter physics,
-this kind of periodic momentum variable is sometimes called
-**quasimomentum**, to distinguish it from the non-periodic momentum we
-will study in @sec-wavefunctions.
+association, we identify the $|k_p\rangle$ states as **momentum
+eigenstates**; the corresponding momentum is $\hbar k_p$, with the
+factor of $\hbar$ inserted to achieve units of momentum.  Just as
+$k_p$ is defined modulo $2\pi/a$, this momentum is defined modulo
+$2\pi\hbar/a$; it is also called **quasimomentum**, to distinguish it
+from the non-periodic form of momentum we will study in
+@sec-wavefunctions.
 
 ### Quantum walks
 
-The time-evolution of a particle on a lattice is typically governed by
-a “hopping” Hamiltonian that describes how the particle transitions to
-neighboring sites.  For instance, on a 1D lattice, take
+The time-evolution of a particle on a lattice is often governed by a
+“hopping” Hamiltonian that describes how the particle transitions to
+neighboring sites.  For instance, on a 1D lattice, we might take
 $$\hat{H} = - J \sum_{n = 1}^N \big(|n\rangle \, \langle n+1| \, + \, |n+1\rangle \, \langle n| \big),$$ {#eq-hamiltonian-1dring}
-where $J$ is some energy scale (the minus sign is customary), and
-$``\pm 1''$ is taken modulo $N$ to account for the lattice being a
-ring: i.e., $|0\rangle \equiv |N\rangle$.
+where $J$ is some energy scale (the minus sign is customary), and $\pm
+1$ is taken modulo $N$ to account for the lattice being a ring: i.e.,
+$|0\rangle \equiv |N\rangle$.  To understand this Hamiltonian,
+consider how it acts on a particle prepared with state $|n_0\rangle$,
+on a single site, at time $t = 0$:
 
-We can understand this Hamiltonian by considering how it would act on
-a particle initialized in a position eigenstate $|n'\rangle$ at time
-$t = 0$:
-
-* The first term in the parentheses, acting on $|n'\rangle$, gives
-  $-J|n'+1\rangle$, coming from the term with $n+1=n'$; all other
-  terms (with $n+1\ne n'$) vanish.
+* The first term in the parentheses, acting on $|n_0\rangle$, gives
+  $-J|n_0+1\rangle$, coming from the term with $n+1=n_0$; all other
+  terms (with $n+1\ne n_0$) vanish.
 
 * The second term in the parentheses is the Hermitian conjugate of the
   first, ensuring that $\hat{H}$ is Hermitian. Applied to the state
-  $|n'\rangle$, it yields $-J|n'- 1\rangle$ (from the $n = n'$ term).
+  $|n_0\rangle$, it yields $-J|n_0- 1\rangle$ (from the $n = n_0$ term).
 
-Thus, when the particle evolves under the Schrödinger equation
-@eq-schrodinger, its state after time $\delta t$ is
-$$\begin{aligned}|\psi(\delta t)\rangle &= |n'\rangle + \frac{\delta t}{i\hbar} \hat{H} |\psi(0)\rangle + O(\delta t^2) \\ &= |n'\rangle - \frac{J \delta t}{i\hbar}\big(|n'+1\rangle + |n'-1\rangle\big) + O(\delta t^2).\end{aligned}$$
-This leaves the particle in a superposition of different sites, with
-part of its quantum state involving “hops” to the left and right of
-the initial site $n'$.  As $t$ further increases, the particle
-continues “hopping” to sites further from $n'$.  Such a process is
-called a **quantum walk**.
+Therefore, according to the Schrödinger equation @eq-schrodinger, the
+particle's state after time $\delta t$ will be
+$$\begin{aligned}|\psi(\delta t)\rangle &= |n_0\rangle + \frac{\delta t}{i\hbar} \hat{H} |\psi(0)\rangle + O(\delta t^2) \\ &= |n_0\rangle - \frac{J \delta t}{i\hbar}\big(|n_0+1\rangle + |n_0-1\rangle\big) + O(\delta t^2).\end{aligned}$$ {#eq-quantum-walk-hop}
+Evidently, part of the particle's state has “hopped” to the left and
+right of the initial site $n_0$.  As $t$ further increases, the
+particle continues hopping to sites further away, in a process known
+as a **quantum walk**.
 
-In fact, we can solve the Schrödinger equation by making use of the fact that the Hamiltonian is translationally symmetric.  Applying @eq-hamiltonian-1dring  to the momentum eigenstates from @sec-lattice-momentum gives
-$$\begin{aligned}\hat{H} |k_n\rangle &= - \frac{J}{\sqrt{N}} \sum_{m,q=1}^N e^{ik_n x_m} \big(|q\rangle \, \langle q+1 | m\rangle  + |q+1\rangle \, \langle q | m\rangle \big) \\ &= - \frac{J}{\sqrt{N}} \sum_{q=1}^N \big( e^{ik_n x_{q+1}} + e^{ik_n x_{q-1}} \big) |q\rangle \\ &= - 2J \, \cos(k_n a) \, |k_n\rangle.
+In fact, we can do better than @eq-quantum-walk-hop and derive the
+full quantum walk solution for all $t$.  To do this, we exploit the
+fact that the Hamiltonian is translationally symmetric.  Applying
+@eq-hamiltonian-1dring to the quasimomentum eigenstates from
+@sec-lattice-momentum, we obtain
+$$\begin{aligned}\hat{H} |k_p\rangle &= - \frac{J}{\sqrt{N}} \sum_{m,q} e^{ik_p x_m} \big(|q\rangle \, \langle q+1 | m\rangle  + |q+1\rangle \, \langle q | m\rangle \big) \\ &= - \frac{J}{\sqrt{N}} \sum_{q} \big( e^{ik_p x_{q+1}} + e^{ik_p x_{q-1}} \big) |q\rangle \\ &= - 2J \, \cos(k_p a) \, |k_p\rangle.
 \end{aligned}$$
-Hence, each momentum eigenstate is simultaneously an energy eigenstate, with eigenenergy
-$$E_n = - 2J \, \cos(k_n a), \;\;\; k_n = \frac{2\pi n}{Na}.$$
+Hence, each quasimomentum eigenstate is also an energy eigenstate, with eigenenergy
+$$E_p = - 2J \, \cos(k_p a), \;\;\; \mathrm{where}\;\;k_p = \frac{2\pi p}{Na}.$$
+This $E$-vs-$k$ equation is called a **dispersion relation**. One of
+the things it tells us is the **group velocity**, which specifies how
+quickly a wavepacket can travel in the lattics (see [Exercise
+5](#sec-basics-exercises)):
+$$v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka),$$
 
-
-
-
-**[DRAFT — point form; expand into prose before finalizing]**
-- **Group velocity** of a wavepacket peaked near $k$:
-  $v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka)$.  This
-  is what makes the walk move.
-**[END DRAFT]**
+Now, suppose the particle is prepared in an arbitrary initial state at
+$t = 0$:
+$$|\psi(0)\rangle = \sum_{n} \psi_n |n\rangle,$$
+where $\{\psi_n\}$ is a discrete wavefunction.  We can decompose this
+state into the quasimomentum basis @eq-discrete-k-state:
+$$\begin{aligned}|\psi(0)\rangle &= \sum_{n} \psi_n \Bigg(\sum_p |k_p\rangle \, \langle k_p | \Bigg) |n\rangle \\ &= \frac{1}{\sqrt{N}} \sum_{p} \Psi_p \, |k_p\rangle,\end{aligned}$$
+where
+$$\Psi_p \;\equiv\; \sum_{n=0}^{N-1} \psi_n e^{-ik_p x_n} \;\equiv\;\mathrm{DFT}_p\{\psi_n\}$$
+is the [discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)
+of the discrete wavefunction.  Next, each term can be evolved forward
+in time, using the fact that the quasimomentum states are also energy
+eigenstates.  We thereby obtain the solution at time $t$:
+$$\begin{aligned}|\psi(t)\rangle &= \frac{1}{\sqrt{N}} \sum_{p} \Psi_p
+\, e^{-iE_pt/\hbar} \, |k_p\rangle \\ \Rightarrow \langle n
+|\psi(t)\rangle &= \frac{1}{N} \sum_{p} \Psi_p \, e^{-iE_pt/\hbar} \, e^{ik_px_n} \equiv \mathrm{IDFT}_n\{ \Psi_p \, e^{-iE_pt/\hbar} \}, \end{aligned}$$
+where $\mathrm{IDFT}(\cdots)$ denotes the
+[inverse discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform).
 
 ### Probability conservation on the lattice
 
@@ -751,7 +749,7 @@ delta-normalized.  The last equation can be interpreted as the
 wavefunction of the delta-normalized momentum eigenstate.
 
 The momentum operator $\hat{\mathbf{p}}$ is defined using the
-$|\mathbf{k}\rangle$'s as the eigenbasis:
+$|\mathbf{k}\rangle$'s as the basis:
 
 $$ \hat{\mathbf{p}} |\mathbf{k}\rangle \,=\, \hbar \mathbf{k}\,
 |\mathbf{k}\rangle.$$
@@ -936,16 +934,21 @@ $$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
 	$$\left[\hat{\sigma}_i, \hat{\sigma}_j\right] = 2i\epsilon_{ijk}\, \hat{\sigma}_k.$$
     You may also show that the other sign choice is nothing but a
     permutation of the matrix labels.
-  
-  <!-- From them, we can derive the multiplication table -->
-  <!-- $$\begin{aligned} -->
-  <!-- \hat{\sigma}_i^2 &= \hat{I}, \;\; i=1,2,3 \\ -->
-  <!-- \hat{\sigma}_1 \hat{\sigma}_2 &= - \hat{\sigma}_2 \hat{\sigma}_2 = i\hat{\sigma}_3 \\ -->
-  <!-- \hat{\sigma}_2 \hat{\sigma}_3 &= - \hat{\sigma}_3 \hat{\sigma}_2 = i\hat{\sigma}_1 \\ -->
-  <!-- \hat{\sigma}_3 \hat{\sigma}_1 &= - \hat{\sigma}_1 \hat{\sigma}_3 = i\hat{\sigma}_2. -->
-  <!-- \end{aligned}$$ {#eq-pauli-algebra} -->
 
-3. In @sec-momentum-eigenstates, we derived the eigenstates of a
+**[DRAFT — point form; expand into prose before finalizing]**
+
+3. Derive the identity
+
+$$\hat{U}_3(\theta) \,\hat{\sigma}_1\, \hat{U}_3^\dagger(\theta) = \hat{\sigma}_1\cos\theta - \hat{\sigma}_2\sin\theta.$$
+
+4. Solve the Schr\"odinger equation @eq-static-field-hamiltonian:
+   $$i \hbar \frac{d}{dt} |\psi_R(t)\rangle
+= \left(E_0 + \frac{\hbar \delta\omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle, \quad \delta\omega \equiv \omega_d - \Delta \omega.$$
+   Then derive Rabi oscillation.
+
+5. (Quantum walk) Derive the group velocity of a wavepacket in the lattice.
+
+6. In @sec-momentum-eigenstates, we derived the eigenstates of a
 particle in an empty infinite space by considering a box of length
 $L$ on each side, applying periodic boundary conditions, and taking
 $L \rightarrow \infty$.  Suppose we instead use Dirichlet boundary
@@ -953,9 +956,8 @@ conditions (i.e., the wavefunction vanishes on the walls of the
 box).  Show that this gives rise to the same set of momentum
 eigenstates in the $L \rightarrow \infty$ limit.
 
-**[DRAFT — point form; expand into prose before finalizing]**
 
-4. (Time evolution) For a two-level system with
+7. (Time evolution) For a two-level system with
    $\hat{H}=\frac{\hbar\omega_0}{2}\hat{\sigma}_3$ and initial state
    $|\psi(0)\rangle=\frac{1}{\sqrt2}\big(|+\rangle+|-\rangle\big)$, find
    $|\psi(t)\rangle$, and compute
@@ -963,25 +965,22 @@ eigenstates in the $L \rightarrow \infty$ limit.
    $\langle\hat{\sigma}_3\rangle(t)$.  Interpret the result as
    precession.
 
-5. (Probability current) Compute $J(x)$ for (a)
+
+8. (Probability current) Compute $J(x)$ for (a)
    $\psi=\Psi_i e^{ikx}$; (b) a standing wave
    $\psi=\sqrt{2/L}\,\sin(n\pi x/L)$.  Explain why a real wavefunction
    carries no net current.
 
-6. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
+9. (Harmonic oscillator) From $[x,p]=i\hbar$, prove $[a,a^\dagger]=1$,
    and re-derive $E_n=\hbar\omega(n+\tfrac12)$ from
    $\hat{H}=\hbar\omega(a^\dagger a+\tfrac12)$.  Find $\psi_0(x)$ from
    $a|0\rangle=0$.
 
-6. (Variational principle) Use the normalized Gaussian trial state
+10. (Variational principle) Use the normalized Gaussian trial state
    $\psi(x;\gamma)=\left(\frac{2\gamma}{\pi}\right)^{1/4}e^{-\gamma x^2}$
    for the oscillator; compute $\langle H\rangle$ as a function of
    $\gamma$ and minimize it.  (This is the same trick used in
    Chapter 3.)
 
-7. (Quantum walk) Verify that $|k_n\rangle$ are eigenstates of the
-   hopping Hamiltonian with $E(k_n)=-2J\cos(k_n a)$; compute the group
-   velocity; and describe qualitatively how a state initially localized
-   at a single site spreads in time.
 
 **[END DRAFT]**
