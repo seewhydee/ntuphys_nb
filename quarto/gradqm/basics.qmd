@@ -635,19 +635,34 @@ where $\mathrm{IDFT}(\cdots)$ denotes the
 
 ## Wavefunctions {#sec-wavefunctions}
 
-A wavefunction is a type of quantum state represented by a complex
-function of a continuous real variable:
+Wavefunction are quantum states represented by complex functions of
+continuous real variables:
 $$|\psi\rangle \;\; \leftrightarrow \;\; \psi(x), \;x\in\mathbb{R}$$
-(Wavefunctions can also be defined with respect to multiple variables,
-such as $\mathbf{r} \in \mathbb{R}^3$, but we will stick to the
-single-variable case for simplicity.  The generalization to the
-multi-variable case is straightforward.)  Such functions obey the
-usual axioms governing vectors; for example, we can construct linear
-combinations
-$$c_1 |\psi_1\rangle + c_2 |\psi_2\rangle \;\;\leftrightarrow\;\; c_1 \psi_1(x) + c_2 \psi_2(x),$$
-where $c_1, c_2 \in \mathbb{C}$.  We can also constuct an inner
-product,
-$$\langle \psi_1 | \psi_2 \rangle = \int_{-\infty}^\infty dx \;\; \psi_1^*(x) \psi(2)$$
+For simplicity, let us focus on wavefunctions of a single real
+variable, $x\in\mathbb{R}$, rather than multiple variables like
+$\mathbf{r} \in \mathbb{R}^3$; also, we assume the functions are
+defined over the entire real line, rather than a half-space or finite
+segment.
+
+Complex functions obey the usual axioms for vector spaces, since they
+can form linear combinations
+$$c_1 |\psi_1\rangle + c_2 |\psi_2\rangle \;\;\leftrightarrow\;\; c_1 \psi_1(x) + c_2 \psi_2(x), \;\;\; c_1, c_2 \in \mathbb{C}.$$
+However, the quantum axioms (@sec-states-and-observables) demand that
+the state space is not merely a vector space but a *Hilbert space*,
+meaning it must also have a valid inner product and be complete.  To
+meet these requirements, we restrict ourselves to complex functions
+that are **square-integrable**, i.e.,
+$$\int_{-\infty}^\infty |\psi(x)|^2 < \infty.$$ {#eq-l2-normalizable}
+We will say more later about what functions satisfy this condition,
+but an example of a function that does *not* is the plane wave
+$\psi(x) = \exp(ikx)$, since
+$$\int_{-\infty}^\infty |e^{ikx}|^2 dx = \int_{-\infty}^\infty dx \rightarrow \infty.$$
+For functions that *do* satisfy @eq-l2-normalizable, we can define
+$$\langle \psi_1 | \psi_2 \rangle \equiv \int_{-\infty}^\infty dx \;\; \psi_1^*(x) \psi_2(x),$$
+whereupon it can be shown that this satisfies the inner product
+axioms; thereafter, a mathematical result called the [Riesz–Fischer theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Fischer_theorem)
+assures us that the vector space is complete.  Thus, square-integrable
+complex functions form a complex Hilbert space.
 
 ### Position eigenstates
 
