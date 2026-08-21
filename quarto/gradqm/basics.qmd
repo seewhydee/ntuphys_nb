@@ -267,25 +267,24 @@ $\mathbb{C}^2$, but it has some very nice properties:
   the eigenvalues.
 
 * The three remaining matrices are $2\times2$, traceless, and
-  Hermitian.  If we try to form an "orthonormal basis" of such
+  Hermitian.  If we try to form an orthonormal basis of such
   matrices, a set of reasonable choices (see [Exercise 2](#sec-basics-exercises)) leads to the anticommutation and
   commutation relations
-  
   $$\begin{aligned}
   \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
   \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j,k\in\{1,2,3\},$$ {#eq-Lie-commutators}
-
   where, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
-  matrices listed in @eq-pauli indeed satisfy these algebraic
-  relations.  Often, when manipulating formulas containing Pauli
-  matrices, it is advantageous to use these relations instead of
-  working with the explicit matrices.
+  matrices, @eq-pauli, satisfy these relations.  Often, when
+  manipulating formulas containing Pauli matrices, it is advantageous
+  to use these relations instead of working with the explicit
+  matrices.
 
 ### Pauli matrices and spin
 
 The commutation relation in the second line of @eq-Lie-commutators
-defines a **Lie algebra** called $\mathfrak{su}(2)$.  Remarkably, this
-Lie algebra also pops up in the quantum theory of angular momentum in three-dimensional space.
+defines a [**Lie algebra**](https://en.wikipedia.org/wiki/Lie_algebra)
+called $\mathfrak{su}(2)$.  Remarkably, this Lie algebra also pops up
+in the quantum theory of angular momentum in three-dimensional space.
 
 Here is a brief sketch of this topic, which requires jumping ahead to
 the concept of wavefunctions (covered in @sec-wavefunctions).  Given a
@@ -395,8 +394,8 @@ $$\hat{H}(t) = \hat{U}_3(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} 
 Note that the factor in the center is independent of $t$.  Next, define the state vector in the co-rotating frame, $|\psi_R\rangle$, by
 $$|\psi_R(t)\rangle = \hat{U}_3^\dagger(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle.$$ {#eq-co-rotating-state}
 Therefore we can rewrite the Schrödinger equation, @eq-schrodinger, as
-$$i\hbar\frac{d}{dt}\left(\hat{U}_R(\omega_d t)\,|\psi_R(t)\rangle\right) 
-= i\hbar \left(\frac{d\hat{U}_3(\omega_d t)}{dt} + \hat{U}_3(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle = \hat{H}(t) \hat{U}_3(\omega_d t) |\psi_R(t)\rangle.$$
+$$\begin{aligned}i\hbar\frac{d}{dt}\left(\hat{U}_R(\omega_d t)\,|\psi_R(t)\rangle\right) 
+&= i\hbar \left(\frac{d\hat{U}_3(\omega_d t)}{dt} + \hat{U}_3(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle \\&= \hat{H}(t) \hat{U}_3(\omega_d t) |\psi_R(t)\rangle.\end{aligned}$$
 Taking $(d/dt)\hat{U}_3(\omega_d t) = (i\omega_d/2) \, \hat{\sigma}_3
 \, \hat{U}_3(\omega_d t)$, along with @eq-rabi-rotated-h on the right
 side, we arrive at a transformed Schrödinger equation for the
@@ -412,8 +411,8 @@ the original (non-co-rotating) frame.  If the atom is prepared in
 $|g\rangle$ at $t=0$, the analytic solution shows that the occupation
 probability for the ground state varies sinusoidally:
 $$P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{\Omega_R\,t}{2}\right).$$
-This phenomenon is called **Rabi oscillation**.  The full derivation
-is worked through in [Exercise 4](#sec-basis-exercises).
+This phenomenon is called **Rabi oscillation**.  The derivation
+is worked out in [Exercise 4](#sec-basis-exercises).
 
 Aside from atomic physics, this two-level model and its associated
 spin interpretation are frequently employed in quantum computing.  For
@@ -473,12 +472,13 @@ $$\begin{aligned}\hat{x} &\equiv \sum_{n} |n\rangle \,x_n\, \langle n|, \;\;\;\m
 \Rightarrow\;\; \hat{x} |n\rangle &= x_n |n\rangle.\end{aligned}$$
 
 To keep the notation clean, we will omit the bounds of the sum over
-$n$; unless explicitly stated, such sums are always implicitly assumed
-to run from $0$ to $N-1$.  The variable $a$ is a length unit we have
-introduced to represent the equal spacings between lattice sites.
-Strictly speaking, we could take $a = 1$, but it is nice to retain it
-so that the formulas are dimensionally consistent; thus, the position
-eigenvalues are $x_n \equiv n a$, with explicit units of length.
+$n$, and implicitly assume that such sums run from $0$ to $N-1$,
+unless explicitly stated otherwise.  The variable $a$ is a length unit
+we have introduced to represent the equal spacings between lattice
+sites.  Strictly speaking, we could take $a = 1$, but it is nice to
+retain it so that the formulas are dimensionally consistent; thus, the
+position eigenvalues are $x_n \equiv n a$, with explicit units of
+length.
 
 A general state $|\psi\rangle \in \mathscr{H}$ can be written in the
 position basis as
@@ -589,23 +589,23 @@ on a single site, at time $t = 0$:
   first, ensuring that $\hat{H}$ is Hermitian. Applied to the state
   $|n_0\rangle$, it yields $-J|n_0- 1\rangle$ (from the $n = n_0$ term).
 
-Therefore, according to the Schrödinger equation @eq-schrodinger, the
-particle's state after time $\delta t$ will be
+Therefore, following the Schrödinger equation @eq-schrodinger, the
+state after time $\delta t$ is
 $$\begin{aligned}|\psi(\delta t)\rangle &= |n_0\rangle + \frac{\delta t}{i\hbar} \hat{H} |\psi(0)\rangle + O(\delta t^2) \\ &= |n_0\rangle - \frac{J \delta t}{i\hbar}\big(|n_0+1\rangle + |n_0-1\rangle\big) + O(\delta t^2).\end{aligned}$$ {#eq-quantum-walk-hop}
 Evidently, part of the particle's state has “hopped” to the left and
-right of the initial site $n_0$.  As $t$ further increases, the
-particle continues hopping to sites further away, in a process known
-as a **quantum walk**.
+right of the initial site $n_0$.  With increasing $t$, the particle
+continues hopping to sites further away, in a process called a
+**quantum walk**.
 
 In fact, we can do better than @eq-quantum-walk-hop and derive the
 full quantum walk solution for all $t$.  To do this, we exploit the
 fact that the Hamiltonian is translationally symmetric.  Applying
 @eq-hamiltonian-1dring to the quasimomentum eigenstates from
-@sec-lattice-momentum, we obtain
+@sec-lattice-momentum yields
 $$\begin{aligned}\hat{H} |k_p\rangle &= - \frac{J}{\sqrt{N}} \sum_{m,q} e^{ik_p x_m} \big(|q\rangle \, \langle q+1 | m\rangle  + |q+1\rangle \, \langle q | m\rangle \big) \\ &= - \frac{J}{\sqrt{N}} \sum_{q} \big( e^{ik_p x_{q+1}} + e^{ik_p x_{q-1}} \big) |q\rangle \\ &= - 2J \, \cos(k_p a) \, |k_p\rangle.
 \end{aligned}$$
 Hence, each quasimomentum eigenstate is also an energy eigenstate, with eigenenergy
-$$E_p = - 2J \, \cos(k_p a), \;\;\; \mathrm{where}\;\;k_p = \frac{2\pi p}{Na}.$$
+$$E_p = - 2J \, \cos(k_p a), \;\;\; \mathrm{where}\;\;k_p = \frac{2\pi p}{Na}.$$ {#eq-momentum-energy-1dring}
 This $E$-vs-$k$ equation is called a **dispersion relation**. One of
 the things it tells us is the **group velocity**, which specifies how
 quickly a wavepacket can travel in the lattics (see [Exercise
@@ -615,32 +615,39 @@ $$v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka),$$
 Now, suppose the particle is prepared in an arbitrary initial state at
 $t = 0$:
 $$|\psi(0)\rangle = \sum_{n} \psi_n |n\rangle,$$
-where $\{\psi_n\}$ is a discrete wavefunction.  We can decompose this
-state into the quasimomentum basis @eq-discrete-k-state:
+where $\{\psi_n\}$ is a discrete wavefunction.  We can express this
+in the quasimomentum basis @eq-discrete-k-state:
 $$\begin{aligned}|\psi(0)\rangle &= \sum_{n} \psi_n \Bigg(\sum_p |k_p\rangle \, \langle k_p | \Bigg) |n\rangle \\ &= \frac{1}{\sqrt{N}} \sum_{p} \Psi_p \, |k_p\rangle,\end{aligned}$$
 where
 $$\Psi_p \;\equiv\; \sum_{n=0}^{N-1} \psi_n e^{-ik_p x_n} \;\equiv\;\mathrm{DFT}_p\{\psi_n\}$$
 is the [discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform)
 of the discrete wavefunction.  Next, each term can be evolved forward
 in time, using the fact that the quasimomentum states are also energy
-eigenstates.  We thereby obtain the solution at time $t$:
+eigenstates: each quasimomentum state receives a phase factor
+$\exp(-iE_pt/\hbar)$, where $E_p$ is given by
+@eq-momentum-energy-1dring.  We thereby obtain the solution at time
+$t$:
 $$\begin{aligned}|\psi(t)\rangle &= \frac{1}{\sqrt{N}} \sum_{p} \Psi_p
 \, e^{-iE_pt/\hbar} \, |k_p\rangle \\ \Rightarrow \langle n
 |\psi(t)\rangle &= \frac{1}{N} \sum_{p} \Psi_p \, e^{-iE_pt/\hbar} \, e^{ik_px_n} \equiv \mathrm{IDFT}_n\{ \Psi_p \, e^{-iE_pt/\hbar} \}, \end{aligned}$$
 where $\mathrm{IDFT}(\cdots)$ denotes the
-[inverse discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform).
+[inverse discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform).  From this, we see that the quantum walk is a discrete form of [diffraction](https://en.wikipedia.org/wiki/Diffraction): in classical optics, the same “Fourier transform, propagate, then inverse Fourier transform” sequence is the standard way to calculate diffraction patterns.
 
 ## Wavefunctions {#sec-wavefunctions}
 
-A wavefunction is a particular type of quantum state defined as a
-complex function of a continuous real variable (or variables).  Such
-functions obey the usual axioms governing vectors.  For example, for
-functions of a single continuous real variable $x\in\mathbb{R}$, we
-can construct linear combinations
-
-$$A_1 \psi_1(x) + A_2 \psi_2(x),$$
-
-where $A_1, A_2 \in \mathbb{C}$.
+A wavefunction is a type of quantum state represented by a complex
+function of a continuous real variable:
+$$|\psi\rangle \;\; \leftrightarrow \;\; \psi(x), \;x\in\mathbb{R}$$
+(Wavefunctions can also be defined with respect to multiple variables,
+such as $\mathbf{r} \in \mathbb{R}^3$, but we will stick to the
+single-variable case for simplicity.  The generalization to the
+multi-variable case is straightforward.)  Such functions obey the
+usual axioms governing vectors; for example, we can construct linear
+combinations
+$$c_1 |\psi_1\rangle + c_2 |\psi_2\rangle \;\;\leftrightarrow\;\; c_1 \psi_1(x) + c_2 \psi_2(x),$$
+where $c_1, c_2 \in \mathbb{C}$.  We can also constuct an inner
+product,
+$$\langle \psi_1 | \psi_2 \rangle = \int_{-\infty}^\infty dx \;\; \psi_1^*(x) \psi(2)$$
 
 ### Position eigenstates
 
