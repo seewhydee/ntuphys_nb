@@ -676,6 +676,7 @@ ensures that the vector space is complete.  Hence, square-integrable
 complex functions form a complex Hilbert space.  The customary
 normalization of state vectors can be expressed as
 
+
 $$\langle \psi |\psi\rangle = \int_{-\infty}^\infty |\psi(x)|^2\; dx = 1.$$ {#eq-wavefunction-normalization}
 
 ### Position eigenstates
@@ -718,12 +719,20 @@ useful for doing calculations—in much the same way that we make use
 of delta functions despite them not being functions in the proper
 sense.
 
-For position measurements, we adapt the Born rule (@eq-measurement) as
-follows: if a particle is in a normalized state $|\psi\rangle$, then
+From the position eigenstates, we can define the position operator
+
+$$\hat{x} = \int_{-\infty}^\infty |x\rangle \, x \, \langle x |,$$ {#eq-x-operator}
+
+which satisfies $\hat{x}|x\rangle = x \,|x\rangle$.  Because the
+position eigenvalues are continuous, we have to tweak the usual Born
+rule @eq-measurement as follows: if a particle is in a normalized
+state $|\psi\rangle$, then
+
 $$\rho(x) \equiv |\psi(x)|^2$$ {#eq-wavefunction-1d-prob-density}
+
 represents its **probability density**.  If we measure the particle's
-position, $\rho(x) \,dx$ is the probability to find it anywhere within a
-region of length $dx$ around $x$.  Note the dimensions: due to the
+position, $\rho(x) \,dx$ is the probability to find it anywhere within
+a region of length $dx$ around $x$.  Note the dimensions: due to the
 normalization condition @eq-wavefunction-normalization, the
 probability density $\rho(x)$ has units of $1/x$, so the probability
 $\rho(x)\, dx$ is dimensionless.
@@ -791,20 +800,46 @@ its wavefunction.
 The momentum operator $\hat{p}$ is defined using the $|k\rangle$'s as
 the basis:
 
-$$ \hat{p} |k\rangle \,=\, \hbar k\, |k\rangle.$$
+$$ \hat{p} |k\rangle \,=\, \hbar k\, |k\rangle.$$ {#eq-p-operator}
 
-For any quantum state $|\psi\rangle$, whose wavefunction is $\psi(x) =
-\langle x|\psi\rangle$, we can show that the momentum operator acts on
-wavefunctions in the following way:
+Given any normalized quantum state $|\psi\rangle$ whose wavefunction
+is $\psi(x) = \langle x|\psi\rangle$, we can show that the momentum
+operator acts on wavefunctions in the following way:
 
 $$\begin{aligned}\langle x|\hat{p}|\psi\rangle
   &= \frac{1}{\sqrt{2\pi}} \, \int dk \; e^{ikx} \langle k | \hat{p} | \psi\rangle \\
   &= \frac{1}{\sqrt{2\pi}} \, \int dk \; \hbar k \, e^{ikx} \langle k | \psi\rangle \\
   &= -i \hbar \frac{d}{dx} \left[\frac{1}{\sqrt{2\pi}} \, \int dk \, e^{ikx} \langle k | \psi\rangle \right] \\
   &= -i\hbar \frac{d\psi}{dx}(x).
-  \end{aligned}$$
+  \end{aligned}$$ {#eq-momentum-derivatives}
 
-### Probability current and continuity
+### The Schrödinger wave equation
+
+Here is the most commonly-used Hamiltonian acting upon wavefunctions,
+which describes a non-relativistic particle of mass $m$ in a potential
+$V(x)$:
+
+$$\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}).$$
+
+Evidently, the first term corresponds to the particle's kinetic
+energy, and the second term to the potential energy.  If we
+left-multiply this equation by $\langle x|$ and right-multiply by any
+normalized state $|\psi\rangle$, and use @eq-momentum-derivatives, we
+obtain
+
+$$\langle x |\hat{H} |\psi\rangle = -\frac{\hbar^2}{2m} \frac{d^2\psi}{dx^2} + V(x) \psi(x).$$
+
+If we now allow the state (and possibly the potential) to be
+time-dependent, combining this with the Schrödinger equation
+@eq-schrodinger yields
+
+$$i \hbar \frac{\partial\psi}{\partial t} = \left[ -\frac{\hbar^2}{2m}
+\frac{\partial^2}{\partial x^2} + V(x,t) \right] \psi(x,t).$$
+
+We call this the **Schrödinger wave equation**; the extra word "wave"
+signifies that this is a partial differential equation involving a
+wavefunction acted upon by space (and time) derivatives, whereas the
+"Schrödinger equation" deals with abstract state vectors.
 
 **[DRAFT — point form; expand into prose before finalizing]**
 
