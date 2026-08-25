@@ -6,12 +6,12 @@ we know, larger objects too).  It was developed, in fits and starts,
 over several decades in the first half of the 20th century, beginning
 with [Max Planck's](https://en.wikipedia.org/wiki/Max_Planck) 1900
 proposal that the energy in radiation is packaged into discrete
-"quanta", and approaching its modern form with the formulation of wave
+"quanta", and approaching its modern form with the formulation of matrix mechanics by
+[Werner Heisenberg](https://en.wikipedia.org/wiki/Werner_Heisenberg)
+in 1925 and wave
 mechanics by
 [Erwin Schrödinger](https://en.wikipedia.org/wiki/Erwin_Schr%C3%B6dinger) in
-1926 and matrix mechanics by
-[Werner Heisenberg](https://en.wikipedia.org/wiki/Werner_Heisenberg)
-in 1928.
+1926.
 
 The mathematical formulation of quantum mechanics most physicists use
 today is based on the **Dirac–von Neumann axioms**, put together in
@@ -135,7 +135,7 @@ lurking in the postulates:
 * There is a tension between postulates 3 and 4.  Postulate 3
   describes the state evolving smoothly according to a *deterministic*
   differential equation (the Schrödinger equation).  However,
-  postulate 4 describes a *probabilitic* jump to another state
+  postulate 4 describes a *probabilistic* jump to another state
   occurring abruptly when a measurement is done.  The special role of
   measurement in quantum mechanics has surprising and troubling
   consequences, as we shall see in @sec-chapter-entanglement.
@@ -156,13 +156,13 @@ $|\psi\rangle$ refers to the mean result obtained by repeatedly
 measuring $\hat{A}$ over a statistical ensemble of systems, each
 prepared in state $|\psi\rangle$.  Using the Born rule,
 @eq-measurement, we derive this as
-$$\begin{aligned}\langle A\rangle &= \sum_n a_n\, P_n \\ &= \sum_n a_n\,\big|\langle n|\psi\rangle\big|^2 \\ &= \sum_n a_n \, \langle \psi| n \rangle \, \langle n|\psi_n\rangle \\ &= \sum_n \langle \psi| \hat{A} | n \rangle \, \langle n|\psi_n\rangle \\&= \langle\psi|\,\hat{A}\,|\psi\rangle.\end{aligned}$$
+$$\begin{aligned}\langle A\rangle &= \sum_n a_n\, P_n \\ &= \sum_n a_n\,\big|\langle n|\psi\rangle\big|^2 \\ &= \sum_n a_n \, \langle \psi| n \rangle \, \langle n|\psi\rangle \\ &= \sum_n \langle \psi| \hat{A} | n \rangle \, \langle n|\psi\rangle \\&= \langle\psi|\,\hat{A}\,|\psi\rangle.\end{aligned}$$
 Since the eigenvalues $\{a_n\}$ and probabilities $P_n$ are real,
 $\langle A\rangle$ is real.  In the next-to-last step, we
 used a common maneuver called the **resolution of the identity**,
 whereby the identity operator is expressed as a sum of projectors
 using the eigenstates of $\hat{A}$:
-$$\hat{I} = \sum_n |n\rangle\, \langle n |.$$
+$$\hat{I} = \sum_n |n\rangle\, \langle n |.$$ {#eq-resolution-of-identity}
 This works because $\hat{A}$ is Hermitian, so by the [spectral
 theorem](https://en.wikipedia.org/wiki/Spectral_theorem) its
 eigenstates form an orthonormal basis for the Hilbert space (the
@@ -191,9 +191,9 @@ $\hat{H}(t)$ at different times may not commute, and this may be resolved
 by introducing a so-called “time-ordered exponential”.  The details
 will not concern us here.]  Consequently, if we prepare the system at time $t'$ in an energy eigenstate $|n\rangle$, with eigenenergy $E_n$, then
 $$|\psi(t)\rangle = e^{-iE_n(t-t')/\hbar}|n\rangle.$$
-This implies that an enery eigenstate of a time-independent
+This implies that an energy eigenstate of a time-independent
 Hamiltonian is a “stationary” state: as time progresses, the state
-vector accumulates a phase $\Delta\phi = E_n(t-t')/\hbar$, but it
+vector accumulates a phase $\Delta\phi = -E_n(t-t')/\hbar$, but it
 remains an energy eigenstate with the same eigenenergy.  If we
 subsequently perform any measurement on the system, the outcome
 probabilities do not depend on $t$ or $t'$.  (*After* the measurement,
@@ -273,7 +273,7 @@ $\mathbb{C}^2$, but it has some very nice properties:
   $$\begin{aligned}
   \left\{\hat{\sigma}_i, \hat{\sigma}_j\right\} &= 2\delta_{ij} \hat{I}, \\
   \left[\hat{\sigma}_i, \hat{\sigma}_j\right] &= 2i \sum_{k=1}^3\epsilon_{ijk}\, \hat{\sigma}_k,\end{aligned}\qquad i,j,k\in\{1,2,3\},$$ {#eq-Lie-commutators}
-  where, $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
+  where $\epsilon_{ijk}$ denotes the Levi-Civita symbol.  The Pauli
   matrices, @eq-pauli, satisfy these relations.  Often, when
   manipulating formulas containing Pauli matrices, it is advantageous
   to use these relations instead of working with the explicit
@@ -291,8 +291,8 @@ the concept of wavefunctions (covered in @sec-wavefunctions).  Given a
 wavefunction $\psi(\mathbf{r})$, where $\mathbf{r}$ is a 3D position
 vector, suppose we ask how it transforms under coordinate rotations.
 After analyzing this systematically, we find that a rotation around
-each Cartesian axis $i \in \{1,2,3\}$, by an anticlockwise angle
-$\phi$, is described by a unitary operator of the form
+each Cartesian axis $i \in \{1,2,3\}$, by a clockwise angle $\phi$, is
+described by a unitary operator of the form
 
 $$\hat{U}_i(\phi) = e^{i\phi\hat{J}_i/\hbar},$$ {#eq-rotation-operator}
 
@@ -394,7 +394,7 @@ $$\hat{H}(t) = \hat{U}_3(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} 
 Note that the factor in the center is independent of $t$.  Next, define the state vector in the co-rotating frame, $|\psi_R\rangle$, by
 $$|\psi_R(t)\rangle = \hat{U}_3^\dagger(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle.$$ {#eq-co-rotating-state}
 Therefore we can rewrite the Schrödinger equation, @eq-schrodinger, as
-$$\begin{aligned}i\hbar\frac{d}{dt}\left(\hat{U}_R(\omega_d t)\,|\psi_R(t)\rangle\right) 
+$$\begin{aligned}i\hbar\frac{d}{dt}\left(\hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle\right) 
 &= i\hbar \left(\frac{d\hat{U}_3(\omega_d t)}{dt} + \hat{U}_3(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle \\&= \hat{H}(t) \hat{U}_3(\omega_d t) |\psi_R(t)\rangle.\end{aligned}$$
 Taking $(d/dt)\hat{U}_3(\omega_d t) = (i\omega_d/2) \, \hat{\sigma}_3
 \, \hat{U}_3(\omega_d t)$, along with @eq-rabi-rotated-h on the right
@@ -409,10 +409,12 @@ detuning” $\delta\omega$.  We will skip the remaining steps in solving
 afterwards, we can use @eq-co-rotating-state to retrieve the state in
 the original (non-co-rotating) frame.  If the atom is prepared in
 $|g\rangle$ at $t=0$, the analytic solution shows that the occupation
-probability for the ground state varies sinusoidally:
-$$P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{\Omega_R\,t}{2}\right).$$
+probability for the excited state varies sinusoidally:
+$$
+\begin{aligned}P_e(t) &= \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{\Omega_R\,t}{2}\right)\\\Omega_R &\equiv \sqrt{\Omega_d^2 + \delta\omega^2}.\end{aligned}
+$$
 This phenomenon is called **Rabi oscillation**.  The derivation
-is worked out in [Exercise 4](#sec-basis-exercises).
+is worked out in [Exercise 4](#sec-basic-exercises).
 
 Aside from atomic physics, this two-level model and its associated
 spin interpretation are frequently employed in quantum computing.  For
@@ -442,7 +444,7 @@ or **sites**, arranged in a 1D or higher-dimensional grid called a
 Let us focus on the 1D lattice on the left.  As a further
 simplification, we will roll the 1D lattice into a ring:
 
-![](fig/lattice_ring.png){fig-align="center" width="500" fig-alt="Diagram of a 1D rolled up into a ring, which contains N distinct sites sites."}
+![](fig/lattice_ring.png){fig-align="center" width="500" fig-alt="Diagram of a 1D rolled up into a ring, which contains N distinct sites."}
 
 The sites on the ring are indexed by an integer $n \in [0, N-1]$ (we
 start from 0 for later convenience), with $N$ sites in total.  The
@@ -505,7 +507,7 @@ states' discrete wavefunctions are simple waves of the form $e^{ikx}$,
 sampled at discrete points $x = x_n$.  But rather than allowing
 arbitrary wavenumbers, we should take
 
-$$k_p = \frac{2\pi p}{Na}, \;\; p = 0, 2, \dots, N-1,$$ {#eq-k-quantization}
+$$k_p = \frac{2\pi p}{Na}, \;\; p = 0, 1, 2, \dots, N-1,$$ {#eq-k-quantization}
 
 in order to ensure that the waves satisfy the periodicity of the ring.
 To see why, consider putting $n = N$ into the wavefunction; if
@@ -519,19 +521,19 @@ shifting it by multiples of $2\pi/a$ leaves @eq-discrete-k-state
 unchanged.
 
 By the orthogonality of [Fourier series](https://en.wikipedia.org/wiki/Fourier_series), we can show that:^[*Proof*: Using the discrete wavefunction from @eq-discrete-k-state, along with the inner product rule in @eq-discrete-wavefunction-product,
-$$\begin{aligned}\langle k_n | k_{n'} \rangle &= \frac{1}{N} \sum_{m} e^{-ik_n x_m} \, e^{ik_{n'}x_m} \\ &= \frac{1}{N} \sum_{m=0}^{N-1} \exp\left[\frac{2\pi i (n'-n) m}{N}\right].\end{aligned}$$
-If $n \ne n'$, we can use the geometric series formula.  Writing $\Delta n = n'-n$, we find that the sum goes to zero:
-$$\sum_{m=0}^{N-1} \exp\left[\frac{2\pi i \,\Delta n\, m}{N}\right]
-= \frac{\left[\left(e^{2\pi i \Delta n/N}\right)^N - 1\right]}{ e^{2\pi i \Delta n/N} - 1} = \frac{1-1}{(\cdots)} = 0.$$
-If $n = n'$, we cannot use the geometric series formula because the
+$$\begin{aligned}\langle k_p | k_{p'} \rangle &= \frac{1}{N} \sum_{m} e^{-ik_p x_m} \, e^{ik_{p'}x_m} \\ &= \frac{1}{N} \sum_{m=0}^{N-1} \exp\left[\frac{2\pi i (p'-p) m}{N}\right].\end{aligned}$$
+If $p \ne p'$, we can use the geometric series formula.  Writing $\Delta p = p'-p$, we find that the sum goes to zero:
+$$\sum_{m=0}^{N-1} \exp\left[\frac{2\pi i \,\Delta p\, m}{N}\right]
+= \frac{\left[\left(e^{2\pi i \Delta p/N}\right)^N - 1\right]}{ e^{2\pi i \Delta p/N} - 1} = \frac{1-1}{(\cdots)} = 0.$$
+If $p = p'$, we cannot use the geometric series formula because the
 numerator and denominator are both zero.  In this case, though, each
 term in the sum is $1$, so the result is $(1/N)\cdot N = 1$.
 Combining the two cases, we arrive at @eq-k-discrete-ortho.]
 
-$$\langle k_n | k_{n'} \rangle = \delta_{nn'},\;\;\;\mathrm{where}\;\;n,n' = 0, \dots, N-1.$$ {#eq-k-discrete-ortho}
+$$\langle k_p | k_{p'} \rangle = \delta_{pp'},\;\;\;\mathrm{where}\;\;p,p' = 0, \dots, N-1.$$ {#eq-k-discrete-ortho}
 
-Thus, the $N$ distinct states $\{|k_1\rangle,\dots,|k_N\rangle\}$ form an
-orthonormal basis for $\mathscr{H}$.
+Thus, the $N$ distinct states $\{|k_0\rangle,\dots,|k_{N-1}\rangle\}$
+form an orthonormal basis for $\mathscr{H}$.
 
 What is the physical meaning of the $|k_n\rangle$ states?  To
 understand this, we look at translations on the ring lattice.  Let us
@@ -557,7 +559,7 @@ $$\begin{aligned}\hat{T}_q |k_p\rangle
 In the third step, we made use of the discrete wavefunction's
 periodicity (see @eq-discrete-wave-periodicity).  We discover that
 $\hat{T}_q$ leaves $|k_p\rangle$ unchanged except for a phase factor
-$e^{-ik_p qa}$, for any $q$ and $n$.  In classical mechanics,
+$e^{-ik_p qa}$, for any $q$ and $p$.  In classical mechanics,
 [Noether's theorem](https://en.wikipedia.org/wiki/Noether%27s_theorem)
 states that spatial translation symmmetry is associated with a
 conserved physical quantity called momentum.  Drawing on this
@@ -574,7 +576,9 @@ from the non-periodic form of momentum we will study in
 The time-evolution of a particle on a lattice is often governed by a
 “hopping” Hamiltonian that describes how the particle transitions to
 neighboring sites.  For instance, on a 1D lattice, we might take
-$$\hat{H} = - J \sum_{n = 1}^N \big(|n\rangle \, \langle n+1| \, + \, |n+1\rangle \, \langle n| \big),$$ {#eq-hamiltonian-1dring}
+$$
+\hat{H} = - J \sum_{n = 1}^N \big(|n+1\rangle \, \langle n| \, + \, |n\rangle \, \langle n+1| \big),
+$$ {#eq-hamiltonian-1dring}
 where $J$ is some energy scale (the minus sign is customary), and $\pm
 1$ is taken modulo $N$ to account for the lattice being a ring: i.e.,
 $|0\rangle \equiv |N\rangle$.  To understand this Hamiltonian,
@@ -608,7 +612,7 @@ Hence, each quasimomentum eigenstate is also an energy eigenstate, with eigenene
 $$E_p = - 2J \, \cos(k_p a), \;\;\; \mathrm{where}\;\;k_p = \frac{2\pi p}{Na}.$$ {#eq-momentum-energy-1dring}
 This $E$-vs-$k$ equation is called a **dispersion relation**. One of
 the things it tells us is the **group velocity**, which specifies how
-quickly a wavepacket can travel in the lattics (see [Exercise
+quickly a wavepacket can travel in the lattice (see [Exercise
 5](#sec-basics-exercises)):
 $$v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka),$$
 
@@ -635,95 +639,129 @@ where $\mathrm{IDFT}(\cdots)$ denotes the
 
 ## Wavefunctions {#sec-wavefunctions}
 
-Wavefunction are quantum states represented by complex functions of
-continuous real variables.  For simplicity, we focus on the case of
-functions are defined over the real line (the
-generalizations to other cases are fairly straightforward):
+Wavefunctions are quantum states represented by complex functions of
+continuous real position variables.  For simplicity, we focus on the
+case of wavefunctions living in 1D space (the generalization to higher
+dimensions will be discussed later):
+
 $$|\psi\rangle \;\; \leftrightarrow \;\; \psi(x), \;x\in\mathbb{R}.$$
-Such functions obey the axioms for vector spaces, since they
-can form linear combinations:
+
+For the moment, we assume $x$ runs over the entire real line.  Such
+functions obey the axioms for vector spaces, since they can form
+linear combinations:
+
 $$c_1 |\psi_1\rangle + c_2 |\psi_2\rangle \;\;\leftrightarrow\;\; c_1 \psi_1(x) + c_2 \psi_2(x), \;\;\; c_1, c_2 \in \mathbb{C}.$$
+
 However, the quantum axioms (@sec-states-and-observables) demand that
 the state space is not merely a vector space but a *Hilbert space*,
 meaning it must also have a valid inner product and be complete.  To
 meet these additional requirements, we require the complex functions
 to be **square-integrable**, i.e.,
+
 $$\int_{-\infty}^\infty |\psi(x)|^2 \; dx < \infty.$$ {#eq-l2-normalizable}
+
 We will say more later about what functions satisfy this condition,
 but an example of a function that does *not* is the plane wave
 $\psi(x) = \exp(ikx)$, since
+
 $$\int_{-\infty}^\infty |e^{ikx}|^2 \; dx = \int_{-\infty}^\infty dx \rightarrow \infty.$$
+
 For functions that *do* satisfy @eq-l2-normalizable, we can define
+
 $$\langle \psi_1 | \psi_2 \rangle \equiv \int_{-\infty}^\infty \; \psi_1^*(x) \psi_2(x) \; dx,$$
+
 and show that this satisfies the inner product axioms; thereafter, a
 result called the [Riesz–Fischer theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Fischer_theorem)
 ensures that the vector space is complete.  Hence, square-integrable
 complex functions form a complex Hilbert space.  The customary
 normalization of state vectors can be expressed as
-$$\langle \psi |\psi\rangle = \int_{-\infty}^\infty |\psi(x)|^2\; dx = 1.$$
+
+$$\langle \psi |\psi\rangle = \int_{-\infty}^\infty |\psi(x)|^2\; dx = 1.$$ {#eq-wavefunction-normalization}
 
 ### Position eigenstates
 
-Before proceeding, let us review the properties of a quantum particle
-in free space.  In a $d$-dimensional space, a coordinate vector
-$\mathbf{r}$ is a real vector with $d$ components.  We suppose there
-is a uncountably infinite set of position eigenstates,
-$\{|\mathbf{r}\rangle\}$, where each $|\mathbf{r}\rangle$ describes a
-particle with a definite position $\mathbf{r}$.  The position
-eigenstates are assumed to span the state space, such that the
-identity operator can be resolved as
+When we say a state is "represented" by a wavefunction, that means the
+value of $\psi(x)$, for any given $x$, is a "vector component"
 
-$$\hat{I} = \int d^dr \, |\mathbf{r}\rangle \langle\mathbf{r}|,$$
+$$\psi(x) = \langle x | \psi\rangle,$$
 
-with the integral is taken over all allowed $\mathbf{r}$ (e.g.,
-$\mathbf{r} \in \mathbb{R}^d$).  It follows that
+where $|\psi\rangle$ is the abstract state vector and $|x\rangle$ (the
+conjugate of $\langle x|$ in the above equation) is a **position
+eigenstate**—a state in which the particle possesses a definite
+position $x$.
 
-$$\langle \mathbf{r} | \mathbf{r}' \rangle = \delta^d(\mathbf{r}-\mathbf{r}').$$
+However, there are some peculiarities lurking here.  Since $x$ varies
+continuously, there is an uncountably infinite set of such
+eigenstates, spanning the Hilbert space of wavefunctions.  Hence, the
+resolution of the identity operator should have the form
 
-Thus, we say that the position eigenstates are *delta-normalized*,
-rather than being normalized to unity.  Here $\delta^d(\cdots)$
-denotes the $d$-dimensional delta function; e.g., in 2D,
+$$\hat{I} = \int_{-\infty}^\infty dx \, |x\rangle \, \langle x|,$$ {#eq-x-identity-resolution}
 
-$$\langle x,y \,|\, x',y' \rangle = \delta(x-x') \, \delta(y-y').$$
+where, unlike in @eq-resolution-of-identity, the discrete sum over
+eigenbasis states is replaced by an integral over the continuous
+variable $x$.  If we left-multiply @eq-x-identity-resolution by
+$\langle x'|$, and right-multiply by some other state $|\psi\rangle$,
+we obtain
 
-Moreover, the position operator $\hat{\mathbf{r}}$ is defined such
-that $\hat{\mathbf{r}} |\mathbf{r}\rangle \,=\, \mathbf{r}\,
-|\mathbf{r}\rangle$.
+$$\langle x'|\psi\rangle = \int_{-\infty}^\infty dx \, \langle x' |x\rangle \, \langle x|\psi\rangle.$$
+
+Therefore, we deduce that
+
+$$\langle x | x' \rangle = \delta(x-x').$$ {#eq-x-delta-norm}
+
+The position eigenstates are thus said to be **delta-normalized**;
+they cannot be normalized to unity, since $\langle x | x\rangle$ is
+ill-defined!  Strictly speaking, this means position eigenstates are
+not states in the usual sense (i.e., vectors in the Hilbert space
+defined in @sec-wavefunctions).  Nonetheless, they are extremely
+useful for doing calculations—in much the same way that we make use
+of delta functions despite them not being functions in the proper
+sense.
+
+For position measurements, we adapt the Born rule (@eq-measurement) as
+follows: if a particle is in a normalized state $|\psi\rangle$, then
+$$\rho(x) \equiv |\psi(x)|^2$$ {#eq-wavefunction-1d-prob-density}
+represents its **probability density**.  If we measure the particle's
+position, $\rho(x) \,dx$ is the probability to find it anywhere within a
+region of length $dx$ around $x$.  Note the dimensions: due to the
+normalization condition @eq-wavefunction-normalization, the
+probability density $\rho(x)$ has units of $1/x$, so the probability
+$\rho(x)\, dx$ is dimensionless.
 
 ### Momentum eigenstates{#sec-momentum-eigenstates}
 
-Momentum eigenstates are constructed from position eigenstates via
-Fourier transforms.  First, let us suppose $\mathbf{r}$ runs over a
-finite box of length $L$ on each side, with periodic boundary
-conditions.  For plane waves of the form
-$\exp(i\mathbf{k}\cdot\mathbf{r})$, where $\mathbf{k} = (k_1, \dots,
-k_d)$ is the wave-vector, the periodic boundary conditions are
-satisfied if and only if
+Momentum eigenstates are the Fourier duals of position eigenstates.
+To construct them, let us suppose (for now) that $x$ runs over a
+finite segment of length $L$, and impose periodic boundary conditions
+on the ends of this segment.  Thus, all wavefunctions satisfy
 
-$$k_j = 2\pi m/L\;\;\mathrm{for} \;m\in\mathbb{Z}.$$
+$$\psi(-L/2) \equiv \psi(L/2).$$ {#eq-periodic-bc}
 
-Note that the set of allowed wave-vectors is discrete (i.e.,
-countable), with a discretization of $\Delta k = 2\pi/L$ in each
-direction.  Next, define
+For plane waves of the form $\exp(i kx)$, where $k \in \mathbb{R}$ is
+the wavenumber, @eq-periodic-bc is satisfied if and only if $k$ lies
+in a set of discrete (i.e., countable) values:
 
-$$|\mathbf{k}\rangle = \frac{1}{L^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle,$$
+$$k \in \left\{ \frac{2\pi m}{L}\;\;\mathrm{for} \;m\in\mathbb{Z} \right\}.$$
 
-where the integral is taken over the box.  We identify
-$|\mathbf{k}\rangle$ as a momentum eigenstate, i.e., a state with
-definite momentum $\hbar \mathbf{k}$.  We can now show
-that
+Now let us define a momentum eigenstate as
 
-$$\langle\mathbf{k}|\mathbf{k}'\rangle = \delta_{\mathbf{k},\mathbf{k}'}, \quad \langle\mathbf{r}|\mathbf{k}\rangle = \frac{1}{L^{d/2}} e^{i\mathbf{k}\cdot\mathbf{r}}, \quad I = \sum_{\mathbf{k}} |\mathbf{k}\rangle\,\langle\mathbf{k}|.$$
+$$|k\rangle = \frac{1}{\sqrt{L}} \, \int_{-L/2}^{L/2} dx \; e^{ikx} |x\rangle,$$
 
-In particular, note that each momentum eigenstate is normalizable to
-unity.
+with $p = \hbar k$ as the corresponding momentum.  By combining this
+with @eq-x-delta-norm in different ways, we can obtain the following
+three equations:
 
-Now let us take $L \rightarrow \infty$.  In this limit, the
-wave-vector discretization $\Delta k = 2\pi / L$ goes to zero, so the
-momentum eigenvalues coalesce into a continuum.  To handle this, we
-redefine the momentum eigenstates as
+$$\begin{aligned}\langle x|k\rangle &= \frac{1}{\sqrt{L}} e^{i k x} \\ \langle k | k' \rangle &= \delta_{k, k'} \\ \quad I &= \sum_{k} |k\rangle\,\langle k|.\end{aligned}$$
 
-$$|\mathbf{k}\rangle^{(\textrm{new})} = \left(\frac{L}{2\pi}\right)^{d/2} |\mathbf{k}\rangle^{(\textrm{old})}.$$
+In particular, note that each momentum eigenstate, as we have defined
+it, is normalized to unity.
+
+Now we take $L \rightarrow \infty$.  In this limit, the wave-vector
+discretization $\Delta k = 2\pi / L$ goes to zero, and the momentum
+eigenvalues coalesce into a continuum.  To handle this, we redefine
+the momentum eigenstates as
+
+$$|k\rangle^{(\textrm{new})} = \left(\frac{L}{2\pi}\right)^{1/2} |k\rangle^{(\textrm{old})}.$$
 
 Then, by using the formula
 
@@ -733,38 +771,37 @@ we can show that the new momentum eigenstates are related to the
 position eigenstates by
 
 $$\begin{aligned}
-  |\mathbf{k}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dr \; e^{i\mathbf{k}\cdot\mathbf{r}} |\mathbf{r}\rangle, \\
-  |\mathbf{r}\rangle &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{-i\mathbf{k}\cdot\mathbf{r}} |\mathbf{k}\rangle. \end{aligned}$$
+  |k\rangle &= \frac{1}{\sqrt{2\pi}} \, \int dx \; e^{ikx} |x\rangle, \\
+  |x\rangle &= \frac{1}{\sqrt{2\pi}} \, \int dk \; e^{-ikx} |k\rangle. \end{aligned}$$
   
 Position and momentum are now treated on similar footing, with the
-integrals over $\mathbf{r}$ and $\mathbf{k}$ both taken over infinite
-spaces.  Moreover, the momentum eigenstates now satisfy
+integrals over $x$ and $k$ both taken over infinite spaces.  Moreover,
+the momentum eigenstates now satisfy
 
 $$\begin{aligned}
-  I &= \int d^dk \;|\mathbf{k}\rangle\,\langle\mathbf{k}|, \label{Iresolk} \\
-  \langle\mathbf{k}|\mathbf{k}'\rangle &= \delta^d(\mathbf{k}-\mathbf{k}'), \\
-  \langle\mathbf{r}|\mathbf{k}\rangle &= \frac{e^{i\mathbf{k}\cdot\mathbf{r}}}{(2\pi)^{d/2}}.\end{aligned}$$
+  \hat{I} &= \int dk \;|k\rangle\,\langle k|, \\
+  \langle k|k'\rangle &= \delta(k-k'), \\
+  \langle x|k\rangle &= \frac{e^{ikx}}{\sqrt{2\pi}}.\end{aligned}$$
   
 The first two equations are analogous to their position eigenstate
-counterparts.  In particular, the new $|\mathbf{k}\rangle$'s are
-delta-normalized.  The last equation can be interpreted as the
-wavefunction of the delta-normalized momentum eigenstate.
+counterparts.  In particular, the new $|k\rangle$ eigenstates are
+delta-normalized, and the last equation above can be interpreted as
+its wavefunction.
 
-The momentum operator $\hat{\mathbf{p}}$ is defined using the
-$|\mathbf{k}\rangle$'s as the basis:
+The momentum operator $\hat{p}$ is defined using the $|k\rangle$'s as
+the basis:
 
-$$ \hat{\mathbf{p}} |\mathbf{k}\rangle \,=\, \hbar \mathbf{k}\,
-|\mathbf{k}\rangle.$$
+$$ \hat{p} |k\rangle \,=\, \hbar k\, |k\rangle.$$
 
-For any quantum state $|\psi\rangle$, whose wavefunction is
-$\psi(\mathbf{r}) = \langle \mathbf{r}|\psi\rangle$, we can show that
-the momentum operator acts on wavefunctions in the following way:
+For any quantum state $|\psi\rangle$, whose wavefunction is $\psi(x) =
+\langle x|\psi\rangle$, we can show that the momentum operator acts on
+wavefunctions in the following way:
 
-$$\begin{aligned}\langle \mathbf{r}|\hat{\mathbf{p}}|\psi\rangle
-  &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \hat{\mathbf{p}} | \psi\rangle \\
-  &= \frac{1}{(2\pi)^{d/2}} \, \int d^dk \; \hbar\mathbf{k} \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \\
-  &= -i \hbar\nabla \left[\frac{1}{(2\pi)^{d/2}} \, \int d^dk \, e^{i\mathbf{k}\cdot\mathbf{r}} \langle \mathbf{k} | \psi\rangle \right] \\
-  &= -i\hbar \nabla\psi(\mathbf{r}).
+$$\begin{aligned}\langle x|\hat{p}|\psi\rangle
+  &= \frac{1}{\sqrt{2\pi}} \, \int dk \; e^{ikx} \langle k | \hat{p} | \psi\rangle \\
+  &= \frac{1}{\sqrt{2\pi}} \, \int dk \; \hbar k \, e^{ikx} \langle k | \psi\rangle \\
+  &= -i \hbar \frac{d}{dx} \left[\frac{1}{\sqrt{2\pi}} \, \int dk \, e^{ikx} \langle k | \psi\rangle \right] \\
+  &= -i\hbar \frac{d\psi}{dx}(x).
   \end{aligned}$$
 
 ### Probability current and continuity
