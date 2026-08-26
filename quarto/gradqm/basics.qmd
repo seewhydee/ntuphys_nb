@@ -344,26 +344,30 @@ matrices are said to describe a **spin-1/2 degree of freedom**.
 
 Due to the relationship between Pauli matrices and spin, it is common
 to interpret qubits as spin-1/2 degrees of freedom, even if they
-aren't really *actually* spin.
+aren't *actually* spin.
 
-An important example of this practice can be found in the theory of a
-**two-level atom**.  Suppose an atom has a ground state $|g\rangle$
-and an excited state $|e\rangle$, whose energies differ by
-$\hbar\Delta \omega$.  Its Hamiltonian is
-$$\hat{H}_0 = \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g| + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| = E_0 - \frac{\hbar \Delta\omega}{2} \hat{\sigma}_3,$$
-where $E_0$ is the average energy of the two states.  Now suppose
-this atom is illuminated by an electromagnetic wave, which functions
-as a “driving field” that induces transitions from the ground state to
-the excited state or vice versa.  The Hamiltonian then becomes
-$$\hat{H}(t) = \hat{H}_0 - \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |e\rangle\langle g| + e^{i\omega_d t} |g\rangle\langle e| \Big).$$
-Here, $\omega_d$ is the angular frequency of the driving field, and
-$\Omega_d$ quantifies the strength of the driving field, expressed as
-a frequency unit and called the **Rabi frequency**.  We will skip over
-the derivation of how this new term in the Hamiltonian arises from the
-driving field, but you can convince yourself that it makes sense,
-since it has the right features: (i) it is Hermitian, (ii) it is
-time-dependent with angular frequency $\omega_d$, and (iii) it induces
-transitions between the two atomic states.
+An example of this practice occurs in the theory of a **two-level
+atom**.  Suppose an atom has a ground state $|g\rangle$ and an excited
+state $|e\rangle$, whose energies differ by $\hbar\Delta \omega$.  Its
+Hamiltonian is
+$$
+\begin{aligned}\hat{H}_0 &= \left(E_0 - \frac{\hbar\Delta \omega}{2}\right) |g\rangle\langle g| + \left(E_0 + \frac{\hbar\Delta \omega}{2}\right) |e\rangle\langle e| \\&= E_0 - \frac{\hbar \Delta\omega}{2} \hat{\sigma}_3,\end{aligned}
+$$
+where $E_0$ is the average energy of the two states.  Now, let this
+atom be illuminated by an electromagnetic wave, or “driving field”,
+which induces transitions from the ground state to the excited state
+or vice versa.  The Hamiltonian then becomes
+$$
+\hat{H}(t) = \hat{H}_0 - \frac{\hbar \Omega_d}{2} \Big(e^{-i\omega_d t} |e\rangle\langle g| + e^{i\omega_d t} |g\rangle\langle e| \Big).
+$$
+In the new term on the right, which arises from the driving field,
+$\omega_d$ is the angular frequency of the driving field, and
+$\Omega_d$ quantifies the field's strength, expressed as a frequency
+unit and called the **Rabi frequency**.  We will skip over how this
+term is derived, but you can convince yourself that it makes sense
+based on its features: (i) it is Hermitian, (ii) it is time-dependent
+with angular frequency $\omega_d$, and (iii) it induces transitions
+between the two atomic states.
 
 Using the basis $\{|g\rangle, |e\rangle\}$, we can write the
 full Hamiltonian as
@@ -390,18 +394,21 @@ It can be shown that the Pauli matrices satisfy the following identity
 (see [Exercise 3](#sec-basics-exercises)):
 $$\hat{U}_3(\theta) \,\hat{\sigma}_1\, \hat{U}_3^\dagger(\theta) = \hat{\sigma}_1\cos\theta - \hat{\sigma}_2\sin\theta.$$
 Hence, @eq-rabi-time-dependent can be rewritten as
-$$\hat{H}(t) = \hat{U}_3(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) \hat{U}_3^\dagger(\omega_d t).$$ {#eq-rabi-rotated-h}
-Note that the factor in the center is independent of $t$.  Next, define the state vector in the co-rotating frame, $|\psi_R\rangle$, by
+$$\hat{H}(t) = \hat{U}_3(\omega_d t)\, \left(E_0 - \frac{\hbar\Delta \omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) \hat{U}_3^\dagger(\omega_d t),$$ {#eq-rabi-rotated-h}
+with the factor in the center being independent of $t$.  Next, define
+the state vector in the co-rotating frame, $|\psi_R\rangle$, by
 $$|\psi_R(t)\rangle = \hat{U}_3^\dagger(\omega_d t)\,|\psi(t)\rangle \;\;\;\Leftrightarrow \;\;\; |\psi(t)\rangle = \hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle.$$ {#eq-co-rotating-state}
-Therefore we can rewrite the Schrödinger equation, @eq-schrodinger, as
+Then we can rewrite the Schrödinger equation, @eq-schrodinger, as
 $$\begin{aligned}i\hbar\frac{d}{dt}\left(\hat{U}_3(\omega_d t)\,|\psi_R(t)\rangle\right) 
 &= i\hbar \left(\frac{d\hat{U}_3(\omega_d t)}{dt} + \hat{U}_3(\omega_d t) \frac{d}{dt}\right) |\psi_R(t)\rangle \\&= \hat{H}(t) \hat{U}_3(\omega_d t) |\psi_R(t)\rangle.\end{aligned}$$
 Taking $(d/dt)\hat{U}_3(\omega_d t) = (i\omega_d/2) \, \hat{\sigma}_3
 \, \hat{U}_3(\omega_d t)$, along with @eq-rabi-rotated-h on the right
 side, we arrive at a transformed Schrödinger equation for the
 co-rotating frame:
-$$i \hbar \frac{d}{dt} |\psi_R(t)\rangle
-= \left(E_0 + \frac{\hbar \delta\omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle, \quad \delta\omega \equiv \omega_d - \Delta \omega.$$ {#eq-static-field-hamiltonian}
+$$
+\begin{aligned}i \hbar \frac{d}{dt} |\psi_R(t)\rangle
+&= \left(E_0 + \frac{\hbar \delta\omega}{2} \hat{\sigma}_3 - \frac{\hbar\Omega_d}{2} \,\hat{\sigma}_1 \right) |\psi_R(t)\rangle, \\ \delta\omega &\equiv \omega_d - \Delta \omega.\end{aligned}
+$$ {#eq-static-field-hamiltonian}
 This features a static magnetic field pointing in the $x$-$z$ plane,
 with the exact direction depending on $\Omega_d$ and the “frequency
 detuning” $\delta\omega$.  We will skip the remaining steps in solving
@@ -411,7 +418,7 @@ the original (non-co-rotating) frame.  If the atom is prepared in
 $|g\rangle$ at $t=0$, the analytic solution shows that the occupation
 probability for the excited state varies sinusoidally:
 $$
-\begin{aligned}P_e(t) &= \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{\Omega_R\,t}{2}\right)\\\Omega_R &\equiv \sqrt{\Omega_d^2 + \delta\omega^2}.\end{aligned}
+P_e(t) = \Big|\langle e|\psi(t)\rangle\Big|^2 \propto \sin^2\! \left(\frac{1}{2}\,\sqrt{\Omega_d^2 + \delta\omega^2} \,t\right).
 $$
 This phenomenon is called **Rabi oscillation**.  The derivation
 is worked out in [Exercise 4](#sec-basic-exercises).
@@ -420,11 +427,11 @@ Aside from atomic physics, this two-level model and its associated
 spin interpretation are frequently employed in quantum computing.  For
 example, qubits based on superconducting circuits are commonly
 manipulated by radio-frequency pulses, which act as driving fields.
-By adjusting the pulse duration and/or the qubit's $\delta\omega$ and
-$\Omega_R$ parameters, it is possible to rotate the spin in various
-directions, corresponding to various kinds of quantum logic gates.
+By adjusting the pulse duration and/or the qubit's parameters, it is
+possible to rotate the spin in various directions, corresponding to
+various kinds of quantum logic gates.
 
-## Lattices
+## Lattices {#sec-lattices}
 
 Lattice models are a useful class of quantum models describing
 particles on discrete spatial grids.  They provide a useful way to
@@ -640,29 +647,37 @@ where $\mathrm{IDFT}(\cdots)$ denotes the
 ## Wavefunctions {#sec-wavefunctions}
 
 Wavefunctions are quantum states represented by complex functions of
-continuous real position variables.  For simplicity, we focus on the
-case of wavefunctions living in 1D space (the generalization to higher
-dimensions will be discussed later):
+continuous real variables, such as a position coordinate $x$:
 
-$$|\psi\rangle \;\; \leftrightarrow \;\; \psi(x), \;x\in\mathbb{R}.$$
+$$|\psi\rangle \;\; \leftrightarrow \;\; \psi(x), \;x\in\mathbb{R}.$$ {#eq-wavefunction}
 
-For the moment, we assume $x$ runs over the entire real line.  Such
-functions obey the axioms for vector spaces, since they can form
-linear combinations:
+For simplicity, we focus on the case of 1D space; the generalization
+to higher dimensions will be discussed later.  We will also assume,
+for now, that $x$ runs over the entire real line.
+
+In formulating the theory of wavefunctions, we can follow the same
+logic that we used for lattice models in @sec-lattices, defining
+position eigenstates, momentum eigenstates, typical Hamiltonians, etc.
+The key difficulty we must deal with is that the position variable
+$x$, unlike the site indices in a lattice model, varies
+*continuously*.
+
+We can begin by observing that complex wavefunctions obey the axioms
+for complex vector spaces, since they can form linear combinations:
 
 $$c_1 |\psi_1\rangle + c_2 |\psi_2\rangle \;\;\leftrightarrow\;\; c_1 \psi_1(x) + c_2 \psi_2(x), \;\;\; c_1, c_2 \in \mathbb{C}.$$
 
 However, the quantum axioms (@sec-states-and-observables) demand that
-the state space is not merely a vector space but a *Hilbert space*,
+the state space be not just a vector space but a *Hilbert space*,
 meaning it must also have a valid inner product and be complete.  To
-meet these additional requirements, we require the complex functions
-to be **square-integrable**, i.e.,
+meet these additional requirements, we require the wavefunctions to be
+**square-integrable**, i.e.,
 
 $$\int_{-\infty}^\infty |\psi(x)|^2 \; dx < \infty.$$ {#eq-l2-normalizable}
 
-We will say more later about what functions satisfy this condition,
-but an example of a function that does *not* is the plane wave
-$\psi(x) = \exp(ikx)$, since
+We will say more about what functions satisfy this condition.  For
+now, note that an example which does *not* satisfy it is the plane
+wave $\psi(x) = \exp(ikx)$, since
 
 $$\int_{-\infty}^\infty |e^{ikx}|^2 \; dx = \int_{-\infty}^\infty dx \rightarrow \infty.$$
 
@@ -670,7 +685,7 @@ For functions that *do* satisfy @eq-l2-normalizable, we can define
 
 $$\langle \psi_1 | \psi_2 \rangle \equiv \int_{-\infty}^\infty \; \psi_1^*(x) \psi_2(x) \; dx,$$
 
-and show that this satisfies the inner product axioms; thereafter, a
+and show that this satisfies the inner product axioms.  Thereafter, a
 result called the [Riesz–Fischer theorem](https://en.wikipedia.org/wiki/Riesz%E2%80%93Fischer_theorem)
 ensures that the vector space is complete.  Hence, square-integrable
 complex functions form a complex Hilbert space.  The customary
@@ -696,13 +711,12 @@ continuously, there is an uncountably infinite set of such
 eigenstates, spanning the Hilbert space of wavefunctions.  Hence, the
 resolution of the identity operator should have the form
 
-$$\hat{I} = \int_{-\infty}^\infty dx \, |x\rangle \, \langle x|,$$ {#eq-x-identity-resolution}
+$$\hat{I} = \int_{-\infty}^\infty dx \, |x\rangle \, \langle x|.$$ {#eq-x-identity-resolution}
 
-where, unlike in @eq-resolution-of-identity, the discrete sum over
-eigenbasis states is replaced by an integral over the continuous
-variable $x$.  If we left-multiply @eq-x-identity-resolution by
-$\langle x'|$, and right-multiply by some other state $|\psi\rangle$,
-we obtain
+Unlike in @eq-resolution-of-identity, the discrete sum over eigenbasis
+states is replaced by an integral over the continuous variable $x$.
+If we left-multiply @eq-x-identity-resolution by $\langle x'|$, and
+right-multiply by any normalized state $|\psi\rangle$, we obtain
 
 $$\langle x'|\psi\rangle = \int_{-\infty}^\infty dx \, \langle x' |x\rangle \, \langle x|\psi\rangle.$$
 
@@ -712,21 +726,21 @@ $$\langle x | x' \rangle = \delta(x-x').$$ {#eq-x-delta-norm}
 
 The position eigenstates are thus said to be **delta-normalized**;
 they cannot be normalized to unity, since $\langle x | x\rangle$ is
-ill-defined!  Strictly speaking, this means position eigenstates are
-not states in the usual sense (i.e., vectors in the Hilbert space
-defined in @sec-wavefunctions).  Nonetheless, they are extremely
-useful for doing calculations—in much the same way that we make use
-of delta functions despite them not being functions in the proper
-sense.
+ill-defined!  This also means that position eigenstates are not states
+in the usual sense—i.e., they are not vectors in the Hilbert space we
+established in @sec-wavefunctions.  Nonetheless, they are extremely
+useful when doing calculations with wavefunctions, in much the same
+way that delta functions are useful despite not being proper
+functions.
 
-From the position eigenstates, we can define the position operator
+Using the position eigenstates, we can define the **position operator**
 
-$$\hat{x} = \int_{-\infty}^\infty |x\rangle \, x \, \langle x |,$$ {#eq-x-operator}
+$$\hat{x} = \int_{-\infty}^\infty dx\; |x\rangle \, x \, \langle x |,$$ {#eq-x-operator}
 
-which satisfies $\hat{x}|x\rangle = x \,|x\rangle$.  Because the
-position eigenvalues are continuous, we have to tweak the usual Born
-rule @eq-measurement as follows: if a particle is in a normalized
-state $|\psi\rangle$, then
+which satisfies $\hat{x}|x\rangle = x \,|x\rangle$.  Since the
+eigenvalues are continuous, we have to tweak the Born rule
+@eq-measurement for position measurements in the following way: if a
+particle is in a normalized state $|\psi\rangle$, then
 
 $$\rho(x) \equiv |\psi(x)|^2$$ {#eq-wavefunction-1d-prob-density}
 
@@ -740,9 +754,11 @@ $\rho(x)\, dx$ is dimensionless.
 ### Momentum eigenstates{#sec-momentum-eigenstates}
 
 Momentum eigenstates are the Fourier duals of position eigenstates.
-To construct them, let us suppose (for now) that $x$ runs over a
+To construct them, let us temporarily assume that $x$ runs over a
 finite segment of length $L$, and impose periodic boundary conditions
-on the ends of this segment.  Thus, all wavefunctions satisfy
+on the ends of this segment (we will set $L \rightarrow \infty$
+later).  Due to the periodic boundary conditions, wavefunctions must
+satisfy
 
 $$\psi(-L/2) \equiv \psi(L/2).$$ {#eq-periodic-bc}
 
@@ -762,8 +778,8 @@ three equations:
 
 $$\begin{aligned}\langle x|k\rangle &= \frac{1}{\sqrt{L}} e^{i k x} \\ \langle k | k' \rangle &= \delta_{k, k'} \\ \quad I &= \sum_{k} |k\rangle\,\langle k|.\end{aligned}$$
 
-In particular, note that each momentum eigenstate, as we have defined
-it, is normalized to unity.
+Note that each momentum eigenstate, as defined, is normalized to
+unity: $\langle k | k \rangle = 1$.
 
 Now we take $L \rightarrow \infty$.  In this limit, the wave-vector
 discretization $\Delta k = 2\pi / L$ goes to zero, and the momentum
@@ -788,17 +804,15 @@ integrals over $x$ and $k$ both taken over infinite spaces.  Moreover,
 the momentum eigenstates now satisfy
 
 $$\begin{aligned}
-  \hat{I} &= \int dk \;|k\rangle\,\langle k|, \\
+  \langle x|k\rangle &= \frac{e^{ikx}}{\sqrt{2\pi}}, \\
   \langle k|k'\rangle &= \delta(k-k'), \\
-  \langle x|k\rangle &= \frac{e^{ikx}}{\sqrt{2\pi}}.\end{aligned}$$
+  \hat{I} &= \int dk \;|k\rangle\,\langle k|.\end{aligned}$$
   
-The first two equations are analogous to their position eigenstate
-counterparts.  In particular, the new $|k\rangle$ eigenstates are
-delta-normalized, and the last equation above can be interpreted as
-its wavefunction.
+These new $|k\rangle$ eigenstates are delta-normalized.  The first
+equation above can be interpreted as its wavefunction, with the caveat
+that this is *not* square-integrable.
 
-The momentum operator $\hat{p}$ is defined using the $|k\rangle$'s as
-the basis:
+To proceed, we can define the momentum operator $\hat{p}$ as
 
 $$ \hat{p} |k\rangle \,=\, \hbar k\, |k\rangle.$$ {#eq-p-operator}
 
