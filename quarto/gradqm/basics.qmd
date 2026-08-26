@@ -642,7 +642,7 @@ $$\begin{aligned}|\psi(t)\rangle &= \frac{1}{\sqrt{N}} \sum_{p} \Psi_p
 \, e^{-iE_pt/\hbar} \, |k_p\rangle \\ \Rightarrow \langle n
 |\psi(t)\rangle &= \frac{1}{N} \sum_{p} \Psi_p \, e^{-iE_pt/\hbar} \, e^{ik_px_n} \equiv \mathrm{IDFT}_n\{ \Psi_p \, e^{-iE_pt/\hbar} \}, \end{aligned}$$
 where $\mathrm{IDFT}(\cdots)$ denotes the
-[inverse discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform).  From this, we see that the quantum walk is a discrete form of [diffraction](https://en.wikipedia.org/wiki/Diffraction): in classical optics, the same “Fourier transform, propagate, then inverse Fourier transform” sequence is the standard way to calculate diffraction patterns.
+[inverse discrete Fourier transform](https://en.wikipedia.org/wiki/Discrete_Fourier_transform).  From this, we see that the quantum walk is a discrete form of [diffraction](https://en.wikipedia.org/wiki/Diffraction): in classical optics, the same “Fourier transform, propagate, then inverse Fourier transform” procedure is used to calculate diffraction patterns.
 
 ## Wavefunctions {#sec-wavefunctions}
 
@@ -701,7 +701,7 @@ value of $\psi(x)$, for any given $x$, is a "vector component"
 
 $$\psi(x) = \langle x | \psi\rangle,$$
 
-where $|\psi\rangle$ is the abstract state vector and $|x\rangle$ (the
+where $|\psi\rangle$ is the state vector and $|x\rangle$ (the
 conjugate of $\langle x|$ in the above equation) is a **position
 eigenstate**—a state in which the particle possesses a definite
 position $x$.
@@ -830,10 +830,10 @@ $$\begin{aligned}\langle x|\hat{p}|\psi\rangle
 ### The Schrödinger wave equation
 
 Here is the most commonly-used Hamiltonian acting upon wavefunctions,
-which describes a non-relativistic particle of mass $m$ in a potential
-$V(x)$:
+which describes a non-relativistic particle of mass $m$ in a
+real-valued potential $V(x)$:
 
-$$\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}).$$
+$$\hat{H} = \frac{\hat{p}^2}{2m} + V(\hat{x}).$$ {#eq-hamiltonian-wave-form}
 
 Evidently, the first term corresponds to the particle's kinetic
 energy, and the second term to the potential energy.  If we
@@ -848,31 +848,30 @@ time-dependent, combining this with the Schrödinger equation
 @eq-schrodinger yields
 
 $$i \hbar \frac{\partial\psi}{\partial t} = \left[ -\frac{\hbar^2}{2m}
-\frac{\partial^2}{\partial x^2} + V(x,t) \right] \psi(x,t).$$
+\frac{\partial^2}{\partial x^2} + V(x,t) \right] \psi(x,t).$$ {#eq-schrodinger-wave-equation}
 
 We call this the **Schrödinger wave equation**; the extra word "wave"
 signifies that this is a partial differential equation involving a
 wavefunction acted upon by space (and time) derivatives, whereas the
 "Schrödinger equation" deals with abstract state vectors.
 
-**[DRAFT — point form; expand into prose before finalizing]**
+Using @eq-schrodinger-wave-equation, we can derive a **continuity
+equation** for the probability density, @eq-wavefunction-1d-prob-density:
 
-- Probability density $\rho(\mathbf{r},t)=|\psi(\mathbf{r},t)|^2$
-  obeys the continuity equation
-  $$\frac{\partial\rho}{\partial t} + \nabla\cdot\mathbf{J} = 0,$$
-  with probability current density
-  $$\mathbf{J} = \frac{\hbar}{m}\,\mathrm{Im}\big[\psi^*\nabla\psi\big] = \frac{\hbar}{2mi}\Big(\psi^*\nabla\psi - \psi\,\nabla\psi^*\Big).$$
-- Derivation sketch: from the TDSE (with real $V$),
-  $\partial_t|\psi|^2=\psi^*\partial_t\psi+\psi\,\partial_t\psi^*$;
-  substitute
-  $\partial_t\psi=\frac{i\hbar}{2m}\nabla^2\psi-\frac{i}{\hbar}V\psi$
-  and identify the divergence.
-- Consequence: $\int d^dr\,|\psi|^2=1$ is constant in time.
-- Plane-wave check: $\psi=\Psi_i e^{ikx}$ gives
-  $J=\frac{\hbar k}{m}|\Psi_i|^2$ — the incident flux used throughout
-  Chapter 2 (cross sections).
+$$\begin{aligned}\frac{\partial \rho}{\partial t} &= \frac{\partial \psi^*}{\partial t} \psi(x,t) + \psi^*(x,t) \frac{\partial \psi}{\partial t} \\ &= -\frac{1}{i\hbar} \left[ -\frac{\hbar^2}{2m}
+\frac{\partial^2 \psi^*}{\partial x^2} + V \psi^* \right] \psi + \frac{1}{i\hbar} \psi^*\left[ -\frac{\hbar^2}{2m}
+\frac{\partial^2\psi}{\partial x^2} + V(x,t)\psi \right] \\
+&= \frac{\hbar}{2mi} \left(\frac{\partial^2 \psi^*}{\partial x^2} \psi - \psi^*\frac{\partial^2 \psi}{\partial x^2} \right) \\
+&= - \frac{\partial J}{\partial x},\end{aligned}$$
 
-**[END DRAFT]**
+where
+
+$$J(x,t) = \frac{\hbar}{2mi} \left(\psi^* \frac{\partial \psi}{\partial x} - \psi \frac{\partial \psi^*}{\partial x}\right) = \frac{\hbar}{m}\, \mathrm{Im}\!\left[\psi^* \frac{\partial \psi}{\partial x}\right]$$
+
+is the **probability current density**.  This is a nice and memorable
+result, since it does not depend on the potential function $V(x)$.
+But bear in mind that it is not totally general, and depends on the
+Hamiltonian having the form in @eq-hamiltonian-wave-form.
 
 ### Orbital angular momentum  {#sec-orbital-angular-momentum}
 
