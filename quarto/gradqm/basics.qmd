@@ -621,7 +621,21 @@ This $E$-vs-$k$ equation is called a **dispersion relation**. One of
 the things it tells us is the **group velocity**, which specifies how
 quickly a wavepacket can travel in the lattice (see [Exercise
 5](#sec-basics-exercises)):
-$$v_g=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka),$$
+$$v^{(g)}=\frac{1}{\hbar}\frac{dE}{dk}=\frac{2Ja}{\hbar}\sin(ka),$$
+
+As an example, the plots below show the dispersion relation (left), as
+well as the variation of the group velocity with $k_p$ (right), for a
+lattice with $N = 41$:
+
+![](fig/dispersion.png){fig-align="center" width="600" fig-alt="Plot of E versus k (left) and v versus k (right) for a 1D lattice with N = 41."}
+
+In such plots, it is customary to center the range of $k_p$ around
+zero by exploiting its periodicity (in this case, by taking $p = -20,
+-19, \cdots, 20$).  In this way, $k_p$ ranges from $-\pi/a$ to
+$\pi/a$, and always has the same sign as the group velocity; and if we
+later take the limit $a \rightarrow 0$, the wavenumber range maps to
+$k \in \mathbb{R}$, like the continuous momentum variables we will
+discuss later, in @sec-momentum-eigenstates.
 
 Now, suppose the particle is prepared in an arbitrary initial state at
 $t = 0$:
